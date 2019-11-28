@@ -2,6 +2,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Kriyo Food</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<link rel="stylesheet" href="main.css">
 		<link rel="stylesheet" type="text/css" href="heath.css">
@@ -72,22 +73,25 @@
 					<div class="update">
 						<p>Select Meal Type*</p>
 						<div class="tab">
-							<button class="tablinks" onclick="openCity(event, 'Sick')" id="defaultOpen">Breakfast</button>
-							<button class="tablinks" onclick="openCity(event, 'Medicine')">Lunch</button>
-							<button class="tablinks" onclick="openCity(event, 'Growth')">Liquids</button>
-							<button class="tablinks" onclick="openCity(event, 'Incident')">Snacks</button>
-							<button class="tablinks" onclick="openCity(event, 'Incident')">Dinner</button>
+							<button class="tablinks">Breakfast</button>
+							<button class="tablinks">Lunch</button>
+							<button class="tablinks">Liquids</button>
+							<button class="tablinks">Snacks</button>
+							<button class="tablinks">Dinner</button>
 						</div>
 					</div>
+					<script type="text/javascript">
+						
+					</script>
 					<div id="clock" style="margin: 20px 0;font-size: 18px;"></div>
 					<hr>
 					<div class="update">
 						<p>Select Quantity</p>
 						<div class="tab">
-							<button class="tablinks" onclick="openCity(event, 'Sick')" id="defaultOpen">All</button>
-							<button class="tablinks" onclick="openCity(event, 'Medicine')">Most</button>
-							<button class="tablinks" onclick="openCity(event, 'Growth')">Some</button>
-							<button class="tablinks" onclick="openCity(event, 'Incident')">None</button>
+							<button class="tablinks">All</button>
+							<button class="tablinks">Most</button>
+							<button class="tablinks">Some</button>
+							<button class="tablinks">None</button>
 						</div>
 					</div>
 					<hr>
@@ -134,7 +138,7 @@
 					<div class="comment">
 						<div class="row">
 							<div class="col-md-11">
-								<textarea placeholder="Enter details here*" style="width: 100%;"></textarea>
+								<input type="text" name="text" placeholder="Enter details here *">
 							</div>
 							<div class="col-md-1">
 								<div class="zoom">
@@ -175,6 +179,17 @@
     
     <!-- Main Script -->
     <script src="js/main.js"></script>
+    <script type="text/javascript">
+    	$('.tablinks').click(function(event) {
+    		$('.tablinks').removeClass('tablinks_active');
+    		$(this).addClass('tablinks_active');
+    		// if ($(this).prop('class')=='tablinks tablinks_active') {
+    		// 	$(this).removeClass('tablinks_active');
+    		// }else{
+    		// 	$(this).addClass('tablinks_active');
+    		// }
+    	});
+    </script>
     <script>
 		var acc = document.getElementsByClassName("accordion");
 		var i;
@@ -227,22 +242,5 @@
 	      return i;
 	   }
 	}
-	</script>
-	<script>
-		function openCity(evt, cityName) {
-		  var i, tabcontent, tablinks;
-		  tabcontent = document.getElementsByClassName("tabcontent");
-		  for (i = 0; i < tabcontent.length; i++) {
-		    tabcontent[i].style.display = "none";
-		  }
-		  tablinks = document.getElementsByClassName("tablinks");
-		  for (i = 0; i < tablinks.length; i++) {
-		    tablinks[i].className = tablinks[i].className.replace(" active", "");
-		  }
-		  document.getElementById(cityName).style.display = "block";
-		  evt.currentTarget.className += " active";
-		}
-		// Get the element with id="defaultOpen" and click on it
-		document.getElementById("defaultOpen").click();
 	</script>
 </html>

@@ -1,5 +1,12 @@
+body{
+    background-color: #f9f9f9 !important;
+}
 .td1{
 	background: #ad92ed;
+}
+tr{
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
 }
 table{
 	width: 100%;
@@ -20,18 +27,173 @@ table th{
 .button{
 	margin: 20px 0;
 }
-.textera{
-	margin: 15px 0;
+.mat-content div a img{
+    width: 70%;height: 160px;
+    object-fit: cover;margin: 10px 0;
+    border-radius: 50%;
+    border: 2px solid red;
 }
-.textera textarea{
-	width: 100%;
-	margin: 10px 0;
+.mat-content div a{
+    margin: 30px;
 }
-.textera1 textarea{
-	width: 100%;
-	margin: 10px 0;
+.a1{
+    margin: 20px 0;
+    margin-right: 50px;
 }
-.textera-img a img{
-	width: 100px;height: 100px;
-	text-align: center;
+.add > div input {
+    line-height: 29px;
+    margin-top: 20px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 0 15px;
+    font-size: 13px;
+}
+.add > div select{
+    line-height: 29px;
+    margin-top: 20px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 0 15px;
+    font-size: 13px;
+    height: 30px;
+}
+select option{
+    height: 30px;
+    font-size: 14px;
+}
+
+input:focus,select:focus{
+    outline: none;
+}
+
+/*childrent profiles*/
+.deactiveClass{
+    border: 1px solid #5363d6;
+    border-bottom: 2px solid #5363d6;
+    background: #5363d6;
+    position: relative;
+    display: block;
+    min-width: 100px;
+    padding: .5em 1em;
+    float: right;
+    color: #fff;
+    border-radius: 5px;
+}
+.deactiveClass a:hover{
+    color: #fff !important;
+}
+.fa-shield:before {
+    content: "\f132";
+}
+.badge {
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: 10px;
+}
+.deactiveClass[_ngcontent-c10] {
+    border: 1px solid #5363d6;
+    background: #5363d6;
+    position: relative;
+    display: block;
+    min-width: 100px;
+    padding: .5em 1em;
+}
+
+div.scrollmenu[_ngcontent-c10] {
+    overflow: hidden;
+    white-space: nowrap;
+}
+div.scrollmenu[_ngcontent-c10] > ul[_ngcontent-c10] > li[_ngcontent-c10] {
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
+div.scrollmenu[_ngcontent-c10] > ul[_ngcontent-c10] > li[_ngcontent-c10] > a[_ngcontent-c10] {
+    border: 1px solid #5363d6;
+    border-bottom: 2px solid #5363d6;
+    color: #5363d6;
+    margin: 10px;
+    position: relative;
+    display: block;
+    min-width: 100px;
+    font-weight: 600;
+    border-radius: .25em;
+    padding: .5em 1em;
+    line-height: 20px;
+}
+div.scrollmenu[_ngcontent-c10] > ul[_ngcontent-c10] > li[_ngcontent-c10] {
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
+div.scrollmenu[_ngcontent-c10] > ul[_ngcontent-c10] > li[_ngcontent-c10] > a[_ngcontent-c10] {
+    border: 1px solid #5363d6;
+    border-bottom: 2px solid #5363d6;
+    color: #5363d6;
+    margin: 10px;
+    position: relative;
+    display: block;
+    min-width: 100px;
+    font-weight: 600;
+    border-radius: .25em;
+    padding: .5em 1em;
+    line-height: 20px;
+}
+div.scrollmenu[_ngcontent-c10] > ul[_ngcontent-c10] > li[_ngcontent-c10] > a.active{
+    background-color: #5363d6;
+    color: #fff;
+}
+div.scrollmenu[_ngcontent-c10]{
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    height: 50px;
+}
+
+.limitText[_ngcontent-c19] {
+    display: block;
+    width: 100%;
+    max-width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+.img-circle {
+    border-radius: 50%;
+}
+
+                /*CHILDREN PROFILES*/
+/*EDIT CHILDREN*/
+.btnClass[_ngcontent-c10] {
+    position: relative;
+    left: 63%;
+    transform: translate(-50%,-50%);
+    background-color: #ff4081;
+    color: #fff;
+    font-size: 20px;
+    padding: 7px 8px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    bottom: 40px;
+}
+.fa-camera:before {
+    content: "\f030";
+}
+
+.panel-1{
+    margin: 30px;
+    border:2px solid #ccc;
+    background-color: #fff;
+}
+.textera-img{
+    margin-top: 30px;
 }
