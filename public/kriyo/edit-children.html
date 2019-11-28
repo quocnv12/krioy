@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Kriyo Staff Frofiles</title>
+		<title>Kriyo EDIT Childrent</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<link rel="stylesheet" href="main.css">
@@ -58,21 +58,22 @@
 			<div class="row">
 				<ul class="ul-td">
 					<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">HOME</a></li>
-					<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">STAFF PROFILES</a></li>
-					<li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a _ngcontent-c16="">ADD STAFF</a></li>
+					<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">CHILDREN PROFILES</a></li>
+					<li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a _ngcontent-c16="">EDIT CHILDREN</a></li>
 				</ul>
 			</div>
 		</div>
 		<div class="mat-card">
 			<div class="mat-content">
-				<button class="accordion">ADD STAFF *</button>
+				<button class="accordion">Riya Demo Child's Profile</button>
 				<div class="row">
-					<div class="col-md-3 textera-img">
+					<div class="col-md-2 textera-img">
 						<a href="#">
-							<img src="images/img_avatar.png" alt="">
+							<img src="images/Child.png" alt="" style="width: 65%;height: 100px;">
+							<span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
 						</a>
 					</div>
-					<div class="col-md-9">
+					<div class="col-md-10">
 						<div class="add a1 ">
 							<div class="row">
 								<div class="col-md-6">
@@ -82,31 +83,10 @@
 									<input type="text" name="last-name" placeholder="Last Name *">
 								</div>
 							</div>
-							<div class="row">
-								<div class="col-md-6">
-									<input type="text" name="phone" placeholder="Phone Number *">
-								</div>
-								<div class="col-md-6">
-									<select>
-										<option>Gender</option>
-										<option>Nam</option>
-										<option>Nữ</option>
-										<option>Khác</option>
-									</select>
-								</div>
-							</div>
-							<div>
-								<input type="email" name="email" placeholder="E-Mail Address">
-							</div>
 						</div>
 					</div>
 				</div>
-				<hr>
-				<div class="add">
-					<div>
-						<input type="text" name="address" placeholder="Residential Address">
-					</div>
-				</div>
+				<hr style="margin: 0;">
 				<div class="row">
 					<div class="add">
 						<div class="col-md-4">
@@ -121,8 +101,23 @@
 							</select>
 						</div>
 						<div class="col-md-4">
-							<input type="date" name="date" placeholder="Date of Joining">
+							<select>
+								<option>Gender</option>
+								<option>Nam</option>
+								<option>Nữ</option>
+							</select>
 						</div>
+					</div>
+				</div>
+				<div class="add">
+					<div>
+						<input type="text" name="address" placeholder="Residential Address">
+					</div>
+					<div>
+						<input type="text" name="Allergies" placeholder="Allergies (if any)">
+					</div>
+					<div>
+						<input type="text" name="Notes" placeholder="Additional Notes">
 					</div>
 				</div>
 			</div>
@@ -145,11 +140,52 @@
 			</div>
 		</div>
 		
-		<div class="mat-card">
+		<div class="mat-card" style="background-color: #f9f9f9;">
 			<div class="mat-content">
-				<button class="accordion">Permissions</button>
-				<div class="panel">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa possimus quae optio sequi ullam iure porro, quos, mollitia tempore blanditiis!</p>
+				<button class="accordion">Parents *</button>
+				<div class="panel" style="background-color: #f9f9f9;">
+					<div class="panel-1">					
+						<div class="row">
+							<div class="col-md-2 textera-img">
+								<a href="#">
+									<img src="images/Staff.png" alt="" style="width: 65%;height: 100px;">
+									<span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
+								</a>
+							</div>
+							<div class="col-md-10">
+								<div class="add a1 ">
+									<div class="row">
+										<div class="col-md-6">
+											<input type="text" name="first-name" placeholder="First Name *">
+										</div>
+										<div class="col-md-6">
+											<input type="text" name="last-name" placeholder="Last Name *">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<input type="text" name="phone" placeholder="Phone Number *">
+										</div>
+										<div class="col-md-6">
+											<select>
+												<option>RELATION</option>
+												<option>Mother</option>
+												<option>Father</option>
+												<option>Guardian</option>
+											</select>
+										</div>
+									</div>
+									<div>
+										<input type="email" name="email" placeholder="E-Mail Address">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="button" style="text-align: center;">
+						<button style="background-color: #ff4081;color: white;border: 1px solid;padding: 8px 18px;font-size: 16px;border-radius: 7px;width: 10%;">
+							<span>RESET</span>
+						</button>
 					</div>
 				</div>
 			</div>

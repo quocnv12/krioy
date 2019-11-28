@@ -2,7 +2,13 @@
 	font-family: Arial;
 }
 
+button:focus{
+	outline: none;
+}
 /*header*/
+.header{
+	background-color: #fff;
+}
 .header .logo{
 	float: left;
 	margin-left: 15px;
