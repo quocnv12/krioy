@@ -1,0 +1,108 @@
+*{
+	font-family: Arial;
+}
+
+/*header*/
+.header .logo{
+	float: left;
+	margin-left: 15px;
+}
+.header .header-ul{
+	text-align: right;
+}
+.header-ul ul{
+	list-style-type: none;
+	display: inline-flex;
+}
+ul li a{
+	color: black;
+	text-decoration: none;
+}
+.header-ul ul li{
+	margin: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.header .header-ul ul li a.ul-kriyo{
+	background: #ff4081 !important;
+    padding: 0.3em 1em !important;
+    border-radius: 0.25em;
+    color: #fff !important;
+    border: 2px solid #FF4081;
+}
+
+/*menu1*/
+.menu-1 h2{
+	font-weight: 100;
+	font-size: 26px;
+	letter-spacing: 1px;
+}
+
+.menu-1 .hr{
+	width: 60px;
+    height: 4px;
+    margin: 0px auto 10px;
+    background-color: #ff4081;
+}
+p {
+	padding-top: 13px;
+    margin-bottom: 1rem;
+    font-size: 16px;
+}
+.menu-1 .all{
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+   margin: 0 140px;
+}
+.all .image{
+	padding-top: 20px;
+	cursor: pointer; text-align: center;
+	width: 250px;
+	height: 150px;
+}
+.all .image:hover{
+	background: #FFF0F5;
+}
+.all .image:hover p{
+	font-weight: bold;
+}
+
+/*menu2*/
+.menu-2{
+	background-color: #f9f9f9;
+}
+.menu-2 h2{
+	font-weight: 100;
+	font-size: 26px;
+	letter-spacing: 1px;
+	padding-top: 30px;
+}
+
+.menu-2 .hr{
+	width: 60px;
+    height: 4px;
+    margin: 0px auto 10px;
+    background-color: #ff4081;
+}
+.menu-2 .all{
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+   margin: 0 140px;
+}
+/*men4*/
+.menu-4{
+	background-color: #f9f9f9;
+}
+.menu-4 h2{
+	font-weight: 100;
+	font-size: 26px;
+	letter-spacing: 1px;
+	padding-top: 30px;
+}
+
+.menu-4 .hr{
+	width: 60px;
+    height: 4px;
+    margin: 0px auto 10px;
+    background-color: #ff4081;
+}
