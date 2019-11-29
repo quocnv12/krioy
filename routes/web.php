@@ -14,8 +14,13 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::group('prefix' => 'admin','namespace' => 'admin',function(){
-	Route::get('/', function () {
-    	return view('admin.home');
-	})->name('home');
-});
+// Route::group('prefix' => 'admin','namespace' => 'admin',function(){
+// 	Route::get('/', function () {
+//     	return view('admin.home');
+// 	})->name('home');
+// });
+Route::get('/', function () {
+    return view('pages.home');
+})->name('home');
+
+
