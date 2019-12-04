@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$small-up".
-        on line 30 of C:\xampp\htdocs\web_in_van_tan\public\libs\OwlCarousel2-2.3.4\docs_src\assets\scss\demos.scss
+        on line 30 of C:\xampp\htdocs\krioy\public\libs\OwlCarousel2-2.3.4\docs_src\assets\scss\demos.scss
 
 25: 		}
 26: 	}
@@ -15,7 +15,7 @@ Error: Undefined variable: "$small-up".
 35: 	}
 
 Backtrace:
-C:\xampp\htdocs\web_in_van_tan\public\libs\OwlCarousel2-2.3.4\docs_src\assets\scss\demos.scss:30
+C:\xampp\htdocs\krioy\public\libs\OwlCarousel2-2.3.4\docs_src\assets\scss\demos.scss:30
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/variable.rb:49:in `_perform'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/node.rb:50:in `perform'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/interpolation.rb:170:in `_perform'
@@ -56,4 +56,4 @@ C:/Program Files (x86)/Koala/bin/sass:22:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$small-up\".\A         on line 30 of C:\xampp\htdocs\web_in_van_tan\public\libs\OwlCarousel2-2.3.4\docs_src\assets\scss\demos.scss\A \A 25: 		}\A 26: 	}\A 27: }\A 28: \A 29: \A 30: @media #{$small-up} {\A 31: 	.demo-list{\A 32: 		[class*=\"column\"]+[class*=\"column\"]:last-child {\A 33: 			float: left;\A 34: 		}\A 35: 	}"; }
+  content: "Error: Undefined variable: \"$small-up\".\A         on line 30 of C:\xampp\htdocs\krioy\public\libs\OwlCarousel2-2.3.4\docs_src\assets\scss\demos.scss\A \A 25: 		}\A 26: 	}\A 27: }\A 28: \A 29: \A 30: @media #{$small-up} {\A 31: 	.demo-list{\A 32: 		[class*=\"column\"]+[class*=\"column\"]:last-child {\A 33: 			float: left;\A 34: 		}\A 35: 	}"; }

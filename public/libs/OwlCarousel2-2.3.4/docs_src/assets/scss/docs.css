@@ -1,6 +1,6 @@
 /*
 Error: Undefined variable: "$owl-gray-color".
-        on line 26 of C:\xampp\htdocs\web_in_van_tan\public\libs\OwlCarousel2-2.3.4\docs_src\assets\scss\docs.scss
+        on line 26 of C:\xampp\htdocs\krioy\public\libs\OwlCarousel2-2.3.4\docs_src\assets\scss\docs.scss
 
 21: 		li{
 22: 			margin: 0;
@@ -15,7 +15,7 @@ Error: Undefined variable: "$owl-gray-color".
 31: 			}
 
 Backtrace:
-C:\xampp\htdocs\web_in_van_tan\public\libs\OwlCarousel2-2.3.4\docs_src\assets\scss\docs.scss:26
+C:\xampp\htdocs\krioy\public\libs\OwlCarousel2-2.3.4\docs_src\assets\scss\docs.scss:26
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/variable.rb:49:in `_perform'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/script/tree/node.rb:50:in `perform'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
@@ -94,4 +94,4 @@ C:/Program Files (x86)/Koala/bin/sass:22:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$owl-gray-color\".\A         on line 26 of C:\xampp\htdocs\web_in_van_tan\public\libs\OwlCarousel2-2.3.4\docs_src\assets\scss\docs.scss\A \A 21: 		li{\A 22: 			margin: 0;\A 23: 			padding: .3rem 3rem .3rem 0;\A 24: 			&:hover,\A 25: 			&.active {\A 26: 				background: $owl-gray-color;\A 27: 				a{\A 28: 					color: #000;\A 29: 					background-color: transparent;\A 30: 				}\A 31: 			}"; }
+  content: "Error: Undefined variable: \"$owl-gray-color\".\A         on line 26 of C:\xampp\htdocs\krioy\public\libs\OwlCarousel2-2.3.4\docs_src\assets\scss\docs.scss\A \A 21: 		li{\A 22: 			margin: 0;\A 23: 			padding: .3rem 3rem .3rem 0;\A 24: 			&:hover,\A 25: 			&.active {\A 26: 				background: $owl-gray-color;\A 27: 				a{\A 28: 					color: #000;\A 29: 					background-color: transparent;\A 30: 				}\A 31: 			}"; }

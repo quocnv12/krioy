@@ -1,30 +1,22 @@
 /*
-Error: File to import not found or unreadable: foundation/functions.
-       Load path: C:/xampp/htdocs/krioy/public/libs/OwlCarousel2-2.3.4/docs_src/assets/scss
-        on line 13 of C:/xampp/htdocs/krioy/public/libs/OwlCarousel2-2.3.4/docs_src/assets/scss/_settings.scss
-        from line 1 of C:\xampp\htdocs\krioy\public\libs\OwlCarousel2-2.3.4\docs_src\assets\scss\docs.theme.scss
+Error: File to import not found or unreadable: ~bootstrap/scss/bootstrap.
+       Load path: C:/xampp/htdocs/krioy/resources/sass
+        on line 8 of C:\xampp\htdocs\krioy\resources\sass\app.scss
+
+3: 
+4: // Variables
+5: @import 'variables';
+6: 
+7: // Bootstrap
+8: @import '~bootstrap/scss/bootstrap';
 
 Backtrace:
-C:/xampp/htdocs/krioy/public/libs/OwlCarousel2-2.3.4/docs_src/assets/scss/_settings.scss:13
-C:\xampp\htdocs\krioy\public\libs\OwlCarousel2-2.3.4\docs_src\assets\scss\docs.theme.scss:1
+C:\xampp\htdocs\krioy\resources\sass\app.scss:8
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/import_node.rb:67:in `rescue in import'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/import_node.rb:45:in `import'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/import_node.rb:28:in `imported_file'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/import_node.rb:37:in `css_import?'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:314:in `visit_import'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `block in with_base'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:135:in `with_frame'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `with_base'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `visit'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:329:in `block (2 levels) in visit_import'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:329:in `map'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:329:in `block in visit_import'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:88:in `block in with_import'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:135:in `with_frame'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:88:in `with_import'
-C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:326:in `visit_import'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/base.rb:36:in `visit'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/tree/visitors/perform.rb:162:in `block in visit'
 C:/Program Files (x86)/Koala/rubygems/gems/sass-3.5.2/lib/sass/stack.rb:79:in `block in with_base'
@@ -56,4 +48,4 @@ C:/Program Files (x86)/Koala/bin/sass:22:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: foundation/functions.\A        Load path: C:/xampp/htdocs/krioy/public/libs/OwlCarousel2-2.3.4/docs_src/assets/scss\A         on line 13 of C:/xampp/htdocs/krioy/public/libs/OwlCarousel2-2.3.4/docs_src/assets/scss/_settings.scss\A         from line 1 of C:\xampp\htdocs\krioy\public\libs\OwlCarousel2-2.3.4\docs_src\assets\scss\docs.theme.scss"; }
+  content: "Error: File to import not found or unreadable: ~bootstrap/scss/bootstrap.\A        Load path: C:/xampp/htdocs/krioy/resources/sass\A         on line 8 of C:\xampp\htdocs\krioy\resources\sass\app.scss\A \A 3: \A 4: // Variables\A 5: @import 'variables';\A 6: \A 7: // Bootstrap\A 8: @import '~bootstrap/scss/bootstrap';"; }
