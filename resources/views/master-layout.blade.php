@@ -18,6 +18,7 @@
     
     <link rel="stylesheet" href="css/animate.css">
     <!-- CSS libs -->
+    <link rel="stylesheet" href="scss/home.css">
     @yield('css')
     <!-- JS libs --> 
     <script type="text/javascript" src="libs/jquery-3.4.1.min.js"></script>
@@ -34,5 +35,6 @@
     <!-- JS libs wow -->
     <script src="js/wow.js"></script>
     <script>new WOW().init();</script>
+    <script src="js/home.js"></script>
     @yield('js')
 </html>
