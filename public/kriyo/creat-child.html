@@ -131,11 +131,11 @@
 				<div class="panel">
 					<div _ngcontent-c20="" class="row" style="">
 						<!---->
-						<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer;">
-							<button _ngcontent-c20="" class="btn progBtn limitText" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Attendance </button>
+						<div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer;">
+							<button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Attendance </button>
 						</div>
-						<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer">
-							<button _ngcontent-c20="" class="btn progBtn limitText bgClass" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Behaviour </button>
+						<div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer">
+							<button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Behaviour </button>
 						</div>
 					</div>
 				</div>
@@ -229,4 +229,13 @@
 		  });
 		}
 	</script>
+	<script type="text/javascript">
+    	$('.tablinks1').click(function(event) {
+    		if ($(this).prop('class')=='btn progBtn limitText bgClass tablinks1 tablinks1_active') {
+    			$(this).removeClass('tablinks1_active');
+    		}else{
+    			$(this).addClass('tablinks1_active');
+    		}
+    	});
+    </script>
 </html>

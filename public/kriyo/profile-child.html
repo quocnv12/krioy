@@ -67,14 +67,14 @@
 			<div class="mat-content">
 				<button class="accordion accordion1 clearfix">
 						<p style="float: left;">Children *</p>
-						<a href="Select-Child.html" style="float: right;text-align: right">
-							<p style="color: rgb(255, 194, 0);border: 1px solid #ff4081;padding: 5px 10px;margin: 5px 0;background: black;border-radius: 5px;text-decoration: none;">GRADUATE</p>
+						<a href="#" style="float: right;text-align: right" data-toggle="modal" data-target=".bd-example-modal-sm">
+							<p style="color: rgb(255, 194, 0);border: 1px solid #ff4081;padding: 5px 10px;margin: 5px 0;background: black;border-radius: 5px;text-decoration: none;margin-right: 10px;">GRADUATE</p>
 						</a>
-						<a href="Select-Child.html" style="float: right;text-align: right">
+						<a href="#" style="float: right;text-align: right" data-toggle="modal" data-target=".bd-example-modal-sm">
 							<p style="color: #fff;border: 1px solid #ff4081;padding: 5px 10px;margin: 5px 0;background: #f44336;border-radius: 5px;text-decoration: none;margin: 5px 10px;">DEACTIVATE</p>
 						</a>
 					</button>
-				<div class="row" data-toggle="modal" data-target=".bd-example-modal-sm">
+				<div class="row">
 					<div class="col-md-2 textera-img">
 						<a href="#">
 							<img src="images/Child.png" alt="">
@@ -84,7 +84,7 @@
 						<div class="add a1-1 ">
 							<div class="row">
 								<div class="col-md-6">
-									<input type="text" name="first-name" placeholder="First Name *" readonly="">
+									<input type="text" name="first-name" placeholder="First Name *" >
 								</div>
 								<div class="col-md-6">
 									<input type="text" name="last-name" placeholder="Last Name *" readonly="">
@@ -94,7 +94,7 @@
 					</div>
 				</div>
 				<hr style="margin: 0;">
-				<div class="row" data-toggle="modal" data-target=".bd-example-modal-sm">
+				<div class="row">
 					<div class="add">
 						<div class="col-md-4">
 							<input type="date" name="date" placeholder="Birthday" readonly="">
@@ -116,7 +116,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="add" data-toggle="modal" data-target=".bd-example-modal-sm">
+				<div class="add">
 					<div>
 						<input type="text" name="address" placeholder="Residential Address" readonly="">
 					</div>
@@ -132,15 +132,18 @@
 		
 		<div class="mat-card">
 			<div class="mat-content">
-				<button class="accordion">Programs</button>
-				<div class="panel">
-					<div _ngcontent-c20="" class="row" style="" data-toggle="modal" data-target=".bd-example-modal-sm">
+				<button class="accordion_new">Programs</button>
+				<div class="panel_new">
+					<div _ngcontent-c20="" class="row">
 						<!---->
 						<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer;">
-							<button _ngcontent-c20="" class="btn progBtn limitText" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Attendance </button>
+							<button _ngcontent-c20="" class="btn progBtn limitText bgClass " style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px;">Biscuits </button>
 						</div>
 						<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer">
-							<button _ngcontent-c20="" class="btn progBtn limitText bgClass" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Behaviour </button>
+							<button _ngcontent-c20="" class="btn progBtn limitText bgClass" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Bread </button>
+						</div>
+						<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer">
+							<button _ngcontent-c20="" class="btn progBtn limitText bgClass" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Curd </button>
 						</div>
 					</div>
 				</div>
@@ -152,7 +155,7 @@
 				<button class="accordion">Parents *</button>
 				<div class="panel" style="background-color: #f9f9f9;">
 					<div class="panel-1">					
-						<div class="row" data-toggle="modal" data-target=".bd-example-modal-sm">
+						<div class="row">
 							<div class="col-md-2 textera-img">
 								<a href="#">
 									<img src="images/Staff.png" alt="">
@@ -188,13 +191,6 @@
 							</div>
 						</div>
 					</div>
-					<div class="comment">
-						<div class="button" style="text-align: center;">
-							<button style="background-color: #ff4081;color: white;border: 1px solid;padding: 8px 18px;font-size: 16px;border-radius: 7px;width: 10%;">
-								<span>RESET</span>
-							</button>
-						</div>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -214,12 +210,29 @@
 			</a>
 		</div>
 
-		<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-sm" style="top: 40%;">
-			    <div class="modal-content" style="font-size: 18px;padding: 25px;">
-					Click on 'Edit' button to update details
+		<div class="modal fade bd-example-modal-sm modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm" style="">
+			    <div class="modal-content" style="font-size: 18px;">
+					<h3>Aler</h3>
+					<hr style="clear:both;margin-top:0px;margin-bottom:0px">
+					<div align="center">
+						<p style="margin: 0;font-size: 18px;">This Notice data would be deleted permanently</p>
+					</div>
+					<hr style="clear:both;margin-top:0px;margin-bottom:0px">
+					<div class="row" style="margin: 0;">
+						<div class="col-xs-6 col-md-6 mat-dialog-actions " style="border-right: 1px solid lightgrey;">
+							<button class="mat-button-class" style="color: #5363d6;border-left: 1px solid transparent;">
+								<span class="mat-button-wrapper">OK</span>
+							</button>
+						</div>
+						<div class="col-xs-6 col-md-6 mat-dialog-actions">
+							<button class="mat-button-class" style="color: red;">
+								<span class="mat-button-wrapper">CANCEL</span>
+							</button>
+						</div>
+					</div>
 			    </div>
-			</div>
+			</div>			
 		</div>
 	</section>
 </body>
@@ -234,6 +247,26 @@
     
     <!-- jQuery easing -->
     <script src="js/jquery.easing.1.3.min.js"></script>
+
+    <script type="text/javascript">
+    	$('.add > div input').focus(function(event) {
+    		alert('Bạn không thể sửa mục này !');
+    		$(this).blur();
+    	});
+    	$('.add > div select').focus(function(event) {
+    		alert('Bạn không thể sửa mục này !');
+    		$(this).blur();
+    	});
+    	$('.limitText[_ngcontent-c20]').focus(function(event) {
+    		alert('Bạn không thể sửa mục này !');
+    		$(this).blur();
+    	});
+    </script>
+    <script type="text/javascript">
+    	$('.tablinks1').click(function(){
+	        $(this).prop('readonly', true);
+	    });
+    </script>
     
     <!-- Main Script -->
     <script src="js/main.js"></script>
