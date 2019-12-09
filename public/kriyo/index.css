@@ -1,0 +1,169 @@
+*{
+	font-family: Arial;
+}
+#khanh:focus{
+	height: 95px;
+}
+#khanh{
+	height:0;
+}
+
+button:focus{
+	outline: none;
+}
+a{
+	text-decoration: none;
+}
+/*header*/
+.header{
+	background-color: #fff;
+}
+.header .logo{
+	float: left;
+	margin-left: 15px;
+}
+.header .header-ul{
+	text-align: right;
+}
+.header-ul ul{
+	list-style-type: none;
+	display: inline-flex;
+}
+ul li a{
+	color: black;
+}
+.header-ul ul li{
+	margin: 30px 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.header .header-ul ul li a.ul-kriyo{
+	background: #ff4081 !important;
+    padding: 0.3em 1em !important;
+    border-radius: 0.25em;
+    color: #fff !important;
+    border: 2px solid #FF4081;
+}
+
+/*menu1*/
+.menu-1 h2{
+	font-weight: 100;
+	font-size: 26px;
+	letter-spacing: 1px;
+}
+
+.menu-1 .hr{
+	width: 60px;
+    height: 4px;
+    margin: 0px auto 10px;
+    background-color: #ff4081;
+}
+p {
+	padding-top: 13px;
+    margin-bottom: 1rem;
+    font-size: 16px;
+}
+.menu-1 .all{
+	display: inline-flex;
+   margin: 0 140px;
+}
+.all .image{
+	padding-top: 20px;
+	cursor: pointer; text-align: center;
+	width: 250px;
+	height: 150px;
+}
+.all .image a img{
+	margin-left: 0px;margin-right: 0px;height: 60px;width: 60px;
+}
+.all .image a{
+	text-decoration: none;color: black;
+}
+.all .image:hover{
+	background: #FFF0F5;
+}
+.all .image:hover p{
+	font-weight: bold;
+}
+
+/*menu2*/
+.menu-2{
+	background-color: #f9f9f9;
+}
+.menu-2 h2{
+	font-weight: 100;
+	font-size: 26px;
+	letter-spacing: 1px;
+	padding-top: 30px;
+}
+
+.menu-2 .hr{
+	width: 60px;
+    height: 4px;
+    margin: 0px auto 10px;
+    background-color: #ff4081;
+}
+.menu-2 .all{
+	display: inline-flex;
+   margin: 0 140px;
+}
+/*men4*/
+.menu-4{
+	background-color: #f9f9f9;
+}
+.menu-4 h2{
+	font-weight: 100;
+	font-size: 26px;
+	letter-spacing: 1px;
+	padding-top: 30px;
+}
+
+.menu-4 .hr{
+	width: 60px;
+    height: 4px;
+    margin: 0px auto 10px;
+    background-color: #ff4081;
+}
+
+@media only screen and (max-width: 990px){ 
+	.menu-1 .all{
+		display: block;
+		margin: auto;
+	}
+	.menu-2 .all{
+		display: block;
+		margin: auto;
+	}
+}
+
+@media (min-width: 200px) and (max-width: 319px){
+	.all .image{
+		width: 100px;
+	}
+}
+@media (min-width: 320px) and (max-width: 345px){
+	.all .image{
+		width: 160px;
+	}
+}
+@media (min-width: 346px) and (max-width: 374px){
+	.all .image{
+		width: 180px;
+	}
+}
+@media (min-width: 375px) and (max-width: 410px){
+	.all .image{
+		width: 187px;
+	}
+}
+
+@media (min-width: 411px) and (max-width: 450px){
+	.all .image{
+		width: 200px;
+	}
+}
+@media (min-width: 451px) and (max-width: 500px){
+	.all .image{
+		width: 220px;
+	}
+}

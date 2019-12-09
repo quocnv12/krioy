@@ -4,9 +4,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Kriyo Observations</title>
 
-		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="index.css">
 		<link rel="stylesheet" type="text/css" href="heath.css">
-		<link rel="stylesheet" href="observation.css">
 
 		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
    		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
@@ -25,9 +24,9 @@
 	<body>
 		<section class="header">
 			<div class="logo">
-				<a href="#">
-					<img src="images/Kriyo Logo.png" alt="" style="width: 50px;height: auto;">
-					<img src="images/Kriyo Title.png" alt="" style="width: 130px;height: auto;margin-top: 20px;">
+				<a href="#" style="display: flex;">
+					<img src="images/Logo.jpg" alt="" style="width: 100px;height: 90px;">
+					<p style="margin: 20px 0;font-size: 30px;">Kids Now</p>
 				</a>
 			</div>
 			<div class="header-ul">
@@ -65,7 +64,12 @@
 			<div class="row">
 				<div class="mat-card">
 					<div class="mat-content">
-						<button class="accordion">Children *</button>
+						<button class="accordion accordion1 clearfix">
+						<p style="float: left;">Children *</p>
+						<a href="Select-Child.html" style="float: right;text-align: right">
+							<p style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">SELECT</p>
+						</a>
+					</button>
 						
 						<div class="panel">
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -120,15 +124,10 @@
 							</div>
 						</div>
 						<div class="button" style="text-align: center;">
-							<button style="background-color: #fff;
-								    color: #ff4081;
-								    border: 1px solid;
-								    padding: 8px 18px;
-								    font-size: 16px;
-								    border-radius: 7px;width: 10%;">
+							<button>
 								<span>CANCEL</span>
 							</button>
-							<button style="background-color: #ff4081;color: white;border: 1px solid;padding: 8px 18px;font-size: 16px;border-radius: 7px;width: 10%;">
+							<button class="button2" id="btn">
 								<span>SAVE</span>
 							</button>
 						</div>
@@ -168,4 +167,10 @@
 		  });
 		}
 	</script>
+	<script language="javascript">
+            var button = document.getElementById("btn");
+            button.onclick = function(){
+                alert("Thông tin đã lưu thàng công!!!");
+            }
+        </script>
 </html>

@@ -2,9 +2,16 @@ body{
     background-color: #f9f9f9 !important;
 }
 
+a{
+  text-decoration: none;
+}
+.tabcontent .button,.comment .button{
+  margin-top: 30px;
+}
 .logo a{
 	font-size: 25px;
 	color: #FF4081;
+  text-decoration: none;
 }
 .logo span{
 	color: blue;
@@ -76,8 +83,7 @@ body{
     padding: 0;
     list-style: none;
     overflow: hidden;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin: 5px 10px;
 }
 
 /*table*/
@@ -93,7 +99,7 @@ body{
     color: rgba(0,0,0,.87);
 }
 
- .accordion {
+ .accordion,.accordion_new{
   background-color: #eee;
   background: rgb(83, 99, 214);
   cursor: pointer;
@@ -102,14 +108,15 @@ body{
   border: none;
   text-align: left;
   outline: none;
-  font-size: 15px;
   transition: 0.4s;
   border-radius: 4px;
   color: #fff;
   font-size: 18px;
   font-weight: bold;
 }
-
+.accordion1{
+  padding: 5px 20px;
+}
 .accordion:after {
   content: '\002B';
   color: #777;
@@ -117,7 +124,42 @@ body{
   float: right;
   margin-left: 5px;
   color: #fff;
+} 
+.accordion1:after {
+  content: none;
 }
+
+/*code len xuong tab*/
+.accordion_new i{
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+  color: #fff;
+}
+.panel_new {
+  padding: 0 18px;
+  background-color: white;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+/*end*/
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+  .clearfix { display: inline-block; }
+  /* start commented backslash hack \*/
+  * html .clearfix { height: 1%; }
+  .clearfix { display: block; }
+  /* close commented backslash hack */  
+
 
 .panel {
   padding: 0 18px;
@@ -131,11 +173,9 @@ body{
   overflow: hidden;
   text-align: center;
 }
-
 /* Style the buttons inside the tab */
 .tab button {
 	border-radius: 10px;
-  border: none;
   outline: none;
   cursor: pointer;
   padding: 7px;
@@ -147,33 +187,155 @@ body{
     color: rgb(72, 207, 174);
 }
 
-/* Change background color of buttons on hover */
-.tablinks{
-                -webkit-transition: 0.3s all;
-                -o-transition: 0.3s all;
-                transition: 0.3s all;
-            }
-            .tablinks_active{
-                background: #48cfae !important;
-                color: #fff !important;
-            }
+.panel .ng-star-inserted button{
+  outline: none;
+}
+/* Change background color of buttons on click */
+.tablinks,.tablinks2{
+    -webkit-transition: 0.3s all;
+    -o-transition: 0.3s all;
+    transition: 0.3s all;
+}
+.tablinks_active{
+    background: #48cfae !important;
+    color: #fff !important;
+}
 
-/* Create an active/current tablink class */
-
+.tablinks1,.limitText{
+    -webkit-transition: 0.3s all;
+    -o-transition: 0.3s all;
+    transition: 0.3s all;
+}
+.tablinks1_active{
+    background: #5363d6 !important;
+    color: #fff !important;
+}
 
 /* Style the tab content */
 .tabcontent {
   display: none;
   padding: 6px 12px;
   border-top: none;
+  margin-top: 20px;
 }
-/*textera*/
+.tabcontent .growth{
+  margin-bottom: 10px;
+}
+.comment{
+  margin-top: 20px;
+}
+.button button{
+    background-color: #fff;
+    color: #ff4081;
+    border: 1px solid;
+    padding: 8px 18px;
+    font-size: 16px;
+    border-radius: 7px;width: 10%;
+}
+.button button:hover{
+  background: #ff78a6;
+  color: #fff;
+}
+
+.button .button2{
+    background-color: #ff4081;
+    color: white;
+    border: 1px solid;
+    padding: 8px 18px;
+    font-size: 16px;
+    border-radius: 7px;
+    width: 10%;
+}
+.button .button2:hover{
+  background: #ff78a6;
+}
+    
+    /*css tab content an*/
 .tabcontent > div input{
     border:none;
     border-bottom: 1px solid #ccc;
     width: 100%;
     height: 40px;
 }
+.tabcontent .growth .growth_input{
+  display: flex;
+}
+.tabcontent .growth .growth_input input{
+  width: 50%;
+  margin: 20px 0;
+}
+
+.tabcontent .growth .growth_input label{
+  display: flex;
+  margin: 0 15px;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+label .label-text {
+  font-size: 14px;
+  color: gray;
+}
+
+.toggle {
+  isolation: isolate;
+  position: relative;
+  height: 24px;
+  width: 48px;
+  border-radius: 15px;
+  background: #d6d6d6;
+  overflow: hidden;
+  margin: 15px 5px;
+}
+
+.toggle-inner {
+  z-index: 2;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  height: 22px;
+  width: 46px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.active-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 200%;
+  background: #ff4081;
+  transform: translate3d(-100%, 0, 0);
+  transition: transform 0.05s linear 0.17s;
+}
+
+.toggle-state {
+  display: none;
+}
+
+.indicator {
+  height: 100%;
+  width: 200%;
+  background: white;
+  border-radius: 13px;
+  transform: translate3d(-75%, 0, 0);
+  transition: transform 0.35s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+}
+
+.toggle-state:checked ~ .active-bg {
+   transform: translate3d(-50%, 0, 0);
+}
+
+.toggle-state:checked ~ .toggle-inner .indicator {
+   transform: translate3d(25%, 0, 0);
+}
+
+/*end*/
 input:focus{
     outline: none;
 }
@@ -198,4 +360,158 @@ input:focus{
 }
 .mat-card{
   margin: 20px 0;
+}
+        
+      /*OBERVATION*/
+/*textera*/
+.comment > div input{
+    border:none;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    height: 40px;
+    margin-top: 20px;
+}
+input:focus{
+    outline: none;
+}
+
+
+.zoom-btn-large[_ngcontent-c9] {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+}
+.zoom-fab[_ngcontent-c9] {
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #ff4081;
+    text-decoration: none;
+    text-align: center;
+    transition: .2s ease-out;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
+    color: #fff;
+    font-size: 22px!important;
+    margin: 10px 0;
+}
+.fa-paperclip:before {
+    content: "\f0c6";
+}
+
+.progBtn[_ngcontent-c20] {
+    min-width: 110px;
+    color: #5363d6;
+}
+.limitText[_ngcontent-c20] {
+    display: block;
+    width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.mat-card .mat-content .ng-star-inserted button:hover{
+    background-color: #5363d6!important;
+    color: #fff;
+}
+
+/*input type file health */
+.input-file-container .input-img img{
+  max-width:150px;
+}
+.input-file-container .input-img .button-close{
+  position: absolute;
+  right: -60px;
+  border-radius: 50%;
+  top: 35px;
+}
+
+.input-file-container {
+  position: relative;
+  width: 100px;
+  margin:10px 0;
+}
+.input-file-trigger {
+  display: block;
+  padding: 14px 45px;
+  background: #39D2B4;
+  color: #fff;
+  font-size: 1em;
+  transition: all .4s;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.input-file {
+  position: absolute;
+  top: 0; left: 0;
+  width: 225px;
+  opacity: 0;
+  padding: 14px 0;
+  cursor: pointer;
+}
+.input-file:hover + .input-file-trigger,
+.input-file:focus + .input-file-trigger,
+.input-file-trigger:hover,
+.input-file-trigger:focus {
+  background: #34495E;
+  color: #39D2B4;
+}
+
+.comment .input-file-container .input-img{
+  display: none;
+}
+
+/* Useless styles, just for demo styles */
+form {
+  width: 225px;
+  margin: 0 auto;
+  text-align:center;
+}
+/*end input*/
+        /*RESPONSIVE*/
+
+@media (min-width: 200px) and (max-width: 410px){
+  .tab button{
+    width: 33%;
+    margin: 5px;
+  }
+  div.comment button{
+    width: 90px !important; 
+    padding: 5px 10px !important;
+  }
+  .update .button .button2 {
+    width: 90px; 
+    padding: 5px 10px;
+  }
+  .update .zoom{
+    margin: 10px 0;
+  }
+}
+@media (min-width: 411px) and (max-width: 767px){
+  .tab button{
+    width: 25%;
+    margin: 5px;
+  }
+  div.comment button{
+    width: 90px !important; 
+    padding: 5px 10px !important; 
+  }
+  .update .button .button2 {
+    width: 90px; 
+    padding: 5px 10px;
+  }
+  .update .zoom{
+    margin: 10px 0;
+  }
+}
+@media (min-width: 768px) and (max-width: 990px){
+  div.comment button{
+    width: 90px !important; 
+    padding: 5px 10px !important; 
+  }
+  .update .button .button2 {
+    width: 90px; 
+    padding: 5px 10px;
+  }
+  .update .zoom{
+    margin: 10px 0;
+  }
 }
