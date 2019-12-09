@@ -68,7 +68,7 @@
 				<div class="row">
 					<div class="col-md-2 textera-img">
 						<a href="#">
-							<img src="images/Child.png" alt="">
+							<img src="images/Staff.png" alt="">
 							<span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
 						</a>
 					</div>
@@ -135,10 +135,10 @@
 					<div _ngcontent-c20="" class="row" style="">
 						<!---->
 						<div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer;">
-							<button _ngcontent-c20="" class="btn progBtn limitText" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Attendance </button>
+							<button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Attendance </button>
 						</div>
 						<div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer">
-							<button _ngcontent-c20="" class="btn progBtn limitText bgClass" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Behaviour </button>
+							<button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Behaviour </button>
 						</div>
 					</div>
 				</div>
@@ -147,7 +147,12 @@
 		
 		<div class="mat-card">
 			<div class="mat-content">
-				<button class="accordion">Permissions</button>
+				<button class="accordion accordion1 clearfix">
+					<p style="float: left;">Permissions *</p>
+					<a href="Select-Child.html" style="float: right;text-align: right">
+						<p style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">SELECT</p>
+					</a>
+				</button>
 				<div class="panel">
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa possimus quae optio sequi ullam iure porro, quos, mollitia tempore blanditiis!</p>
 					</div>
@@ -196,4 +201,13 @@
 		  });
 		}
 	</script>
+	<script type="text/javascript">
+    	$('.tablinks1').click(function(event) {
+    		if ($(this).prop('class')=='btn progBtn limitText bgClass tablinks1 tablinks1_active') {
+    			$(this).removeClass('tablinks1_active');
+    		}else{
+    			$(this).addClass('tablinks1_active');
+    		}
+    	});
+    </script>
 </html>

@@ -2,8 +2,8 @@ body{
     background-color: #f9f9f9 !important;
 }
 
-a{
-  text-decoration: none;
+a,a:hover, a:focus,button:focus{
+  text-decoration: none !important;
 }
 .tabcontent .button,.comment .button{
   margin-top: 30px;
