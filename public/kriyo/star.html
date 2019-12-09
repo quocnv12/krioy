@@ -4,7 +4,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Kriyo Star</title>
 
-		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="index.css">
 		<link rel="stylesheet" type="text/css" href="heath.css">
 		<link rel="stylesheet" href="observation.css">
 
@@ -23,7 +23,7 @@
 	</head>
 
 	<body>
-		<section class="header">
+		<!-- <section class="header">
 			<div class="logo">
 				<a href="#">
 					<img src="images/Kriyo Logo.png" alt="" style="width: 50px;height: auto;">
@@ -52,7 +52,7 @@
 					</li>
 				</ul>
 			</div>
-		</section>
+		</section> -->
 		<section class="page-top container">
 			<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 				<div class="row">
@@ -65,33 +65,39 @@
 			<div class="row">
 				<div class="mat-card">
 					<div class="mat-content">
-						<button class="accordion">Children *</button>
-						
+						<button class="accordion accordion1 clearfix">
+							<p style="float: left;">Children *</p>
+							<a href="Select-Child.html" style="float: right;text-align: right">
+								<p style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">SELECT</p>
+							</a>
+						</button>
 						<div class="panel">
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 						</div>
 					</div>
 					<hr>
 					<div class="mat-content">
-						<button class="accordion">Star Type*</button>
-						<div class="panel">
+						<button class="accordion_new">Star Type*
+							<i class="fa fa-chevron-circle-down"></i>
+						</button>
+						<div class="panel_new">
 							<div _ngcontent-c20="" class="row" style="">
 								<!---->
-								<div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer;">
+								<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer;">
 									<button _ngcontent-c20="" class="btn progBtn limitText" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Brave</button>
 								</div>
-								<div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer">
+								<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer">
 									<button _ngcontent-c20="" class="btn progBtn limitText bgClass" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Creative</button>
 								</div>
-								<div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer">
+								<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer">
 									<button _ngcontent-c20="" class="btn progBtn limitText bgClass" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Friendly</button>
 								</div>
-								<div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer"><button _ngcontent-c20="" class="btn progBtn limitText bgClass" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Helping</button>
+								<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer"><button _ngcontent-c20="" class="btn progBtn limitText bgClass" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Helping</button>
 								</div>
-								<div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer">
+								<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer">
 									<button _ngcontent-c20="" class="btn progBtn limitText" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Punctual</button>
 								</div>
-								<div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer"><button _ngcontent-c20="" class="btn progBtn limitText bgClass" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Quick Learn</button>
+								<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer"><button _ngcontent-c20="" class="btn progBtn limitText bgClass" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Quick Learn</button>
 								</div>
 							</div>
 						</div>
@@ -99,7 +105,7 @@
 					<div class="comment">
 						<div class="row">
 							<div class="col-md-11">
-								<textarea placeholder="Enter details here*" style="width: 100%;"></textarea>
+								<input type="text" name="text" placeholder="Enter deatail here *">
 							</div>
 							<div class="col-md-1">
 								<div class="zoom">
@@ -108,16 +114,11 @@
 							</div>
 						</div>
 						<div class="button" style="text-align: center;">
-							<button style="background-color: #fff;
-								    color: #ff4081;
-								    border: 1px solid;
-								    padding: 8px 18px;
-								    font-size: 16px;
-								    border-radius: 7px;width: 10%;">
+							<button>
 								<span>CANCEL</span>
 							</button>
-							<button style="background-color: #ff4081;color: white;border: 1px solid;padding: 8px 18px;font-size: 16px;border-radius: 7px;width: 10%;">
-								<span>SAVE</span>
+							<button class="button2">
+								<span>SEND</span>
 							</button>
 						</div>
 					</div>
@@ -155,5 +156,16 @@
 		    } 
 		  });
 		}
+	</script>
+	<script type="text/javascript">
+		$('button.accordion_new').click(function(event) {
+			if ($(this).siblings('.panel_new').css('display')=='block') {
+				$(this).siblings('.panel_new').slideUp();
+				$(this).children('i').prop('class', 'fa fa-chevron-circle-down');
+			}else{
+				$(this).siblings('.panel_new').slideDown();
+				$(this).children('i').prop('class', 'fa fa-chevron-circle-up');
+			}
+		});
 	</script>
 </html>

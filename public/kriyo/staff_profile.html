@@ -4,9 +4,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Kriyo Staff Frofiles</title>
 
-		<link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="index.css">
 		<link rel="stylesheet" type="text/css" href="heath.css">
-		<link rel="stylesheet" href="observation.css">
 		<link rel="stylesheet" href="staff_profile.css">
 
 		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
@@ -20,10 +19,9 @@
 	    
 	    <!-- Custom CSS -->
 	    <link rel="stylesheet" href="css/owl.carousel.css">
-	    <link rel="stylesheet" href="css/responsive.css">
 	</head>
-<body onload="time()">
-	<section class="header">
+<body>
+	<!-- <section class="header">
 		<div class="logo">
 			<a href="#">
 				<img src="images/school.png" alt="" style="width: 80px;height: 80px;padding: 10px;">
@@ -52,7 +50,7 @@
 				</li>
 			</ul>
 		</div>
-	</section>
+	</section> -->
 	<section class="page-top container">
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
@@ -63,32 +61,39 @@
 			</div>
 		</div>
 		<table border="0">
-			<tr class="td1">
-				<th>S.no</th>
-				<th>Profile Pic</th>
-				<th>Staff Name</th>
-				<th>Programs</th>
-			</tr>
-			<tr>
-				<th>1</th>
-				<th><img src="images/Staff.png" alt=""></th>
-				<th>Nguyen Van A</th>
-				<th>Hai Ba Trung, Ha Noi</th>
-			</tr>
-			<tr>
-				<th>1</th>
-				<th><img src="images/Staff.png" alt=""></th>
-				<th>Nguyen Van A</th>
-				<th>Hai Ba Trung, Ha Noi</th>
-			</tr>
-			<tr>
-				<th>1</th>
-				<th><img src="images/Staff.png" alt=""></th>
-				<th>Nguyen Van A</th>
-				<th>Hai Ba Trung, Ha Noi</th>
-			</tr>
+			<tbody>
+				<tr class="td1">
+					<th>S.no</th>
+					<th>Profile Pic</th>
+					<th>Staff Name</th>
+					<th>Programs</th>
+				</tr>
+				<tr class="td2" data-href="index.html">
+					<th>1</th>
+					<th><img src="images/Staff.png" alt=""></th>
+					<th>Nguyen Van A</th>
+					<th>Hai Ba Trung, Ha Noi</th>
+				</tr>
+				<tr class="td2" data-href="#">
+					<th>2</th>
+					<th><img src="images/Staff.png" alt=""></th>
+					<th>Nguyen Van A</th>
+					<th>Hai Ba Trung, Ha Noi</th>
+				</tr>
+				<tr class="td2" data-href="#">
+					<th>3</th>
+					<th><img src="images/Staff.png" alt=""></th>
+					<th>Nguyen Van A</th>
+					<th>Hai Ba Trung, Ha Noi</th>
+				</tr>
+			</tbody>
 		</table>
 	</section>
+		<div class="icon-plus">
+			<a href="Creat-Staff.html">
+				<i class="fa fa-plus"></i>
+			</a>
+		</div>
 </body>
 	<script src="https://code.jquery.com/jquery.min.js"></script>
     
@@ -104,4 +109,11 @@
     
     <!-- Main Script -->
     <script src="js/main.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function($) {
+		    $(".td2").click(function() {
+		        window.document.location = $(this).data("href");
+		    });
+		});
+    </script>
 </html>

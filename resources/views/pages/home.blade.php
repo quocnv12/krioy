@@ -19,7 +19,7 @@ Trang chủ
         </div>
         <div class="row line">
             <div class="col-md-1 "></div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-sm-4 col-md-2 item">
                 <a href="#">
                     <img src="images/Check in and Check out-01.png" alt="">
                     <div class="title">
@@ -27,7 +27,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-sm-4 col-md-2 item">
                 <a href="#">
                     <img src="images/Health-01.png" alt="">
                     <div class="title">
@@ -35,7 +35,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Diary.png" alt="">
                     <div class="title">
@@ -43,7 +43,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Check in and Check out-01.png" alt="">
                     <div class="title">
@@ -51,7 +51,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Check in and Check out-01.png" alt="">
                     <div class="title">
@@ -64,7 +64,7 @@ Trang chủ
         </div>
         <div class="row line">
             <div class="col-md-1 "></div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Check in and Check out-01.png" alt="">
                     <div class="title">
@@ -72,7 +72,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Health-01.png" alt="">
                     <div class="title">
@@ -80,7 +80,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Diary.png" alt="">
                     <div class="title">
@@ -88,7 +88,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Check in and Check out-01.png" alt="">
                     <div class="title">
@@ -96,7 +96,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Check in and Check out-01.png" alt="">
                     <div class="title">
@@ -109,7 +109,7 @@ Trang chủ
         </div>
         <div class="row line">
             <div class="col-md-1 "></div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Check in and Check out-01.png" alt="">
                     <div class="title">
@@ -117,7 +117,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Health-01.png" alt="">
                     <div class="title">
@@ -125,7 +125,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Diary.png" alt="">
                     <div class="title">
@@ -133,7 +133,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Check in and Check out-01.png" alt="">
                     <div class="title">
@@ -141,7 +141,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Check in and Check out-01.png" alt="">
                     <div class="title">
@@ -159,7 +159,7 @@ Trang chủ
         </div>
         <div class="row line">
             <div class="col-md-1 "></div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Check in and Check out-01.png" alt="">
                     <div class="title">
@@ -167,7 +167,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Health-01.png" alt="">
                     <div class="title">
@@ -175,7 +175,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Diary.png" alt="">
                     <div class="title">
@@ -183,7 +183,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Check in and Check out-01.png" alt="">
                     <div class="title">
@@ -191,7 +191,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Check in and Check out-01.png" alt="">
                     <div class="title">
@@ -209,7 +209,7 @@ Trang chủ
         </div>
         <div class="row line">
             <div class="col-md-1 "></div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Check in and Check out-01.png" alt="">
                     <div class="title">
@@ -217,7 +217,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Health-01.png" alt="">
                     <div class="title">
@@ -225,7 +225,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Diary.png" alt="">
                     <div class="title">
@@ -233,7 +233,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Check in and Check out-01.png" alt="">
                     <div class="title">
@@ -241,7 +241,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Check in and Check out-01.png" alt="">
                     <div class="title">
@@ -259,7 +259,7 @@ Trang chủ
         </div>
         <div class="row line">
             <div class="col-md-1 "></div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Check in and Check out-01.png" alt="">
                     <div class="title">
@@ -267,7 +267,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Health-01.png" alt="">
                     <div class="title">
@@ -275,7 +275,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Diary.png" alt="">
                     <div class="title">
@@ -283,7 +283,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Check in and Check out-01.png" alt="">
                     <div class="title">
@@ -291,7 +291,7 @@ Trang chủ
                     </div>
                 </a>
             </div>
-            <div class="col-md-2 col-sm-4 item">
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
                     <img src="images/Check in and Check out-01.png" alt="">
                     <div class="title">
