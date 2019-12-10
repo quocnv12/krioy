@@ -1,0 +1,548 @@
+body{
+    background-color: #f9f9f9 !important;
+}
+img {
+    object-fit: cover;
+}
+.td1{
+	background: #ad92ed;
+}
+.td2{
+    cursor: pointer;
+}
+tr{
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+}
+.td2:hover{
+    background-color: #d6d6f5;
+}
+table{
+	width: 100%;
+}
+table th{
+	text-align: center;
+	padding: 10px 0;
+}
+.active3{
+	color: green;
+}
+.ul-td li.active-1 a {
+    background: #48cfae;
+}
+.ul-td li.active-1 a:after {
+    border-left: 30px solid #48cfae;
+}
+.button{
+	margin: 20px 0;
+}
+.mat-content div a img{
+    width: 70%;height: auto;
+    object-fit: cover;margin: 10px 0;
+    border-radius: 50%;
+    border: 2px solid #ff4081;
+}
+.mat-content div a{
+    margin: 30px;
+}
+.a1{
+    margin: 10px 0;
+    margin-right: 50px;
+}
+.a1-1{
+    margin: 30px 0;
+    margin-right: 50px;
+}
+.add > div input {
+    line-height: 35px;
+    margin-top: 20px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 0 15px;  
+    transition:0.7s all;
+    top:0;
+    font-size: 16px;
+    position: relative;
+}
+input:focus::-webkit-input-placeholder {
+    color:transparent;
+}
+.input_box{
+  display: inline-block;
+  position: relative;
+  margin: 5px 0;
+}
+.input_box span{
+  position: absolute;
+  top: -10;
+  left:0;
+  font-size: 13px;
+  color: transparent;
+  -webkit-transition: 0.6s all;
+  -o-transition: 0.6s all;
+  transition: 0.6s all;
+}
+.input_box span.input_box_span_active{
+  color: rgb(83, 99, 214);
+  top: 0px;
+  z-index: 10;
+  left: 10px;
+}
+.add > div select{
+    margin-top: 27px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 0 13px;
+    font-size: 13px;
+    height: 30px;
+}
+select option{
+    height: 30px;
+    font-size: 14px;
+}
+
+div > input:focus,select:focus{
+    outline: none;
+    border-bottom: 2px solid rgb(83, 99, 214);
+}
+
+/*icon-plus*/
+
+.icon-plus{
+    border-radius: 50%;
+    background-color: rgb(255, 152, 0);
+    line-height: 40px;
+    overflow: hidden;
+    z-index: 1010;
+    cursor: pointer;
+    position: fixed;/*co dinh the*/
+    bottom: 15%;
+    right: 5%;
+    text-align: center;
+    font-size: 25px;
+    text-decoration: none;
+    box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);    
+}
+.icon-plus a{
+    padding: 20px 22px;
+    display: inline-block;
+    line-height: 24px;
+}
+.icon-plus a i{
+    color: white;
+}
+
+                    /*ADD_STAFF*/
+                    
+.add-staff:after {
+    content: none;
+}
+
+
+
+            /*CHILDREN PROFILES*/
+
+/*childrent profiles*/
+.deactiveClass{
+    border: 1px solid #5363d6;
+    border-bottom: 2px solid #5363d6;
+    background: #5363d6;
+    position: relative;
+    display: block;
+    min-width: 100px;
+    padding: .5em 1em;
+    float: right;
+    color: #fff;
+    border-radius: 5px;
+}
+.deactiveClass a:hover{
+    color: #fff !important;
+}
+.fa-shield:before {
+    content: "\f132";
+}
+.badge {
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: 10px;
+}
+.deactiveClass[_ngcontent-c10] {
+    border: 1px solid #5363d6;
+    background: #5363d6;
+    position: relative;
+    display: block;
+    min-width: 100px;
+    padding: .5em 1em;
+}
+
+div.scrollmenu[_ngcontent-c10] {
+    overflow: hidden;
+    white-space: nowrap;
+}
+div.scrollmenu[_ngcontent-c10] > ul[_ngcontent-c10] > li[_ngcontent-c10] {
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
+div.scrollmenu[_ngcontent-c10] > ul[_ngcontent-c10] > li[_ngcontent-c10] > a[_ngcontent-c10] {
+    border: 1px solid #5363d6;
+    border-bottom: 2px solid #5363d6;
+    color: #5363d6;
+    margin: 10px;
+    position: relative;
+    display: block;
+    min-width: 100px;
+    font-weight: 600;
+    border-radius: .25em;
+    padding: .5em 1em;
+    line-height: 20px;
+}
+div.scrollmenu[_ngcontent-c10] > ul[_ngcontent-c10] > li[_ngcontent-c10] {
+    display: inline-block;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
+div.scrollmenu[_ngcontent-c10] > ul[_ngcontent-c10] > li[_ngcontent-c10] > a[_ngcontent-c10] {
+    border: 1px solid #5363d6;
+    border-bottom: 2px solid #5363d6;
+    color: #5363d6;
+    margin: 10px;
+    position: relative;
+    display: block;
+    min-width: 100px;
+    font-weight: 600;
+    border-radius: .25em;
+    padding: .5em 1em;
+    line-height: 20px;
+}
+div.scrollmenu[_ngcontent-c10] > ul[_ngcontent-c10] > li[_ngcontent-c10] > a.active{
+    background-color: #5363d6;
+    color: #fff;
+}
+div.scrollmenu[_ngcontent-c10]{
+    height: 50px;
+}
+.scrollClassLeft[_ngcontent-c10] {
+    padding: .5em 1em;
+    box-shadow: 5px 0 4px -4px rgba(83,99,214,.5);
+}
+.scrollClassRight[_ngcontent-c10] {
+    padding: .5em 1em;
+    box-shadow: -5px 0 4px -4px rgba(83,99,214,.5);
+}
+
+.limitText[_ngcontent-c19] {
+    display: block;
+    width: 100%;
+    max-width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+select .mat-card .mat-content div > div.childClass:hover {
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,.15);
+}
+
+
+.img-circle {
+    border-radius: 50%;
+}
+/*child_profile modal*/
+.modal-content ul{
+    list-style-type: none;
+    margin-left: -40px;
+    margin-bottom: 0px;
+}
+.modal-content ul li{
+    text-align: center;
+    padding: 10px 0;
+    font-size: 18px;
+    border-bottom: 1px solid #ccc;
+    font-weight: 700;
+}
+.modal-content ul li:hover{
+    cursor: pointer;
+}
+
+/*EDIT CHILDREN*/
+.btnClass[_ngcontent-c10] {
+    position: relative;
+    left: 75%;
+    transform: translate(-50%,-50%);
+    background-color: #ff4081;
+    color: #fff;
+    font-size: 25px;
+    padding: 7px 8px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    bottom: 40px;
+}
+
+.panel-1{
+    margin: 30px;
+    border:2px solid #ccc;
+    background-color: #fff;
+}
+.textera-img{
+    margin-top: 6px;
+}
+.checked[_ngcontent-c9] {
+    position: absolute;
+    right: 20px;
+    top: -10px;
+    font-size: 20px;
+    border-radius: 30px;
+    background: #ff4081;
+    color: #fff;
+    padding: 3px;
+    border: 2px solid #fff;
+}
+.image[_ngcontent-c9] {
+    text-align: center;
+    position: relative;
+}
+.panel-parent{
+    padding: 0;
+}
+
+
+            /*SECLECT CHILD*/
+section .select-all .all-1{
+    cursor: pointer;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid rgb(255, 64, 129);
+    background-color: rgb(249, 249, 249);
+    margin: 10px;
+}
+section .select-all .all-1 a b{
+    color: rgb(255, 64, 129);font-size: 16px;
+}
+section .select-all div a.done{
+    font-size: 16px;
+    border: 1px solid #ff4081;
+    border-radius: 5px;
+    padding: 6px 10px;
+    color: #fff;
+    background: #ff4081;
+}
+
+.select-child-img:hover{
+    box-shadow: 0px 0px 8px 0px #888888;
+    top:7px;
+}
+.all-1-click{
+    background: #fff !important;
+}
+#checked{
+    display: none;
+}
+/*PROFILE*/
+.panel-col{
+    margin: 20px auto;
+    padding: 5px;
+}
+.panel-list span i{
+    padding: 10px;
+    color: green;
+}
+.circleClass{
+    display: inline-block;
+    height: 10px;
+    border-radius: 30px;
+}
+.circleFont{
+    font-size: 18px;
+    color: grey;
+    font-family: 'Franklin Gothic Medium','Arial Narrow',Arial,sans-serif;
+}
+
+            /*NOTICES BOARD*/
+.notice{
+    cursor: pointer;
+}
+
+/*notice details*/
+.label-checkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.label-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.label-checkbox:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.label-checkbox input:checked ~ .checkmark {
+  background-color: #ff4081;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.label-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.label-checkbox .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+        /*edit notice*/
+.tieu-de button.notice{
+    background: #f44336;
+    color: #fff;
+    padding: 7px 15px;
+    border-radius: 5px;
+    border: 1px solid;
+    font-weight: bold;
+}
+.modal-content h3{
+    color: #5363d6!important;
+    text-align: center;
+}
+.modal-content p{
+    display: block;
+    margin: 0;
+    padding: 10px;
+    max-height: 65vh;
+    overflow: hidden;
+    color: grey;
+}
+.mat-dialog-actions{
+    padding: 0 !important;
+}
+button.mat-button-class{
+    /*padding: 10px;*/
+    line-height: 40px;
+    width: 100%;
+    border: none;
+    border-bottom-right-radius: 0px;
+    font-weight: 600;
+    background-color: transparent;
+}
+.mat-dialog-actions:hover button{
+    background-color: #f5f5f5;
+}
+
+/*end notice*/
+
+
+@media (min-width: 200px) and (max-width: 410px){
+    table th{
+        font-size: 14px;
+        margin-left: 5px;
+    }
+    .mat-content div a img{
+        margin: 10px 5px;
+        width: 50%;
+    }
+    .btnClass[_ngcontent-c10]{
+        left: -35px;bottom: -55px;
+    }
+    .panel-1{
+        margin: 0;margin-top: 10px;
+    }
+}
+
+@media (min-width: 200px) and (max-width: 336px){
+    /*.textera-img span.img-span{
+        left: 120px;bottom: 35px;
+    }*/
+}
+@media (min-width: 337px) and (max-width: 396px){
+    .textera-img span.img-span{
+        left: -30px;bottom: -47px;
+    }
+}
+
+@media (min-width: 411px) and (max-width: 620px){
+    .mat-content div a img{
+        margin: 10px 20px;
+        width: 40%;
+    }
+    .btnClass[_ngcontent-c10],.textera-img span.img-span{
+        left: -50px;bottom: -55px;
+    }
+}
+@media (min-width: 621px) and (max-width: 767px){
+     .mat-content div a img{
+        margin: 10px 20px;
+        width: 35%;
+    }
+    .btnClass[_ngcontent-c10],.textera-img span.img-span{
+        left: -50px;bottom: -55px;
+    }   
+}
+@media (min-width: 768px) and (max-width: 991px){
+    .mat-content div a img{
+        width: 30%;
+    }
+    .btnClass[_ngcontent-c10],.textera-img span.img-span{
+        left: -65px;bottom: -75px;
+    }
+}
+@media screen and (max-width: 768px) {
+    body > section > div.modal.fade.bd-example-modal-sm.in > div{
+        width: 300px;
+        margin: 0 auto !important;
+        margin-top: 15% !important;
+    }
+    .input_box span{
+        margin-left: 20px;
+    }
+}

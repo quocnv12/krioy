@@ -75,10 +75,12 @@
 					<div class="col-md-10">
 						<div class="add a1-1 ">
 							<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-6 input_box">
+									<span>First Name *</span>
 									<input type="text" name="first-name" placeholder="First Name *">
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-6 input_box">
+									<span>Last Name *</span>
 									<input type="text" name="last-name" placeholder="Last Name *">
 								</div>
 							</div>
@@ -88,10 +90,12 @@
 				<hr style="margin: 0;">
 				<div class="row">
 					<div class="add">
-						<div class="col-md-4">
+						<div class="col-md-4 input_box">
+							<span>Birthday *</span>
 							<input type="date" name="date" placeholder="Birthday">
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-4 input_box">
+							<span>Blood Group *</span>
 							<select>
 								<option>Blood Group</option>
 								<option>1</option>
@@ -99,7 +103,8 @@
 								<option>3</option>
 							</select>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-4 input_box">
+							<span>Gender *</span>
 							<select>
 								<option>Gender</option>
 								<option>Nam</option>
@@ -109,13 +114,16 @@
 					</div>
 				</div>
 				<div class="add">
-					<div>
+					<div class="input_box" style="width: 100%">
+						<span>Residential Address *</span>
 						<input type="text" name="address" placeholder="Residential Address">
 					</div>
-					<div>
+					<div class="input_box" style="width: 100%">
+						<span>Allergies (if any) *</span>
 						<input type="text" name="Allergies" placeholder="Allergies (if any)">
 					</div>
-					<div>
+					<div class="input_box" style="width: 100%">
+						<span>Additional Notes *</span>	
 						<input type="text" name="Notes" placeholder="Additional Notes">
 					</div>
 				</div>
@@ -148,24 +156,28 @@
 							<div class="col-md-2 textera-img">
 								<a href="#">
 									<img src="images/Staff.png" alt="">
-									<span _ngcontent-c10="" class="btnClass img-span ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
+									<span _ngcontent-c10="" class="btnClass img-sp img-span ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
 								</a>
 							</div>
 							<div class="col-md-10">
 								<div class="add a1 ">
 									<div class="row">
-										<div class="col-md-6">
+										<div class="col-md-6 input_box">
+											<span>First Name *</span>
 											<input type="text" name="first-name" placeholder="First Name*">
 										</div>
-										<div class="col-md-6">
+										<div class="col-md-6 input_box">
+											<span>Last Name *</span>
 											<input type="text" name="last-name" placeholder="Last Name *">
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-md-6">
+										<div class="col-md-6 input_box">
+											<span>Phone Number*</span>
 											<input type="text" name="phone" placeholder="Phone Number *">
 										</div>
-										<div class="col-md-6">
+										<div class="col-md-6 input_box">
+											<span>RELATION *</span>
 											<select>
 												<option>RELATION</option>
 												<option>Mother</option>
@@ -174,7 +186,8 @@
 											</select>
 										</div>
 									</div>
-									<div>
+									<div class="input_box" style="width: 100%;">
+										<span>E-Mail Address *</span>
 										<input type="email" name="email" placeholder="E-Mail Address">
 									</div>
 								</div>
@@ -225,5 +238,25 @@
 		    } 
 		  });
 		}
+	</script>
+	<script type="text/javascript">
+		$('.input_box input').focus(function(event) {
+	    	$(this).siblings('span').addClass('input_box_span_active');
+		});
+		$('.input_box input').blur(function(event) {
+	    	if ($(this).val()=='') {
+	      		$(this).siblings('span').removeClass('input_box_span_active');
+	    	}
+		});
+	</script>
+	<script type="text/javascript">
+		$('.input_box select').focus(function(event) {
+	    	$(this).siblings('span').addClass('input_box_span_active');
+		});
+		$('.input_box select').blur(function(event) {
+	    	if ($(this).val()=='') {
+	      		$(this).siblings('span').removeClass('input_box_span_active');
+	    	}
+		});
 	</script>
 </html>

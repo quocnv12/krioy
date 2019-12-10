@@ -54,7 +54,8 @@
 					</div>
 				</div>
 				<div class="add">
-					<div>
+					<div class="input_box" style="width: 100%;">
+						<span>Title of Notice *</span>
 						<input type="text" name="address" placeholder="Title of Notice *">
 					</div>
 					
@@ -90,7 +91,8 @@
 				</div>
 				<div class="comment">
 					<div class="row">
-						<div class="col-md-11">
+						<div class="col-md-11 input_box">
+							<span>Enter Details here *</span>
 							<input type="text" name="detail" placeholder="Enter Details here *">
 						</div>
 						<div class="col-md-1">
@@ -175,4 +177,14 @@
     		}
     	});
     </script>
+    <script type="text/javascript">
+		$('.input_box input').focus(function(event) {
+	    	$(this).siblings('span').addClass('input_box_span_active');
+		});
+		$('.input_box input').blur(function(event) {
+	    	if ($(this).val()=='') {
+	      		$(this).siblings('span').removeClass('input_box_span_active');
+	    	}
+		});
+</script>
 </html>

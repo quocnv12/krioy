@@ -75,19 +75,23 @@
 					<div class="col-md-10">
 						<div class="add a1 ">
 							<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-6 input_box">
+									<span>First Name *</span>
 									<input type="text" name="first-name" placeholder="First Name *">
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-6 input_box">
+									<span>Last Name *</span>
 									<input type="text" name="last-name" placeholder="Last Name *">
 								</div>
 							</div>
 							<div class="row">
 								<div class="add">
-									<div class="col-md-6">
+									<div class="col-md-6 input_box">
+										<span>Phone Number *</span>
 										<input type="text" name="phone" placeholder="Phone Number *">
 									</div>
-									<div class="col-md-6">
+									<div class="col-md-6 input_box">
+										<span>Gender *</span>
 										<select>
 											<option>Gender</option>
 											<option>Nam</option>
@@ -96,7 +100,8 @@
 									</div>
 								</div>
 							</div>
-							<div>
+							<div class="input_box" style="width: 100%">
+								<span>Email Address *</span>
 								<input type="text" name="email" placeholder="Email Address">
 							</div>
 						</div>
@@ -104,22 +109,26 @@
 				</div>
 				<hr style="margin: 0;">
 				<div class="add">
-					<div>
+					<div class="input_box" style="width: 100%">
+						<span>Residential Address *</span>
 						<input type="text" name="address" placeholder="Residential Address">
 					</div>
 					<div class="row">
-						<div class="col-md-4">
+						<div class="col-md-4 input_box">
+							<span>Birthday *</span>
 							<input type="date" name="date" placeholder="Birthday" title="Ngày sinh">
 						</div>
-						<div class="col-md-4">
-							<select title="Blood Group">
+						<div class="col-md-4 input_box">
+							<span>Blood Group *</span>
+							<select>
 								<option>Blood Group</option>
 								<option>1</option>
 								<option>2</option>
 								<option>3</option>
 							</select>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-4 input_box">
+							<span>Date of Joining *</span>
 							<input type="date" name="date" placeholder="Date of Joining" title="Date of Joining">
 						</div>
 					</div>
@@ -300,4 +309,24 @@
     		}
     	});
     </script>
+    <script type="text/javascript">
+		$('.input_box input').focus(function(event) {
+	    	$(this).siblings('span').addClass('input_box_span_active');
+		});
+		$('.input_box input').blur(function(event) {
+	    	if ($(this).val()=='') {
+	      		$(this).siblings('span').removeClass('input_box_span_active');
+	    	}
+		});
+	</script>
+	<script type="text/javascript">
+		$('.input_box select').focus(function(event) {
+	    	$(this).siblings('span').addClass('input_box_span_active');
+		});
+		$('.input_box select').blur(function(event) {
+	    	if ($(this).val()=='') {
+	      		$(this).siblings('span').removeClass('input_box_span_active');
+	    	}
+		});
+	</script>
 </html>
