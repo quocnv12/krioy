@@ -6,7 +6,7 @@
 
 		<link rel="stylesheet" href="index.css">
 		<link rel="stylesheet" type="text/css" href="heath.css">
-		<link rel="stylesheet" href="observation.css">
+		<link rel="stylesheet" href="staff_profile.css">
 
 		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
    		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
@@ -104,7 +104,8 @@
 					</div>
 					<div class="comment">
 						<div class="row">
-							<div class="col-md-11">
+							<div class="col-md-11 input_box">
+								<span>Enter deatail here *</span>
 								<input type="text" name="text" placeholder="Enter deatail here *">
 							</div>
 							<div class="col-md-1">
@@ -168,4 +169,14 @@
 			}
 		});
 	</script>
+	<script type="text/javascript">
+		$('.input_box input').focus(function(event) {
+	    	$(this).siblings('span').addClass('input_box_span_active');
+		});
+		$('.input_box input').blur(function(event) {
+	    	if ($(this).val()=='') {
+	      		$(this).siblings('span').removeClass('input_box_span_active');
+	    	}
+		});
+</script>
 </html>

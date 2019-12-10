@@ -1,0 +1,56 @@
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+}
+/*textera*/
+.comment > div input{
+    border:none;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    height: 40px;
+    margin-top: 20px;
+}
+input:focus{
+    outline: none;
+}
+
+
+.zoom-btn-large[_ngcontent-c9] {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+}
+.zoom-fab[_ngcontent-c9] {
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #ff4081;
+    text-decoration: none;
+    text-align: center;
+    transition: .2s ease-out;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
+    color: #fff;
+    font-size: 22px!important;
+    margin: 10px 0;
+}
+.fa-paperclip:before {
+    content: "\f0c6";
+}
+
+.progBtn[_ngcontent-c20] {
+    min-width: 110px;
+    color: #5363d6;
+}
+.limitText[_ngcontent-c20] {
+    display: block;
+    width: 100px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.mat-card .mat-content .ng-star-inserted button:hover{
+    background-color: #5363d6!important;
+    color: #fff;
+}
+

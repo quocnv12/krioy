@@ -6,6 +6,7 @@
 
 		<link rel="stylesheet" href="index.css">
 		<link rel="stylesheet" type="text/css" href="heath.css">
+		<link rel="stylesheet" href="staff_profile.css">
 
 		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
    		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
@@ -83,7 +84,8 @@
 						</div>
 						<div id="Sick" class="tabcontent">
 							<div class="row">
-								<div class="col-md-9">
+								<div class="col-md-9 input_box">
+									<span>Enter details here *</span>
 									<input type="text" name="text" placeholder="Enter details here *">
 								</div>
 								<div class="col-md-3">
@@ -111,7 +113,8 @@
 						</div>
 						<div id="Medicine" class="tabcontent">
 							<div class="row">
-								<div class="col-md-9">
+								<div class="col-md-9 input_box">
+									<span>Enter details here *</span>
 									<input type="text" name="text" placeholder="Enter details here *">
 								</div>
 								<div class="col-md-3">
@@ -139,7 +142,8 @@
 						</div>
 						<div id="Growth" class="tabcontent">
 							<div class="row growth">
-								<div class="col-md-4 growth_input">
+								<div class="col-md-4 growth_input input_box">
+									<span>Height</span>
 									<input type="text" name="number" placeholder="Height">
 									<label class="label">
 										<div class="label-text">cm</div>
@@ -153,7 +157,8 @@
 										<div class="label-text">inch</div>
 									</label>
 								</div>
-								<div class="col-md-4 growth_input">
+								<div class="col-md-4 growth_input input_box">
+									<span>Weight</span>
 									<input type="text" name="number" placeholder="Weight">
 									<label class="label">
 										<div class="label-text">kg</div>
@@ -167,7 +172,8 @@
 										<div class="label-text">lb</div>
 									</label>
 								</div>
-								<div class="col-md-4 growth_input">
+								<div class="col-md-4 growth_input input_box">
+									<span>Head Circumferen...</span>
 									<input type="text" name="number" placeholder="Head Circumferen...">
 									<label class="label">
 										<div class="label-text">cm</div>
@@ -183,7 +189,8 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-9">
+								<div class="col-md-9 input_box">
+									<span>Enter details here *</span>
 									<input type="text" name="text" placeholder="Enter details here *">
 								</div>
 								<div class="col-md-3">
@@ -211,7 +218,8 @@
 						</div>
 						<div id="Incident" class="tabcontent">
 							<div class="row">
-								<div class="col-md-9">
+								<div class="col-md-9 input_box">
+									<span>Enter details here *</span>
 									<input type="text" name="text" placeholder="Enter details here *">
 								</div>
 								<div class="col-md-3">
@@ -354,4 +362,14 @@
         	$(this).parent('.input-img').hide();
         });
     </script>
+    <script type="text/javascript">
+		$('.input_box input').focus(function(event) {
+	    	$(this).siblings('span').addClass('input_box_span_active');
+		});
+		$('.input_box input').blur(function(event) {
+	    	if ($(this).val()=='') {
+	      		$(this).siblings('span').removeClass('input_box_span_active');
+	    	}
+		});
+</script>
 </html>
