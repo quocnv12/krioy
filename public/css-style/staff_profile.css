@@ -87,7 +87,7 @@ input:focus::-webkit-input-placeholder {
   color: rgb(83, 99, 214);
   top: 0px;
   z-index: 10;
-  left: 10px;
+  left: 20px;
 }
 .add > div select{
     margin-top: 27px;
@@ -544,5 +544,20 @@ button.mat-button-class{
     }
     .input_box span{
         margin-left: 20px;
+    }
+}
+@media screen and (max-width: 425px){
+    .ul-td li a:after{
+        display: none;
+    }
+    .ul-td li.level1 a{
+        padding: 5px 20px;
+    border-radius: 0;
+    }
+    .ul-td li.active1 a{
+        padding: 5px 15px;
+    }
+    .ul-td li.active-1 a{
+        padding: 5px 15px;
     }
 }
