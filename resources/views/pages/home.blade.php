@@ -15,7 +15,8 @@ Trang chủ
 <main>
     <div class="product1">
         <div class="cap-main">
-            <h3>Talent Wins</h3>
+            <h3><strong>Talent Wins</strong></h3>
+            <div class="hr"></div>
         </div>
         <div class="row line">
             <div class="col-md-1 "></div>
@@ -68,7 +69,7 @@ Trang chủ
                 <a href="#">
                     <img src="images/Check in and Check out-01.png" alt="">
                     <div class="title">
-                        <p>Star</p>
+                        <p><strong>Star</strong></p>
                     </div>
                 </a>
             </div>
@@ -113,7 +114,7 @@ Trang chủ
                 <a href="#">
                     <img src="images/Check in and Check out-01.png" alt="">
                     <div class="title">
-                        <p>Star</p>
+                        <p><strong>Star</strong></p>
                     </div>
                 </a>
             </div>
@@ -155,7 +156,8 @@ Trang chủ
     </div>
     <div class="product2">
         <div class="cap-main">
-            <h3>Profiles</h3>
+            <h3><strong>Profiles</strong></h3>
+            <div class="hr"></div>
         </div>
         <div class="row line">
             <div class="col-md-1 "></div>
@@ -205,7 +207,8 @@ Trang chủ
     </div>
     <div class="product3">
         <div class="cap-main">
-            <h3>Setup & Settings</h3>
+            <h3><strong>Setup & Settings</strong></h3>
+            <div class="hr"></div>
         </div>
         <div class="row line">
             <div class="col-md-1 "></div>
@@ -255,7 +258,8 @@ Trang chủ
     </div>
     <div class="product4">
         <div class="cap-main">
-            <h3>Help</h3>
+            <h3><strong>Help</strong></h3>
+            <div class="hr"></div>
         </div>
         <div class="row line">
             <div class="col-md-1 "></div>

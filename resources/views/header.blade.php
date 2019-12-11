@@ -1,7 +1,10 @@
 <nav>
     <div class="menu_desktop d-none d-md-block "> 
         <nav class="navbar navbar-expand-sm bg-light">
-            <img src="images/logo.png" alt="">
+            <a href="#" style="display: flex;outline: none;text-decoration: none;">
+                <img src="images/logo.png" alt="">
+                <p style="margin: 20px 0;font-size: 30px;color: #ff4081;">Kids Now</p>
+            </a>
             <!-- Links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
