@@ -19,16 +19,14 @@ class CreateChildrenProfilesTable extends Migration
             $table->string('last_name');
             $table->date('birthday');
             $table->string('blood_group');
-            $table->string('gender');
+            $table->tinyInteger('gender');
             $table->date('date_of_joining');
             $table->string('unique_id');
             $table->text('address');
             $table->text('allergies');
             $table->text('additional_note');
             $table->integer('status');
-            $table->integer('exits');
-            $table->bigInteger('id_programs')->unsigned();
-            $table->foreign('id_programs')->references('id')->on('programs')->onDelete('cascade');
+            $table->integer('exist');
             $table->timestamps();
         });
     }

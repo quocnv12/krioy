@@ -19,8 +19,8 @@ class CreateHealthTable extends Migration
             $table->foreign('id_children')->references('id')->on('children_profiles')->onDelete('cascade');
             $table->date('time');
             $table->text('sick');
-            $table->integer('growth_height');
-            $table->integer('growth_weight');
+            $table->float('growth_height');
+            $table->float('growth_weight');
             $table->text('medicine');
             $table->text('incident');
             $table->string('blood_group');
