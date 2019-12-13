@@ -515,14 +515,16 @@ section.attendance-layout{
     margin-right: 10px;
     margin-bottom: 15px;
 }
-/*Calendar*/
+
+            /*Calendar*/
 select.calendar-select{
   color: black;
   border:none;
   border-bottom: 1px solid #ccc;
   font-size: 16px;
 }
-/*report*/
+
+            /*report*/
 .report{
   margin: 20px 0;
 }
@@ -569,6 +571,29 @@ select.calendar-select{
 .report-boder-4{
   border: 2px solid #4dd2ff;
 }
+
+        /*daily-report*/
+div.daily-report{
+    margin: 30px;
+}
+div.daily-report span{
+    background: #5363d6;
+    color: #fff;
+    border-radius: 2rem;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.daily-report-label span{
+    font-size: 16px;
+}
+.daily-report-content{
+    color: grey;
+    font-size: 13px;
+    padding-top: 10px;
+}
+
+
         /*RESPONSIVE*/
  @media screen and (max-width: 990px){
     .input_box{
