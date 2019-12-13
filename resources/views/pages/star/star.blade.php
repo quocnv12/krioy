@@ -1,58 +1,11 @@
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Kriyo Star</title>
+@extends('master-layout')
+@section('title')
+	Star
+@endsection
 
-		<link rel="stylesheet" href="index.css">
-		<link rel="stylesheet" type="text/css" href="heath.css">
-		<link rel="stylesheet" href="staff_profile.css">
-
-		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
-   		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
-    	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
-
-    	<link rel="stylesheet" href="css/bootstrap.min.css">
-    
-	    <!-- Font Awesome -->
-	    <link rel="stylesheet" href="css/font-awesome.min.css">
-	    
-	    <!-- Custom CSS -->
-	    <link rel="stylesheet" href="css/owl.carousel.css">
-	    <link rel="stylesheet" href="css/responsive.css">
-	</head>
-
+@section('content')
 	<body>
-		<!-- <section class="header">
-			<div class="logo">
-				<a href="#">
-					<img src="images/Kriyo Logo.png" alt="" style="width: 50px;height: auto;">
-					<img src="images/Kriyo Title.png" alt="" style="width: 130px;height: auto;margin-top: 20px;">
-				</a>
-			</div>
-			<div class="header-ul">
-				<ul>
-					<li>
-						<a href="#">PROFILES</a>
-					</li>
-					<li>
-						<a href="#">INVOICES</a>
-					</li>
-					<li>
-						<a href="#">SETTINGS</a>
-					</li>
-					<li>
-						<a href="#">HELP</a>
-					</li>
-					<li>
-						<a href="#" class="ul-kriyo">MY KRIYO</a>
-					</li>
-					<li>
-						
-					</li>
-				</ul>
-			</div>
-		</section> -->
+
 		<section class="page-top container">
 			<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 				<div class="row">
@@ -127,21 +80,23 @@
 			</div>
 		</section>
 	</body>
+@endsection
 
+@section('js')
 	<script src="https://code.jquery.com/jquery.min.js"></script>
     
     <!-- Bootstrap JS form CDN -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     
     <!-- jQuery sticky menu -->
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
+    <script src="asset/kriyo/js/owl.carousel.min.js"></script>
+    <script src="asset/kriyo/js/jquery.sticky.js"></script>
     
     <!-- jQuery easing -->
-    <script src="js/jquery.easing.1.3.min.js"></script>
+    <script src="asset/kriyo/js/jquery.easing.1.3.min.js"></script>
     
     <!-- Main Script -->
-    <script src="js/main.js"></script>
+    <script src="asset/kriyo/js/main.js"></script>
     <script>
 		var acc = document.getElementsByClassName("accordion");
 		var i;
@@ -179,4 +134,4 @@
 	    	}
 		});
 </script>
-</html>
+@endsection
