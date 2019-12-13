@@ -1,126 +1,90 @@
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Kriyo PROFILE</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+@extends('master-layout')
+@section('title')
+	EDIT Staff
+@endsection
 
-		<link rel="stylesheet" href="index.css">
-		<link rel="stylesheet" type="text/css" href="heath.css">
-		<link rel="stylesheet" href="staff_profile.css">
 
-		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
-   		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
-    	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+@section('content')
+	<body>
 
-    	<link rel="stylesheet" href="css/bootstrap.min.css">
-    
-	    <!-- Font Awesome -->
-	    <link rel="stylesheet" href="css/font-awesome.min.css">
-	    
-	    <!-- Custom CSS -->
-	    <link rel="stylesheet" href="css/owl.carousel.css">
-	</head>
-<body>
-	<!-- <section class="header">
-		<div class="logo">
-			<a href="#">
-				<img src="images/school.png" alt="" style="width: 80px;height: 80px;padding: 10px;border-radius: 50%;">
-			</a>
-			<a href="#" class="title">Talent Wins</a>
-			<span>hanoi,hanoi</span>
-		</div>
-		<div class="header-ul">
-			<ul>
-				<li>
-					<a href="#">HỒ SƠ</a>
-				</li>
-				<li>
-					<a href="#">HÓA ĐƠN</a>
-				</li>
-				<li>
-					<a href="#">CÀI ĐẶT</a>
-				</li>
-				<li>
-					<a href="#">TRỢ GIÚP</a>
-				</li>
-				<li>
-					<a href="#" class="ul-kriyo">KRIYO CỦA TÔI</a>
-				</li>
-				<li>
-					
-				</li>
-			</ul>
-		</div>
-	</section> -->
 	<section class="page-top container">
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
 				<ul class="ul-td">
 					<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">HOME</a></li>
 					<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">STAFF PROFILES</a></li>
-					<li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a _ngcontent-c16="">PROFILE</a></li>
+					<li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a _ngcontent-c16="">EDIT STAFF</a></li>
 				</ul>
 			</div>
 		</div>
 		<div class="mat-card">
 			<div class="mat-content">
-				<button class="accordion add-staff">K5 KHANH PROFILE</button>
+				<button class="accordion add-staff">K5 KHANH Profile</button>
 				<div class="row">
-					<div class="col-md-2 textera-img" data-toggle="modal" data-target=".bd-example-modal-sm">
+					<div class="col-md-2 textera-img">
 						<a href="#">
 							<img src="images/Staff.png" alt="">
+							<span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
 						</a>
 					</div>
 					<div class="col-md-10">
-						<div class="add a1 " type="button" data-toggle="modal" data-target=".bd-example-modal-sm">
+						<div class="add a1 ">
 							<div class="row">
-								<div class="col-md-6">
-									<input type="text" name="first-name" placeholder="First Name *" readonly="">
+								<div class="col-md-6 input_box">
+									<span>First Name *</span>
+									<input type="text" name="first-name" placeholder="First Name *">
 								</div>
-								<div class="col-md-6">
-									<input type="text" name="last-name" placeholder="Last Name *" readonly="">
+								<div class="col-md-6 input_box">
+									<span>Last Name *</span>
+									<input type="text" name="last-name" placeholder="Last Name *">
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-6">
-									<input type="text" name="phone" placeholder="Phone Number *" readonly="">
-								</div>
-								<div class="col-md-6">
-									<select>
-										<option>Gender</option>
-										<option>Nam</option>
-										<option>Nữ</option>
-										<option>Khác</option>
-									</select>
+								<div class="add">
+									<div class="col-md-6 input_box">
+										<span>Phone Number *</span>
+										<input type="text" name="phone" placeholder="Phone Number *">
+									</div>
+									<div class="col-md-6 input_box">
+										<span>Gender *</span>
+										<select>
+											<option>Gender</option>
+											<option>Nam</option>
+											<option>Nữ</option>
+										</select>
+									</div>
 								</div>
 							</div>
-							<div>
-								<input type="email" name="email" placeholder="E-Mail Address" readonly="">
+							<div class="input_box" style="width: 100%">
+								<span>Email Address *</span>
+								<input type="text" name="email" placeholder="Email Address">
 							</div>
 						</div>
 					</div>
 				</div>
-				<hr>
-				<div class="add" type="button" data-toggle="modal" data-target=".bd-example-modal-sm">
-					<div>
-						<input type="text" name="address" placeholder="Residential Address" readonly="">
+				<hr style="margin: 0;">
+				<div class="add">
+					<div class="input_box" style="width: 100%">
+						<span>Residential Address *</span>
+						<input type="text" name="address" placeholder="Residential Address">
 					</div>
-				</div>
-				<div class="row" type="button" data-toggle="modal" data-target=".bd-example-modal-sm">
-					<div class="add">
-						<div class="col-md-4">
-							<input type="date" name="date" placeholder="Birthday" readonly="">
+					<div class="row">
+						<div class="col-md-4 input_box">
+							<span>Birthday *</span>
+							<input type="date" name="date" placeholder="Birthday" title="Ngày sinh">
 						</div>
-						<div class="col-md-4">
-							<select >
+						<div class="col-md-4 input_box">
+							<span>Blood Group *</span>
+							<select>
 								<option>Blood Group</option>
 								<option>1</option>
 								<option>2</option>
 								<option>3</option>
 							</select>
 						</div>
-						<div class="col-md-4">
-							<input type="date" name="date" placeholder="Date of Joining" readonly="">
+						<div class="col-md-4 input_box">
+							<span>Date of Joining *</span>
+							<input type="date" name="date" placeholder="Date of Joining" title="Date of Joining">
 						</div>
 					</div>
 				</div>
@@ -130,23 +94,24 @@
 		<div class="mat-card">
 			<div class="mat-content">
 				<button class="accordion">Programs</button>
-				<div class="panel" type="button" data-toggle="modal" data-target=".bd-example-modal-sm">
+				<div class="panel">
 					<div _ngcontent-c20="" class="row" style="">
 						<!---->
 						<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer;">
-							<button _ngcontent-c20="" class="btn progBtn limitText" readonly style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Attendance </button>
+							<button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Attendance </button>
 						</div>
 						<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer">
-							<button _ngcontent-c20="" class="btn progBtn limitText bgClass" readonly style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Behaviour </button>
+							<button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Behaviour </button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		
 		<div class="mat-card">
 			<div class="mat-content">
 				<button class="accordion">Permissions</button>
-				<div class="panel" type="button" data-toggle="modal" data-target=".bd-example-modal-sm">
+				<div class="panel">
 					<div class="row">
 						<div class="col-xs-6 col-md-4 panel-col">
 							<div class="panel-list">
@@ -248,36 +213,35 @@
 				</div>
 			</div>
 		</div>
-		<div class="icon-plus" title="add">
-			<a href="edit-staff.html">
-				<i class="fa fa-plus"></i>
-			</a>
-		</div>
-
-		<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-			<div class="modal-dialog modal-sm" style="top: 40%;">
-			    <div class="modal-content" style="font-size: 18px;padding: 25px;">
-					Click on 'Edit' button to update details
-			    </div>
+		<div class="comment">
+			<div class="button" style="text-align: center;">
+				<button>
+					<span>CANCEL</span>
+				</button>
+				<button class="button2">
+					<span>SAVE</span>
+				</button>
 			</div>
 		</div>
-		
 	</section>
 </body>
+@endsection
+
+@section('js')
 	<script src="https://code.jquery.com/jquery.min.js"></script>
     
     <!-- Bootstrap JS form CDN -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     
     <!-- jQuery sticky menu -->
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
+    <script src="asset/kriyo/js/owl.carousel.min.js"></script>
+    <script src="asset/kriyo/js/jquery.sticky.js"></script>
     
     <!-- jQuery easing -->
-    <script src="js/jquery.easing.1.3.min.js"></script>
+    <script src="asset/kriyo/js/jquery.easing.1.3.min.js"></script>
     
     <!-- Main Script -->
-    <script src="js/main.js"></script>
+    <script src="asset/kriyo/js/main.js"></script>
     <script>
 		var acc = document.getElementsByClassName("accordion");
 		var i;
@@ -294,4 +258,33 @@
 		  });
 		}
 	</script>
-</html>
+	<script type="text/javascript">
+    	$('.tablinks1').click(function(event) {
+    		if ($(this).prop('class')=='btn progBtn limitText bgClass tablinks1 tablinks1_active') {
+    			$(this).removeClass('tablinks1_active');
+    		}else{
+    			$(this).addClass('tablinks1_active');
+    		}
+    	});
+    </script>
+    <script type="text/javascript">
+		$('.input_box input').focus(function(event) {
+	    	$(this).siblings('span').addClass('input_box_span_active');
+		});
+		$('.input_box input').blur(function(event) {
+	    	if ($(this).val()=='') {
+	      		$(this).siblings('span').removeClass('input_box_span_active');
+	    	}
+		});
+	</script>
+	<script type="text/javascript">
+		$('.input_box select').focus(function(event) {
+	    	$(this).siblings('span').addClass('input_box_span_active');
+		});
+		$('.input_box select').blur(function(event) {
+	    	if ($(this).val()=='') {
+	      		$(this).siblings('span').removeClass('input_box_span_active');
+	    	}
+		});
+	</script>
+@endsection

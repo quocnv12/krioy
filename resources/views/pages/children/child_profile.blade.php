@@ -1,57 +1,11 @@
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Kriyo Childrent Frofiles</title>
+@extends('master-layout')
+@section('title')
+	Children Frofiles
+@endsection
 
-		<link rel="stylesheet" href="index.css">
-		<link rel="stylesheet" type="text/css" href="heath.css">
-		<link rel="stylesheet" href="staff_profile.css">
+@section('content')
+	<body>
 
-		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
-   		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
-    	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
-
-    	<link rel="stylesheet" href="css/bootstrap.min.css">
-    
-	    <!-- Font Awesome -->
-	    <link rel="stylesheet" href="css/font-awesome.min.css">
-	    
-	    <!-- Custom CSS -->
-	    <link rel="stylesheet" href="css/owl.carousel.css">
-	    <link rel="stylesheet" href="css/responsive.css">
-	</head>
-<body>
-	<!-- <section class="header">
-		<div class="logo">
-			<a href="#">
-				<img src="images/school.png" alt="" style="width: 80px;height: 80px;padding: 10px;">
-			</a>
-			<a href="#" class="title">Talent Wins</a>
-		</div>
-		<div class="header-ul">
-			<ul>
-				<li>
-					<a href="#">HỒ SƠ</a>
-				</li>
-				<li>
-					<a href="#">HÓA ĐƠN</a>
-				</li>
-				<li>
-					<a href="#">CÀI ĐẶT</a>
-				</li>
-				<li>
-					<a href="#">TRỢ GIÚP</a>
-				</li>
-				<li>
-					<a href="#" class="ul-kriyo">KRIYO CỦA TÔI</a>
-				</li>
-				<li>
-					
-				</li>
-			</ul>
-		</div>
-	</section> -->
 	<section class="page-top container">
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
@@ -64,7 +18,7 @@
 				<div class="col-md-6">
 					<a href="#" class="deactiveClass">
 						<i class="fa fa-shield"></i>
-						<span style="font-size:15px;font-weight: 910;">DEACTIVATED</span>
+						<span style="font-size:15px;font-weight: 900;">DEACTIVATED</span>
 						<span _ngcontent-c10="" class="badge" style="background-color: red;color:#fff;vertical-align: top;display: inline;line-height:0px">1</span>
 					</a>
 					<a _ngcontent-c10="" class="deactiveClass" routerlink="All-Childrens" style="float:right;background-color:#fff;color: #5363d6;border-bottom:1px solid #5363d6;cursor:pointer;border-radius:4px;margin-right: 20px" title="All-Profiles"><span _ngcontent-c10="" style="font-size:15px;">ALL PROFILES</span></a>
@@ -116,7 +70,7 @@
 			</div>
 		</div>
 		<div class="icon-plus" title="add">
-			<a href="creat-child.html">
+			<a href="create_child.blade.php">
 				<i class="fa fa-plus"></i>
 			</a>
 		</div>
@@ -136,20 +90,23 @@
 		</div>
 	</section>	
 </body>
+@endsection
+
+@section('js')
 	<script src="https://code.jquery.com/jquery.min.js"></script>
     
     <!-- Bootstrap JS form CDN -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     
     <!-- jQuery sticky menu -->
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
+    <script src="asset/kriyo/js/owl.carousel.min.js"></script>
+    <script src="asset/kriyo/js/jquery.sticky.js"></script>
     
     <!-- jQuery easing -->
-    <script src="js/jquery.easing.1.3.min.js"></script>
+    <script src="asset/kriyo/js/jquery.easing.1.3.min.js"></script>
     
     <!-- Main Script -->
-    <script src="js/main.js"></script>
+    <script src="asset/kriyo/js/main.js"></script>
     <script type="text/javascript">
     	$(document).ready(function($) {
 		    $(".modal-li").click(function() {
@@ -157,4 +114,4 @@
 		    });
 		});
     </script>
-</html>
+@endsection

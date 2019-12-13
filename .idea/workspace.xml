@@ -2,107 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b470da37-1633-445a-bc30-ac8b25b3bb45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css-style/heath.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css-style/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css-style/observation.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css-style/staff_profile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/Creat-Staff.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/Select-Child.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/add_staff.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/animate.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/child_profile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/child_profile.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/creat-child.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/css/animate.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/css/font-awesome.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/css/owl.carousel.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/css/responsive.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/edit-children.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/edit-notice.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/edit-staff.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/fonts/FontAwesome.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/fonts/fontawesome-webfont.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/fonts/fontawesome-webfont.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/fonts/fontawesome-webfont.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/fonts/fontawesome-webfont.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/food.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/heath.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/heath.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/150.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Add Note (1)-01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Admin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Billing and Payment.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/CCTv.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Check in and Check out-01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Child.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Daily report.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Diary.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/ExpenseManagement1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/FAQ.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Favourite School.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Food-01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Health-01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Help Video-01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/History.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Kriyo Logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Kriyo Title.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Logo.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Notice Board Circle-01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Observation-01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Parent Note with Backgroud -01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Parent.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Photots-01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Play and Learn-01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Potty-01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Programs.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/QR Code Download-01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Report-01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/RoomRatio1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Route Tracker.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/School Icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Sickness-01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Sleep-01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Staff.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Star-01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/Trasnsport setup.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/calender-01.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/graduate.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/img_avatar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/school.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/settings.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/images/tags.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/js/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/js/bxslider.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/js/jquery.easing.1.3.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/js/jquery.sticky.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/js/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/js/owl.carousel.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/js/script.slider.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/js/wow.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/main.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/notice-board.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/notice-detail.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/observation.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/observation.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/profile-child.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/profile.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/staff_profile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/staff_profile.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/star.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/kriyo/vd.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/master-layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/master-layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/attendance/attendance.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/attendance/attendance.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/children/Select-Child.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/observation/select_child.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/children/child_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/children/child_profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/children/creat-child.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/children/create_child.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/children/edit-children.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/children/edit_child.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/diary/Select-Child.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/diary/select_child.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/diary/diary.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/diary/diary.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/heath/heath.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/heath/heath.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/notice/edit-notice.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/notice/edit_notice.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/notice/notice-board.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/notice/notice_board.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/notice/notice-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/notice/notice_detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/observation/Select-Child.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/staff/select_child.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/observation/observation.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/observation/observation.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/photos/Select-Child.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/photos/select_child.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/photos/photos.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/photos/photos.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/play&amp;learn/Select-Child.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/play&amp;learn/select_child.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/play&amp;learn/photos.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/play&amp;learn/photos.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/potty/Select-Child.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/potty/select_child.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/potty/potty.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/potty/potty.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/staff/Creat-Staff.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/staff/create_staff.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/staff/Select-Child.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/children/select_child.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/staff/add_staff.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/staff/add_staff.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/staff/edit-staff.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/staff/edit_staff.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/staff/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/staff/profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/staff/staff_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/staff/staff_profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/star/star.html" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/star/star.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -110,30 +39,53 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
+            <state relative-caret-position="323">
+              <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/pages/children/child_profile.html">
+        <entry file="file://$PROJECT_DIR$/resources/views/pages/children/child_profile.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="60" lean-forward="true" selection-start-line="14" selection-start-column="60" selection-end-line="14" selection-end-column="60" />
+            <state relative-caret-position="175">
+              <caret line="101" column="62" lean-forward="true" selection-start-line="101" selection-start-column="62" selection-end-line="101" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/master-layout.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" column="50" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/pages/diary/diary.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>button</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -142,6 +94,36 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/resources/views/pages/attendance/attendance.html" />
+        <option value="$PROJECT_DIR$/resources/views/pages/children/creat-child.html" />
+        <option value="$PROJECT_DIR$/resources/views/pages/children/creat-child.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/children/edit-children.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/children/Select-Child.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/master-layout.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/attendance/attendance.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/diary/select_child.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/heath/heath.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/notice/edit_notice.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/notice/notice_board.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/notice/notice_detail.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/observation/observation.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/observation/select_child.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/photos/photos.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/diary/diary.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/photos/select_child.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/play&amp;learn/photos.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/play&amp;learn/select_child.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/potty/potty.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/potty/select_child.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/staff/add_staff.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/staff/create_staff.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/staff/edit_staff.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/staff/profile.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/staff/select-child.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/staff/staff_profile.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/star/star.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/children/child_profile.blade.php" />
       </list>
     </option>
   </component>
@@ -231,9 +213,9 @@
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="196" />
-    <option name="y" value="38" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="141" />
+    <option name="y" value="46" />
     <option name="width" value="1187" />
     <option name="height" value="708" />
   </component>
@@ -245,7 +227,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -274,14 +255,6 @@
             <path>
               <item name="krioy" type="b2602c69:ProjectViewProjectNode" />
               <item name="krioy" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="asset" type="462c0819:PsiDirectoryNode" />
-              <item name="kriyo" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="krioy" type="b2602c69:ProjectViewProjectNode" />
-              <item name="krioy" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -297,10 +270,32 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="krioy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="krioy" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="children" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="krioy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="krioy" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="star" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="krioy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="krioy" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -309,6 +304,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\krioy\public\asset" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -322,6 +322,12 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -332,37 +338,61 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1576142728862</updated>
-      <workItem from="1576142730206" duration="529000" />
+      <workItem from="1576142730206" duration="5074000" />
+      <workItem from="1576154225549" duration="1034000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="529000" />
+    <option name="totallyTimeSpent" value="6108000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info id="npm" side_tool="true" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20499243" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" weight="0.47954175" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Database" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.47954175" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
     </layout>
+    <layout-to-restore>
+      <window_info id="npm" order="0" side_tool="true" />
+      <window_info id="Favorites" order="1" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.24962178" />
+      <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.47954175" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="3" />
+      <window_info anchor="bottom" id="Version Control" order="4" />
+      <window_info anchor="bottom" id="Message" order="5" />
+      <window_info anchor="bottom" id="Find" order="6" />
+      <window_info anchor="bottom" id="Run" order="7" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info anchor="right" id="Database" order="0" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -380,10 +410,288 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/children/child_profile.html">
+    <entry file="file://$PROJECT_DIR$/resources/views/header.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="60" lean-forward="true" selection-start-line="14" selection-start-column="60" selection-end-line="14" selection-end-column="60" />
+        <state relative-caret-position="-510" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/children/create_child.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="167" column="14" lean-forward="true" selection-start-line="167" selection-start-column="14" selection-end-line="167" selection-end-column="14" />
+          <folding>
+            <element signature="n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/animate.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/app.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/children/edit_child.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/children/select_child.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="128" column="59" selection-start-line="128" selection-start-column="59" selection-end-line="128" selection-end-column="59" />
+          <folding>
+            <element signature="n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/attendance/attendance.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="160" column="29" selection-start-line="160" selection-start-column="29" selection-end-line="160" selection-end-column="29" />
+          <caret line="167" column="29" selection-start-line="167" selection-start-column="29" selection-end-line="167" selection-end-column="29" />
+          <caret line="164" column="29" lean-forward="true" selection-start-line="164" selection-start-column="29" selection-end-line="164" selection-end-column="29" />
+          <caret line="161" column="29" lean-forward="true" selection-start-line="161" selection-start-column="29" selection-end-line="161" selection-end-column="29" />
+          <folding>
+            <element signature="e#3615#3636#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/diary/select_child.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="109" column="59" lean-forward="true" selection-start-line="109" selection-start-column="59" selection-end-line="109" selection-end-column="59" />
+          <folding>
+            <element signature="n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/heath/heath.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="245" column="31" lean-forward="true" selection-start-line="245" selection-start-column="31" selection-end-line="245" selection-end-column="31" />
+          <folding>
+            <element signature="n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/notice/edit_notice.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="137" column="67" lean-forward="true" selection-start-line="137" selection-start-column="67" selection-end-line="137" selection-end-column="67" />
+          <folding>
+            <element signature="n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/notice/notice_board.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="88" column="67" lean-forward="true" selection-start-line="88" selection-start-column="67" selection-end-line="88" selection-end-column="67" />
+          <folding>
+            <element signature="n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/notice/notice_detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="104" column="53" selection-start-line="104" selection-start-column="53" selection-end-line="104" selection-end-column="53" />
+          <folding>
+            <element signature="n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/observation/observation.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="109" column="50" lean-forward="true" selection-start-line="109" selection-start-column="50" selection-end-line="109" selection-end-column="50" />
+          <folding>
+            <element signature="n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/observation/select_child.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="104" column="67" lean-forward="true" selection-start-line="104" selection-start-column="67" selection-end-line="104" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/photos/photos.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="66" column="31" lean-forward="true" selection-start-line="66" selection-start-column="31" selection-end-line="66" selection-end-column="31" />
+          <folding>
+            <element signature="n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/photos/select_child.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="103" column="4" lean-forward="true" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
+          <folding>
+            <element signature="n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/play&amp;learn/photos.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="69" column="4" lean-forward="true" selection-start-line="69" selection-start-column="4" selection-end-line="69" selection-end-column="4" />
+          <folding>
+            <element signature="n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/play&amp;learn/select_child.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="109" column="58" selection-start-line="109" selection-start-column="58" selection-end-line="109" selection-end-column="58" />
+          <folding>
+            <element signature="n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/potty/potty.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="96" column="29" selection-start-line="96" selection-start-column="29" selection-end-line="96" selection-end-column="29" />
+          <caret line="93" column="29" selection-start-line="93" selection-start-column="29" selection-end-line="93" selection-end-column="29" />
+          <caret line="90" column="29" selection-start-line="90" selection-start-column="29" selection-end-line="90" selection-end-column="29" />
+          <caret line="89" column="29" selection-start-line="89" selection-start-column="29" selection-end-line="89" selection-end-column="29" />
+          <folding>
+            <element signature="n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/potty/select_child.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="109" column="48" lean-forward="true" selection-start-line="109" selection-start-column="48" selection-end-line="109" selection-end-column="48" />
+          <folding>
+            <element signature="n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/staff/add_staff.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="152" column="29" selection-start-line="152" selection-start-column="29" selection-end-line="152" selection-end-column="29" />
+          <caret line="149" column="29" selection-start-line="149" selection-start-column="29" selection-end-line="149" selection-end-column="29" />
+          <caret line="146" column="29" selection-start-line="146" selection-start-column="29" selection-end-line="146" selection-end-column="29" />
+          <caret line="145" column="29" selection-start-line="145" selection-start-column="29" selection-end-line="145" selection-end-column="29" />
+          <folding>
+            <element signature="n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/staff/create_staff.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="148" column="29" selection-start-line="148" selection-start-column="29" selection-end-line="148" selection-end-column="29" />
+          <caret line="145" column="29" selection-start-line="145" selection-start-column="29" selection-end-line="145" selection-end-column="29" />
+          <caret line="142" column="29" selection-start-line="142" selection-start-column="29" selection-end-line="142" selection-end-column="29" />
+          <caret line="141" column="29" selection-start-line="141" selection-start-column="29" selection-end-line="141" selection-end-column="29" />
+          <folding>
+            <element signature="n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/staff/edit_staff.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="235" column="31" lean-forward="true" selection-start-line="235" selection-start-column="31" selection-end-line="235" selection-end-column="31" />
+          <folding>
+            <element signature="n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/staff/profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="223" column="48" lean-forward="true" selection-start-line="223" selection-start-column="48" selection-end-line="223" selection-end-column="48" />
+          <folding>
+            <element signature="n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/staff/select_child.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="102" column="67" selection-start-line="102" selection-start-column="67" selection-end-line="102" selection-end-column="67" />
+          <folding>
+            <element signature="n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/staff/staff_profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="61" column="62" lean-forward="true" selection-start-line="61" selection-start-column="62" selection-end-line="61" selection-end-column="62" />
+          <folding>
+            <element signature="n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/star/star.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-185">
+          <caret line="98" column="50" lean-forward="true" selection-start-line="98" selection-start-column="50" selection-end-line="98" selection-end-column="50" />
+          <folding>
+            <element signature="n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/master-layout.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="50" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/diary/diary.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/children/child_profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="101" column="62" lean-forward="true" selection-start-line="101" selection-start-column="62" selection-end-line="101" selection-end-column="62" />
         </state>
       </provider>
     </entry>

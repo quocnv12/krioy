@@ -1,57 +1,12 @@
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Kriyo Creat-Staff</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+@extends('master-layout')
+@section('title')
+	Create Staff
+@endsection
 
-		<link rel="stylesheet" href="index.css">
-		<link rel="stylesheet" type="text/css" href="heath.css">
-		<link rel="stylesheet" href="staff_profile.css">
 
-		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
-   		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
-    	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+@section('content')
+	<body>
 
-    	<link rel="stylesheet" href="css/bootstrap.min.css">
-    
-	    <!-- Font Awesome -->
-	    <link rel="stylesheet" href="css/font-awesome.min.css">
-	    
-	    <!-- Custom CSS -->
-	    <link rel="stylesheet" href="css/owl.carousel.css">
-	</head>
-<body>
-	<!-- <section class="header">
-		<div class="logo">
-			<a href="#">
-				<img src="images/school.png" alt="" style="width: 80px;height: 80px;padding: 10px;border-radius: 50%;">
-			</a>
-			<a href="#" class="title">Talent Wins</a>
-			<span>hanoi,hanoi</span>
-		</div>
-		<div class="header-ul">
-			<ul>
-				<li>
-					<a href="#">HỒ SƠ</a>
-				</li>
-				<li>
-					<a href="#">HÓA ĐƠN</a>
-				</li>
-				<li>
-					<a href="#">CÀI ĐẶT</a>
-				</li>
-				<li>
-					<a href="#">TRỢ GIÚP</a>
-				</li>
-				<li>
-					<a href="#" class="ul-kriyo">KRIYO CỦA TÔI</a>
-				</li>
-				<li>
-					
-				</li>
-			</ul>
-		</div>
-	</section> -->
 	<section class="page-top container">
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
@@ -175,20 +130,23 @@
 		</div>
 	</section>
 </body>
+@endsection
+
+@section('js')
 	<script src="https://code.jquery.com/jquery.min.js"></script>
     
     <!-- Bootstrap JS form CDN -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     
     <!-- jQuery sticky menu -->
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
+    <script src="asset/kriyo/js/owl.carousel.min.js"></script>
+    <script src="asset/kriyo/js/jquery.sticky.js"></script>
     
     <!-- jQuery easing -->
-    <script src="js/jquery.easing.1.3.min.js"></script>
+    <script src="asset/kriyo/js/jquery.easing.1.3.min.js"></script>
     
     <!-- Main Script -->
-    <script src="js/main.js"></script>
+    <script src="asset/kriyo/js/main.js"></script>
     <script>
 		var acc = document.getElementsByClassName("accordion");
 		var i;
@@ -225,4 +183,4 @@
 	    	}
 		});
 	</script>
-</html>
+@endsection

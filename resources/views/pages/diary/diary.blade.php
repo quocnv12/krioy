@@ -1,26 +1,9 @@
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Kriyo Observations</title>
+@extends('master-layout')
+@section('title')
+	Diary
+@endsection
 
-		<link rel="stylesheet" href="index.css">
-		<link rel="stylesheet" type="text/css" href="heath.css">
-		<link rel="stylesheet" href="staff_profile.css">
-
-		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
-   		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
-    	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
-
-    	<link rel="stylesheet" href="css/bootstrap.min.css">
-    
-	    <!-- Font Awesome -->
-	    <link rel="stylesheet" href="css/font-awesome.min.css">
-	    
-	    <!-- Custom CSS -->
-	    <link rel="stylesheet" href="css/owl.carousel.css">
-	</head>
-
+@section('content')
 	<body>
 		
 		<section class="page-top container">
@@ -28,7 +11,7 @@
 				<div class="row">
 					<ul class="ul-td">
 						<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">Home</a></li>
-						<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">OBSERVATIONS</a></li>
+						<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">Diary</a></li>
 					</ul>
 				</div>
 			</div>
@@ -37,7 +20,7 @@
 					<div class="mat-content">
 						<button class="accordion accordion1 clearfix">
 							<p style="float: left;">Children *</p>
-							<a href="Select-Child.html" style="float: right;text-align: right">
+							<a href="select_child.blade.php" style="float: right;text-align: right">
 								<p style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">SELECT</p>
 							</a>
 						</button>
@@ -48,7 +31,7 @@
 					</div>
 					<hr>
 					<div class="mat-content">
-						<button class="accordion">Observation Type</button>
+						<button class="accordion">Type of Communication*</button>
 						<div class="panel">
 							<div _ngcontent-c20="" class="row" style="">
 								<!---->
@@ -71,15 +54,6 @@
 								<div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer">
 									<button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Language </button>
 								</div>
-								<div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer">
-									<button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Learning </button>
-								</div>
-								<div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer">
-									<button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Numbers </button>
-								</div>
-								<div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer">
-									<button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Social </button>
-								</div>
 							</div>
 						</div>
 					</div>
@@ -96,6 +70,12 @@
 							</div>
 						</div>
 						<div class="button" style="text-align: center;">
+							<p>(OR)</p>
+							<button style="background: #3f51b5;color: #fff; width: auto;" data-toggle="modal" data-target=".bd-example-modal-sm">
+								<span>Pick a Template</span>
+							</button>
+						</div>
+						<div class="button" style="text-align: center;">
 							<button>
 								<span>CANCEL</span>
 							</button>
@@ -107,22 +87,36 @@
 				</div>
 			</div>
 		</section>
+		<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm" style="">
+			    <div class="modal-content" style="font-size: 18px;height: 200px;">
+			    	<div class="modal-content-1">
+			    		<p>Select Template</p>
+			    	</div>
+					<div align="center">
+						<p style="margin: 0;font-size: 18px;">This Notice data would be deleted permanently</p>
+					</div>
+			    </div>
+			</div>			
+		</div>
 	</body>
+@endsection
 
+@section('js')
 	<script src="https://code.jquery.com/jquery.min.js"></script>
     
     <!-- Bootstrap JS form CDN -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     
     <!-- jQuery sticky menu -->
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
+    <script src="asset/kriyo/js/owl.carousel.min.js"></script>
+    <script src="asset/kriyo/js/jquery.sticky.js"></script>
     
     <!-- jQuery easing -->
-    <script src="js/jquery.easing.1.3.min.js"></script>
+    <script src="asset/kriyo/js/jquery.easing.1.3.min.js"></script>
     
     <!-- Main Script -->
-    <script src="js/main.js"></script>
+    <script src="asset/kriyo/js/main.js"></script>
     <script>
 		var acc = document.getElementsByClassName("accordion");
 		var i;
@@ -164,4 +158,4 @@
 	    	}
 		});
 </script>
-</html>
+@endsection

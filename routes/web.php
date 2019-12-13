@@ -24,4 +24,8 @@ Route::get('/', function () {
 })->name('home');
 
 
+//test
+Route::get('children/profile', function (){
+   return view('pages.children.child_profile');
+});
 
