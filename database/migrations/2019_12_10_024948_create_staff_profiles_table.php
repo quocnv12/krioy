@@ -19,14 +19,14 @@ class CreateStaffProfilesTable extends Migration
             $table->string('last_name');
             $table->string('phone');
             $table->string('image');
-            $table->string('gender');
+            $table->tinyInteger('gender');
             $table->string('email');
             $table->text('address');
             $table->date('birthday');
             $table->string('blood_group');
             $table->date('date_of_joining');
-            $table->string('exits');
-            $table->bigInteger('permission');
+            $table->string('exist');
+            $table->string('permission');
             $table->tinyInteger('status');
             $table->timestamps();
         });
