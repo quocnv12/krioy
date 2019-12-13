@@ -14,8 +14,10 @@ class CreateChildrenFoodTable extends Migration
     public function up()
     {
         Schema::create('children_food', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->bigInteger('id_children')->unsigned();
+            $table->foreign('id_children')->references('id')->on('children_profiles')->onDelete('cascade');
+            $table->bigInteger('id_food')->unsigned();
+            $table->foreign('id_food')->references('id')->on('food')->onDelete('cascade');
         });
     }
 

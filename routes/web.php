@@ -23,5 +23,6 @@ Route::get('/', function () {
     return view('pages.home');
 })->name('home');
 
-
+//test
+Route::post('children_profiles/create', 'Admin\ChildrenProfilesController@store');
 
