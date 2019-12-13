@@ -1,6 +1,9 @@
 body{
     background-color: #f9f9f9 !important;
 }
+body#report{
+  background-color: #fff !important;
+}
 
 .clearfix:after {
     visibility: hidden;
@@ -510,8 +513,62 @@ section.attendance-layout{
 .select-activity-type .select-activity{
     float: left;
     margin-right: 10px;
+    margin-bottom: 15px;
 }
-
+/*Calendar*/
+select.calendar-select{
+  color: black;
+  border:none;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
+}
+/*report*/
+.report{
+  margin: 20px 0;
+}
+.report-p{
+    width: 280px;
+    height: auto;
+    z-index: 1;
+    border-radius: 5px;
+}
+.report-1{
+  background-color: #ff80aa;
+}
+.report-2{
+  background: #9999e6;
+}
+.report-3{
+  background: #44B15B;
+}
+.report-4{
+  background: #4dd2ff;
+}
+.report-p p{
+  color: #fff;
+  margin: auto !important;
+  padding: 12px 0;
+}
+.report-boder{
+  border-radius: 15px;
+  width: 280px;
+  cursor: pointer;
+}
+.report-boder span{
+  color:#5363d6;
+}
+.report-boder-1{
+  border: 2px solid rgb(255, 128, 170);
+}
+.report-boder-2{
+  border: 2px solid #9999e6;
+}
+.report-boder-3{
+  border: 2px solid #44B15B;
+}
+.report-boder-4{
+  border: 2px solid #4dd2ff;
+}
         /*RESPONSIVE*/
  @media screen and (max-width: 990px){
     .input_box{
