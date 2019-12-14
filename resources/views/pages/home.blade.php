@@ -37,7 +37,7 @@ Trang chủ
                 </a>
             </div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
-                <a href="#">
+                <a href="kids-now/food">
                     <img src="images/Food-01.png" alt="">
                     <div class="title">
                         <p>Food</p>

@@ -90,6 +90,17 @@ Route::group(['prefix' => 'kids-now'], function () {
     });
 
 
+
+
+        //---------------food----------------
+        Route::group(['prefix' => 'food'], function () {
+            Route::get('', function () {
+                return view('pages.food.food');
+            });
+            
+            
+    });
+
           //---------------notice board----------------
           Route::group(['prefix' => 'notice-board'], function () {
             Route::get('', function () {
