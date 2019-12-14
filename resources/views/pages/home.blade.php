@@ -37,7 +37,7 @@ Trang chủ
                 </a>
             </div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
-                <a href="#">
+                <a href="kids-now/food">
                     <img src="images/Food-01.png" alt="">
                     <div class="title">
                         <p>Food</p>
@@ -66,7 +66,7 @@ Trang chủ
         <div class="row line">
             <div class="col-md-1 "></div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
-                <a href="#">
+                <a href="kids-now/health">
                     <img src="images/Health-01.png" alt="">
                     <div class="title">
                         <p><strong>Health</strong></p>
@@ -74,7 +74,7 @@ Trang chủ
                 </a>
             </div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
-                <a href="#">
+                <a href="kids-now/observations">
                     <img src="images/Observation-01.png" alt="">
                     <div class="title">
                         <p>Observations</p>
@@ -112,7 +112,7 @@ Trang chủ
             <div class="col-md-1 "></div>
 
             <div class="col-xs-6 col-md-2 col-sm-4 item">
-                <a href="#">
+                <a href="kids-now/notice-board">
                     <img src="images/Notice Board Circle-01.png" alt="">
                     <div class="title">
                         <p><strong>Notice Board</strong></p>
@@ -212,7 +212,7 @@ Trang chủ
         <div class="row line">
             <div class="col-md-1 "></div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
-                <a href="kids-now/children/profiles">
+                <a href="kids-now/children">
                     <img src="images/Child.png" alt="">
                     <div class="title">
                         <p>Children Profiles</p>
@@ -220,7 +220,7 @@ Trang chủ
                 </a>
             </div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
-                <a href="kids-now/staff/profiles">
+                <a href="kids-now/staff">
                     <img src="images/Staff.png" alt="">
                     <div class="title">
                         <p>Staff Profiles</p>

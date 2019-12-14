@@ -21,17 +21,23 @@
 // });
 
 
-Route::get('/', function () {
-    return view('pages.home');
-})->name('home');
+
+
+     //---------------login----------------
+Route::get('login', function () {
+    return view('pages.addmin-login.login');
+});
 
 Route::group(['prefix' => 'kids-now'], function () {
+    Route::get('/', function () {
+        return view('pages.home');
+    });
     //---------------children----------------
     Route::group(['prefix' => 'children'], function () {
-        Route::get('profiles', function () {
+        Route::get('', function () {
             return view('pages.children.child_profile');
         });
-        Route::get('create', function () {
+        Route::get('add', function () {
             return view('pages.children.create_child');
         });
         Route::get('edit', function () {
@@ -41,14 +47,17 @@ Route::group(['prefix' => 'kids-now'], function () {
 
        //---------------staff----------------
        Route::group(['prefix' => 'staff'], function () {
-            Route::get('profiles', function () {
+            Route::get('', function () {
                 return view('pages.staff.staff_profile');
             });
-            Route::get('create_staff', function () {
+            Route::get('add', function () {
                 return view('pages.staff.create_staff');
             });
-            Route::get('edit_staff', function () {
+            Route::get('edit', function () {
                 return view('pages.staff.edit_staff');
+            });
+            Route::get('profile', function () {
+                return view('pages.staff.profile');
             });
     });
 
@@ -61,6 +70,56 @@ Route::group(['prefix' => 'kids-now'], function () {
             
             
     });
+
+     //---------------health----------------
+        Route::group(['prefix' => 'health'], function () {
+            Route::get('', function () {
+                return view('pages.heath.heath');
+            });
+            
+            
+    });
+
+        //---------------observation----------------
+        Route::group(['prefix' => 'observations'], function () {
+            Route::get('', function () {
+                return view('pages.observation.observation');
+            });
+            
+            
+    });
+
+
+
+
+        //---------------food----------------
+        Route::group(['prefix' => 'food'], function () {
+            Route::get('', function () {
+                return view('pages.food.food');
+            });
+            
+            
+    });
+
+          //---------------notice board----------------
+          Route::group(['prefix' => 'notice-board'], function () {
+            Route::get('', function () {
+                return view('pages.notice.notice_board');
+            });
+            
+            Route::get('add', function () {
+                return view('pages.notice.add_notice');
+            });
+            Route::get('edit', function () {
+                return view('pages.notice.edit_notice');
+            });
+            Route::get('detail', function () {
+                return view('pages.notice.notice_detail');
+            });
+            
+    });
+
+
 
 
 
