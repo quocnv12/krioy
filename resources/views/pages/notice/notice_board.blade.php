@@ -46,7 +46,7 @@
 			<div class="mat-content">	
 				<div class="mat-card" style="margin: 0;">
 					<div class="row">
-						<div class="notice" data-href="notice-detail.html">
+						<div class="notice" data-href="kids-now/notice-board/detail">
 							<div class="col-lg-9 col-md-9 col-sm-9">
 								<span _ngcontent-c34="" style="display: block; font-size: 18px; padding-left: 0px;"><!---->
 									<i _ngcontent-c34="" aria-hidden="true" class="fa fa-star ng-star-inserted" style="color:#FAC917;padding-right:5px; "></i> sdfgasfad
@@ -67,7 +67,7 @@
 			</div>
 		</div>
 		<div class="icon-plus" title="add">
-			<a href="edit-staff.html">
+			<a href="kids-now/notice-board/add">
 				<i class="fa fa-plus"></i>
 			</a>
 		</div>

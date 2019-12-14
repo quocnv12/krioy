@@ -202,8 +202,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="icon-plus" title="add">
-			<a href="edit_staff.blade.php">
+		<div class="icon-plus" title="edit">
+			<a href="kids-now/staff/edit">
 				<i class="fa fa-plus"></i>
 			</a>
 		</div>
