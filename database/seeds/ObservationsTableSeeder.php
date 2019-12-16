@@ -13,6 +13,7 @@ class ObservationsTableSeeder extends Seeder
     public function run()
     {
         //
+        DB::table('observations')->delete();
         DB::table('observations')->insert([
             [
                 'id_children'       =>  1,

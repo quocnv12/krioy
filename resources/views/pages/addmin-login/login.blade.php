@@ -4,20 +4,20 @@
 		<title>Kriyo Login</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<link rel="stylesheet" href="index.css">
-		<link rel="stylesheet" type="text/css" href="staff_profile.css">
+		<link rel="stylesheet" href="asset/kriyo/css/index.css">
+		<link rel="stylesheet" type="text/css" href="asset/kriyo/css/staff_profile.css">
 
 		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
    		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
     	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
 
-    	<link rel="stylesheet" href="css/bootstrap.min.css">
+    	<link rel="stylesheet" href="asset/kriyo/css/bootstrap.min.css">
     
 	    <!-- Font Awesome -->
-	    <link rel="stylesheet" href="css/font-awesome.min.css">
+	    <link rel="stylesheet" href="asset/kriyo/css/font-awesome.min.css">
 	    
 	    <!-- Custom CSS -->
-	    <link rel="stylesheet" href="css/owl.carousel.css">
+	    <link rel="stylesheet" href="asset/kriyo/css/owl.carousel.css">
 	</head>
 <body id="login">
 	<section class="page-top-center container">
@@ -78,20 +78,21 @@
 		</div>
 	</footer>
 </body>
+
 	<script src="https://code.jquery.com/jquery.min.js"></script>
     
     <!-- Bootstrap JS form CDN -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     
     <!-- jQuery sticky menu -->
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
+    <script src="asset/kriyo/js/owl.carousel.min.js"></script>
+    <script src="asset/kriyo/js/jquery.sticky.js"></script>
     
     <!-- jQuery easing -->
-    <script src="js/jquery.easing.1.3.min.js"></script>
+    <script src="asset/kriyo/js/jquery.easing.1.3.min.js"></script>
     
     <!-- Main Script -->
-    <script src="js/main.js"></script>
+    <script src="asset/kriyo/js/main.js"></script>
     <script type="text/javascript">
 		$('.input_box input').focus(function(event) {
 	    	$(this).siblings('span').addClass('input_box_span_active');

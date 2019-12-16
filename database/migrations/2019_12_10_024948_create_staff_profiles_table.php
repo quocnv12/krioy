@@ -26,7 +26,6 @@ class CreateStaffProfilesTable extends Migration
             $table->string('blood_group');
             $table->date('date_of_joining');
             $table->string('exist');
-            $table->string('permission');
             $table->tinyInteger('status');
             $table->timestamps();
         });

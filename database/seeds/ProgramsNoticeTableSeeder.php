@@ -13,6 +13,7 @@ class ProgramsNoticeTableSeeder extends Seeder
     public function run()
     {
         //
+        DB::table('programs_notice')->delete();
         DB::table('programs_notice')->insert([
             [
                 'id_programs'   =>  1,

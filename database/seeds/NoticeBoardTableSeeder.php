@@ -13,6 +13,7 @@ class NoticeBoardTableSeeder extends Seeder
     public function run()
     {
         //
+        DB::table('notice_board')->delete();
         DB::table('notice_board')->insert([
             [
                 'title'     => 'title1',

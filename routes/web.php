@@ -24,9 +24,8 @@
 
 
      //---------------login----------------
-Route::get('login', function () {
-    return view('pages.addmin-login.login');
-});
+Route::get('login','Admin\LoginController@GetLogin');
+
 
 Route::group(['prefix' => 'kids-now'], function () {
     Route::get('/', function () {

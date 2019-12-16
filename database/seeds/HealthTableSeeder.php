@@ -13,6 +13,7 @@ class HealthTableSeeder extends Seeder
     public function run()
     {
         //
+        DB::table('health')->delete();
         DB::table('health')->insert([
             [
                 'id_children'   =>  1,
