@@ -4,7 +4,6 @@ body{
 body#report{
   background-color: #fff !important;
 }
-
 .clearfix:after {
     visibility: hidden;
     display: block;
@@ -591,6 +590,71 @@ div.daily-report span{
     color: grey;
     font-size: 13px;
     padding-top: 10px;
+}
+
+        /*enquiries*/
+.enquiries-icon{
+    text-align: right;
+}
+.enquiries-icon button{
+    font-size: 30px;
+    border: none;
+    background: #fff;
+    margin-right: 10px;
+    color: #3f51b5;
+    cursor: pointer;
+    margin-top: 10px;
+}
+            
+            /*Program*/
+.program{
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    width: 90%;
+    margin: auto;
+    min-height: 400px;
+    border-radius: 5px;
+}
+.program-content{
+    padding-top: 10px 15px;
+}
+.program-label{
+    background: #5363d6;
+    color: #fff;
+    padding: 13px;
+}
+.program-label p{
+    font-size: 18px;
+    font-weight: bold;
+    margin: auto !important;
+}
+.program-content-1{
+    margin: 20px 10px !important;
+    padding: 15px 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    border-radius: 5px;
+    background: #fff;
+    color: rgba(0,0,0,.87);
+}
+        /*edit-program*/
+.select-child-img1:hover {
+    box-shadow: none !important;
+    top:0 !important;
+    cursor: context-menu !important;
+}
+.panel_new .listClass{
+    background-color: #fff ;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+    background: #fff;
+    border: 2px solid #5363d6;
+    color: #666;
+    text-align: center;
+    margin: 6px;
+    float: left;
+    cursor: pointer;
 }
 
 
