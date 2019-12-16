@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAttendanceStaffTable extends Migration
+class CreateStaffRoleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,11 @@ class CreateAttendanceStaffTable extends Migration
      */
     public function up()
     {
-        Schema::create('attendance_staff', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('staff_role', function (Blueprint $table) {
             $table->bigInteger('id_staff')->unsigned();
             $table->foreign('id_staff')->references('id')->on('staff_profiles')->onDelete('cascade');
-            $table->integer('total_come');
-            $table->integer('total_absent');
-            $table->tinyInteger('month');
-            $table->year('year');
-            $table->timestamps();
+            $table->bigInteger('id_role')->unsigned();
+            $table->foreign('id_role')->references('id')->on('role')->onDelete('cascade');
         });
     }
 
@@ -32,6 +28,6 @@ class CreateAttendanceStaffTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attendance_staff');
+        Schema::dropIfExists('staff_role');
     }
 }

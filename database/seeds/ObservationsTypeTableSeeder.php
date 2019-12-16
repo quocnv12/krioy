@@ -13,6 +13,7 @@ class ObservationsTypeTableSeeder extends Seeder
     public function run()
     {
         //
+        DB::table('observations_type')->delete();
         DB::table('observations_type')->insert([
            [
                'name'   =>  'attendance'

@@ -13,6 +13,7 @@ class FoodItemsTableSeeder extends Seeder
     public function run()
     {
         //
+        DB::table('food_items')->delete();
         DB::table('food_items')->insert([
             [
                 'food_name' =>  'fish'

@@ -31,5 +31,8 @@ class DatabaseSeeder extends Seeder
         $this->call(HealthTableSeeder::class);
         $this->call(NoticeBoardTableSeeder::class);
         $this->call(ProgramsNoticeTableSeeder::class);
+        $this->call(role::class);
+        $this->call(staff_role::class);
+
     }
 }

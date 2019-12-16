@@ -13,8 +13,10 @@ class AttendanceChildrenTableSeeder extends Seeder
     public function run()
     {
         //
+        DB::table('attendance_children')->delete();
         DB::table('attendance_children')->insert([
             [
+                
                 'id_children'   =>1,
                 'total_come'    =>20,
                 'total_absent'  =>2,

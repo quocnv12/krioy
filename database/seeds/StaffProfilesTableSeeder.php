@@ -13,11 +13,13 @@ class StaffProfilesTableSeeder extends Seeder
     public function run()
     {
         //
+        DB::table('staff_profiles')->delete();
         DB::table('staff_profiles')->insert([
             [
+                'id'=>1,
                'first_name'         =>  'laura',
                 'last_name'         =>  'robert',
-                'phone'             =>  '45616813',
+                'phone'             =>  '0912345678',
                 'image'             =>  'image',
                 'gender'            =>  1,
                 'email'             =>  'robert@gmail.com',
@@ -26,13 +28,13 @@ class StaffProfilesTableSeeder extends Seeder
                 'blood_group'       =>  'A',
                 'date_of_joining'   =>  '2000-10-10',
                 'exist'             =>  1,
-                'permission'        =>  'none',
                 'status'            =>  1
             ],
             [
+                'id'=>2,
                 'first_name'        =>  'finley',
                 'last_name'         =>  'has',
-                'phone'             =>  '5635435',
+                'phone'             =>  '0912345679',
                 'image'             =>  'image',
                 'gender'            =>  1,
                 'email'             =>  'robert@gmail.com',
@@ -41,13 +43,14 @@ class StaffProfilesTableSeeder extends Seeder
                 'blood_group'       =>  'B',
                 'date_of_joining'   =>  '2000-10-10',
                 'exist'             =>  1,
-                'permission'        =>  'none',
+                
                 'status'            =>  1
             ],
             [
+                'id'=>3,
                 'first_name'        =>  'yeyeey',
                 'last_name'         =>  'bomomo',
-                'phone'             =>  '342423',
+                'phone'             =>  '0912345670',
                 'image'             =>  'image',
                 'gender'            =>  1,
                 'email'             =>  'robert@gmail.com',
@@ -56,13 +59,14 @@ class StaffProfilesTableSeeder extends Seeder
                 'blood_group'       =>  'A',
                 'date_of_joining'   =>  '2000-10-10',
                 'exist'             =>  1,
-                'permission'        =>  'none',
+               
                 'status'            =>  1
             ],
             [
+                'id'=>4,
                 'first_name'        =>  'stuart',
                 'last_name'         =>  'fff',
-                'phone'             =>  '7665',
+                'phone'             =>  '0912345671',
                 'image'             =>  'image',
                 'gender'            =>  1,
                 'email'             =>  'robert@gmail.com',
@@ -71,13 +75,14 @@ class StaffProfilesTableSeeder extends Seeder
                 'blood_group'       =>  'A',
                 'date_of_joining'   =>  '2000-10-10',
                 'exist'             =>  1,
-                'permission'        =>  'none',
+              
                 'status'            =>  1
             ],
             [
+                'id'=>5,
                 'first_name'        =>  'bob',
                 'last_name'         =>  'robert',
-                'phone'             =>  '4543534',
+                'phone'             =>  '0912345672',
                 'image'             =>  'image',
                 'gender'            =>  1,
                 'email'             =>  'robert@gmail.com',
@@ -86,7 +91,6 @@ class StaffProfilesTableSeeder extends Seeder
                 'blood_group'       =>  'A',
                 'date_of_joining'   =>  '2000-10-10',
                 'exist'             =>  1,
-                'permission'        =>  'none',
                 'status'            =>  1
             ],
         ]);
