@@ -16,8 +16,10 @@ class StaffProfilesTableSeeder extends Seeder
         DB::table('staff_profiles')->delete();
         DB::table('staff_profiles')->insert([
             [
-                'id'=>1,
-               'first_name'         =>  'laura',
+
+                'id'                =>  1,
+                'first_name'         =>  'laura',
+
                 'last_name'         =>  'robert',
                 'phone'             =>  '0912345678',
                 'image'             =>  'image',
@@ -31,7 +33,9 @@ class StaffProfilesTableSeeder extends Seeder
                 'status'            =>  1
             ],
             [
-                'id'=>2,
+
+                'id'                =>  2,
+
                 'first_name'        =>  'finley',
                 'last_name'         =>  'has',
                 'phone'             =>  '0912345679',
@@ -47,7 +51,9 @@ class StaffProfilesTableSeeder extends Seeder
                 'status'            =>  1
             ],
             [
-                'id'=>3,
+
+                'id'                =>  3,
+
                 'first_name'        =>  'yeyeey',
                 'last_name'         =>  'bomomo',
                 'phone'             =>  '0912345670',
@@ -63,7 +69,9 @@ class StaffProfilesTableSeeder extends Seeder
                 'status'            =>  1
             ],
             [
-                'id'=>4,
+
+                'id'                =>  4,
+
                 'first_name'        =>  'stuart',
                 'last_name'         =>  'fff',
                 'phone'             =>  '0912345671',
@@ -79,7 +87,9 @@ class StaffProfilesTableSeeder extends Seeder
                 'status'            =>  1
             ],
             [
-                'id'=>5,
+
+                'id'                =>  5,
+
                 'first_name'        =>  'bob',
                 'last_name'         =>  'robert',
                 'phone'             =>  '0912345672',

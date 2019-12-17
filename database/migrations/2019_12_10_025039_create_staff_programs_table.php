@@ -16,8 +16,8 @@ class CreateStaffProgramsTable extends Migration
         Schema::create('staff_programs', function (Blueprint $table) {
             $table->bigInteger('id_staff')->unsigned();
             $table->foreign('id_staff')->references('id')->on('staff_profiles')->onDelete('cascade');
-            $table->bigInteger('id_programs')->unsigned();
-            $table->foreign('id_programs')->references('id')->on('programs')->onDelete('cascade');
+            $table->bigInteger('id_program')->unsigned();
+            $table->foreign('id_program')->references('id')->on('programs')->onDelete('cascade');
         });
     }
 

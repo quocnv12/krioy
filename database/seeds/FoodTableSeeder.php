@@ -16,6 +16,7 @@ class FoodTableSeeder extends Seeder
         DB::table('food')->delete();
         DB::table('food')->insert([
            [
+               'id'         =>  1,
                'quantity'   =>  1,
                'meal_type'  =>  'morning',
                'id_food'    =>  1,
@@ -23,6 +24,7 @@ class FoodTableSeeder extends Seeder
                'file_pdf'   =>  'file_pdf',
            ],
             [
+                'id'         =>  2,
                 'quantity'   =>  2,
                 'meal_type'  =>  'dinner',
                 'id_food'    =>  10,
@@ -30,6 +32,7 @@ class FoodTableSeeder extends Seeder
                 'file_pdf'   =>  'file_pdf',
             ],
             [
+                'id'         =>  3,
                 'quantity'   =>  1,
                 'meal_type'  =>  'lunch',
                 'id_food'    =>  2,
@@ -37,6 +40,7 @@ class FoodTableSeeder extends Seeder
                 'file_pdf'   =>  'file_pdf',
             ],
             [
+                'id'         =>  4,
                 'quantity'   =>  1,
                 'meal_type'  =>  'morning',
                 'id_food'    =>  4,
@@ -44,6 +48,7 @@ class FoodTableSeeder extends Seeder
                 'file_pdf'   =>  'file_pdf',
             ],
             [
+                'id'         =>  5,
                 'quantity'   =>  1,
                 'meal_type'  =>  'morning',
                 'id_food'    =>  5,
