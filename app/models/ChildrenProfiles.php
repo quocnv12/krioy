@@ -25,4 +25,5 @@ class ChildrenProfiles extends Model
     ];
 
     protected $timestamp = false;
+
 }

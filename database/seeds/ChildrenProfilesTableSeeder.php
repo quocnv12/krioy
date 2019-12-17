@@ -16,6 +16,7 @@ class ChildrenProfilesTableSeeder extends Seeder
         DB::table('children_profiles')->delete();
         DB::table('children_profiles')->insert([
            [
+               'id'             =>1,
                'first_name'     =>'john',
                'last_name'      =>'Cena',
                'birthday'       =>'2010-10-10',
@@ -31,6 +32,7 @@ class ChildrenProfilesTableSeeder extends Seeder
                
            ],
             [
+                'id'             =>2,
                 'first_name'     =>'mike',
                 'last_name'      =>'tom',
                 'birthday'       =>'2010-10-10',
@@ -46,6 +48,7 @@ class ChildrenProfilesTableSeeder extends Seeder
                 
             ],
             [
+                'id'             =>3,
                 'first_name'     =>'TOM',
                 'last_name'      =>'JERRY',
                 'birthday'       =>'2010-10-10',
@@ -61,6 +64,7 @@ class ChildrenProfilesTableSeeder extends Seeder
                 
             ],
             [
+                'id'             =>4,
                 'first_name'     =>'TIM',
                 'last_name'      =>'YAN',
                 'birthday'       =>'2010-10-10',
@@ -76,6 +80,7 @@ class ChildrenProfilesTableSeeder extends Seeder
                 
             ],
             [
+                'id'             =>5,
                 'first_name'     =>'HEELO',
                 'last_name'      =>'FR',
                 'birthday'       =>'2010-10-10',
@@ -91,6 +96,7 @@ class ChildrenProfilesTableSeeder extends Seeder
                 
             ],
             [
+                'id'             =>6,
                 'first_name'     =>'FACEBOOK',
                 'last_name'      =>'LALALA',
                 'birthday'       =>'2010-10-10',
@@ -106,6 +112,7 @@ class ChildrenProfilesTableSeeder extends Seeder
                 
             ],
             [
+                'id'             =>7,
                 'first_name'     =>'DEMACIA',
                 'last_name'      =>'LEU LEU',
                 'birthday'       =>'2010-10-10',
@@ -121,6 +128,7 @@ class ChildrenProfilesTableSeeder extends Seeder
                 
             ],
             [
+                'id'             =>8,
                 'first_name'     =>'HEHE',
                 'last_name'      =>'HHOHO',
                 'birthday'       =>'2010-10-10',
@@ -136,6 +144,7 @@ class ChildrenProfilesTableSeeder extends Seeder
                 
             ],
             [
+                'id'             =>9,
                 'first_name'     =>'NICE',
                 'last_name'      =>'Cena',
                 'birthday'       =>'2010-10-10',
@@ -151,6 +160,7 @@ class ChildrenProfilesTableSeeder extends Seeder
                 
             ],
             [
+                'id'             =>10,
                 'first_name'     =>'BUM',
                 'last_name'      =>'BBUM',
                 'birthday'       =>'2010-10-10',

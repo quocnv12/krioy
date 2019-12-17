@@ -16,6 +16,7 @@ class HealthTableSeeder extends Seeder
         DB::table('health')->delete();
         DB::table('health')->insert([
             [
+                'id'            =>  1,
                 'id_children'   =>  1,
                 'time'          =>  '2012-10-10',
                 'sick'          =>  'none',
@@ -28,6 +29,7 @@ class HealthTableSeeder extends Seeder
                 'file_pdf'      =>  'file pdf',
             ],
             [
+                'id'            =>  2,
                 'id_children'   =>  2,
                 'time'          =>  '2012-10-10',
                 'sick'          =>  'none',
@@ -40,6 +42,7 @@ class HealthTableSeeder extends Seeder
                 'file_pdf'      =>  'file pdf',
             ],
             [
+                'id'            =>  3,
                 'id_children'   =>  3,
                 'time'          =>  '2012-10-10',
                 'sick'          =>  'none',
@@ -52,6 +55,7 @@ class HealthTableSeeder extends Seeder
                 'file_pdf'      =>  'file pdf',
             ],
             [
+                'id'            =>  4,
                 'id_children'   =>  4,
                 'time'          =>  '2012-10-10',
                 'sick'          =>  'none',
@@ -64,6 +68,7 @@ class HealthTableSeeder extends Seeder
                 'file_pdf'      =>  'file pdf',
             ],
             [
+                'id'            =>  5,
                 'id_children'   =>  5,
                 'time'          =>  '2012-10-10',
                 'sick'          =>  'none',

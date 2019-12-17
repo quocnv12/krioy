@@ -23,6 +23,7 @@
 
 
 
+
      //---------------login----------------
 Route::get('login','Admin\LoginController@GetLogin')->middleware('CheckLogOut');
 Route::post('login','Admin\LoginController@PostLogin');
