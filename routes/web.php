@@ -24,10 +24,14 @@
 
 
      //---------------login----------------
-Route::get('login','Admin\LoginController@GetLogin');
+Route::get('login','Admin\LoginController@GetLogin')->middleware('CheckLogOut');
+Route::post('login','Admin\LoginController@PostLogin');
 
 
-Route::group(['prefix' => 'kids-now'], function () {
+Route::group(['prefix' => 'kids-now','middleware'=>'CheckLogin'], function () {
+    Route::get('logout','Admin\LoginController@Logout');
+
+    
     Route::get('/', function () {
         return view('pages.home');
     });
@@ -119,12 +123,27 @@ Route::group(['prefix' => 'kids-now'], function () {
     });
 
 
-
-
+              //---------------program----------------
+              Route::group(['prefix' => 'program'], function () {
+                Route::get('', function () {
+                    return view('pages.program.program');
+                });
+                Route::get('add', function () {
+                    return view('pages.program.add_program');
+                });
+                Route::get('edit', function () {
+                    return view('pages.program.edit-program');
+                });
+                Route::get('view', function () {
+                    return view('pages.program.view-program');
+                });
+                
+                
+        });
+            
+        
 
     
-
-
 });
 
 

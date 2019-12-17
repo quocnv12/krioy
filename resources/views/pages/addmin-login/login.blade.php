@@ -24,31 +24,49 @@
 		<div class="row">
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
+				<form method="POST">
+					@csrf
 				<div class="login" align="center">
 					<div class="login-label">
 						<p>Kids Now App Login</p>
 					</div>
 					<div class="login-input">
+					@if (session('thongbao'))
+						<div class="alert alert-danger" role="alert">
+							<strong>{{ session('thongbao') }}</strong>
+						</div>
+					@endif
 						<div class="add">
 							<div class="input_box" style="width: 100%;">
 						        <span>Phone Number *</span>
-						        <input type="phone" name="phone" placeholder="Phone Number*">
+								<input type="phone" name="phone" value="{{ old('phone') }}" placeholder="Phone Number*">
+								@if ($errors->has('phone'))
+									<div style="width: 80%;" class="alert alert-danger" role="alert">
+										<strong>{{ $errors->first('phone') }}</strong>
+									</div>
+								@endif
 						    </div>
 						</div>
 						<div class="add">
 							<div class="input_box" style="width: 100%;">
 								<span>Enter your password</span>
 								<input type="password" name="password" placeholder="PassWord">
+								@if ($errors->has('password'))
+									<div style="width: 80%;" class="alert alert-danger" role="alert">
+										<strong>{{ $errors->first('password') }}</strong>
+									</div>
+								@endif
 							</div>
 						</div>
 					</div>
 					<div class="login-button" align="center">
-						<button>
+						<button type="submit">
 							<span>Login</span>
 						</button>
 						<a href="#">Forgot password?</a>
 					</div>
 				</div>
+			</form>
 			<div class="col-md-3"></div>
 		</div>
 	</section>

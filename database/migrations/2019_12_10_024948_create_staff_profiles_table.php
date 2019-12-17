@@ -16,6 +16,7 @@ class CreateStaffProfilesTable extends Migration
         Schema::create('staff_profiles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('first_name');
+            $table->string('password')->default(bcrypt('123456789'));
             $table->string('last_name');
             $table->string('phone');
             $table->string('image');
