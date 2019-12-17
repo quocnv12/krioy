@@ -13,7 +13,7 @@ class CreateChildrenProgramTable extends Migration
      */
     public function up()
     {
-        Schema::create('children_program', function (Blueprint $table) {
+        Schema::create('children_programs', function (Blueprint $table) {
             $table->bigInteger('id_children')->unsigned();
             $table->foreign('id_children')->references('id')->on('children_profiles')->onDelete('cascade');
             $table->bigInteger('id_program')->unsigned();

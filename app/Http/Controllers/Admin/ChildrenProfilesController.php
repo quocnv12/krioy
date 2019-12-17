@@ -41,13 +41,11 @@ class ChildrenProfilesController extends Controller
     public function store(Request $request)
     {
         //
-        $data = $request->all();
-
-        $children_profiles = new ChildrenProfiles($data);
+        $children_profiles = ChildrenProfiles::create($request->all());
 
         $children_profiles->save();
 
-        return response()->json(['children_profiles' => $children_profiles], 200);
+        return response()->json(['children_profiles' => $children_profiles], 201);
     }
 
     /**
@@ -59,6 +57,10 @@ class ChildrenProfilesController extends Controller
     public function show($id)
     {
         //
+        $children_profiles = ChildrenProfiles::find($id);
+
+        return response()->json(['children_profiles' => $children_profiles]);
+
     }
 
     /**
@@ -82,6 +84,13 @@ class ChildrenProfilesController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $children_profiles = ChildrenProfiles::findOrFail($id);
+        $children_profiles->update($request->all());
+
+        $children_profiles->save();
+
+        return response()->json(['children_profiles' => $children_profiles], 200);
+
     }
 
     /**
@@ -93,5 +102,9 @@ class ChildrenProfilesController extends Controller
     public function destroy($id)
     {
         //
+        $children_profiles = ChildrenProfiles::findOrFail($id);
+        $children_profiles->delete();
+
+        return response()->json(null, 204);
     }
 }

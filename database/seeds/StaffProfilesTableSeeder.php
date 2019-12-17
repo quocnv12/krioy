@@ -15,7 +15,8 @@ class StaffProfilesTableSeeder extends Seeder
         //
         DB::table('staff_profiles')->insert([
             [
-               'first_name'         =>  'laura',
+                'id'                =>  1,
+                'first_name'         =>  'laura',
                 'last_name'         =>  'robert',
                 'phone'             =>  '45616813',
                 'image'             =>  'image',
@@ -30,6 +31,7 @@ class StaffProfilesTableSeeder extends Seeder
                 'status'            =>  1
             ],
             [
+                'id'                =>  2,
                 'first_name'        =>  'finley',
                 'last_name'         =>  'has',
                 'phone'             =>  '5635435',
@@ -45,6 +47,7 @@ class StaffProfilesTableSeeder extends Seeder
                 'status'            =>  1
             ],
             [
+                'id'                =>  3,
                 'first_name'        =>  'yeyeey',
                 'last_name'         =>  'bomomo',
                 'phone'             =>  '342423',
@@ -60,6 +63,7 @@ class StaffProfilesTableSeeder extends Seeder
                 'status'            =>  1
             ],
             [
+                'id'                =>  4,
                 'first_name'        =>  'stuart',
                 'last_name'         =>  'fff',
                 'phone'             =>  '7665',
@@ -75,6 +79,7 @@ class StaffProfilesTableSeeder extends Seeder
                 'status'            =>  1
             ],
             [
+                'id'                =>  5,
                 'first_name'        =>  'bob',
                 'last_name'         =>  'robert',
                 'phone'             =>  '4543534',

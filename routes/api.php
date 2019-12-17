@@ -17,6 +17,21 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('children_profiles/create', 'Admin\ChildrenProfilesController@store');
+//children_profiles
+Route::get('children_profiles','Admin\ChildrenProfilesController@index');
+Route::get('children_profiles/{id}','Admin\ChildrenProfilesController@show');
+Route::post('children_profiles', 'Admin\ChildrenProfilesController@store');
+Route::put('children_profiles/{id}','Admin\ChildrenProfilesController@update');
+Route::delete('children_profiles/{id}','Admin\ChildrenProfilesController@destroy');
 
+//attendance_children
+Route::get('attendance_children','Admin\AttendanceChildrenController@index');
+Route::get('attendance_children/{id}','Admin\AttendanceChildrenController@show');
+
+//programs
+Route::get('programs','Admin\ProgramsController@index');
+Route::get('programs/{id}','Admin\ProgramsController@show');
+Route::post('programs', 'Admin\ProgramsController@store');
+Route::put('programs/{id}','Admin\ProgramsController@update');
+Route::delete('programs/{id}','Admin\ProgramsController@destroy');
 

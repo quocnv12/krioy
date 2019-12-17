@@ -27,10 +27,6 @@ class StaffProgramsTableSeeder extends Seeder
                 'id_programs'    =>  3
             ],
             [
-                'id_staff'       =>  1,
-                'id_programs'    =>  1
-            ],
-            [
                 'id_staff'       =>  2,
                 'id_programs'    =>  1
             ],
@@ -42,7 +38,6 @@ class StaffProgramsTableSeeder extends Seeder
                 'id_staff'       =>  3,
                 'id_programs'    =>  4
             ],
-
         ]);
     }
 }

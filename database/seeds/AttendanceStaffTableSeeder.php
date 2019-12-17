@@ -15,6 +15,7 @@ class AttendanceStaffTableSeeder extends Seeder
         //
         DB::table('attendance_staff')->insert([
             [
+                'id'            =>1,
                 'id_staff'      =>1,
                 'total_come'    =>20,
                 'total_absent'  =>2,
@@ -22,6 +23,7 @@ class AttendanceStaffTableSeeder extends Seeder
                 'year'          =>2012
             ],
             [
+                'id'            =>2,
                 'id_staff'      =>2,
                 'total_come'    =>20,
                 'total_absent'  =>2,
@@ -29,6 +31,7 @@ class AttendanceStaffTableSeeder extends Seeder
                 'year'          =>2012
             ],
             [
+                'id'            =>3,
                 'id_staff'      =>3,
                 'total_come'    =>20,
                 'total_absent'  =>2,
@@ -36,6 +39,7 @@ class AttendanceStaffTableSeeder extends Seeder
                 'year'          =>2012
             ],
             [
+                'id'            =>4,
                 'id_staff'      =>4,
                 'total_come'    =>20,
                 'total_absent'  =>2,
@@ -43,6 +47,7 @@ class AttendanceStaffTableSeeder extends Seeder
                 'year'          =>2012
             ],
             [
+                'id'            =>5,
                 'id_staff'      =>5,
                 'total_come'    =>20,
                 'total_absent'  =>2,

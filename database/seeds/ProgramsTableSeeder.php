@@ -16,6 +16,7 @@ class ProgramsTableSeeder extends Seeder
         //
         DB::table('programs')->insert([
                 [
+                    'id'            => 1,
                     'program_name'  => 'Kindergarten',
                     'from_month'    => '2012-12-12',
                     'to_month'      => '2013-12-12',
@@ -29,6 +30,7 @@ class ProgramsTableSeeder extends Seeder
                     'status'        => '1',
                 ],
                 [
+                    'id'            => 2,
                     'program_name'  => 'Primary 1',
                     'from_month'    => '2012-12-12',
                     'to_month'      => '2013-12-12',
@@ -42,6 +44,7 @@ class ProgramsTableSeeder extends Seeder
                     'status'        => '1',
                 ],
                 [
+                    'id'            => 3,
                     'program_name'  => 'Primary 2',
                     'from_month'    => '2012-12-12',
                     'to_month'      => '2013-12-12',
@@ -55,6 +58,7 @@ class ProgramsTableSeeder extends Seeder
                     'status'        => '1',
                 ],
                 [
+                    'id'            => 4,
                     'program_name'  => 'Secondary',
                     'from_month'    => '2012-10-12',
                     'to_month'      => '2013-10-12',
@@ -68,6 +72,7 @@ class ProgramsTableSeeder extends Seeder
                     'status'        => '1',
                 ],
                 [
+                    'id'            => 5,
                     'program_name'  => 'University',
                     'from_month'    => '2012-12-12',
                     'to_month'      => '2013-12-12',
