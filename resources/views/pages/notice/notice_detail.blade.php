@@ -76,8 +76,8 @@
 			</div>
 		</div>
 
-		<div class="icon-plus" title="add">
-			<a href="edit-staff.html">
+		<div class="icon-plus" title="edit">
+			<a href="kids-now/notice-board/edit">
 				<i class="fa fa-plus"></i>
 			</a>
 		</div>

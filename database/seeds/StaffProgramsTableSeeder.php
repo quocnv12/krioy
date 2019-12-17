@@ -13,6 +13,7 @@ class StaffProgramsTableSeeder extends Seeder
     public function run()
     {
         //
+        DB::table('staff_programs')->delete();
         DB::table('staff_programs')->insert([
            [
                'id_staff'       =>  1,

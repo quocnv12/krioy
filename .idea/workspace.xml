@@ -2,17 +2,42 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b470da37-1633-445a-bc30-ac8b25b3bb45" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ChildrenProfilesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ChildrenProfilesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/ChildrenProfiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ChildrenProfiles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_10_024533_create_children_program_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_10_024533_create_children_program_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_10_025039_create_staff_programs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_10_025039_create_staff_programs_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/LoginController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_16_090853_create_role_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_16_111028_create_staff_role_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/role.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeds/staff_role.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/asset/kriyo/images/facebook-circle-white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/asset/kriyo/images/linkedin-circle-white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/asset/kriyo/images/mail-circle-white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/addmin-login/login.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/calendar/add_event.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/calendar/calendar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/daily-report/child-daily-report.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/daily-report/daily-report.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/food/Select-Child.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/food/food.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/history/history.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/notice/add_notice.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/parent-note/parent-note.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/program/Select-Child-program.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/program/add_program.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/program/edit-program.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/program/program.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/program/select-staff.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/program/view-program.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/router-tracker/router-tracker.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_10_024948_create_staff_profiles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_10_024948_create_staff_profiles_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_10_025239_create_attendance_staff_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_10_025239_create_attendance_staff_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/AttendanceChildrenTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/AttendanceChildrenTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/AttendanceStaffTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/AttendanceStaffTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/ChildrenFoodTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ChildrenFoodTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/ChildrenParentTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ChildrenParentTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/ChildrenProfilesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ChildrenProfilesTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/ChildrenProgramTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ChildrenProgramTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/ChildrenStaffTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ChildrenStaffTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/FoodItemsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/FoodItemsTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/FoodTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/FoodTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/HealthTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/HealthTableSeeder.php" afterDir="false" />
@@ -20,10 +45,20 @@
       <change beforePath="$PROJECT_DIR$/database/seeds/ObservationsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ObservationsTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/ObservationsTypeTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ObservationsTypeTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/ParentProfilesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ParentProfilesTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/ProgramsNoticeTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ProgramsNoticeTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/ProgramsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ProgramsTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/StaffProfilesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/StaffProfilesTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/StaffProgramsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/StaffProgramsTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/asset/kriyo/css/heath.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/asset/kriyo/css/heath.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/asset/kriyo/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/asset/kriyo/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/asset/kriyo/css/staff_profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/asset/kriyo/css/staff_profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/children/child_profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/children/child_profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/notice/notice_board.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/notice/notice_board.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/notice/notice_detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/notice/notice_detail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/potty/potty.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/potty/potty.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/staff/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/staff/profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/staff/staff_profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/staff/staff_profile.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -52,8 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
+            <state relative-caret-position="384">
+              <caret line="35" column="36" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -61,20 +96,53 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="26" column="10" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
+            <state relative-caret-position="1870">
+              <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/seeds/AttendanceStaffTableSeeder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="214">
+              <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
               <folding>
-                <element signature="e#7#389#0#PHP" expanded="true" />
+                <element signature="e#7#38#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database/seeds/AttendanceChildrenTableSeeder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+              <folding>
+                <element signature="e#7#38#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/seeds/StaffProfilesTableSeeder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="40" lean-forward="true" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+              <folding>
+                <element signature="e#7#38#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ProgramsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="102" column="29" lean-forward="true" selection-start-line="102" selection-start-column="29" selection-end-line="102" selection-end-column="29" />
+            <state relative-caret-position="370">
+              <caret line="191" selection-start-line="191" selection-end-line="191" />
               <folding>
                 <element signature="e#46#77#0#PHP" expanded="true" />
               </folding>
@@ -137,8 +205,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_12_10_024533_create_children_program_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_12_10_025039_create_staff_programs_table.php" />
         <option value="$PROJECT_DIR$/database/seeds/StaffProgramsTableSeeder.php" />
-        <option value="$PROJECT_DIR$/database/seeds/AttendanceChildrenTableSeeder.php" />
-        <option value="$PROJECT_DIR$/database/seeds/AttendanceStaffTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/ChildrenFoodTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/ChildrenParentTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/ChildrenProfilesTableSeeder.php" />
@@ -150,12 +216,14 @@
         <option value="$PROJECT_DIR$/database/seeds/ObservationsTypeTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/ParentProfilesTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/ProgramsTableSeeder.php" />
-        <option value="$PROJECT_DIR$/database/seeds/StaffProfilesTableSeeder.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AttendanceChildrenController.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/models/StaffProgram.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/ProgramsController.php" />
+        <option value="$PROJECT_DIR$/database/seeds/StaffProfilesTableSeeder.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/database/seeds/AttendanceStaffTableSeeder.php" />
+        <option value="$PROJECT_DIR$/database/seeds/AttendanceChildrenTableSeeder.php" />
       </list>
     </option>
   </component>
@@ -407,12 +475,12 @@
       <workItem from="1576200733591" duration="12379000" />
       <workItem from="1576306624710" duration="12413000" />
       <workItem from="1576465296908" duration="7578000" />
-      <workItem from="1576548064184" duration="3680000" />
+      <workItem from="1576548064184" duration="4540000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42158000" />
+    <option name="totallyTimeSpent" value="43018000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="112" y="12" width="1169" height="701" extended-state="0" />
@@ -433,7 +501,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3309859" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.7130282" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -686,26 +754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/AttendanceChildrenTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="49" column="36" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
-          <folding>
-            <element signature="e#7#38#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/AttendanceStaffTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="49" column="35" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
-          <folding>
-            <element signature="e#7#38#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/ChildrenFoodTableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -836,16 +884,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/StaffProfilesTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="81" column="41" selection-start-line="81" selection-start-column="41" selection-end-line="81" selection-end-column="41" />
-          <folding>
-            <element signature="e#7#38#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/StaffProgramsTableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -876,23 +914,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="35" column="51" selection-start-line="35" selection-start-column="51" selection-end-line="35" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="26" column="10" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
-          <folding>
-            <element signature="e#7#389#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/StaffProgram.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -902,10 +923,54 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ProgramsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="102" column="29" lean-forward="true" selection-start-line="102" selection-start-column="29" selection-end-line="102" selection-end-column="29" />
+        <state relative-caret-position="370">
+          <caret line="191" selection-start-line="191" selection-end-line="191" />
           <folding>
             <element signature="e#46#77#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="35" column="36" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/StaffProfilesTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="40" lean-forward="true" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+          <folding>
+            <element signature="e#7#38#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1870">
+          <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/AttendanceStaffTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+          <folding>
+            <element signature="e#7#38#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/AttendanceChildrenTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#7#38#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

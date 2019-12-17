@@ -13,6 +13,7 @@ class ChildrenStaffTableSeeder extends Seeder
     public function run()
     {
         //
+        DB::table('children_staff')->delete();
         DB::table('children_staff')->insert([
             [
                 'id_children'   =>  1,

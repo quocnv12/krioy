@@ -13,6 +13,7 @@ class ParentProfilesTableSeeder extends Seeder
     public function run()
     {
         //
+        DB::table('parent_profiles')->delete();
         DB::table('parent_profiles')->insert([
             [
                 'id'            =>  1,

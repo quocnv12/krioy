@@ -16,7 +16,7 @@ class CreateAttendanceStaffTable extends Migration
         Schema::create('attendance_staff', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('id_staff')->unsigned();
-            $table->foreign('id_staff')->references('id')->on('staff_profiles');
+            $table->foreign('id_staff')->references('id')->on('staff_profiles')->onDelete('cascade');
             $table->integer('total_come');
             $table->integer('total_absent');
             $table->tinyInteger('month');

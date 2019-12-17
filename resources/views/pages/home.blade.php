@@ -21,32 +21,32 @@ Trang chủ
         <div class="row line">
             <div class="col-md-1 "></div>
             <div class="col-xs-6 col-sm-4 col-md-2 item">
-                <a href="#">
+                <a href="kids-now/attendance">
                     <img src="images/Check in and Check out-01.png" alt="">
                     <div class="title">
-                        <p>Star</p>
+                        <p>Attendance</p>
                     </div>
                 </a>
             </div>
             <div class="col-xs-6 col-sm-4 col-md-2 item">
                 <a href="#">
-                    <img src="images/Health-01.png" alt="">
-                    <div class="title">
-                        <p>Health</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-2 col-sm-4 item">
-                <a href="#">
                     <img src="images/Diary.png" alt="">
                     <div class="title">
-                        <p>Photos</p>
+                        <p>Diary</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
+                <a href="kids-now/food">
+                    <img src="images/Food-01.png" alt="">
+                    <div class="title">
+                        <p>Food</p>
                     </div>
                 </a>
             </div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
-                    <img src="images/Check in and Check out-01.png" alt="">
+                    <img src="images/Star-01.png" alt="">
                     <div class="title">
                         <p>Star</p>
                     </div>
@@ -54,9 +54,9 @@ Trang chủ
             </div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
-                    <img src="images/Check in and Check out-01.png" alt="">
+                    <img src="images/Potty-01.png" alt="">
                     <div class="title">
-                        <p>Star</p>
+                        <p>Potty</p>
                     </div>
                 </a>
             </div>
@@ -66,24 +66,24 @@ Trang chủ
         <div class="row line">
             <div class="col-md-1 "></div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
-                <a href="#">
-                    <img src="images/Check in and Check out-01.png" alt="">
-                    <div class="title">
-                        <p><strong>Star</strong></p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-2 col-sm-4 item">
-                <a href="#">
+                <a href="kids-now/health">
                     <img src="images/Health-01.png" alt="">
                     <div class="title">
-                        <p>Health</p>
+                        <p><strong>Health</strong></p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
+                <a href="kids-now/observations">
+                    <img src="images/Observation-01.png" alt="">
+                    <div class="title">
+                        <p>Observations</p>
                     </div>
                 </a>
             </div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
-                    <img src="images/Diary.png" alt="">
+                    <img src="images/Photots-01.png" alt="">
                     <div class="title">
                         <p>Photos</p>
                     </div>
@@ -91,17 +91,17 @@ Trang chủ
             </div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
-                    <img src="images/Check in and Check out-01.png" alt="">
+                    <img src="images/Play and Learn-01.png" alt="">
                     <div class="title">
-                        <p>Star</p>
+                        <p>Play and Learn</p>
                     </div>
                 </a>
             </div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
-                    <img src="images/Check in and Check out-01.png" alt="">
+                    <img src="images/Sleep-01.png" alt="">
                     <div class="title">
-                        <p>Star</p>
+                        <p>Sleep</p>
                     </div>
                 </a>
             </div>
@@ -110,49 +110,99 @@ Trang chủ
         </div>
         <div class="row line">
             <div class="col-md-1 "></div>
+
             <div class="col-xs-6 col-md-2 col-sm-4 item">
-                <a href="#">
-                    <img src="images/Check in and Check out-01.png" alt="">
+                <a href="kids-now/notice-board">
+                    <img src="images/Notice Board Circle-01.png" alt="">
                     <div class="title">
-                        <p><strong>Star</strong></p>
+                        <p><strong>Notice Board</strong></p>
                     </div>
                 </a>
             </div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
-                    <img src="images/Health-01.png" alt="">
+                    <img src="images/calender-01.png" alt="">
                     <div class="title">
-                        <p>Health</p>
+                        <p>Calendar</p>
                     </div>
                 </a>
             </div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
-                    <img src="images/Diary.png" alt="">
+                    <img src="images/Parent Note with Backgroud -01.png" alt="">
                     <div class="title">
-                        <p>Photos</p>
+                        <p>Parent Notes</p>
                     </div>
                 </a>
             </div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
-                    <img src="images/Check in and Check out-01.png" alt="">
+                    <img src="images/Route Tracker.png" alt="">
                     <div class="title">
-                        <p>Star</p>
+                        <p>Route Tracker</p>
                     </div>
                 </a>
             </div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
-                    <img src="images/Check in and Check out-01.png" alt="">
+                    <img src="images/Report-01.png" alt="">
                     <div class="title">
-                        <p>Star</p>
+                        <p>Reports</p>
                     </div>
                 </a>
             </div>
             <div class="col-md-1 "></div>
 
         </div>
+        <div class="row line">
+            <div class="col-md-1 "></div>
+
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
+                <a href="#">
+                    <img src="images/Daily report.png" alt="">
+                    <div class="title">
+                        <p><strong>Daily Reports</strong></p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
+                <a href="#">
+                    <img src="images/History.png" alt="">
+                    <div class="title">
+                        <p>History</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
+                <a href="#">
+                    <img src="images/Add Note (1)-01.png" alt="">
+                    <div class="title">
+                        <p>Enquiries</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
+                <a href="#">
+                    <img src="images/Billing and Payment.png" alt="">
+                    <div class="title">
+                        <p>Invoices</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
+                <a href="#">
+                    <img src="images/ExpenseManagement1.png" alt="">
+                    <div class="title">
+                        <p>Expenses</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-1 "></div>
+
+        </div>
+
+
+
     </div>
     <div class="product2">
         <div class="cap-main">
@@ -162,42 +212,42 @@ Trang chủ
         <div class="row line">
             <div class="col-md-1 "></div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
-                <a href="#">
-                    <img src="images/Check in and Check out-01.png" alt="">
+                <a href="kids-now/children">
+                    <img src="images/Child.png" alt="">
                     <div class="title">
-                        <p>Star</p>
+                        <p>Children Profiles</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
+                <a href="kids-now/staff">
+                    <img src="images/Staff.png" alt="">
+                    <div class="title">
+                        <p>Staff Profiles</p>
                     </div>
                 </a>
             </div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
-                    <img src="images/Health-01.png" alt="">
+                    <img src="images/Programs.png" alt="">
                     <div class="title">
-                        <p>Health</p>
+                        <p>Programs</p>
                     </div>
                 </a>
             </div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
-                    <img src="images/Diary.png" alt="">
+                    <img src="images/School Icon.png" alt="">
                     <div class="title">
-                        <p>Photos</p>
+                        <p>School</p>
                     </div>
                 </a>
             </div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
-                    <img src="images/Check in and Check out-01.png" alt="">
+                    <img src="images/graduate.png" alt="">
                     <div class="title">
-                        <p>Star</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-2 col-sm-4 item">
-                <a href="#">
-                    <img src="images/Check in and Check out-01.png" alt="">
-                    <div class="title">
-                        <p>Star</p>
+                        <p>Archives</p>
                     </div>
                 </a>
             </div>
@@ -214,41 +264,85 @@ Trang chủ
             <div class="col-md-1 "></div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
-                    <img src="images/Check in and Check out-01.png" alt="">
+                    <img src="images/RoomRatio1.png" alt="">
                     <div class="title">
-                        <p>Star</p>
+                        <p>Room Ratio</p>
                     </div>
                 </a>
             </div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
-                    <img src="images/Health-01.png" alt="">
+                    <img src="images/Favourite School.png" alt="">
                     <div class="title">
-                        <p>Health</p>
+                        <p>Favourite</p>
                     </div>
                 </a>
             </div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
-                    <img src="images/Diary.png" alt="">
+                    <img src="images/tags.png" alt="">
                     <div class="title">
-                        <p>Photos</p>
+                        <p>Tags</p>
                     </div>
                 </a>
             </div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
-                    <img src="images/Check in and Check out-01.png" alt="">
+                    <img src="images/Trasnsport setup.png" alt="">
                     <div class="title">
-                        <p>Star</p>
+                        <p>Transaport Setup</p>
                     </div>
                 </a>
             </div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
-                    <img src="images/Check in and Check out-01.png" alt="">
+                    <img src="images/QR Code Download-01.png" alt="">
                     <div class="title">
-                        <p>Star</p>
+                        <p>QR Download</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-1 "></div>
+        </div>
+        <div class="row line">
+            <div class="col-md-1 "></div>
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
+                <a href="#">
+                    <img src="images/Sickness-01.png" alt="">
+                    <div class="title">
+                        <p>Allergies Info</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
+                <a href="#">
+                    <img src="images/Parent.png" alt="">
+                    <div class="title">
+                        <p>Invite Parents</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
+                <a href="#">
+                    <img src="images/Staff.png" alt="">
+                    <div class="title">
+                        <p>Invite Staff</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
+                <a href="#">
+                    <img src="images/CCTv.png" alt="">
+                    <div class="title">
+                        <p>CCTV Access</p>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-2 col-sm-4 item">
+                <a href="#">
+                    <img src="images/settings.png" alt="">
+                    <div class="title">
+                        <p>Configurations</p>
                     </div>
                 </a>
             </div>
@@ -265,44 +359,22 @@ Trang chủ
             <div class="col-md-1 "></div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
-                    <img src="images/Check in and Check out-01.png" alt="">
+                    <img src="images/FAQ.png" alt="">
                     <div class="title">
-                        <p>Star</p>
+                        <p>FAQs</p>
                     </div>
                 </a>
             </div>
+
             <div class="col-xs-6 col-md-2 col-sm-4 item">
                 <a href="#">
-                    <img src="images/Health-01.png" alt="">
+                    <img src="images/Help Video-01.png" alt="">
                     <div class="title">
-                        <p>Health</p>
+                        <p>Help Videos</p>
                     </div>
                 </a>
             </div>
-            <div class="col-xs-6 col-md-2 col-sm-4 item">
-                <a href="#">
-                    <img src="images/Diary.png" alt="">
-                    <div class="title">
-                        <p>Photos</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-2 col-sm-4 item">
-                <a href="#">
-                    <img src="images/Check in and Check out-01.png" alt="">
-                    <div class="title">
-                        <p>Star</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-2 col-sm-4 item">
-                <a href="#">
-                    <img src="images/Check in and Check out-01.png" alt="">
-                    <div class="title">
-                        <p>Star</p>
-                    </div>
-                </a>
-            </div>
+
             <div class="col-md-1 "></div>
         </div>
     </div>

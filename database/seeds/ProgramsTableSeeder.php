@@ -14,6 +14,7 @@ class ProgramsTableSeeder extends Seeder
     public function run()
     {
         //
+        DB::table('programs')->delete();
         DB::table('programs')->insert([
                 [
                     'id'            => 1,

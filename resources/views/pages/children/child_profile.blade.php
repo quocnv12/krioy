@@ -70,7 +70,7 @@
 			</div>
 		</div>
 		<div class="icon-plus" title="add">
-			<a href="create_child.blade.php">
+			<a href="kids-now/children/add">
 				<i class="fa fa-plus"></i>
 			</a>
 		</div>
@@ -80,7 +80,7 @@
 			    <div class="modal-content">
 					<ul>
 						<li style="color: #5363d6!important">Go to</li>
-						<li class="modal-li" data-href="profile-child.html">Profile</li>
+						<li class="modal-li" data-href="kids-now/children/edit">Profile</li>
 						<li class="modal-li" data-href="invoices.html">Invoices</li>
 						<li class="modal-li" data-href="attachment.html">Attachments</li>
 						<li class="modal-li" data-href="Authoriesd-Pickups.html">Authoriesd Pickups</li>

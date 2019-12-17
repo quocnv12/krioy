@@ -23,19 +23,19 @@
 					<th>Staff Name</th>
 					<th>Programs</th>
 				</tr>
-				<tr class="td2" data-href="profile.html">
+				<tr class="td2" data-href="kids-now/staff/profile">
 					<th>1</th>
 					<th><img src="images/Staff.png" alt=""></th>
 					<th>Nguyen Van A</th>
 					<th>Hai Ba Trung, Ha Noi</th>
 				</tr>
-				<tr class="td2" data-href="profile.html">
+				<tr class="td2" data-href="kids-now/staff/profile">
 					<th>2</th>
 					<th><img src="images/Staff.png" alt=""></th>
 					<th>Nguyen Van A</th>
 					<th>Hai Ba Trung, Ha Noi</th>
 				</tr>
-				<tr class="td2" data-href="profile.html">
+				<tr class="td2" data-href="kids-now/staff/profile">
 					<th>3</th>
 					<th><img src="images/Staff.png" alt=""></th>
 					<th>Nguyen Van A</th>
@@ -45,7 +45,7 @@
 		</table>
 	</section>
 		<div class="icon-plus">
-			<a href="create_staff.blade.php">
+			<a href="kids-now/staff/add">
 				<i class="fa fa-plus"></i>
 			</a>
 		</div>

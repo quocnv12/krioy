@@ -74,6 +74,13 @@
 						</div>
 					</div>
 				</div>
+				<div class="comment">
+				<div class="button" style="text-align: center;">
+					<button class="button2">
+						<span>SEND</span>
+					</button>
+				</div>
+			</div>
 			</div>
 		</div>
 	</section>
