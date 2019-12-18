@@ -29,6 +29,6 @@ class CreateChildrenProgramTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('children_program');
+        Schema::dropIfExists('children_programs');
     }
 }
