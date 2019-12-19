@@ -781,7 +781,7 @@ $(function () {
         '<ul class="nav tabs">' +
         '  <li class="dropdown">' +
         '    <input type="text" id="input" data-toggle="dropdown">' +
-        '    <div class="dropdown-menu" role="menu">' +
+        '    <div class="dropdown-menu" roles="menu">' +
         '      <a id="item1" class="dropdown-item" href="#">Secondary link</a>' +
         '      <a id="item2" class="dropdown-item" href="#">Something else here</a>' +
         '      <div class="divider"></div>' +
@@ -849,7 +849,7 @@ $(function () {
         '<ul class="nav tabs">' +
         '  <li class="dropdown">' +
         '    <textarea id="textarea" data-toggle="dropdown"></textarea>' +
-        '    <div class="dropdown-menu" role="menu">' +
+        '    <div class="dropdown-menu" roles="menu">' +
         '      <a id="item1" class="dropdown-item" href="#">Secondary link</a>' +
         '      <a id="item2" class="dropdown-item" href="#">Something else here</a>' +
         '      <div class="divider"></div>' +

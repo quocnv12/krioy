@@ -13,11 +13,11 @@ class CreateStaffRoleTable extends Migration
      */
     public function up()
     {
-        Schema::create('staff_role', function (Blueprint $table) {
+        Schema::create('staff_roles', function (Blueprint $table) {
             $table->bigInteger('id_staff')->unsigned();
             $table->foreign('id_staff')->references('id')->on('staff_profiles')->onDelete('cascade');
             $table->bigInteger('id_role')->unsigned();
-            $table->foreign('id_role')->references('id')->on('role')->onDelete('cascade');
+            $table->foreign('id_role')->references('id')->on('roles')->onDelete('cascade');
         });
     }
 
@@ -28,6 +28,6 @@ class CreateStaffRoleTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('staff_role');
+        Schema::dropIfExists('staff_roles');
     }
 }

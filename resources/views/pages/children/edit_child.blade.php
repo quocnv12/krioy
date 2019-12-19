@@ -18,7 +18,7 @@
 		</div>
 		<div class="mat-card">
 			<div class="mat-content">
-				<button class="accordion add-staff">Riya Demo Child's Profile</button>
+				<button class="accordion add-staff">{{$children_profiles->first_name}}{{$children_profiles->last_name}}'s Profile</button>
 				<div class="row">
 					<div class="col-md-2 textera-img">
 						<a href="#">
@@ -31,11 +31,11 @@
 							<div class="row">
 								<div class="col-md-6 input_box">
 									<span>First Name *</span>
-									<input type="text" name="first-name" placeholder="First Name *">
+									<input type="text" name="first-name" placeholder="First Name *" value="{{$children_profiles->first_name}}">
 								</div>
 								<div class="col-md-6 input_box">
 									<span>Last Name *</span>
-									<input type="text" name="last-name" placeholder="Last Name *">
+									<input type="text" name="last-name" placeholder="Last Name *" value="{{$children_profiles->last_name}}">
 								</div>
 							</div>
 						</div>
@@ -46,7 +46,7 @@
 					<div class="add">
 						<div class="col-md-4 input_box">
 							<span>Birthday *</span>
-							<input type="date" name="date" placeholder="Birthday">
+							<input type="date" name="date" placeholder="Birthday" value="{{$children_profiles->birthday}}">
 						</div>
 						<div class="col-md-4 input_box">
 							<span>Blood Group *</span>

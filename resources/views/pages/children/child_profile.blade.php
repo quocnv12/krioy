@@ -37,12 +37,11 @@
 				<div _ngcontent-c10="" class="scrollmenu" id="nav">
 					<ul _ngcontent-c10="">
 						<!---->
-						<li _ngcontent-c10="">
-							<a _ngcontent-c10="" class="item active">Kindergarten (1)</a>
+						@foreach($programs as $program)
+							<li _ngcontent-c10="">
+							<a _ngcontent-c10="" class="item active" href="kids-now/children/{{$program->id}}">{{$program->program_name}}</a>
 						</li>
-						<li _ngcontent-c10="">
-							<a _ngcontent-c10="" class="item">untagged (0)</a>
-						</li>
+						@endforeach
 					</ul>
 				</div>
 			</div>
@@ -53,19 +52,24 @@
 			</div>
 		</div>
 	</section>
+
 	<section class="container">
 		<div class="mat-card" style="min-height: 250px;">
-			<div class="mat-content">	
+			<div class="mat-content">
 				<div _ngcontent-c19="" class="row ng-star-inserted">
 					<!---->
-					<div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted" style="padding:10px;cursor:pointer;">
-						<div _ngcontent-c19="" type="button" data-toggle="modal" data-target=".bd-example-modal-sm" style="height: 120px;text-align: center;">
-							<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="assets/ls-icons/Child.png">
-							<!----> 
-							<span _ngcontent-c19="" class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;">Riya Demo Child</span>
-							<!---->
-						</div>
-					</div>
+					@if(isset($children_profiles))
+						@foreach($children_profiles as $children)
+							<div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted" style="padding:10px;cursor:pointer;">
+								<div _ngcontent-c19="" type="button" data-toggle="modal" data-target=".bd-example-modal-sm" style="height: 120px;text-align: center;">
+									<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="assets/ls-icons/Child.png">
+									<!---->
+									<span _ngcontent-c19="" class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;">{{$children->first_name}} {{$children->last_name}}</span>
+									<!---->
+								</div>
+							</div>
+						@endforeach
+					@endif
 				</div>
 			</div>
 		</div>
@@ -74,7 +78,6 @@
 				<i class="fa fa-plus"></i>
 			</a>
 		</div>
-		
 		<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-sm">
 			    <div class="modal-content">
@@ -88,7 +91,7 @@
 			    </div>
 			</div>
 		</div>
-	</section>	
+	</section>
 </body>
 @endsection
 

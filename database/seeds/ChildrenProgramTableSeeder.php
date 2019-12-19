@@ -13,8 +13,8 @@ class ChildrenProgramTableSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('children_program')->delete();
-        DB::table('children_program')->insert([
+        DB::table('children_programs')->delete();
+        DB::table('children_programs')->insert([
             [
                 'id_children'   => 1,
                 'id_program'    => 1

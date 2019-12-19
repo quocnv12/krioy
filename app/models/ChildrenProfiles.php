@@ -19,7 +19,6 @@ class ChildrenProfiles extends Model
         'address',
         'allergies',
         'additional_note',
-        'id_programs',
         'status',
         'exist',
     ];

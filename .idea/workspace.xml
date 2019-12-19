@@ -2,63 +2,50 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b470da37-1633-445a-bc30-ac8b25b3bb45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/LoginController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_16_090853_create_role_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2019_12_16_111028_create_staff_role_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/role.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeds/staff_role.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/asset/kriyo/images/facebook-circle-white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/asset/kriyo/images/linkedin-circle-white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/asset/kriyo/images/mail-circle-white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/addmin-login/login.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/calendar/add_event.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/calendar/calendar.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/daily-report/child-daily-report.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/daily-report/daily-report.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/food/Select-Child.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/food/food.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/history/history.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/notice/add_notice.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/parent-note/parent-note.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/program/Select-Child-program.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/program/add_program.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/program/edit-program.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/program/program.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/program/select-staff.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/program/view-program.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/pages/router-tracker/router-tracker.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_10_024948_create_staff_profiles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_10_024948_create_staff_profiles_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_10_025239_create_attendance_staff_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_10_025239_create_attendance_staff_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/AttendanceChildrenTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/AttendanceChildrenTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/AttendanceStaffTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/AttendanceStaffTableSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ChildrenProfilesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ChildrenProfilesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProgramsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProgramsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/ChildrenProfiles.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ChildrenProfiles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/ChildrenProgram.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ChildrenProgram.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_10_024147_create_children_profiles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_10_024147_create_children_profiles_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_10_024533_create_children_program_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_10_024533_create_children_program_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_10_024853_create_children_parent_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_10_024853_create_children_parent_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_16_090853_create_role_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_16_090853_create_role_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_16_111028_create_staff_role_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_12_16_111028_create_staff_role_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/ChildrenFoodTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ChildrenFoodTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/ChildrenParentTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ChildrenParentTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/ChildrenProfilesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ChildrenProfilesTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/ChildrenProgramTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ChildrenProgramTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/ChildrenStaffTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ChildrenStaffTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/FoodItemsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/FoodItemsTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/FoodTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/FoodTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/HealthTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/HealthTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/NoticeBoardTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/NoticeBoardTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/ObservationsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ObservationsTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/ObservationsTypeTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ObservationsTypeTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/ParentProfilesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ParentProfilesTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/ProgramsNoticeTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ProgramsNoticeTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/ProgramsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/ProgramsTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/StaffProfilesTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/StaffProfilesTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeds/StaffProgramsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/StaffProgramsTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/asset/kriyo/css/heath.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/asset/kriyo/css/heath.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/asset/kriyo/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/asset/kriyo/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/asset/kriyo/css/staff_profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/asset/kriyo/css/staff_profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/role.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/staff_role.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/asset/kriyo/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/asset/kriyo/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/OwlCarousel2-2.3.4/dist/owl.carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/libs/OwlCarousel2-2.3.4/dist/owl.carousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/OwlCarousel2-2.3.4/dist/owl.carousel.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/libs/OwlCarousel2-2.3.4/dist/owl.carousel.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/OwlCarousel2-2.3.4/docs/assets/owlcarousel/owl.carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/libs/OwlCarousel2-2.3.4/docs/assets/owlcarousel/owl.carousel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/OwlCarousel2-2.3.4/docs/assets/owlcarousel/owl.carousel.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/libs/OwlCarousel2-2.3.4/docs/assets/owlcarousel/owl.carousel.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/OwlCarousel2-2.3.4/src/js/owl.navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/libs/OwlCarousel2-2.3.4/src/js/owl.navigation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/build/vnu-jar.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/build/vnu-jar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/dist/js/bootstrap.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/dist/js/bootstrap.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/dist/js/bootstrap.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/dist/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/dist/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/dist/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/dist/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/dist/js/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/js/dist/popover.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/js/dist/popover.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/js/dist/tooltip.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/js/dist/tooltip.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/js/src/popover.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/js/src/popover.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/js/src/tooltip.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/js/src/tooltip.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/js/tests/unit/collapse.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/js/tests/unit/collapse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/js/tests/unit/dropdown.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/js/tests/unit/dropdown.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/js/tests/unit/popover.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/js/tests/unit/popover.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/js/tests/unit/tab.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/js/tests/unit/tab.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/js/tests/unit/tooltip.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/libs/bootstrap-4.0.0/js/tests/unit/tooltip.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/fontawesome-free-5.10.1-web/metadata/categories.yml" beforeDir="false" afterPath="$PROJECT_DIR$/public/libs/fontawesome-free-5.10.1-web/metadata/categories.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/libs/fontawesome-free-5.10.1-web/metadata/icons.yml" beforeDir="false" afterPath="$PROJECT_DIR$/public/libs/fontawesome-free-5.10.1-web/metadata/icons.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/children/child_profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/children/child_profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/notice/notice_board.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/notice/notice_board.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/notice/notice_detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/notice/notice_detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/potty/potty.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/potty/potty.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/staff/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/staff/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/staff/staff_profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/staff/staff_profile.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/children/create_child.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/children/create_child.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/children/edit_child.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/children/edit_child.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -73,10 +60,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="46" column="66" lean-forward="true" selection-start-line="46" selection-start-column="66" selection-end-line="46" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ChildrenProfilesController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+            <state relative-caret-position="612">
+              <caret line="62" column="34" lean-forward="true" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
               <folding>
                 <element signature="e#46#78#0#PHP" expanded="true" />
               </folding>
@@ -84,68 +80,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/api.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="35" column="36" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/web.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1870">
-              <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/seeds/AttendanceStaffTableSeeder.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="214">
-              <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
-              <folding>
-                <element signature="e#7#38#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/database/seeds/AttendanceChildrenTableSeeder.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/pages/children/create_child.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="408">
+              <caret line="34" column="63" lean-forward="true" selection-start-line="34" selection-start-column="63" selection-end-line="34" selection-end-column="63" />
               <folding>
-                <element signature="e#7#38#0#PHP" expanded="true" />
+                <element signature="e#609#673#0#HTML" expanded="true" />
+                <element signature="e#3498#3578#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/seeds/StaffProfilesTableSeeder.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/pages/children/edit_child.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="40" lean-forward="true" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
-              <folding>
-                <element signature="e#7#38#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ProgramsController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="191" selection-start-line="191" selection-end-line="191" />
-              <folding>
-                <element signature="e#46#77#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="221">
+              <caret line="53" column="60" lean-forward="true" selection-start-line="53" selection-start-column="60" selection-end-line="53" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -160,11 +112,15 @@
       <find>'permission'        =&gt;  'none',</find>
       <find>id_children</find>
       <find>children_program</find>
+      <find>id_programs</find>
+      <find>strict</find>
+      <find>tablinks1</find>
     </findStrings>
     <replaceStrings>
       <replace>id_programs</replace>
       <replace>id_staff</replace>
       <replace>children_programs</replace>
+      <replace>id_program</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -173,41 +129,17 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/pages/diary/diary.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/photos/select_child.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/play&amp;learn/photos.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/play&amp;learn/select_child.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/potty/potty.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/potty/select_child.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/staff/add_staff.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/staff/create_staff.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/staff/edit_staff.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/staff/profile.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/staff/select-child.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/staff/staff_profile.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/pages/star/star.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/pages/children/child_profile.blade.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_12_10_024147_create_children_profiles_table.php" />
-        <option value="$PROJECT_DIR$/database/seeds/ChildrenProgramTableSeeder.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_12_10_024852_create_parent_profiles_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_12_10_024948_create_staff_profiles_table.php" />
         <option value="$PROJECT_DIR$/database/seeds/ChildrenStaffTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_12_10_025319_create_children_food_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_12_10_024439_create_health_table.php" />
         <option value="$PROJECT_DIR$/database/seeds/ProgramsNoticeTableSeeder.php" />
-        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_12_10_025107_create_notice_board_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/ChildrenProfilesController.php" />
-        <option value="$PROJECT_DIR$/app/models/ChildrenProfiles.php" />
         <option value="$PROJECT_DIR$/app/models/Programs.php" />
-        <option value="$PROJECT_DIR$/app/models/ChildrenProgram.php" />
-        <option value="$PROJECT_DIR$/config/database.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_12_10_024533_create_children_program_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_12_10_025039_create_staff_programs_table.php" />
-        <option value="$PROJECT_DIR$/database/seeds/StaffProgramsTableSeeder.php" />
-        <option value="$PROJECT_DIR$/database/seeds/ChildrenFoodTableSeeder.php" />
-        <option value="$PROJECT_DIR$/database/seeds/ChildrenParentTableSeeder.php" />
-        <option value="$PROJECT_DIR$/database/seeds/ChildrenProfilesTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/FoodItemsTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/FoodTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/HealthTableSeeder.php" />
@@ -219,11 +151,35 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AttendanceChildrenController.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/models/StaffProgram.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/ProgramsController.php" />
         <option value="$PROJECT_DIR$/database/seeds/StaffProfilesTableSeeder.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/database/seeds/AttendanceStaffTableSeeder.php" />
         <option value="$PROJECT_DIR$/database/seeds/AttendanceChildrenTableSeeder.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/ProgramsController.php" />
+        <option value="$PROJECT_DIR$/database/seeds/ChildrenProgramTableSeeder.php" />
+        <option value="$PROJECT_DIR$/database/seeds/StaffProgramsTableSeeder.php" />
+        <option value="$PROJECT_DIR$/database/seeds/ChildrenFoodTableSeeder.php" />
+        <option value="$PROJECT_DIR$/database/seeds/roles.php" />
+        <option value="$PROJECT_DIR$/database/seeds/staff_roles.php" />
+        <option value="$PROJECT_DIR$/database/seeds/role.php" />
+        <option value="$PROJECT_DIR$/database/seeds/staff_rolex.php" />
+        <option value="$PROJECT_DIR$/database/seeds/staff_role.php" />
+        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/children/edit_child.blade.php" />
+        <option value="$PROJECT_DIR$/config/database.php" />
+        <option value="$PROJECT_DIR$/app/Exceptions/Handler.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/children/child_profile.blade.php" />
+        <option value="$USER_HOME$/Downloads/index.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_12_10_024852_create_parent_profiles_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_12_10_024853_create_children_parent_table.php" />
+        <option value="$PROJECT_DIR$/database/seeds/ChildrenParentTableSeeder.php" />
+        <option value="$PROJECT_DIR$/resources/views/pages/children/create_child.blade.php" />
+        <option value="$PROJECT_DIR$/app/models/ChildrenProfiles.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_12_10_024533_create_children_program_table.php" />
+        <option value="$PROJECT_DIR$/app/models/ChildrenProgram.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/ChildrenProfilesController.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_12_10_024147_create_children_profiles_table.php" />
+        <option value="$PROJECT_DIR$/database/seeds/ChildrenProfilesTableSeeder.php" />
       </list>
     </option>
   </component>
@@ -313,11 +269,11 @@
       <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="112" />
-    <option name="y" value="12" />
-    <option name="width" value="1169" />
-    <option name="height" value="701" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="27" />
+    <option name="y" value="7" />
+    <option name="width" value="1251" />
+    <option name="height" value="724" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -339,6 +295,18 @@
               <item name="krioy" type="b2602c69:ProjectViewProjectNode" />
               <item name="krioy" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="krioy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="krioy" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Console" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="krioy" type="b2602c69:ProjectViewProjectNode" />
+              <item name="krioy" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Exceptions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="krioy" type="b2602c69:ProjectViewProjectNode" />
@@ -370,12 +338,13 @@
             <path>
               <item name="krioy" type="b2602c69:ProjectViewProjectNode" />
               <item name="krioy" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="krioy" type="b2602c69:ProjectViewProjectNode" />
               <item name="krioy" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="migrations" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="krioy" type="b2602c69:ProjectViewProjectNode" />
@@ -430,7 +399,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laravel/hotel" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -475,18 +444,19 @@
       <workItem from="1576200733591" duration="12379000" />
       <workItem from="1576306624710" duration="12413000" />
       <workItem from="1576465296908" duration="7578000" />
-      <workItem from="1576548064184" duration="4540000" />
+      <workItem from="1576548064184" duration="11279000" />
+      <workItem from="1576652176770" duration="12152000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43018000" />
+    <option name="totallyTimeSpent" value="61909000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="112" y="12" width="1169" height="701" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26330027" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2987897" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -501,14 +471,14 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.7130282" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.61538464" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24130106" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22692889" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -523,7 +493,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3453355" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.33878887" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -534,153 +504,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/staff/create_staff.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="148" column="29" selection-start-line="148" selection-start-column="29" selection-end-line="148" selection-end-column="29" />
-          <caret line="145" column="29" selection-start-line="145" selection-start-column="29" selection-end-line="145" selection-end-column="29" />
-          <caret line="142" column="29" selection-start-line="142" selection-start-column="29" selection-end-line="142" selection-end-column="29" />
-          <caret line="141" column="29" selection-start-line="141" selection-start-column="29" selection-end-line="141" selection-end-column="29" />
-          <folding>
-            <element signature="n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/staff/edit_staff.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="235" column="31" lean-forward="true" selection-start-line="235" selection-start-column="31" selection-end-line="235" selection-end-column="31" />
-          <folding>
-            <element signature="n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/staff/profile.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="223" column="48" lean-forward="true" selection-start-line="223" selection-start-column="48" selection-end-line="223" selection-end-column="48" />
-          <folding>
-            <element signature="n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/staff/select_child.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="102" column="67" selection-start-line="102" selection-start-column="67" selection-end-line="102" selection-end-column="67" />
-          <folding>
-            <element signature="n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/staff/staff_profile.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="61" column="62" lean-forward="true" selection-start-line="61" selection-start-column="62" selection-end-line="61" selection-end-column="62" />
-          <folding>
-            <element signature="n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/star/star.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-185">
-          <caret line="98" column="50" lean-forward="true" selection-start-line="98" selection-start-column="50" selection-end-line="98" selection-end-column="50" />
-          <folding>
-            <element signature="n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/master-layout.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="50" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/diary/diary.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/pages/children/child_profile.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="112" column="64" lean-forward="true" selection-start-line="112" selection-start-column="64" selection-end-line="112" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_12_10_024147_create_children_profiles_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_12_10_024146_create_programs_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="28" column="33" lean-forward="true" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Database/Connection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="663" selection-start-line="663" selection-end-line="663" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_12_10_024852_create_parent_profiles_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_12_10_024948_create_staff_profiles_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_12_10_025317_create_food_items_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="40" lean-forward="true" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_12_10_024949_create_children_staff_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="20" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="20" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_12_10_025319_create_children_food_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="19" column="90" lean-forward="true" selection-start-line="19" selection-start-column="90" selection-end-line="19" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_12_10_025318_create_food_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="19" column="54" lean-forward="true" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_12_10_024439_create_health_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -705,27 +528,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="22" column="56" lean-forward="true" selection-start-line="22" selection-start-column="56" selection-end-line="22" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/ChildrenProgram.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="4" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="58" column="29" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Programs.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -733,64 +535,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/ChildrenProfiles.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_12_10_024533_create_children_program_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_12_10_025039_create_staff_programs_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/ChildrenFoodTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
-          <folding>
-            <element signature="e#7#38#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/ChildrenParentTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="62" column="38" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="38" />
-          <folding>
-            <element signature="e#7#38#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/ChildrenProfilesTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="161" column="37" selection-start-line="161" selection-start-column="37" selection-end-line="161" selection-end-column="37" />
-          <folding>
-            <element signature="e#7#38#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/FoodItemsTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="53" column="34" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
-          <folding>
-            <element signature="e#7#38#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -854,16 +602,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/ChildrenProgramTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="36" lean-forward="true" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
-          <folding>
-            <element signature="e#7#38#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/ProgramsTableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -884,30 +622,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/StaffProgramsTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="39" lean-forward="true" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
-          <folding>
-            <element signature="e#7#38#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AttendanceChildrenController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
           <caret line="78" column="99" selection-start-line="78" selection-start-column="99" selection-end-line="78" selection-end-column="99" />
-          <folding>
-            <element signature="e#46#78#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ChildrenProfilesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
           <folding>
             <element signature="e#46#78#0#PHP" expanded="true" />
           </folding>
@@ -921,23 +639,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ProgramsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="191" selection-start-line="191" selection-end-line="191" />
-          <folding>
-            <element signature="e#46#77#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="35" column="36" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/StaffProfilesTableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -948,17 +649,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
+    <entry file="file://$PROJECT_DIR$/database/seeds/FoodItemsTableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1870">
-          <caret line="129" lean-forward="true" selection-start-line="129" selection-end-line="129" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/AttendanceStaffTableSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+        <state relative-caret-position="170">
+          <caret line="40" column="14" lean-forward="true" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
           <folding>
             <element signature="e#7#38#0#PHP" expanded="true" />
           </folding>
@@ -967,10 +661,247 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/seeds/AttendanceChildrenTableSeeder.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="38">
           <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="e#7#38#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/AttendanceStaffTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="554">
+          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+          <folding>
+            <element signature="e#7#38#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="35" column="66" selection-start-line="35" selection-start-column="66" selection-end-line="35" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-185" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/StaffProgramsTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <folding>
+            <element signature="e#7#38#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/ChildrenFoodTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+          <folding>
+            <element signature="e#7#38#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/staff_roles.php" />
+    <entry file="file://$PROJECT_DIR$/database/seeds/roles.php" />
+    <entry file="file://$PROJECT_DIR$/database/seeds/staff_rolex.php" />
+    <entry file="file://$PROJECT_DIR$/database/seeds/ChildrenProgramTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+          <folding>
+            <element signature="e#7#38#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/role.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-355">
+          <caret line="14" column="9" lean-forward="true" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+          <folding>
+            <element signature="e#7#38#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/staff_role.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="32" column="11" selection-start-line="32" selection-start-column="11" selection-end-line="32" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/children/select_child.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="128" column="59" lean-forward="true" selection-start-line="128" selection-start-column="59" selection-end-line="128" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ProgramsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1403">
+          <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+          <folding>
+            <element signature="e#46#77#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="55" column="45" lean-forward="true" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/filesystems.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-170" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Exceptions/Handler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-933" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="8" lean-forward="true" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/children/child_profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1445">
+          <caret line="85" column="79" selection-start-line="85" selection-start-column="79" selection-end-line="85" selection-end-column="79" />
+          <folding>
+            <element signature="e#2510#2536#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/children/edit_child.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="53" column="60" lean-forward="true" selection-start-line="53" selection-start-column="60" selection-end-line="53" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_12_10_024852_create_parent_profiles_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_12_10_024853_create_children_parent_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="20" column="43" lean-forward="true" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/ChildrenParentTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="84" selection-start-line="84" selection-end-line="84" />
+          <folding>
+            <element signature="e#7#38#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="46" column="66" lean-forward="true" selection-start-line="46" selection-start-column="66" selection-end-line="46" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_12_10_024533_create_children_program_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="31" column="47" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/ChildrenProgram.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/ChildrenProfiles.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_12_10_024147_create_children_profiles_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/ChildrenProfilesTableSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="182" column="43" selection-start-line="182" selection-start-column="43" selection-end-line="182" selection-end-column="43" />
+          <folding>
+            <element signature="e#7#38#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ChildrenProfilesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="62" column="34" lean-forward="true" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
+          <folding>
+            <element signature="e#46#78#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/pages/children/create_child.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="34" column="63" lean-forward="true" selection-start-line="34" selection-start-column="63" selection-end-line="34" selection-end-column="63" />
+          <folding>
+            <element signature="e#609#673#0#HTML" expanded="true" />
+            <element signature="e#3498#3578#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
