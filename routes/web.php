@@ -47,6 +47,9 @@ Route::group(['prefix' => 'kids-now','middleware'=>'CheckLogin'], function () {
         Route::get('edit', function () {
             return view('pages.children.edit_child');
         });
+        Route::get('select', function () {
+            return view('pages.children.select_child');
+        });
     });
 
        //---------------staff----------------
@@ -100,6 +103,9 @@ Route::group(['prefix' => 'kids-now','middleware'=>'CheckLogin'], function () {
         Route::group(['prefix' => 'food'], function () {
             Route::get('', function () {
                 return view('pages.food.food');
+            });
+            Route::get('select', function () {
+                return view('pages.food.select_child');
             });
             
             
