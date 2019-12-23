@@ -141,13 +141,13 @@ $(function () {
 
   QUnit.test('should not fire shown when tab is already active', function (assert) {
     assert.expect(0)
-    var tabsHTML = '<ul class="nav nav-tabs" role="tablist">' +
-      '<li class="nav-item"><a href="#home" class="nav-link active" role="tab">Home</a></li>' +
-      '<li class="nav-item"><a href="#profile" class="nav-link" role="tab">Profile</a></li>' +
+    var tabsHTML = '<ul class="nav nav-tabs" roles="tablist">' +
+      '<li class="nav-item"><a href="#home" class="nav-link active" roles="tab">Home</a></li>' +
+      '<li class="nav-item"><a href="#profile" class="nav-link" roles="tab">Profile</a></li>' +
       '</ul>' +
       '<div class="tab-content">' +
-      '<div class="tab-pane active" id="home" role="tabpanel"></div>' +
-      '<div class="tab-pane" id="profile" role="tabpanel"></div>' +
+      '<div class="tab-pane active" id="home" roles="tabpanel"></div>' +
+      '<div class="tab-pane" id="profile" roles="tabpanel"></div>' +
       '</div>'
 
     $(tabsHTML)
@@ -160,13 +160,13 @@ $(function () {
 
   QUnit.test('should not fire shown when tab is disabled', function (assert) {
     assert.expect(0)
-    var tabsHTML = '<ul class="nav nav-tabs" role="tablist">' +
-      '<li class="nav-item"><a href="#home" class="nav-link active" role="tab">Home</a></li>' +
-      '<li class="nav-item"><a href="#profile" class="nav-link disabled" role="tab">Profile</a></li>' +
+    var tabsHTML = '<ul class="nav nav-tabs" roles="tablist">' +
+      '<li class="nav-item"><a href="#home" class="nav-link active" roles="tab">Home</a></li>' +
+      '<li class="nav-item"><a href="#profile" class="nav-link disabled" roles="tab">Profile</a></li>' +
       '</ul>' +
       '<div class="tab-content">' +
-      '<div class="tab-pane active" id="home" role="tabpanel"></div>' +
-      '<div class="tab-pane" id="profile" role="tabpanel"></div>' +
+      '<div class="tab-pane active" id="home" roles="tabpanel"></div>' +
+      '<div class="tab-pane" id="profile" roles="tabpanel"></div>' +
       '</div>'
 
     $(tabsHTML)
@@ -348,24 +348,24 @@ $(function () {
     assert.expect(2)
     var done = assert.async()
     var tabsHTML =
-        '<nav class="nav nav-tabs" role="tablist">' +
-        '  <a id="tab1" href="#x-tab1" class="nav-item nav-link" data-toggle="tab" role="tab" aria-controls="x-tab1">Tab 1</a>' +
-        '  <a href="#x-tab2" class="nav-item nav-link active" data-toggle="tab" role="tab" aria-controls="x-tab2" aria-selected="true">Tab 2</a>' +
-        '  <a href="#x-tab3" class="nav-item nav-link" data-toggle="tab" role="tab" aria-controls="x-tab3">Tab 3</a>' +
+        '<nav class="nav nav-tabs" roles="tablist">' +
+        '  <a id="tab1" href="#x-tab1" class="nav-item nav-link" data-toggle="tab" roles="tab" aria-controls="x-tab1">Tab 1</a>' +
+        '  <a href="#x-tab2" class="nav-item nav-link active" data-toggle="tab" roles="tab" aria-controls="x-tab2" aria-selected="true">Tab 2</a>' +
+        '  <a href="#x-tab3" class="nav-item nav-link" data-toggle="tab" roles="tab" aria-controls="x-tab3">Tab 3</a>' +
         '</nav>' +
         '<div class="tab-content">' +
-        '  <div class="tab-pane" id="x-tab1" role="tabpanel">' +
-        '    <nav class="nav nav-tabs" role="tablist">' +
-        '      <a href="#nested-tab1" class="nav-item nav-link active" data-toggle="tab" role="tab" aria-controls="x-tab1" aria-selected="true">Nested Tab 1</a>' +
-        '      <a id="tabNested2" href="#nested-tab2" class="nav-item nav-link" data-toggle="tab" role="tab" aria-controls="x-profile">Nested Tab2</a>' +
+        '  <div class="tab-pane" id="x-tab1" roles="tabpanel">' +
+        '    <nav class="nav nav-tabs" roles="tablist">' +
+        '      <a href="#nested-tab1" class="nav-item nav-link active" data-toggle="tab" roles="tab" aria-controls="x-tab1" aria-selected="true">Nested Tab 1</a>' +
+        '      <a id="tabNested2" href="#nested-tab2" class="nav-item nav-link" data-toggle="tab" roles="tab" aria-controls="x-profile">Nested Tab2</a>' +
         '    </nav>' +
         '    <div class="tab-content">' +
-        '      <div class="tab-pane active" id="nested-tab1" role="tabpanel">Nested Tab1 Content</div>' +
-        '      <div class="tab-pane" id="nested-tab2" role="tabpanel">Nested Tab2 Content</div>' +
+        '      <div class="tab-pane active" id="nested-tab1" roles="tabpanel">Nested Tab1 Content</div>' +
+        '      <div class="tab-pane" id="nested-tab2" roles="tabpanel">Nested Tab2 Content</div>' +
         '    </div>' +
         '  </div>' +
-        '  <div class="tab-pane active" id="x-tab2" role="tabpanel">Tab2 Content</div>' +
-        '  <div class="tab-pane" id="x-tab3" role="tabpanel">Tab3 Content</div>' +
+        '  <div class="tab-pane active" id="x-tab2" roles="tabpanel">Tab2 Content</div>' +
+        '  <div class="tab-pane" id="x-tab3" roles="tabpanel">Tab3 Content</div>' +
         '</div>'
 
     $(tabsHTML).appendTo('#qunit-fixture')
@@ -385,13 +385,13 @@ $(function () {
   QUnit.test('should not remove fade class if no active pane is present', function (assert) {
     assert.expect(6)
     var done = assert.async()
-    var tabsHTML = '<ul class="nav nav-tabs" role="tablist">' +
-      '<li class="nav-item"><a id="tab-home" href="#home" class="nav-link" data-toggle="tab" role="tab">Home</a></li>' +
-      '<li class="nav-item"><a id="tab-profile" href="#profile" class="nav-link" data-toggle="tab" role="tab">Profile</a></li>' +
+    var tabsHTML = '<ul class="nav nav-tabs" roles="tablist">' +
+      '<li class="nav-item"><a id="tab-home" href="#home" class="nav-link" data-toggle="tab" roles="tab">Home</a></li>' +
+      '<li class="nav-item"><a id="tab-profile" href="#profile" class="nav-link" data-toggle="tab" roles="tab">Profile</a></li>' +
       '</ul>' +
       '<div class="tab-content">' +
-      '<div class="tab-pane fade" id="home" role="tabpanel"></div>' +
-      '<div class="tab-pane fade" id="profile" role="tabpanel"></div>' +
+      '<div class="tab-pane fade" id="home" roles="tabpanel"></div>' +
+      '<div class="tab-pane fade" id="profile" roles="tabpanel"></div>' +
       '</div>'
 
     $(tabsHTML).appendTo('#qunit-fixture')

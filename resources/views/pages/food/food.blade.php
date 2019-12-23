@@ -16,172 +16,189 @@ Food
             </div>
         </div>
         <div class="row">
-            <div class="mat-card">
-                <div class="mat-content">
-                    <button class="accordion accordion1 clearfix">
-                        <p style="float: left;">Children *</p>
-                        <a href="kids-now/children/select" style="float: right;text-align: right">
-                            <p
-                                style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">
-                                SELECT</p>
-                        </a>
-                    </button>
-                    <div class="panel">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
-                    <hr>
-                    <div class="update">
-                        <p>Select Meal Type*</p>
-                        <div class="tab">
-                            <button class="tablinks">Breakfast</button>
-                            <button class="tablinks">Lunch</button>
-                            <button class="tablinks">Liquids</button>
-                            <button class="tablinks">Snacks</button>
-                            <button class="tablinks">Dinner</button>
+            {{-- <form style="width: auto;
+                margin: 0 0;
+                text-align: left" action="kids-now/children/add" method="post" name="form">
+                @csrf --}}
+                <div class="mat-card">
+                    <div class="mat-content">
+                        <button class="accordion accordion1 clearfix">
+                            <p style="float: left;">Children *</p>
+                            <a href="kids-now/children/select" style="float: right;text-align: right">
+                                <p
+                                    style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">
+                                    SELECT</p>
+                            </a>
+                        </button>
+                        <div class="panel">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                                incididunt ut
+                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                ullamco
+                                laboris nisi ut aliquip ex ea commodo consequat.</p>
                         </div>
-                    </div>
-                    <div id="clock" style="margin: 20px 0;font-size: 18px;"></div>
-                    <hr>
-                    <div class="update">
-                        <p>Select Quantity</p>
-                        <div class="tab">
-                            <button class="tablinks2">All</button>
-                            <button class="tablinks2">Most</button>
-                            <button class="tablinks2">Some</button>
-                            <button class="tablinks2">None</button>
-                        </div>
-                    </div>
-                    <hr>
-                    <button class="accordion_new">Meal Item Name *
-                        <i class="fa fa-chevron-circle-down"></i>
-                    </button>
-                    <div class="panel_new">
-                        <div _ngcontent-c20="" class="row">
-                            <!---->
-                            <div _ngcontent-c20="" align="center"
-                                class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                style="padding:10px;cursor:pointer;">
-                                <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
-                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px;">Biscuits
-                                </button>
-                            </div>
-                            <div _ngcontent-c20="" align="center"
-                                class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                style="padding:10px;cursor:pointer">
-                                <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
-                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Bread
-                                </button>
-                            </div>
-                            <div _ngcontent-c20="" align="center"
-                                class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                style="padding:10px;cursor:pointer">
-                                <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
-                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Curd
-                                </button>
-                            </div>
-                            <div _ngcontent-c20="" align="center"
-                                class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                style="padding:10px;cursor:pointer"><button _ngcontent-c20=""
-                                    class="btn progBtn limitText bgClass tablinks1"
-                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Daal
-                                </button>
-                            </div>
-                            <div _ngcontent-c20="" align="center"
-                                class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                style="padding:10px;cursor:pointer"><button _ngcontent-c20=""
-                                    class="btn progBtn limitText bgClass tablinks1"
-                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Dosa
-                                </button>
-                            </div>
+                        <hr>
 
-                            <div _ngcontent-c20="" align="center"
-                                class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                style="padding:10px;cursor:pointer"><button _ngcontent-c20=""
-                                    class="btn progBtn limitText bgClass tablinks1"
-                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Fruits
-                                </button>
+                        <div class="update">
+                            <p>Select Meal Type*</p>
+                            <div class="tab">
+
+                            <form action="" style="width: auto;
+                            margin: 0 0;
+                            text-align: left" action="kids-now/children/add" method="POST">
+                                @csrf
+                                <button value="Lunch" name="2" type="button" class="tablinks">Lunch</button>
+                                <input style="display:none;" type="checkbox" checked name="input1" value="Lunch" id="">
+                                <button value="Liquids" name="3" type="button" class="tablinks">Liquids</button>
+                                <input style="display:none;" type="checkbox" name="input2" id="">
+                                <button value="Snacks" name="4" type="button" class="tablinks">Snacks</button>
+                                <input style="display:none;" type="checkbox" name="input3" id="">
+                                <button value="Dinner" name="5" type="button" class="tablinks">Dinner</button>
+                                <button type="submit">ok</button>
                             </div>
-                            <div _ngcontent-c20="" align="center"
-                                class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                style="padding:10px;cursor:pointer">
-                                <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
-                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Idly
-                                </button>
-                            </div>
-                            <div _ngcontent-c20="" align="center"
-                                class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                style="padding:10px;cursor:pointer">
-                                <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
-                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Juice
-                                </button>
-                            </div>
-                            <div _ngcontent-c20="" align="center"
-                                class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                style="padding:10px;cursor:pointer">
-                                <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
-                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Milk
-                                </button>
-                            </div>
-                            <div _ngcontent-c20="" align="center"
-                                class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                style="padding:10px;cursor:pointer">
-                                <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
-                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Rice
-                                </button>
-                            </div>
-                            <div _ngcontent-c20="" align="center"
-                                class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                style="padding:10px;cursor:pointer">
-                                <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
-                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Roti
-                                </button>
-                            </div>
-                            <div _ngcontent-c20="" align="center"
-                                class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                style="padding:10px;cursor:pointer">
-                                <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
-                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Water
-                                </button>
+                        </form>
+                        </div>
+                        <div id="clock" style="margin: 20px 0;font-size: 18px;"></div>
+                        <hr>
+                        <div class="update">
+                            <p>Select Quantity</p>
+                            <div class="tab">
+                                <button type="button" class="tablinks2">All</button>
+                                <button type="button" class="tablinks2">Most</button>
+                                <button type="button" class="tablinks2">Some</button>
+                                <button type="button" class="tablinks2">None</button>
                             </div>
                         </div>
-                    </div>
-                    <div class="comment">
-                        <div class="row">
-                            <div class="col-md-9 input_box">
-                                <span>Enter details here *</span>
-                                <input type="text" name="text" placeholder="Enter details here *">
+                        <hr>
+                        <button class="accordion_new">Meal Item Name *
+                            <i class="fa fa-chevron-circle-down"></i>
+                        </button>
+                        <div class="panel_new">
+                            <div _ngcontent-c20="" class="row">
+                                <!---->
+                                <div _ngcontent-c20="" align="center"
+                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
+                                    style="padding:10px;cursor:pointer;">
+                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
+                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px;">Biscuits
+                                    </button>
+                                </div>
+                                <div _ngcontent-c20="" align="center"
+                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
+                                    style="padding:10px;cursor:pointer">
+                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
+                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Bread
+                                    </button>
+                                </div>
+                                <div _ngcontent-c20="" align="center"
+                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
+                                    style="padding:10px;cursor:pointer">
+                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
+                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Curd
+                                    </button>
+                                </div>
+                                <div _ngcontent-c20="" align="center"
+                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
+                                    style="padding:10px;cursor:pointer"><button _ngcontent-c20=""
+                                        class="btn progBtn limitText bgClass tablinks1"
+                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Daal
+                                    </button>
+                                </div>
+                                <div _ngcontent-c20="" align="center"
+                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
+                                    style="padding:10px;cursor:pointer"><button _ngcontent-c20=""
+                                        class="btn progBtn limitText bgClass tablinks1"
+                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Dosa
+                                    </button>
+                                </div>
+
+                                <div _ngcontent-c20="" align="center"
+                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
+                                    style="padding:10px;cursor:pointer"><button _ngcontent-c20=""
+                                        class="btn progBtn limitText bgClass tablinks1"
+                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Fruits
+                                    </button>
+                                </div>
+                                <div _ngcontent-c20="" align="center"
+                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
+                                    style="padding:10px;cursor:pointer">
+                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
+                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Idly
+                                    </button>
+                                </div>
+                                <div _ngcontent-c20="" align="center"
+                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
+                                    style="padding:10px;cursor:pointer">
+                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
+                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Juice
+                                    </button>
+                                </div>
+                                <div _ngcontent-c20="" align="center"
+                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
+                                    style="padding:10px;cursor:pointer">
+                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
+                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Milk
+                                    </button>
+                                </div>
+                                <div _ngcontent-c20="" align="center"
+                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
+                                    style="padding:10px;cursor:pointer">
+                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
+                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Rice
+                                    </button>
+                                </div>
+                                <div _ngcontent-c20="" align="center"
+                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
+                                    style="padding:10px;cursor:pointer">
+                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
+                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Roti
+                                    </button>
+                                </div>
+                                <div _ngcontent-c20="" align="center"
+                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
+                                    style="padding:10px;cursor:pointer">
+                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
+                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Water
+                                    </button>
+                                </div>
                             </div>
-                            <div class="col-md-3">
-                                <div class="input-file-container">
-                                    <input class="input-file" type='file' onchange="readURL(this);"
-                                        id="input-Incident" />
-                                    <label tabindex="0" for="my-file" class="input-file-trigger">
-                                        <i class="fa fa-paperclip"></i>
-                                    </label>
-                                    <div class="input-img">
-                                        <img class="blah" src="images/150.png" alt="your  image" />
-                                        <div class="top-right button-close button_close_show_img">
-                                            <button style="border-radius:50%;width:26px;height:26px;z-index:1;">
-                                                <i class="fa fa-times-circle"></i>
-                                            </button>
+                        </div>
+                        <div class="comment">
+                            <div class="row">
+                                <div class="col-md-9 input_box">
+                                    <span>Enter details here *</span>
+                                    <input type="text" name="text" placeholder="Enter details here *">
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="input-file-container">
+                                        <input class="input-file" type='file' onchange="readURL(this);"
+                                            id="input-Incident" />
+                                        <label tabindex="0" for="my-file" class="input-file-trigger">
+                                            <i class="fa fa-paperclip"></i>
+                                        </label>
+                                        <div class="input-img">
+                                            <img class="blah" src="images/150.png" alt="your  image" />
+                                            <div class="top-right button-close button_close_show_img">
+                                                <button style="border-radius:50%;width:26px;height:26px;z-index:1;">
+                                                    <i class="fa fa-times-circle"></i>
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="button" style="text-align: center;">
-                            <button>
-                                <span>CANCEL</span>
-                            </button>
-                            <button class="button2">
-                                <span>SEND</span>
-                            </button>
+                            <div class="button" style="text-align: center;">
+                                <button>
+                                    <span>CANCEL</span>
+                                </button>
+                                <button class="button2">
+                                    <span>SEND</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            {{-- </form> --}}
         </div>
     </section>
 </body>
@@ -205,6 +222,7 @@ Food
     $('.tablinks').click(function (event) {
         $('.tablinks').removeClass('tablinks_active');
         $(this).addClass('tablinks_active');
+        // $('.tablink3')=checked;
     });
 
 </script>

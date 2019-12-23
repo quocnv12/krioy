@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class ChildrenProgram extends Model
 {
     //
-    protected $table = 'children_program';
+    protected $table = 'children_programs';
 
     protected $fillable = [
           'id_children',
           'id_program'
     ];
 
-    protected $timestamp = false;
+    public $timestamps = false;
 }

@@ -48,7 +48,7 @@
             <a href="#">INVOICES</a>
             <a href="#">Settings</a>
             <a href="#">Help</a>
-            <a href="#">My kriyo</a>
+            <a href="kids-now">My kriyo</a>
         </div>
        
         <nav class="navbar navbar-expand-sm bg-light">

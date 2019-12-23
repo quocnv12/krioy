@@ -85,10 +85,6 @@ class ProgramsController extends Controller
             return $this->select_staff($request, $programs->id);
         }
 
-        if ($request->children){
-            return $this->select_children($request, $programs->id);
-        }
-
         $programs->save();
 
         return response()->json(['programs'=>$programs],201);

@@ -818,7 +818,7 @@ $(function () {
     assert.expect(1)
     var done = assert.async()
     var templateHTML = '<div id="modal-test" class="modal">' +
-                          '<div class="modal-dialog" role="document">' +
+                          '<div class="modal-dialog" roles="document">' +
                             '<div class="modal-content">' +
                               '<div class="modal-body">' +
                                 '<a id="tooltipTest" href="#" data-toggle="tooltip" title="Some tooltip text!">Tooltip</a>' +

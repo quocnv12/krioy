@@ -25,6 +25,7 @@ class CreateChildrenProfilesTable extends Migration
             $table->text('address');
             $table->text('allergies');
             $table->text('additional_note');
+            $table->text('image');
             $table->integer('status');
             $table->integer('exist');
             $table->timestamps();

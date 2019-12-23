@@ -24,7 +24,7 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone'=>'required|min:10|max:10',
+            'phone'=>'required|numeric|min:10',
             'password'=>'required|min:8'
         ];
     }
@@ -32,8 +32,8 @@ class LoginRequest extends FormRequest
     {
         return [
             'phone.required'=>'Số điện thoại không được để trống !',
-            'phone.min'=>'Số điện thoại thiếu số !',
-            'phone.max'=>'Số điện thoại bị thừa số !',
+            'phone.numeric'=>'Số điện thoại phải là kiểu số !',
+            'phone.min'=>'Số điện thoại tối thiểu 10 kí tự !',
             'password.required'=>'Mật khẩu không được để trống !',
             'password.min'=>'Mật khẩu phải lớn hơn 8 kí tự !'
         ];

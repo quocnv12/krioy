@@ -19159,7 +19159,7 @@ user-tag:
       - discount
       - label
       - person
-      - role
+      - roles
       - special
   styles:
     - solid
