@@ -24,7 +24,6 @@
 Route::get('kids-now/children/add','Admin\ChildrenProfilesController@create');
 
 
-
 Route::get('test',function (){
     return view('pages.children.create_child');
 
