@@ -60,12 +60,13 @@
 					<!---->
 					@if(isset($children_profiles))
 						@foreach($children_profiles as $children)
-							<div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted" style="padding:10px;cursor:pointer;">
+							<div _ngcontent-c19="" class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted" style="padding:10px;cursor:pointer;">
 								<div _ngcontent-c19="" type="button" data-toggle="modal" data-target=".bd-example-modal-sm" style="height: 120px;text-align: center;">
 									<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="assets/ls-icons/Child.png">
 									<!---->
-									<span _ngcontent-c19="" class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;">{{$children->first_name}} {{$children->last_name}}</span>
+									<span _ngcontent-c19="" class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;" >{{$children->first_name}} {{$children->last_name}}</span>
 									<!---->
+									<input type="hidden" value="{{$children->id}}" class="link_to_children">
 								</div>
 							</div>
 						@endforeach
@@ -83,10 +84,10 @@
 			    <div class="modal-content">
 					<ul>
 						<li style="color: #5363d6!important">Go to</li>
-						<li class="modal-li" data-href="kids-now/children/edit">Profile</li>
-						<li class="modal-li" data-href="invoices.html">Invoices</li>
-						<li class="modal-li" data-href="attachment.html">Attachments</li>
-						<li class="modal-li" data-href="Authoriesd-Pickups.html">Authoriesd Pickups</li>
+						<li class="modal-li" data-href="" id="profile_children">Profile</li>
+						<li class="modal-li" data-href="" id="invoices_children">Invoices</li>
+						<li class="modal-li" data-href="" id="attachments_children">Attachments</li>
+						<li class="modal-li" data-href="" id="authoriesd_pickups_children">Authoriesd Pickups</li>
 					</ul>
 			    </div>
 			</div>
@@ -112,8 +113,17 @@
     <script src="asset/kriyo/js/main.js"></script>
     <script type="text/javascript">
     	$(document).ready(function($) {
+			$('div.div_box_children').click(function () {
+				var id_children = $(this).children('div').children('input').val();
+				$('li#profile_children').attr('data-href','/kids-now/children/edit/'+id_children);
+				$('li#invoices_children').attr('data-href','/kids-now/children/edit/'+id_children);
+				$('li#attachments_children').attr('data-href','/kids-now/children/edit/'+id_children);
+				$('li#authoriesd_pickups_children').attr('data-href','/kids-now/children/edit/'+id_children);
+			});
+
 		    $(".modal-li").click(function() {
 		        window.document.location = $(this).data("href");
+
 		    });
 		});
     </script>
