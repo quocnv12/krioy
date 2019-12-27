@@ -16,31 +16,44 @@
     <section class="page-top container">
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
             <div class="row">
-                <ul class="ul-td">
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">HOME</a></li>
-                    <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">CHILDREN PROFILES</a></li>
-                    <li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a _ngcontent-c16="">ADD CHILD</a></li>
-                </ul>
+                <div class="col-lg-10 col-md-10 col-sm-10">
+                    <ul class="ul-td">
+                        <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">HOME</a></li>
+                        <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">CHILDREN</a></li>
+                        <li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a _ngcontent-c16="">EDIT CHILDREN</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target="">
+                    <button class="notice" type="button">
+                        <span><a href="kids-now/children/delete/{{$children_profiles->id}}" style="color: inherit">DELETE</a></span>
+                    </button>
+                </div>
             </div>
         </div>
         @if(session('notify'))
-            <div class="alert alert-success">
+            <div class="alert alert-success font-weight-bold">
                 {{session('notify')}}
             </div>
 
         @endif
         <form style="width: auto;
     margin: 0 0;
-    text-align: center" action="kids-now/children/edit/{{$children_profiles->id}}" method="post" name="form">
+    text-align: center" action="kids-now/children/edit/{{$children_profiles->id}}" method="post" name="form" enctype="multipart/form-data">
             @csrf
             <div class="mat-card">
                 <div class="mat-content">
-                    <button class="accordion add-staff">EDIT CHILD</button>
+                    <button class="accordion add-staff">Edit Children</button>
                     <div class="row">
                         <div class="col-md-2 textera-img">
-                            <a href="#">
-                                <img src="images/Child.png" alt="">
+                            <a style="cursor: pointer;">
+                                <input type="file" id="uploadfile" name="image">
+                                <img src="{{$children_profiles->image ? $children_profiles->image : 'images/Child.png'}}" alt="" id="demo_image">
                                 <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
+                                @if ($errors->has('image'))
+                                    <div class="text text-danger">
+                                        {{ $errors->first('image') }}
+                                    </div>
+                                @endif
                             </a>
                         </div>
                         <div class="col-md-10">
@@ -83,7 +96,7 @@
                             <div class="col-md-3 input_box">
                                 <span>Blood Group </span>
                                 <select name="blood_group">
-                                    <option>Blood Group</option>
+                                    <option value="">Blood Group</option>
                                     <option value="A+" @if($children_profiles->blood_group == "A+") selected="selected" @endif>A+</option>
                                     <option value="A-" @if($children_profiles->blood_group == "A-") selected="selected" @endif>A-</option>
                                     <option value="B+" @if($children_profiles->blood_group == "B+") selected="selected" @endif>B+</option>
@@ -136,7 +149,7 @@
                         <div class="col-md-4 input_box" style="width: 100%;">
                             <span>Status</span>
                             <select name="status">
-                                <option selected>Status</option>
+                                <option value="">Status</option>
                                 <option value="1" @if($children_profiles->status == 1) selected="selected" @endif>IN</option>
                                 <option value="2" @if($children_profiles->status == 2) selected="selected" @endif>OUT</option>
                                 <option value="3" @if($children_profiles->status == 3) selected="selected" @endif>ABSENT</option>
@@ -404,4 +417,30 @@
 	    	}
 		});
 	</script>
+
+    {{-- begin xu ly anh--}}
+    <script>
+        $("#uploadfile").hide();
+        $("#demo_image").click(function () {
+            $("#uploadfile").click();
+        });
+    </script>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#demo_image').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+
+        }
+        $("#uploadfile").change(function(){
+            readURL(this);
+        });
+    </script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    {{-- finish xu ly anh--}}
 @endsection

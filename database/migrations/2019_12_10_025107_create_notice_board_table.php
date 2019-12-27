@@ -16,8 +16,11 @@ class CreateNoticeBoardTable extends Migration
         Schema::create('notice_board', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->integer('important');
+            $table->integer('important')->nullable();
+            $table->integer('archive')->nullable()->default(0);
             $table->text('content');
+            $table->string('writer')->nullable();
+            $table->text('clip_board')->nullable();
             $table->timestamps();
         });
     }

@@ -25,13 +25,10 @@
 						<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer;">
 							<button _ngcontent-c20="" class="btn progBtn limitText" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" disabled>Attendance </button>
 						</div>
-						<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer">
-							<button _ngcontent-c20="" class="btn progBtn limitText bgClass" disabled style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Behaviour </button>
-						</div>
 					</div>
 				</div>
 				<div style="font-size: 20px;font-weight: bold;">
-					<p>Hello!!!!!!</p>
+					<p>{{$notice_board->title}}</p>
 				</div>
 				<br>
 				<div class="row">
@@ -42,7 +39,7 @@
 							</div>
 							<div class="col-xs-3 col-md-3" data-toggle="modal" data-target=".bd-example-modal-sm">
 								<label class="label-checkbox">
-									<input type="checkbox" checked="checked" disabled>
+									<input type="checkbox" @if($notice_board->important) checked="checked" @endif disabled>
 									<span class="checkmark"></span>
 								</label>
 							</div>
@@ -53,7 +50,7 @@
 							<div class="col-xs-9 col-md-9">
 								<p>Archive</p>
 							</div>
-							<div class="col-xs-3 col-md-3" data-toggle="modal" data-target=".bd-example-modal-sm">
+							<div class="col-xs-3 col-md-3">
 								<label class="label-checkbox">
 									<input type="checkbox" checked="checked" disabled>
 									<span class="checkmark"></span>
@@ -62,22 +59,25 @@
 						</div>
 					</div>
 				</div>
-				<div class="notice-footer" style="color: grey;font-size: 14px;margin-bottom: 30px;">
+				<div class="notice-footer" style="color: grey;font-size: 14px;margin-bottom: 370px;">
 					<div class=" row">
-						<div class="col-md-11">
-							<p>kjgfbajhsj</p>
-							<div class="">
-								<span style="float: left;">10:22 AM, Nov 25 2019</span>
-								<span style="float: right;">AAAAA</span>
-							</div>
+						<div class="col-md-11" style="margin-top: 20px">
+							<p>{{ $notice_board->content }}</p>
 						</div>
+						<div class="col-md-12">
+							<a href="kids-now/notice-board/clip_board/{{$notice_board->id}}" target="_blank">{{$notice_board->clip_board}}</a>
+						</div>
+					</div>
+					<div class="" style="margin-top: 50px">
+						<span style="float: left;">{{date('d-m-Y  H:i:s', strtotime($notice_board->created_at))}}</span>
+						<span style="float: right;">{{$notice_board->writer}}</span>
 					</div>
 				</div>
 			</div>
 		</div>
 
 		<div class="icon-plus" title="edit">
-			<a href="kids-now/notice-board/edit">
+			<a href="kids-now/notice-board/edit/{{$notice_board->id}}">
 				<i class="fa fa-plus"></i>
 			</a>
 		</div>

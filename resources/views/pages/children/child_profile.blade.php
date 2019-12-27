@@ -11,8 +11,8 @@
 			<div class="row">
 				<div class="col-md-6">
 					<ul class="ul-td">
-						<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">HOME</a></li>
-						<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">CHILDREN PROFILES</a></li>
+						<li _ngcontent-c16="" class="level1"><a href="kids-now/children">HOME</a></li>
+						<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a href="">CHILDREN PROFILES</a></li>
 					</ul>
 				</div>
 				<div class="col-md-6">
@@ -26,6 +26,12 @@
 			</div>
 		</div>
 	</section>
+	@if(session('notify'))
+		<div class="alert alert-success font-weight-bold">
+			{{session('notify')}}
+		</div>
+
+	@endif
 	<section _ngcontent-c10="" style="background-color:#f9f9f9">
 		<div _ngcontent-c10="" class="row" style="padding: 10px">
 			<div _ngcontent-c10="" align="right" class="col-lg-2 col-md-2 col-sm-2 scrollClassLeft">
@@ -87,7 +93,7 @@
 						<li class="modal-li" data-href="" id="profile_children">Profile</li>
 						<li class="modal-li" data-href="" id="invoices_children">Invoices</li>
 						<li class="modal-li" data-href="" id="attachments_children">Attachments</li>
-						<li class="modal-li" data-href="" id="authoriesd_pickups_children">Authoriesd Pickups</li>
+						<li class="modal-li" data-href="" id="authorised_pickups_children">Authoriesd Pickups</li>
 					</ul>
 			    </div>
 			</div>

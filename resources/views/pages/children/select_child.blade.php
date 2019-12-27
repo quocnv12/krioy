@@ -104,7 +104,7 @@
 						<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
 							<div _ngcontent-c9="" class="image">
 								<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="Child.png">
-								<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked"></i>
+								<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked" style="display: none;"></i>
 								<!---->
 								<span _ngcontent-c19="" class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;font-weight: bold;font-size: 16px;">Riya Demo Child</span>
 							</div>
