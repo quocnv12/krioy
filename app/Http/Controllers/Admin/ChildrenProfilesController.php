@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
-
 use App\models\ChildrenParent;
 use App\models\ChildrenProfiles;
 use App\models\ChildrenProgram;
@@ -11,27 +9,20 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-
 class ChildrenProfilesController extends Controller
 {
-
     public function index()
     {
         //
         $programs = Programs::all();
-
         //return response()->json(['children_profiles'=>$children_profiles],200);
         return view('pages.children.child_profile',['programs'=>$programs]);
     }
-
-
     public function create()
     {
         $programs = Programs::all();
         return view('pages.children.create_child',['programs'=>$programs]);
     }
-
-
     public function store(Request $request)
     {
         $this->validate($request,
@@ -73,25 +64,19 @@ class ChildrenProfilesController extends Controller
                 'gender_parent.required'    =>  'Please choose gender',
                 'phone_parent'              =>  'Please input phone'
             ]);
-
         $children_profiles = ChildrenProfiles::create($request->all());
-
         if ($request->hasFile('image')){
             $file = $request->image;
             $filename= Str::random(9).'.'.$file->getClientOriginalExtension();
             $file->move('images/children/', $filename);
             $children_profiles->image = 'images/children/'.$filename;
         }
-
         $children_profiles->save();
-
         if ($request->programs){
             //lay id cua children vua tao moi xong
             $children_id = $children_profiles->id;
-
             //string to array
             $programs = explode(',',$request->programs);
-
             //luu vao bang children_programs
             foreach ($programs as $program){
                 $children_program = new ChildrenProgram();
@@ -101,8 +86,6 @@ class ChildrenProfilesController extends Controller
             }
             $children_program->save();
         }
-
-
         if ($request->first_name_parent){
             //tao record ben bang parent_profiles
             $parent = new ParentProfiles();
@@ -113,10 +96,8 @@ class ChildrenProfilesController extends Controller
             $parent->note = $request->note_parent;
             $parent->gender = $request->gender_parent;
             $parent->save();
-
             //id parent vua tao moi xong
             $parent_id = $parent->id;
-
             //tao record ben bang children_parent
             $children_parent = new ChildrenParent();
             $children_parent->id_children = $children_id;
@@ -124,59 +105,45 @@ class ChildrenProfilesController extends Controller
             $children_parent->relationship = $request->relationship;
             $children_parent->save();
         }
-
-
         //return response()->json(['children_profiles' => $children_profiles], 201);
         return redirect()->back()->with('notify','Added Successfully');
     }
-
-
     public function show($id)
     {
         //
         $programs = Programs::all();
-       $children_profiles = DB::table('programs')
-       
+        $children_profiles = DB::table('programs')
+
             ->join('children_programs','programs.id','=','children_programs.id_program')
             ->join('children_profiles','children_profiles.id','=','children_programs.id_children')
             ->select(['children_profiles.*'])
             ->where('children_programs.id_program','=',$id)
             ->get();
-
         //return response()->json(['children_profiles' => $children_profiles]);
         return view('pages.children.child_profile',['children_profiles'=>$children_profiles, 'programs'=>$programs]);
     }
-
-
     public function edit($id)
     {
         //
         $children_profiles = ChildrenProfiles::find($id);
-
         $programs = Programs::all();
-
         $programs_choose = DB::table('programs')
             ->join('children_programs','programs.id','=','children_programs.id_program')
             ->select('id')
             ->where('id_children','=',$id)
             ->get();
-
         // array chua cac id program ma children dang hoc
         $array_programs_choose = [];
         foreach ($programs_choose as $key=>$value){
             array_push($array_programs_choose, $value->id);
         }
-
         $parent_profiles = DB::table('parent_profiles')
             ->join('children_parent','parent_profiles.id','=','children_parent.id_parent')
             ->select('*')
             ->where('id_children','=',$id)
             ->get();
-
         return view('pages.children.edit_child',['children_profiles'=>$children_profiles,'programs'=>$programs,'array_programs_choose'=>$array_programs_choose ,'parent_profiles'=>$parent_profiles]);
-
     }
-
     public function update(Request $request, $id)
     {
         $this->validate($request,
@@ -218,26 +185,20 @@ class ChildrenProfilesController extends Controller
                 'gender_parent.required'    =>  'Please choose gender',
                 'phone_parent'              =>  'Please input phone'
             ]);
-
-
         $children_profiles = ChildrenProfiles::findOrFail($id);
         $children_profiles->update($request->all());
-
         if ($request->hasFile('image')){
             // xoa anh cu
             if ($children_profiles->image){
                 $old_image = $children_profiles->image;
                 unlink($old_image);
             }
-
             $file = $request->image;
             $filename= Str::random(9).'.'.$file->getClientOriginalExtension();
             $file->move('images/children/', $filename);
             $children_profiles->image = 'images/children/'.$filename;
         }
-
         $children_profiles->save();
-
         if ($request->programs_new){
             //array chua cac id program ma children dang hoc
             $array_programs_old = [];
@@ -245,18 +206,15 @@ class ChildrenProfilesController extends Controller
             foreach ($programs_old as $item){
                 array_push($array_programs_old, $item);
             }
-
             //array chua cac id program ma children moi dang ky
             $array_programs_new = [];
             $programs_new = explode(',',$request->programs_new);    //string to array
             foreach ($programs_new as $item){
                 array_push($array_programs_new, $item);
             }
-
             //so sanh array cu va moi
             $programs_add = array_diff($array_programs_new, $array_programs_old);
             $programs_remove = array_diff($array_programs_old, $array_programs_new);
-
             //them record children_programs
             foreach ($programs_add as $program_id){
                 $children_programs = new ChildrenProgram();
@@ -264,46 +222,34 @@ class ChildrenProfilesController extends Controller
                 $children_programs->id_program = $program_id;
                 $children_programs->save();
             }
-
             //xoa record children_programs
             foreach ($programs_remove as $program_id){
                 $children_programs = ChildrenProgram::where([['id_children','=',$id], ['id_program','=',$program_id]]);
                 $children_programs->delete();
             }
         }
-
         //return response()->json(['children_profiles' => $children_profiles], 200);
         return redirect()->back()->with('notify','Updated Successfully');
     }
-
-
     public function destroy($id)
     {
         //
         $children_profiles = ChildrenProfiles::findOrFail($id);
         $children_profiles->delete();
-
-
         $children_program = ChildrenProgram::where('id_children','=',$id)->get();
-
         foreach ($children_program as $children){
             $children->delete();
         }
-
         $children_parent = ChildrenParent::where('id_children','=',$id)->get();
         foreach ($children_parent as $children){
-
             //xoa parent cua children bi xoa
             $parent = ParentProfiles::where('id','=',$children->id_parent)->get();
             foreach ($parent as $person){
                 $person->delete();      //xoa parent
             }
-
             $children->delete();        //xoa children
         }
-
         //return response()->json(null, 204);
         return redirect('pages.children.child_profile')->with('notify','Deleted Successfully');
-
     }
 }
