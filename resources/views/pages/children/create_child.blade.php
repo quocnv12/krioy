@@ -4,7 +4,7 @@
 @endsection
 
 @section('content')
-<<<<<<< HEAD
+
 	<style>
 		.text-danger{
 			display: flex;
@@ -12,7 +12,7 @@
 			margin: 15px;
 		}
 	</style>
-=======
+
     <style>
         .text-danger{
             display: flex;
@@ -20,7 +20,7 @@
             margin: 15px;
         }
     </style>
->>>>>>> 15c9f8817630a54248033fdd2287dd5786c69049
+
 	<body>
 
 	<section class="page-top container">
@@ -43,7 +43,7 @@
     margin: 0 0;
     text-align: center" action="kids-now/children/add" method="post" name="form" enctype="multipart/form-data">
 			@csrf
-<<<<<<< HEAD
+
 			<div class="mat-card">
 				<div class="mat-content">
 					<button class="accordion add-staff">ADD CHILD</button>
@@ -199,7 +199,7 @@
 						@endif
 					</div>
 				</div>
-=======
+
 		<div class="mat-card">
 			<div class="mat-content">
 				<button class="accordion add-staff">Add Children</button>
@@ -360,7 +360,7 @@
                         </div>
                     @endif
 				</div>
->>>>>>> 15c9f8817630a54248033fdd2287dd5786c69049
+
 			</div>
 
 			<div class="mat-card">
@@ -379,7 +379,7 @@
 					</div>
 				</div>
 			</div>
-<<<<<<< HEAD
+
 
 			<div class="mat-card" style="background-color: #f9f9f9;">
 				<div class="mat-content">
@@ -475,7 +475,7 @@
 												</div>
 											@endif
 										</div>
-=======
+
 		</div>
 		
 		<div class="mat-card" style="background-color: #f9f9f9;">
@@ -562,7 +562,7 @@
                                                 {{ $errors->first('email_parent') }}
                                             </div>
                                         @endif
->>>>>>> 15c9f8817630a54248033fdd2287dd5786c69049
+
 									</div>
                                     <div class="input_box" style="width: 100%;">
                                         <span>Note *</span>
@@ -696,4 +696,4 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 	{{-- finish xu ly anh--}}
 @endsection
->>>>>>> 15c9f8817630a54248033fdd2287dd5786c69049
+

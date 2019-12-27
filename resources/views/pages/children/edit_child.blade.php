@@ -4,7 +4,7 @@
 @endsection
 
 @section('content')
-<<<<<<< HEAD
+
 	<style>
 		.text-danger{
 			display: flex;
@@ -330,7 +330,7 @@
 	</section>
 
 	</body>
-=======
+
     <style>
         .text-danger{
             display: flex;
@@ -669,7 +669,7 @@
     </section>
 
     </body>
->>>>>>> 15c9f8817630a54248033fdd2287dd5786c69049
+
 @endsection
 
 @section('js')
@@ -763,9 +763,9 @@
 			}
 		});
 	</script>
-<<<<<<< HEAD
+
 @endsection
-=======
+
 
     {{-- begin xu ly anh--}}
     <script>
@@ -793,4 +793,4 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     {{-- finish xu ly anh--}}
 @endsection
->>>>>>> 15c9f8817630a54248033fdd2287dd5786c69049
+

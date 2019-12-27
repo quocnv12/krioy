@@ -93,11 +93,11 @@
 						<li class="modal-li" data-href="" id="profile_children">Profile</li>
 						<li class="modal-li" data-href="" id="invoices_children">Invoices</li>
 						<li class="modal-li" data-href="" id="attachments_children">Attachments</li>
-<<<<<<< HEAD
+
 						<li class="modal-li" data-href="" id="authoriesd_pickups_children">Authoriesd Pickups</li>
-=======
+
 						<li class="modal-li" data-href="" id="authorised_pickups_children">Authoriesd Pickups</li>
->>>>>>> 15c9f8817630a54248033fdd2287dd5786c69049
+
 					</ul>
 				</div>
 			</div>
@@ -122,11 +122,11 @@
 
 	<!-- Main Script -->
 	<script src="asset/kriyo/js/main.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function($) {
-=======
+	<script type="text/javascript"></script>
+
     
     <!-- Bootstrap JS form CDN -->
+
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     
     <!-- jQuery sticky menu -->
@@ -140,7 +140,7 @@
     <script src="asset/kriyo/js/main.js"></script>
     <script type="text/javascript">
     	$(document).ready(function($) {
->>>>>>> 15c9f8817630a54248033fdd2287dd5786c69049
+
 			$('div.div_box_children').click(function () {
 				var id_children = $(this).children('div').children('input').val();
 				$('li#profile_children').attr('data-href','/kids-now/children/edit/'+id_children);
@@ -148,17 +148,17 @@
 				$('li#attachments_children').attr('data-href','/kids-now/children/edit/'+id_children);
 				$('li#authoriesd_pickups_children').attr('data-href','/kids-now/children/edit/'+id_children);
 			});
-<<<<<<< HEAD
+
 			$(".modal-li").click(function() {
 				window.document.location = $(this).data("href");
 			});
-=======
+
 
 		    $(".modal-li").click(function() {
 		        window.document.location = $(this).data("href");
 
 		    });
->>>>>>> 15c9f8817630a54248033fdd2287dd5786c69049
+
 		});
 	</script>
 @endsection

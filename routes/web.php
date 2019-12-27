@@ -17,15 +17,15 @@
 //     	return view('admin.home');
 // 	})->name('home');
 // });
-<<<<<<< HEAD
+
 Route::get('kids-now/children/add','Admin\ChildrenProfilesController@create');
-=======
-use Illuminate\Http\Request;
+
+
 
 Route::get('kids-now/children/add','Admin\ChildrenProfilesController@create');
 Route::get('kids-now/notice-board/add','Admin\NoticeBoardController@create');
 
->>>>>>> 15c9f8817630a54248033fdd2287dd5786c69049
+
 Route::get('test',function (){
     return view('pages.children.create_child');
 });
@@ -86,7 +86,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
 
     });
-<<<<<<< HEAD
+
     //---------------observation----------------
     Route::group(['prefix' => 'observations'], function () {
         Route::resource('observations','Admin\ObservationController');
@@ -111,7 +111,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('detail', function () {
             return view('pages.notice.notice_detail');
         });
-=======
+
 
 
         //---------------food----------------
@@ -172,7 +172,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::post('edit', 'Admin\NoticeBoardController@update');
 
         Route::get('clip_board/{id}','Admin\NoticeBoardController@displayClipboard');
->>>>>>> 15c9f8817630a54248033fdd2287dd5786c69049
+
     });
     //---------------program----------------
     Route::group(['prefix' => 'program'], function () {
@@ -191,7 +191,5 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         });
     });
 });
-<<<<<<< HEAD
-=======
+});
 
->>>>>>> 15c9f8817630a54248033fdd2287dd5786c69049

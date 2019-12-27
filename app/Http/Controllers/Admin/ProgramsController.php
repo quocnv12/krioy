@@ -1,10 +1,10 @@
 <?php
 namespace App\Http\Controllers\Admin;
-<<<<<<< HEAD
-=======
+
+
 
 use App\models\ChildrenProfiles;
->>>>>>> 15c9f8817630a54248033fdd2287dd5786c69049
+
 use App\models\ChildrenProgram;
 use App\models\Programs;
 use App\models\StaffProgram;
@@ -20,7 +20,7 @@ class ProgramsController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
+
         //
         $programs = DB::table('programs')
             ->join('children_programs','programs.id','=','children_programs.id_program')
@@ -43,7 +43,7 @@ class ProgramsController extends Controller
                 ->get();
         }
         return response()->json(['programs'=>$programs],200);
-=======
+
 
 //        $programs = DB::table('programs')
 //            ->join('children_programs','programs.id','=','children_programs.id_program')
@@ -79,7 +79,7 @@ class ProgramsController extends Controller
                     ->get();
 
         return view('pages.program.program',['programs'=>$programs]);
->>>>>>> 15c9f8817630a54248033fdd2287dd5786c69049
+
     }
     /**
      * Show the form for creating a new resource.
@@ -110,7 +110,7 @@ class ProgramsController extends Controller
         $programs = Programs::create($request->all());
         $programs->schedule = $request->schedule;
         $programs->save();
-<<<<<<< HEAD
+
         //solve schedule
         $all_schedule = $request->schedule;
         $arr = [];
@@ -126,11 +126,11 @@ class ProgramsController extends Controller
         }
         $programs->save();
         return response()->json(['programs'=>$programs],201);
-=======
+
 
         //return response()->json(['programs'=>$programs],201);
         return redirect()->back()->with('notify','Added Successfully');
->>>>>>> 15c9f8817630a54248033fdd2287dd5786c69049
+
     }
     /**
      * Display the specified resource.
@@ -203,7 +203,7 @@ class ProgramsController extends Controller
         $programs->delete();
         return response()->json(null, 204);
     }
-<<<<<<< HEAD
+
     public function select_staff(Request $request, $id)
     {
         $id_program = $id;
@@ -215,8 +215,8 @@ class ProgramsController extends Controller
             $staff_programs->save();
         }
     }
-}
-=======
+
+
 
 //    public function select_staff(Request $request, $id)
 //    {
@@ -232,4 +232,4 @@ class ProgramsController extends Controller
 
 
 }
->>>>>>> 15c9f8817630a54248033fdd2287dd5786c69049
+
