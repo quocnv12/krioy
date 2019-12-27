@@ -20,7 +20,7 @@
                     <a class="nav-link" href="#">Help</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">My kriyo</a>
+                    <a class="nav-link" href="kids-now">My kriyo</a>
                 </li>
 
                 <!-- Dropdown -->
@@ -48,7 +48,7 @@
             <a href="#">INVOICES</a>
             <a href="#">Settings</a>
             <a href="#">Help</a>
-            <a href="#">My kriyo</a>
+            <a href="kids-now">My kriyo</a>
         </div>
        
         <nav class="navbar navbar-expand-sm bg-light">
