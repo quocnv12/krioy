@@ -18,16 +18,16 @@ class CreateChildrenProfilesTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->date('birthday');
-            $table->string('blood_group');
+            $table->string('blood_group')->nullable();
             $table->tinyInteger('gender');
-            $table->date('date_of_joining');
-            $table->string('unique_id');
-            $table->text('address');
-            $table->text('allergies');
-            $table->text('additional_note');
-            $table->text('image');
-            $table->integer('status');
-            $table->integer('exist');
+            $table->date('date_of_joining')->nullable();
+            $table->string('unique_id')->unique();
+            $table->text('address')->nullable();
+            $table->text('allergies')->nullable();
+            $table->text('additional_note')->nullable();
+            $table->text('image')->nullable();
+            $table->integer('status')->nullable();
+            $table->integer('exist')->nullable();
             $table->timestamps();
         });
     }
