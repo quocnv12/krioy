@@ -66,7 +66,7 @@ Trang chủ
         <div class="row line">
             <div class="col-md-1 "></div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
-                <a href="kids-now/health">
+                <a href="{{route('observations.create')}}">
                     <img src="images/Health-01.png" alt="">
                     <div class="title">
                         <p><strong>Health</strong></p>

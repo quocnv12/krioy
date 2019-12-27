@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\models\ObservationModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class ObservationController extends Controller
 {
-    protected $table = 'observations_type';
+    public function index(){
+        $observation= ObservationModel::all();
+        return view('pages.observation.observation', compact('observation'));
+    }
+    public function create(){
 
-    protected $fillable = [
-        'id',
-        'name',
-    ];
+        $observation= ObservationModel::all();
+        return view('pages.observation.observation', compact('observation'));
+    }
 
-    public $timestamps = false;
 }
