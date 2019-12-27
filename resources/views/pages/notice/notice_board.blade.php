@@ -10,8 +10,8 @@
 			<div class="row">
 				<div class="col-md-6">
 					<ul class="ul-td">
-						<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">HOME</a></li>
-						<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">NOTICE BOARD</a></li>
+						<li _ngcontent-c16="" class="level1"><a href="kids-now">HOME</a></li>
+						<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a href="">NOTICE BOARD</a></li>
 					</ul>
 				</div>
 			</div>
@@ -28,9 +28,11 @@
 				<div _ngcontent-c10="" class="scrollmenu" id="nav">
 					<ul _ngcontent-c10="">
 						<!---->
-						<li _ngcontent-c10="">
-							<a _ngcontent-c10="" class="item active">Kindergarten</a>
-						</li>
+						@foreach($programs as $program)
+							<li _ngcontent-c10="">
+								<a _ngcontent-c10="" class="item active" href="kids-now/notice-board/{{$program->id}}">{{$program->program_name}}</a>
+							</li>
+						@endforeach
 					</ul>
 				</div>
 			</div>
@@ -43,27 +45,31 @@
 	</section>
 	<section class="container">
 		<div class="mat-card" style="min-height: 500px;">
-			<div class="mat-content">	
-				<div class="mat-card" style="margin: 0;">
+			<div class="mat-content">
+			@if(isset($notice_board))
+				@foreach($notice_board as $notice)
+					<div class="mat-card" style="margin: 0;">
 					<div class="row">
-						<div class="notice" data-href="kids-now/notice-board/detail">
-							<div class="col-lg-9 col-md-9 col-sm-9">
+						<div class="notice" data-href="kids-now/notice-board/detail/{{$notice->id}}" style="width: 100%;">
+							<div class=" col-md-10">
 								<span _ngcontent-c34="" style="display: block; font-size: 18px; padding-left: 0px;"><!---->
-									<i _ngcontent-c34="" aria-hidden="true" class="fa fa-star ng-star-inserted" style="color:#FAC917;padding-right:5px; "></i> sdfgasfad
+									<i _ngcontent-c34="" aria-hidden="true" class="fa fa-star ng-star-inserted" style="color:#FAC917;padding-right:5px; "></i>{{$notice->title}}
 								</span>
 								<br>
-								<span _ngcontent-c34="" style="color: grey; font-size: 16px; padding-left: 24px;"><!----> ấd
+								<span _ngcontent-c34="" style="color: grey; font-size: 16px; padding-left: 24px;"><!---->{{Str::limit($notice->content,200)}}
 								</span>
 							</div>
-							<div class="col-lg-3 col-md-3 col-sm-3">
-								<div _ngcontent-c34="" align="center" style="color:#5363d6;font-size: 16px;">
-									<span _ngcontent-c34="">25 Nov 2019</span>
+							<div class=" col-md-2">
+								<div align="center" style="color:#5363d6;font-size: 16px; display: flex;">
+									<span _ngcontent-c34="">{{date('d-m-Y',strtotime($notice->created_at))}}</span>
 									<br _ngcontent-c34="">
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				@endforeach
+			@endif
 			</div>
 		</div>
 		<div class="icon-plus" title="add">

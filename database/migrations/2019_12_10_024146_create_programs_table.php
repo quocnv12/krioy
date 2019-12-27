@@ -16,16 +16,16 @@ class CreateProgramsTable extends Migration
         Schema::create('programs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('program_name');
-            $table->date('from_month');
-            $table->date('to_month');
+            $table->tinyInteger('from_month');
+            $table->tinyInteger('to_month');
             $table->year('from_year');
             $table->year('to_year');
-            $table->integer('period');
-            $table->time('start_time');
-            $table->time('finish_time');
-            $table->string('schedule');  
-            $table->string('program_fee');   
-            $table->integer('status');   
+            $table->time('start_time')->nullable();
+            $table->time('finish_time')->nullable();
+            $table->string('schedule')->nullable();
+            $table->string('program_fee')->nullable();
+            $table->string('period_fee')->nullable();
+            $table->integer('status')->nullable();
             $table->timestamps();
         });
     }

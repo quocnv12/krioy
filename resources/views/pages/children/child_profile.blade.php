@@ -11,8 +11,8 @@
 			<div class="row">
 				<div class="col-md-6">
 					<ul class="ul-td">
-						<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">HOME</a></li>
-						<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">CHILDREN PROFILES</a></li>
+						<li _ngcontent-c16="" class="level1"><a href="kids-now/children">HOME</a></li>
+						<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a href="">CHILDREN PROFILES</a></li>
 					</ul>
 				</div>
 				<div class="col-md-6">
@@ -26,6 +26,12 @@
 			</div>
 		</div>
 	</section>
+	@if(session('notify'))
+		<div class="alert alert-success font-weight-bold">
+			{{session('notify')}}
+		</div>
+
+	@endif
 	<section _ngcontent-c10="" style="background-color:#f9f9f9">
 		<div _ngcontent-c10="" class="row" style="padding: 10px">
 			<div _ngcontent-c10="" align="right" class="col-lg-2 col-md-2 col-sm-2 scrollClassLeft">
@@ -87,7 +93,11 @@
 						<li class="modal-li" data-href="" id="profile_children">Profile</li>
 						<li class="modal-li" data-href="" id="invoices_children">Invoices</li>
 						<li class="modal-li" data-href="" id="attachments_children">Attachments</li>
+<<<<<<< HEAD
 						<li class="modal-li" data-href="" id="authoriesd_pickups_children">Authoriesd Pickups</li>
+=======
+						<li class="modal-li" data-href="" id="authorised_pickups_children">Authoriesd Pickups</li>
+>>>>>>> 15c9f8817630a54248033fdd2287dd5786c69049
 					</ul>
 				</div>
 			</div>
@@ -98,6 +108,7 @@
 
 @section('js')
 	<script src="https://code.jquery.com/jquery.min.js"></script>
+<<<<<<< HEAD
 
 	<!-- Bootstrap JS form CDN -->
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -113,6 +124,23 @@
 	<script src="asset/kriyo/js/main.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function($) {
+=======
+    
+    <!-- Bootstrap JS form CDN -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    
+    <!-- jQuery sticky menu -->
+    <script src="asset/kriyo/js/owl.carousel.min.js"></script>
+    <script src="asset/kriyo/js/jquery.sticky.js"></script>
+    
+    <!-- jQuery easing -->
+    <script src="asset/kriyo/js/jquery.easing.1.3.min.js"></script>
+    
+    <!-- Main Script -->
+    <script src="asset/kriyo/js/main.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function($) {
+>>>>>>> 15c9f8817630a54248033fdd2287dd5786c69049
 			$('div.div_box_children').click(function () {
 				var id_children = $(this).children('div').children('input').val();
 				$('li#profile_children').attr('data-href','/kids-now/children/edit/'+id_children);
@@ -120,9 +148,17 @@
 				$('li#attachments_children').attr('data-href','/kids-now/children/edit/'+id_children);
 				$('li#authoriesd_pickups_children').attr('data-href','/kids-now/children/edit/'+id_children);
 			});
+<<<<<<< HEAD
 			$(".modal-li").click(function() {
 				window.document.location = $(this).data("href");
 			});
+=======
+
+		    $(".modal-li").click(function() {
+		        window.document.location = $(this).data("href");
+
+		    });
+>>>>>>> 15c9f8817630a54248033fdd2287dd5786c69049
 		});
 	</script>
 @endsection

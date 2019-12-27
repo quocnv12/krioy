@@ -19,9 +19,9 @@ class CreateParentProfilesTable extends Migration
             $table->string('last_name');
             $table->tinyInteger('gender');
             $table->string('email');
-            $table->text('note');
+            $table->text('note')->nullable();
             $table->string('phone');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

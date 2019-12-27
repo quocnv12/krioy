@@ -1,43 +1,29 @@
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Kriyo Add Program</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+@extends('master-layout')
+@section('title')
+	Add Program
+@endsection
 
-		<link rel="stylesheet" href="index.css">
-		<link rel="stylesheet" type="text/css" href="heath.css">
-		<link rel="stylesheet" href="staff_profile.css">
-
-		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
-   		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
-    	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
-
-    	<link rel="stylesheet" href="css/bootstrap.min.css">
-    
-	    <!-- Font Awesome -->
-	    <link rel="stylesheet" href="css/font-awesome.min.css">
-	    
-	    <!-- Custom CSS -->
-	    <link rel="stylesheet" href="css/owl.carousel.css">
-	</head>
+@section('content')
 <body>
 	<section class="page-top container">
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
 				<ul class="ul-td">
-					<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">HOME</a></li>
-					<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">PROGRAM</a></li>
-					<li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a _ngcontent-c16="">ADD PROGRAM</a></li>
+					<li _ngcontent-c16="" class="level1"><a href="kids-now">HOME</a></li>
+					<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a href="kids-now/program">PROGRAM</a></li>
+					<li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a href="">ADD PROGRAM</a></li>
 				</ul>
 			</div>
 		</div>
+		<form action="kids-now/program/add" method="post" style="width: 100%">
+			@csrf
 		<div class="mat-card">
-			<button class="accordion add-staff">ADD PROGRAM</button>
+			<button class="accordion add-staff" type="button">Add Program</button>
 			<div class="panel add">
 				<div class="row">
 					<div class="col-md-4 input_box">
 						<span>Program Name *</span>
-						<input type="text" name="text" placeholder="Program Name *">
+						<input type="text" name="program_name" placeholder="Program Name *" value="{{old('program_name')}}">
 					</div>
 					<div class="col-md-8">
 						<div class="row" style="margin: 10px 0;">
@@ -46,14 +32,15 @@
 							</div>
 							<div class="col-md-10" style="margin: 10px 0;">
 								<div class="panel_new">
-									<div class="letterCircle listClass" style="color: #5363d7;">S</div>
-									<div class="letterCircle listClass" style="color: #5363d7;">M</div>
-									<div class="letterCircle listClass" style="color: #5363d7;">T</div>
-									<div class="letterCircle listClass" style="color: #5363d7;">W</div>
-									<div class="letterCircle listClass" style="color: #5363d7;">T</div>
-									<div class="letterCircle listClass" style="color: #5363d7;">F</div>
-									<div class="letterCircle listClass" style="color: #5363d7;">S</div>
+									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="8">S</button>
+									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="2">M</button>
+									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="3">T</button>
+									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="4">W</button>
+									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="5">T</button>
+									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="6">F</button>
+									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="7">S</button>
 								</div>
+								<input type="hidden" name="schedule" id="schedule" value="">
 							</div>
 						</div>
 					</div>
@@ -62,15 +49,15 @@
 					<div class="col-md-6">
 						<div class="row">
 							<div class="col-md-6 input_box">
-								<span>Program Free(USD) *</span>
-								<input type="text" name="text" placeholder="Program Name *">
+								<span>Program Fee(USD) *</span>
+								<input type="text" name="program_fee" placeholder="Program Fee *" value="{{old('program_fee')}}">
 							</div>
 							<div class="col-md-6 input_box">
-								<span>select *</span>
-								<select>
-									<option>/week</option>
-									<option>/month</option>
-									<option>/year</option>
+								<span>Select *</span>
+								<select name="period_fee">
+									<option @if(old('period_fee') == "/week") selected='selected' @endif value="/week">/week</option>
+									<option @if(old('period_fee') == "/month") selected='selected' @endif value="/month">/month</option>
+									<option @if(old('period_fee') == "/year") selected='selected' @endif value="/year">/year</option>
 								</select>
 							</div>
 						</div>
@@ -100,34 +87,34 @@
 						<div class="row">
 							<div class="col-md-3 input_box">
 								<span>Year *</span>
-								<select>
-									<option>0</option>
-									<option>1</option>
-									<option>2</option>
+								<select name="from_year">
+									@for($i = 2000; $i <= 3000; $i ++)
+										<option @if(old('from_year') == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
+									@endfor
 								</select>
 							</div>
 							<div class="col-md-3 input_box">
 								<span>Month *</span>
-								<select>
-									<option>0</option>
-									<option>1</option>
-									<option>2</option>
+								<select name="from_month">
+									@for($i = 1; $i <= 12; $i ++)
+										<option @if(old('from_month') == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
+									@endfor
 								</select>
 							</div>
 							<div class="col-md-3 input_box">
 								<span>Year *</span>
-								<select>
-									<option>0</option>
-									<option>1</option>
-									<option>2</option>
+								<select name="to_year">
+									@for($i = 2000; $i <= 3000; $i ++)
+										<option @if(old('to_year') == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
+									@endfor
 								</select>
 							</div>
 							<div class="col-md-3 input_box">
 								<span>Month *</span>
-								<select>
-									<option>0</option>
-									<option>1</option>
-									<option>2</option>
+								<select name="to_month">
+									@for($i = 1; $i <= 12; $i ++)
+										<option @if(old('to_month') == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
+									@endfor
 								</select>
 							</div>
 							
@@ -137,11 +124,11 @@
 						<div class="row">
 							<div class="col-md-6 input_box">
 								<span>HH:MM *</span>
-								<input type="time" name="time" >
+								<input type="time" name="start_time" value="{{old('start_time')}}">
 							</div>
 							<div class="col-md-6 input_box">
 								<span>HH:MM *</span>
-								<input type="time" name="time" >
+								<input type="time" name="finish_time" value="{{old('finish_time')}}">
 							</div>
 						</div>
 					</div>
@@ -151,9 +138,9 @@
 		
 		<div class="mat-card">
 			<div class="mat-content">
-				<button class="accordion accordion1 clearfix">
+				<button class="accordion accordion1 clearfix" type="button">
 					<p style="float: left;margin: 10px 0 !important;">Staff *</p>
-					<a href="Select-Child.html" style="float: right;text-align: right">
+					<a href="kids-now/program/select_staff" style="float: right;text-align: right">
 						<p style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">SELECT</p>
 					</a>
 				</button>
@@ -178,9 +165,9 @@
 		
 		<div class="mat-card">
 			<div class="mat-content">
-				<button class="accordion accordion1 clearfix">
-					<p style="float: left;">Permissions *</p>
-					<a href="Select-Child.html" style="float: right;text-align: right">
+				<button class="accordion accordion1 clearfix" type="button">
+					<p style="float: left;">Childrens *</p>
+					<a href="kids-now/program/select_child" style="float: right;text-align: right">
 						<p style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">SELECT</p>
 					</a>
 				</button>
@@ -202,18 +189,23 @@
 				</div>
 			</div>
 		</div>
+
 		<div class="comment">
 			<div class="button" style="text-align: center;">
-				<button>
+				<button type="reset">
 					<span>CANCEL</span>
 				</button>
-				<button class="button2">
+				<button class="button2" type="submit" id="submit_button">
 					<span>SAVE</span>
 				</button>
 			</div>
 		</div>
+		</form>
 	</section>
 </body>
+@endsection
+
+@section('js')
 	<script src="https://code.jquery.com/jquery.min.js"></script>
     
     <!-- Bootstrap JS form CDN -->
@@ -245,13 +237,23 @@
 		}
 	</script>
 	<script type="text/javascript">
+		var array = [];
     	$('.listClass').click(function(event) {
     		if ($(this).prop('class')=='letterCircle listClass tablinks1_active') {
     			$(this).removeClass('tablinks1_active');
+				var program_pop = $(this).val();
+				array.pop(program_pop);
     		}else{
     			$(this).addClass('tablinks1_active');
+				var program_push = $(this).val();
+				array.push(program_push);
     		}
+			console.log(array);
     	});
+
+		$('#submit_button').click(function(event) {
+			$('#schedule').attr('value', array);
+		});
     </script>
     <script type="text/javascript">
 		$('.input_box input').focus(function(event) {
@@ -284,4 +286,4 @@
 			}
 		});
 	</script>
-</html>
+@endsection

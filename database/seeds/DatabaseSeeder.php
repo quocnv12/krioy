@@ -33,6 +33,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ProgramsNoticeTableSeeder::class);
         $this->call(role::class);
         $this->call(staff_role::class);
+        $this->call(mealtype::class);
+        $this->call(quantityfood::class);
 
     }
 }
