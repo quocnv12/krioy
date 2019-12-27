@@ -108,6 +108,7 @@ a,a:hover, a:focus,button:focus{
     border-radius: 4px;
     background: #fff;
     color: rgba(0,0,0,.87);
+
 }
 
  .accordion,.accordion_new{
@@ -470,7 +471,7 @@ input:focus{
 
 /* Useless styles, just for demo styles */
 form {
-  width: 225px;
+  width: auto;
   margin: 0 auto;
   text-align:center;
 }

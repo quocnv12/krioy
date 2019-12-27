@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kriyo - @yield('title')</title>
     <link rel="shortcut icon" type="image/x-icon" href="" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <base href="{{asset('')}}">
     <!-- CSS libs -->
     <link rel="stylesheet" type="text/css" href="css/reset-browser.css">
@@ -50,5 +51,20 @@
     <script src="js/wow.js"></script>
     <script>new WOW().init();</script>
     <script src="js/home.js"></script>
+
+    <script src="asset/kriyo/js/toastr.min.js"></script>
+
+
+@if(session('error'))
+    <script type="text/javascript">
+        toastr.error('{{ session('error') }}', 'Thông báo', {timeOut: 5000});
+    </script>
+@endif
+
+@if(session('thongbao'))
+    <script type="text/javascript">
+        toastr.success('{{ session('thongbao') }}', 'Thông báo', {timeOut: 5000});
+    </script>
+@endif
     @yield('js')
 </html>
