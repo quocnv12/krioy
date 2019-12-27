@@ -32,18 +32,14 @@
 					</div>
 					<div class="login-input">
 					@if (session('thongbao'))
-						<div class="alert alert-danger" role="alert">
-							<strong>{{ session('thongbao') }}</strong>
-						</div>
+					<p style="font-size: 14px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;width:80%;margin-top:20px;margin-bottom:0px;">* {{ session('thongbao') }}</p>
 					@endif
 						<div class="add">
 							<div class="input_box" style="width: 100%;">
 						        <span>Phone Number *</span>
 								<input type="phone" name="phone" value="{{ old('phone') }}" placeholder="Phone Number*">
 								@if ($errors->has('phone'))
-									<div style="width: 80%;" class="alert alert-danger" role="alert">
-										<strong>{{ $errors->first('phone') }}</strong>
-									</div>
+								<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;width:80%;margin-top:10px;margin-bottom:0px">* {{ $errors->first('phone') }}</p>
 								@endif
 						    </div>
 						</div>
@@ -52,9 +48,7 @@
 								<span>Enter your password</span>
 								<input type="password" name="password" placeholder="PassWord">
 								@if ($errors->has('password'))
-									<div style="width: 80%;" class="alert alert-danger" role="alert">
-										<strong>{{ $errors->first('password') }}</strong>
-									</div>
+								<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;;width:80%;margin-top:10px;margin-bottom:0px">* {{ $errors->first('password') }}</p>
 								@endif
 							</div>
 						</div>

@@ -19,21 +19,24 @@
     <link rel="stylesheet" href="css/animate.css">
     <!-- CSS libs -->
     <link rel="stylesheet" href="scss/home.css">
-
     {{--css component--}}
     <link rel="stylesheet" href="asset/kriyo/css/index.css">
     <link rel="stylesheet" type="text/css" href="asset/kriyo/css/heath.css">
     <link rel="stylesheet" href="asset/kriyo/css/staff_profile.css">
     <link rel="stylesheet" href="asset/kriyo/css/observation.css">
     <link rel="stylesheet" href="asset/kriyo/css/responsive.css">
-
     <link rel="stylesheet" href="asset/kriyo/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="asset/kriyo/css/font-awesome.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="asset/kriyo/css/owl.carousel.css">
-
+    
     @yield('css')
+    <style>
+        .line .item a{
+            text-align: center;
+        }
+    </style>
     <!-- JS libs --> 
     <script type="text/javascript" src="libs/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="libs/bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
