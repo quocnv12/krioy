@@ -59,7 +59,7 @@
 				</div>
 				<div class="col-md-2"></div>
 				<div align="right" class="col-md-3" style="margin: 10px;">
-					<a href="food.html" class="done">
+					<a href="{{route('observations.create')}}" class="done">
 						<b>DONE</b>
 					</a>
 				</div>
