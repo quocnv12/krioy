@@ -15,11 +15,10 @@ class Programs extends Model
         'to_month',
         'from_year',
         'to_year',
-        'period',
         'start_time',
         'finish_time',
-        'schedule',
         'program_fee',
+        'period_fee',
         'status'
     ];
 

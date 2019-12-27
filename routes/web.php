@@ -22,7 +22,7 @@
 use Illuminate\Http\Request;
 
 Route::get('kids-now/children/add','Admin\ChildrenProfilesController@create');
-
+Route::get('kids-now/notice-board/add','Admin\NoticeBoardController@create');
 
 Route::get('test',function (){
     return view('pages.children.create_child');
@@ -51,6 +51,8 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
         Route::get('edit/{id}','Admin\ChildrenProfilesController@edit');
         Route::post('edit/{id}','Admin\ChildrenProfilesController@update');
+
+        Route::get('delete/{id}','Admin\ChildrenProfilesController@destroy');
     });
 
     //---------------staff----------------
@@ -147,38 +149,36 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
     //---------------notice board----------------
     Route::group(['prefix' => 'notice-board'], function () {
-        Route::get('', function () {
-            return view('pages.notice.notice_board');
-        });
+        Route::get('', 'Admin\NoticeBoardController@index');
+        Route::get('/{id}', 'Admin\NoticeBoardController@show');
 
-        Route::get('add', function () {
-            return view('pages.notice.add_notice');
-        });
-        Route::get('edit', function () {
-            return view('pages.notice.edit_notice');
-        });
-        Route::get('detail', function () {
-            return view('pages.notice.notice_detail');
-        });
+        Route::get('add', 'Admin\NoticeBoardController@create');
+        Route::post('add', 'Admin\NoticeBoardController@store');
 
+        Route::get('detail/{id}','Admin\NoticeBoardController@detail');
+
+        Route::get('edit/{id}', 'Admin\NoticeBoardController@edit');
+        Route::post('edit', 'Admin\NoticeBoardController@update');
+
+        Route::get('clip_board/{id}','Admin\NoticeBoardController@displayClipboard');
     });
 
 
     //---------------program----------------
     Route::group(['prefix' => 'program'], function () {
-        Route::get('', function () {
-            return view('pages.program.program');
-        });
-        Route::get('add', function () {
-            return view('pages.program.add_program');
-        });
+        Route::get('', 'Admin\ProgramsController@index');
+        Route::get('add', 'Admin\ProgramsController@create');
+        Route::post('add', 'Admin\ProgramsController@store');
+
+        Route::get('select_staff','Admin\ProgramsController@selectStaff');
+        Route::get('select_child','Admin\ProgramsController@selectChild');
+
         Route::get('edit', function () {
             return view('pages.program.edit-program');
         });
         Route::get('view', function () {
-            return view('pages.program.view-program');
+            return view('pages.program.add_program');
         });
     });
 });
-
 

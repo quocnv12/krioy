@@ -24,28 +24,22 @@
 			</div>
 			<div class="program-content">
 				<div class="row">
-					<div class="col-md-6 col-sm-6">
-						<div class="row program-content-1" data-href="view-program.html">
-							<div class="col-md-9 col-sm-9">
-								<b style="color: #9999e6;">Kindergarten</b>
+					@foreach($programs as $program)
+						<div class="col-md-6 col-sm-6">
+							<div class="row program-content-1" data-href="view-program.html">
+								<div class="col-md-9 col-sm-9">
+									<b style="color: #9999e6;">{{$program->program_name}}</b>
+								</div>
+								<div class="col-md-3 col-sm-3" style="padding-left: 0px;text-align: right;">{{$program->total_children}}</div>
 							</div>
-							<div class="col-md-3 col-sm-3" style="padding-left: 0px;text-align: right;">1</div>
 						</div>
-					</div>
-					<div class="col-md-6 col-sm-6">
-						<div class="row program-content-1" data-href="view-program.html">
-							<div class="col-md-9 col-sm-9">
-								<b style="color: #9999e6;">untage</b>
-							</div>
-							<div class="col-md-3 col-sm-3" style="padding-left: 0px;text-align: right;">0</div>
-						</div>
-					</div>
+					@endforeach
 				</div>
 			</div>
 		</div>
 	</section>
 	<div class="icon-plus" title="add">
-			<a href="edit-staff.html">
+			<a href="kids-now/program/add">
 				<i class="fa fa-plus"></i>
 			</a>
 		</div>
