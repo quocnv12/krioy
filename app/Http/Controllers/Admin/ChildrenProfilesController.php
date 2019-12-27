@@ -81,6 +81,7 @@ class ChildrenProfilesController extends Controller
         //
         $programs = Programs::all();
        $children_profiles = DB::table('programs')
+       
             ->join('children_programs','programs.id','=','children_programs.id_program')
             ->join('children_profiles','children_profiles.id','=','children_programs.id_children')
             ->select(['children_profiles.*'])

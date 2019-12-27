@@ -9,10 +9,25 @@ Food
     <section class="page-top container">
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
             <div class="row">
-                <ul class="ul-td">
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">Home</a></li>
-                    <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">Food</a></li>
-                </ul>
+                <div class="col-md-6">
+                    <ul class="ul-td">
+                        <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">Home</a></li>
+                        <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">Food</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <a style="" href="kids-now/food/menu-meal-type" class="btn btn-primary">Quản lý loại bữa ăn</a>
+            </div>
+
+            <div class="col-md-2">
+                <a style="" href="kids-now/food/menu-quantity" class="btn btn-primary">Quản lý số lượng</a>
+            </div>
+            <div class="col-md-2">
+                <a style="" href="kids-now/food/menu-food-name" class="btn btn-primary">Quản lý món ăn</a>
             </div>
         </div>
         <div class="row">
@@ -20,151 +35,68 @@ Food
                 margin: 0 0;
                 text-align: left" action="kids-now/children/add" method="post" name="form">
                 @csrf --}}
-                <div class="mat-card">
-                    <div class="mat-content">
-                        <button class="accordion accordion1 clearfix">
-                            <p style="float: left;">Children *</p>
-                            <a href="kids-now/children/select" style="float: right;text-align: right">
-                                <p
-                                    style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">
-                                    SELECT</p>
-                            </a>
-                        </button>
-                        <div class="panel">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                incididunt ut
-                                labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco
-                                laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        </div>
-                        <hr>
+            <div class="mat-card">
+                <div class="mat-content">
+                    <button class="accordion accordion1 clearfix">
+                        <p style="float: left;">Programs *</p>
+                        <a href="kids-now/children/select" style="float: right;text-align: right">
+                            <p
+                                style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">
+                                SELECT</p>
+                        </a>
+                    </button>
+                    <div class="panel">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                            incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                            ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <hr>
 
-                        <div class="update">
-                            <p>Select Meal Type*</p>
-                            <div class="tab">
+                    <div class="update">
+                        <p>Select Meal Type*</p>
+                        <div class="tab">
+                                @foreach ($mealtypes as $item)
+                                    <button value="{{ $item->id }}"  style="margin:10px 0;" type="button" data-id="lunch" class="tablinks">{{ $item->name }}</button>
+                                @endforeach
+                            <input id="array_program" type="hidden" value="" name="mealtype">
 
-                            <form action="" style="width: auto;
-                            margin: 0 0;
-                            text-align: left" action="kids-now/children/add" method="POST">
-                                @csrf
-                                <button value="Lunch" name="2" type="button" class="tablinks">Lunch</button>
-                                <input style="display:none;" type="checkbox" checked name="input1" value="Lunch" id="">
-                                <button value="Liquids" name="3" type="button" class="tablinks">Liquids</button>
-                                <input style="display:none;" type="checkbox" name="input2" id="">
-                                <button value="Snacks" name="4" type="button" class="tablinks">Snacks</button>
-                                <input style="display:none;" type="checkbox" name="input3" id="">
-                                <button value="Dinner" name="5" type="button" class="tablinks">Dinner</button>
-                                <button type="submit">ok</button>
-                            </div>
-                        </form>
+                           
                         </div>
-                        <div id="clock" style="margin: 20px 0;font-size: 18px;"></div>
-                        <hr>
-                        <div class="update">
-                            <p>Select Quantity</p>
-                            <div class="tab">
-                                <button type="button" class="tablinks2">All</button>
-                                <button type="button" class="tablinks2">Most</button>
-                                <button type="button" class="tablinks2">Some</button>
-                                <button type="button" class="tablinks2">None</button>
-                            </div>
+                    </div>
+                    <div id="clock" style="margin: 20px 0;font-size: 18px;"></div>
+                    <hr>
+                    <div class="update">
+                        <p>Select Quantity</p>
+                        <div class="tab">
+                            @foreach ($quantytifoods as $item)
+                                <button type="button" style="margin:10px 0;"  value="{{ $item->id }}"  class="tablinks2">{{ $item->name }}</button>
+                            @endforeach
+                            <input id="array_programs" type="hidden" value="" name="qtyfood">
+                           
                         </div>
-                        <hr>
-                        <button class="accordion_new">Meal Item Name *
-                            <i class="fa fa-chevron-circle-down"></i>
-                        </button>
-                        <div class="panel_new">
-                            <div _ngcontent-c20="" class="row">
-                                <!---->
-                                <div _ngcontent-c20="" align="center"
-                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                    style="padding:10px;cursor:pointer;">
-                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
-                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px;">Biscuits
-                                    </button>
-                                </div>
-                                <div _ngcontent-c20="" align="center"
-                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                    style="padding:10px;cursor:pointer">
-                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
-                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Bread
-                                    </button>
-                                </div>
-                                <div _ngcontent-c20="" align="center"
-                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                    style="padding:10px;cursor:pointer">
-                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
-                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Curd
-                                    </button>
-                                </div>
-                                <div _ngcontent-c20="" align="center"
-                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                    style="padding:10px;cursor:pointer"><button _ngcontent-c20=""
-                                        class="btn progBtn limitText bgClass tablinks1"
-                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Daal
-                                    </button>
-                                </div>
-                                <div _ngcontent-c20="" align="center"
-                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                    style="padding:10px;cursor:pointer"><button _ngcontent-c20=""
-                                        class="btn progBtn limitText bgClass tablinks1"
-                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Dosa
-                                    </button>
-                                </div>
-
-                                <div _ngcontent-c20="" align="center"
-                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                    style="padding:10px;cursor:pointer"><button _ngcontent-c20=""
-                                        class="btn progBtn limitText bgClass tablinks1"
-                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Fruits
-                                    </button>
-                                </div>
-                                <div _ngcontent-c20="" align="center"
-                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                    style="padding:10px;cursor:pointer">
-                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
-                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Idly
-                                    </button>
-                                </div>
-                                <div _ngcontent-c20="" align="center"
-                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                    style="padding:10px;cursor:pointer">
-                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
-                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Juice
-                                    </button>
-                                </div>
-                                <div _ngcontent-c20="" align="center"
-                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                    style="padding:10px;cursor:pointer">
-                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
-                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Milk
-                                    </button>
-                                </div>
-                                <div _ngcontent-c20="" align="center"
-                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                    style="padding:10px;cursor:pointer">
-                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
-                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Rice
-                                    </button>
-                                </div>
-                                <div _ngcontent-c20="" align="center"
-                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                    style="padding:10px;cursor:pointer">
-                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
-                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Roti
-                                    </button>
-                                </div>
-                                <div _ngcontent-c20="" align="center"
-                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                    style="padding:10px;cursor:pointer">
-                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
-                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Water
-                                    </button>
-                                </div>
+                    </div>
+                    <hr>
+                    <button class="accordion_new">Meal Item Name *
+                        <i class="fa fa-chevron-circle-down"></i>
+                    </button>
+                    <div class="panel_new">
+                        <div _ngcontent-c20="" class="row">
+                            <!---->
+                            @foreach ($itemfoods as $item)
+                            <div _ngcontent-c20="" align="center"
+                                class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
+                                style="padding:10px;cursor:pointer;">
+                                <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
+                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px;">{{ $item->food_name }}
+                                </button>
                             </div>
+                            @endforeach
                         </div>
-                        <div class="comment">
-                            <div class="row">
+                    </div>
+                    <div class="comment">
+                        {{-- <div class="row">
                                 <div class="col-md-9 input_box">
                                     <span>Enter details here *</span>
                                     <input type="text" name="text" placeholder="Enter details here *">
@@ -186,18 +118,18 @@ Food
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="button" style="text-align: center;">
-                                <button>
-                                    <span>CANCEL</span>
-                                </button>
-                                <button class="button2">
-                                    <span>SEND</span>
-                                </button>
-                            </div>
+                            </div> --}}
+                        <div class="button" style="text-align: center;">
+                            <button>
+                                <span>CANCEL</span>
+                            </button>
+                            <button class="button2">
+                                <span>SEND</span>
+                            </button>
                         </div>
                     </div>
                 </div>
+            </div>
             {{-- </form> --}}
         </div>
     </section>
@@ -218,18 +150,25 @@ Food
 
 <!-- Main Script -->
 <script src="js/main.js"></script>
+
 <script type="text/javascript">
+    //  var array = [];
     $('.tablinks').click(function (event) {
         $('.tablinks').removeClass('tablinks_active');
         $(this).addClass('tablinks_active');
-        // $('.tablink3')=checked;
+        var input = $(this).val();
+        $('#array_program').attr('value', input);
     });
 
 </script>
+
+
 <script type="text/javascript">
     $('.tablinks2').click(function (event) {
         $('.tablinks2').removeClass('tablinks_active');
         $(this).addClass('tablinks_active');
+        var input = $(this).val();
+        $('#array_programs').attr('value', input);
     });
 
 </script>

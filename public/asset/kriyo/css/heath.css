@@ -193,9 +193,14 @@ a,a:hover, a:focus,button:focus{
   transition: 0.3s;
   font-size: 17px;
   width: 16%;
-  border: 1px solid rgb(72, 207, 174);
+  /* border: 1px solid rgb(72, 207, 174);
   background-color: rgb(255, 255, 255);
     color: rgb(72, 207, 174);
+     */
+  background-color: transparent;
+  border: 1px solid #5363d6;
+  border-radius: 4px;
+  color:#5363d6;
 }
 
 .panel .ng-star-inserted button{

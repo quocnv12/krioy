@@ -20,7 +20,7 @@
                     <a class="nav-link" href="#">Help</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">My kriyo</a>
+                    <a class="nav-link" href="kids-now">My kriyo</a>
                 </li>
 
                 <!-- Dropdown -->
