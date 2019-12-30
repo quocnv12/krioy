@@ -1,20 +1,20 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
+
+
 use App\models\ChildrenProfiles;
+
 use App\models\ChildrenProgram;
 use App\models\Programs;
 use App\models\StaffProgram;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
-
 class ProgramsController extends Controller
 {
     public function index()
     {
-
 //        $programs = DB::table('programs')
 //            ->join('children_programs','programs.id','=','children_programs.id_program')
 //            ->groupBy('programs.program_name')
@@ -42,13 +42,13 @@ class ProgramsController extends Controller
 //        return response()->json(['programs'=>$programs],200);
 
         $programs = DB::table('programs')
-                    ->leftJoin('children_programs','programs.id','=','children_programs.id_program')
-                    ->select(['programs.program_name','programs.id'])
-                    ->selectRaw('count(children_programs.id_children) AS total_children')
-                    ->groupBy(['programs.program_name','programs.id'])
-                    ->get();
+            ->leftJoin('children_programs', 'programs.id', '=', 'children_programs.id_program')
+            ->select(['programs.program_name', 'programs.id'])
+            ->selectRaw('count(children_programs.id_children) AS total_children')
+            ->groupBy(['programs.program_name', 'programs.id'])
+            ->get();
 
-        return view('pages.program.program',['programs'=>$programs]);
+        return view('pages.program.program', ['programs' => $programs]);
     }
 
     public function create()
@@ -67,13 +67,29 @@ class ProgramsController extends Controller
 
     public function store(Request $request)
     {
-
         $programs = Programs::create($request->all());
         $programs->schedule = $request->schedule;
         $programs->save();
 
+        //solve schedule
+        $all_schedule = $request->schedule;
+        $arr = [];
+        foreach ((array)$all_schedule as $schedule) {
+            array_push($arr, $schedule);
+        }
+        $arr_all_schedule = implode(",", $arr);  //turn array to string to save in database
+        $programs->schedule = $arr_all_schedule;
+        //add children and staff
+        if ($request->staff) {
+            return $this->select_staff($request, $programs->id);
+        }
+        $programs->save();
+        return response()->json(['programs' => $programs], 201);
+
+
         //return response()->json(['programs'=>$programs],201);
-        return redirect()->back()->with('notify','Added Successfully');
+        return redirect()->back()->with('notify', 'Added Successfully');
+
     }
 
     public function show($id)
@@ -115,22 +131,18 @@ class ProgramsController extends Controller
                                                         'array_schedule'=>$array_schedule,
                                                         'children_profiles'=>$children_profiles,
                                                         'staff_profiles'=>$staff_profiles]);
-
     }
 
 
     public function edit($id)
     {
-        //
-    }
 
+    }
 
     public function update(Request $request, $id)
     {
         $programs = Programs::findOrFail($id);
-
         $programs->update($request->all());
-
         if ($request->schedule){
             $all_schedule = $request->schedule;
             $arr = [];
@@ -142,9 +154,7 @@ class ProgramsController extends Controller
             $programs->schedule = $arr_all_schedule;
             $programs->save();
         }
-
         return response()->json(['programs' => $programs], 200);
-
     }
 
     public function destroy($id)
@@ -152,8 +162,19 @@ class ProgramsController extends Controller
         //
         $programs = Programs::findOrFail($id);
         $programs->delete();
-
         return response()->json(null, 204);
+    }
+
+    public function select_staff(Request $request, $id)
+    {
+        $id_program = $id;
+        $all_staff = $request->staff;
+        foreach (array($all_staff) as $staff){
+            $staff_programs = new StaffProgram();
+            $staff_programs->id_staff = $staff->id;
+            $staff_programs->id_program = $id_program;
+            $staff_programs->save();
+        }
     }
 
 //    public function select_staff(Request $request, $id)
@@ -168,5 +189,5 @@ class ProgramsController extends Controller
 //        }
 //    }
 
-
 }
+

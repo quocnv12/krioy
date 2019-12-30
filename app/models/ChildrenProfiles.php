@@ -20,8 +20,16 @@ class ChildrenProfiles extends Model
         'allergies',
         'additional_note',
         'status',
+        'image',
         'exist',
     ];
+    public function Health(){
+        return $this->hasMany('App\Models\HealthModel','id_children','id');
+    }
+    public function Childrent(){
+        return $this->hasMany('App\Models\ObservationModel','id_children','id');
+    }
+
 
 
     protected $timestamp = false;
