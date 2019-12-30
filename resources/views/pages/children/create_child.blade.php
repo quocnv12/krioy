@@ -370,7 +370,7 @@
     		if ($(this).prop('class')=='btn progBtn limitText bgClass tablinks1 tablinks1_active') {
     			$(this).removeClass('tablinks1_active');
 				var program_pop = $(this).val();
-				array.pop(program_pop);
+				array.splice( array.indexOf(program_pop), 1 );
     		}else{
     			$(this).addClass('tablinks1_active');
     			var program_push = $(this).val();

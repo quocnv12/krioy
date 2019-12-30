@@ -158,9 +158,12 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('detail/{id}','Admin\NoticeBoardController@detail');
 
         Route::get('edit/{id}', 'Admin\NoticeBoardController@edit');
-        Route::post('edit', 'Admin\NoticeBoardController@update');
+        Route::post('edit/{id}', 'Admin\NoticeBoardController@update');
 
-        Route::get('clip_board/{id}','Admin\NoticeBoardController@displayClipboard');
+        Route::get('delete/{id}','Admin\NoticeBoardController@destroy');
+        //clip board
+        Route::get('clip_board/{id}/{name}','Admin\NoticeBoardController@displayClipboard');
+        Route::get('delete_clipboard/{id}/{name}','Admin\NoticeBoardController@deleteClipboard');
     });
 
 
@@ -176,9 +179,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('edit', function () {
             return view('pages.program.edit-program');
         });
-        Route::get('view', function () {
-            return view('pages.program.add_program');
-        });
+        Route::get('view/{id}', 'Admin\ProgramsController@show');
     });
 });
 

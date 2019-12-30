@@ -16,6 +16,11 @@
 				</div>
 			</div>
 		</div>
+			@if(session('notify'))
+				<div class="alert alert-success">
+					{{session('notify')}}
+				</div>
+			@endif
 	</section>
 	<section _ngcontent-c10="" style="background-color:#f9f9f9">
 		<div _ngcontent-c10="" class="row" style="padding: 10px">
@@ -52,17 +57,17 @@
 					<div class="row">
 						<div class="notice" data-href="kids-now/notice-board/detail/{{$notice->id}}" style="width: 100%;">
 							<div class=" col-md-10">
-								<span _ngcontent-c34="" style="display: block; font-size: 18px; padding-left: 0px;"><!---->
-									<i _ngcontent-c34="" aria-hidden="true" class="fa fa-star ng-star-inserted" style="color:#FAC917;padding-right:5px; "></i>{{$notice->title}}
+								<span style="display: block; font-size: 18px; padding-left: 0;"><!---->
+									@if($notice->important == 1)<i aria-hidden="true" class="fa fa-star ng-star-inserted" style="color:#FAC917;padding-right:5px; "></i>@endif{{$notice->title}}
 								</span>
 								<br>
-								<span _ngcontent-c34="" style="color: grey; font-size: 16px; padding-left: 24px;"><!---->{{Str::limit($notice->content,200)}}
+								<span  style="color: grey; font-size: 16px; padding-left: 24px;"><!---->{{Str::limit($notice->content,200)}}
 								</span>
 							</div>
 							<div class=" col-md-2">
 								<div align="center" style="color:#5363d6;font-size: 16px; display: flex;">
-									<span _ngcontent-c34="">{{date('d-m-Y',strtotime($notice->created_at))}}</span>
-									<br _ngcontent-c34="">
+									<span >{{date('d-m-Y',strtotime($notice->created_at))}}</span>
+									<br>
 								</div>
 							</div>
 						</div>
