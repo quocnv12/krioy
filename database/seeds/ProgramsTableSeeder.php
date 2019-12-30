@@ -23,7 +23,6 @@ class ProgramsTableSeeder extends Seeder
                     'to_month'      => '12',
                     'from_year'     => '2012',
                     'to_year'       => '2013',
-                    
                     'start_time'    => '10:00:00',
                     'finish_time'   => '17:00:00',
                     'schedule'      => '2,3,4',
@@ -38,7 +37,6 @@ class ProgramsTableSeeder extends Seeder
                     'to_month'      => '12',
                     'from_year'     => '2012',
                     'to_year'       => '2013',
-                    'period'        => '8',
                     'start_time'    => '11:00:00',
                     'finish_time'   => '18:00:00',
                     'schedule'      => '2,3,4,5,6',
@@ -53,7 +51,6 @@ class ProgramsTableSeeder extends Seeder
                     'to_month'      => '12',
                     'from_year'     => '2012',
                     'to_year'       => '2013',
-                    'period'        => '6',
                     'start_time'    => '10:00:00',
                     'finish_time'   => '17:00:00',
                     'schedule'      => '2,3,4,5,6,7,8',
@@ -68,7 +65,6 @@ class ProgramsTableSeeder extends Seeder
                     'to_month'      => '12',
                     'from_year'     => '2012',
                     'to_year'       => '2013',
-                    
                     'start_time'    => '10:00:00',
                     'finish_time'   => '17:00:00',
                     'schedule'      => '2,3,4',
@@ -83,7 +79,6 @@ class ProgramsTableSeeder extends Seeder
                     'to_month'      => '12',
                     'from_year'     => '2012',
                     'to_year'       => '2013',
-                    
                     'start_time'    => '10:00:00',
                     'finish_time'   => '17:00:00',
                     'schedule'      => '2,3,4',

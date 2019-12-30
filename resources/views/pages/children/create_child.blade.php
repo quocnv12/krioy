@@ -634,14 +634,15 @@
 			if ($(this).prop('class')=='btn progBtn limitText bgClass tablinks1 tablinks1_active') {
 				$(this).removeClass('tablinks1_active');
 				var program_pop = $(this).val();
-				array.pop(program_pop);
-			}else{
-				$(this).addClass('tablinks1_active');
-				var program_push = $(this).val();
-				array.push(program_push);
-			}
+				array.splice( array.indexOf(program_pop), 1 );
+    		}else{
+    			$(this).addClass('tablinks1_active');
+    			var program_push = $(this).val();
+    			array.push(program_push);
+    		}
 			console.log(array);
 		});
+
 		$('#submit_button').click(function(event) {
 			$('#array_program').attr('value', array);
 		});
@@ -666,9 +667,6 @@
 			}
 		});
 	</script>
-<<<<<<< HEAD
-@endsection
-=======
 
 	{{-- begin xu ly anh--}}
 	<script>

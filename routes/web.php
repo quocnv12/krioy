@@ -97,6 +97,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
             return view('pages.food.food');
         });
     });
+
     //---------------notice board----------------
     Route::group(['prefix' => 'notice-board'], function () {
         Route::get('', function () {
@@ -113,48 +114,49 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         });
 
 
+    });
 
-        //---------------food----------------
-        Route::group(['prefix' => 'food'], function () {
+    //---------------food----------------
+    Route::group(['prefix' => 'food'], function () {
 
-            Route::get('','Admin\FoodController@GetFood');
-        
-            Route::get('select', function () {
-                return view('pages.food.select_child');
-            });
+        Route::get('','Admin\FoodController@GetFood');
 
-            Route::get('menu','Admin\FoodController@GetMenu');
+        Route::get('select', function () {
+            return view('pages.food.select_child');
+        });
 
-            //loại bữa ăn
-            Route::get('menu-meal-type','Admin\FoodController@GetListMenuMealType');
-            Route::get('menu-meal-type/add','Admin\FoodController@GetAddMenuMealType')->name('menu-meal-type-add');
-            Route::post('menu-meal-type/add','Admin\FoodController@PostAddMenuMealType');
-            Route::get('menu-meal-type/edit/{id}','Admin\FoodController@GetEditMenuMealType')->name('menu-meal-type-edit');
-            Route::post('menu-meal-type/edit/{id}','Admin\FoodController@PostEditMenuMealType');
-            Route::get('menu-meal-type/delete/{id}','Admin\FoodController@DeleteMenuMealType')->name('menu-meal-type-del');
+        Route::get('menu','Admin\FoodController@GetMenu');
 
-
-
-
-
-            //số lượng
-            Route::get('menu-quantity','Admin\FoodController@GetListMenuQuantity');
-            Route::get('menu-quantity/add','Admin\FoodController@GetAddMenuQuantity')->name('menu-quantity-add');
-            Route::post('menu-quantity/add','Admin\FoodController@PostAddMenuQuantity');
-            Route::get('menu-quantity/edit/{id_qty}','Admin\FoodController@GetEditMenuQuantity')->name('menu-quantity-edit');
-            Route::post('menu-quantity/edit/{id_qty}','Admin\FoodController@PostEditMenuQuantity');
-            Route::get('menu-quantity/delete/{id_qty}','Admin\FoodController@DeleteMenuQuantity')->name('menu-quantity-del');
+        //loại bữa ăn
+        Route::get('menu-meal-type','Admin\FoodController@GetListMenuMealType');
+        Route::get('menu-meal-type/add','Admin\FoodController@GetAddMenuMealType')->name('menu-meal-type-add');
+        Route::post('menu-meal-type/add','Admin\FoodController@PostAddMenuMealType');
+        Route::get('menu-meal-type/edit/{id}','Admin\FoodController@GetEditMenuMealType')->name('menu-meal-type-edit');
+        Route::post('menu-meal-type/edit/{id}','Admin\FoodController@PostEditMenuMealType');
+        Route::get('menu-meal-type/delete/{id}','Admin\FoodController@DeleteMenuMealType')->name('menu-meal-type-del');
 
 
 
 
-            //tên món ăn
-            Route::get('menu-food-name','Admin\FoodController@GetListMenuFoodName');
-            Route::get('menu-food-name/add','Admin\FoodController@GetAddMenuFoodName')->name('menu-food-name-add');
-            Route::post('menu-food-name/add','Admin\FoodController@PostAddMenuFoodName');
-            Route::get('menu-food-name/edit/{id_food_name}','Admin\FoodController@GetEditMenuFoodName')->name('menu-food-name-edit');
-            Route::post('menu-food-name/edit/{id_food_name}','Admin\FoodController@PostEditMenuFoodName');
-            Route::get('menu-food-name/delete/{id_food_name}','Admin\FoodController@DeleteFoodName')->name('menu-food-name-del');
+
+        //số lượng
+        Route::get('menu-quantity','Admin\FoodController@GetListMenuQuantity');
+        Route::get('menu-quantity/add','Admin\FoodController@GetAddMenuQuantity')->name('menu-quantity-add');
+        Route::post('menu-quantity/add','Admin\FoodController@PostAddMenuQuantity');
+        Route::get('menu-quantity/edit/{id_qty}','Admin\FoodController@GetEditMenuQuantity')->name('menu-quantity-edit');
+        Route::post('menu-quantity/edit/{id_qty}','Admin\FoodController@PostEditMenuQuantity');
+        Route::get('menu-quantity/delete/{id_qty}','Admin\FoodController@DeleteMenuQuantity')->name('menu-quantity-del');
+
+
+
+
+        //tên món ăn
+        Route::get('menu-food-name','Admin\FoodController@GetListMenuFoodName');
+        Route::get('menu-food-name/add','Admin\FoodController@GetAddMenuFoodName')->name('menu-food-name-add');
+        Route::post('menu-food-name/add','Admin\FoodController@PostAddMenuFoodName');
+        Route::get('menu-food-name/edit/{id_food_name}','Admin\FoodController@GetEditMenuFoodName')->name('menu-food-name-edit');
+        Route::post('menu-food-name/edit/{id_food_name}','Admin\FoodController@PostEditMenuFoodName');
+        Route::get('menu-food-name/delete/{id_food_name}','Admin\FoodController@DeleteFoodName')->name('menu-food-name-del');
     });
 
 
@@ -169,11 +171,18 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('detail/{id}','Admin\NoticeBoardController@detail');
 
         Route::get('edit/{id}', 'Admin\NoticeBoardController@edit');
-        Route::post('edit', 'Admin\NoticeBoardController@update');
+        Route::post('edit/{id}', 'Admin\NoticeBoardController@update');
 
-        Route::get('clip_board/{id}','Admin\NoticeBoardController@displayClipboard');
 
+        Route::get('delete/{id}','Admin\NoticeBoardController@destroy');
+        //clip board
+        Route::get('clip_board/{id}/{name}','Admin\NoticeBoardController@displayClipboard');
+        Route::get('delete_clipboard/{id}/{name}','Admin\NoticeBoardController@deleteClipboard');
     });
+
+
+
+
     //---------------program----------------
     Route::group(['prefix' => 'program'], function () {
         Route::get('', 'Admin\ProgramsController@index');
@@ -186,10 +195,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('edit', function () {
             return view('pages.program.edit-program');
         });
-        Route::get('view', function () {
-            return view('pages.program.add_program');
-        });
+        Route::get('view/{id}', 'Admin\ProgramsController@show');
     });
-});
 });
 
