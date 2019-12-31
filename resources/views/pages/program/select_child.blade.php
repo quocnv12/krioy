@@ -4,6 +4,11 @@
 @endsection
 
 @section('content')
+	<style>
+		.chosen{
+			background-color: red;
+		}
+	</style>
 	<body>
 	<section class="page-top container">
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
@@ -30,12 +35,11 @@
 				<div _ngcontent-c10="" class="scrollmenu" id="nav">
 					<ul _ngcontent-c10="">
 						<!---->
-						<li _ngcontent-c10="" style="cursor: pointer;">
-							<a _ngcontent-c10="" class="item active">Kindergarten (1)</a>
-						</li>
-						<li _ngcontent-c10="" style="cursor: pointer;">
-							<a _ngcontent-c10="" class="item">untagged (0)</a>
-						</li>
+						@foreach($programs as $program)
+							<li _ngcontent-c10="">
+								<a _ngcontent-c10="" class="item active" href="kids-now/program/select_child/{{$program->id}}">{{$program->program_name}}</a>
+							</li>
+						@endforeach
 					</ul>
 				</div>
 			</div>
@@ -71,25 +75,26 @@
 
 				<div _ngcontent-c19="" class="row ng-star-inserted">
 					<!---->
-					@foreach($children_profiles as $children)
-					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img" onclick="myFunction()">
-						<div class="child-class" style="height: 120px;text-align: center;">
-							<div class="image" id="test">
-								<img class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="Child.png">
-								<i aria-hidden="true" class="fa fa-check checked" id="checked" style="display: none;"></i>
-								<!---->
-								<span _ngcontent-c19="" class="limitText ng-star-inserted">{{$children->first_name}} {{$children->last_name}}</span>
+					@if(isset($children_profiles))
+						@foreach($children_profiles as $children)
+						<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img">
+							<div class="child-class" style="height: 120px;text-align: center;">
+								<div class="image" id="test">
+									<img class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="Child.png">
+									<i aria-hidden="true" class="fa fa-check checked" style="display: none;"></i>
+									<!---->
+									<span class="limitText ng-star-inserted">{{$children->first_name}} {{$children->last_name}}</span>
+								</div>
+								<input type="hidden" value="{{$children->id}}">
 							</div>
-							<!---->
 						</div>
-
-					</div>
-					@endforeach
+						@endforeach
+					@endif
 				</div>
 			</div>
+			{{$children_profiles->appends(request()->url())->links()}}
 		</div>
-		{{$children_profiles->links()}}
-	</section>	
+	</section>
 	</body>
 @endsection
 @section('js')
@@ -114,26 +119,31 @@
     	});
     </script>
     <script type="text/javascript">
-		var test = document.querySelectorAll("#test > i")
 
-		console.log(test)
-		function myFunction() {
-			var x = document.querySelectorAll(' > div');
+		var array = [];
 
-			console.log(x)
-				if (x.style.display === "none") {
-					x.style.display = "block";
-				} else {
-					x.style.display = "none";
-				}
-
-		  //var x = document.getElementById("checked");
-
-		  // if (x.style.display === "none") {
-		  //   x.style.display = "block";
-		  // } else {
-		  //   x.style.display = "none";
-		  // }
+		if (! localStorage.getItem('test')) {
+			localStorage.setItem('test', JSON.stringify(array))
 		}
-	 </script>
+
+
+		$('.child-class').click(function () {
+			if ($(this).prop('class') == 'child-class chosen'){
+				var array2 = JSON.parse(localStorage.getItem('test'))
+				$(this).removeClass('chosen');
+				var children_pop = $(this).children('input').val()
+				array2.splice( array2.indexOf(children_pop), 1 );
+				localStorage.setItem('test', JSON.stringify(array2))
+			}
+			else{
+
+				var array3 = JSON.parse(localStorage.getItem('test'))
+				$(this).addClass('chosen');
+				var children_push = $(this).children('input').val()
+				array3.push(children_push);
+				localStorage.setItem('test', JSON.stringify(array3))
+			}
+
+		})
+	</script>
 @endsection

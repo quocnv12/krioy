@@ -15,8 +15,9 @@ class ChildrenProfilesController extends Controller
     {
         //
         $programs = Programs::all();
+        $children_all = ChildrenProfiles::all();
         //return response()->json(['children_profiles'=>$children_profiles],200);
-        return view('pages.children.child_profile',['programs'=>$programs]);
+        return view('pages.children.child_profile',['programs'=>$programs, 'children_all'=>$children_all]);
     }
     public function create()
     {
@@ -251,5 +252,14 @@ class ChildrenProfilesController extends Controller
         }
         //return response()->json(null, 204);
         return redirect('pages.children.child_profile')->with('notify','Deleted Successfully');
+    }
+
+    public function autocomplete(Request $request)
+    {
+        $data = ChildrenProfiles::select(["first_name","last_name"])
+            ->where("first_name","LIKE","%{$request->query}%")
+            ->get();
+
+        return response()->json($data);
     }
 }

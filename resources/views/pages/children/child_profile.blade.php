@@ -11,8 +11,8 @@
 			<div class="row">
 				<div class="col-md-6">
 					<ul class="ul-td">
-						<li _ngcontent-c16="" class="level1"><a href="kids-now/children">HOME</a></li>
-						<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a href="">CHILDREN PROFILES</a></li>
+						<li class="level1"><a href="kids-now">HOME</a></li>
+						<li class="active1" ><a href="kids-now/children">CHILDREN PROFILES</a></li>
 					</ul>
 				</div>
 				<div class="col-md-6">
@@ -21,7 +21,8 @@
 						<span style="font-size:15px;font-weight: 900;">DEACTIVATED</span>
 						<span _ngcontent-c10="" class="badge" style="background-color: red;color:#fff;vertical-align: top;display: inline;line-height:0px">1</span>
 					</a>
-					<a _ngcontent-c10="" class="deactiveClass" routerlink="All-Childrens" style="float:right;background-color:#fff;color: #5363d6;border-bottom:1px solid #5363d6;cursor:pointer;border-radius:4px;margin-right: 20px" title="All-Profiles"><span _ngcontent-c10="" style="font-size:15px;">ALL PROFILES</span></a>
+					<input type="text" placeholder="Search..." class="typeahead">
+
 				</div>
 			</div>
 		</div>
@@ -108,7 +109,7 @@
 
 @section('js')
 	<script src="https://code.jquery.com/jquery.min.js"></script>
-<<<<<<< HEAD
+
 
 	<!-- Bootstrap JS form CDN -->
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>

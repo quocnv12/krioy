@@ -45,8 +45,8 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::post('add', 'Admin\ChildrenProfilesController@store');
         Route::get('edit/{id}','Admin\ChildrenProfilesController@edit');
         Route::post('edit/{id}','Admin\ChildrenProfilesController@update');
-
         Route::get('delete/{id}','Admin\ChildrenProfilesController@destroy');
+        Route::get('autocomplete', 'Admin\ChildrenProfilesController@autocomplete')->name('autocomplete');
     });
     //---------------staff----------------
     Route::group(['prefix' => 'staff'], function () {
@@ -189,6 +189,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
         Route::get('select_staff','Admin\ProgramsController@selectStaff');
         Route::get('select_child','Admin\ProgramsController@selectChild');
+        Route::get('select_child/{id}','Admin\ProgramsController@selectChildFilter');
 
         Route::get('edit', function () {
             return view('pages.program.edit-program');
