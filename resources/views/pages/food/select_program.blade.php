@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-	Select Children
+	Select Program
 @endsection
 @section('content')
 <body>

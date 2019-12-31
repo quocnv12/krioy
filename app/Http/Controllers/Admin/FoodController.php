@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\models\food\{itemfood,mealtype,quantytifood};
+use App\models\food\{itemfood,mealtype,quantytifood,food};
+use App\models\Programs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -11,17 +12,51 @@ class FoodController extends Controller
 
     public function GetFood() 
     {
+        $data['programs']=Programs::all();
         $data['mealtypes']=mealtype::all();
         $data['quantytifoods']=quantytifood::all();
         $data['itemfoods']=itemfood::all();
         return view('pages.food.food',$data);
     }
 
-    public function GetMenu() 
+    public function PostFood(request $request) 
     {
-    
-        return view('pages.food.menu');
+        if($request->programs==null)
+        {
+            return redirect()->back()->with('thongbao1','Bạn chưa chọn lớp !')->withInput();
+        }
+        elseif ($request->mealtype==null) {
+            return redirect()->back()->with('thongbao2','Bạn chưa chọn loại bữa ăn !')->withInput();
+        }
+        elseif($request->qtyfood==null)
+        {
+            return redirect()->back()->with('thongbao3','Bạn chưa chọn số lượng !')->withInput();
+        }
+        elseif($request->food_name==null)
+        {
+            return redirect()->back()->with('thongbao4','Bạn chưa chọn tên món ăn !')->withInput();
+        }
+        else 
+        {
+            $foods =new food;
+            $foods->meal_type = $request->mealtype;
+            $foods->quantity = $request->qtyfood;
+            $foods->id_program = $request->programs;
+            $foods->save();
+            $foodss = explode(',',$request->food_name);
+            $mang=array();
+            foreach ($foodss as $item)
+            {
+                $mang[]=$item;
+            }
+           $foods->food()->Attach($mang);
+           return redirect()->back()->with('thongbao','Gửi thực đơn thành công !')->withInput();
+        }
+     
+        
     }
+
+  
 
 
 
@@ -191,9 +226,61 @@ class FoodController extends Controller
   //--------------------------danh sách tên món ăn----------------------
     public function GetListMenuFoodName() 
     {
-        $data['foodnames']=itemfood::all();
+        $data['foodnames']=itemfood::paginate(15);
         return view('pages.food.ten_mon_an.list_food_name',$data);
     }
+    //tim  kiem
+    public function SearchByName(Request $request)
+    {
+        if ($request->ajax()) {
+            $output = '';
+            $itemfood = itemfood::where('food_name', 'like', '%' . $request->search . '%')->get();
+            if ($itemfood) {
+                if(count($itemfood)>=1){
+                            echo   '<table border="0">
+                                        <tbody>
+                                            <tr class="td1" >
+                                                <th>STT</th>
+                                                <th>Food Name</th>
+                                                <th>Hành Động</th>
+                                            </tr>';
+                                    foreach ($itemfood as $key => $item) {
+                                        $output .= 
+                                        '<tr style="text-align: center;line-height: 50px;">
+                                            <td  style="width: 200px;">' . $item->id . '</td>
+                                            <td>' . $item->food_name . '</td>
+                                            <td style="width: 200px;">
+                                                <a style="margin:0px;"
+                                                    href="kids-now/food/menu-food-name/edit/'.$item->id.'"
+                                                    class="btn btn-warning btn-cons"" title=" Edit Meal Type"><i
+                                                        class="fa fa-pencil"></i></a>
+                                                <a href="kids-now/food/menu-food-name/delete/'.$item->id.'"
+                                                        onclick="return del()"
+                                                    style="margin:0px;" class="btn btn-danger btn-cons"
+                                                    title="Delete Meal Type"><i class="fa fa-trash-o"></i></a>
+                                                    </td>
+                                        </tr>';
+                                        }
+                            echo    '</tbody>
+                                </table>';
+            }
+            else {
+                echo   '<table border="0">
+                                        <tbody>
+                                            <tr class="td1" >
+                                                <th style="width:200px" >STT</th>
+                                                <th>Food Name</th>
+                                                <th style="width:200px">Hành Động</th>
+                                            </tr>';
+                echo    '<p style="margin:10px">Không tìm thấy tên món ăn </p>';
+            }
+        }
+            return Response($output);
+           
+       }
+     
+    }
+
     //thêm
     public function GetAddMenuFoodName() 
     {

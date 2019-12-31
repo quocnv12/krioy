@@ -119,13 +119,10 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
     //---------------food----------------
     Route::group(['prefix' => 'food'], function () {
 
+       
         Route::get('','Admin\FoodController@GetFood');
-
-        Route::get('select', function () {
-            return view('pages.food.select_child');
-        });
-
-        Route::get('menu','Admin\FoodController@GetMenu');
+        Route::post('','Admin\FoodController@PostFood');
+  
 
         //loại bữa ăn
         Route::get('menu-meal-type','Admin\FoodController@GetListMenuMealType');
@@ -149,14 +146,15 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
 
 
+            //tên món ăn
+            Route::get('menu-food-name','Admin\FoodController@GetListMenuFoodName');
+            Route::get('menu-food-name/search','Admin\FoodController@SearchByName')->name('menu-search-by-name');
+            Route::get('menu-food-name/add','Admin\FoodController@GetAddMenuFoodName')->name('menu-food-name-add');
+            Route::post('menu-food-name/add','Admin\FoodController@PostAddMenuFoodName');
+            Route::get('menu-food-name/edit/{id_food_name}','Admin\FoodController@GetEditMenuFoodName')->name('menu-food-name-edit');
+            Route::post('menu-food-name/edit/{id_food_name}','Admin\FoodController@PostEditMenuFoodName');
+            Route::get('menu-food-name/delete/{id_food_name}','Admin\FoodController@DeleteFoodName')->name('menu-food-name-del');
 
-        //tên món ăn
-        Route::get('menu-food-name','Admin\FoodController@GetListMenuFoodName');
-        Route::get('menu-food-name/add','Admin\FoodController@GetAddMenuFoodName')->name('menu-food-name-add');
-        Route::post('menu-food-name/add','Admin\FoodController@PostAddMenuFoodName');
-        Route::get('menu-food-name/edit/{id_food_name}','Admin\FoodController@GetEditMenuFoodName')->name('menu-food-name-edit');
-        Route::post('menu-food-name/edit/{id_food_name}','Admin\FoodController@PostEditMenuFoodName');
-        Route::get('menu-food-name/delete/{id_food_name}','Admin\FoodController@DeleteFoodName')->name('menu-food-name-del');
     });
 
 

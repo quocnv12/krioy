@@ -16,7 +16,7 @@
     <link rel="stylesheet" type="text/css" href="libs/slick-1.8.1/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="libs/slick-1.8.1/slick/slick-theme.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
-    
+  
     <link rel="stylesheet" href="css/animate.css">
     <!-- CSS libs -->
     <link rel="stylesheet" href="scss/home.css">
