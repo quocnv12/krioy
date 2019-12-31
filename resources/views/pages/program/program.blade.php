@@ -26,9 +26,9 @@
 				<div class="row">
 					@foreach($programs as $program)
 						<div class="col-md-6 col-sm-6">
-							<div class="row program-content-1" data-href="view-program.html">
+							<div class="row program-content-1" data-href="kids-now/program/view/{{$program->id}}">
 								<div class="col-md-9 col-sm-9">
-									<b style="color: #9999e6;">{{$program->program_name}}</b>
+									<b style="color: #9999e6;"><a href="kids-now/program/view/{{$program->id}}">{{$program->program_name}}</a></b>
 								</div>
 								<div class="col-md-3 col-sm-3" style="padding-left: 0px;text-align: right;">{{$program->total_children}}</div>
 							</div>

@@ -45,8 +45,8 @@
 						<!---->
 						@foreach($programs as $program)
 							<li _ngcontent-c10="">
-							<a _ngcontent-c10="" class="item active" href="kids-now/children/{{$program->id}}">{{$program->program_name}}</a>
-						</li>
+								<a _ngcontent-c10="" class="item active" href="kids-now/children/{{$program->id}}">{{$program->program_name}}</a>
+							</li>
 						@endforeach
 					</ul>
 				</div>
@@ -87,25 +87,46 @@
 		</div>
 		<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-sm">
-			    <div class="modal-content">
+				<div class="modal-content">
 					<ul>
 						<li style="color: #5363d6!important">Go to</li>
 						<li class="modal-li" data-href="" id="profile_children">Profile</li>
 						<li class="modal-li" data-href="" id="invoices_children">Invoices</li>
 						<li class="modal-li" data-href="" id="attachments_children">Attachments</li>
+
+						<li class="modal-li" data-href="" id="authoriesd_pickups_children">Authoriesd Pickups</li>
+
 						<li class="modal-li" data-href="" id="authorised_pickups_children">Authoriesd Pickups</li>
+
 					</ul>
-			    </div>
+				</div>
 			</div>
 		</div>
 	</section>
-</body>
+	</body>
 @endsection
 
 @section('js')
 	<script src="https://code.jquery.com/jquery.min.js"></script>
+<<<<<<< HEAD
+
+	<!-- Bootstrap JS form CDN -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+	<!-- jQuery sticky menu -->
+	<script src="asset/kriyo/js/owl.carousel.min.js"></script>
+	<script src="asset/kriyo/js/jquery.sticky.js"></script>
+
+	<!-- jQuery easing -->
+	<script src="asset/kriyo/js/jquery.easing.1.3.min.js"></script>
+
+	<!-- Main Script -->
+	<script src="asset/kriyo/js/main.js"></script>
+	<script type="text/javascript"></script>
+
     
     <!-- Bootstrap JS form CDN -->
+
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     
     <!-- jQuery sticky menu -->
@@ -119,6 +140,7 @@
     <script src="asset/kriyo/js/main.js"></script>
     <script type="text/javascript">
     	$(document).ready(function($) {
+
 			$('div.div_box_children').click(function () {
 				var id_children = $(this).children('div').children('input').val();
 				$('li#profile_children').attr('data-href','/kids-now/children/edit/'+id_children);
@@ -127,10 +149,16 @@
 				$('li#authoriesd_pickups_children').attr('data-href','/kids-now/children/edit/'+id_children);
 			});
 
+			$(".modal-li").click(function() {
+				window.document.location = $(this).data("href");
+			});
+
+
 		    $(".modal-li").click(function() {
 		        window.document.location = $(this).data("href");
 
 		    });
+
 		});
-    </script>
+	</script>
 @endsection

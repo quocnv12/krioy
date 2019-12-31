@@ -17,55 +17,20 @@
 			</div>
 		</div>
 	</section>
-	<section _ngcontent-c10="" style="background-color:#f9f9f9">
-		<div _ngcontent-c10="" class="row" style="padding: 10px">
-			<div _ngcontent-c10="" align="right" class="col-md-2 scrollClassLeft">
-				<div _ngcontent-c10="" class="scroll-arrow-left" id="prev_nav" style="padding-right: 20px;color:#5363d6;cursor:pointer">
-					<i _ngcontent-c10="" aria-hidden="true" class="fa fa-angle-left" style="font-size:40px"></i>
-				</div>
-			</div>
-			<div _ngcontent-c10="" class="col-md-8" style="padding-left:0px;padding-right:0px">
-				<div _ngcontent-c10="" class="scrollmenu" id="nav">
-					<ul _ngcontent-c10="">
-						<!---->
-						<li _ngcontent-c10="">
-							<a _ngcontent-c10="" class="item active">Kindergarten (1)</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div _ngcontent-c10="" align="left" class="col-md-2 scrollClassRight">
-				<div _ngcontent-c10="" class="scroll-arrow-right" id="next_nav" style="padding-left: 20px;color:#5363d6;cursor:pointer">
-					<i _ngcontent-c10="" aria-hidden="true" class="fa fa-angle-right" style="font-size:40px"></i>
-				</div>
-			</div>
+	
+	<section class="container">
+		<div class="menu-search">
+			<input type="search" name="" placeholder="Search..." style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px;">
+			<button style="font-size: 18px;background: #ccc;padding: 2px 8px;">
+				<i class="fa fa-search"></i>
+			</button>
+			<button style="float: right;background: #FF4081;border: none;border-radius: 5px;padding: 7px 10px;color: white;font-weight: 800;"><a href="#" style="color: white;">DONE</a></button>
+
 		</div>
 	</section>
+	
 	<section class="container">
-		<div class="row">
-			<div class="select-all">
-				<div class="col-md-3 col-sm-3 all-1">
-					<a href="#" class="all-2">
-						<b>Select All-IN</b>
-					</a>
-				</div>
-				<div class="col-md-3 col-sm-3 all-1">
-					<a href="#" class="all-2">
-						<b>Select All</b>
-					</a>
-				</div>
-				<div class="col-md-2"></div>
-				<div align="right" class="col-md-3" style="margin: 10px;">
-					<a href="food.html" class="done">
-						<b>DONE</b>
-					</a>
-				</div>
-				<div class="col-md-1"></div>
-			</div>
-		</div>
-	</section>
-	<section class="container">
-		<div class="mat-card" style="min-height: 300px;">
+		<div class="mat-card" style="min-height: 350px;">
 			<div class="mat-content">	
 				<div _ngcontent-c19="" class="row ng-star-inserted">
 					<!---->
@@ -74,17 +39,6 @@
 							<div _ngcontent-c9="" class="image">
 								<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="Child.png">
 								<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked" style="display: none;"></i>
-								<!---->
-								<span _ngcontent-c19="" class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;font-weight: bold;font-size: 16px;">Riya Demo Child</span>
-							</div>
-							<!---->
-						</div>
-					</div>
-					<div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img"  onclick="myFunction()" style="padding:10px;cursor:pointer;margin: 5px 20px;">
-						<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
-							<div _ngcontent-c9="" class="image">
-								<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="Child.png">
-								<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked"></i>
 								<!---->
 								<span _ngcontent-c19="" class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;font-weight: bold;font-size: 16px;">Riya Demo Child</span>
 							</div>

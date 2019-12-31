@@ -31,7 +31,7 @@ a:focus{
 .menu_mobile #menu_mobile {
   width: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 3;
   height: 350px;
   top: 0;
   left: 0;
