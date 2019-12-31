@@ -95,6 +95,7 @@ a,a:hover, a:focus,button:focus{
     list-style: none;
     overflow: hidden;
     margin: 5px 10px;
+    width: 100%;
 }
 
 /*table*/
