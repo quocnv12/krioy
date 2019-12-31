@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="asset/kriyo/css/font-awesome.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="asset/kriyo/css/owl.carousel.css">
-    
+
     @yield('css')
     <style>
         .line .item a{
@@ -41,6 +41,7 @@
     <!-- JS libs --> 
     <script type="text/javascript" src="libs/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="libs/bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
+
 </head>
 <body>
     @include('header')
@@ -56,7 +57,6 @@
     <script src="js/home.js"></script>
 
     <script src="asset/kriyo/js/toastr.min.js"></script>
-
 
 @if(session('error'))
     <script type="text/javascript">

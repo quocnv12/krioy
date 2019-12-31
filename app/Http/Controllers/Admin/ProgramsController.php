@@ -57,8 +57,20 @@ class ProgramsController extends Controller
     }
 
     public function selectChild(){
-        $children_profiles = ChildrenProfiles::orderBy('last_name')->paginate(10);
-        return view('pages.program.select_child',['children_profiles'=>$children_profiles]);
+        $programs = Programs::all();
+        return view('pages.program.select_child',['programs'=>$programs]);
+    }
+
+    public function selectChildFilter($id){
+        $programs = Programs::all();
+        $children_profiles = DB::table('programs')
+            ->join('children_programs','programs.id','=','children_programs.id_program')
+            ->join('children_profiles','children_profiles.id','=','children_programs.id_children')
+            ->select(['children_profiles.*'])
+            ->where('children_programs.id_program','=',$id)
+            ->paginate(3);
+
+        return view('pages.program.select_child',['children_profiles'=>$children_profiles, 'programs'=>$programs]);
     }
 
     public function selectStaff(){
@@ -84,8 +96,6 @@ class ProgramsController extends Controller
             return $this->select_staff($request, $programs->id);
         }
         $programs->save();
-        return response()->json(['programs' => $programs], 201);
-
 
         //return response()->json(['programs'=>$programs],201);
         return redirect()->back()->with('notify', 'Added Successfully');
