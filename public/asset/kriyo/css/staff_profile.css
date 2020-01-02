@@ -22,7 +22,7 @@ table{
 }
 table th{
 	text-align: center;
-	padding: 10px 0;
+	padding: 15px 0;
 }
 .active3{
 	color: green;
@@ -47,7 +47,6 @@ table th{
 }
 .a1{
     margin: 10px 0;
-    margin-right: 50px;
 }
 .a1-1{
     margin: 30px 0;
@@ -299,7 +298,7 @@ select .mat-card .mat-content div > div.childClass:hover {
 /*EDIT CHILDREN*/
 .btnClass[_ngcontent-c10] {
     position: relative;
-    left: 50%;
+    left: 75%;
     transform: translate(-50%,-50%);
     background-color: #ff4081;
     color: #fff;
@@ -362,7 +361,7 @@ section .select-all div a.done{
 }
 div.select-child-img{
     width:175px;
-    padding:10px;cursor:pointer;margin: 5px 18px;
+    padding:10px;cursor:pointer;margin: 5px 20px;
 }
 div.select-child-img span{
     color:#5363d6;;margin: 10px 0;font-weight: bold;font-size: 16px;
@@ -516,10 +515,10 @@ button.mat-button-class{
     }
     .mat-content div a img{
         margin: 10px 5px;
-        width: 40%;height: auto;
+        width: 50%;
     }
     .btnClass[_ngcontent-c10]{
-        left: -35px;bottom: -45px;
+        left: -35px;bottom: -55px;
     }
     .panel-1{
         margin: 0;margin-top: 10px;
@@ -545,7 +544,7 @@ button.mat-button-class{
 @media (min-width: 411px) and (max-width: 620px){
     .mat-content div a img{
         margin: 10px 20px;
-        width: 40%;height: auto;
+        width: 40%;
     }
     .btnClass[_ngcontent-c10],.textera-img span.img-span{
         left: -50px;bottom: -55px;
@@ -554,7 +553,7 @@ button.mat-button-class{
 @media (min-width: 621px) and (max-width: 767px){
      .mat-content div a img{
         margin: 10px 20px;
-        width: 40%;height: auto;
+        width: 35%;
     }
     .btnClass[_ngcontent-c10],.textera-img span.img-span{
         left: -50px;bottom: -55px;
