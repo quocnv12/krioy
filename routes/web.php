@@ -18,7 +18,10 @@
 // 	})->name('home');
 // });
 
+
+//route fix
 Route::get('kids-now/children/add','Admin\ChildrenProfilesController@create');
+Route::get('kids-now/children/select_child','Admin\ChildrenProfilesController@selectChild');
 
 
 
@@ -46,7 +49,11 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('edit/{id}','Admin\ChildrenProfilesController@edit');
         Route::post('edit/{id}','Admin\ChildrenProfilesController@update');
         Route::get('delete/{id}','Admin\ChildrenProfilesController@destroy');
-        Route::get('autocomplete', 'Admin\ChildrenProfilesController@autocomplete')->name('autocomplete');
+
+        Route::get('select_child','Admin\ChildrenProfilesController@selectChild');
+
+        //search by typeahead
+        Route::get('search/name', 'Admin\ChildrenProfilesController@searchByTypeahead');
     });
     //---------------staff----------------
     Route::group(['prefix' => 'staff'], function () {

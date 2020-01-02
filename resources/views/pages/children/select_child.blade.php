@@ -34,11 +34,11 @@
 			<div class="mat-content">	
 				<div _ngcontent-c19="" class="row ng-star-inserted">
 					<!---->
-					<div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img"  onclick="myFunction()" style="padding:10px;cursor:pointer;margin: 5px 20px;">
+					<div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img" style="padding:10px;cursor:pointer;margin: 5px 20px;">
 						<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
 							<div _ngcontent-c9="" class="image">
 								<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="Child.png">
-								<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked" style="display: none;"></i>
+								<i _ngcontent-c9="" aria-hidden="true" class="fa fa-minus checked" id="checked" style="display: block; width: 40px"></i>
 								<!---->
 								<span _ngcontent-c19="" class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;font-weight: bold;font-size: 16px;">Riya Demo Child</span>
 							</div>
@@ -74,13 +74,13 @@
     	});
     </script>
     <script type="text/javascript">
-		function myFunction() {
-		  var x = document.getElementById("checked");
-		  if (x.style.display === "none") {
-		    x.style.display = "block";
-		  } else {
-		    x.style.display = "none";
-		  }
-		}
+		// function myFunction() {
+		//   var x = document.getElementById("checked");
+		//   if (x.style.display === "none") {
+		//     x.style.display = "block";
+		//   } else {
+		//     x.style.display = "none";
+		//   }
+		// }
 	 </script>
 @endsection
