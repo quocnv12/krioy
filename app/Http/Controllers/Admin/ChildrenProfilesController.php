@@ -254,12 +254,17 @@ class ChildrenProfilesController extends Controller
         return redirect('pages.children.child_profile')->with('notify','Deleted Successfully');
     }
 
-    public function autocomplete(Request $request)
-    {
-        $data = ChildrenProfiles::select(["first_name","last_name"])
-            ->where("first_name","LIKE","%{$request->query}%")
-            ->get();
 
-        return response()->json($data);
+    public function searchByTypeahead(Request $request)
+    {
+        $children_profiles = ChildrenProfiles::where('first_name', 'like', '%' . $request->get('q') . '%')
+                                            ->orWhere('last_name', 'like', '%' . $request->get('q') . '%')
+                                            ->get();
+
+        return response()->json($children_profiles);
+    }
+
+    public function selectChild(){
+        return view('pages.children.select_child');
     }
 }
