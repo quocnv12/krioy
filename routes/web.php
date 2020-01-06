@@ -204,6 +204,9 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::post('edit/{id}', 'Admin\ProgramsController@update');
 
         Route::get('view/{id}', 'Admin\ProgramsController@show');
+
+        Route::get('delete/{id}','Admin\ProgramsController@destroy');
+
         Route::get('search/children','Admin\ProgramsController@searchChildren');
         Route::get('search/staff','Admin\ProgramsController@searchStaff');
         Route::get('search/program','Admin\ProgramsController@searchProgram');

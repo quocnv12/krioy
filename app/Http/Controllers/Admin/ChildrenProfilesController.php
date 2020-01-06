@@ -257,7 +257,7 @@ class ChildrenProfilesController extends Controller
             $children->delete();        //xoa children
         }
         //return response()->json(null, 204);
-        return redirect('pages.children.child_profile')->with('notify', 'Deleted Successfully');
+        return view('pages.children.child_profile')->with('notify', 'Deleted Successfully');
     }
 
 

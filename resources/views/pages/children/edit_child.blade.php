@@ -19,14 +19,14 @@
             <div class="row">
                 <div class="col-lg-10 col-md-10 col-sm-10">
                     <ul class="ul-td">
-                        <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">HOME</a></li>
-                        <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">CHILDREN</a></li>
-                        <li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a _ngcontent-c16="">EDIT CHILDREN</a></li>
+                        <li _ngcontent-c16="" class="level1"><a href="kids-now">HOME</a></li>
+                        <li _ngcontent-c16="" class="active1" ><a href="kids-now/children/child_profile">CHILDREN</a></li>
+                        <li _ngcontent-c16="" class="active1 active-1" style="pointer-events: none"><a href="">EDIT CHILDREN</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target="">
                     <button class="notice" type="button">
-                        <span><a href="kids-now/children/delete/{{$children_profiles->id}}" style="color: inherit">DELETE</a></span>
+                        <span><a href="kids-now/children/delete/{{$children_profiles->id}}" style="color: inherit" onclick="return deleteConfirm()">DELETE</a></span>
                     </button>
                 </div>
             </div>
@@ -397,6 +397,10 @@
         $('#submit_button').click(function(event) {
             $('#array_programs_new').attr('value', array);
         });
+
+        function deleteConfirm() {
+            return confirm("Confirm delete this children ?");
+        }
     </script>
 	<script type="text/javascript">
 		$('.input_box input').focus(function(event) {

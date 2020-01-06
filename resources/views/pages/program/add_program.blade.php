@@ -8,6 +8,21 @@
 		.panel{
 			max-height: 9000px !important;
 		}
+		.tt-input{
+			background-color: white !important;
+		}
+		input.search-custom:focus{
+			animation: mymove 0.8s forwards;
+			background-color: white;
+		}
+
+		@keyframes mymove {
+			0% {width: 200px;}
+			100% {width: 500px;}
+		}
+		.twitter-typeahead{
+			float: right;
+		}
 	</style>
 <body>
 	<section class="page-top container">
@@ -216,16 +231,13 @@
 				</div>
 			</div>
 		</div>
-		<form class="typeahead" role="search">
-			<input type="search" name="q2" class="form-control search-input2" placeholder="Search Staff..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 500px;">
-		</form>
 		<div class="mat-card">
 			<div class="mat-content">
 				<button class="accordion accordion1 clearfix" type="button">
 					<p style="float: left;margin: 10px 0 !important;">Staff *</p>
-					<a href="kids-now/program/select_staff" style="float: right;text-align: right">
-						<p style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">SELECT</p>
-					</a>
+					<form class="typeahead" role="search">
+						<input type="search" name="q2" class="form-control search-input2 search-custom" placeholder="Search Staff..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">
+					</form>
 				</button>
 				<div class="panel">
 					<div _ngcontent-c20="" class="row" style="" id="staff_list">
@@ -236,16 +248,13 @@
 				</div>
 			</div>
 		</div>
-		<form class="typeahead" role="search">
-			<input type="search" name="q" class="form-control search-input children-items" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 500px;">
-		</form>
 		<div class="mat-card">
 			<div class="mat-content">
 				<button class="accordion accordion1 clearfix" type="button">
 					<p style="float: left;">Childrens *</p>
-					<a href="kids-now/program/select_child" style="float: right;text-align: right">
-						<p style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">SELECT</p>
-					</a>
+					<form class="typeahead" role="search">
+						<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">
+					</form>
 				</button>
 				<div class="panel">
 					<div _ngcontent-c20="" class="row" id="children_list">
@@ -344,8 +353,7 @@
                         console.log('id children them vao:'+id)
                         console.log('day la array children khi them:'+array_children);
                     }else {
-                        //cho nay them 1 alert children da ton tai
-                        console.log('children exists')
+                        alert('children exists')
                     }
                 }
             });
@@ -374,8 +382,7 @@
                         console.log('id staff them vao:'+id)
                         console.log('day la array staff khi them: ' + array_staff);
                     }else {
-                        //cho nay them 1 alert children da ton tai
-                        console.log('staff exists')
+                        alert('staff exists')
                     }
                 }
             });
@@ -396,7 +403,7 @@
 
 		$('#submit_button').click(function() {
 			if ( $('#program_name').val() === ""){
-				$('#error_total').html('please check the form again');
+				$('#error_total').html('Something wrong! Please check the form again');
 			}else {
 				$('#schedule').attr('value', array);
 				$('#array_all_children').attr('value', array_children);
@@ -467,13 +474,13 @@
 					},
 					templates: {
 						empty: [
-							'<div class="list-group search-results-dropdown" style="width: 500px;"><div class="list-group-item">Nothing found.</div></div>'
+							'<div class="list-group search-results-dropdown" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;width: 500px;"><div class="list-group-item">Nothing found.</div></div>'
 						],
 						header: [
 
 						],
 						suggestion: function (data) {
-							return '<a onclick="getIdChildren('+data.id+')" class="list-group-item" id="children-items" style="width: 500px;"> ' + data.first_name +' '+ data.last_name + '<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
+							return '<a onclick="getIdChildren('+data.id+')" class="list-group-item" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;padding: 10px; margin: 0;color: #424949;width: 500px;"> ' + data.first_name +' '+ data.last_name + '<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
 						}
 					}
 				},
@@ -501,13 +508,13 @@
 					},
 					templates: {
 						empty: [
-							'<div class="list-group search-results-dropdown" style="width: 500px;"><div class="list-group-item">Nothing found.</div></div>'
+							'<div class="list-group search-results-dropdown" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;width: 500px;"><div class="list-group-item">Nothing found.</div></div>'
 						],
 						header: [
 
 						],
 						suggestion: function (data) {
-							return '<a onclick="getIdStaff('+data.id+')" class="list-group-item" style="width: 500px;"> ' + data.first_name +' '+ data.last_name + '<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
+							return '<a onclick="getIdStaff('+data.id+')" class="list-group-item" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;padding: 10px; margin: 0;color: #424949;width: 500px;"> ' + data.first_name +' '+ data.last_name + '<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
 						}
 					}
 				},
