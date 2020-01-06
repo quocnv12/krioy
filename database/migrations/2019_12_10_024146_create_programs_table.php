@@ -16,10 +16,10 @@ class CreateProgramsTable extends Migration
         Schema::create('programs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('program_name');
-            $table->tinyInteger('from_month');
-            $table->tinyInteger('to_month');
-            $table->year('from_year');
-            $table->year('to_year');
+            $table->tinyInteger('from_month')->nullable();
+            $table->tinyInteger('to_month')->nullable();
+            $table->year('from_year')->nullable();
+            $table->year('to_year')->nullable();
             $table->time('start_time')->nullable();
             $table->time('finish_time')->nullable();
             $table->string('schedule')->nullable();
