@@ -399,25 +399,6 @@
         });
     </script>
 	<script type="text/javascript">
-		var array = $('#array_programs_old').val().split(',');
-		console.log(array);
-		$('.tablinks1').click(function(event) {
-			if ($(this).hasClass('tablinks1_active')) {
-				$(this).removeClass('tablinks1_active');
-				var program_pop = $(this).val();
-				array.pop(program_pop);
-			}else{
-				$(this).addClass('tablinks1_active');
-				var program_push = $(this).val();
-				array.push(program_push);
-			}
-			console.log(array);
-		});
-		$('#submit_button').click(function(event) {
-			$('#array_programs_new').attr('value', array);
-		});
-	</script>
-	<script type="text/javascript">
 		$('.input_box input').focus(function(event) {
 			$(this).siblings('span').addClass('input_box_span_active');
 		});

@@ -196,12 +196,20 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
         Route::get('select_staff','Admin\ProgramsController@selectStaff');
         Route::get('select_child','Admin\ProgramsController@selectChild');
-        Route::get('select_child/{id}','Admin\ProgramsController@selectChildFilter');
 
-        Route::get('edit', function () {
-            return view('pages.program.edit-program');
-        });
+        Route::get('select_child/add','Admin\ProgramsController@addSelectChild');   //ajax them children
+        Route::get('select_staff/add','Admin\ProgramsController@addSelectStaff');   //ajax them staff
+
+        Route::get('edit/{id}', 'Admin\ProgramsController@edit');
+        Route::post('edit/{id}', 'Admin\ProgramsController@update');
+
         Route::get('view/{id}', 'Admin\ProgramsController@show');
+        Route::get('search/children','Admin\ProgramsController@searchChildren');
+        Route::get('search/staff','Admin\ProgramsController@searchStaff');
+        Route::get('search/program','Admin\ProgramsController@searchProgram');
     });
 });
 
+Route::get('clear_session',function (){
+   return (\Illuminate\Support\Facades\Session::forget('array_children'));
+});

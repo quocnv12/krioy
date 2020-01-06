@@ -177,7 +177,7 @@
 			</div>
 		</div>
 		<div class="icon-plus" title="add">
-			<a href="edit-program.html">
+			<a href="kids-now/program/edit/{{$program->id}}">
 				<i class="fa fa-edit"></i>
 			</a>
 		</div>
