@@ -262,12 +262,8 @@ class ProgramsController extends Controller
         //
         $programs = Programs::findOrFail($id);
         $programs->delete();
-        return response()->json(null, 204);
+        return view('pages.program.program')->with('notify','Deleted Successfully');
     }
-
-//    public function selectChild(){
-//        return view('pages.program.select_child');
-//    }
 
     public function searchChildren(Request $request)
     {
