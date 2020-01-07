@@ -9,10 +9,21 @@
     <section class="page-top container">
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
             <div class="row">
-                <ul class="ul-td">
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">HOME</a></li>
-                    <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">Health</a></li>
-                </ul>
+                <div class="col-md-6">
+                    <ul class="ul-td">
+                        <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">HOME</a></li>
+                        <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">Health</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="ul-td" style="float: right">
+                        <form class="form-inline" action="{{route('admin.health.search')}}" method = "get">
+                            <input class="form-control mr-sm-2" type="search"  placeholder="Search" name="key" aria-label="Search" required>
+                            <button class="btn my-2 my-sm-0" type="submit" >Search</button>
+                        </form>
+                    </ul>
+                </div>
+
             </div>
         </div>
         <table border="0">
@@ -31,9 +42,9 @@
 
            @foreach($health as $key=> $value)
                <tr>
-                   <td style="padding: 30px">{{$key+1}}</td>
-                   <th>{{$value->ChildrenProfiles-> first_name }}</th>
-                   <th>{{$value->ChildrenProfiles->last_name}}</th>
+                   <td style="padding: 30px: ">{{$key+1}}</td>
+                   <td>{{$value->ChildrenProfiles-> first_name }}</td>
+                   <td>{{$value->ChildrenProfiles->last_name}}</td>
                    <td style="padding: 30px">{{$value->sick}}</td>
                    <td style="padding: 30px">{{$value->medicine}}</td>
                    <td style="padding: 30px">
@@ -45,8 +56,8 @@
                    <td style="padding: 30px">{{$value->incident}}</td>
                    <td style="padding: 30px"> <img src="images/{{$value->image}}" width="30" height="30"></td>
                    <td>
-                       <button  href="health/{{$value->id}}/edit" class="btn btn-primary editProduct"  title="{{ "sua ".$value->id }}"data-toggle="modal" data-target="#edit" type="button" data-id="{{ $value->id }}"><i class="fas fa-edit"></i></button>
-                       <button href="{{route('deletehealth',['id' => $value->id]) }}" class="btn btn-danger deleteProduct"  title="{{ "xoa ".$value->id }}" data-toggle="modal" data-target="#delete" type="button" data-id="{{ $value->id }}"><i class="fas fa-trash-alt"></i></button>
+                       <a href="{!! URL::route('admin.health.getEdit', $value->id ) !!}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
+                       <a  href="{!! URL::route('admin.health.getDelete', $value->id ) !!}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
                    </td>
 
                </tr>

@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="mat-card">
-            <form class="" method="POST" action="{{ route('health.update',$health->id) }}">
+            <form class="" method="POST" action="{{ route('admin.health.getEdit',$health->id) }}">
                 @csrf
             <div class="mat-content">
                 <button class="accordion add-staff">K5 KHANH Profile</button>
@@ -35,18 +35,18 @@
                             <div class="row">
                                 <div class="col-md-6 input_box">
                                     <span>First Name *</span>
-                                    <input type="text" name="first-name" placeholder="First Name *">
+                                    <input type="text" value="{{$health->Childrent->first_name}}" name="first_name" placeholder="First Name *">
                                 </div>
                                 <div class="col-md-6 input_box">
                                     <span>Last Name *</span>
-                                    <input type="text" name="last-name" placeholder="Last Name *">
+                                    <input type="text" value="{{$health->Childrent->last_name}}"name="last_name" placeholder="Last Name *">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="add">
                                     <div class="col-md-6 input_box">
                                         <span>Birthday</span>
-                                        <input type="date" name="birthday" placeholder="Phone Number *">
+                                        <input type="date" value="{{$health->Childrent->birthday}}"name="birthday" placeholder="Phone Number *">
                                     </div>
                                     <div class="col-md-6 input_box">
                                         <span>Gender *</span>
@@ -65,7 +65,7 @@
                 <hr style="margin: 0;">
                 <div class="form-group">
                     <label for="price">Sick</label>
-                    <input type="text" name="sick" placeholder="Nhập sick" class="form-control">
+                    <input type="text" name="sick"  value="{{$health->sick}}" placeholder="Nhập sick" class="form-control">
 
                 </div>
                 <div clas="form-group">
@@ -74,11 +74,11 @@
 
                         <div class="col-sm-6" style="text-align: center; ">
                             <span>Height</span>
-                            <input type="text" name="growth_height"  placeholder="Enter details here *" >
+                            <input type="text" name="growth_height" value="{{$health->growth_height}}" placeholder="Enter details here *" >
                         </div>
                         <div class="col-sm-6"style="text-align: center; ">
                             <span>Weight</span>
-                            <input type="text" name="growth_weight"  placeholder="Enter details here *">
+                            <input type="text" name="growth_weight"   value="{{$health->growth_weight}}" placeholder="Enter details here *">
                         </div>
 
 
@@ -87,17 +87,26 @@
 
                 <div class="form-group">
                     <label for="price">medicine</label>
-                    <input type="text" name="medicine"  placeholder="Nhập medicine nếu có" class="form-control">
+                    <input type="text" name="medicine"  value="{{$health->medicine}}"placeholder="Nhập medicine nếu có" class="form-control">
 
                 </div>
 
                 <div class="form-group">
                     <label for="price">incident</label>
-                    <input type="text" name="incident"  placeholder="Nhập incident nếu có" class="form-control">
+                    <input type="text" name="incident" value="{{$health->incident}}" placeholder="Nhập incident nếu có" class="form-control">
 
                 </div>
+                <div class="form-group">
+                    <label>Hình ảnh</label>
+                    <br>
+                    <img src="" class="img-responsive img-rounded" alt="Image" style="width: 150px; height: 200px;">
+                    <input type="hidden" name="fImageCurrent" value="">
+                    <br>
+                    <input type="file" name="image">
+                    <div>
 
-            </div>
+                    </div>
+                </div>
             </form>
         </div>
 
