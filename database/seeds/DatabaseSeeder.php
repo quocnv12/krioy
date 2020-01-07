@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(AttendanceChildrenTableSeeder::class);
         $this->call(AttendanceStaffTableSeeder::class);
         $this->call(FoodItemsTableSeeder::class);
-        $this->call(FoodTableSeeder::class);
+       
        // $this->call(ChildrenFoodTableSeeder::class);
         $this->call(HealthTableSeeder::class);
         $this->call(NoticeBoardTableSeeder::class);
@@ -35,6 +35,7 @@ class DatabaseSeeder extends Seeder
         $this->call(staff_role::class);
         $this->call(mealtype::class);
         $this->call(quantityfood::class);
+        $this->call(FoodTableSeeder::class);
         $this->call(Food_Fooditem::class);
     }
 }

@@ -5,31 +5,17 @@ Food
 @section('content')
 
 <body>
-
     <section class="page-top container">
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
             <div class="row">
                 <div class="col-md-6">
                     <ul class="ul-td">
-                        <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">Home</a></li>
-                        <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">Food</a>
+                        <li _ngcontent-c16="" class="level1"><a href="kids-now">Home</a></li>
+                        <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a href="kids-now/food">Food</a>
                         </li>
                     </ul>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                <a style="" href="kids-now/food/menu-meal-type" class="btn btn-primary">Quản lý loại bữa ăn</a>
-            </div>
-
-            <div class="col-md-2">
-                <a style="" href="kids-now/food/menu-quantity" class="btn btn-primary">Quản lý số lượng</a>
-            </div>
-            <div class="col-md-2">
-                <a style="" href="kids-now/food/menu-food-name" class="btn btn-primary">Quản lý món ăn</a>
-            </div>
-
         </div>
         <div>
             @if(Session::has('thongbao'))
@@ -49,10 +35,16 @@ Food
             @endif
         </div>
         <div class="row">
-            <form style="width: 100%;" method="post"  enctype="multipart/form-data" >
+            <form method="post"  enctype="multipart/form-data" >
                 @csrf
-            <div class="mat-card" style="width: 100%;">
+            <div class="mat-card" style="">
                 <div class="mat-content">
+                    <div class="row">
+                        <a style="margin:5px 0px 13px 14px;width:100px" href="kids-now/food/menu-meal-type" class="btn btn-primary">Meal Tpye</a>
+                        <a style="margin:5px 0px 13px 14px;width:100px" href="kids-now/food/menu-quantity" class="btn btn-primary">Quantity</a>
+                        <a style="margin:5px 0px 13px 14px;width:100px" href="kids-now/food/menu-food-name" class="btn btn-primary">Food Name</a>
+                        <a style="margin:5px 0px 13px 14px;width:100px" href="kids-now/food/list" class="btn btn-primary">Food</a>
+                    </div>
                     <button class="accordion" type="button">Programs</button>
                     <div class="panel">
                         <div _ngcontent-c20="" class="row" style="">
@@ -69,24 +61,22 @@ Food
                         </div>
                     </div>
                     <div class="update">
-                        <p style="text-align:left" >Select Meal Type*</p>
+                        <p style="text-align:left" >Select Meal Type *</p>
                         <div class="tab">
                             @foreach ($mealtypes as $item)
-                            <button value="{{ $item->name }}" style="margin:10px 0;" type="button" data-id="lunch"
+                            <button value="{{ $item->id }}" style="margin:5px 26px 5px 42px;font-size:14px" type="button" data-id="lunch"
                                 class="tablinks">{{ $item->name }}</button>
                             @endforeach
                             <input id="array_program" type="hidden" value="" name="mealtype">
-
-
                         </div>
                     </div>
                     {{--  <div style="text-align:left" id="clock" style="margin: 20px 0;font-size: 18px;"></div>  --}}
                     <hr>
                     <div class="update"  style="text-align:left">
-                        <p>Select Quantity</p>
+                        <p>Select Quantity *</p>
                         <div class="tab">
                             @foreach ($quantytifoods as $item)
-                            <button type="button" style="margin:10px 0;" value="{{ $item->name }}"
+                            <button type="button" style="margin:5px 26px 5px 42px;font-size:14px" value="{{ $item->id }}"
                                 class="tablinks2">{{ $item->name }}</button>
                             @endforeach
                             <input id="array_programs" type="hidden" value="" name="qtyfood">
@@ -94,7 +84,7 @@ Food
                         </div>
                     </div>
                     <hr>
-                    <button type="button"   class="accordion_new">Meal Item Name *
+                    <button type="button" style="width:100%" class="accordion_new">Meal Item Name *
                         <i class="fa fa-chevron-circle-down"></i>
                     </button>
                     <div class="panel_new">

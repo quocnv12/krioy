@@ -17,36 +17,36 @@ class FoodTableSeeder extends Seeder
         DB::table('food')->insert([
            [
                'id'         =>  1,
-               'meal_type'  =>  'Lunch',
-               'quantity'   =>  'All',
+               'meal_type'  =>  1,
+               'quantity'   =>  1,
                'id_program'    =>  1,
              
            ],
             [
                 'id'         =>  2,
-               'meal_type'  =>  'Dinner',
-               'quantity'   =>  'Most',
+               'meal_type'  =>  2,
+               'quantity'   =>  2,
                'id_program'    =>  1,
               
             ],
             [
                 'id'         =>  3,
-                'meal_type'  =>  'Snacks',
-                'quantity'   =>  'Some',
+                'meal_type'  =>  3,
+                'quantity'   =>  3,
                 'id_program'    =>  2,
               
             ],
             [
                 'id'         =>  4,
-                'meal_type'  =>  'Liquids',
-                'quantity'   =>  'Most',
+                'meal_type'  =>  4,
+                'quantity'   =>  4,
                 'id_program'    =>  3,
                 
             ],
             [
                 'id'         =>  5,
-                'meal_type'  =>  'Lunch',
-                'quantity'   =>  'All',
+                'meal_type'  =>  2,
+                'quantity'   =>  2,
                 'id_program'    =>  2,
                
             ],

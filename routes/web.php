@@ -145,6 +145,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
        
         Route::get('','Admin\FoodController@GetFood');
         Route::post('','Admin\FoodController@PostFood');
+        Route::get('list','Admin\FoodController@GetList');
   
 
         //loại bữa ăn
