@@ -89,8 +89,8 @@
 					<div class="col-md-6">
 						<div class="row">
 							<div class="col-md-6 input_box">
-								<span>Program Fee(USD) *</span>
-								<input type="text" name="program_fee" id="program_fee" placeholder="Program Fee *" value="{{old('program_fee')}}">
+								<span>Program Fee</span>
+								<input type="text" name="program_fee" id="program_fee" placeholder="Program Fee" value="{{old('program_fee')}}">
                                 @if ($errors->has('program_fee'))
                                     <div class="text text-danger">
                                         {{ $errors->first('program_fee') }}
@@ -98,7 +98,7 @@
                                 @endif
 							</div>
 							<div class="col-md-6 input_box">
-								<span>Select *</span>
+								<span>Period Fee</span>
 								<select name="period_fee">
 									<option value="" selected>Period Fee</option>
 									<option @if(old('period_fee') == "/week") selected='selected' @endif value="/week">/week</option>
@@ -148,7 +148,7 @@
 					<div class="col-md-7">
 						<div class="row">
 							<div class="col-md-3 input_box">
-								<span>Year *</span>
+								<span>Year </span>
 								<select name="from_year">
                                     <option value="" selected >Year</option>
 									@for($i = 2000; $i <= 3000; $i ++)
@@ -162,7 +162,7 @@
                                 @endif
 							</div>
 							<div class="col-md-3 input_box">
-								<span>Month *</span>
+								<span>Month </span>
 								<select name="from_month">
                                     <option value="" selected >Month</option>
 									@for($i = 1; $i <= 12; $i ++)
@@ -176,7 +176,7 @@
                                 @endif
 							</div>
 							<div class="col-md-3 input_box">
-								<span>Year *</span>
+								<span>Year </span>
 								<select name="to_year">
                                     <option value="" selected >Year</option>
 									@for($i = 2000; $i <= 3000; $i ++)
@@ -190,7 +190,7 @@
                                 @endif
 							</div>
 							<div class="col-md-3 input_box">
-								<span>Month *</span>
+								<span>Month </span>
 								<select name="to_month">
                                     <option value="" selected >Month</option>
 									@for($i = 1; $i <= 12; $i ++)
@@ -209,7 +209,7 @@
 					<div class="col-md-5">
 						<div class="row">
 							<div class="col-md-6 input_box">
-								<span>HH:MM *</span>
+								<span>HH:MM </span>
 								<input type="time" name="start_time" value="{{old('start_time')}}">
                                 @if ($errors->has('start_time'))
                                     <div class="text text-danger">
@@ -218,7 +218,7 @@
                                 @endif
 							</div>
 							<div class="col-md-6 input_box">
-								<span>HH:MM *</span>
+								<span>HH:MM </span>
 								<input type="time" name="finish_time" value="{{old('finish_time')}}">
                                 @if ($errors->has('finish_time'))
                                     <div class="text text-danger">
@@ -234,7 +234,7 @@
 		<div class="mat-card">
 			<div class="mat-content">
 				<button class="accordion accordion1 clearfix" type="button">
-					<p style="float: left;margin: 10px 0 !important;">Staff *</p>
+					<p style="float: left;margin: 10px 0 !important;">Staff </p>
 					<form class="typeahead" role="search">
 						<input type="search" name="q2" class="form-control search-input2 search-custom" placeholder="Search Staff..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">
 					</form>
@@ -251,8 +251,8 @@
 		<div class="mat-card">
 			<div class="mat-content">
 				<button class="accordion accordion1 clearfix" type="button">
-					<p style="float: left;">Childrens *</p>
-					<form class="typeahead" role="search">
+					<p style="float: left;">Children </p>
+					<form class="typeahead" role="search" style="float: right; text-align: left">
 						<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">
 					</form>
 				</button>
@@ -394,6 +394,7 @@
 		$('#program_name').focusout(function () {
 			if ( $('#program_name').val() !== ""){
 				$('#error_program_name').html('')
+				$('#error_total').html('');
 			}else {
 				$('#error_program_name').html('This field must not be empty')
 			}

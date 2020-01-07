@@ -150,7 +150,7 @@
                             </div>
                         @endif
 					</div>
-                    <div class="col-md-6 input_box">
+                    <div class="col-md-3 input_box">
                         <span>Status</span>
                         <select name="status">
                             <option value="">Status</option>
@@ -165,6 +165,19 @@
                             </div>
                         @endif
                     </div>
+					<div class="col-md-3 input_box">
+						<span>Exist</span>
+						<select name="exist">
+							<option value="">Exist</option>
+							<option value="1" @if(old('exist') == 1) selected="selected" @endif>Yes</option>
+							<option value="0" @if(old('exist') == 1) selected="selected" @endif>No</option>
+						</select>
+						@if ($errors->has('exist'))
+							<div class="text text-danger">
+								{{ $errors->first('exist') }}
+							</div>
+						@endif
+					</div>
 					<div class="input_box" style="width: 100%;">
 						<span>Residential Address *</span>
 						<input type="text" name="address" placeholder="Residential Address" value="{{old('address')}}">
@@ -193,19 +206,8 @@
                         @endif
 					</div>
 				</div>
-				<div>
-					<span>Exist</span>
-					<br>
-					<input type="radio" name="exist" value="1" @if(old('exist') == 1) {{'checked'}} @endif> Yes<br>
-					<input type="radio" name="exist" value="2" @if(old('exist') == 2) {{'checked'}} @endif> No<br>
-                    @if ($errors->has('exist'))
-                        <div class="text text-danger">
-                            {{ $errors->first('exist') }}
-                        </div>
-                    @endif
-				</div>
 			</div>
-
+			</div>
 			<div class="mat-card">
 				<div class="mat-content">
 					<button class="accordion" type="button">Programs</button>
@@ -223,7 +225,6 @@
 				</div>
 			</div>
 
-		
 		<div class="mat-card" style="background-color: #f9f9f9;">
 			<div class="mat-content">
 				<button class="accordion" type="button">Parents *</button>
@@ -335,7 +336,7 @@
 					</button>
 				</div>
 			</div>
-		</div>
+
 		</form>
 	</section>
 

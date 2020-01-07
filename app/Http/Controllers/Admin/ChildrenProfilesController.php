@@ -99,6 +99,7 @@ class ChildrenProfilesController extends Controller
             $parent->note = $request->note_parent;
             $parent->gender = $request->gender_parent;
             $parent->save();
+
             //id parent vua tao moi xong
             $parent_id = $parent->id;
             //tao record ben bang children_parent
@@ -234,7 +235,15 @@ class ChildrenProfilesController extends Controller
                 $children_programs->delete();
             }
         }
-        //return response()->json(['children_profiles' => $children_profiles], 200);
+
+        $parent_profiles = DB::table('parent_profiles')
+                            ->join('children_parent','parent_profiles.id','=','children_parent.id_parent')
+                            ->select('parent_profiles.*')
+                            ->where('id_children','=',$id)
+                            ->get();
+        dd($parent_profiles);
+        $parent_profiles->update($request->all());
+
         return redirect()->back()->with('notify', 'Updated Successfully');
     }
 
