@@ -164,26 +164,6 @@
 		});
 	</script>
 
-	{{--<script type="text/javascript">--}}
-		{{--$('#search').on('keyup',function(){--}}
-			{{--console.log('hi')--}}
-			{{--$value = $(this).val();--}}
-			{{--$.ajax({--}}
-				{{--type: 'get',--}}
-				{{--url: '{{ URL::to('kids-now/children/search') }}',--}}
-				{{--data: {--}}
-					{{--'search': $value--}}
-				{{--},--}}
-				{{--success:function(data){--}}
-					{{--$('#result').html(data);--}}
-				{{--}--}}
-			{{--});--}}
-		{{--})--}}
-		{{--// $.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });--}}
-
-
-	{{--</script>--}}
-
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function($) {

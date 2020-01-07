@@ -19,7 +19,7 @@ class Programs extends Model
         'finish_time',
         'program_fee',
         'period_fee',
-        'status'
+        'status',
     ];
 
     protected $timestamp = false;
