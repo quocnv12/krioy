@@ -182,20 +182,21 @@ a,a:hover, a:focus,button:focus{
 
 .tab {
   overflow: hidden;
-  text-align: center;
+  text-align: left;
 }
 /* Style the buttons inside the tab */
 .tab button {
-	border-radius: 10px;
+	border-radius: 4px;
   outline: none;
   cursor: pointer;
   padding: 7px;
   transition: 0.3s;
   font-size: 17px;
-  width: 16%;
-  border: 1px solid rgb(72, 207, 174);
+  width: 10%;
+  border: 1px solid #5363d6;
   background-color: rgb(255, 255, 255);
-    color: rgb(72, 207, 174);
+    color: #5363d6;
+    height: 36px;
 }
 
 .panel .ng-star-inserted button{
@@ -208,7 +209,7 @@ a,a:hover, a:focus,button:focus{
     transition: 0.3s all;
 }
 .tablinks_active{
-    background: #48cfae !important;
+    background: #5363d6 !important;
     color: #fff !important;
 }
 
@@ -469,11 +470,11 @@ input:focus{
 }
 
 /* Useless styles, just for demo styles */
-form {
+/* form {
   width: 225px;
   margin: 0 auto;
   text-align:center;
-}
+} */
 /*end input*/
 /*attendance*/
 section.attendance-layout{
