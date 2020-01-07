@@ -62,7 +62,7 @@
 				<div class="panel add">
 					<div class="row">
 						<div class="col-md-4 input_box">
-							<span>Program Name *</span>
+							<span class="input_box_span_active">Program Name *</span>
 							<input type="text" name="program_name" id="program_name" placeholder="Program Name *" value="{{$program->program_name}}">
 							<p id="error_program_name" style="text-align: left; color: red"></p>
 							@if ($errors->has('program_name'))
@@ -101,8 +101,8 @@
 						<div class="col-md-6">
 							<div class="row">
 								<div class="col-md-6 input_box">
-									<span>Program Fee(USD) *</span>
-									<input type="text" name="program_fee" id="program_fee" placeholder="Program Fee *" value="{{$program->program_fee}}">
+									<span class="input_box_span_active">Program Fee</span>
+									<input type="text" name="program_fee" id="program_fee" placeholder="Program Fee" value="{{$program->program_fee}}">
 									@if ($errors->has('program_fee'))
 										<div class="text text-danger">
 											{{ $errors->first('program_fee') }}
@@ -110,7 +110,7 @@
 									@endif
 								</div>
 								<div class="col-md-6 input_box">
-									<span>Select *</span>
+									<span class="input_box_span_active">Period Fee</span>
 									<select name="period_fee">
 										<option value="" selected>Period Fee</option>
 										<option @if($program->period_fee == "/week") selected='selected' @endif value="/week">/week</option>
@@ -126,7 +126,7 @@
 							</div>
 						</div>
 						<div class="col-md-6 input_box">
-							<span>Status</span>
+							<span class="input_box_span_active">Status</span>
 							<select name="status">
 								<option @if($program->status == 1) selected='selected' @endif value="1">Open</option>
 								<option @if($program->status == 0) selected='selected' @endif value="1">Close</option>
@@ -160,7 +160,7 @@
 						<div class="col-md-7">
 							<div class="row">
 								<div class="col-md-3 input_box">
-									<span>Year *</span>
+									<span class="input_box_span_active">Year </span>
 									<select name="from_year">
 										<option value="" selected >Year</option>
 										@for($i = 2000; $i <= 3000; $i ++)
@@ -174,7 +174,7 @@
 									@endif
 								</div>
 								<div class="col-md-3 input_box">
-									<span>Month *</span>
+									<span class="input_box_span_active">Month </span>
 									<select name="from_month">
 										<option value="" selected >Month</option>
 										@for($i = 1; $i <= 12; $i ++)
@@ -188,7 +188,7 @@
 									@endif
 								</div>
 								<div class="col-md-3 input_box">
-									<span>Year *</span>
+									<span class="input_box_span_active">Year </span>
 									<select name="to_year">
 										<option value="" selected >Year</option>
 										@for($i = 2000; $i <= 3000; $i ++)
@@ -202,7 +202,7 @@
 									@endif
 								</div>
 								<div class="col-md-3 input_box">
-									<span>Month *</span>
+									<span class="input_box_span_active">Month </span>
 									<select name="to_month">
 										<option value="" selected >Month</option>
 										@for($i = 1; $i <= 12; $i ++)
@@ -221,7 +221,7 @@
 						<div class="col-md-5">
 							<div class="row">
 								<div class="col-md-6 input_box">
-									<span>HH:MM *</span>
+									<span class="input_box_span_active">HH:MM </span>
 									<input type="time" name="start_time" value="{{$program->start_time}}">
 									@if ($errors->has('start_time'))
 										<div class="text text-danger">
@@ -230,7 +230,7 @@
 									@endif
 								</div>
 								<div class="col-md-6 input_box">
-									<span>HH:MM *</span>
+									<span class="input_box_span_active">HH:MM </span>
 									<input type="time" name="finish_time" value="{{$program->finish_time}}">
 									@if ($errors->has('finish_time'))
 										<div class="text text-danger">
@@ -246,7 +246,7 @@
 			<div class="mat-card">
 				<div class="mat-content">
 					<button class="accordion accordion1 clearfix" type="button">
-						<p style="float: left;">Staff *</p>
+						<p style="float: left;">Staff </p>
 							<form class="typeahead" role="search" style="float: right">
 								<input type="search" name="q2" class="form-control search-input2 search-custom" placeholder="Search Staff..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">
 							</form>
@@ -276,7 +276,7 @@
 			<div class="mat-card">
 				<div class="mat-content">
 					<button class="accordion accordion1 clearfix" type="button">
-						<p style="float: left;">Childrens *</p>
+						<p style="float: left;">Children </p>
 							<form class="typeahead" role="search" style="float: right;text-align: left;">
 								<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">
 							</form>
