@@ -26,7 +26,7 @@ class ChildrenProfiles extends Model
     public function Health(){
         return $this->hasMany('App\Models\HealthModel','id_children','id');
     }
-    public function Childrent(){
+    public function Observation(){
         return $this->hasMany('App\Models\ObservationModel','id_children','id');
     }
 

@@ -82,21 +82,37 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
     //---------------health----------------
     Route::group(['prefix' => 'health'], function () {
 
-        Route::resource('health','Admin\HealthController');
-        Route::get('xoa/{id}','Admin\HealthController@destroy')->name('deletehealth');
-        Route::get('chitiet/{id}','Admin\HealthController@getChitiet')->name('Chitiet');
+        Route::get('danhsach', ['as'=>'admin.health.list','uses'=>'Admin\HealthController@getList']);
+        Route::get('them',['as'=>'admin.health.getAdd','uses'=>'Admin\HealthController@getAdd']);
+        Route::post('them',['as'=>'admin.health.getAdd','uses'=>'Admin\HealthController@postAdd']);
+        Route::get('xoa/{id}',['as'=>'admin.health.getDelete','uses'=>'Admin\HealthController@getDelete']);
+        Route::get('sua/{id}',['as'=>'admin.health.getEdit','uses'=>'Admin\HealthController@getEdit']);
+        Route::post('sua/{id}',['as'=>'admin.health.postEdit','uses'=>'Admin\HealthController@postEdit']);
+        Route::get('search',['as'=>'admin.health.search','uses'=>'Admin\HealthController@getSearch']);
+        Route::post('search',['as'=>'admin.health.search','uses'=>'Admin\HealthController@postSearch']);
+        Route::get('them_child',['as'=>'admin.health.child','uses'=>'Admin\HealthController@getChild']);
 
-        //Route::post('sua/{id}','Admin\HealthController@update')->name('sua');
-        //Route::get('sua/{id}','Admin\HealthController@edit')->name('sua');
 
-            //return view('pages.heath.heath');
+
+        //Route::resource('health','Admin\HealthController');
+        //Route::get('xoa/{id}','Admin\HealthController@destroy')->name('deletehealth');
+        //Route::get('chitiet/{id}','Admin\HealthController@getChitiet')->name('Chitiet');
+
+
 
 
     });
 
     //---------------observation----------------
     Route::group(['prefix' => 'observations'], function () {
-        Route::resource('observations','Admin\ObservationController');
+        Route::get('danhsach', ['as'=>'admin.observations.list','uses'=>'Admin\ObservationController@getList']);
+        Route::get('xoa/{id}',['as'=>'admin.observations.getDelete','uses'=>'Admin\ObservationController@getDelete']);
+        Route::get('sua/{id}',['as'=>'admin.observations.getEdit','uses'=>'Admin\ObservationController@getEdit']);
+        Route::post('sua/{id}',['as'=>'admin.observations.postEdit','uses'=>'Admin\ObservationController@postEdit']);
+        Route::get('search',['as'=>'admin.observations.search','uses'=>'Admin\ObservationController@getSearch']);
+        Route::post('search',['as'=>'admin.observations.search','uses'=>'Admin\ObservationController@postSearch']);
+
+
     });
     //---------------food----------------
     Route::group(['prefix' => 'food'], function () {

@@ -5,37 +5,6 @@
 
 @section('content')
 	<body onload="time()">
-	<!-- <section class="header">
-		<div class="logo">
-			<a href="#">
-				<img src="images/school.png" alt="" style="width: 80px;height: 80px;padding: 10px;">
-			</a>
-			<a href="#" class="title">Talent Wins</a>
-			<span>hanoi,hanoi</span>
-		</div>
-		<div class="header-ul">
-			<ul>
-				<li>
-					<a href="#">HỒ SƠ</a>
-				</li>
-				<li>
-					<a href="#">HÓA ĐƠN</a>
-				</li>
-				<li>
-					<a href="#">CÀI ĐẶT</a>
-				</li>
-				<li>
-					<a href="#">TRỢ GIÚP</a>
-				</li>
-				<li>
-					<a href="#" class="ul-kriyo">KRIYO CỦA TÔI</a>
-				</li>
-				<li>
-
-				</li>
-			</ul>
-		</div>
-	</section> -->
 
 	<section class="page-top container">
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
@@ -47,39 +16,22 @@
 				</ul>
 				</div>
 				<div class="col-sm-6">
-					<button type="submit" class="btn btn-success" href="{{route('health.index')}}" style="float: right">Quản lí danh sách</button>
+					<a type="submit" class="btn btn-success" href="{{route('admin.health.list')}}" style="float: right" >Quản lí danh sách</a>
 				</div>
 			</div>
 		</div>
 
 
 		<div class="row">
-			<form action="{{route('health.store')}}" style="width: 100%" >
+			<form action="" style="width: 100%" >
 				@csrf
 			<div class="mat-card">
 				<div class="mat-content">
 					<button class="accordion accordion1 clearfix">
 						<p style="float: left;">Children *</p>
-						<a href="{{route('health.index')}}" style="float: right;text-align: right">
-							<p style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">SELECT</p>
-						</a>
+						<a href="{{route('admin.health.child')}}" style="float: right;text-align: right">SELECT</a>
 					</button>
 					<div class="mat-content">
-						@foreach($health as $chil)
-						<div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img"  onclick="myFunction()" style="padding:10px;cursor:pointer;margin: 5px 20px;">
-							<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
-								<div _ngcontent-c9="" class="image">
-									<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/{{$chil->image}}';" width="80" src="Child.png">
-									<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked" style="display: none"></i>
-									<!---->
-									<span _ngcontent-c19="" class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;font-weight: bold;font-size: 16px;">{{$chil->ChildrenProfiles->frist_name}}{{$chil->ChildrenProfiles->last_name}}</span>
-								</div>
-								<!---->
-							</div>
-						</div>
-						@endforeach
-
-
 
 					</div>
 
@@ -105,7 +57,7 @@
 										<label tabindex="0" for="my-file" class="input-file-trigger">
 											<i class="fa fa-paperclip"></i>
 										</label>
-										<div class="input-img">
+										<div class="input-img" style="display: none">
 											<img class="blah"  name ="image" src="images/150.png" alt="your  image" />
 											<div class="top-right button-close button_close_show_img">
 												<button style="border-radius:50%;width:26px;height:26px;z-index:1;">
@@ -134,7 +86,7 @@
 										<label tabindex="0" for="my-file" class="input-file-trigger">
 											<i class="fa fa-paperclip"></i>
 										</label>
-										<div class="input-img">
+										<div class="input-img"  style="display: none">
 											<img class="blah"  name ="image"src="images/150.png" alt="your  image" />
 											<div class="top-right button-close button_close_show_img">
 												<button style="border-radius:50%;width:26px;height:26px;z-index:1;">
@@ -210,7 +162,7 @@
 										<label tabindex="0" for="my-file" class="input-file-trigger">
 											<i class="fa fa-paperclip"></i>
 										</label>
-										<div class="input-img">
+										<div class="input-img"style="display: none">
 											<img class="blah"  name ="image"src="images/150.png" alt="your  image" />
 											<div class="top-right button-close button_close_show_img">
 												<button style="border-radius:50%;width:26px;height:26px;z-index:1;">
@@ -239,7 +191,7 @@
 										<label tabindex="0" for="my-file" class="input-file-trigger">
 											<i class="fa fa-paperclip"></i>
 										</label>
-										<div class="input-img">
+										<div class="input-img" style="display: none">
 											<img class="blah" name="image"src="images/150.png" alt="your  image" />
 											<div class="top-right button-close button_close_show_img">
 												<button style="border-radius:50%;width:26px;height:26px;z-index:1;">
