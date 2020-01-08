@@ -26,6 +26,10 @@ class ChildrenProfilesController extends Controller
         return view('pages.children.create_child', ['programs' => $programs]);
     }
 
+    public function addParent(){
+
+    }
+
     public function store(Request $request)
     {
         $this->validate($request,
@@ -89,27 +93,65 @@ class ChildrenProfilesController extends Controller
             }
             $children_program->save();
         }
-        if ($request->first_name_parent) {
+
+        //parent 1
+        if ($request->first_name_parent_1 && $request->last_name_parent_1) {
             //tao record ben bang parent_profiles
-            $parent = new ParentProfiles();
-            $parent->first_name = $request->first_name_parent;
-            $parent->last_name = $request->last_name_parent;
-            $parent->phone = $request->phone_parent;
-            $parent->email = $request->email_parent;
-            $parent->note = $request->note_parent;
-            $parent->gender = $request->gender_parent;
-            $parent->save();
+            $parent_1 = new ParentProfiles();
+            $parent_1->first_name = $request->first_name_parent_1;
+            $parent_1->last_name = $request->last_name_parent_1;
+            $parent_1->phone = $request->phone_parent_1;
+            $parent_1->email = $request->email_parent_1;
+            $parent_1->note = $request->note_parent_1;
+            $parent_1->gender = $request->gender_parent_1;
+            $parent_1->save();
+
+            if ($request->hasFile('image_parent_1')) {
+                $file = $request->image_parent_1;
+                $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
+                $file->move('images/parent/', $filename);
+                $parent_1->image = 'images/parent/' . $filename;
+            }
 
             //id parent vua tao moi xong
-            $parent_id = $parent->id;
+            $parent_1_id = $parent_1->id;
             //tao record ben bang children_parent
             $children_parent = new ChildrenParent();
             $children_parent->id_children = $children_id;
-            $children_parent->id_parent = $parent_id;
-            $children_parent->relationship = $request->relationship;
+            $children_parent->id_parent = $parent_1_id;
+            $children_parent->relationship = $request->relationship_1;
             $children_parent->save();
         }
-        //return response()->json(['children_profiles' => $children_profiles], 201);
+
+        //parent_2
+        if ($request->first_name_parent_2 && $request->last_name_parent_2) {
+            //tao record ben bang parent_profiles
+            $parent_2 = new ParentProfiles();
+            $parent_2->first_name = $request->first_name_parent_2;
+            $parent_2->last_name = $request->last_name_parent_2;
+            $parent_2->phone = $request->phone_parent_2;
+            $parent_2->email = $request->email_parent_2;
+            $parent_2->note = $request->note_parent_2;
+            $parent_2->gender = $request->gender_parent_2;
+            $parent_2->save();
+
+            if ($request->hasFile('image_parent_2')) {
+                $file = $request->image_parent_2;
+                $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
+                $file->move('images/parent/', $filename);
+                $parent_2->image = 'images/parent/' . $filename;
+            }
+
+            //id parent vua tao moi xong
+            $parent_2_id = $parent_2->id;
+            //tao record ben bang children_parent
+            $children_parent = new ChildrenParent();
+            $children_parent->id_children = $children_id;
+            $children_parent->id_parent = $parent_2_id;
+            $children_parent->relationship = $request->relationship_2;
+            $children_parent->save();
+        }
+
         return redirect()->back()->with('notify', 'Added Successfully');
     }
 
@@ -123,7 +165,6 @@ class ChildrenProfilesController extends Controller
             ->select(['children_profiles.*'])
             ->where('children_programs.id_program', '=', $id)
             ->get();
-        //return response()->json(['children_profiles' => $children_profiles]);
         return view('pages.children.child_profile', ['children_profiles' => $children_profiles, 'programs' => $programs]);
     }
 
@@ -142,12 +183,32 @@ class ChildrenProfilesController extends Controller
         foreach ($programs_choose as $key => $value) {
             array_push($array_programs_choose, $value->id);
         }
-        $parent_profiles = DB::table('parent_profiles')
+        $parent_profiles_all = DB::table('parent_profiles')
             ->join('children_parent', 'parent_profiles.id', '=', 'children_parent.id_parent')
             ->select('*')
             ->where('id_children', '=', $id)
             ->get();
-        return view('pages.children.edit_child', ['children_profiles' => $children_profiles, 'programs' => $programs, 'array_programs_choose' => $array_programs_choose, 'parent_profiles' => $parent_profiles]);
+
+        if (count($parent_profiles_all) > 1){
+            $parent_profiles_1 = $parent_profiles_all[0];
+            $parent_profiles_2 = $parent_profiles_all[1];
+
+            return view('pages.children.edit_child', ['children_profiles' => $children_profiles,
+                'programs' => $programs,
+                'array_programs_choose' => $array_programs_choose,
+                'parent_profiles_1' => $parent_profiles_1,
+                'parent_profiles_2' => $parent_profiles_2,
+            ]);
+        }else{
+            $parent_profiles_1 = $parent_profiles_all[0];
+            return view('pages.children.edit_child', ['children_profiles' => $children_profiles,
+                'programs' => $programs,
+                'array_programs_choose' => $array_programs_choose,
+                'parent_profiles_1' => $parent_profiles_1,
+            ]);
+        }
+
+
     }
 
     public function update(Request $request, $id)
@@ -236,13 +297,42 @@ class ChildrenProfilesController extends Controller
             }
         }
 
-        $parent_profiles = DB::table('parent_profiles')
-                            ->join('children_parent','parent_profiles.id','=','children_parent.id_parent')
-                            ->select('parent_profiles.*')
-                            ->where('id_children','=',$id)
-                            ->get();
-        dd($parent_profiles);
-        $parent_profiles->update($request->all());
+        // edit parent
+
+        //parent 1
+        $parent_1 = ParentProfiles::where('id','=',$request->parent_profiles_1);
+        $parent_1->first_name = $request->first_name_parent_1;
+        $parent_1->last_name = $request->last_name_parent_1;
+        $parent_1->phone = $request->phone_parent_1;
+        $parent_1->email = $request->email_parent_1;
+        $parent_1->note = $request->note_parent_1;
+        $parent_1->gender = $request->gender_parent_1;
+        $parent_1->save();
+
+        //sua record ben bang children_parent
+        $children_parent = ChildrenParent::where([['id_parent','=',$request->parent_profiles_1],['id_children','=',$id]]);
+        $children_parent->relationship = $request->relationship_1;
+        $children_parent->save();
+
+
+
+        //parent_2
+        $parent_2 = ParentProfiles::where('id','=',$request->parent_profiles_2);
+        $parent_2->first_name = $request->first_name_parent_2;
+        $parent_2->last_name = $request->last_name_parent_2;
+        $parent_2->phone = $request->phone_parent_2;
+        $parent_2->email = $request->email_parent_2;
+        $parent_2->note = $request->note_parent_2;
+        $parent_2->gender = $request->gender_parent_2;
+        $parent_2->save();
+
+
+        //tao record ben bang children_parent
+        $children_parent = ChildrenParent::where([['id_parent','=',$request->parent_profiles_2],['id_children','=',$id]]);
+        $children_parent->relationship = $request->relationship_2;
+        $children_parent->save();
+
+
 
         return redirect()->back()->with('notify', 'Updated Successfully');
     }

@@ -9,9 +9,9 @@
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
 				<ul class="ul-td">
-					<li _ngcontent-c16="" class="level1"><a href="kids-now">HOME</a></li>
-					<li _ngcontent-c16="" class="active1" ><a href="kids-now/program">PROGRAM</a></li>
-					<li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a >VIEW PROGRAM</a></li>
+					<li class="level1"><a href="kids-now">HOME</a></li>
+					<li class="active1" ><a href="kids-now/program">PROGRAM</a></li>
+					<li class="active1 active-1" style="pointer-events: none;"><a href="">VIEW PROGRAM</a></li>
 				</ul>
 			</div>
 		</div>
@@ -21,7 +21,7 @@
 				<div class="panel add">
 					<div class="row">
 						<div class="col-md-4 input_box">
-							<span>Program Name *</span>
+							<span class="input_box_span_active">Program Name *</span>
 							<input type="text" name="text" placeholder="Program Name *" value="{{$program->program_name}}">
 						</div>
 						<div class="col-md-8">
@@ -47,11 +47,11 @@
 						<div class="col-md-6">
 							<div class="row">
 								<div class="col-md-6 input_box">
-									<span>Program Fee(USD) *</span>
-									<input type="text" name="text" placeholder="Program Fee *" value="{{$program->program_fee}}">
+									<span class="input_box_span_active">Program Fee</span>
+									<input type="text" name="text" placeholder="Program Fee " value="{{number_format($program->program_fee)}}">
 								</div>
 								<div class="col-md-6 input_box">
-									<span>Select *</span>
+									<span class="input_box_span_active">Period Fee</span>
 									<select>
 										<option @if($program->period_fee == '/week') selected="selected" @endif>/week</option>
 										<option @if($program->period_fee == '/month') selected="selected" @endif>/month</option>
@@ -84,25 +84,25 @@
 						<div class="col-md-7">
 							<div class="row">
 								<div class="col-md-3 input_box">
-									<span>Year *</span>
+									<span class="input_box_span_active">Year </span>
 									<select name="from_year">
 										<option value="">{{$program->from_year}}</option>
 									</select>
 								</div>
 								<div class="col-md-3 input_box">
-									<span>Month *</span>
+									<span class="input_box_span_active">Month </span>
 									<select name="from_month">
 										<option value="">{{$program->from_month}}</option>
 									</select>
 								</div>
 								<div class="col-md-3 input_box">
-									<span>Year *</span>
+									<span class="input_box_span_active">Year </span>
 									<select name="to_year">
 										<option value="">{{$program->to_year}}</option>
 									</select>
 								</div>
 								<div class="col-md-3 input_box">
-									<span>Month *</span>
+									<span class="input_box_span_active">Month </span>
 									<select name="to_month">
 										<option value="">{{$program->to_month}}</option>
 									</select>
@@ -113,11 +113,11 @@
 						<div class="col-md-5">
 							<div class="row">
 								<div class="col-md-6 input_box">
-									<span>HH:MM *</span>
+									<span class="input_box_span_active">HH:MM </span>
 									<input type="time" name="time" value="{{$program->start_time}}">
 								</div>
 								<div class="col-md-6 input_box">
-									<span>HH:MM *</span>
+									<span class="input_box_span_active">HH:MM </span>
 									<input type="time" name="time" value="{{$program->finish_time}}">
 								</div>
 							</div>
@@ -176,7 +176,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="icon-plus" title="add">
+		<div class="icon-plus" title="edit">
 			<a href="kids-now/program/edit/{{$program->id}}">
 				<i class="fa fa-edit"></i>
 			</a>
