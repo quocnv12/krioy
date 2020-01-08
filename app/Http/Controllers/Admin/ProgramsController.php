@@ -77,35 +77,37 @@ class ProgramsController extends Controller
 
         $programs->save();
 
+
         //lay id cua program vua tao moi xong
         $program_id = $programs->id;
 
-        //string to array
-        $array_all_children = explode(',', $request->array_all_children);
+        if ($request->array_all_children !== null) {
+            //string to array
+            $array_all_children = explode(',', $request->array_all_children);
 
-        //luu vao bang children_programs
-        foreach ($array_all_children as $children) {
-            $children_program = new ChildrenProgram();
-            $children_program->id_children = $children;
-            $children_program->id_program = $program_id;
+            //luu vao bang children_programs
+            foreach ($array_all_children as $children) {
+                $children_program = new ChildrenProgram();
+                $children_program->id_children = $children;
+                $children_program->id_program = $program_id;
+                $children_program->save();
+            }
             $children_program->save();
         }
-        $children_program->save();
 
-
-        //string to array
-        $array_all_staff = explode(',', $request->array_all_staff);
-        //luu vao bang children_programs
-        foreach ($array_all_staff as $staff) {
-            $staff_program = new StaffProgram();
-            $staff_program->id_staff = $staff;
-            $staff_program->id_program = $program_id;
+        if ($request->array_all_staff !== null) {
+            //string to array
+            $array_all_staff = explode(',', $request->array_all_staff);
+            //luu vao bang children_programs
+            foreach ($array_all_staff as $staff) {
+                $staff_program = new StaffProgram();
+                $staff_program->id_staff = $staff;
+                $staff_program->id_program = $program_id;
+                $staff_program->save();
+            }
             $staff_program->save();
         }
-        $children_program->save();
 
-
-        //return response()->json(['programs'=>$programs],201);
         return redirect()->back()->with('notify', 'Added Successfully');
 
     }

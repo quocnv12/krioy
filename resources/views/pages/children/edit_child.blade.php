@@ -39,7 +39,7 @@
         @endif
         <form style="width: auto;
     margin: 0 0;
-    text-align: center" action="kids-now/children/edit/{{$children_profiles->id}}" method="post" name="form" enctype="multipart/form-data">
+    text-align: center;" action="kids-now/children/edit/{{$children_profiles->id}}" method="post" name="form" enctype="multipart/form-data">
             @csrf
             <div class="mat-card">
                 <div class="mat-content">
@@ -84,7 +84,7 @@
                     </div>
                     <hr style="margin: 0;">
                     <div class="row">
-                        <div class="add" style="width: 100%">
+                        <div class="add" style="width: 100%; margin: 15px">
                             <div class="col-md-3 input_box">
                                 <span class="input_box_span_active">Birthday *</span>
                                 <input type="date" name="birthday" placeholder="Birthday" value="{{$children_profiles->birthday}}">
@@ -229,94 +229,100 @@
                 <div class="mat-content">
                     <button class="accordion" type="button">Parents *</button>
                     <div class="panel" style="background-color: #f9f9f9;margin-bottom: 0;margin: 0 -10px;">
-                        @foreach($parent_profiles as $parent)
                         <div class="panel-1">
+                            <input type="hidden" name="id_parent_profiles_1" value="{{$parent_profiles_1->id}}">
                             <div class="row">
                                 <div class="col-md-2 textera-img">
-                                    <a href="#">
-                                        <img src="images/Staff.png" alt="">
+                                    <a style="cursor: pointer;">
+                                        <input type="file" id="uploadfile_parent_1" name="image_parent_1">
+                                        <img src="{{$parent_profiles_1->image ? $parent_profiles_1->image : 'images/Staff.png'}}" alt="" id="demo_image_parent_1">
                                         <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
+                                        @if ($errors->has('image_parent_1'))
+                                            <div class="text text-danger">
+                                                {{ $errors->first('image_parent_1') }}
+                                            </div>
+                                        @endif
                                     </a>
                                 </div>
                                 <div class="col-md-10">
                                     <div class="add a1 ">
                                         <div class="row">
                                             <div class="col-md-6 input_box">
-                                                <span class="input_box_span_active">First Name *</span>
-                                                <input  type="text" name="first_name_parent" placeholder="First Name *" value="{{$parent->first_name}}">
-                                                @if ($errors->has('first_name_parent'))
+                                                <span>First Name *</span>
+                                                <input  type="text" name="first_name_parent_1" placeholder="First Name *" value="{{$parent_profiles_1->first_name}}">
+                                                @if ($errors->has('first_name_parent_1'))
                                                     <div class="text text-danger">
-                                                        {{ $errors->first('first_name_parent') }}
+                                                        {{ $errors->first('first_name_parent_1') }}
                                                     </div>
                                                 @endif
                                             </div>
                                             <div class="col-md-6 input_box">
-                                                <span class="input_box_span_active">Last Name *</span>
-                                                <input type="text" name="last_name_parent" placeholder="Last Name *" value="{{$parent->last_name}}">
-                                                @if ($errors->has('last_name_parent'))
+                                                <span>Last Name *</span>
+                                                <input type="text" name="last_name_parent_1" placeholder="Last Name *" value="{{$parent_profiles_1->last_name}}">
+                                                @if ($errors->has('last_name_parent_1'))
                                                     <div class="text text-danger">
-                                                        {{ $errors->first('last_name_parent') }}
+                                                        {{ $errors->first('last_name_parent_1') }}
                                                     </div>
                                                 @endif
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6 input_box">
-                                                <span class="input_box_span_active">GENDER *</span>
-                                                <select name="gender_parent">
+                                                <span>GENDER *</span>
+                                                <select name="gender_parent_1">
                                                     <option>Gender</option>
-                                                    <option value="1" @if($parent->gender == 1) selected="selected" @endif>Nam</option>
-                                                    <option value="2" @if($parent->gender == 2) selected="selected" @endif>Nữ</option>
+                                                    <option value="1" @if($parent_profiles_1->gender == 1) selected="selected" @endif>Nam</option>
+                                                    <option value="2" @if($parent_profiles_1->gender == 2) selected="selected" @endif>Nữ</option>
                                                 </select>
-                                                @if ($errors->has('gender_parent'))
+                                                @if ($errors->has('gender_parent_1'))
                                                     <div class="text text-danger">
-                                                        {{ $errors->first('gender_parent') }}
+                                                        {{ $errors->first('gender_parent_1') }}
                                                     </div>
                                                 @endif
                                             </div>
                                             <div class="col-md-6 input_box">
-                                                <span class="input_box_span_active">RELATION *</span>
-                                                <select name="relationship">
+                                                <span>RELATION *</span>
+                                                <select name="relationship_1">
                                                     <option>Relationship</option>
-                                                    <option value="mother" @if($parent->relationship == "mother") selected="selected" @endif>Mother</option>
-                                                    <option value="father" @if($parent->relationship == "father") selected="selected" @endif>Father</option>
-                                                    <option value="grandfather" @if($parent->relationship == "grandfather") selected="selected" @endif>Grandfather</option>
-                                                    <option value="grandmother" @if($parent->relationship == "grandmother") selected="selected" @endif>Grandmother</option>
-                                                    <option value="uncle" @if($parent->relationship == "uncle") selected="selected" @endif>Uncle</option>
-                                                    <option value="aunt" @if($parent->relationship == "aunt") selected="selected" @endif>Aunt</option>
-                                                    <option value="guardian" @if($parent->relationship == "guardian") selected="selected" @endif>Guardian</option>
+                                                    <option value="mother" @if($parent_profiles_1->relationship == "mother") selected="selected" @endif>Mother</option>
+                                                    <option value="father" @if($parent_profiles_1->relationship == "father") selected="selected" @endif>Father</option>
+                                                    <option value="grandfather" @if($parent_profiles_1->relationship == "grandfather") selected="selected" @endif>Grandfather</option>
+                                                    <option value="grandmother" @if($parent_profiles_1->relationship == "grandmother") selected="selected" @endif>Grandmother</option>
+                                                    <option value="uncle" @if($parent_profiles_1->relationship == "uncle") selected="selected" @endif>Uncle</option>
+                                                    <option value="aunt" @if($parent_profiles_1->relationship == "aunt") selected="selected" @endif>Aunt</option>
+                                                    <option value="guardian" @if($parent_profiles_1->relationship == "guardian") selected="selected" @endif>Guardian</option>
                                                 </select>
-                                                @if ($errors->has('relationship'))
+                                                @if ($errors->has('relationship_1'))
                                                     <div class="text text-danger">
-                                                        {{ $errors->first('relationship') }}
+                                                        {{ $errors->first('relationship_1') }}
                                                     </div>
                                                 @endif
                                             </div>
                                         </div>
                                         <div class="input_box" style="width: 100%;">
-                                            <span class="input_box_span_active">Phone Number *</span>
-                                            <input type="text" name="phone_parent" placeholder="Phone Number *" value="{{$parent->phone}}">
-                                            @if ($errors->has('phone_parent'))
+                                            <span>Phone Number *</span>
+                                            <input type="text" name="phone_parent_1" placeholder="Phone Number *" value="{{$parent_profiles_1->phone}}">
+                                            @if ($errors->has('phone_parent_1'))
                                                 <div class="text text-danger">
-                                                    {{ $errors->first('phone_parent') }}
+                                                    {{ $errors->first('phone_parent_1') }}
                                                 </div>
                                             @endif
                                         </div>
                                         <div class="input_box" style="width: 100%;">
                                             <span>E-Mail Address *</span>
-                                            <input type="email" name="email_parent" placeholder="E-Mail Address *" value="{{$parent->email}}">
-                                            @if ($errors->has('email_parent'))
+                                            <input type="email" name="email_parent_1" placeholder="E-Mail Address *" value="{{$parent_profiles_1->email}}">
+                                            @if ($errors->has('email_parent_1'))
                                                 <div class="text text-danger">
-                                                    {{ $errors->first('email_parent') }}
+                                                    {{ $errors->first('email_parent_1') }}
                                                 </div>
                                             @endif
                                         </div>
                                         <div class="input_box" style="width: 100%;">
-                                            <span class="input_box_span_active">Note </span>
-                                            <input type="text" name="note_parent" placeholder="Note" value="{{$parent->note}}">
-                                            @if ($errors->has('note_parent'))
+                                            <span>Note *</span>
+                                            <input type="text" name="note_parent_1" placeholder="Note" value="{{$parent_profiles_1->note}}">
+                                            @if ($errors->has('note_parent_1'))
                                                 <div class="text text-danger">
-                                                    {{ $errors->first('note_parent') }}
+                                                    {{ $errors->first('note_parent_1') }}
                                                 </div>
                                             @endif
                                         </div>
@@ -324,7 +330,210 @@
                                 </div>
                             </div>
                         </div>
-                        @endforeach
+                        @if(isset($parent_profiles_2))
+                            <div class="panel-1">
+                                <input type="hidden" name="id_parent_profiles_2" value="{{$parent_profiles_2->id}}">
+                                <div class="row">
+                                <div class="col-md-2 textera-img">
+                                    <a style="cursor: pointer;">
+                                        <input type="file" id="uploadfile_parent_2" name="image_parent_2">
+                                        <img src="{{$parent_profiles_2->image ? $parent_profiles_2->image : 'images/Staff.png'}}" alt="" id="demo_image_parent_2">
+                                        <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
+                                        @if ($errors->has('image_parent_2'))
+                                            <div class="text text-danger">
+                                                {{ $errors->first('image_parent_2') }}
+                                            </div>
+                                        @endif
+                                    </a>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="add a1 ">
+                                        <div class="row">
+                                            <div class="col-md-6 input_box">
+                                                <span>First Name *</span>
+                                                <input  type="text" name="first_name_parent_2" placeholder="First Name *" value="{{$parent_profiles_2->first_name}}">
+                                                @if ($errors->has('first_name_parent_2'))
+                                                    <div class="text text-danger">
+                                                        {{ $errors->first('first_name_parent_2') }}
+                                                    </div>
+                                                @endif
+                                            </div>
+                                            <div class="col-md-6 input_box">
+                                                <span>Last Name *</span>
+                                                <input type="text" name="last_name_parent_2" placeholder="Last Name *" value="{{$parent_profiles_2->last_name}}">
+                                                @if ($errors->has('last_name_parent_2'))
+                                                    <div class="text text-danger">
+                                                        {{ $errors->first('last_name_parent_2') }}
+                                                    </div>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 input_box">
+                                                <span>GENDER *</span>
+                                                <select name="gender_parent_2">
+                                                    <option>Gender</option>
+                                                    <option value="1" @if($parent_profiles_2->gender == 1) selected="selected" @endif>Nam</option>
+                                                    <option value="2" @if($parent_profiles_2->gender == 2) selected="selected" @endif>Nữ</option>
+                                                </select>
+                                                @if ($errors->has('gender_parent_2'))
+                                                    <div class="text text-danger">
+                                                        {{ $errors->first('gender_parent_2') }}
+                                                    </div>
+                                                @endif
+                                            </div>
+                                            <div class="col-md-6 input_box">
+                                                <span>RELATION *</span>
+                                                <select name="relationship_2">
+                                                    <option>Relationship</option>
+                                                    <option value="mother" @if($parent_profiles_2->relationship == "mother") selected="selected" @endif>Mother</option>
+                                                    <option value="father" @if($parent_profiles_2->relationship == "father") selected="selected" @endif>Father</option>
+                                                    <option value="grandfather" @if($parent_profiles_2->relationship == "grandfather") selected="selected" @endif>Grandfather</option>
+                                                    <option value="grandmother" @if($parent_profiles_2->relationship == "grandmother") selected="selected" @endif>Grandmother</option>
+                                                    <option value="uncle" @if($parent_profiles_2->relationship == "uncle") selected="selected" @endif>Uncle</option>
+                                                    <option value="aunt" @if($parent_profiles_2->relationship == "aunt") selected="selected" @endif>Aunt</option>
+                                                    <option value="guardian" @if($parent_profiles_2->relationship == "guardian") selected="selected" @endif>Guardian</option>
+                                                </select>
+                                                @if ($errors->has('relationship_2'))
+                                                    <div class="text text-danger">
+                                                        {{ $errors->first('relationship_2') }}
+                                                    </div>
+                                                @endif
+                                            </div>
+                                        </div>
+                                        <div class="input_box" style="width: 100%;">
+                                            <span>Phone Number *</span>
+                                            <input type="text" name="phone_parent_2" placeholder="Phone Number *" value="{{$parent_profiles_2->phone}}">
+                                            @if ($errors->has('phone_parent_2'))
+                                                <div class="text text-danger">
+                                                    {{ $errors->first('phone_parent_2') }}
+                                                </div>
+                                            @endif
+                                        </div>
+                                        <div class="input_box" style="width: 100%;">
+                                            <span>E-Mail Address *</span>
+                                            <input type="email" name="email_parent_2" placeholder="E-Mail Address *" value="{{$parent_profiles_2->email}}">
+                                            @if ($errors->has('email_parent_2'))
+                                                <div class="text text-danger">
+                                                    {{ $errors->first('email_parent_2') }}
+                                                </div>
+                                            @endif
+                                        </div>
+                                        <div class="input_box" style="width: 100%;">
+                                            <span>Note *</span>
+                                            <input type="text" name="note_parent_2" placeholder="Note" value="{{$parent_profiles_2->note}}">
+                                            @if ($errors->has('note_parent_2'))
+                                                <div class="text text-danger">
+                                                    {{ $errors->first('note_parent_2') }}
+                                                </div>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @else
+                            <div class="panel-1">
+                                <div class="row">
+                                    <div class="col-md-2 textera-img">
+                                        <a style="cursor: pointer;">
+                                            <input type="file" id="uploadfile_parent_2" name="image_parent_2">
+                                            <img src="images/Child.png" alt="" id="demo_image_parent_2">
+                                            <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
+                                            @if ($errors->has('image_parent_2'))
+                                                <div class="text text-danger">
+                                                    {{ $errors->first('image_parent_2') }}
+                                                </div>
+                                            @endif
+                                        </a>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="add a1 ">
+                                            <div class="row">
+                                                <div class="col-md-6 input_box">
+                                                    <span>First Name *</span>
+                                                    <input  type="text" name="first_name_parent_2" placeholder="First Name *" value="{{old('first_name_parent_2')}}">
+                                                    @if ($errors->has('first_name_parent_2'))
+                                                        <div class="text text-danger">
+                                                            {{ $errors->first('first_name_parent_2') }}
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                                <div class="col-md-6 input_box">
+                                                    <span>Last Name *</span>
+                                                    <input type="text" name="last_name_parent_2" placeholder="Last Name *" value="{{old('last_name_parent_2')}}">
+                                                    @if ($errors->has('last_name_parent_2'))
+                                                        <div class="text text-danger">
+                                                            {{ $errors->first('last_name_parent_2') }}
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6 input_box">
+                                                    <span>GENDER *</span>
+                                                    <select name="gender_parent_2">
+                                                        <option>Gender</option>
+                                                        <option value="1" @if(old('gender_parent_2') == 1) selected="selected" @endif>Nam</option>
+                                                        <option value="2" @if(old('gender_parent_2') == 2) selected="selected" @endif>Nữ</option>
+                                                    </select>
+                                                    @if ($errors->has('gender_parent_2'))
+                                                        <div class="text text-danger">
+                                                            {{ $errors->first('gender_parent_2') }}
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                                <div class="col-md-6 input_box">
+                                                    <span>RELATION *</span>
+                                                    <select name="relationship_2">
+                                                        <option>Relationship</option>
+                                                        <option value="mother" @if(old('relationship_2') == "mother") selected="selected" @endif>Mother</option>
+                                                        <option value="father" @if(old('relationship_2') == "father") selected="selected" @endif>Father</option>
+                                                        <option value="grandfather" @if(old('relationship_2') == "grandfather") selected="selected" @endif>Grandfather</option>
+                                                        <option value="grandmother" @if(old('relationship_2') == "grandmother") selected="selected" @endif>Grandmother</option>
+                                                        <option value="uncle" @if(old('relationship_2') == "uncle") selected="selected" @endif>Uncle</option>
+                                                        <option value="aunt" @if(old('relationship_2') == "aunt") selected="selected" @endif>Aunt</option>
+                                                        <option value="guardian" @if(old('relationship_2') == "guardian") selected="selected" @endif>Guardian</option>
+                                                    </select>
+                                                    @if ($errors->has('relationship_2'))
+                                                        <div class="text text-danger">
+                                                            {{ $errors->first('relationship_2') }}
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="input_box" style="width: 100%;">
+                                                <span>Phone Number *</span>
+                                                <input type="text" name="phone_parent_2" placeholder="Phone Number *" value="{{old('phone_parent_2')}}">
+                                                @if ($errors->has('phone_parent_2'))
+                                                    <div class="text text-danger">
+                                                        {{ $errors->first('phone_parent_2') }}
+                                                    </div>
+                                                @endif
+                                            </div>
+                                            <div class="input_box" style="width: 100%;">
+                                                <span>E-Mail Address *</span>
+                                                <input type="email" name="email_parent_2" placeholder="E-Mail Address *" value="{{old('email_parent_2')}}">
+                                                @if ($errors->has('email_parent_2'))
+                                                    <div class="text text-danger">
+                                                        {{ $errors->first('email_parent_2') }}
+                                                    </div>
+                                                @endif
+                                            </div>
+                                            <div class="input_box" style="width: 100%;">
+                                                <span>Note *</span>
+                                                <input type="text" name="note_parent_2" placeholder="Note" value="{{old('note_parent_2')}}">
+                                                @if ($errors->has('note_parent_2'))
+                                                    <div class="text text-danger">
+                                                        {{ $errors->first('note_parent_2') }}
+                                                    </div>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -432,6 +641,11 @@
         $("#demo_image").click(function () {
             $("#uploadfile").click();
         });
+
+        $("#uploadfile2").hide();
+        $("#demo_image2").click(function () {
+            $("#uploadfile2").click();
+        });
     </script>
     <script>
         function readURL(input) {
@@ -445,8 +659,24 @@
             }
 
         }
+
+        function readURL2(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#demo_image2').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+
+        }
+
         $("#uploadfile").change(function(){
             readURL(this);
+        });
+        $("#uploadfile2").change(function(){
+            readURL2(this);
         });
     </script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>

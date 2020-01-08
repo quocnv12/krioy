@@ -102,7 +102,7 @@
 							<div class="row">
 								<div class="col-md-6 input_box">
 									<span class="input_box_span_active">Program Fee</span>
-									<input type="text" name="program_fee" id="program_fee" placeholder="Program Fee" value="{{$program->program_fee}}">
+									<input type="text" name="program_fee" id="program_fee" placeholder="Program Fee" value="{{number_format($program->program_fee)}}">
 									@if ($errors->has('program_fee'))
 										<div class="text text-danger">
 											{{ $errors->first('program_fee') }}

@@ -50,6 +50,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::post('edit/{id}','Admin\ChildrenProfilesController@update');
         Route::get('delete/{id}','Admin\ChildrenProfilesController@destroy');
 
+        Route::get('add_parent','Admin\ChildrenProfilesController@addParent');
         Route::get('select_child','Admin\ChildrenProfilesController@selectChild');
 
         //search by typeahead
