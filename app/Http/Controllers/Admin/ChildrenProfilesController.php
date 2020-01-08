@@ -45,13 +45,13 @@ class ChildrenProfilesController extends Controller
                 'image' => 'image|nullable',
                 'status' => 'nullable',
                 'exist' => 'nullable',
-                'first_name_parent' => 'nullable',
-                'last_name_parent' => 'nullable',
-                'phone_parent' => 'numeric|nullable',
-                'email_parent' => 'email|nullable',
-                'gender_parent' => 'nullable',
-                'note_parent' => 'nullable',
-                'relationship' => 'nullable'
+                'first_name_parent_1' => 'nullable',
+                'last_name_parent_1' => 'nullable',
+                'phone_parent_1' => 'numeric|required',
+                'email_parent_1' => 'email|nullable',
+                'gender_parent_1' => 'nullable',
+                'note_parent_1' => 'nullable',
+                'relationship_1' => 'nullable'
             ],
             [
                 'first_name.required' => 'Please input first name',
@@ -59,17 +59,15 @@ class ChildrenProfilesController extends Controller
                 'gender.required' => 'Please choose gender',
                 'image.image' => 'Image is invalid',
                 'birthday.required' => 'Please input birthday',
-                'phone_parent.numeric' => 'Number is invalid',
-                'phone_parent.required' => 'Please input phone number',
-                'email_parent.email' => 'Email is invalid',
-                'relationship.required' => 'Please choose relationship',
+                'phone_parent_1.numeric' => 'Number is invalid',
+                'phone_parent_1.required' => 'Please input phone number',
+                'email_parent_1.email' => 'Email is invalid',
+                'relationship_1.required' => 'Please choose relationship',
                 'unique_id.unique' => 'ID is exist',
                 'unique_id.required' => 'Please input unique ID',
-                'first_name_parent.required' => 'Please input first name',
-                'last_name_parent.required' => 'Please input last name',
-                'email_parent.required' => 'Please input email',
-                'gender_parent.required' => 'Please choose gender',
-                'phone_parent' => 'Please input phone'
+                'email_parent_1.required' => 'Please input email',
+                'gender_parent_1.required' => 'Please choose gender',
+                'phone_parent_1' => 'Please input phone'
             ]);
         $children_profiles = ChildrenProfiles::create($request->all());
         if ($request->hasFile('image')) {
@@ -226,13 +224,13 @@ class ChildrenProfilesController extends Controller
                 'image' => 'image|nullable',
                 'status' => 'nullable',
                 'exist' => 'nullable',
-                'first_name_parent' => 'nullable',
-                'last_name_parent' => 'nullable',
-                'phone_parent' => 'numeric|nullable',
-                'email_parent' => 'email|nullable',
-                'gender_parent' => 'nullable',
-                'note_parent' => 'nullable',
-                'relationship' => 'nullable'
+                'first_name_parent_1' => 'nullable',
+                'last_name_parent_1' => 'nullable',
+                'phone_parent_1' => 'numeric|required',
+                'email_parent_1' => 'email|nullable',
+                'gender_parent_1' => 'nullable',
+                'note_parent_1' => 'nullable',
+                'relationship_1' => 'nullable'
             ],
             [
                 'first_name.required' => 'Please input first name',
@@ -240,17 +238,17 @@ class ChildrenProfilesController extends Controller
                 'gender.required' => 'Please choose gender',
                 'image.image' => 'Image is invalid',
                 'birthday.required' => 'Please input birthday',
-                'phone_parent.numeric' => 'Number is invalid',
-                'phone_parent.required' => 'Please input phone number',
-                'email_parent.email' => 'Email is invalid',
-                'relationship.required' => 'Please choose relationship',
+                'phone_parent_1.numeric' => 'Number is invalid',
+                'phone_parent_1.required' => 'Please input phone number',
+                'email_parent_1.email' => 'Email is invalid',
+                'relationship_1.required' => 'Please choose relationship',
                 'unique_id.unique' => 'ID is exist',
                 'unique_id.required' => 'Please input unique ID',
-                'first_name_parent.required' => 'Please input first name',
-                'last_name_parent.required' => 'Please input last name',
-                'email_parent.required' => 'Please input email',
-                'gender_parent.required' => 'Please choose gender',
-                'phone_parent' => 'Please input phone'
+                'first_name_parent_1.required' => 'Please input first name',
+                'last_name_parent_1.required' => 'Please input last name',
+                'email_parent_1.required' => 'Please input email',
+                'gender_parent_1.required' => 'Please choose gender',
+                'phone_parent_1' => 'Please input phone'
             ]);
         $children_profiles = ChildrenProfiles::findOrFail($id);
         $children_profiles->update($request->all());
@@ -298,41 +296,70 @@ class ChildrenProfilesController extends Controller
         }
 
         // edit parent
-
-        //parent 1
-        $parent_1 = ParentProfiles::where('id','=',$request->parent_profiles_1);
-        $parent_1->first_name = $request->first_name_parent_1;
-        $parent_1->last_name = $request->last_name_parent_1;
-        $parent_1->phone = $request->phone_parent_1;
-        $parent_1->email = $request->email_parent_1;
-        $parent_1->note = $request->note_parent_1;
-        $parent_1->gender = $request->gender_parent_1;
-        $parent_1->save();
-
-        //sua record ben bang children_parent
-        $children_parent = ChildrenParent::where([['id_parent','=',$request->parent_profiles_1],['id_children','=',$id]]);
-        $children_parent->relationship = $request->relationship_1;
-        $children_parent->save();
+        $parent_profiles_all = DB::table('parent_profiles')
+            ->join('children_parent', 'parent_profiles.id', '=', 'children_parent.id_parent')
+            ->select('*')
+            ->where('id_children', '=', $id)
+            ->get();
 
 
+        // co 1 parent
+        if (count($parent_profiles_all) < 2) {
+            $parent_1 = ParentProfiles::find($request->id_parent_profiles_1);
+            $parent_1->first_name = $request->first_name_parent_1;
+            $parent_1->last_name = $request->last_name_parent_1;
+            $parent_1->phone = $request->phone_parent_1;
+            $parent_1->email = $request->email_parent_1;
+            $parent_1->note = $request->note_parent_1;
+            $parent_1->gender = $request->gender_parent_1;
+            $parent_1->save();
 
-        //parent_2
-        $parent_2 = ParentProfiles::where('id','=',$request->parent_profiles_2);
-        $parent_2->first_name = $request->first_name_parent_2;
-        $parent_2->last_name = $request->last_name_parent_2;
-        $parent_2->phone = $request->phone_parent_2;
-        $parent_2->email = $request->email_parent_2;
-        $parent_2->note = $request->note_parent_2;
-        $parent_2->gender = $request->gender_parent_2;
-        $parent_2->save();
+            //sua record ben bang children_parent
+            DB::table('children_parent')->where([['id_parent','=',$request->id_parent_profiles_1],['id_children','=',$id]])->update(['relationship'=>$request->relationship_1]);
 
+            if ($request->first_name_parent_2 != null && $request->last_name_parent_2 != null) {
+                $parent_2 = new ParentProfiles();
+                $parent_2->first_name = $request->first_name_parent_2;
+                $parent_2->last_name = $request->last_name_parent_2;
+                $parent_2->phone = $request->phone_parent_2;
+                $parent_2->email = $request->email_parent_2;
+                $parent_2->note = $request->note_parent_2;
+                $parent_2->gender = $request->gender_parent_2;
+                $parent_2->save();
 
-        //tao record ben bang children_parent
-        $children_parent = ChildrenParent::where([['id_parent','=',$request->parent_profiles_2],['id_children','=',$id]]);
-        $children_parent->relationship = $request->relationship_2;
-        $children_parent->save();
+                //them record ben bang children_parent
+                $parent_2_id = $parent_2->id;
+                $children_parent_2 = new ChildrenParent();
+                $children_parent_2->relationship = $request->relationship_2;
+                $children_parent_2->id_children = $id;
+                $children_parent_2->id_parent = $parent_2_id;
+                $children_parent_2->save();
 
+            }
+        }else{  //co 2 parent
+            $parent_1 = ParentProfiles::find($request->id_parent_profiles_1);
+            $parent_1->first_name = $request->first_name_parent_1;
+            $parent_1->last_name = $request->last_name_parent_1;
+            $parent_1->phone = $request->phone_parent_1;
+            $parent_1->email = $request->email_parent_1;
+            $parent_1->note = $request->note_parent_1;
+            $parent_1->gender = $request->gender_parent_1;
+            $parent_1->save();
 
+            DB::table('children_parent')->where([['id_parent','=',$request->id_parent_profiles_1],['id_children','=',$id]])->update(['relationship'=>$request->relationship_1]);
+
+            $parent_2 = ParentProfiles::find($request->id_parent_profiles_2);
+            $parent_2->first_name = $request->first_name_parent_2;
+            $parent_2->last_name = $request->last_name_parent_2;
+            $parent_2->phone = $request->phone_parent_2;
+            $parent_2->email = $request->email_parent_2;
+            $parent_2->note = $request->note_parent_2;
+            $parent_2->gender = $request->gender_parent_2;
+            $parent_2->save();
+
+            DB::table('children_parent')->where([['id_parent','=',$request->id_parent_profiles_2],['id_children','=',$id]])->update(['relationship'=>$request->relationship_2]);
+
+        }
 
         return redirect()->back()->with('notify', 'Updated Successfully');
     }

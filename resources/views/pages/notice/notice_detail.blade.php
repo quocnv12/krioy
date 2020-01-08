@@ -8,10 +8,10 @@
 	<section class="page-top container">
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
-				<ul class="ul-td">
-					<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">HOME</a></li>
-					<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">NOTICE BOARD</a></li>
-					<li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a _ngcontent-c16="">NOTICE DETAIL</a></li>
+				<ul class="ul-td" style="width: 100%">
+					<li  class="level1"><a href="kids-now">HOME</a></li>
+					<li  class="active1"><a href="kids-now/notice-board">NOTICE BOARD</a></li>
+					<li  class="active1 active-1" style="pointer-events:none;"><a href="">NOTICE DETAIL</a></li>
 				</ul>
 			</div>
 		</div>

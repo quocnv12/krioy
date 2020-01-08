@@ -16,9 +16,9 @@
 			<div class="row">
 				<div class="col-lg-10 col-md-10 col-sm-10">
 					<ul class="ul-td">
-						<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">HOME</a></li>
-						<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">NOTICE BOARD</a></li>
-						<li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a _ngcontent-c16="">EDIT NOTICE</a></li>
+						<li _ngcontent-c16="" class="level1"><a href="kids-now">HOME</a></li>
+						<li _ngcontent-c16="" class="active1"><a href="kids-now/notice-board">NOTICE BOARD</a></li>
+						<li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a href="">EDIT NOTICE</a></li>
 					</ul>
 				</div>
 				<div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target=".bd-example-modal-sm">
