@@ -19,9 +19,9 @@
             <div class="row">
                 <div class="col-lg-10 col-md-10 col-sm-10">
                     <ul class="ul-td">
-                        <li _ngcontent-c16="" class="level1"><a href="kids-now">HOME</a></li>
-                        <li _ngcontent-c16="" class="active1" ><a href="kids-now/children/child_profile">CHILDREN</a></li>
-                        <li _ngcontent-c16="" class="active1 active-1" style="pointer-events: none"><a href="">EDIT CHILDREN</a></li>
+                        <li  class="level1"><a href="kids-now">HOME</a></li>
+                        <li  class="active1" ><a href="kids-now/children/child_profile">CHILDREN</a></li>
+                        <li class="active1 active-1" style="pointer-events: none"><a href="">EDIT CHILDREN</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target="">
@@ -43,7 +43,7 @@
             @csrf
             <div class="mat-card">
                 <div class="mat-content">
-                    <button class="accordion add-staff">Edit Children</button>
+                    <button class="accordion add-staff" type="button">Edit Children</button>
                     <div class="row">
                         <div class="col-md-2 textera-img">
                             <a style="cursor: pointer;">
@@ -248,7 +248,7 @@
                                     <div class="add a1 ">
                                         <div class="row">
                                             <div class="col-md-6 input_box">
-                                                <span>First Name *</span>
+                                                <span class="input_box_span_active">First Name *</span>
                                                 <input  type="text" name="first_name_parent_1" placeholder="First Name *" value="{{$parent_profiles_1->first_name}}">
                                                 @if ($errors->has('first_name_parent_1'))
                                                     <div class="text text-danger">
@@ -257,7 +257,7 @@
                                                 @endif
                                             </div>
                                             <div class="col-md-6 input_box">
-                                                <span>Last Name *</span>
+                                                <span class="input_box_span_active">Last Name *</span>
                                                 <input type="text" name="last_name_parent_1" placeholder="Last Name *" value="{{$parent_profiles_1->last_name}}">
                                                 @if ($errors->has('last_name_parent_1'))
                                                     <div class="text text-danger">
@@ -268,7 +268,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6 input_box">
-                                                <span>GENDER *</span>
+                                                <span class="input_box_span_active">GENDER *</span>
                                                 <select name="gender_parent_1">
                                                     <option>Gender</option>
                                                     <option value="1" @if($parent_profiles_1->gender == 1) selected="selected" @endif>Nam</option>
@@ -281,7 +281,7 @@
                                                 @endif
                                             </div>
                                             <div class="col-md-6 input_box">
-                                                <span>RELATION *</span>
+                                                <span class="input_box_span_active">RELATION *</span>
                                                 <select name="relationship_1">
                                                     <option>Relationship</option>
                                                     <option value="mother" @if($parent_profiles_1->relationship == "mother") selected="selected" @endif>Mother</option>
@@ -300,7 +300,7 @@
                                             </div>
                                         </div>
                                         <div class="input_box" style="width: 100%;">
-                                            <span>Phone Number *</span>
+                                            <span class="input_box_span_active">Phone Number *</span>
                                             <input type="text" name="phone_parent_1" placeholder="Phone Number *" value="{{$parent_profiles_1->phone}}">
                                             @if ($errors->has('phone_parent_1'))
                                                 <div class="text text-danger">
@@ -309,7 +309,7 @@
                                             @endif
                                         </div>
                                         <div class="input_box" style="width: 100%;">
-                                            <span>E-Mail Address *</span>
+                                            <span class="input_box_span_active">E-Mail Address *</span>
                                             <input type="email" name="email_parent_1" placeholder="E-Mail Address *" value="{{$parent_profiles_1->email}}">
                                             @if ($errors->has('email_parent_1'))
                                                 <div class="text text-danger">
@@ -318,7 +318,7 @@
                                             @endif
                                         </div>
                                         <div class="input_box" style="width: 100%;">
-                                            <span>Note *</span>
+                                            <span class="input_box_span_active">Note *</span>
                                             <input type="text" name="note_parent_1" placeholder="Note" value="{{$parent_profiles_1->note}}">
                                             @if ($errors->has('note_parent_1'))
                                                 <div class="text text-danger">
@@ -350,7 +350,7 @@
                                     <div class="add a1 ">
                                         <div class="row">
                                             <div class="col-md-6 input_box">
-                                                <span>First Name *</span>
+                                                <span class="input_box_span_active">First Name *</span>
                                                 <input  type="text" name="first_name_parent_2" placeholder="First Name *" value="{{$parent_profiles_2->first_name}}">
                                                 @if ($errors->has('first_name_parent_2'))
                                                     <div class="text text-danger">
@@ -359,7 +359,7 @@
                                                 @endif
                                             </div>
                                             <div class="col-md-6 input_box">
-                                                <span>Last Name *</span>
+                                                <span class="input_box_span_active">Last Name *</span>
                                                 <input type="text" name="last_name_parent_2" placeholder="Last Name *" value="{{$parent_profiles_2->last_name}}">
                                                 @if ($errors->has('last_name_parent_2'))
                                                     <div class="text text-danger">
@@ -370,7 +370,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6 input_box">
-                                                <span>GENDER *</span>
+                                                <span class="input_box_span_active">GENDER *</span>
                                                 <select name="gender_parent_2">
                                                     <option>Gender</option>
                                                     <option value="1" @if($parent_profiles_2->gender == 1) selected="selected" @endif>Nam</option>
@@ -383,7 +383,7 @@
                                                 @endif
                                             </div>
                                             <div class="col-md-6 input_box">
-                                                <span>RELATION *</span>
+                                                <span class="input_box_span_active">RELATION *</span>
                                                 <select name="relationship_2">
                                                     <option>Relationship</option>
                                                     <option value="mother" @if($parent_profiles_2->relationship == "mother") selected="selected" @endif>Mother</option>
@@ -402,7 +402,7 @@
                                             </div>
                                         </div>
                                         <div class="input_box" style="width: 100%;">
-                                            <span>Phone Number *</span>
+                                            <span class="input_box_span_active">Phone Number *</span>
                                             <input type="text" name="phone_parent_2" placeholder="Phone Number *" value="{{$parent_profiles_2->phone}}">
                                             @if ($errors->has('phone_parent_2'))
                                                 <div class="text text-danger">
@@ -411,7 +411,7 @@
                                             @endif
                                         </div>
                                         <div class="input_box" style="width: 100%;">
-                                            <span>E-Mail Address *</span>
+                                            <span class="input_box_span_active">E-Mail Address *</span>
                                             <input type="email" name="email_parent_2" placeholder="E-Mail Address *" value="{{$parent_profiles_2->email}}">
                                             @if ($errors->has('email_parent_2'))
                                                 <div class="text text-danger">
@@ -420,7 +420,7 @@
                                             @endif
                                         </div>
                                         <div class="input_box" style="width: 100%;">
-                                            <span>Note *</span>
+                                            <span class="input_box_span_active">Note *</span>
                                             <input type="text" name="note_parent_2" placeholder="Note" value="{{$parent_profiles_2->note}}">
                                             @if ($errors->has('note_parent_2'))
                                                 <div class="text text-danger">
@@ -473,7 +473,7 @@
                                                 <div class="col-md-6 input_box">
                                                     <span>GENDER *</span>
                                                     <select name="gender_parent_2">
-                                                        <option>Gender</option>
+                                                        <option value="">Gender</option>
                                                         <option value="1" @if(old('gender_parent_2') == 1) selected="selected" @endif>Nam</option>
                                                         <option value="2" @if(old('gender_parent_2') == 2) selected="selected" @endif>Nữ</option>
                                                     </select>
@@ -486,7 +486,7 @@
                                                 <div class="col-md-6 input_box">
                                                     <span>RELATION *</span>
                                                     <select name="relationship_2">
-                                                        <option>Relationship</option>
+                                                        <option value="">Relationship</option>
                                                         <option value="mother" @if(old('relationship_2') == "mother") selected="selected" @endif>Mother</option>
                                                         <option value="father" @if(old('relationship_2') == "father") selected="selected" @endif>Father</option>
                                                         <option value="grandfather" @if(old('relationship_2') == "grandfather") selected="selected" @endif>Grandfather</option>
@@ -623,6 +623,11 @@
 			}
 		});
 	</script>
+    <script>
+        $(document).ready(function () {
+            $('.accordion').click();
+        })
+    </script>
 	<script type="text/javascript">
 		$('.input_box select').focus(function(event) {
 			$(this).siblings('span').addClass('input_box_span_active');
@@ -642,9 +647,13 @@
             $("#uploadfile").click();
         });
 
-        $("#uploadfile2").hide();
-        $("#demo_image2").click(function () {
-            $("#uploadfile2").click();
+        $("#uploadfile_parent_1").hide();
+        $("#demo_image_parent_1").click(function () {
+            $("#uploadfile_parent_1").click();
+        });
+        $("#uploadfile_parent_2").hide();
+        $("#demo_image_parent_2").click(function () {
+            $("#uploadfile_parent_2").click();
         });
     </script>
     <script>

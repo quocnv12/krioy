@@ -243,4 +243,13 @@ class NoticeBoardController extends Controller
         $programs = Programs::all();
         return view('pages.notice.notice_board',['programs'=>$programs])->with('notify','Deleted Successfully');
     }
+
+    public function searchByTitle(Request $request)
+    {
+        $notice_board = NoticeBoard::where('title', 'like', '%' . $request->get('q') . '%')
+            ->orderBy('title')
+            ->get();
+
+        return response()->json($notice_board);
+    }
 }

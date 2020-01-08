@@ -298,7 +298,7 @@ select .mat-card .mat-content div > div.childClass:hover {
 /*EDIT CHILDREN*/
 .btnClass[_ngcontent-c10] {
     position: relative;
-    left: 75%;
+    left: 65%;
     transform: translate(-50%,-50%);
     background-color: #ff4081;
     color: #fff;

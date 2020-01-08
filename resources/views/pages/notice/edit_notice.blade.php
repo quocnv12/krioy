@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target=".bd-example-modal-sm">
                     <button class="notice" type="button">
-                        <span><a href="kids-now/notice-board/delete/{{$notice_board->id}}" style="color: inherit;">DELETE</a></span>
+                        <span><a href="kids-now/notice-board/delete/{{$notice_board->id}}" onclick="return deleteConfirm()" style="color: inherit;">DELETE</a></span>
                     </button>
                 </div>
             </div>
@@ -155,30 +155,30 @@
                     </div>
                 </div>
             </div>
-            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-sm" style="">
-                    <div class="modal-content" style="font-size: 18px;">
-                        <h3>Alert</h3>
-                        <hr style="clear:both;margin-top:0px;margin-bottom:0px">
-                        <div align="center">
-                            <p style="margin: 0;font-size: 18px;">This Notice data would be deleted permanently</p>
-                        </div>
-                        <hr style="clear:both;margin-top:0px;margin-bottom:0px">
-                        <div class="row" style="margin: 0;">
-                            <div class="col-xs-6 col-md-6 mat-dialog-actions " style="border-right: 1px solid lightgrey;">
-                                <button class="mat-button-class" style="color: #5363d6;border-left: 1px solid transparent;">
-                                    <span class="mat-button-wrapper">OK</span>
-                                </button>
-                            </div>
-                            <div class="col-xs-6 col-md-6 mat-dialog-actions">
-                                <button class="mat-button-class" style="color: red;">
-                                    <span class="mat-button-wrapper">CANCEL</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {{--<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">--}}
+                {{--<div class="modal-dialog modal-sm" style="">--}}
+                    {{--<div class="modal-content" style="font-size: 18px;">--}}
+                        {{--<h3>Alert</h3>--}}
+                        {{--<hr style="clear:both;margin-top:0px;margin-bottom:0px">--}}
+                        {{--<div align="center">--}}
+                            {{--<p style="margin: 0;font-size: 18px;">This Notice data would be deleted permanently</p>--}}
+                        {{--</div>--}}
+                        {{--<hr style="clear:both;margin-top:0px;margin-bottom:0px">--}}
+                        {{--<div class="row" style="margin: 0;">--}}
+                            {{--<div class="col-xs-6 col-md-6 mat-dialog-actions " style="border-right: 1px solid lightgrey;">--}}
+                                {{--<button class="mat-button-class" style="color: #5363d6;border-left: 1px solid transparent;">--}}
+                                    {{--<span class="mat-button-wrapper">OK</span>--}}
+                                {{--</button>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-xs-6 col-md-6 mat-dialog-actions">--}}
+                                {{--<button class="mat-button-class" style="color: red;">--}}
+                                    {{--<span class="mat-button-wrapper">CANCEL</span>--}}
+                                {{--</button>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
         </form>
     </section>
     </body>
@@ -199,22 +199,22 @@
     
     <!-- Main Script -->
     <script src="asset/kriyo/js/main.js"></script>
-    <script>
-		var acc = document.getElementsByClassName("accordion");
-		var i;
+    {{--<script>--}}
+		{{--var acc = document.getElementsByClassName("accordion");--}}
+		{{--var i;--}}
 
-		for (i = 0; i < acc.length; i++) {
-		  acc[i].addEventListener("click", function() {
-		    this.classList.toggle("active");
-		    var panel = this.nextElementSibling;
-		    if (panel.style.maxHeight) {
-		      panel.style.maxHeight = null;
-		    } else {
-		      panel.style.maxHeight = panel.scrollHeight + "px";
-		    } 
-		  });
-		}
-	</script>
+		{{--for (i = 0; i < acc.length; i++) {--}}
+		  {{--acc[i].addEventListener("click", function() {--}}
+		    {{--this.classList.toggle("active");--}}
+		    {{--var panel = this.nextElementSibling;--}}
+		    {{--if (panel.style.maxHeight) {--}}
+		      {{--panel.style.maxHeight = null;--}}
+		    {{--} else {--}}
+		      {{--panel.style.maxHeight = panel.scrollHeight + "px";--}}
+		    {{--} --}}
+		  {{--});--}}
+		{{--}--}}
+	{{--</script>--}}
 	<script type="text/javascript">
         var array = $('#array_programs_old').val().split(',');
 
@@ -266,6 +266,10 @@
         $(document).ready(function () {
             $('.accordion').click()
         })
+
+        function deleteConfirm() {
+            return confirm("Confirm delete this notice ?");
+        }
     </script>
 
 @endsection
