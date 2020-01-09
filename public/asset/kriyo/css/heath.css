@@ -182,21 +182,20 @@ a,a:hover, a:focus,button:focus{
 
 .tab {
   overflow: hidden;
-  text-align: left;
+  text-align: center;
 }
 /* Style the buttons inside the tab */
 .tab button {
-	border-radius: 4px;
+	border-radius: 10px;
   outline: none;
   cursor: pointer;
   padding: 7px;
   transition: 0.3s;
   font-size: 17px;
-  width: 10%;
-  border: 1px solid #5363d6;
+  width: 16%;
+  border: 1px solid rgb(72, 207, 174);
   background-color: rgb(255, 255, 255);
-    color: #5363d6;
-    height: 36px;
+    color: rgb(72, 207, 174);
 }
 
 .panel .ng-star-inserted button{
@@ -209,7 +208,7 @@ a,a:hover, a:focus,button:focus{
     transition: 0.3s all;
 }
 .tablinks_active{
-    background: #5363d6 !important;
+    background: #48cfae !important;
     color: #fff !important;
 }
 
@@ -470,11 +469,11 @@ input:focus{
 }
 
 /* Useless styles, just for demo styles */
-/* form {
+form {
   width: 225px;
   margin: 0 auto;
   text-align:center;
-} */
+}
 /*end input*/
 /*attendance*/
 section.attendance-layout{
@@ -678,6 +677,77 @@ div.daily-report span{
 .expenses-detail input{
     margin-top: 10px !important;
 }
+.expenses-detail span{
+    color: #ccc;
+}
+.expenses-add-input_box input{
+    background: #f0f2ff;
+}
+#myDIV {
+  width: 300px;
+  padding: 50px 0;
+  text-align: center;
+  background-color: lightblue;
+  margin-top: 20px;
+}
+
+/*expenses-add*/
+.menu-option{
+    width: 280px;
+    height: auto;
+    box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+    border-radius: 5px;
+    /*display: none;*/
+    background: #fff;
+}
+.menu-option-header{
+    text-align: center;
+}
+.menu-option-header p{
+    margin-bottom: 0 !important;
+    color: blue;
+    font-size: 12px
+}
+.menu-option-header span button{
+    min-width: 90px;
+    text-align: center;
+    margin: 10px;
+    border: none;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    background: #fff;
+    color: black;
+    padding: 6px;
+    border-radius: 5px;
+}
+.menu-option-center{
+    font-size: 20px;padding: 10px;
+    cursor: pointer;
+}
+.menu-option-center span{
+    color: #3f51b5;
+}
+.menu-option-center button{
+    float: right;
+    background: none;
+    border:none;
+}
+.menu-option-header:hover,
+.menu-option-center:hover{
+    background: #ccc;
+}
+.menu-option-center button:hover{
+    padding: 5px;
+    background: #efefef;
+}
+#overlay {
+  position: absolute;
+  display: none;
+  top: -10;
+  z-index: 2;
+  cursor: pointer;
+}
+
+
 
 
         /*RESPONSIVE*/

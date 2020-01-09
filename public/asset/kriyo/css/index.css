@@ -315,11 +315,11 @@ footer.site-footer div p a.termsHover:hover{
     padding: 30px 20px 10px 25px;
     display: inline-block;
 }
-.item {
+.item-customer {
 	border-left: 4px solid #f3f3f3;
 	padding: 0 25px;
 }
-.item p{
+.item-customer p{
 	text-align: justify;
 	font-style: normal;
     color: #333333;
