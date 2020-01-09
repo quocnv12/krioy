@@ -131,6 +131,10 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('','Admin\FoodController@GetFood');
         Route::post('','Admin\FoodController@PostFood');
         Route::get('list','Admin\FoodController@GetList');
+        Route::get('edit/{id}','Admin\FoodController@GetEdit');
+        Route::post('edit/{id}','Admin\FoodController@PostEdit');
+        Route::get('delete/{id}','Admin\FoodController@DeleteFood');
+
   
 
         //loại bữa ăn
@@ -157,7 +161,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
             //tên món ăn
             Route::get('menu-food-name','Admin\FoodController@GetListMenuFoodName');
-            Route::get('menu-food-name/search','Admin\FoodController@SearchByName')->name('menu-search-by-name');
             Route::get('menu-food-name/add','Admin\FoodController@GetAddMenuFoodName')->name('menu-food-name-add');
             Route::post('menu-food-name/add','Admin\FoodController@PostAddMenuFoodName');
             Route::get('menu-food-name/edit/{id_food_name}','Admin\FoodController@GetEditMenuFoodName')->name('menu-food-name-edit');

@@ -8,7 +8,7 @@ Thực đơn
     <section class="page-top container">
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
             <div class="row">
-                <ul class="ul-td">
+                <ul class="ul-td" style="width:100%">
                     <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
                     <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="kids-now/food" >Food</a></li>
                     <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now/food/menu-food-name">Food Name</a></li>
@@ -28,7 +28,7 @@ Thực đơn
                             laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                     <div>
-                        <p>Add Meal Type*</p>
+                        <p>Edit Food Name*</p>
                         <form  style="width:auto;" method="post">
                         @csrf
                         <div class="form-group">
@@ -37,7 +37,7 @@ Thực đơn
                             <p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">* {{ $errors->first('food_name') }}</p>
                           @endif
                         </div>
-                        <button type="submit" class="btn btn-default">Save</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </form>
                     </div>
                 </div>

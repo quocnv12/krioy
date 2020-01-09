@@ -66,8 +66,8 @@
 								<td>{{ $item->quantityfood->name }}</td>
 								<td>{{ $item->programfood->program_name }}</td>
 								<td style="text-align:center">
-									<a href="" title="Edit Food" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
-									<a onclick="" title="Delete Food" href="" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+								<a href="kids-now/food/edit/{{ $item->id }}" title="Edit Food" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+									<a onclick="return confirm('Delete food ? Do you want continue !')" title="Delete Food" href="kids-now/food/delete/{{ $item->id }}" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
 								</td>
 							</tr>
 						  @endforeach
