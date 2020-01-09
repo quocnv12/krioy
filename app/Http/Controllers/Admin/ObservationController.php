@@ -47,20 +47,19 @@ class ObservationController extends Controller
         return view('pages.observation.sua',compact('observationtype','childrent','vendors'));
     }
     public function getSearch(Request $req){
-        $search = ObservationTypeModel::where('name','like', '%'.$req->key.'%')
-        ->get();
 
 
 
-//        $search = DB::table('observations')
-//            ->join('children_profiles','children_profiles.id','=','observations.id_children')
-//            ->join('observations_type','observations_type.id','=','observations.id_observations')
-//            ->select('observations.*','children_profiles.*','observations_type.name')
-//            ->where('first_name','like','%'.$req->key.'%')
-//            ->orWhere('last_name','like','%'.$req->key.'%')
-//            ->orWhere('birthday','like','%'.$req->key.'%')
-//            ->orWhere('gender','like','%'.$req->key.'%')
-//            ->orWhere('name','like','%'.$req->key.'%')->get();
+
+        $search = DB::table('observations')
+           ->join('children_profiles','children_profiles.id','=','observations.id_children')
+           ->join('observations_type','observations_type.id','=','observations.id_observations')
+           ->select('observations.*','children_profiles.*','observations_type.name')
+           ->where('first_name','like','%'.$req->key.'%')
+            ->orWhere('last_name','like','%'.$req->key.'%')
+           ->orWhere('birthday','like','%'.$req->key.'%')
+           ->orWhere('gender','like','%'.$req->key.'%')
+            ->orWhere('name','like','%'.$req->key.'%')->get();
        return view('pages.observation.search',compact('search'));
 
 

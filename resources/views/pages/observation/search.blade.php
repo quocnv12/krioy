@@ -16,8 +16,9 @@
                 </div>
                 <div class="col-md-6">
                     <ul class="ul-td" style="float: right">
-                        <form class="form-inline" action="{{route('admin.observations.search')}}" method = "get">
-                            <input class="form-control mr-sm-2" type="search"  placeholder="Search" name="Key" aria-label="Search" required>
+                        <form class="form-inline" action="{{route('admin.observations.search')}}" method = "post">
+                            @csrf
+                            <input class="form-control mr-sm-2" type="search"  placeholder="Search" name="key" aria-label="Search" required>
                             <button class="btn my-2 my-sm-0" type="submit" >Search</button>
                         </form>
                     </ul>

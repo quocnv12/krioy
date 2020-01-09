@@ -74,7 +74,7 @@ Food
                                 <button type="button" style="margin:10px 0;"  value="{{ $item->id }}"  class="tablinks2">{{ $item->name }}</button>
                             @endforeach
                             <input id="array_programs" type="hidden" value="" name="qtyfood">
-                           
+
                         </div>
                     </div>
                     <hr>
