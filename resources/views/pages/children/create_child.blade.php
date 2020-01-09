@@ -87,9 +87,9 @@
 				</div>
 				<hr style="margin: 0 0 5px 0;">
 				<div class="row">
-					<div class="add" style="width: 100%;">
-						<div class="col-md-3 expenses-detail">
-							<span>Birthday *</span>
+					<div class="add" style="width: 100%; margin: 15px">
+						<div class="col-md-3 input_box">
+							<span class="input_box_span_active">Birthday *</span>
 							<input type="date" name="birthday" placeholder="Birthday" value="{{old('birthday')}}">
                             @if ($errors->has('birthday'))
                                 <div class="text text-danger">
@@ -129,8 +129,8 @@
                                 </div>
                             @endif
 						</div>
-						<div class="col-md-3 expenses-detail">
-							<span>Date of Joining *</span>
+						<div class="col-md-3 input_box">
+							<span class="input_box_span_active">Date of Joining *</span>
 							<input type="date" name="date_of_joining" placeholder="Date of Joining" value="{{old('date_of_joining')}}">
                             @if ($errors->has('date_of_joining'))
                                 <div class="text text-danger">
@@ -309,8 +309,8 @@
 										@endif
 									</div>
 									<div class="input_box" style="width: 100%;">
-										<span>E-Mail Address *</span>
-										<input type="email" name="email_parent_1" placeholder="E-Mail Address *" value="{{old('email_parent_1')}}">
+										<span>E-Mail Address </span>
+										<input type="email" name="email_parent_1" placeholder="E-Mail Address " value="{{old('email_parent_1')}}">
 										@if ($errors->has('email_parent_1'))
 											<div class="text text-danger">
 												{{ $errors->first('email_parent_1') }}
@@ -411,8 +411,8 @@
 										@endif
 									</div>
 									<div class="input_box" style="width: 100%;">
-										<span>E-Mail Address *</span>
-										<input type="email" name="email_parent_2" placeholder="E-Mail Address *" value="{{old('email_parent_2')}}">
+										<span>E-Mail Address </span>
+										<input type="email" name="email_parent_2" placeholder="E-Mail Address " value="{{old('email_parent_2')}}">
 										@if ($errors->has('email_parent_2'))
 											<div class="text text-danger">
 												{{ $errors->first('email_parent_2') }}

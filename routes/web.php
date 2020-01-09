@@ -54,7 +54,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('select_child','Admin\ChildrenProfilesController@selectChild');
 
         //search by typeahead
-        Route::get('search/name', 'Admin\ChildrenProfilesController@searchByTypeahead');
+        Route::get('search/name', 'Admin\ChildrenProfilesController@searchByName');
     });
     //---------------staff----------------
     Route::group(['prefix' => 'staff'], function () {

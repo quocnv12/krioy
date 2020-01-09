@@ -268,7 +268,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6 input_box">
-                                                <span class="input_box_span_active">GENDER *</span>
+                                                <span class="input_box_span_active">Gender </span>
                                                 <select name="gender_parent_1">
                                                     <option>Gender</option>
                                                     <option value="1" @if($parent_profiles_1->gender == 1) selected="selected" @endif>Nam</option>
@@ -281,7 +281,7 @@
                                                 @endif
                                             </div>
                                             <div class="col-md-6 input_box">
-                                                <span class="input_box_span_active">RELATION *</span>
+                                                <span class="input_box_span_active">Relationship </span>
                                                 <select name="relationship_1">
                                                     <option>Relationship</option>
                                                     <option value="mother" @if($parent_profiles_1->relationship == "mother") selected="selected" @endif>Mother</option>
@@ -309,8 +309,8 @@
                                             @endif
                                         </div>
                                         <div class="input_box" style="width: 100%;">
-                                            <span class="input_box_span_active">E-Mail Address *</span>
-                                            <input type="email" name="email_parent_1" placeholder="E-Mail Address *" value="{{$parent_profiles_1->email}}">
+                                            <span class="input_box_span_active">E-Mail Address </span>
+                                            <input type="email" name="email_parent_1" placeholder="E-Mail Address " value="{{$parent_profiles_1->email}}">
                                             @if ($errors->has('email_parent_1'))
                                                 <div class="text text-danger">
                                                     {{ $errors->first('email_parent_1') }}
@@ -318,7 +318,7 @@
                                             @endif
                                         </div>
                                         <div class="input_box" style="width: 100%;">
-                                            <span class="input_box_span_active">Note *</span>
+                                            <span class="input_box_span_active">Note </span>
                                             <input type="text" name="note_parent_1" placeholder="Note" value="{{$parent_profiles_1->note}}">
                                             @if ($errors->has('note_parent_1'))
                                                 <div class="text text-danger">
@@ -370,7 +370,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6 input_box">
-                                                <span class="input_box_span_active">GENDER *</span>
+                                                <span class="input_box_span_active">Gender </span>
                                                 <select name="gender_parent_2">
                                                     <option>Gender</option>
                                                     <option value="1" @if($parent_profiles_2->gender == 1) selected="selected" @endif>Nam</option>
@@ -383,7 +383,7 @@
                                                 @endif
                                             </div>
                                             <div class="col-md-6 input_box">
-                                                <span class="input_box_span_active">RELATION *</span>
+                                                <span class="input_box_span_active">Relationship </span>
                                                 <select name="relationship_2">
                                                     <option>Relationship</option>
                                                     <option value="mother" @if($parent_profiles_2->relationship == "mother") selected="selected" @endif>Mother</option>
@@ -411,8 +411,8 @@
                                             @endif
                                         </div>
                                         <div class="input_box" style="width: 100%;">
-                                            <span class="input_box_span_active">E-Mail Address *</span>
-                                            <input type="email" name="email_parent_2" placeholder="E-Mail Address *" value="{{$parent_profiles_2->email}}">
+                                            <span class="input_box_span_active">E-Mail Address </span>
+                                            <input type="email" name="email_parent_2" placeholder="E-Mail Address " value="{{$parent_profiles_2->email}}">
                                             @if ($errors->has('email_parent_2'))
                                                 <div class="text text-danger">
                                                     {{ $errors->first('email_parent_2') }}
@@ -420,7 +420,7 @@
                                             @endif
                                         </div>
                                         <div class="input_box" style="width: 100%;">
-                                            <span class="input_box_span_active">Note *</span>
+                                            <span class="input_box_span_active">Note </span>
                                             <input type="text" name="note_parent_2" placeholder="Note" value="{{$parent_profiles_2->note}}">
                                             @if ($errors->has('note_parent_2'))
                                                 <div class="text text-danger">
@@ -512,8 +512,8 @@
                                                 @endif
                                             </div>
                                             <div class="input_box" style="width: 100%;">
-                                                <span>E-Mail Address *</span>
-                                                <input type="email" name="email_parent_2" placeholder="E-Mail Address *" value="{{old('email_parent_2')}}">
+                                                <span>E-Mail Address </span>
+                                                <input type="email" name="email_parent_2" placeholder="E-Mail Address " value="{{old('email_parent_2')}}">
                                                 @if ($errors->has('email_parent_2'))
                                                     <div class="text text-danger">
                                                         {{ $errors->first('email_parent_2') }}
@@ -646,7 +646,6 @@
         $("#demo_image").click(function () {
             $("#uploadfile").click();
         });
-
         $("#uploadfile_parent_1").hide();
         $("#demo_image_parent_1").click(function () {
             $("#uploadfile_parent_1").click();
@@ -669,12 +668,24 @@
 
         }
 
-        function readURL2(input) {
+        function readURL_parent_1(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
 
                 reader.onload = function (e) {
-                    $('#demo_image2').attr('src', e.target.result);
+                    $('#demo_image_parent_1').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+
+        }
+
+        function readURL_parent_2(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#demo_image_parent_2').attr('src', e.target.result);
                 }
                 reader.readAsDataURL(input.files[0]);
             }
@@ -684,8 +695,13 @@
         $("#uploadfile").change(function(){
             readURL(this);
         });
-        $("#uploadfile2").change(function(){
-            readURL2(this);
+
+        $("#uploadfile_parent_1").change(function(){
+            readURL_parent_1(this);
+        });
+
+        $("#uploadfile_parent_2").change(function(){
+            readURL_parent_2(this);
         });
     </script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
