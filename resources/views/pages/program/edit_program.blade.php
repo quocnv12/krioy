@@ -261,7 +261,7 @@
 											<input type="hidden" value="{{$staff->id}}">
 											<button class="btn btn-xs btn-danger" onclick="deleteStaff({{$staff->id}})">X</button>
 											<br>
-											<span class="limitText ng-star-inserted">{{$staff->first_name}} {{$staff->last_name}}</span>
+											<span class="limitText ng-star-inserted"><a target="_blank" href="">{{$staff->first_name}} {{$staff->last_name}}</a></span>
 										</div>
 									</div>
 								</div>
@@ -284,14 +284,14 @@
 					<div class="panel">
 						<div _ngcontent-c20="" class="row" id="children_list">
 							@foreach($children_in_program as $children)
-								<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
+								<div class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
 									<div class="child-class" style="height: 120px;text-align: center;">
 										<div class="image">
 											<img class="img-circle" height="80" onerror="this.src='images/Child.png';" style="height: 80px" width="80" src="{{$children->image}}">
 											<input type="hidden" value="{{$children->id}}">
 											<button class="btn btn-xs btn-danger" onclick="deleteChild({{$children->id}})">X</button>
 											<br>
-											<span class="limitText ng-star-inserted">{{$children->first_name}} {{$children->last_name}}</span>
+											<span class="limitText ng-star-inserted"><a target="_blank" href="kids-now/children/edit/{{$children->id}}">{{$children->first_name}} {{$children->last_name}}</a></span>
 										</div>
 									</div>
 								</div>
@@ -316,6 +316,8 @@
 				</div>
 			</div>
 		</form>
+
+
 	</section>
 	</body>
 @endsection
