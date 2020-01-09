@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-Thực đơn
+List quantity food
 @endsection
 @section('content')
 
@@ -17,7 +17,12 @@ Thực đơn
                 </ul>
             </div>
         </div>
-
+        @if (session('thongbao'))
+        <p style="font-size: 12px;margin-left:11px;font-weight: 100;color:#0D1CE9;font-style: italic;line-height: 25px;margin-top:10px;">{{ session('thongbao') }} </p>
+        @endif
+        @if (session('delete'))
+        <p style="font-size: 12px;margin-left:11px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:10px;">{{ session('delete') }} </p>
+        @endif 
         <div class="mat-card">
             <div class="row-fluid">
                 <div class="span12">
@@ -30,12 +35,7 @@ Thực đơn
                             <div style="text-align:right;padding-right:22px" class="col-md-6">
                                 <a style="margin:0px;" href="{{ route('menu-quantity-add') }}" class="btn btn-success btn-cons"" title="Add Quantyti Food"><i style="" class="fa fa-plus-circle"></i> Add</a>
                             </div>
-                            @if (session('thongbao'))
-                            <p style="font-size: 12px;margin-left:11px;font-weight: 100;color:#0D1CE9;font-style: italic;line-height: 25px;margin-top:10px;">{{ session('thongbao') }} </p>
-                            @endif
-                            @if (session('delete'))
-                            <p style="font-size: 12px;margin-left:11px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:10px;">{{ session('delete') }} </p>
-                            @endif 
+                          
                       </div>
                     </div>
                     <div class="grid-body ">

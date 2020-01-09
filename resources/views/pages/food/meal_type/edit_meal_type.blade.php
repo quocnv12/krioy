@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-Thực đơn
+Edit meal type
 @endsection
 @section('content')
 
