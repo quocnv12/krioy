@@ -17,43 +17,43 @@ class FoodItemsTableSeeder extends Seeder
         DB::table('food_items')->insert([
             [
                 'id'        =>  1,
-                'food_name' =>  'fish'
+                'food_name' =>  'Fish'
             ],
             [
                 'id'        =>  2,
-                'food_name' =>  'shrimp'
+                'food_name' =>  'Shrimp'
             ],
             [
                 'id'        =>  3,
-                'food_name' =>  'crab'
+                'food_name' =>  'Crab'
             ],
             [
                 'id'        =>  4,
-                'food_name' =>  'snack'
+                'food_name' =>  'Snack'
             ],
             [
                 'id'        =>  5,
-                'food_name' =>  'butter'
+                'food_name' =>  'Butter'
             ],
             [
                 'id'        =>  6,
-                'food_name' =>  'bread'
+                'food_name' =>  'Bread'
             ],
             [
                 'id'        =>  7,
-                'food_name' =>  'chips'
+                'food_name' =>  'Chips'
             ],
             [
                 'id'        =>  8,
-                'food_name' =>  'coffee'
+                'food_name' =>  'Coffee'
             ],
             [
                 'id'        =>  9,
-                'food_name' =>  'vegetables'
+                'food_name' =>  'Vegetables'
             ],
             [
                 'id'        =>  10,
-                'food_name' =>  'chicken'
+                'food_name' =>  'Chicken'
             ],
         ]);
     }

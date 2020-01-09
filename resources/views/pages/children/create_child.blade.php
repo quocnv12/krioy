@@ -26,10 +26,10 @@
 	<section class="page-top container">
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
-				<ul class="ul-td">
-					<li _ngcontent-c16="" class="level1"><a href="kids-now">HOME</a></li>
-					<li _ngcontent-c16="" class="active1" ><a href="kids-now/children">CHILDREN PROFILES</a></li>
-					<li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a href="">ADD CHILD</a></li>
+				<ul class="ul-td" style="width: 100%;">
+					<li class="level1"><a href="kids-now">HOME</a></li>
+					<li class="active1" ><a href="kids-now/children">CHILDREN PROFILES</a></li>
+					<li class="active1 active-1" style="pointer-events:none;"><a href="">ADD CHILD</a></li>
 				</ul>
 			</div>
 		</div>
@@ -85,7 +85,7 @@
 						</div>
 					</div>
 				</div>
-				<hr style="margin: 0;">
+				<hr style="margin: 0 0 5px 0;">
 				<div class="row">
 					<div class="add" style="width: 100%; margin: 15px">
 						<div class="col-md-3 input_box">
@@ -587,5 +587,15 @@
 		});
 	</script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+	<script type="text/javascript">
+		$('.expenses-detail input').focus(function(event) {
+	    	$(this).siblings('span').addClass('expenses-detail_span_active');
+		});
+		$('.expenses-detail input').blur(function(event) {
+	    	if ($(this).val()=='') {
+	      		$(this).siblings('span').removeClass('expenses-detail_span_active');
+	    	}
+		});
+	</script>
 	{{-- finish xu ly anh--}}
 @endsection

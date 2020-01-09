@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-Thực đơn
+Edit meal type
 @endsection
 @section('content')
 
@@ -8,7 +8,7 @@ Thực đơn
     <section class="page-top container">
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
             <div class="row">
-                <ul class="ul-td">
+                <ul class="ul-td" style="width:100%">
                     <div class="col-md-12">
                     <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
                     <li _ngcontent-c16="" class="active-1"><a _ngcontent-c16="" href="kids-now/food" >Food</a></li>
@@ -38,7 +38,7 @@ Thực đơn
                             <p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">* {{ $errors->first('name') }}</p>
                           @endif
                         </div>
-                        <button type="submit" class="btn btn-default">Save</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </form>
                     </div>
                 </div>
