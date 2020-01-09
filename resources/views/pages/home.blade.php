@@ -74,7 +74,7 @@ Trang chủ
                 </a>
             </div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
-                <a href="kids-now/observations">
+                <a href="{{route('admin.observations.getAdd')}}">
                     <img src="images/Observation-01.png" alt="">
                     <div class="title">
                         <p>Observations</p>

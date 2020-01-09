@@ -42,7 +42,7 @@
 
            @foreach($health as $key=> $value)
                <tr>
-                   <td style="padding: 30px: ">{{$key+1}}</td>
+                   <td style="padding: 30px ">{{$key+1}}</td>
                    <td>{{$value->ChildrenProfiles-> first_name }}</td>
                    <td>{{$value->ChildrenProfiles->last_name}}</td>
                    <td style="padding: 30px">{{$value->sick}}</td>

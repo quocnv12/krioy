@@ -23,51 +23,50 @@
                     </ul>
                 </div>
         </div>
-        <table border="0">
-            <tbody>
-            <tr class="td1">
-                <th>STT</th>
-                <th>Frist_name</th>
-                <th>Last_name</th>
-                <th>Birthday</th>
-                <th>Gender</th>
-                <th>Observation</th>
-                <th>Chỉnh sửa</th>
-            </tr>
-            @foreach($search as $key=> $value)
-                <tr>
-                    <th style="text-align: center">{{$key+1}}</th>
-                    <th>{{$value->first_name}}</th>
-                    <th>{{$value->last_name}}</th>
-                    <th>{{$value->birthday}}</th>
-                    <th>{{$value->gender}}</th>
-                    <th>{{$value->name}}</th>
+            <div class="mat-card">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="grid simple ">
+                            <div class="grid-title">
+                                <h4>List <span class="semi-bold">Observation</span></h4>
+                                <div class="tools">
+                                </div>
+                            </div>
+                            <div class="grid-body ">
+                                <table class="table table-striped" id="example">
+                                    <thead>
+                                    <tr>
+                                        <th style="text-align:left;">STT</th>
+                                        <th style="text-align:left;width:18%">Frist_name</th>
+                                        <th style="text-align:left;width:20%">Frist_name</th>
+                                        <th style="text-align:left;width:18%">Birthday</th>
+                                        <th style="text-align:left;width:18%">Gender</th>
+                                        <th style="text-align:center;width:12%">Observation</th>
+                                        <th style="text-align:center;width:12%">Chỉnh sửa</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($search as $key=> $value)
+                                        <tr>
+                                        <tr>
+                                            <th style="text-align: center">{{$key+1}}</th>
+                                            <th>{{$value->first_name}}</th>
+                                            <th>{{$value->last_name}}</th>
+                                            <th>{{$value->birthday}}</th>
+                                            <th>{{$value->gender}}</th>
+                                            <th>{{$value->name}}</th>
+                                            <th>
+                                                <a href="{!! URL::route('admin.observations.getEdit', $value->id ) !!}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
+                                                <a  href="{!! URL::route('admin.observations.getDelete', $value->id ) !!}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
+                                            </th>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
 
-                    <th style="text-align: center">
-                        <a href="{!! URL::route('admin.observations.getEdit', $value->id ) !!}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
-                        <a  href="{!! URL::route('admin.observations.getDelete', $value->id ) !!}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
-                    </th>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
     </section>
-    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Bạn có muốn xóa ?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body" style="margin-left: 183px;">
-                    <button type="button" class="btn btn-success delProduct">Có</button>
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Không</button>
-                    <div>
-                    </div>
-                </div>
-            </div>
+
     </body>
 @endsection
 

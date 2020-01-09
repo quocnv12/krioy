@@ -61,8 +61,8 @@
                                 <div class="col-sm-9">
                                     <select class="form-control name" name="id_observations" style="width: 500px;height: 34px">
                                         <option value="">--Chọn Observation--</option>
-                                        @foreach($vendors as $vendors)
-                                            <option value="{{ $vendors->id }}">{{$vendors->name}}</option>
+                                        @foreach($vendors as $cate)
+                                            <option value="{{ $cate->id }}">{{ $cate->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
