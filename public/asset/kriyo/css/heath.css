@@ -673,7 +673,6 @@ div.daily-report span{
 /*Expenses detail*/
 .expenses-detail{
     margin-bottom: 10px;
-    text-align: left;
 }
 .expenses-detail input{
     margin-top: 10px !important;
