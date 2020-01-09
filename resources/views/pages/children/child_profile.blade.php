@@ -21,7 +21,7 @@
 						{{--<span style="font-size:15px;font-weight: 900;">DEACTIVATED</span>--}}
 						{{--<span _ngcontent-c10="" class="badge" style="background-color: red;color:#fff;vertical-align: top;display: inline;line-height:0px">1</span>--}}
 					{{--</a>--}}
-					<form class="typeahead" role="search" style="text-align: left">
+					<form class="typeahead" role="search" style="text-align: left;float: left">
 						<input type="search" name="q" class="form-control search-input" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 500px;">
 					</form>
 				</div>

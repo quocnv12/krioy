@@ -8,5 +8,6 @@ class ChildrenParent extends Model
 {
     //
     protected $table = 'children_parent';
+    public $incrementing = false;
     public $timestamps = false;
 }

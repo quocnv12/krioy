@@ -50,6 +50,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::post('edit/{id}','Admin\ChildrenProfilesController@update');
         Route::get('delete/{id}','Admin\ChildrenProfilesController@destroy');
 
+        Route::get('add_parent','Admin\ChildrenProfilesController@addParent');
         Route::get('select_child','Admin\ChildrenProfilesController@selectChild');
 
         //search by typeahead
@@ -121,23 +122,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         });
     });
 
-    //---------------notice board----------------
-    Route::group(['prefix' => 'notice-board'], function () {
-        Route::get('', function () {
-            return view('pages.notice.notice_board');
-        });
-        Route::get('add', function () {
-            return view('pages.notice.add_notice');
-        });
-        Route::get('edit', function () {
-            return view('pages.notice.edit_notice');
-        });
-        Route::get('detail', function () {
-            return view('pages.notice.notice_detail');
-        });
 
-
-    });
 
     //---------------food----------------
     Route::group(['prefix' => 'food'], function () {
@@ -195,8 +180,11 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('edit/{id}', 'Admin\NoticeBoardController@edit');
         Route::post('edit/{id}', 'Admin\NoticeBoardController@update');
 
-
         Route::get('delete/{id}','Admin\NoticeBoardController@destroy');
+
+        //search by typeahead
+        Route::get('search/name', 'Admin\NoticeBoardController@searchByTitle');
+
         //clip board
         Route::get('clip_board/{id}/{name}','Admin\NoticeBoardController@displayClipboard');
         Route::get('delete_clipboard/{id}/{name}','Admin\NoticeBoardController@deleteClipboard');
