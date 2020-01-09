@@ -12,4 +12,6 @@ class StaffProgram extends Model
         'id_staff',
         'id_program'
     ];
+
+    public $timestamps = false;
 }

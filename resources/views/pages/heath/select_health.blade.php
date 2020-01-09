@@ -5,36 +5,7 @@
 
 @section('content')
 	<body>
-	<!-- <section class="header">
-		<div class="logo">
-			<a href="#">
-				<img src="images/Logo.jpg" alt="" style="width: 80px;height: 80px;padding: 10px;">
-			</a>
-			<a href="#" class="title">Kids Now</a>
-		</div>
-		<div class="header-ul">
-			<ul>
-				<li>
-					<a href="#">HỒ SƠ</a>
-				</li>
-				<li>
-					<a href="#">HÓA ĐƠN</a>
-				</li>
-				<li>
-					<a href="#">CÀI ĐẶT</a>
-				</li>
-				<li>
-					<a href="#">TRỢ GIÚP</a>
-				</li>
-				<li>
-					<a href="#" class="ul-kriyo">KRIYO CỦA TÔI</a>
-				</li>
-				<li>
-					
-				</li>
-			</ul>
-		</div>
-	</section> -->
+
 	<section class="page-top container">
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
@@ -87,7 +58,7 @@
 				</div>
 				<div class="col-md-2"></div>
 				<div align="right" class="col-md-3" style="margin: 10px;">
-					<a href="{{route('health.create')}}" class="done">
+					<a href="{{route('admin.health.getAdd')}}" class="done">
 						<b>DONE</b>
 					</a>
 				</div>
@@ -104,10 +75,10 @@
 					<div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img"  onclick="myFunction()" style="padding:10px;cursor:pointer;margin: 5px 20px;">
 						<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
 							<div _ngcontent-c9="" class="image">
-								<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/{{$health->image}}';" width="80" src="Child.png">
+								<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='';" width="80" src="images/{{$health->image}}">
 								<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked" style="display: nonef"></i>
 								<!---->
-								<span _ngcontent-c19="" class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;font-weight: bold;font-size: 16px;">{{$health->ChildrenProfiles->frist_name}}{{$health->ChildrenProfiles->last_name}}</span>
+								<span _ngcontent-c19="" class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;font-weight: bold;font-size: 16px;">{{$health->frist_name}}{{$health->last_name}}</span>
 							</div>
 							<!---->
 						</div>

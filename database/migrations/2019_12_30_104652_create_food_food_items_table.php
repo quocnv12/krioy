@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChildrenFoodTable extends Migration
+class CreateFoodFoodItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateChildrenFoodTable extends Migration
      */
     public function up()
     {
-        Schema::create('children_food', function (Blueprint $table) {
-            $table->bigInteger('id_children')->unsigned();
-            $table->foreign('id_children')->references('id')->on('children_profiles')->onDelete('cascade');
+        Schema::create('food_food_items', function (Blueprint $table) {
+            $table->bigInteger('id_food_items')->unsigned();
+            $table->foreign('id_food_items')->references('id')->on('food_items')->onDelete('cascade');
             $table->bigInteger('id_food')->unsigned();
             $table->foreign('id_food')->references('id')->on('food')->onDelete('cascade');
         });
@@ -28,6 +28,6 @@ class CreateChildrenFoodTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('children_food');
+        Schema::dropIfExists('food_food_items');
     }
 }

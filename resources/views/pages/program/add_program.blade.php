@@ -4,26 +4,61 @@
 @endsection
 
 @section('content')
+	<style>
+		.panel{
+			max-height: 9000px !important;
+		}
+		.tt-input{
+			background-color: white !important;
+		}
+		input.search-custom:focus{
+			animation: mymove 0.8s forwards;
+			background-color: white;
+		}
+
+		@keyframes mymove {
+			0% {width: 200px;}
+			100% {width: 500px;}
+		}
+		.twitter-typeahead{
+			float: right;
+		}
+	</style>
 <body>
 	<section class="page-top container">
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
 				<ul class="ul-td">
-					<li _ngcontent-c16="" class="level1"><a href="kids-now">HOME</a></li>
-					<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a href="kids-now/program">PROGRAM</a></li>
-					<li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a href="">ADD PROGRAM</a></li>
+					<li class="level1"><a href="kids-now">HOME</a></li>
+					<li class="active1" style="pointer-events:none"><a href="kids-now/program">PROGRAM</a></li>
+					<li class="active1 active-1" style="pointer-events:none;"><a href="">ADD PROGRAM</a></li>
 				</ul>
 			</div>
 		</div>
-		<form action="kids-now/program/add" method="post" style="width: 100%">
+		@if(session('notify'))
+			<div class="alert alert-success">
+				{{session('notify')}}
+			</div>
+		@endif
+		<form action="kids-now/program/add" method="post" style="width: 100%" id="addProgram">
 			@csrf
-		<div class="mat-card">
+
+            <input type="hidden" name="array_all_children" id="array_all_children" value="">
+            <input type="hidden" name="array_all_staff" id="array_all_staff" value="">
+
+            <div class="mat-card">
 			<button class="accordion add-staff" type="button">Add Program</button>
 			<div class="panel add">
 				<div class="row">
 					<div class="col-md-4 input_box">
 						<span>Program Name *</span>
-						<input type="text" name="program_name" placeholder="Program Name *" value="{{old('program_name')}}">
+						<input type="text" name="program_name" id="program_name" placeholder="Program Name *" value="{{old('program_name')}}">
+						<p id="error_program_name" style="text-align: left; color: red"></p>
+                        @if ($errors->has('program_name'))
+								<div class="text text-danger">
+									{{ $errors->first('program_name') }}
+								</div>
+                        @endif
 					</div>
 					<div class="col-md-8">
 						<div class="row" style="margin: 10px 0;">
@@ -41,6 +76,11 @@
 									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="7">S</button>
 								</div>
 								<input type="hidden" name="schedule" id="schedule" value="">
+                                @if ($errors->has('schedule'))
+                                    <div class="text text-danger">
+                                        {{ $errors->first('schedule') }}
+                                    </div>
+                                @endif
 							</div>
 						</div>
 					</div>
@@ -49,20 +89,42 @@
 					<div class="col-md-6">
 						<div class="row">
 							<div class="col-md-6 input_box">
-								<span>Program Fee(USD) *</span>
-								<input type="text" name="program_fee" placeholder="Program Fee *" value="{{old('program_fee')}}">
+								<span>Program Fee</span>
+								<input type="text" name="program_fee" id="program_fee" placeholder="Program Fee" value="{{old('program_fee')}}">
+                                @if ($errors->has('program_fee'))
+                                    <div class="text text-danger">
+                                        {{ $errors->first('program_fee') }}
+                                    </div>
+                                @endif
 							</div>
 							<div class="col-md-6 input_box">
-								<span>Select *</span>
+								<span>Period Fee</span>
 								<select name="period_fee">
+									<option value="" selected>Period Fee</option>
 									<option @if(old('period_fee') == "/week") selected='selected' @endif value="/week">/week</option>
 									<option @if(old('period_fee') == "/month") selected='selected' @endif value="/month">/month</option>
 									<option @if(old('period_fee') == "/year") selected='selected' @endif value="/year">/year</option>
 								</select>
+                                @if ($errors->has('period_fee'))
+                                    <div class="text text-danger">
+                                        {{ $errors->first('period_fee') }}
+                                    </div>
+                                @endif
 							</div>
 						</div>
 					</div>
-					<div class="col-md-6"></div>
+					<div class="col-md-6 input_box">
+						<span>Status</span>
+						<select name="status">
+							<option @if(old('status') == 1) selected='selected' @endif value="1">Open</option>
+							<option @if(old('status') == 0) selected='selected' @endif value="1">Close</option>
+						</select>
+                        @if ($errors->has('status'))
+                            <div class="text text-danger">
+                                {{ $errors->first('status') }}
+                            </div>
+                        @endif
+					</div>
 				</div>
 				<hr>
 				<div class="row">
@@ -86,36 +148,60 @@
 					<div class="col-md-7">
 						<div class="row">
 							<div class="col-md-3 input_box">
-								<span>Year *</span>
+								<span>Year </span>
 								<select name="from_year">
+                                    <option value="" selected >Year</option>
 									@for($i = 2000; $i <= 3000; $i ++)
 										<option @if(old('from_year') == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
 									@endfor
 								</select>
+                                @if ($errors->has('from_year'))
+                                    <div class="text text-danger">
+                                        {{ $errors->first('from_year') }}
+                                    </div>
+                                @endif
 							</div>
 							<div class="col-md-3 input_box">
-								<span>Month *</span>
+								<span>Month </span>
 								<select name="from_month">
+                                    <option value="" selected >Month</option>
 									@for($i = 1; $i <= 12; $i ++)
 										<option @if(old('from_month') == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
 									@endfor
 								</select>
+                                @if ($errors->has('from_month'))
+                                    <div class="text text-danger">
+                                        {{ $errors->first('from_month') }}
+                                    </div>
+                                @endif
 							</div>
 							<div class="col-md-3 input_box">
-								<span>Year *</span>
+								<span>Year </span>
 								<select name="to_year">
+                                    <option value="" selected >Year</option>
 									@for($i = 2000; $i <= 3000; $i ++)
 										<option @if(old('to_year') == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
 									@endfor
 								</select>
+                                @if ($errors->has('to_year'))
+                                    <div class="text text-danger">
+                                        {{ $errors->first('to_year') }}
+                                    </div>
+                                @endif
 							</div>
 							<div class="col-md-3 input_box">
-								<span>Month *</span>
+								<span>Month </span>
 								<select name="to_month">
+                                    <option value="" selected >Month</option>
 									@for($i = 1; $i <= 12; $i ++)
 										<option @if(old('to_month') == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
 									@endfor
 								</select>
+                                @if ($errors->has('to_month'))
+                                    <div class="text text-danger">
+                                        {{ $errors->first('to_month') }}
+                                    </div>
+                                @endif
 							</div>
 							
 						</div>
@@ -123,74 +209,65 @@
 					<div class="col-md-5">
 						<div class="row">
 							<div class="col-md-6 input_box">
-								<span>HH:MM *</span>
+								<span>HH:MM </span>
 								<input type="time" name="start_time" value="{{old('start_time')}}">
+                                @if ($errors->has('start_time'))
+                                    <div class="text text-danger">
+                                        {{ $errors->first('start_time') }}
+                                    </div>
+                                @endif
 							</div>
 							<div class="col-md-6 input_box">
-								<span>HH:MM *</span>
+								<span>HH:MM </span>
 								<input type="time" name="finish_time" value="{{old('finish_time')}}">
+                                @if ($errors->has('finish_time'))
+                                    <div class="text text-danger">
+                                        {{ $errors->first('finish_time') }}
+                                    </div>
+                                @endif
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		
 		<div class="mat-card">
 			<div class="mat-content">
 				<button class="accordion accordion1 clearfix" type="button">
-					<p style="float: left;margin: 10px 0 !important;">Staff *</p>
-					<a href="kids-now/program/select_staff" style="float: right;text-align: right">
-						<p style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">SELECT</p>
-					</a>
+					<p style="float: left;margin: 10px 0 !important;">Staff </p>
+					<form class="typeahead" role="search">
+						<input type="search" name="q2" class="form-control search-input2 search-custom" placeholder="Search Staff..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">
+					</form>
 				</button>
 				<div class="panel">
-					<div _ngcontent-c20="" class="row" style="">
-						<!---->
-						<div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1"  onclick="myFunction()">
-							<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
-								<div _ngcontent-c9="" class="image">
-									<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Staff.png';" width="80" src="Child.png">
-									<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked"></i>
-									<!---->
-									<span _ngcontent-c19="" class="limitText ng-star-inserted">Riya Demo Child</span>
-								</div>
-								<!---->
-							</div>
-						</div>
+					<div _ngcontent-c20="" class="row" style="" id="staff_list">
+                        <!---->
+                    {{-- ajax ProgramController@addSelectStaff do vao day--}}
+                    <!---->
 					</div>
 				</div>
 			</div>
 		</div>
-		
 		<div class="mat-card">
 			<div class="mat-content">
 				<button class="accordion accordion1 clearfix" type="button">
-					<p style="float: left;">Childrens *</p>
-					<a href="kids-now/program/select_child" style="float: right;text-align: right">
-						<p style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">SELECT</p>
-					</a>
+					<p style="float: left;">Children </p>
+					<form class="typeahead" role="search" style="float: right; text-align: left">
+						<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">
+					</form>
 				</button>
 				<div class="panel">
-					<div _ngcontent-c20="" class="row" style="">
-						<!---->
-						<div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1"  onclick="myFunction()">
-							<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
-								<div _ngcontent-c9="" class="image">
-									<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="Child.png">
-									<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked"></i>
-									<!---->
-									<span _ngcontent-c19="" class="limitText ng-star-inserted">Riya Demo Child</span>
-								</div>
-								<!---->
-							</div>
-						</div>
+					<div _ngcontent-c20="" class="row" id="children_list">
+                        <!---->
+                        {{-- ajax ProgramController@addSelectChildren do vao day--}}
+                        <!---->
 					</div>
 				</div>
 			</div>
 		</div>
 
 		<div class="comment">
+			<p id="error_total" style="text-align: center; color: red"></p>
 			<div class="button" style="text-align: center;">
 				<button type="reset">
 					<span>CANCEL</span>
@@ -237,6 +314,7 @@
 		}
 	</script>
 	<script type="text/javascript">
+        //begin schedule
 		var array = [];
     	$('.listClass').click(function(event) {
     		if ($(this).prop('class')=='letterCircle listClass tablinks1_active') {
@@ -250,9 +328,89 @@
     		}
 			console.log(array);
     	});
+        //end schedule
 
-		$('#submit_button').click(function(event) {
-			$('#schedule').attr('value', array);
+
+        //begin select children
+        var array_children = [];
+
+        function deleteChild(id_children) {
+            array_children.splice( array_children.indexOf(id_children), 1 );
+            console.log('array children sau khi xoa: '+array_children)
+        }
+
+        function getIdChildren(id){
+            $.ajax({
+                type: 'get',
+                url: '{{ URL::to('kids-now/program/select_child/add') }}',
+                data: {
+                    'id_children' : id
+                },
+                success: function(data){
+                    if (! array_children.includes(id)){
+                        $('#children_list').append(data);
+                        array_children.push(id);
+                        console.log('id children them vao:'+id)
+                        console.log('day la array children khi them:'+array_children);
+                    }else {
+                        alert('children exists')
+                    }
+                }
+            });
+        }
+        //end select children
+
+        //begin select staff
+        var array_staff = [];
+
+        function deleteStaff(id_staff) {
+            array_staff.splice( array_staff.indexOf(id_staff), 1 );
+            console.log('array staff sau khi xoa: '+array_staff)
+        }
+
+        function getIdStaff(id){
+            $.ajax({
+                type: 'get',
+                url: '{{ URL::to('kids-now/program/select_staff/add') }}',
+                data: {
+                    'id_staff' : id
+                },
+                success: function(data){
+                    if (! array_staff.includes(id)){
+                        $('#staff_list').append(data);
+                        array_staff.push(id)
+                        console.log('id staff them vao:'+id)
+                        console.log('day la array staff khi them: ' + array_staff);
+                    }else {
+                        alert('staff exists')
+                    }
+                }
+            });
+        }
+        //end select staff
+
+        //begin validate
+		$('#error_program_name').html('This field must not be empty')
+		$('#program_name').focusout(function () {
+			if ( $('#program_name').val() !== ""){
+				$('#error_program_name').html('')
+				$('#error_total').html('');
+			}else {
+				$('#error_program_name').html('This field must not be empty')
+			}
+		})
+        //end validate
+
+
+		$('#submit_button').click(function() {
+			if ( $('#program_name').val() === ""){
+				$('#error_total').html('Something wrong! Please check the form again');
+			}else {
+				$('#schedule').attr('value', array);
+				$('#array_all_children').attr('value', array_children);
+				$('#array_all_staff').attr('value', array_staff);
+				$('#addProgram').submit();
+			}
 		});
     </script>
     <script type="text/javascript">
@@ -290,5 +448,78 @@
 		$(document).ready(function () {
 			$('.accordion').click();
 		})
+	</script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function($) {
+			var engine1 = new Bloodhound({
+				remote: {
+					url: 'http://localhost:8000/kids-now/program/search/children?q=%QUERY%',
+					wildcard: '%QUERY%'
+				},
+				datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
+				queryTokenizer: Bloodhound.tokenizers.whitespace
+			});
+
+			$(".search-input").typeahead({
+				hint: true,
+				highlight: true,
+				minLength: 1
+			}, [
+				{
+					source: engine1.ttAdapter(),
+					name: 'children_profiles',
+					display: function(data) {
+						return data.name;
+					},
+					templates: {
+						empty: [
+							'<div class="list-group search-results-dropdown" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;width: 500px;"><div class="list-group-item">Nothing found.</div></div>'
+						],
+						header: [
+
+						],
+						suggestion: function (data) {
+							return '<a onclick="getIdChildren('+data.id+')" class="list-group-item" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;padding: 10px; margin: 0;color: #424949;width: 500px;"> ' + data.first_name +' '+ data.last_name + '<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
+						}
+					}
+				},
+			]);
+
+			var engine2 = new Bloodhound({
+				remote: {
+					url: 'http://localhost:8000/kids-now/program/search/staff?q2=%QUERY%',
+					wildcard: '%QUERY%'
+				},
+				datumTokenizer: Bloodhound.tokenizers.whitespace('q2'),
+				queryTokenizer: Bloodhound.tokenizers.whitespace
+			});
+
+			$(".search-input2").typeahead({
+				hint: true,
+				highlight: true,
+				minLength: 1
+			}, [
+				{
+					source: engine2.ttAdapter(),
+					name: 'staff_profiles',
+					display: function(data) {
+						return data.name;
+					},
+					templates: {
+						empty: [
+							'<div class="list-group search-results-dropdown" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;width: 500px;"><div class="list-group-item">Nothing found.</div></div>'
+						],
+						header: [
+
+						],
+						suggestion: function (data) {
+							return '<a onclick="getIdStaff('+data.id+')" class="list-group-item" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;padding: 10px; margin: 0;color: #424949;width: 500px;"> ' + data.first_name +' '+ data.last_name + '<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
+						}
+					}
+				},
+			]);
+		});
 	</script>
 @endsection

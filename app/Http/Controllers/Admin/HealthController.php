@@ -8,120 +8,111 @@ use App\models\HealthModel;
 use Faker\Provider\File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class HealthController extends Controller
 {
-    public function index(){
+    public function getList(){
         $health = HealthModel :: paginate(4);
 
         return view('pages.heath.list', compact('health'));
     }
-   
-    public function create(){
-        $health = HealthModel :: all();
-
-
+    public function getChild(){
+        $health = ChildrenProfiles::all();
+        return view('pages.heath.select_health', compact('health'));
+    }
+    public function getAdd(){
+        $health = HealthModel::all();
         return view('pages.heath.heath', compact('health'));
     }
-    public function getChitiet(Request $req){
-        $chitiet = HealthModel::where('id', $req->id)->first();
-
-        return view('pages.heath.select_health',compact('chitiet'));
-
-    }
-
-
-
-    public function store(StoreHeathRequests $request)
-    {
-        if ($request->hasFile('image')) {
-
-            $file = $request->image;
-
-            //getClientOriginalName() lấy tên file
-            $file_name = $file->getClientOriginalName();
-
-            //getMimeType lấy kiểu file
-
-            $file_type = $file->getMimeType();
-
-            // $file->getSize() lấy size ảnh  theo bytes 1mb =1048576b
-
-            $file_size = $file->getSize();
-
-            if ($file_type == 'image/png' || $file_type == 'image/jpg' || $file_type == 'image/jpeg' || $file_type == 'image/gif') {
-                if ($file_size <= 1048576) {
-                    $file_name = date("D-M-Y") . '-' . rand() . '-' . $file_name;
-                    if ($file->move('images', $file_name)) {
-                        $data = $request->all();
-                        $data['image'] = $file_name;
-                        HealthModel::create($data);
-                        return redirect()->route('health.index')->with('thongbao', 'Đã thêm thành công');
-
-
-                    }
-
-                } else {
-                    return back()->with('error', 'Bạn không thể upload ảnh quá lớn 1 MB');
-                }
-            } else {
-                return back()->with('error', 'File bạn chọn phải là file ảnh');
-            }
-
-
-        } else {
-            return back()->with('error', 'Bạn chưa chọn ảnh minh họa cho sản phẩm');
-        }
-
-    }
-
-    public function show(){
-
-    }
-    public function edit($id){
-
-        $health=HealthModel::find($id);
-        return view('pages.heath.edit',compact('health'));
-
-    }
-
-
-
-    public function update(Request $request,$id){
-        $validator = Validator::make($request->all(), [
-            "frist_name"=>"required|min:2|max:255",
-            "last_name"=>"required|min:2|max:255",
-            "sick"=>"required|min:2|max:255",
-            "growth_height"=>"required|min:2",
-            "growth_weight"=>"required|min:2",
-            "medicine"=>"required|min:2|max:255",
-        ]);
-        if ($validator->fails()) {
-            return redirect()
-                ->route('pages.heath.edit',$id)
-                ->withErrors($validator)
-                ->withInput();
-        }
-        $health = HealthModel::find($id);
-        $health->frist_name = $request->frist_name;
-        $health->last_name = $request->last_name;
-        $health->sick = $request->sick;
-        $health->growth_height = $request->growth_height;
-        $health->growth_weight = $request->growth_weight;
-        $health->medicine = $request->medicine;
+    public function postAdd(Request $request){
+        $health = new HealthModel;
+        $imageName = $request->file('image')->getClientOriginalName();
+        $request->file('image')->move(
+            base_path(). 'images/'.$imageName
+        );
+        $health->sick= $request->sick;
+        $health->medicine= $request->medicine;
+        $health->growth_height= $request->growth_height;
+        $health->growth_weight= $request->growth_weight;
+        $health->incident= $request->incident;
         $health->save();
-        return view('pages.heath.list')->with(['success','thongbao','Sửa thành công']);
-
-
-
-
-
+        return redirect()->route('admin.health.list')->with(['flash_level'=>'success','flash_message'=>'Thêm tin  thành công!!!']);
 
     }
-    public  function destroy($id){
-        $health = HealthModel::find($id);
-        $health->delete();
-        return view('pages.heath.list');
+
+   public function getEdit($id){
+        $health = DB::table('health')->where('id',$id)->first();
+        return view('pages.heath.edit', compact('health'));
+   }
+   public function postEdit(Request $request, $id){
+        $image = $request->image;
+        $img_current ='images/'.$request->fImageCurrent;
+       if(!empty($image)) {
+           $filename= $image->getClientOriginalName();
+           DB::table('health')->where('id', $id)
+               ->update([
+                   'sick'=>$request->sick,
+                   'medicine'=>$request->medicine,
+                   'growth_height'=>$request->growth_height,
+                   'growth_weight'=>$request->growth_weight,
+                   'incident'=>$request->incident,
+                   'image'=>$filename
+               ]);
+
+           $image ->move(base_path() . 'images/', $filename);
+           File::delete($img_current);
+       }else {
+           DB::table('health')->where('id', $id)
+               ->update([
+                   'sick'=>$request->sick,
+                   'medicine'=>$request->medicine,
+                   'growth_height'=>$request->growth_height,
+                   'growth_weight'=>$request->growth_weight,
+                   'incident'=>$request->incident,
+               ]);
+       }
+
+       return redirect()->route('admin.heath.list')->with(['flash_level'=>'success','flash_message'=>'Edit tin tuyển dụng thành công!!!']);
+   }
+
+    public function getDelete($id){
+        $health= DB::table('health')->where('id',$id)->delete();
+        return redirect()->route('admin.health.list', compact('health'))->with(['flash_level'=>'success','flash_message'=>'Del tin tuyển dụng thành công!!!']);
     }
+    public function getSearch(Request $req){
+
+        $search = DB::table('children_profiles as a')
+            ->where('first_name','like','%'.$req->key.'%')
+            ->orWhere('last_name','like','%'.$req->key.'%')
+            ->orWhere('sick','like','%'.$req->key.'%')
+            ->orWhere('growth_height','like','%'.$req->key.'%')
+            ->orWhere('growth_weight','like','%'.$req->key.'%')
+            ->orWhere('incident','like','%'.$req->key.'%')
+            ->join('health as b', 'a.id','=','b.id_children')
+            ->select('a.*','b.*')
+            ->paginate(5);
+        return view('pages.heath.search', compact('search'));
+    }
+    public function postSearch(Request $req){
+
+
+        $search = DB::table('children_profiles as a')
+            ->where('first_name','like','%'.$req->key.'%')
+            ->orWhere('last_name','like','%'.$req->key.'%')
+            ->orWhere('sick','like','%'.$req->key.'%')
+            ->orWhere('growth_height','like','%'.$req->key.'%')
+            ->orWhere('growth_weight','like','%'.$req->key.'%')
+            ->orWhere('incident','like','%'.$req->key.'%')
+            ->join('health as b', 'a.id','=','b.id_children')
+            ->select('a.*','b.*')
+
+
+            ->paginate(5);
+        return view('pages.heath.search', compact('search'));
+
+    }
+
+
 
 }
