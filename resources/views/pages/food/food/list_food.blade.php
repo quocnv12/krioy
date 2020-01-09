@@ -27,52 +27,55 @@
 		    @endif
 		</div>
 		<div class="mat-card">
-			<div class="row">
-				{{-- <div style="padding:0px;" class="col-md-8">
-				<a style="margin:0px;" href="kids-now/staff/add"
-					class="btn btn-success btn-cons"" title=" Add Staff Profile"><i style=""
-						class="fa fa-plus-circle"></i> Add</a>
+			<div class="row-fluid">
+				<div class="span12">
+				  <div class="grid simple ">
+					<div class="grid-title">
+					  <h4>List <span class="semi-bold">Food</span></h4>
+					  <div class="tools">
+					  </div>
+					</div>
+					<div class="grid-body ">
+					  <table class="table table-striped" id="example">
+						<thead>
+						  <tr>
+							<th style="text-align:left;">ID</th>
+							<th style="text-align:left;width:18%">Meal Type</th>
+							<th style="text-align:left;width:20%">Food Name</th>
+							<th style="text-align:left;width:18%">Quantity</th>
+							<th style="text-align:left;width:18%">Program</th>
+							<th style="text-align:center;width:12%">Thao Tác</th>
+						  </tr>
+						</thead>
+						<tbody>
+							@foreach ($foods as $item)
+							<tr class="odd gradeX">
+								<td>{{ $item->id }}</td>
+								<td>{{ $item->mealtypefood->name }}</td>
+								<td>
+									@php
+										$resultstr = array();
+									@endphp
+									@foreach ($item->food as $value)
+									@php
+										$resultstr[] = $value->food_name
+									@endphp
+									@endforeach
+									{{  implode(",",$resultstr) }}
+								</td>
+								<td>{{ $item->quantityfood->name }}</td>
+								<td>{{ $item->programfood->program_name }}</td>
+								<td style="text-align:center">
+									<a href="" title="Edit Food" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+									<a onclick="" title="Delete Food" href="" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+								</td>
+							</tr>
+						  @endforeach
+						</tbody>
+					</table>
 				</div>
-				<div class="col-md-4" style="padding:0px;"" >
-					<div style="padding:8px;position:relative;" class="col-md-3 form-group" >
-						<label>Search :</label>
-					</div>
-					<div class="col-md-9" style="padding: 0px 3px;">
-						<input type="text" id="search" name="search" placeholder="Enter search" class="form-control pull-right" autocomplete="off">
-							<a style="position:absolute;top:20%;right:10px;" href="javascript:;void(0)"><i class="fa fa-search"></i></a>
-					</div>
-				</div> --}}
-		<table border="0" class="staffprofile-table">
-			<tbody>
-				<tr class="td1">
-					<th>STT</th>
-					<th style="width:18%;text-align:left" >Meal Tpye</th>
-					<th style="width:18%;text-align:left">Quantity</th>
-					<th style="width:18%;text-align:left">Program</th>
-					<th style="width:18%;text-align:left">Food Name</th>
-					<th style="width:18%;text-align:left">Hành Động</th>
-				</tr>
-                @foreach ($foods as $item)
-				<tr  style="text-align: center;line-height: 50px;" class="td2">
-					<th style="font-size:12px;">{{ $item->id }}</th>
-					<th style="font-size:12px;text-align:left">{{ $item->mealtypefood->name }}</th>
-					<th style="font-size:12px;text-align:left">{{ $item->quantityfood->name }}</th>
-					<th style="font-size:12px;text-align:left">{{ $item->programfood->program_name }}</th>
-                    <th style="font-size:12px;text-align:left">
-                        @foreach ($item->food as $value)
-                           {{ $value->food_name }},
-                        @endforeach
-                    </th>
-					<th style="width:10%">
-						<a class="btn btn-primary" title="Edit Food" href="kids-now/food/edit/{{ $item->id }}"><i style="font-size:10px" class="fa fa-edit"></i></a>
-						<a class="btn btn-danger" title="Delete Food" href="kids-now/food/delete/{{ $item->id }}"><i style="font-size:10px" class="fa fa-close"></i></a>
-					</th>
-				</tr>
-				@endforeach
-			
-			</tbody>
-		</table>
-
+			</div>
+		</div>
 	</div>
 </div>
 

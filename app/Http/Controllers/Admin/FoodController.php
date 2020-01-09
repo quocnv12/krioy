@@ -59,7 +59,7 @@ class FoodController extends Controller
     //danh sách food
     public function GetList() 
     {
-        $data['foods']=food::all();
+        $data['foods']=food::orderBy('id','ASC')->get();
         return view('pages.food.food.list_food',$data);
     }
 

@@ -8,7 +8,7 @@ Thực đơn
     <section class="page-top container">
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
             <div class="row">
-                <ul class="ul-td">
+                <ul class="ul-td" style="width:100%">
                 <div class="col-md-12">
                     <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
                     <li _ngcontent-c16="" class="active-1"><a _ngcontent-c16="" href="kids-now/food">Food</a></li>
@@ -17,56 +17,53 @@ Thực đơn
                 </ul>
             </div>
         </div>
-
-        <div class="row">
             <div class="mat-card">
-             {{-- <a href=""><i style="font-size: 30px;text-align:right" class="fa fa-plus-circle" aria-hidden="true"></i></a> --}}
-            <a style="margin:0px;" href="{{ route('menu-meal-type-add') }}" class="btn btn-success btn-cons"" title="Add Meal Type"><i style="" class="fa fa-plus-circle"></i> Add</a>
-            @if (session('thongbao'))
-                <p style="font-size: 12px;font-weight: 100;color:#0D1CE9;font-style: italic;line-height: 25px;margin-top:10px;">{{ session('thongbao') }} </p>
-            @endif
-            @if (session('delete'))
-            <p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:10px;">{{ session('delete') }} </p>
-            @endif
-            <div class="mat-content">
-                    <div class="panel">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt ut
-                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
-                 
-                    <div>
-
-                            <table border="0">
-                                    <tbody>
-                                        <tr class="td1">
-                                            <th>STT</th>
-                                            <th>Meal Type</th>
-                                            <th>Hành Động</th>
-                                     
-                                        </tr>
-                                        @foreach ($mealtypes as $key=>$item)
-                                        <tr style="text-align: center;line-height: 50px;"  class="td2" >
-                                            <td class="" style="width: 200px;" ><span style="color:#555;">{{ $key+1 }}</span></td>
-                                            <td class=""><span style="color:#555;">{{ $item->name }}</span></td>
-                                            <td style="width: 200px;" >
-                                                    <a style="margin:0px;" href="{{ route('menu-meal-type-edit',['id'=>$item->id]) }}" class="btn btn-warning btn-cons"" title="Edit Meal Type"><i class="fa fa-pencil"></i></a>
-                                                    <a href="{{ route('menu-meal-type-del',['id'=>$item->id]) }}" onclick="return confirm('Bạn chắc chắn xóa loại bữa ăn này không !')" style="margin:0px;" class="btn btn-danger btn-cons" title="Delete Meal Type"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                        @endforeach
-                                        
-                                    </tbody>
-                                </table>
-                    
-                       
+                <div class="row-fluid">
+                    <div class="span12">
+                      <div class="grid simple ">
+                        <div class="grid-title">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4>Meal <span class="semi-bold">Type</span></h4>
+                                </div>
+                                <div style="text-align:right;padding-right:22px" class="col-md-6">
+                                    <a style="margin:0px;" href="{{ route('menu-meal-type-add') }}" class="btn btn-success btn-cons"" title="Add Meal Type"><i style="" class="fa fa-plus-circle"></i> Add</a>
+                                </div>
+                                @if (session('thongbao'))
+                                <p style="font-size: 12px;margin-left:11px;font-weight: 100;color:#0D1CE9;font-style: italic;line-height: 25px;margin-top:10px;">{{ session('thongbao') }} </p>
+                                @endif
+                                @if (session('delete'))
+                                <p style="font-size: 12px;margin-left:11px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:10px;">{{ session('delete') }} </p>
+                                @endif 
+                          </div>
+                        </div>
+                        <div class="grid-body ">
+                          <table class="table table-striped" id="example">
+                            <thead>
+                              <tr>
+                                <th>ID</th>
+                                <th style="width:80%">Meal Type</th>
+                                <th>Thao Tác</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($mealtypes as $item)
+                                <tr class="odd gradeX">
+                                    <td style="text-align:center">{{ $item->id }}</td>
+                                    <td style="text-align:center">{{ $item->name}}</td>
+                                    <td style="text-align:center">
+                                    <a href="kids-now/food/menu-meal-type/edit/{{ $item->id }}" title="Edit Food" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                        <a onclick="return confirm('Delete meal type ? Do you want continue !')"" title="Delete Food" href="kids-now/food/menu-meal-type/delete/{{ $item->id }}" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                    </td>
+                                </tr>
+                              @endforeach
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
                     </div>
                 </div>
             </div>
-           
-        </div>
     </section>
 </body>
 @endsection

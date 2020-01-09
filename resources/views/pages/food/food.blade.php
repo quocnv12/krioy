@@ -61,7 +61,7 @@ Food
                         </div>
                     </div>
                     <div class="update">
-                        <p style="text-align:left" >Select Meal Type *</p>
+                        <p style="text-align:left;margin-top:12px" >Select Meal Type *</p>
                         <div class="tab">
                             @foreach ($mealtypes as $item)
                             <button value="{{ $item->id }}" style="margin:5px 26px 5px 42px;font-size:14px" type="button" data-id="lunch"
