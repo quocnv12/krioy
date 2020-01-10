@@ -68,6 +68,7 @@ Food
                                 class="tablinks">{{ $item->name }}</button>
                             @endforeach
                             <input id="array_program" type="hidden" value="" name="mealtype">
+
                         </div>
                     </div>
                     {{--  <div style="text-align:left" id="clock" style="margin: 20px 0;font-size: 18px;"></div>  --}}

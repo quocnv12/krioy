@@ -16,7 +16,7 @@
 					</ul>
 					</div>
 					<div class="col-sm-6">
-						<button type="submit" href="{{route('admin.observations.list')}}" class="btn btn-success" style="float: right">Quản lí danh sách</button>
+						<a  href="{{route('admin.observations.list')}}" class="btn btn-success" style="float: right">Quản lí danh sách</a>
 					</div>
 				</div>
 			</div>

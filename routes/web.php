@@ -92,6 +92,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('search',['as'=>'admin.health.search','uses'=>'Admin\HealthController@getSearch']);
         Route::post('search',['as'=>'admin.health.search','uses'=>'Admin\HealthController@postSearch']);
         Route::get('them_child',['as'=>'admin.health.child','uses'=>'Admin\HealthController@getChild']);
+        Route::post('them_child',['as'=>'admin.health.child','uses'=>'Admin\HealthController@postChild']);
 
 
 
@@ -112,6 +113,8 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::post('sua/{id}',['as'=>'admin.observations.postEdit','uses'=>'Admin\ObservationController@postEdit']);
         Route::get('search',['as'=>'admin.observations.search','uses'=>'Admin\ObservationController@getSearch']);
         Route::post('search',['as'=>'admin.observations.search','uses'=>'Admin\ObservationController@postSearch']);
+        Route::get('them',['as'=>'admin.observations.getAdd','uses'=>'Admin\ObservationController@getAdd']);
+        Route::post('them',['as'=>'admin.observations.getAdd','uses'=>'Admin\ObservationController@postAdd']);
 
 
     });

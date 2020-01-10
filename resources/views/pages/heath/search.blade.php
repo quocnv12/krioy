@@ -54,7 +54,7 @@
                     <td style="padding: 30px">{{$item->incident}}</td>
                     <td style="padding: 30px"> <img src="images/{{$item->image}}" width="30" height="30"></td>
                     <td>
-                        <a href="" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
+                        <a href="{!! URL::route('admin.health.getEdit', $item->id ) !!}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
                         <a  href="{!! URL::route('admin.health.getDelete', $item->id ) !!}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
                     </td>
                 </tr>

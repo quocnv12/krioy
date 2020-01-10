@@ -4,9 +4,9 @@
 @endsection
 @section('content')
 
-    <div class="modal-body">
+    <div class="observation-sua">
         <div class="row" style="margin: 5px">
-                <div class="col-lg-12">
+
                     <form role="form" method="post" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="id" class="idProduct">
@@ -61,8 +61,8 @@
                                 <div class="col-sm-9">
                                     <select class="form-control name" name="id_observations" style="width: 500px;height: 34px">
                                         <option value="">--Chọn Observation--</option>
-                                        @foreach($vendors as $vendors)
-                                            <option value="{{ $vendors->id }}">{{$vendors->name}}</option>
+                                        @foreach($vendors as $cate)
+                                            <option value="{{ $cate->id }}">{{ $cate->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

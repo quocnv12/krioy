@@ -18,107 +18,86 @@
             </div>
         </div>
         <div class="mat-card">
-            <form class="" method="POST" action="{{ route('admin.health.getEdit',$health->id) }}">
+            <form method="post" action="" >
                 @csrf
-            <div class="mat-content">
-                <button class="accordion add-staff">K5 KHANH Profile</button>
-                <div class="row">
-                    <div class="col-md-2 textera-img">
-                        <a href="#">
-                            <img src="images/Staff.png" alt="">
-                            <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
-                        </a>
-                    </div>
-
-                    <div class="col-md-10">
-                        <div class="add a1 ">
-                            <div class="row">
-                                <div class="col-md-6 input_box">
-                                    <span>First Name *</span>
-                                    <input type="text" value="{{$health->Childrent->first_name}}" name="first_name" placeholder="First Name *">
-                                </div>
-                                <div class="col-md-6 input_box">
-                                    <span>Last Name *</span>
-                                    <input type="text" value="{{$health->Childrent->last_name}}"name="last_name" placeholder="Last Name *">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="add">
-                                    <div class="col-md-6 input_box">
-                                        <span>Birthday</span>
-                                        <input type="date" value="{{$health->Childrent->birthday}}"name="birthday" placeholder="Phone Number *">
-                                    </div>
-                                    <div class="col-md-6 input_box">
-                                        <span>Gender *</span>
-                                        <select>
-                                            <option>Gender</option>
-                                            <option>Nam</option>
-                                            <option>Nữ</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <hr style="margin: 0;">
-                <div class="form-group">
-                    <label for="price">Sick</label>
-                    <input type="text" name="sick"  value="{{$health->sick}}" placeholder="Nhập sick" class="form-control">
-
-                </div>
-                <div clas="form-group">
-                    <label>Growth</label>
+                <div class="mat-content">
+                    <button class="accordion add-staff">K5 KHANH Profile</button>
                     <div class="row">
-
-                        <div class="col-sm-6" style="text-align: center; ">
-                            <span>Height</span>
-                            <input type="text" name="growth_height" value="{{$health->growth_height}}" placeholder="Enter details here *" >
+                        <div class="col-md-2 textera-img">
+                            <a href="#">
+                                <img src="images/Staff.png" alt="">
+                                <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
+                            </a>
                         </div>
-                        <div class="col-sm-6"style="text-align: center; ">
-                            <span>Weight</span>
-                            <input type="text" name="growth_weight"   value="{{$health->growth_weight}}" placeholder="Enter details here *">
+                        <div class="col-md-10">
+                            <div class="add a1 ">
+                                <div class="row">
+                                    <div class="col-md-6 input_box">
+                                        <span>First Name *</span>
+                                        <input type="text" value="{{$childrent->first_name}}" name="first_name" placeholder="First Name *">
+                                    </div>
+                                    <div class="col-md-6 input_box">
+                                        <span>Last Name *</span>
+                                        <input type="text" value="{{$childrent->last_name}}"name="last_name" placeholder="Last Name *">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="add">
+                                        <div class="col-md-12 input_box">
+                                            <span>Birthday</span>
+                                            <input type="date" value="{{$childrent->birthday}}"name="birthday" placeholder="Phone Number *">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="form-group">
+                        <label for="price">Sick</label>
+                        <input type="text" name="sick"  value="{{$health->sick}}" placeholder="Nhập sick" class="form-control">
+                    </div>
+                    <div clas="form-group">
+                        <label>Growth</label>
+                        <div class="row">
+                            <div class="col-sm-6" style="text-align: center; ">
+                                <span>Height</span>
+                                <input type="text" name="growth_height" value="{{$health->growth_height}}" placeholder="Enter details here *" >
+                            </div>
+                            <div class="col-sm-6"style="text-align: center; ">
+                                <span>Weight</span>
+                                <input type="text" name="growth_weight"   value="{{$health->growth_weight}}" placeholder="Enter details here *">
+                            </div>
+                        </div>
+                    </div>
 
+                    <div class="form-group">
+                        <label for="price">medicine</label>
+                        <input type="text" name="medicine"  value="{{$health->medicine}}"placeholder="Nhập medicine nếu có" class="form-control">
 
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="price">medicine</label>
-                    <input type="text" name="medicine"  value="{{$health->medicine}}"placeholder="Nhập medicine nếu có" class="form-control">
-
-                </div>
-
-                <div class="form-group">
-                    <label for="price">incident</label>
-                    <input type="text" name="incident" value="{{$health->incident}}" placeholder="Nhập incident nếu có" class="form-control">
-
-                </div>
-                <div class="form-group">
-                    <label>Hình ảnh</label>
-                    <br>
-                    <img src="" class="img-responsive img-rounded" alt="Image" style="width: 150px; height: 200px;">
-                    <input type="hidden" name="fImageCurrent" value="">
-                    <br>
-                    <input type="file" name="image">
-                    <div>
+                    <div class="form-group">
+                        <label for="price">incident</label>
+                        <input type="text" name="incident" value="{{$health->incident}}" placeholder="Nhập incident nếu có" class="form-control">
 
                     </div>
-                </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label>Hình ảnh</label>
+                            <br>
+                            <img src="{!! asset('images/'.$health->image) !!}" class="img-responsive img-rounded" alt="Image" style="width: 150px; height: 200px;">
+                            <input type="hidden" name="fImageCurrent" value="{!! $health->image !!}">
+                            <br>
+                            <input type="file" name="image" >
+                        </div>
+                    </div>
             </form>
         </div>
-
-
         <div class="comment">
             <div class="button" style="text-align: center;">
-                <button>
-                    <span>CANCEL</span>
-                </button>
-                <button class="button2">
-                    <span>SAVE</span>
-                </button>
+                <button type="submit" class="btn btn-success">Sửa</button>
+                <button type="reset" class="btn btn-primary">Nhập Lại</button>
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
             </div>
         </div>
         </div>
