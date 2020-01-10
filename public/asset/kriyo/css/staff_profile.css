@@ -22,7 +22,7 @@ table{
 }
 table th{
 	text-align: center;
-	padding: 10px 0;
+	padding: 15px 0;
 }
 .active3{
 	color: green;
@@ -37,7 +37,7 @@ table th{
 	margin: 20px 0;
 }
 .mat-content div a img{
-    width: 70%;height: 100px;
+    width: 70%;height: auto;
     object-fit: cover;margin: 10px 0;
     border-radius: 50%;
     border: 2px solid #ff4081;
@@ -47,7 +47,6 @@ table th{
 }
 .a1{
     margin: 10px 0;
-    margin-right: 50px;
 }
 .a1-1{
     margin: 30px 0;
@@ -62,7 +61,7 @@ table th{
     padding: 0 15px;  
     transition:0.7s all;
     top:0;
-    font-size: 16px;
+    font-size: 14px;
     position: relative;
 }
 input:focus::-webkit-input-placeholder {
@@ -89,6 +88,10 @@ input:focus::-webkit-input-placeholder {
   z-index: 10;
   left: 20px;
 }
+.expenses-detail span.expenses-detail_span_active{
+    color: rgb(83, 99, 214);
+}
+
 .add > div select{
     margin-top: 27px;
     width: 100%;
@@ -299,7 +302,7 @@ select .mat-card .mat-content div > div.childClass:hover {
 /*EDIT CHILDREN*/
 .btnClass[_ngcontent-c10] {
     position: relative;
-    left: 75%;
+    left: 65%;
     transform: translate(-50%,-50%);
     background-color: #ff4081;
     color: #fff;
@@ -361,15 +364,14 @@ section .select-all div a.done{
     background: #ff4081;
 }
 div.select-child-img{
-    width:175px;
-    padding:10px;cursor:pointer;margin: 5px 18px;
+    padding:10px;cursor:pointer;
+    margin: 10px 0;
 }
 div.select-child-img span{
     color:#5363d6;;margin: 10px 0;font-weight: bold;font-size: 16px;
 }
 .select-child-img:hover{
     box-shadow: 0px 0px 8px 0px #888888;
-    top:7px;
 }
 .all-1-click{
     background: #ffd5e3 !important;
@@ -523,17 +525,6 @@ button.mat-button-class{
     }
     .panel-1{
         margin: 0;margin-top: 10px;
-    }
-}
-
-@media screen and (max-width: 462px){
-    div.select-child-img{
-        width: 150px;
-    }
-}
-@media screen and (max-width: 411px){
-    div.select-child-img{
-        width: 100px;
     }
 }
 @media (min-width: 337px) and (max-width: 396px){

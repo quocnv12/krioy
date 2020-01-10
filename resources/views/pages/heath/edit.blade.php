@@ -95,10 +95,9 @@
         </div>
         <div class="comment">
             <div class="button" style="text-align: center;">
-                <button>
-                    <a href="{{route('admin.health.list')}}">CANCEL</a>
-                </button>
-                <button type="submit" class="btn btn-primary">Lưu</button>
+                <button type="submit" class="btn btn-success">Sửa</button>
+                <button type="reset" class="btn btn-primary">Nhập Lại</button>
+                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
             </div>
         </div>
         </div>

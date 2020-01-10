@@ -4,9 +4,9 @@
 @endsection
 @section('content')
 
-    <div class="modal-body">
+    <div class="observation-sua">
         <div class="row" style="margin: 5px">
-                <div class="col-lg-12">
+
                     <form role="form" method="post" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="id" class="idProduct">

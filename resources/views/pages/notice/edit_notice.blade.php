@@ -16,14 +16,14 @@
             <div class="row">
                 <div class="col-lg-10 col-md-10 col-sm-10">
                     <ul class="ul-td">
-                        <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">HOME</a></li>
-                        <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">NOTICE BOARD</a></li>
-                        <li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a _ngcontent-c16="">EDIT NOTICE</a></li>
+                        <li class="level1"><a href="kids-now">HOME</a></li>
+                        <li class="active1"><a href="kids-now/notice-board">NOTICE BOARD</a></li>
+                        <li class="active1 active-1" style="pointer-events:none;"><a href="">EDIT NOTICE</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target=".bd-example-modal-sm">
                     <button class="notice" type="button">
-                        <span>DELETE</span>
+                        <span><a href="kids-now/notice-board/delete/{{$notice_board->id}}" onclick="return deleteConfirm()" style="color: inherit;">DELETE</a></span>
                     </button>
                 </div>
             </div>
@@ -59,7 +59,7 @@
                     <div class="add">
                         <div class="input_box" style="width: 100%;">
                             <span>Title of Notice *</span>
-                            <input type="text" name="title" placeholder="Title of Notice *" value="{{old('title')}}">
+                            <input type="text" name="title" placeholder="Title of Notice *" value="{{$notice_board->title}}">
                             @if ($errors->has('title'))
                                 <div class="text text-danger">
                                     {{ $errors->first('title') }}
@@ -77,7 +77,20 @@
                                 </div>
                                 <div class="col-xs-3 col-md-3">
                                     <label class="label-checkbox">
-                                        <input type="checkbox" name="important" @if(old('important')) checked @endif>
+                                        <input type="checkbox" name="important" @if($notice_board->important == 1) checked @endif>
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-xs-9 col-md-9">
+                                    <p>Archive</p>
+                                </div>
+                                <div class="col-xs-3 col-md-3">
+                                    <label class="label-checkbox">
+                                        <input type="checkbox" name="archive"  @if($notice_board->archive == 1) checked @endif>
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
@@ -88,7 +101,7 @@
                         <div class="row">
                             <div class="col-md-11 input_box">
                                 <span>Enter Details here *</span>
-                                <input type="text" name="content" placeholder="Enter Details here *" value="{{old('content')}}">
+                                <input type="text" name="content" placeholder="Enter Details here *" value="{{$notice_board->content}}">
                                 @if ($errors->has('content'))
                                     <div class="text text-danger">
                                         {{ $errors->first('content') }}
@@ -99,11 +112,12 @@
                                 <div class="zoom">
                                     <a _ngcontent-c9="" class="zoom-fab zoom-btn-large fa fa-paperclip" id="button_file" style="font-size: 30px;cursor: pointer"></a>
                                     {{--<a _ngcontent-c9="" class="zoom-fab zoom-btn-large fa fa-image" id="button_image" style="font-size: 30px;cursor: pointer"></a>--}}
-                                    <input type="file" id="file" name="clip_board" multiple value="{{old('clip_board')}}">
+                                    <input type="file" id="file" name="clip_board[]" multiple="multiple" value="{{old('clip_board')}}">
                                 </div>
                             </div>
                             <div class="col-md-12" style="color: blue; margin-top: 50px; display: flex; justify-content: flex-start; ">
                                 <p id="show_clip_board"></p>
+
                                 @if ($errors->has('clip_board'))
                                     <div class="text text-danger">
                                         {{ $errors->first('clip_board') }}
@@ -111,7 +125,26 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="button" style="text-align: center;">
+                        <div class="">
+                            @if(session('notify_clipboard'))
+                                <div class="alert alert-success">
+                                    {{session('notify_clipboard')}}
+                                </div>
+                            @endif
+                            @foreach(explode('/*endfile*/',$notice_board->clip_board) as $clipboard)
+                                <div class="col-md-7" style="text-align: left">
+                                    <a href="kids-now/notice-board/clip_board/{{$notice_board->id}}/{{$clipboard}}" target="_blank">{{Str::limit($clipboard,50)}}</a>
+                                </div>
+                                <div class="col-md-2">
+                                    @if($clipboard)<a href="kids-now/notice-board/delete_clipboard/{{$notice_board->id}}/{{$clipboard}}" style="color: inherit"><button type="button" class="btn btn-xs btn-danger">Delete</button></a>@endif
+                                </div>
+                                <div class="col-md-3">
+
+                                </div>
+                            @endforeach
+                                <br>
+                        </div>
+                        <div class="button" style="text-align: center; margin-top: 100px">
                             <button type="reset">
                                 <span>CANCEL</span>
                             </button>
@@ -122,30 +155,30 @@
                     </div>
                 </div>
             </div>
-            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-sm" style="">
-                    <div class="modal-content" style="font-size: 18px;">
-                        <h3>Aler</h3>
-                        <hr style="clear:both;margin-top:0px;margin-bottom:0px">
-                        <div align="center">
-                            <p style="margin: 0;font-size: 18px;">This Notice data would be deleted permanently</p>
-                        </div>
-                        <hr style="clear:both;margin-top:0px;margin-bottom:0px">
-                        <div class="row" style="margin: 0;">
-                            <div class="col-xs-6 col-md-6 mat-dialog-actions " style="border-right: 1px solid lightgrey;">
-                                <button class="mat-button-class" style="color: #5363d6;border-left: 1px solid transparent;">
-                                    <span class="mat-button-wrapper">OK</span>
-                                </button>
-                            </div>
-                            <div class="col-xs-6 col-md-6 mat-dialog-actions">
-                                <button class="mat-button-class" style="color: red;">
-                                    <span class="mat-button-wrapper">CANCEL</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {{--<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">--}}
+                {{--<div class="modal-dialog modal-sm" style="">--}}
+                    {{--<div class="modal-content" style="font-size: 18px;">--}}
+                        {{--<h3>Alert</h3>--}}
+                        {{--<hr style="clear:both;margin-top:0px;margin-bottom:0px">--}}
+                        {{--<div align="center">--}}
+                            {{--<p style="margin: 0;font-size: 18px;">This Notice data would be deleted permanently</p>--}}
+                        {{--</div>--}}
+                        {{--<hr style="clear:both;margin-top:0px;margin-bottom:0px">--}}
+                        {{--<div class="row" style="margin: 0;">--}}
+                            {{--<div class="col-xs-6 col-md-6 mat-dialog-actions " style="border-right: 1px solid lightgrey;">--}}
+                                {{--<button class="mat-button-class" style="color: #5363d6;border-left: 1px solid transparent;">--}}
+                                    {{--<span class="mat-button-wrapper">OK</span>--}}
+                                {{--</button>--}}
+                            {{--</div>--}}
+                            {{--<div class="col-xs-6 col-md-6 mat-dialog-actions">--}}
+                                {{--<button class="mat-button-class" style="color: red;">--}}
+                                    {{--<span class="mat-button-wrapper">CANCEL</span>--}}
+                                {{--</button>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
         </form>
     </section>
     </body>
@@ -166,22 +199,22 @@
     
     <!-- Main Script -->
     <script src="asset/kriyo/js/main.js"></script>
-    <script>
-		var acc = document.getElementsByClassName("accordion");
-		var i;
+    {{--<script>--}}
+		{{--var acc = document.getElementsByClassName("accordion");--}}
+		{{--var i;--}}
 
-		for (i = 0; i < acc.length; i++) {
-		  acc[i].addEventListener("click", function() {
-		    this.classList.toggle("active");
-		    var panel = this.nextElementSibling;
-		    if (panel.style.maxHeight) {
-		      panel.style.maxHeight = null;
-		    } else {
-		      panel.style.maxHeight = panel.scrollHeight + "px";
-		    } 
-		  });
-		}
-	</script>
+		{{--for (i = 0; i < acc.length; i++) {--}}
+		  {{--acc[i].addEventListener("click", function() {--}}
+		    {{--this.classList.toggle("active");--}}
+		    {{--var panel = this.nextElementSibling;--}}
+		    {{--if (panel.style.maxHeight) {--}}
+		      {{--panel.style.maxHeight = null;--}}
+		    {{--} else {--}}
+		      {{--panel.style.maxHeight = panel.scrollHeight + "px";--}}
+		    {{--} --}}
+		  {{--});--}}
+		{{--}--}}
+	{{--</script>--}}
 	<script type="text/javascript">
         var array = $('#array_programs_old').val().split(',');
 
@@ -191,7 +224,7 @@
             if ($(this).hasClass('tablinks1_active')) {
                 $(this).removeClass('tablinks1_active');
                 var program_pop = $(this).val();
-                array.pop(program_pop);
+                array.splice( array.indexOf(program_pop), 1 );
             }else{
                 $(this).addClass('tablinks1_active');
                 var program_push = $(this).val();
@@ -215,12 +248,11 @@
 		});
     </script>
     <script>
-        do {
+
+        $('#file').change(function() {
             var filename = $('#file').val();
             $('#show_clip_board').html(filename);
-        }while ($('#file').change())
-
-
+        });
 
         $('#file').hide();
         $('#image').hide();
@@ -234,6 +266,10 @@
         $(document).ready(function () {
             $('.accordion').click()
         })
+
+        function deleteConfirm() {
+            return confirm("Confirm delete this notice ?");
+        }
     </script>
 
 @endsection

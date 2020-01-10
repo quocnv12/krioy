@@ -8,11 +8,16 @@
 	<section class="page-top container">
 		<div class="tieu-de add" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
-				<div class="col-md-9">
+				<div class="col-md-6">
 					<ul class="ul-td">
 						<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="index.html">HOME</a></li>
 						<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="food.html">PROGRAM</a></li>
 					</ul>
+				</div>
+				<div class="col-md-6">
+					<form class="typeahead" role="search" style="text-align: left">
+						<input type="search" name="q" class="form-control search-input" placeholder="Search Program..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 500px;">
+					</form>
 				</div>
 			</div>
 		</div>
@@ -26,9 +31,9 @@
 				<div class="row">
 					@foreach($programs as $program)
 						<div class="col-md-6 col-sm-6">
-							<div class="row program-content-1" data-href="view-program.html">
+							<div class="row program-content-1" data-href="kids-now/program/view/{{$program->id}}">
 								<div class="col-md-9 col-sm-9">
-									<b style="color: #9999e6;">{{$program->program_name}}</b>
+									<b style="color: #9999e6;"><a href="kids-now/program/view/{{$program->id}}">{{$program->program_name}}</a></b>
 								</div>
 								<div class="col-md-3 col-sm-3" style="padding-left: 0px;text-align: right;">{{$program->total_children}}</div>
 							</div>
@@ -65,4 +70,46 @@
 		    });
 		});
     </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function($) {
+			var engine1 = new Bloodhound({
+				remote: {
+					url: 'http://localhost:8000/kids-now/program/search/program?q=%QUERY%',
+					wildcard: '%QUERY%'
+				},
+				datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
+				queryTokenizer: Bloodhound.tokenizers.whitespace
+			});
+
+
+			$(".search-input").typeahead({
+				hint: true,
+				highlight: true,
+				minLength: 1
+			}, [
+				{
+					source: engine1.ttAdapter(),
+					name: 'programs',
+					display: function(data) {
+						return data.name;
+					},
+					templates: {
+						empty: [
+							'<div class="list-group search-results-dropdown" style="width: 500px;"><div class="list-group-item">Nothing found.</div></div>'
+						],
+						header: [
+
+						],
+						suggestion: function (data) {
+							return '<a href="/kids-now/program/view/' + data.id + '" class="list-group-item" style="width: 500px;"> ' + data.program_name +  '</a>';
+						}
+					}
+				},
+			]);
+		});
+	</script>
+	<script>
+		localStorage.getItem('array_children');
+	</script>
 @endsection

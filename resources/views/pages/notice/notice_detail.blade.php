@@ -8,10 +8,10 @@
 	<section class="page-top container">
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
-				<ul class="ul-td">
-					<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">HOME</a></li>
-					<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">NOTICE BOARD</a></li>
-					<li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a _ngcontent-c16="">NOTICE DETAIL</a></li>
+				<ul class="ul-td" style="width: 100%">
+					<li  class="level1"><a href="kids-now">HOME</a></li>
+					<li  class="active1"><a href="kids-now/notice-board">NOTICE BOARD</a></li>
+					<li  class="active1 active-1" style="pointer-events:none;"><a href="">NOTICE DETAIL</a></li>
 				</ul>
 			</div>
 		</div>
@@ -23,7 +23,7 @@
 					<div _ngcontent-c20="" class="row" style="" data-toggle="modal" data-target=".bd-example-modal-sm">
 						<!---->
 						<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer;">
-							<button _ngcontent-c20="" class="btn progBtn limitText" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" disabled>Attendance </button>
+
 						</div>
 					</div>
 				</div>
@@ -50,9 +50,9 @@
 							<div class="col-xs-9 col-md-9">
 								<p>Archive</p>
 							</div>
-							<div class="col-xs-3 col-md-3">
+							<div class="col-xs-3 col-md-3" data-toggle="modal" data-target=".bd-example-modal-sm">
 								<label class="label-checkbox">
-									<input type="checkbox" checked="checked" disabled>
+									<input type="checkbox" @if($notice_board->archive) checked="checked" @endif disabled>
 									<span class="checkmark"></span>
 								</label>
 							</div>
@@ -64,8 +64,11 @@
 						<div class="col-md-11" style="margin-top: 20px">
 							<p>{{ $notice_board->content }}</p>
 						</div>
-						<div class="col-md-12">
-							<a href="kids-now/notice-board/clip_board/{{$notice_board->id}}" target="_blank">{{$notice_board->clip_board}}</a>
+						<div class="">
+							@foreach(explode('/*endfile*/',$notice_board->clip_board) as $clipboard)
+								<a href="kids-now/notice-board/clip_board/{{$notice_board->id}}/{{$clipboard}}" target="_blank">{{$clipboard}}</a>
+								<br>
+							@endforeach
 						</div>
 					</div>
 					<div class="" style="margin-top: 50px">

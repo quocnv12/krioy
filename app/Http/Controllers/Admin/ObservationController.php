@@ -17,7 +17,7 @@ class ObservationController extends Controller
     }
     public function getAdd(){
         $observationtype = ObservationModel::all();
-        return view('pages.observation.observation');
+        return view('pages.observation.observation', compact('observationtype'));
     }
     public function getDelete($id){
         $observationtype= DB::table('observations')->where('id',$id)->delete();

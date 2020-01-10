@@ -16,14 +16,6 @@
                         <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">Observation</a></li>
                     </ul>
                 </div>
-                <div class="col-md-6">
-                    <ul class="ul-td" style="float: right">
-                        <form class="form-inline" action="{{route('admin.observations.search')}}" method = "get">
-                            <input class="form-control mr-sm-2" type="search"  placeholder="Search" name="Key" aria-label="Search" required>
-                            <button class="btn my-2 my-sm-0" type="submit" >Search</button>
-                        </form>
-                    </ul>
-                </div>
 
 
             </div>
@@ -43,7 +35,7 @@
                                 <tr>
                                     <th style="text-align:left;">STT</th>
                                     <th style="text-align:left;width:18%">Frist_name</th>
-                                    <th style="text-align:left;width:20%">Frist_name</th>
+                                    <th style="text-align:left;width:20%">Last name</th>
                                     <th style="text-align:left;width:18%">Birthday</th>
                                     <th style="text-align:left;width:18%">Gender</th>
                                     <th style="text-align:center;width:12%">Observation</th>
