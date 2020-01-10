@@ -163,7 +163,7 @@
 		$(document).ready(function($) {
 			var engine1 = new Bloodhound({
 				remote: {
-					url: 'http://localhost:8000/kids-now/children/search/name?q=%QUERY%',
+					url: 'http://kidsnow.web88.vn/kids-now/children/search/name?q=%QUERY%',
 					wildcard: '%QUERY%'
 				},
 				datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
