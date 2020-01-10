@@ -21,19 +21,21 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="mat-card">
+				<div class="mat-card" style="width: 100%">
 					<div class="mat-content">
 						<button class="accordion accordion1 clearfix">
 							<p style="float: left;">Children *</p>
-
 								<form class="typeahead" role="search" style="float: right; text-align: left">
 									<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">
 								</form>
-
 						</button>
 
-						<div class="panel">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+						<div class="panel" >
+							<div class="row" id="children_list">
+								{{-- ajax ObservationController@addSelectChildren do vao day--}}
+							</div>
+							<input type="hidden" name="array_all_children" value="">
 						</div>
 					</div>
 					<hr>
@@ -139,7 +141,7 @@
 		$(document).ready(function($) {
 			var engine1 = new Bloodhound({
 				remote: {
-					url: 'http://localhost:8080/kids-now/observations/search/children?q=%QUERY%',
+					url: 'http://localhost:8000/kids-now/observations/search/children?q=%QUERY%',
 					wildcard: '%QUERY%'
 				},
 				datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
@@ -170,8 +172,47 @@
 					}
 				},
 			]);
-
-
 		});
+	</script>
+
+	<script>
+		$(document).ready(function () {
+			$('.accordion').click();
+		})
+
+
+		//begin select children
+		var array_children = [];
+
+		function deleteChild(id_children) {
+			array_children.splice( array_children.indexOf(id_children), 1 );
+			console.log('array children sau khi xoa: '+array_children)
+		}
+
+		function getIdChildren(id){
+			$.ajax({
+				type: 'get',
+				url: '{{ URL::to('kids-now/observations/select_child/add') }}',
+				data: {
+					'id_children' : id
+				},
+				success: function(data){
+					if (! array_children.includes(id)){
+						$('#children_list').append(data);
+						array_children.push(id);
+						console.log('id children them vao:'+id)
+						console.log('day la array children khi them:'+array_children);
+					}else {
+						alert('children exists')
+					}
+				}
+			});
+		}
+		//end select children
+
+		// $('#submit_button').click(function() {
+		// 	$('#array_all_children').attr('value', array_children);
+		// 	$('#addObservation').submit();
+		// });
 	</script>
 @endsection
