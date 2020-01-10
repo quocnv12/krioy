@@ -13,14 +13,6 @@
 		}
 	</style>
 
-    <style>
-        .text-danger{
-            display: flex;
-            justify-content: flex-start;
-            margin: 15px;
-        }
-    </style>
-
 	<body>
 
 	<section class="page-top container">
@@ -39,9 +31,7 @@
 			</div>
 
 		@endif
-		<form style="width: auto;
-    margin: 0 0;
-    text-align: center" action="kids-now/children/add" method="post" name="form" enctype="multipart/form-data">
+		<form style="width: auto;margin: 0;text-align: center" action="kids-now/children/add" method="post" name="form" enctype="multipart/form-data">
 			@csrf
 
 		<div class="mat-card">

@@ -84,8 +84,6 @@ a:focus{
     margin: 0px auto 10px;
     background-color: #ff4081;}
 .product1 .line {
-  margin-right: 0;
-  margin-left: 0;
   margin-top: 3%; }
   .product1 .line .item {
     padding: 1%;
@@ -113,7 +111,8 @@ a:focus{
         font-style: normal;
         font-weight: 500; 
         padding-top: 13px;
-        margin-bottom: 1rem;}
+        margin-bottom: 1rem;
+        text-align: center;}
         .product1 .line .item .title p:hover {
           font-weight: 700; }
 
@@ -126,8 +125,6 @@ a:focus{
       color: #333333;
       text-align: center;}
   .product2 .line {
-    margin-right: 0;
-    margin-left: 0;
     margin-top: 3%; }
     .product2 .line .item {
       padding: 1%;
@@ -165,8 +162,6 @@ a:focus{
     color: #333333;
     text-align: center;}
 .product3 .line {
-  margin-right: 0;
-  margin-left: 0;
   margin-top: 3%; }
   .product3 .line .item {
     padding: 1%;
@@ -206,8 +201,6 @@ a:focus{
       color: #333333;
       text-align: center; }
   .product4 .line {
-    margin-right: 0;
-    margin-left: 0;
     margin-top: 3%; }
     .product4 .line .item {
       padding: 1%;
@@ -263,7 +256,7 @@ a:focus{
     margin: 0 auto 20px;
   }
 }
-@media screen and (max-width: 575px) {
+@media screen and (max-width: 767px) {
   .line .item{
     width: 250px;
     margin: auto;
@@ -278,12 +271,6 @@ a:focus{
 @media screen and (max-width: 399px) {
   .line .item{
     width: 150px;
-    margin: auto;
-  }
-}
-@media screen and (max-width: 399px) {
-  .line .item{
-    width: 120px;
     margin: auto;
   }
 }
