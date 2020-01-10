@@ -176,16 +176,16 @@
 				</div>
 			</div>
 		</div>
-<<<<<<< HEAD
+
 		<div class="icon-plus" title="add">
-<<<<<<< HEAD
-=======
+
+
 		<div class="icon-plus" title="edit">
->>>>>>> 7930ba2beb977083d3519d56e339a651a9f0e765
+
 			<a href="kids-now/program/edit/{{$program->id}}">
-=======
+
 			<a href="edit-program.html">
->>>>>>> parent of db6852b... khanh'
+
 				<i class="fa fa-edit"></i>
 			</a>
 		</div>
