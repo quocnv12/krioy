@@ -40,11 +40,12 @@ Food
             <div class="mat-card" style="">
                 <div class="mat-content">
                     <div class="row">
-                        <a style="margin:5px 0px 13px 14px;width:100px" href="kids-now/food/menu-meal-type" class="btn btn-primary">Meal Tpye</a>
-                        <a style="margin:5px 0px 13px 14px;width:100px" href="kids-now/food/menu-quantity" class="btn btn-primary">Quantity</a>
-                        <a style="margin:5px 0px 13px 14px;width:100px" href="kids-now/food/menu-food-name" class="btn btn-primary">Food Name</a>
-                        <a style="margin:5px 0px 13px 14px;width:100px" href="kids-now/food/list" class="btn btn-primary">Food</a>
+                        <a style="margin:5px 0px 13px 14px;width:100px;background:#5363d6;color:white" href="kids-now/food/menu-meal-type" class="btn btn-defaul">Meal Tpye</a>
+                        <a style="margin:5px 0px 13px 14px;width:100px;background:#5363d6;color:white" href="kids-now/food/menu-quantity" class="btn btn-defaul">Quantity</a>
+                        <a style="margin:5px 0px 13px 14px;width:100px;background:#5363d6;color:white" href="kids-now/food/menu-food-name" class="btn btn-defaul">Food Name</a>
+                        <a style="margin:5px 0px 13px 14px;width:100px;background:#5363d6;color:white" href="kids-now/food/list" class="btn btn-defaul">Food</a>
                     </div>
+                    
                     <button class="accordion" type="button">Programs</button>
                     <div class="panel">
                         <div _ngcontent-c20="" class="row" style="">
@@ -53,7 +54,7 @@ Food
                                 class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
                                 style="padding:10px;cursor:pointer">
                                 <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks3"
-                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px"
+                        title="{{ $item->program_name }}"  style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px"
                                     type="button" value="{{ $item->id }}">{{ $item->program_name }}</button>
                             </div>
                             @endforeach
@@ -64,8 +65,8 @@ Food
                         <p style="text-align:left;margin-top:12px" >Select Meal Type *</p>
                         <div class="tab">
                             @foreach ($mealtypes as $item)
-                            <button value="{{ $item->id }}" style="margin:5px 26px 5px 35px;font-size:14px" type="button" data-id="lunch"
-                                class="tablinks">{{ $item->name }}</button>
+                            <button value="{{ $item->id }}" style="margin:5px 19px;font-size:14px" type="button" data-id="lunch"
+                                title="{{ $item->name }}"    class="tablinks">{{ $item->name }}</button>
                             @endforeach
                             <input id="array_program" type="hidden" value="" name="mealtype">
 
@@ -77,8 +78,8 @@ Food
                         <p>Select Quantity *</p>
                         <div class="tab">
                             @foreach ($quantytifoods as $item)
-                            <button type="button" style="margin:5px 26px 5px 35px;font-size:14px" value="{{ $item->id }}"
-                                class="tablinks2">{{ $item->name }}</button>
+                            <button type="button" style="margin:5px 19px;font-size:14px" value="{{ $item->id }}"
+                                title="{{ $item->name }}"     class="tablinks2">{{ $item->name }}</button>
                             @endforeach
                             <input id="array_programs" type="hidden" value="" name="qtyfood">
 
@@ -95,7 +96,7 @@ Food
                                 class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
                                 style="padding:10px;cursor:pointer;">
                                 <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
-                                    value="{{ $item->id }}" type="button"
+                                title="{{ $item->food_name }}"     value="{{ $item->id }}" type="button"
                                     style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px;">{{ $item->food_name }}
                                 </button>
                             </div>

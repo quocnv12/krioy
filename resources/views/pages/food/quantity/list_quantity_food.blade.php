@@ -4,6 +4,21 @@ List quantity food
 @endsection
 @section('content')
 
+@section('css')
+
+{{-- <link href="admin-template/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" /> --}}
+<link href="admin-template/assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="admin-template/assets/plugins/jquery-datatable/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+<link href="admin-template/assets/plugins/datatables-responsive/css/datatables.responsive.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="admin-template/assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen" />
+{{-- <link href="admin-template/assets/plugins/bootstrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> --}}
+<link href="admin-template/assets/plugins/bootstrapv3/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="admin-template/assets/plugins/animate.min.css" rel="stylesheet" type="text/css" />
+<link href="admin-template/assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css" />
+<link href="admin-template/webarch/css/webarch.css" rel="stylesheet" type="text/css" />
+
+@endsection
 <body>
     <section class="page-top container">
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
@@ -83,5 +98,23 @@ List quantity food
 
 <!-- Main Script -->
 <script src="js/main.js"></script>
+
+<script src="admin-template/assets/plugins/pace/pace.min.js" type="text/javascript"></script>
+<script src="admin-template/assets/plugins/jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script src="admin-template/assets/plugins/bootstrapv3/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="admin-template/assets/plugins/jquery-block-ui/jqueryblockui.min.js" type="text/javascript"></script>
+<script src="admin-template/assets/plugins/jquery-unveil/jquery.unveil.min.js" type="text/javascript"></script>
+<script src="admin-template/assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js" type="text/javascript"></script>
+<script src="admin-template/assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js" type="text/javascript"></script>
+<script src="admin-template/assets/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+<script src="admin-template/assets/plugins/bootstrap-select2/select2.min.js" type="text/javascript"></script>
+<script src="admin-template/webarch/js/webarch.js" type="text/javascript"></script>
+<script src="admin-template/assets/js/chat.js" type="text/javascript"></script>
+<script src="admin-template/assets/plugins/bootstrap-select2/select2.min.js" type="text/javascript"></script>
+<script src="admin-template/assets/plugins/jquery-datatable/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="admin-template/assets/plugins/jquery-datatable/extra/js/dataTables.tableTools.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="admin-template/assets/plugins/datatables-responsive/js/datatables.responsive.js"></script>
+<script type="text/javascript" src="admin-template/assets/plugins/datatables-responsive/js/lodash.min.js"></script>
+<script src="admin-template/assets/js/datatables.js" type="text/javascript"></script>
 @endsection
 
