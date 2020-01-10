@@ -40,10 +40,10 @@ Food
             <div class="mat-card" style="">
                 <div class="mat-content">
                     <div class="row">
-                        <a style="margin:5px 0px 13px 14px;width:100px" href="kids-now/food/menu-meal-type" class="btn btn-primary">Meal Tpye</a>
-                        <a style="margin:5px 0px 13px 14px;width:100px" href="kids-now/food/menu-quantity" class="btn btn-primary">Quantity</a>
-                        <a style="margin:5px 0px 13px 14px;width:100px" href="kids-now/food/menu-food-name" class="btn btn-primary">Food Name</a>
-                        <a style="margin:5px 0px 13px 14px;width:100px" href="kids-now/food/list" class="btn btn-primary">Food</a>
+                        <a style="margin:5px 0px 13px 14px;width:100px;background:#5363d6;color:white" href="kids-now/food/menu-meal-type" class="btn btn-primary">Meal Tpye</a>
+                        <a style="margin:5px 0px 13px 14px;width:100px;background:#5363d6;color:white" href="kids-now/food/menu-quantity" class="btn btn-primary">Quantity</a>
+                        <a style="margin:5px 0px 13px 14px;width:100px;background:#5363d6;color:white" href="kids-now/food/menu-food-name" class="btn btn-primary">Food Name</a>
+                        <a style="margin:5px 0px 13px 14px;width:100px;background:#5363d6;color:white" href="kids-now/food/list" class="btn btn-primary">Food</a>
                     </div>
                     <button class="accordion" title="Please chosse program" type="button">Programs</button>
                     <div class="panel">
