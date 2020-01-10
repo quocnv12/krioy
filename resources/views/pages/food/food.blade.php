@@ -64,7 +64,7 @@ Food
                         <p style="text-align:left;margin-top:12px" >Select Meal Type *</p>
                         <div class="tab">
                             @foreach ($mealtypes as $item)
-                            <button value="{{ $item->id }}" style="margin:5px 26px 5px 42px;font-size:14px" type="button" data-id="lunch"
+                            <button value="{{ $item->id }}" style="margin:5px 26px 5px 35px;font-size:14px" type="button" data-id="lunch"
                                 class="tablinks">{{ $item->name }}</button>
                             @endforeach
                             <input id="array_program" type="hidden" value="" name="mealtype">
@@ -77,7 +77,7 @@ Food
                         <p>Select Quantity *</p>
                         <div class="tab">
                             @foreach ($quantytifoods as $item)
-                            <button type="button" style="margin:5px 26px 5px 42px;font-size:14px" value="{{ $item->id }}"
+                            <button type="button" style="margin:5px 26px 5px 35px;font-size:14px" value="{{ $item->id }}"
                                 class="tablinks2">{{ $item->name }}</button>
                             @endforeach
                             <input id="array_programs" type="hidden" value="" name="qtyfood">
