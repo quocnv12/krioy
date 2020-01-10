@@ -33,6 +33,23 @@
 					</button>
 					<div class="mat-content">
 
+						<div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img"  onclick="myFunction()" style="padding:10px;cursor:pointer;margin: 5px 20px;">
+							<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
+								<div _ngcontent-c9="" class="image">
+									<img _ngcontent-c19="" class="img-circle" height="80" width="80" src="images/Child.png" >
+									<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked" style="display: none"></i>
+									<!---->
+									<span _ngcontent-c19="" class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;font-weight: bold;font-size: 16px;">f</span>
+								</div>
+								<!---->
+							</div>
+						</div>
+
+
+
+
+
+
 					</div>
 
 

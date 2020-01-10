@@ -21,6 +21,10 @@ class HealthController extends Controller
         $health = ChildrenProfiles::all();
         return view('pages.heath.select_health', compact('health'));
     }
+    public function postChild(Request $request, $id){
+        $childrent = DB::table('children_profiles')->where('id',$id)->first();
+        return view('pages.heath.heath', compact('childrent'));
+    }
     public function getAdd(){
         $health = HealthModel::all();
         return view('pages.heath.heath', compact('health'));
@@ -42,16 +46,18 @@ class HealthController extends Controller
     }
 
    public function getEdit($id){
-        $health = DB::table('health')->where('id',$id)->first();
-        return view('pages.heath.edit', compact('health'));
+       $health = HealthModel::find($id);
+        $childrent = DB::table('children_profiles')->where('id',$id)->first();
+        return view('pages.heath.edit', compact('health','childrent'));
    }
    public function postEdit(Request $request, $id){
         $image = $request->image;
         $img_current ='images/'.$request->fImageCurrent;
        if(!empty($image)) {
            $filename= $image->getClientOriginalName();
-           DB::table('health')->where('id', $id)
-               ->update([
+          $health = HealthModel::find($id);
+
+           $health->update([
                    'sick'=>$request->sick,
                    'medicine'=>$request->medicine,
                    'growth_height'=>$request->growth_height,
@@ -59,7 +65,6 @@ class HealthController extends Controller
                    'incident'=>$request->incident,
                    'image'=>$filename
                ]);
-
            $image ->move(base_path() . 'images/', $filename);
            File::delete($img_current);
        }else {
@@ -72,6 +77,7 @@ class HealthController extends Controller
                    'incident'=>$request->incident,
                ]);
        }
+
 
        return redirect()->route('admin.heath.list')->with(['flash_level'=>'success','flash_message'=>'Edit tin tuyển dụng thành công!!!']);
    }

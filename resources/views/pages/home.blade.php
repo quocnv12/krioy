@@ -13,7 +13,7 @@ Trang chủ
 
 @section('content')
 <main>
-    <div class="product1">
+    <div class="product1" style="background-color: #fff;">
         <div class="cap-main">
             <h3><strong>Talent Wins</strong></h3>
             <div class="hr"></div>
@@ -69,12 +69,12 @@ Trang chủ
                 <a href="{{route('admin.health.getAdd')}}">
                     <img src="images/Health-01.png" alt="">
                     <div class="title">
-                        <p><strong>Health</strong></p>
+                        <p>Health</p>
                     </div>
                 </a>
             </div>
             <div class="col-xs-6 col-md-2 col-sm-4 item">
-                <a href="kids-now/observations">
+                <a href="{{route('admin.observations.getAdd')}}">
                     <img src="images/Observation-01.png" alt="">
                     <div class="title">
                         <p>Observations</p>
@@ -115,7 +115,7 @@ Trang chủ
                 <a href="kids-now/notice-board">
                     <img src="images/Notice Board Circle-01.png" alt="">
                     <div class="title">
-                        <p><strong>Notice Board</strong></p>
+                        <p>Notice Board</p>
                     </div>
                 </a>
             </div>
@@ -161,7 +161,7 @@ Trang chủ
                 <a href="#">
                     <img src="images/Daily report.png" alt="">
                     <div class="title">
-                        <p><strong>Daily Reports</strong></p>
+                        <p>Daily Reports</p>
                     </div>
                 </a>
             </div>
@@ -200,9 +200,6 @@ Trang chủ
             <div class="col-md-1 "></div>
 
         </div>
-
-
-
     </div>
     <div class="product2">
         <div class="cap-main">
@@ -255,7 +252,7 @@ Trang chủ
 
         </div>
     </div>
-    <div class="product3">
+    <div class="product3" style="background: #fff;">
         <div class="cap-main">
             <h3><strong>Setup & Settings</strong></h3>
             <div class="hr"></div>
