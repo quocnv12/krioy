@@ -1,24 +1,25 @@
 @extends('master-layout')
 @section('title')
-    Observations
+    List Observation
 @endsection
 
 @section('content')
-
     <body>
 
     <section class="page-top container">
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
             <div class="row">
-                <div class="col-md-6">
-                    <ul class="ul-td">
-                        <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">HOME</a></li>
-                        <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">Observation</a></li>
+                <div class="col-md-12">
+                    <ul style="width: 100%;" class="ul-td">
+                        <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
+                        <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="kids-now/food">Observation</a></li>
+                        <li _ngcontent-c16="" class="level1" style="pointer-events:none"><a _ngcontent-c16="" href="kids-now/food/list">List</a></li>
                     </ul>
                 </div>
-
-
             </div>
+        </div>
+        <div>
+
         </div>
         <div class="mat-card">
             <div class="row-fluid">
@@ -33,40 +34,40 @@
                             <table class="table table-striped" id="example">
                                 <thead>
                                 <tr>
-                                    <th style="text-align:left;">STT</th>
+                                    <th style="text-align:left;width:18%">STT</th>
                                     <th style="text-align:left;width:18%">Frist_name</th>
-                                    <th style="text-align:left;width:20%">Last name</th>
+                                    <th style="text-align:left;width:18%">Last name</th>
                                     <th style="text-align:left;width:18%">Birthday</th>
                                     <th style="text-align:left;width:18%">Gender</th>
-                                    <th style="text-align:center;width:12%">Observation</th>
-                                    <th style="text-align:center;width:12%">Chỉnh sửa</th>
+                                    <th style="text-align:left;width:18%">Observation</th>
+                                    <th style="text-align:left;width:18%">Chỉnh sửa</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($observationtype as $key=> $value)
                                     <tr>
-                                        <th style="text-align: center">{{$key+1}}</th>
-                                        <th>{{$value->Childrent->first_name}}</th>
-                                        <th>{{$value->Childrent->last_name}}</th>
-                                        <th>{{$value->Childrent->birthday}}</th>
-                                        <th>{{$value->Childrent->gender}}</th>
-                                        <th style="text-align: center">{{$value->ObservationType->name}}</th>
-                                        <th style="text-align: center">
+                                        <th style="text-align:left;width:18%">{{$key+1}}</th>
+                                        <th style="text-align:left;width:18%">{{$value->Childrent->first_name}}</th>
+                                        <th style="text-align:left;width:18%">{{$value->Childrent->last_name}}</th>
+                                        <th style="text-align:left;width:18%">{{$value->Childrent->birthday}}</th>
+                                        <th style="text-align:left;width:18%">{{$value->Childrent->gender}}</th>
+                                        <th style="text-align:left;width:18%">{{$value->ObservationType->name}}</th>
+                                        <th style="text-align:left;width:18%">
                                             <a href="{!! URL::route('admin.observations.getEdit', $value->Childrent->id ) !!}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
                                             <a  href="{!! URL::route('admin.observations.getDelete',  $value->id ) !!}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
                                         </th>
                                     </tr>
                                 @endforeach
                                 </tbody>
-                            </table>
-                            <div class="pull-right">{{ $observationtype->links() }}</div>
+
+
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    </section>
-
-
-
-
+    </body>
 @endsection
 
 @section('js')
@@ -84,11 +85,5 @@
 
     <!-- Main Script -->
     <script src="asset/kriyo/js/main.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function($) {
-            $(".td2").click(function() {
-                window.document.location = $(this).data("href");
-            });
-        });
-    </script>
+
 @endsection

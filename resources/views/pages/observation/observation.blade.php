@@ -25,9 +25,11 @@
 					<div class="mat-content">
 						<button class="accordion accordion1 clearfix">
 							<p style="float: left;">Children *</p>
-							<a href="select_child.blade.php" style="float: right;text-align: right">
-								<p style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">SELECT</p>
-							</a>
+
+								<form class="typeahead" role="search" style="float: right; text-align: left">
+									<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">
+								</form>
+
 						</button>
 						
 						<div class="panel">
@@ -39,9 +41,9 @@
 						<button class="accordion">Observation Type</button>
 						<div class="panel">
 							<div _ngcontent-c20="" class="row" style="">
-								@foreach($observationtype  as $ob)
+								@foreach($observationtype  as $observationtype)
 								<div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer;">
-									<button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" value="{{$ob->id}}">{{$ob->name}} </button>
+									<button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" value="{{$observationtype->id}}">{{$observationtype->name}} </button>
 								</div>
 
 								@endforeach
@@ -131,4 +133,45 @@
 	    	}
 		});
 </script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function($) {
+			var engine1 = new Bloodhound({
+				remote: {
+					url: 'http://localhost:8080/kids-now/observations/search/children?q=%QUERY%',
+					wildcard: '%QUERY%'
+				},
+				datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
+				queryTokenizer: Bloodhound.tokenizers.whitespace
+			});
+
+			$(".search-input").typeahead({
+				hint: true,
+				highlight: true,
+				minLength: 1
+			}, [
+				{
+					source: engine1.ttAdapter(),
+					name: 'children_profiles',
+					display: function(data) {
+						return data.name;
+					},
+					templates: {
+						empty: [
+							'<div class="list-group search-results-dropdown" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;width: 500px;"><div class="list-group-item">Nothing found.</div></div>'
+						],
+						header: [
+
+						],
+						suggestion: function (data) {
+							return '<a onclick="getIdChildren('+data.id+')" class="list-group-item" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;padding: 10px; margin: 0;color: #424949;width: 500px;"> ' + data.first_name +' '+ data.last_name + '<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
+						}
+					}
+				},
+			]);
+
+
+		});
+	</script>
 @endsection

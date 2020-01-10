@@ -115,6 +115,9 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::post('search',['as'=>'admin.observations.search','uses'=>'Admin\ObservationController@postSearch']);
         Route::get('them',['as'=>'admin.observations.getAdd','uses'=>'Admin\ObservationController@getAdd']);
         Route::post('them',['as'=>'admin.observations.getAdd','uses'=>'Admin\ObservationController@postAdd']);
+        Route::get('them_child',['as'=>'admin.observations.child','uses'=>'Admin\ObservationController@getChild']);
+        Route::post('them_child',['as'=>'admin.observations.child','uses'=>'Admin\ObservationController@postChild']);
+        Route::get('search/name', 'Admin\ObservationController@searchByName');
 
 
     });

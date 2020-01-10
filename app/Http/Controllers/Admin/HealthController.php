@@ -23,9 +23,6 @@ class HealthController extends Controller
     }
     public function postChild(Request $request, $id){
         $childrent = DB::table('children_profiles')->where('id',$id)->first();
-
-        dd($childrent);
-
         return view('pages.heath.heath', compact('childrent'));
     }
     public function getAdd(){
