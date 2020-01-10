@@ -15,13 +15,14 @@ class ObservationController extends Controller
         $observationtype= ObservationModel::paginate(5);
         return view('pages.observation.list', compact('observationtype'));
     }
+
     public function getChild(){
         $observationtype = ChildrenProfiles::all();
         return view('pages.observation.select_child', compact('observationtype'));
     }
 
     public function getAdd(){
-        $observationtype = ObservationModel::all();
+        $observationtype = ObservationTypeModel::all();
         return view('pages.observation.observation', compact('observationtype'));
     }
     public function getDelete($id){
@@ -46,8 +47,8 @@ class ObservationController extends Controller
         $childrent->last_name = $request->last_name;
         $childrent->birthday = $request->birthday;
         $childrent->gender = $request->gender;
-        $observationtype->name = $request->id;
-        $observationtype->save();
+        //$observationtype->name = $request->id;
+        //$observationtype->save();
         $childrent->save();
         return view('pages.observation.sua',compact('observationtype','childrent','vendors'));
     }
@@ -90,7 +91,6 @@ class ObservationController extends Controller
             ->orWhere('last_name', 'like', '%' . $request->get('q') . '%')
             ->orderBy('last_name')
             ->get();
-
         return response()->json($children_profiles);
     }
 

@@ -30,6 +30,7 @@
 								</form>
 						</button>
 
+
 						<div class="panel" >
 							<div class="row" id="children_list">
 								{{-- ajax ObservationController@addSelectChildren do vao day--}}
