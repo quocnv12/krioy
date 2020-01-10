@@ -84,16 +84,13 @@
 		<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-sm">
 				<div class="modal-content">
-					<ul style="margin-left: 0;">
+					<ul>
 						<li style="color: #5363d6!important">Go to</li>
 						<li class="modal-li" data-href="" id="profile_children">Profile</li>
 						<li class="modal-li" data-href="" id="invoices_children">Invoices</li>
 						<li class="modal-li" data-href="" id="attachments_children">Attachments</li>
-
 						<li class="modal-li" data-href="" id="authoriesd_pickups_children">Authoriesd Pickups</li>
-
 						<li class="modal-li" data-href="" id="authorised_pickups_children">Authoriesd Pickups</li>
-
 					</ul>
 				</div>
 			</div>
@@ -136,7 +133,6 @@
     <script src="asset/kriyo/js/main.js"></script>
     <script type="text/javascript">
     	$(document).ready(function($) {
-
 			$('div.div_box_children').click(function () {
 				var id_children = $(this).children('div').children('input').val();
 				$('li#profile_children').attr('data-href','/kids-now/children/edit/'+id_children);
@@ -148,13 +144,6 @@
 			$(".modal-li").click(function() {
 				window.document.location = $(this).data("href");
 			});
-
-
-		    $(".modal-li").click(function() {
-		        window.document.location = $(this).data("href");
-
-		    });
-
 		});
 	</script>
 
@@ -197,39 +186,39 @@
 			]);
 		});
 	</script>
-	<script type="text/javascript">
-		$('ul').slick({
-			infinite: true,
-			slidesToShow: 6,
-			slidesToScroll: 1,
-			arrows: true,
-			autoplay: true,
-			autoplaySpeed: 2000,
-			responsive: [{
-					breakpoint: 1200,
-					settings: {
-					slidesToShow: 3,
-					slidesToScroll: 1
-					}
-				},
-			{
-				breakpoint: 991,
-				settings: {
-				slidesToShow: 2,
-				slidesToScroll: 1,
-				autoplay: true,
-				arrows:false,
-				}
-			},
-			{
-				breakpoint: 500,
-				settings: {
-				slidesToShow: 1,
-				slidesToScroll: 1,
-				autoplay: true,
-				arrows:false,
-				}
-			}]
-		});
-	</script>
+	{{--<script type="text/javascript">--}}
+		{{--$('ul').slick({--}}
+			{{--infinite: true,--}}
+			{{--slidesToShow: 6,--}}
+			{{--slidesToScroll: 1,--}}
+			{{--arrows: true,--}}
+			{{--autoplay: true,--}}
+			{{--autoplaySpeed: 2000,--}}
+			{{--responsive: [{--}}
+					{{--breakpoint: 1200,--}}
+					{{--settings: {--}}
+					{{--slidesToShow: 3,--}}
+					{{--slidesToScroll: 1--}}
+					{{--}--}}
+				{{--},--}}
+			{{--{--}}
+				{{--breakpoint: 991,--}}
+				{{--settings: {--}}
+				{{--slidesToShow: 2,--}}
+				{{--slidesToScroll: 1,--}}
+				{{--autoplay: true,--}}
+				{{--arrows:false,--}}
+				{{--}--}}
+			{{--},--}}
+			{{--{--}}
+				{{--breakpoint: 500,--}}
+				{{--settings: {--}}
+				{{--slidesToShow: 1,--}}
+				{{--slidesToScroll: 1,--}}
+				{{--autoplay: true,--}}
+				{{--arrows:false,--}}
+				{{--}--}}
+			{{--}]--}}
+		{{--});--}}
+	{{--</script>--}}
 @endsection
