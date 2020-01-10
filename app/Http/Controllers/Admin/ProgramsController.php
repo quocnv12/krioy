@@ -315,7 +315,7 @@ class ProgramsController extends Controller
                                 </div>
                             </div>
                             
-                            <script >
+                            <script>
                                 $(\'.btn-danger\').click(function() {
                                   $(this).parent(\'div\').parent(\'div\').parent(\'div\').hide();
                                 })
