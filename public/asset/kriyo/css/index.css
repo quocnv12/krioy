@@ -315,10 +315,6 @@ footer.site-footer div p a.termsHover:hover{
     padding: 30px 20px 10px 25px;
     display: inline-block;
 }
-.item {
-	border-left: 4px solid #f3f3f3;
-	padding: 0 25px;
-}
 .item p{
 	text-align: justify;
 	font-style: normal;
@@ -541,4 +537,53 @@ section.introduce-packages .introduce-packages-content .row > div>div >div> div.
   .packages-priceLite{
   	min-height: 430px !important;
   }
+}
+.col-2dot4, // extra small
+.col-sm-2dot4, // small
+.col-md-2dot4, // medium
+.col-lg-2dot4, // large
+.col-xl-2dot4 { // extra large
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.col-2dot4 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 20%;
+    flex: 0 0 20%;
+    max-width: 20%;
+}
+@media (min-width: 540px) {
+    .col-sm-2dot4 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 20%;
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+}
+@media (min-width: 767px) {
+    .col-md-2dot4 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 20%;
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+}
+@media (min-width: 960px) {
+    .col-lg-2dot4 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 20%;
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+}
+@media (min-width: 1140px) {
+    .col-xl-2dot4 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 20%;
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
 }
