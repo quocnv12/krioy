@@ -23,9 +23,6 @@ class HealthController extends Controller
     }
     public function postChild(Request $request, $id){
         $childrent = DB::table('children_profiles')->where('id',$id)->first();
-
-        dd($childrent);
-
         return view('pages.heath.heath', compact('childrent'));
     }
     public function getAdd(){
@@ -48,42 +45,41 @@ class HealthController extends Controller
 
     }
 
-   public function getEdit($id){
-       $health = HealthModel::find($id);
+    public function getEdit($id){
+        $health = HealthModel::find($id);
         $childrent = DB::table('children_profiles')->where('id',$id)->first();
         return view('pages.heath.edit', compact('health','childrent'));
-   }
-   public function postEdit(Request $request, $id){
+    }
+    public function postEdit(Request $request, $id){
         $image = $request->image;
         $img_current ='images/'.$request->fImageCurrent;
-       if(!empty($image)) {
-           $filename= $image->getClientOriginalName();
-          $health = HealthModel::find($id);
+        if(!empty($image)) {
+            $filename= $image->getClientOriginalName();
+            $health = HealthModel::find($id);
 
-           $health->update([
-                   'sick'=>$request->sick,
-                   'medicine'=>$request->medicine,
-                   'growth_height'=>$request->growth_height,
-                   'growth_weight'=>$request->growth_weight,
-                   'incident'=>$request->incident,
-                   'image'=>$filename
-               ]);
-           $image ->move(base_path() . 'images/', $filename);
-           File::delete($img_current);
-       }else {
-           DB::table('health')->where('id', $id)
-               ->update([
-                   'sick'=>$request->sick,
-                   'medicine'=>$request->medicine,
-                   'growth_height'=>$request->growth_height,
-                   'growth_weight'=>$request->growth_weight,
-                   'incident'=>$request->incident,
-               ]);
-       }
+            $health->sick= $request->sick;
+            $health->medicine= $request->medicine;
+            $health->growth_height= $request->growth_height;
+            $health->growth_weight= $request->growth_weight;
+            $health->incident= $request->incident;
+            $health->image= $request->image;
+            $health->save();
+
+            $image ->move(base_path() . 'images/', $filename);
+            File::delete($img_current);
+        }else {
+            $health = HealthModel::find($id);
+
+            $health->sick= $request->sick;
+            $health->medicine= $request->medicine;
+            $health->growth_height= $request->growth_height;
+            $health->growth_weight= $request->growth_weight;
+            $health->incident= $request->incident;
+        }
 
 
-       return redirect()->route('admin.heath.list')->with(['flash_level'=>'success','flash_message'=>'Edit tin tuyển dụng thành công!!!']);
-   }
+        return redirect()->route('admin.heath.list')->with(['flash_level'=>'success','flash_message'=>'Edit tin tuyển dụng thành công!!!']);
+    }
 
     public function getDelete($id){
         $health= DB::table('health')->where('id',$id)->delete();

@@ -6,7 +6,6 @@
 
     <div class="observation-sua">
         <div class="row" style="margin: 5px">
-
                     <form role="form" method="post" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="id" class="idProduct">
