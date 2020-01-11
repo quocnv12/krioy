@@ -41,6 +41,9 @@
 					@endforeach
 				</div>
 			</div>
+			<div style="display: flex; justify-content: center; align-items: center; margin-top: 50px;">
+				{{$programs->links()}}
+			</div>
 		</div>
 	</section>
 	<div class="icon-plus" title="add">

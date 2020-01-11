@@ -706,5 +706,22 @@
     </script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     {{-- finish xu ly anh--}}
+
+    <script>
+        $(document).ready(function () {
+            if ($('#first_name_parent_2').val() == '' && $('#last_name_parent_2').val() == '') {
+                $('.parent_2').attr('disabled', true);
+
+                $('#first_name_parent_2').focusout() && $('#last_name_parent_2').focusout(function () {
+                    if ($('#first_name_parent_2').val() == '' && $('#last_name_parent_2').val() == ''){
+                        $('.parent_2').attr('disabled', true);
+                    }else {
+                        $('.parent_2').attr('disabled', false);
+                    }
+                })
+            }
+
+        })
+    </script>
 @endsection
 

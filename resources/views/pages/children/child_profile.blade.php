@@ -1,9 +1,23 @@
 @extends('master-layout')
 @section('title')
-	Children Frofiles
+	Children Profiles
 @endsection
 
 @section('content')
+	<style>
+		.tt-input{
+			background-color: white !important;
+		}
+		input.search-custom:focus{
+			animation: mymove 0.8s forwards;
+			background-color: white;
+		}
+
+		@keyframes mymove {
+			0% {width: 200px;}
+			100% {width: 500px;}
+		}
+	</style>
 	<body>
 
 	<section class="page-top container">
@@ -21,8 +35,8 @@
 						{{--<span style="font-size:15px;font-weight: 900;">DEACTIVATED</span>--}}
 						{{--<span _ngcontent-c10="" class="badge" style="background-color: red;color:#fff;vertical-align: top;display: inline;line-height:0px">1</span>--}}
 					{{--</a>--}}
-					<form class="typeahead" role="search" style="float: right;">
-						<input type="search" name="q" class="form-control search-input" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 100%;">
+					<form class="typeahead" role="search" style="float: right;" >
+						<input  type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 100%;">
 					</form>
 				</div>
 			</div>
@@ -58,7 +72,7 @@
 	<section class="container">
 		<div class="mat-card" style="min-height: 250px;">
 			<div class="mat-content">
-				<div _ngcontent-c19="" class="row ng-star-inserted" id="result">
+				<div class="row ng-star-inserted" id="result">
 					<!---->
 					@if(isset($children_profiles))
 						@foreach($children_profiles as $children)
@@ -84,12 +98,12 @@
 		<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-sm">
 				<div class="modal-content">
-					<ul>
+					<ul style="margin-left: 0">
 						<li style="color: #5363d6!important">Go to</li>
 						<li class="modal-li" data-href="" id="profile_children">Profile</li>
-						<li class="modal-li" data-href="" id="invoices_children">Invoices</li>
+						<li class="modal-li" data-href="" id="health_children">Health</li>
 						<li class="modal-li" data-href="" id="attachments_children">Attachments</li>
-						<li class="modal-li" data-href="" id="authoriesd_pickups_children">Authoriesd Pickups</li>
+						<li class="modal-li" data-href="" id="authorised_pickups_children">Authoriesd Pickups</li>
 						<li class="modal-li" data-href="" id="authorised_pickups_children">Authoriesd Pickups</li>
 					</ul>
 				</div>
@@ -101,7 +115,6 @@
 
 @section('js')
 	<script src="https://code.jquery.com/jquery.min.js"></script>
-
 
 	<!-- Bootstrap JS form CDN -->
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -115,28 +128,13 @@
 
 	<!-- Main Script -->
 	<script src="asset/kriyo/js/main.js"></script>
-	<script type="text/javascript"></script>
 
-    
-    <!-- Bootstrap JS form CDN -->
-
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    
-    <!-- jQuery sticky menu -->
-    <script src="asset/kriyo/js/owl.carousel.min.js"></script>
-    <script src="asset/kriyo/js/jquery.sticky.js"></script>
-    
-    <!-- jQuery easing -->
-    <script src="asset/kriyo/js/jquery.easing.1.3.min.js"></script>
-    
-    <!-- Main Script -->
-    <script src="asset/kriyo/js/main.js"></script>
     <script type="text/javascript">
     	$(document).ready(function($) {
 			$('div.div_box_children').click(function () {
 				var id_children = $(this).children('div').children('input').val();
 				$('li#profile_children').attr('data-href','/kids-now/children/edit/'+id_children);
-				$('li#invoices_children').attr('data-href','/kids-now/children/edit/'+id_children);
+				$('li#health_children').attr('data-href','/kids-now/health/sua/'+id_children);
 				$('li#attachments_children').attr('data-href','/kids-now/children/edit/'+id_children);
 				$('li#authoriesd_pickups_children').attr('data-href','/kids-now/children/edit/'+id_children);
 			});
