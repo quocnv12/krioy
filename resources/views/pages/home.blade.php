@@ -1,6 +1,5 @@
 @extends('master-layout')
 @section('title')
-Trang chủ
 @endsection
 
 @section('css')

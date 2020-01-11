@@ -1,24 +1,24 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Kriyo Introduce Kid Now</title>
+		<title>Kriyo Introduce Kids Now</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet" href="asset/kriyo/css/index.css">
 
 		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
    		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
     	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
 
-    	<link rel="stylesheet" href="css/bootstrap.min.css">
+    	<link rel="stylesheet" href="libs/bootstrap-4.0.0/dist/css/bootstrap.min.css">
     	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
     
 	    <!-- Font Awesome -->
-	    <link rel="stylesheet" href="css/font-awesome.min.css">
+	    <link rel="stylesheet" href="asset/kriyo/css/font-awesome.min.css">
 	    
 	    <!-- Custom CSS -->
-	    <link rel="stylesheet" href="slick-1.8.1/slick/slick.css">
-    	<link rel="stylesheet" href="slick-1.8.1/slick/slick-theme.css">
+	    <link rel="stylesheet" href="libs/slick-1.8.1/slick/slick.css">
+    	<link rel="stylesheet" href="libs/slick-1.8.1/slick/slick-theme.css">
 	</head>
 <body>
 	<section class="introduce">
@@ -28,14 +28,14 @@
 				    <div class="navbar-header">
 				    	<a class="navbar-brand" href="#" style="display: flex;">
 				    		<img src="images/Kriyo Logo.png" alt="">
-				    		<p>Kid Now</p>
+				    		<p>Kids Now</p>
 				    	</a>
 				    	<div class="topnav" id="myTopnav">
 						    <a class="active" href="food.html">HOME</a>
-						    <a href="#">KID NOW APP</a>
+						    <a href="#">KIDS NOW APP</a>
 						    <a href="#">PRICING</a>
 						    <a href="#">ABOUT US</a>
-						    <a href="#">LOGIN</a>
+						    <a href="login">LOGIN</a>
 						    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
 							    <i class="fa fa-bars"></i>
 							</a>
