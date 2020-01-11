@@ -1,54 +1,108 @@
 @extends('master-layout')
 @section('title')
-	Staff Frofiles
+	List Staff
 @endsection
+@section('css')
 
+{{-- <link href="admin-template/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" /> --}}
+<link href="admin-template/assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="admin-template/assets/plugins/jquery-datatable/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+<link href="admin-template/assets/plugins/datatables-responsive/css/datatables.responsive.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="admin-template/assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen" />
+{{-- <link href="admin-template/assets/plugins/bootstrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> --}}
+<link href="admin-template/assets/plugins/bootstrapv3/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="admin-template/assets/plugins/animate.min.css" rel="stylesheet" type="text/css" />
+<link href="admin-template/assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css" />
+<link href="admin-template/webarch/css/webarch.css" rel="stylesheet" type="text/css" />
+
+@endsection
 @section('content')
 	<body>
 
 	<section class="page-top container">
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
-				<ul class="ul-td">
-					<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">HOME</a></li>
-					<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">STAFF PROFILES</a></li>
+				<div class="col-md-12">
+				<ul style="width: 100%;" class="ul-td">
+                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
+                    <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="kids-now/staff">Staff</a></li>
+                   
 				</ul>
 			</div>
 		</div>
-		<table border="0">
-			<tbody>
-				<tr class="td1">
-					<th>S.no</th>
-					<th>Profile Pic</th>
-					<th>Staff Name</th>
-					<th>Programs</th>
-				</tr>
-				<tr class="td2" data-href="kids-now/staff/profile">
-					<th>1</th>
-					<th><img src="images/Staff.png" alt=""></th>
-					<th>Nguyen Van A</th>
-					<th>Hai Ba Trung, Ha Noi</th>
-				</tr>
-				<tr class="td2" data-href="kids-now/staff/profile">
-					<th>2</th>
-					<th><img src="images/Staff.png" alt=""></th>
-					<th>Nguyen Van A</th>
-					<th>Hai Ba Trung, Ha Noi</th>
-				</tr>
-				<tr class="td2" data-href="kids-now/staff/profile">
-					<th>3</th>
-					<th><img src="images/Staff.png" alt=""></th>
-					<th>Nguyen Van A</th>
-					<th>Hai Ba Trung, Ha Noi</th>
-				</tr>
-			</tbody>
-		</table>
-	</section>
-		<div class="icon-plus">
-			<a href="kids-now/staff/add">
-				<i class="fa fa-plus"></i>
-			</a>
 		</div>
+		<div>
+			@if(session('thongbao'))
+			<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">* {{ session('thongbao') }}</p>
+            @endif
+            @if(session('delete'))
+			<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">* {{ session('delete') }}</p>
+		    @endif
+		</div>
+		<div class="mat-card">
+			<div class="row-fluid">
+				<div class="span12">
+				  <div class="grid simple ">
+					<div class="grid-title">
+					  <h4>List <span class="semi-bold">Staff</span></h4>
+					  <div class="tools">
+					  </div>
+					</div>
+					<div class="grid-body ">
+					  <table class="table table-striped" id="example">
+						<thead>
+						  <tr>
+							<th style="text-align:left;">ID</th>
+							<th style="text-align:left">Name</th>
+							<th style="text-align:left">Phone</th>
+							<th style="text-align:left">Email</th>
+							<th style="text-align:left">Gender</th>
+						
+							<th style="text-align:left">Address</th>
+							<th style="text-align:left">Job</th>
+							<th style="text-align:left">Date Of Joining</th>
+							<th style="text-align:left">Image</th>
+							<th style="text-align:center;width:12%">Thao Tác</th>
+						  </tr>
+						</thead>
+						<tbody>
+							@foreach ($staff as $item)
+							<tr class="odd gradeX">
+								<td>{{ $item->id }}</td>
+								<td>{{ $item->first_name }} {{ $item->last_name }}</td>
+								<td>{{ $item->phone }}</td>
+								<td>{{ $item->email }}</td>
+								<td>
+									@if ($item->gender==1)
+										{{ 'Nam' }}
+									@else
+										{{ 'Nữ' }}
+									@endif
+								</td>
+								
+								<td>{{ $item->address }}</td>
+								<td> ádas </td>
+								<td>{{ Carbon\Carbon::parse($item->date_of_joining)->format('d-m-Y') }}</td>
+							<td><img style="width:30px;height:30px" src="images/{{ $item->image }}"></td>
+								<td style="text-align:center;width:12px">
+								<a href="kids-now/food/edit/{{ $item->id }}" title="Edit Staff" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+									<a onclick="return confirm('Delete staff ? Do you want continue !')" title="Delete Staff" href="kids-now/food/delete/{{ $item->id }}" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+								</td>
+							</tr>
+						  @endforeach
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="icon-plus">
+	<a href="kids-now/staff/add">
+		<i class="fa fa-plus"></i>
+	</a>
+</div>
 </body>
 @endsection
 
@@ -67,11 +121,22 @@
     
     <!-- Main Script -->
     <script src="asset/kriyo/js/main.js"></script>
-    <script type="text/javascript">
-    	$(document).ready(function($) {
-		    $(".td2").click(function() {
-		        window.document.location = $(this).data("href");
-		    });
-		});
-    </script>
+   
+    <script src="admin-template/assets/plugins/pace/pace.min.js" type="text/javascript"></script>
+    <script src="admin-template/assets/plugins/jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="admin-template/assets/plugins/bootstrapv3/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="admin-template/assets/plugins/jquery-block-ui/jqueryblockui.min.js" type="text/javascript"></script>
+    <script src="admin-template/assets/plugins/jquery-unveil/jquery.unveil.min.js" type="text/javascript"></script>
+    <script src="admin-template/assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js" type="text/javascript"></script>
+    <script src="admin-template/assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js" type="text/javascript"></script>
+    <script src="admin-template/assets/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="admin-template/assets/plugins/bootstrap-select2/select2.min.js" type="text/javascript"></script>
+    <script src="admin-template/webarch/js/webarch.js" type="text/javascript"></script>
+    <script src="admin-template/assets/js/chat.js" type="text/javascript"></script>
+    <script src="admin-template/assets/plugins/bootstrap-select2/select2.min.js" type="text/javascript"></script>
+    <script src="admin-template/assets/plugins/jquery-datatable/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="admin-template/assets/plugins/jquery-datatable/extra/js/dataTables.tableTools.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="admin-template/assets/plugins/datatables-responsive/js/datatables.responsive.js"></script>
+    <script type="text/javascript" src="admin-template/assets/plugins/datatables-responsive/js/lodash.min.js"></script>
+    <script src="admin-template/assets/js/datatables.js" type="text/javascript"></script>
 @endsection

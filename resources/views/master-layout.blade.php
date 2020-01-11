@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kriyo - @yield('title')</title>
+    <title>Kids-now  @yield('title')</title>
     <link rel="shortcut icon" type="image/x-icon" href="" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <base href="{{asset('')}}">
