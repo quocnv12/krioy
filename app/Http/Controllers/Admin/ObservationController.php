@@ -107,7 +107,7 @@ class ObservationController extends Controller
 							        <div class="image">
                                         <img class="img-circle" height="80" onerror="this.src=\'images/Child.png\';" style="height: 80px" width="80" src="' . $children_profiles->image . '">
                                         <input type="hidden" value="' . $children_profiles->id . '">
-                                        <button class="btn btn-xs btn-danger" onclick="deleteChild(' . $children_profiles->id . ')">X</button>
+                                        <button class="btn btn-xs btn-danger" type="button" onclick="deleteChild(' . $children_profiles->id . ')">X</button>
                                         <span class="limitText ng-star-inserted">' . $children_profiles->first_name . ' ' . $children_profiles->last_name . '</span>
                                     </div>
                                 </div>
