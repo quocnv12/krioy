@@ -206,7 +206,7 @@
 							<!---->
 							@foreach($programs as $program)
 								<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer">
-									<button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" type="button" value="{{$program->id}}">{{$program->program_name}}</button>
+									<button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" type="button" data-toggle="tooltip" title="{{$program->program_name}}" value="{{$program->id}}">{{$program->program_name}}</button>
 								</div>
 							@endforeach
 							<input id="array_program" type="hidden" value="" name="programs">
@@ -224,7 +224,7 @@
 						<div class="row">
 							<div class="col-md-2 textera-img">
 								<a style="cursor: pointer;">
-									<input type="file" id="uploadfile_parent_1" name="image_parent_1">
+									<input class="parent_1" type="file" id="uploadfile_parent_1" name="image_parent_1">
 									<img src="images/Child.png" alt="" id="demo_image_parent_1">
 									<span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
 									@if ($errors->has('image_parent_1'))
@@ -239,7 +239,7 @@
 									<div class="row">
 										<div class="col-md-6 input_box">
 											<span>First Name *</span>
-											<input  type="text" name="first_name_parent_1" placeholder="First Name *" value="{{old('first_name_parent_1')}}">
+											<input id="first_name_parent_1" type="text" name="first_name_parent_1" placeholder="First Name *" value="{{old('first_name_parent_1')}}">
 											@if ($errors->has('first_name_parent_1'))
 												<div class="text text-danger">
 													{{ $errors->first('first_name_parent_1') }}
@@ -248,7 +248,7 @@
 										</div>
 										<div class="col-md-6 input_box">
 											<span>Last Name *</span>
-											<input type="text" name="last_name_parent_1" placeholder="Last Name *" value="{{old('last_name_parent_1')}}">
+											<input id="last_name_parent_1" type="text" name="last_name_parent_1" placeholder="Last Name *" value="{{old('last_name_parent_1')}}">
 											@if ($errors->has('last_name_parent_1'))
 												<div class="text text-danger">
 													{{ $errors->first('last_name_parent_1') }}
@@ -259,7 +259,7 @@
 									<div class="row">
 										<div class="col-md-6 input_box">
 											<span>GENDER *</span>
-											<select name="gender_parent_1">
+											<select class="parent_1" name="gender_parent_1">
 												<option>Gender</option>
 												<option value="1" @if(old('gender_parent_1') == 1) selected="selected" @endif>Nam</option>
 												<option value="2" @if(old('gender_parent_1') == 2) selected="selected" @endif>Nữ</option>
@@ -272,7 +272,7 @@
 										</div>
 										<div class="col-md-6 input_box">
 											<span>RELATION *</span>
-											<select name="relationship_1">
+											<select class="parent_1" name="relationship_1">
 												<option>Relationship</option>
 												<option value="mother" @if(old('relationship_1') == "mother") selected="selected" @endif>Mother</option>
 												<option value="father" @if(old('relationship_1') == "father") selected="selected" @endif>Father</option>
@@ -291,7 +291,7 @@
 									</div>
 									<div class="input_box" style="width: 100%;">
 										<span>Phone Number *</span>
-										<input type="text" name="phone_parent_1" placeholder="Phone Number *" value="{{old('phone_parent_1')}}">
+										<input class="parent_1" type="text" name="phone_parent_1" placeholder="Phone Number *" value="{{old('phone_parent_1')}}">
 										@if ($errors->has('phone_parent_1'))
 											<div class="text text-danger">
 												{{ $errors->first('phone_parent_1') }}
@@ -300,7 +300,7 @@
 									</div>
 									<div class="input_box" style="width: 100%;">
 										<span>E-Mail Address </span>
-										<input type="email" name="email_parent_1" placeholder="E-Mail Address " value="{{old('email_parent_1')}}">
+										<input class="parent_1" type="email" name="email_parent_1" placeholder="E-Mail Address " value="{{old('email_parent_1')}}">
 										@if ($errors->has('email_parent_1'))
 											<div class="text text-danger">
 												{{ $errors->first('email_parent_1') }}
@@ -309,7 +309,7 @@
 									</div>
 									<div class="input_box" style="width: 100%;">
 										<span>Note *</span>
-										<input type="text" name="note_parent_1" placeholder="Note" value="{{old('note_parent_1')}}">
+										<input class="parent_1" type="text" name="note_parent_1" placeholder="Note" value="{{old('note_parent_1')}}">
 										@if ($errors->has('note_parent_1'))
 											<div class="text text-danger">
 												{{ $errors->first('note_parent_1') }}
@@ -326,7 +326,7 @@
 						<div class="row">
 							<div class="col-md-2 textera-img">
 								<a style="cursor: pointer;">
-									<input type="file" id="uploadfile_parent_2" name="image_parent_2">
+									<input class="parent_2" type="file" id="uploadfile_parent_2" name="image_parent_2">
 									<img src="images/Child.png" alt="" id="demo_image_parent_2">
 									<span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
 									@if ($errors->has('image_parent_2'))
@@ -341,7 +341,7 @@
 									<div class="row">
 										<div class="col-md-6 input_box">
 											<span>First Name *</span>
-											<input  type="text" name="first_name_parent_2" placeholder="First Name *" value="{{old('first_name_parent_2')}}">
+											<input id="first_name_parent_2" type="text" name="first_name_parent_2" placeholder="First Name *" value="{{old('first_name_parent_2')}}">
 											@if ($errors->has('first_name_parent_2'))
 												<div class="text text-danger">
 													{{ $errors->first('first_name_parent_2') }}
@@ -350,7 +350,7 @@
 										</div>
 										<div class="col-md-6 input_box">
 											<span>Last Name *</span>
-											<input type="text" name="last_name_parent_2" placeholder="Last Name *" value="{{old('last_name_parent_2')}}">
+											<input id="last_name_parent_2" type="text" name="last_name_parent_2" placeholder="Last Name *" value="{{old('last_name_parent_2')}}">
 											@if ($errors->has('last_name_parent_2'))
 												<div class="text text-danger">
 													{{ $errors->first('last_name_parent_2') }}
@@ -361,7 +361,7 @@
 									<div class="row">
 										<div class="col-md-6 input_box">
 											<span>GENDER *</span>
-											<select name="gender_parent_2">
+											<select class="parent_2" name="gender_parent_2">
 												<option>Gender</option>
 												<option value="1" @if(old('gender_parent_2') == 1) selected="selected" @endif>Nam</option>
 												<option value="2" @if(old('gender_parent_2') == 2) selected="selected" @endif>Nữ</option>
@@ -374,7 +374,7 @@
 										</div>
 										<div class="col-md-6 input_box">
 											<span>RELATION *</span>
-											<select name="relationship_2">
+											<select class="parent_2" name="relationship_2">
 												<option>Relationship</option>
 												<option value="mother" @if(old('relationship_2') == "mother") selected="selected" @endif>Mother</option>
 												<option value="father" @if(old('relationship_2') == "father") selected="selected" @endif>Father</option>
@@ -393,7 +393,7 @@
 									</div>
 									<div class="input_box" style="width: 100%;">
 										<span>Phone Number *</span>
-										<input type="text" name="phone_parent_2" placeholder="Phone Number *" value="{{old('phone_parent_2')}}">
+										<input class="parent_2" type="text" name="phone_parent_2" placeholder="Phone Number *" value="{{old('phone_parent_2')}}">
 										@if ($errors->has('phone_parent_2'))
 											<div class="text text-danger">
 												{{ $errors->first('phone_parent_2') }}
@@ -402,7 +402,7 @@
 									</div>
 									<div class="input_box" style="width: 100%;">
 										<span>E-Mail Address </span>
-										<input type="email" name="email_parent_2" placeholder="E-Mail Address " value="{{old('email_parent_2')}}">
+										<input class="parent_2" type="email" name="email_parent_2" placeholder="E-Mail Address " value="{{old('email_parent_2')}}">
 										@if ($errors->has('email_parent_2'))
 											<div class="text text-danger">
 												{{ $errors->first('email_parent_2') }}
@@ -411,7 +411,7 @@
 									</div>
 									<div class="input_box" style="width: 100%;">
 										<span>Note *</span>
-										<input type="text" name="note_parent_2" placeholder="Note" value="{{old('note_parent_2')}}">
+										<input class="parent_2" type="text" name="note_parent_2" placeholder="Note" value="{{old('note_parent_2')}}">
 										@if ($errors->has('note_parent_2'))
 											<div class="text text-danger">
 												{{ $errors->first('note_parent_2') }}
@@ -537,7 +537,6 @@
 				}
 				reader.readAsDataURL(input.files[0]);
 			}
-
 		}
 
 		function readURL_parent_1(input) {
@@ -549,7 +548,6 @@
 				}
 				reader.readAsDataURL(input.files[0]);
 			}
-
 		}
 
 		function readURL_parent_2(input) {
@@ -561,7 +559,6 @@
 				}
 				reader.readAsDataURL(input.files[0]);
 			}
-
 		}
 
 		$("#uploadfile").change(function(){
@@ -588,4 +585,27 @@
 		});
 	</script>
 	{{-- finish xu ly anh--}}
+
+	<script>
+		$(document).ready(function () {
+			$('.accordion').click()
+			$('.parent_1').attr('disabled', true);
+			$('#first_name_parent_1').focusout() && $('#last_name_parent_1').focusout(function () {
+				if ($('#first_name_parent_1').val() == '' && $('#last_name_parent_1').val() == ''){
+					$('.parent_1').attr('disabled', true);
+				}else {
+					$('.parent_1').attr('disabled', false);
+				}
+			})
+
+			$('.parent_2').attr('disabled', true);
+			$('#first_name_parent_2').focusout() && $('#last_name_parent_2').focusout(function () {
+				if ($('#first_name_parent_2').val() == '' && $('#last_name_parent_2').val() == ''){
+					$('.parent_2').attr('disabled', true);
+				}else {
+					$('.parent_2').attr('disabled', false);
+				}
+			})
+		})
+	</script>
 @endsection

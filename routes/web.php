@@ -32,6 +32,9 @@ Route::get('kids-now/notice-board/add','Admin\NoticeBoardController@create');
 Route::get('test',function (){
     return view('pages.children.create_child');
 });
+Route::get('',function (){
+    return view('pages.introduce.introduce-kid_now');
+});
 //---------------login----------------
 Route::get('login', 'Admin\LoginController@GetLogin')->middleware('CheckLogOut');
 Route::post('login', 'Admin\LoginController@PostLogin');
@@ -58,12 +61,9 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
     });
     //---------------staff----------------
     Route::group(['prefix' => 'staff'], function () {
-        Route::get('', function () {
-            return view('pages.staff.staff_profile');
-        });
-        Route::get('add', function () {
-            return view('pages.staff.create_staff');
-        });
+        Route::get('','Admin\Staff\StaffController@GetListStaff');
+        Route::get('add','Admin\Staff\StaffController@GeAddStaff');
+
         Route::get('edit', function () {
             return view('pages.staff.edit_staff');
         });
@@ -117,9 +117,8 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::post('them',['as'=>'admin.observations.getAdd','uses'=>'Admin\ObservationController@postAdd']);
         Route::get('them_child',['as'=>'admin.observations.child','uses'=>'Admin\ObservationController@getChild']);
         Route::post('them_child',['as'=>'admin.observations.child','uses'=>'Admin\ObservationController@postChild']);
-        Route::get('search/name', 'Admin\ObservationController@searchByName');
-
-
+        Route::get('search/children', 'Admin\ObservationController@searchByName');
+        Route::get('select_child/add','Admin\ObservationController@addSelectChild');   //ajax them children
     });
     //---------------food----------------
     Route::group(['prefix' => 'food'], function () {

@@ -11,9 +11,9 @@
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
             <div class="row">
                 <ul class="ul-td">
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">HOME</a></li>
-                    <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">STAFF PROFILES</a></li>
-                    <li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a _ngcontent-c16="">EDIT STAFF</a></li>
+                    <li ngcontent-c16="" class="level1"><a ngcontent-c16="">HOME</a></li>
+                    <li ngcontent-c16="" class="active1" style="pointer-events:none"><a ngcontent-c16="">HEALTH PROFILES</a></li>
+                    <li ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a ngcontent-c16="">EDIT HEALTH</a></li>
                 </ul>
             </div>
         </div>
@@ -25,8 +25,8 @@
                     <div class="row">
                         <div class="col-md-2 textera-img">
                             <a href="#">
-                                <img src="images/Staff.png" alt="">
-                                <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
+                                <img src="images/{{$childrent->image}}" alt="" style="width: 100px; height: 100px">
+                                <span ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
                             </a>
                         </div>
                         <div class="col-md-10">
@@ -53,9 +53,14 @@
                         </div>
                     </div>
                     <hr style="margin: 0;">
-                    <div class="form-group">
-                        <label for="price">Sick</label>
-                        <input type="text" name="sick"  value="{{$health->sick}}" placeholder="Nhập sick" class="form-control">
+                    <div class="col-md-10">
+                    <div class="add a1 ">
+                        <div class="col-md-6 input_box">
+                            <span >Sick</span>
+                            <input type="text" name="sick"  value="{{$health->sick}}" placeholder="Nhập sick" class="form-control">
+                        </div>
+
+                    </div>
                     </div>
                     <div clas="form-group">
                         <label>Growth</label>
@@ -83,12 +88,11 @@
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label>Hình ảnh</label>
-                            <br>
-                            <img src="{!! asset('images/'.$health->image) !!}" class="img-responsive img-rounded" alt="Image" style="width: 150px; height: 200px;">
-                            <input type="hidden" name="fImageCurrent" value="{!! $health->image !!}">
-                            <br>
-                            <input type="file" name="image" >
+                            <label>Ảnh sản phẩm</label>
+
+                            <input id="img" type="file" name="img" value="{{ old('img') }}" class="form-control hidden"
+                                   onchange="changeImg(this)">
+                            <img id="avatar" class="thumbnail" width="150px" height="150px" src="images/{{$health->image}}" >
                         </div>
                     </div>
             </form>
@@ -167,4 +171,25 @@
             }
         });
     </script>
+    <script>
+        function changeImg(input){
+            //Nếu như tồn thuộc tính file, đồng nghĩa người dùng đã chọn file mới
+            if(input.files && input.files[0]){
+                var reader = new FileReader();
+                //Sự kiện file đã được load vào website
+                reader.onload = function(e){
+                    //Thay đổi đường dẫn ảnh
+                    $('#avatar').attr('src',e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $(document).ready(function() {
+            $('#avatar').click(function(){
+                $('#img').click();
+            });
+        });
+    </script>
+
+
 @endsection

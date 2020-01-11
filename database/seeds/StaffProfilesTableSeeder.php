@@ -18,95 +18,72 @@ class StaffProfilesTableSeeder extends Seeder
             [
 
                 'id'                =>  1,
-                'first_name'         =>  'laura',
-
-                'last_name'         =>  'robert',
+                'first_name'        => 'Laura',
+                'last_name'         =>  'Robert',
                 'phone'             =>  '0912345678',
-               // 'password'          =>  bcrypt('12345678'),
-                'image'             =>  'image',
+                'image'             =>  'Staff-01.png',
                 'gender'            =>  1,
                 'email'             =>  'robert@gmail.com',
                 'address'           =>  'hcm city',
                 'birthday'          =>  '1990-12-12',
                 'blood_group'       =>  'A',
                 'date_of_joining'   =>  '2000-10-10',
-                'exist'             =>  1,
-                'status'            =>  1
             ],
             [
 
                 'id'                =>  2,
-
-                'first_name'        =>  'finley',
-                'last_name'         =>  'has',
+                'first_name'        =>  'Finley',
+                'last_name'         =>  'Has',
                 'phone'             =>  '0912345679',
-              //  'password'          =>  bcrypt('12345678'),
-                'image'             =>  'image',
-                'gender'            =>  1,
+                'image'             =>  'Staff-01.png',
+                'gender'            =>  2,
                 'email'             =>  'robert@gmail.com',
-                'address'           =>  'hcm city',
+                'address'           =>  '116 Xuân Thủy Cầu Giấy Hà Nội',
                 'birthday'          =>  '1990-12-12',
                 'blood_group'       =>  'B',
                 'date_of_joining'   =>  '2000-10-10',
-                'exist'             =>  1,
-                
-                'status'            =>  1
             ],
             [
 
                 'id'                =>  3,
-
-                'first_name'        =>  'yeyeey',
-                'last_name'         =>  'bomomo',
+                'first_name'        =>  'Yeyeey',
+                'last_name'         =>  'Bomomo',
                 'phone'             =>  '0912345670',
-               // 'password'          =>  bcrypt('12345678'),
-                'image'             =>  'image',
-                'gender'            =>  1,
+                'image'             =>  'Staff.png',
+                'gender'            =>  2,
                 'email'             =>  'robert@gmail.com',
-                'address'           =>  'hcm city',
+                'address'           =>  '116 Xuân Thủy Hai Bà Trưng Hà Nội',
                 'birthday'          =>  '1990-12-12',
                 'blood_group'       =>  'A',
                 'date_of_joining'   =>  '2000-10-10',
-                'exist'             =>  1,
-               
-                'status'            =>  1
             ],
             [
 
                 'id'                =>  4,
-
-                'first_name'        =>  'stuart',
-                'last_name'         =>  'fff',
+                'first_name'        =>  'Stuart',
+                'last_name'         =>  'Join',
                 'phone'             =>  '0912345671',
-                //'password'          =>  bcrypt('12345678'),
-                'image'             =>  'image',
+                'image'             =>  'Staff.png',
                 'gender'            =>  1,
                 'email'             =>  'robert@gmail.com',
-                'address'           =>  'hcm city',
+                'address'           =>  '116 Cửa Nam Hoàn Kiếm Hà Nội',
                 'birthday'          =>  '1990-12-12',
                 'blood_group'       =>  'A',
                 'date_of_joining'   =>  '2000-10-10',
-                'exist'             =>  1,
-              
-                'status'            =>  1
             ],
             [
 
                 'id'                =>  5,
-
-                'first_name'        =>  'bob',
-                'last_name'         =>  'robert',
+                'first_name'        =>  'Bob',
+                'last_name'         =>  'Robert',
                 'phone'             =>  '0912345672',
-               // 'password'          =>  bcrypt('12345678'),
-                'image'             =>  'image',
+                'image'             =>  'Staff-01.png',
                 'gender'            =>  1,
                 'email'             =>  'robert@gmail.com',
-                'address'           =>  'hcm city',
+                'address'           =>  '116 Xuân Thủy Cầu Giấy Hà Nội',
                 'birthday'          =>  '1990-12-12',
                 'blood_group'       =>  'A',
                 'date_of_joining'   =>  '2000-10-10',
-                'exist'             =>  1,
-                'status'            =>  1
             ],
         ]);
     }

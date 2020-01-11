@@ -29,8 +29,6 @@
     }
 </style>
 @section('content')
-
-
     <div class="observation-sua">
         <div class="container">
             <div class="ob-p">
@@ -45,6 +43,19 @@
                         <div class="row">
                             <div class="col-md-2">
                                 <label>Frist_name</label>
+    <div class="observation-sua">
+        <div class="row" style="margin: 5px">
+                    <form role="form" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="id" class="idProduct">
+                        <fieldset class="form-group">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Frist_name</label>
+                                </div>
+                                <div class="col-sm-9">
+                                    <input class="form-control first_name"  value="{{$childrent->first_name}}" name="first_name" placeholder="Nhập tên first_name "style="width: 500px;">
+                                </div>
                             </div>
                             <div class="col-md-10">
                                 <input class="form-control first_name"  value="{{$childrent->first_name}}" name="first_name" placeholder="Nhập tên first_name ">

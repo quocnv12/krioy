@@ -8,7 +8,7 @@
 	<section class="page-top container">
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
-				<ul class="ul-td">
+				<ul class="ul-td" style="width: 100%">
 					<li class="level1"><a href="kids-now">HOME</a></li>
 					<li class="active1" ><a href="kids-now/program">PROGRAM</a></li>
 					<li class="active1 active-1" style="pointer-events: none;"><a href="">VIEW PROGRAM</a></li>
@@ -48,7 +48,7 @@
 							<div class="row">
 								<div class="col-md-6 input_box">
 									<span class="input_box_span_active">Program Fee</span>
-									<input type="text" name="text" placeholder="Program Fee " value="{{number_format($program->program_fee)}}">
+									<input type="text" name="text" placeholder="Program Fee " value="{{number_format(floatval($program->program_fee),2)}}">
 								</div>
 								<div class="col-md-6 input_box">
 									<span class="input_box_span_active">Period Fee</span>
@@ -180,9 +180,6 @@
 
 		<div class="icon-plus" title="edit">
 			<a href="kids-now/program/edit/{{$program->id}}">
-
-			<a href="edit-program.html">
-
 				<i class="fa fa-edit"></i>
 			</a>
 		</div>

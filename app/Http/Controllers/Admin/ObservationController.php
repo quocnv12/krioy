@@ -15,13 +15,14 @@ class ObservationController extends Controller
         $observationtype= ObservationModel::paginate(5);
         return view('pages.observation.list', compact('observationtype'));
     }
+
     public function getChild(){
         $observationtype = ChildrenProfiles::all();
         return view('pages.observation.select_child', compact('observationtype'));
     }
 
     public function getAdd(){
-        $observationtype = ObservationModel::all();
+        $observationtype = ObservationTypeModel::all();
         return view('pages.observation.observation', compact('observationtype'));
     }
     public function getDelete($id){
@@ -46,8 +47,8 @@ class ObservationController extends Controller
         $childrent->last_name = $request->last_name;
         $childrent->birthday = $request->birthday;
         $childrent->gender = $request->gender;
-        $observationtype->name = $request->id;
-        $observationtype->save();
+        //$observationtype->name = $request->id;
+        //$observationtype->save();
         $childrent->save();
         return view('pages.observation.sua',compact('observationtype','childrent','vendors'));
     }
@@ -90,7 +91,36 @@ class ObservationController extends Controller
             ->orWhere('last_name', 'like', '%' . $request->get('q') . '%')
             ->orderBy('last_name')
             ->get();
-
         return response()->json($children_profiles);
+    }
+
+    public function addSelectChild(Request $request)
+    {
+        if ($request->ajax()) {
+            $output = '';
+            $children_profiles = ChildrenProfiles::find($request->id_children);
+
+            if ($children_profiles){
+                $output = '
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
+							    <div class="child-class" style="height: 120px;text-align: center;">
+							        <div class="image">
+                                        <img class="img-circle" height="80" onerror="this.src=\'images/Child.png\';" style="height: 80px" width="80" src="' . $children_profiles->image . '">
+                                        <input type="hidden" value="' . $children_profiles->id . '">
+                                        <button class="btn btn-xs btn-danger" type="button" onclick="deleteChild(' . $children_profiles->id . ')">X</button>
+                                        <span class="limitText ng-star-inserted">' . $children_profiles->first_name . ' ' . $children_profiles->last_name . '</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <script>
+                                $(\'.btn-danger\').click(function() {
+                                  $(this).parent(\'div\').parent(\'div\').parent(\'div\').hide();
+                                })
+                            </script>
+                            ';
+            }
+            return Response($output);
+        }
     }
 }
