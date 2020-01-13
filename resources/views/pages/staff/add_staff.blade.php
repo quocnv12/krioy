@@ -9,12 +9,11 @@ Staff Frofiles
     <section class="page-top container">
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
             <div class="row">
-                <ul class="ul-td">
+                <ul class="ul-td" style="width: 100%;">
                     <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">HOME</a></li>
                     <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">STAFF
                             PROFILES</a></li>
-                    <li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a _ngcontent-c16="">ADD
-                            STAFF</a></li>
+                    <li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a _ngcontent-c16="">ADD STAFF</a></li>
                 </ul>
             </div>
 		</div>
@@ -70,8 +69,8 @@ Staff Frofiles
                         <input type="text" name="address" placeholder="Residential Address *">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="add">
+                <div class="add">
+                    <div class="row">
                         <div class="col-md-4 input_box">
                             <span>Birthday *</span>
                             <input type="date" name="date" placeholder="Birthday">

@@ -84,8 +84,8 @@
                                 <div class="form-group">
                                     <label>Ảnh sản phẩm</label>
 
-                                    <input id="img" type="file" name="img" value="{{ old('img') }}" class="form-control hidden"
-                                           onchange="changeImg(this)">
+                                    <input id="img" type="file" name="img" value="{{ old('img') }}" class="hidden"
+                                           onchange="changeImg(this)" style="border-bottom: none;">
                                     <img id="avatar" class="thumbnail" width="150px" height="150px" src="images/{{$health->image}}" >
                                 </div>
                             </div>

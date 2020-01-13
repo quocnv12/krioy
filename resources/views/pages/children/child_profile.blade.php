@@ -15,7 +15,7 @@
 
 		@keyframes mymove {
 			0% {width: 200px;}
-			100% {width: 100%;}
+			100% {width: 500px;}
 		}
 		.scrollmenu-div button a{
 			color: #fff;
