@@ -46,9 +46,9 @@ Thực đơn
                             <div class="col-md-6">
                                 <h4>Food <span class="semi-bold">Name</span></h4>
                             </div>
-                            <div style="text-align:right;padding-right:22px" class="col-md-6">
+                            {{-- <div style="text-align:right;padding-right:22px" class="col-md-6">
                                 <a style="margin:0px;" href="{{ route('menu-food-name-add') }}" class="btn btn-success btn-cons"" title="Add Food Name"><i style="" class="fa fa-plus-circle"></i> Add</a>
-                            </div>
+                            </div> --}}
                            
                       </div>
                     </div>
@@ -65,7 +65,7 @@ Thực đơn
                             @foreach ($foodnames as $item)
                             <tr class="odd gradeX">
                                 <td style="text-align:center">{{ $item->id }}</td>
-                                <td style="text-align:center">{{ $item->food_name}}</td>
+                                <td style="text-align:center;text-transform:capitalize">{{ $item->food_name}}</td>
                                 <td style="text-align:center">
                                 <a href="{{ route('menu-food-name-edit',['id'=>$item->id]) }}" title="Edit Food Name" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
                                     <a onclick="return confirm('Delete food name ? Do you want continue !')" title="Delete Food Name" href="{{ route('menu-food-name-del',['id'=>$item->id]) }}" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
@@ -80,6 +80,11 @@ Thực đơn
             </div>
         </div>
     </section>
+    <div class="icon-plus">
+      <a href="{{ route('menu-food-name-add') }}">
+        <i class="fa fa-plus"></i>
+      </a>
+    </div>
 </body>
 @endsection
 @section('js')
