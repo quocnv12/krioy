@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Whoops\Exception\ErrorException;
 
 class Handler extends ExceptionHandler
 {
@@ -34,7 +35,15 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
+
+        if ($exception instanceof ErrorException) {
+            //
+            echo 'dang trong qua trinh phat trien';
+        }
+
         parent::report($exception);
+
+
     }
 
     /**
