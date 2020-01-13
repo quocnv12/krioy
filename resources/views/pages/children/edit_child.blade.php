@@ -58,7 +58,7 @@
                             </a>
                         </div>
                         <div class="col-md-10">
-                            <div class="add a1-1 ">
+                            <div class="add a1 ">
                                 <div class="row">
                                     <div class="col-md-6 input_box">
                                         <span class="input_box_span_active">First Name *</span>
@@ -83,8 +83,8 @@
                         </div>
                     </div>
                     <hr style="margin: 0;">
-                    <div class="row">
-                        <div class="add" style="width: 100%; margin: 15px">
+                    <div class="add" style="width: 100%; margin: 15px">
+                        <div class="row">
                             <div class="col-md-3 input_box">
                                 <span class="input_box_span_active">Birthday *</span>
                                 <input type="date" name="birthday" placeholder="Birthday" value="{{$children_profiles->birthday}}">
@@ -138,42 +138,44 @@
                         </div>
                     </div>
                     <div class="add">
-                        <div class="col-md-6 input_box" style="width: 100%;">
-                            <span class="input_box_span_active">Unique ID *</span>
-                            <input type="text" name="unique_id" placeholder="Unique ID *" value="{{$children_profiles->unique_id}}">
-                            @if ($errors->has('unique_id'))
-                                <div class="text text-danger">
-                                    {{ $errors->first('unique_id') }}
-                                </div>
-                            @endif
-                        </div>
-                        <div class="col-md-3 input_box">
-                            <span class="input_box_span_active">Status</span>
-                            <select name="status">
-                                <option value="">Status</option>
-                                <option value="1" @if($children_profiles->status == 1) selected="selected" @endif>IN</option>
-                                <option value="2" @if($children_profiles->status == 2) selected="selected" @endif>OUT</option>
-                                <option value="3" @if($children_profiles->status == 3) selected="selected" @endif>ABSENT</option>
-                                <option value="4" @if($children_profiles->status == 4) selected="selected" @endif>LEAVE</option>
-                            </select>
-                            @if ($errors->has('status'))
-                                <div class="text text-danger">
-                                    {{ $errors->first('status') }}
-                                </div>
-                            @endif
-                        </div>
-                        <div class="col-md-3 input_box">
-                            <span class="input_box_span_active">Exist</span>
-                            <select name="exist">
-                                <option value="">Exist</option>
-                                <option value="1" @if($children_profiles->exist == 1) selected="selected" @endif>Yes</option>
-                                <option value="0" @if($children_profiles->exist == 1) selected="selected" @endif>No</option>
-                            </select>
-                            @if ($errors->has('exist'))
-                                <div class="text text-danger">
-                                    {{ $errors->first('exist') }}
-                                </div>
-                            @endif
+                        <div class="row">
+                            <div class="col-md-6 input_box" style="width: 100%;">
+                                <span class="input_box_span_active">Unique ID *</span>
+                                <input type="text" name="unique_id" placeholder="Unique ID *" value="{{$children_profiles->unique_id}}">
+                                @if ($errors->has('unique_id'))
+                                    <div class="text text-danger">
+                                        {{ $errors->first('unique_id') }}
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="col-md-3 input_box">
+                                <span class="input_box_span_active">Status</span>
+                                <select name="status">
+                                    <option value="">Status</option>
+                                    <option value="1" @if($children_profiles->status == 1) selected="selected" @endif>IN</option>
+                                    <option value="2" @if($children_profiles->status == 2) selected="selected" @endif>OUT</option>
+                                    <option value="3" @if($children_profiles->status == 3) selected="selected" @endif>ABSENT</option>
+                                    <option value="4" @if($children_profiles->status == 4) selected="selected" @endif>LEAVE</option>
+                                </select>
+                                @if ($errors->has('status'))
+                                    <div class="text text-danger">
+                                        {{ $errors->first('status') }}
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="col-md-3 input_box">
+                                <span class="input_box_span_active">Exist</span>
+                                <select name="exist">
+                                    <option value="">Exist</option>
+                                    <option value="1" @if($children_profiles->exist == 1) selected="selected" @endif>Yes</option>
+                                    <option value="0" @if($children_profiles->exist == 1) selected="selected" @endif>No</option>
+                                </select>
+                                @if ($errors->has('exist'))
+                                    <div class="text text-danger">
+                                        {{ $errors->first('exist') }}
+                                    </div>
+                                @endif
+                            </div>
                         </div>
                         <div class="input_box" style="width: 100%;">
                             <span class="input_box_span_active">Residential Address *</span>
