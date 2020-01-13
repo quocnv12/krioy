@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Kriyo Introduce Kids Now</title>
+		<title>Kids Now Introduce</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<link rel="stylesheet" href="asset/kriyo/css/index.css">
@@ -28,7 +28,7 @@
 				    <div class="navbar-header">
 				    	<a class="navbar-brand" href="#" style="display: flex;">
 				    		<img src="images/Kriyo Logo.png" alt="">
-				    		<p>Kid Now</p>
+				    		<p>Kids Now</p>
 				    	</a>
 				    	<div class="topnav" id="myTopnav">
 						    <a href="food.html">HOME</a>
