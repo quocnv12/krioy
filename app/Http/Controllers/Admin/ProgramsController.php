@@ -50,7 +50,7 @@ class ProgramsController extends Controller
             ->selectRaw('count(children_programs.id_children) AS total_children')
             ->groupBy(['programs.program_name', 'programs.id'])
             ->orderBy('programs.program_name')
-            ->paginate(1);
+            ->simplePaginate(8);
 
         return view('pages.program.program', ['programs' => $programs]);
     }
