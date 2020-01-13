@@ -116,6 +116,7 @@ Food
             </form>
         </div>
     </section>
+    
 </body>
 @endsection
 @section('js')
