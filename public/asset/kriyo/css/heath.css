@@ -410,13 +410,6 @@ input:focus{
     min-width: 110px;
     color: #5363d6;
 }
-.limitText[_ngcontent-c20] {
-    display: block;
-    width: 100px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
 .mat-card .mat-content .ng-star-inserted button:hover{
     background-color: #5363d6!important;
     color: #fff;
