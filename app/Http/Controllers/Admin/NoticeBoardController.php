@@ -22,7 +22,20 @@ class NoticeBoardController extends Controller
 
     public function detail($id){
         $notice_board = NoticeBoard::find($id);
-        return view('pages.notice.notice_detail',['notice_board'=>$notice_board]);
+        $programs = Programs::all();
+        $programs_choose = DB::table('programs')
+            ->join('programs_notice', 'programs.id', '=', 'programs_notice.id_programs')
+            ->select('id')
+            ->where('id_notice', '=', $id)
+            ->get();
+        // array chua cac id program ma children dang hoc
+        $array_programs_choose = [];
+        foreach ($programs_choose as $key => $value) {
+            array_push($array_programs_choose, $value->id);
+        }
+        return view('pages.notice.notice_detail',['notice_board'=>$notice_board,
+                                                        'programs'=>$programs,
+                                                        'array_programs_choose'=>$array_programs_choose]);
     }
 
     public function create()
