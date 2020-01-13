@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin\Staff;
-use App\models\staff\StaffProfiles;
+use App\models\staff\{StaffProfiles,roles};
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -16,7 +16,8 @@ class StaffController extends Controller
     //-----them
     public  function GeAddStaff() 
     {
-        return view('pages.staff.add_staff');
+        $data['roles']=roles::all();
+        return view('pages.staff.add_staff',$data);
     }
 
 

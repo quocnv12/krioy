@@ -33,7 +33,7 @@ Edit meal type
                         <form  style="width:auto;" method="post">
                         @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control" name="name" placeholder="Enter Meal Type" value="{{ $mealtype->name }}">
+                            <input type="text" class="form-control" style="text-transform:capitalize" name="name" placeholder="Enter Meal Type" value="{{ $mealtype->name }}">
                             @if($errors->has('name'))
                             <p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">* {{ $errors->first('name') }}</p>
                           @endif

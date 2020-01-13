@@ -65,8 +65,8 @@
 							@foreach ($foods as $item)
 							<tr class="odd gradeX">
 								<td>{{ $item->id }}</td>
-								<td>{{ $item->mealtypefood->name }}</td>
-								<td>
+								<td style="text-transform:capitalize">{{ $item->mealtypefood->name }}</td>
+								<td style="text-transform:capitalize">
 									@php
 										$resultstr = array();
 									@endphp
@@ -77,8 +77,8 @@
 									@endforeach
 									{{  implode(",",$resultstr) }}
 								</td>
-								<td>{{ $item->quantityfood->name }}</td>
-								<td>{{ $item->programfood->program_name }}</td>
+								<td style="text-transform:capitalize">{{ $item->quantityfood->name }}</td>
+								<td style="text-transform:capitalize">{{ $item->programfood->program_name }}</td>
 								<td style="text-align:center">
 								<a href="kids-now/food/edit/{{ $item->id }}" title="Edit Food" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
 									<a onclick="return confirm('Delete food ? Do you want continue !')" title="Delete Food" href="kids-now/food/delete/{{ $item->id }}" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
@@ -92,7 +92,11 @@
 		</div>
 	</div>
 </div>
-
+<div class="icon-plus">
+	<a href="kids-now/food">
+		<i class="fa fa-plus"></i>
+	</a>
+</div>
 </body>
 @endsection
 

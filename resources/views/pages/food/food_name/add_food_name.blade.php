@@ -33,7 +33,7 @@ Thực đơn
                         <form  style="width:auto;" method="post">
                         @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control" name="food_name"  placeholder="Enter Food Name" value="{{ old('food_name') }}">
+                            <input type="text" style="text-transform:capitalize" class="form-control" name="food_name"  placeholder="Enter Food Name" value="{{ old('food_name') }}">
                             @if($errors->has('food_name'))
                             <p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">* {{ $errors->first('food_name') }}</p>
                           @endif
