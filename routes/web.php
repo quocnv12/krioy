@@ -62,7 +62,8 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
     //---------------staff----------------
     Route::group(['prefix' => 'staff'], function () {
         Route::get('','Admin\Staff\StaffController@GetListStaff');
-        Route::get('add','Admin\Staff\StaffController@GeAddStaff');
+        Route::get('add','Admin\Staff\StaffController@GetAddStaff');
+        Route::post('add','Admin\Staff\StaffController@PostAddStaff');
 
         Route::get('edit', function () {
             return view('pages.staff.edit_staff');
