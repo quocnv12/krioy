@@ -30,7 +30,7 @@
 			<div class="row">
 				<ul class="ul-td" style="width: 100%">
 					<li class="level1"><a href="kids-now">HOME</a></li>
-					<li class="active1" style="pointer-events:none"><a href="kids-now/program">PROGRAM</a></li>
+					<li class="active1" ><a href="kids-now/program">PROGRAM</a></li>
 					<li class="active1 active-1" style="pointer-events:none;"><a href="">ADD PROGRAM</a></li>
 				</ul>
 			</div>
@@ -455,7 +455,7 @@
 		$(document).ready(function($) {
 			var engine1 = new Bloodhound({
 				remote: {
-					url: 'http://localhost:8000/kids-now/program/search/children?q=%QUERY%',
+					url: 'http://kidsnow.web88.vn/kids-now/program/search/children?q=%QUERY%',
 					wildcard: '%QUERY%'
 				},
 				datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
@@ -489,7 +489,7 @@
 
 			var engine2 = new Bloodhound({
 				remote: {
-					url: 'http://localhost:8000/kids-now/program/search/staff?q2=%QUERY%',
+					url: 'http://kidsnow.web88.vn/kids-now/program/search/staff?q2=%QUERY%',
 					wildcard: '%QUERY%'
 				},
 				datumTokenizer: Bloodhound.tokenizers.whitespace('q2'),

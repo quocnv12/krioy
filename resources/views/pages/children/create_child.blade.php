@@ -40,8 +40,8 @@
 				<div class="row">
 					<div class="col-md-2 textera-img">
 						<a style="cursor: pointer;">
-							<input type="file" id="uploadfile" name="image">
-							<img src="images/Child.png" alt="" id="demo_image">
+							<input type="file" id="uploadfile" name="image" accept="image/*">
+							<img src="images/Child.png" alt="" id="demo_image" style="height: 100px">
 							<span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
 							@if ($errors->has('image'))
 								<div class="text text-danger">
@@ -226,8 +226,8 @@
 						<div class="row">
 							<div class="col-md-2 textera-img">
 								<a style="cursor: pointer;">
-									<input class="parent_1" type="file" id="uploadfile_parent_1" name="image_parent_1">
-									<img src="images/Child.png" alt="" id="demo_image_parent_1">
+									<input class="parent_1" type="file" id="uploadfile_parent_1" name="image_parent_1" accept="image/*">
+									<img src="images/Child.png" alt="" id="demo_image_parent_1" style="height: 100px">
 									<span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
 									@if ($errors->has('image_parent_1'))
 										<div class="text text-danger">
@@ -328,8 +328,8 @@
 						<div class="row">
 							<div class="col-md-2 textera-img">
 								<a style="cursor: pointer;">
-									<input class="parent_2" type="file" id="uploadfile_parent_2" name="image_parent_2">
-									<img src="images/Child.png" alt="" id="demo_image_parent_2">
+									<input class="parent_2" type="file" id="uploadfile_parent_2" name="image_parent_2" accept="image/*">
+									<img src="images/Child.png" alt="" id="demo_image_parent_2" style="height: 100px">
 									<span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
 									@if ($errors->has('image_parent_2'))
 										<div class="text text-danger">

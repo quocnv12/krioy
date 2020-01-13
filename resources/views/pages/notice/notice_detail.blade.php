@@ -21,10 +21,11 @@
 				<button class="accordion">Programs</button>
 				<div class="panel">
 					<div _ngcontent-c20="" class="row" style="" data-toggle="modal" data-target=".bd-example-modal-sm">
-						<!---->
-						<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer;">
-
-						</div>
+						@foreach($programs as $program)
+							<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer">
+								<button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1 @if(in_array($program->id, $array_programs_choose)) tablinks1_active @endif" style="background-color: transparent; border:1px solid #5363d6;border-radius: 4px" type="button" data-toggle="tooltip" title="{{$program->program_name}}" disabled="" value="{{$program->id}}">{{$program->program_name}}</button>
+							</div>
+						@endforeach
 					</div>
 				</div>
 				<div style="font-size: 20px;font-weight: bold;">
@@ -81,7 +82,7 @@
 
 		<div class="icon-plus" title="edit">
 			<a href="kids-now/notice-board/edit/{{$notice_board->id}}">
-				<i class="fa fa-plus"></i>
+				<i class="fa fa-edit"></i>
 			</a>
 		</div>
 
@@ -127,5 +128,10 @@
 		    } 
 		  });
 		}
+	</script>
+	<script>
+		$(document).ready(function () {
+			$('.accordion').click();
+		})
 	</script>
 @endsection
