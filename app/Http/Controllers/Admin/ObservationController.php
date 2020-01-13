@@ -25,17 +25,24 @@ class ObservationController extends Controller
         $observationtype = ObservationTypeModel::all();
         return view('pages.observation.observation', compact('observationtype'));
     }
-    public function postAdd(Request $request){
-        $observationtype = new ObservationModel;
-        $observationtype->id_observations = $request->observation;
-        $observationtype->detailObservation = $request->detailObservation;
-        $observationtype->id_children= $request->id_children;
+    public function postAdd(Request $request)
+    {
+        $observationtype = ObservationModel::create($request->all());
         $observationtype->save();
-        return redirect()->route('admin.observations.list')->with(['thongbao'=>'success','flash_message'=>'Thêm Observation thành công!!!']);;
 
+        if ($request->array_all_children !== null) {
+            //string to array
+            $array_all_children = explode(',', $request->array_all_children);
 
-
-
+            //luu vao bang children_programs
+            foreach ($array_all_children as $children) {
+                $children_program = new ChildrenProfiles();
+                $children_program->id_children = $children;
+                $children_program->save();
+            }
+            $children_program->save();
+        }
+        return redirect()->back()->with('notify', 'Added Successfully');
     }
     public function getDelete($id){
         $observationtype= DB::table('observations')->where('id',$id)->delete();
