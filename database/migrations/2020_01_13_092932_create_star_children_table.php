@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePhotoChildrentTable extends Migration
+class CreateStarChildrenTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreatePhotoChildrentTable extends Migration
      */
     public function up()
     {
-        Schema::create('photo_childrent', function (Blueprint $table) {
-            $table->bigInteger('id_photo')->unsigned();
-            $table->foreign('id_photo')->references('id')->on('photos')->onDelete('cascade');
+        Schema::create('star_children', function (Blueprint $table) {
+            $table->bigInteger('id_star')->unsigned();
+            $table->foreign('id_star')->references('id')->on('star')->onDelete('cascade');
             $table->bigInteger('id_children')->unsigned();
             $table->foreign('id_children')->references('id')->on('children_profiles')->onDelete('cascade');
         });
@@ -28,6 +28,6 @@ class CreatePhotoChildrentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('photo_childrent');
+        Schema::dropIfExists('star_children');
     }
 }

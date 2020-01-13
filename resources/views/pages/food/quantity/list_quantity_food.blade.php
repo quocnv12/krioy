@@ -47,9 +47,9 @@ List quantity food
                             <div class="col-md-6">
                                 <h4>Quantity <span class="semi-bold">Food</span></h4>
                             </div>
-                            <div style="text-align:right;padding-right:22px" class="col-md-6">
+                            {{-- <div style="text-align:right;padding-right:22px" class="col-md-6">
                                 <a style="margin:0px;" href="{{ route('menu-quantity-add') }}" class="btn btn-success btn-cons"" title="Add Quantyti Food"><i style="" class="fa fa-plus-circle"></i> Add</a>
-                            </div>
+                            </div> --}}
                           
                       </div>
                     </div>
@@ -66,7 +66,7 @@ List quantity food
                             @foreach ($qtyfood as $item)
                             <tr class="odd gradeX">
                                 <td style="text-align:center">{{ $item->id }}</td>
-                                <td style="text-align:center">{{ $item->name}}</td>
+                                <td style="text-align:center;text-transform:capitalize">{{ $item->name}}</td>
                                 <td style="text-align:center">
                                 <a href="{{ route('menu-quantity-edit',['id_qty'=>$item->id]) }}" title="Edit Quantity Food" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
                                 <a onclick="return confirm('Delete meal type ? Do you want continue !')"" title="Delete Quantity Food" href="{{ route('menu-quantity-del',['id_qty'=>$item->id]) }}" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
@@ -81,6 +81,11 @@ List quantity food
             </div>
         </div>
     </section>
+    <div class="icon-plus">
+      <a href="{{ route('menu-quantity-add') }}">
+        <i class="fa fa-plus"></i>
+      </a>
+    </div>
 </body>
 @endsection
 @section('js')
