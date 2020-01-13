@@ -31,7 +31,7 @@ class ObservationController extends Controller
         $observationtype->detailObservation = $request->detailObservation;
         $observationtype->id_children= $request->id_children;
         $observationtype->save();
-        return redirect()->route('admin.observations.list')->with(['thongbao'=>'success','flash_message'=>'Thêm thành công!!!']);;
+        return redirect()->route('admin.observations.list')->with(['thongbao'=>'success','flash_message'=>'Thêm Observation thành công!!!']);;
 
 
 
