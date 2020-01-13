@@ -10,8 +10,8 @@
     <section class="page-top container">
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
             <div class="row">
-                <ul class="ul-td">
-                    <li ngcontent-c16="" class="level1"><a ngcontent-c16="">HOME HOME HOME  </a></li>
+                <ul class="ul-td" style="width: 100%;">
+                    <li ngcontent-c16="" class="level1"><a ngcontent-c16="">HOME</a></li>
                     <li ngcontent-c16="" class="active1" style="pointer-events:none"><a ngcontent-c16="">HEALTH PROFILES</a></li>
                     <li ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a ngcontent-c16="">EDIT HEALTH</a></li>
                 </ul>
@@ -42,57 +42,53 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="add">
-                                        <div class="col-md-12 input_box">
-                                            <span>Birthday</span>
-                                            <input type="date" value="{{$childrent->birthday}}"name="birthday" placeholder="Phone Number *">
-                                        </div>
+                                    <div class="col-md-6 input_box">
+                                        <span>Birthday</span>
+                                        <input type="date" value="{{$childrent->birthday}}"name="birthday" placeholder="Phone Number *">
+                                    </div>
+                                    <div class="col-md-6 input_box">
+                                        <span >Sick</span>
+                                        <input type="text" name="sick"  value="{{$health->sick}}" placeholder="Nhập sick">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <hr style="margin: 0;">
-                    <div class="col-md-10">
+                    <hr style="margin: 20px 0;">
                     <div class="add a1 ">
-                        <div class="col-md-6 input_box">
-                            <span >Sick</span>
-                            <input type="text" name="sick"  value="{{$health->sick}}" placeholder="Nhập sick" class="form-control">
-                        </div>
-
-                    </div>
-                    </div>
-                    <div clas="form-group">
-                        <label>Growth</label>
                         <div class="row">
-                            <div class="col-sm-6" style="text-align: center; ">
+                            <div class="col-md-2" style="text-align: center;">
+                                <label style="margin:10px;">Growth</label>
+                            </div>
+                            <div class="col-sm-5 input_box" style="text-align: center; ">
                                 <span>Height</span>
                                 <input type="text" name="growth_height" value="{{$health->growth_height}}" placeholder="Enter details here *" >
                             </div>
-                            <div class="col-sm-6"style="text-align: center; ">
+                            <div class="col-md-5 input_box"style="text-align: center; ">
                                 <span>Weight</span>
                                 <input type="text" name="growth_weight"   value="{{$health->growth_weight}}" placeholder="Enter details here *">
                             </div>
                         </div>
-                    </div>
+                        <div class="add a1">
+                            <div class="row">
+                                <div class="col-md-6 input_box">
+                                    <span>medicine</span>
+                                    <input type="text" name="medicine"  value="{{$health->medicine}}"placeholder="Nhập medicine nếu có">
+                                </div>
+                                <div class="col-md-6 input_box">
+                                    <span>incident</span>
+                                    <input type="text" name="incident" value="{{$health->incident}}" placeholder="Nhập incident nếu có">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <label>Ảnh sản phẩm</label>
 
-                    <div class="form-group">
-                        <label for="price">medicine</label>
-                        <input type="text" name="medicine"  value="{{$health->medicine}}"placeholder="Nhập medicine nếu có" class="form-control">
-
-                    </div>
-                    <div class="form-group">
-                        <label for="price">incident</label>
-                        <input type="text" name="incident" value="{{$health->incident}}" placeholder="Nhập incident nếu có" class="form-control">
-
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="form-group">
-                            <label>Ảnh sản phẩm</label>
-
-                            <input id="img" type="file" name="img" value="{{ old('img') }}" class="form-control hidden"
-                                   onchange="changeImg(this)">
-                            <img id="avatar" class="thumbnail" width="150px" height="150px" src="images/{{$health->image}}" >
+                                    <input id="img" type="file" name="img" value="{{ old('img') }}" class="form-control hidden"
+                                           onchange="changeImg(this)">
+                                    <img id="avatar" class="thumbnail" width="150px" height="150px" src="images/{{$health->image}}" >
+                                </div>
+                            </div>
                         </div>
                     </div>
             </form>
@@ -101,11 +97,8 @@
             <div class="button" style="text-align: center;">
                 <button type="submit" class="btn btn-success">Sửa</button>
                 <button type="reset" class="btn btn-primary">Nhập Lại</button>
-                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                <button class="btn btn-secondary" type="button">Cancel</button>
             </div>
-        </div>
-        </div>
-        </div>
         </div>
     </section>
     </body>

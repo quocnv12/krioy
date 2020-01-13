@@ -31,6 +31,9 @@
     <link rel="stylesheet" href="asset/kriyo/css/font-awesome.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="asset/kriyo/css/owl.carousel.css">
+    <!-- Custom CSS -->
+        <link rel="stylesheet" href="libs/slick-1.8.1/slick/slick.css">
+        <link rel="stylesheet" href="libs/slick-1.8.1/slick/slick-theme.css">
     
 
 

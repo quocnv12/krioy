@@ -44,15 +44,7 @@
 								<!---->
 							</div>
 						</div>
-
-
-
-
-
-
 					</div>
-
-
 					<div id="clock" name="time"></div>
 					<div class="update">
 						<p>Select Health Update Type*</p>

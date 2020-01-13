@@ -16,7 +16,7 @@
 				</div>
 				<div class="col-md-4" style="float: right">
 					<form class="typeahead" role="search" style="text-align: left">
-						<input type="search" name="q" class="form-control search-input" placeholder="Search Notice..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 500px;">
+						<input type="search" name="q" class="form-control search-input" placeholder="Search Notice..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 300px;">
 					</form>
 				</div>
 			</div>
@@ -27,29 +27,17 @@
 				</div>
 			@endif
 	</section>
-	<section _ngcontent-c10="" style="background-color:#f9f9f9">
-		<div _ngcontent-c10="" class="row" style="padding: 10px">
-			<div _ngcontent-c10="" align="right" class="col-md-2 scrollClassLeft">
-				<div _ngcontent-c10="" class="scroll-arrow-left" id="prev_nav" style="padding-right: 20px;color:#5363d6;cursor:pointer">
-					<i _ngcontent-c10="" aria-hidden="true" class="fa fa-angle-left" style="font-size:40px"></i>
+	<section style="background-color:#f9f9f9">
+		<div class="container">
+			<div class="scrollmenu-div">
+				@foreach($programs as $program)
+				<div class="scrollmenu-button" style="text-align: center;">
+					<!---->
+					<button type="submit" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
+						<a style="color: #fff;" href="kids-now/notice-board/{{$program->id}}">{{$program->program_name}}</a>
+					</button>
 				</div>
-			</div>
-			<div _ngcontent-c10="" class="col-md-8" style="padding-left:0px;padding-right:0px">
-				<div _ngcontent-c10="" class="scrollmenu" id="nav">
-					<ul _ngcontent-c10="">
-						<!---->
-						@foreach($programs as $program)
-							<li _ngcontent-c10="">
-								<a _ngcontent-c10="" class="item active" href="kids-now/notice-board/{{$program->id}}">{{$program->program_name}}</a>
-							</li>
-						@endforeach
-					</ul>
-				</div>
-			</div>
-			<div _ngcontent-c10="" align="left" class="col-md-2 scrollClassRight">
-				<div _ngcontent-c10="" class="scroll-arrow-right" id="next_nav" style="padding-left: 20px;color:#5363d6;cursor:pointer">
-					<i _ngcontent-c10="" aria-hidden="true" class="fa fa-angle-right" style="font-size:40px"></i>
-				</div>
+				@endforeach
 			</div>
 		</div>
 	</section>
@@ -93,6 +81,7 @@
 
 @section('js')
 	<script src="https://code.jquery.com/jquery.min.js"></script>
+	<script src="libs/slick-1.8.1/slick/slick.js"></script>
     
     <!-- Bootstrap JS form CDN -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -150,6 +139,40 @@
 					}
 				},
 			]);
+		});
+	</script>
+	<script type="text/javascript">
+		$('.scrollmenu-div').slick({
+			infinite: true,
+			slidesToShow: 7,
+			slidesToScroll: 1,
+			autoplay: false,
+			autoplaySpeed: 2000,
+			responsive: [{
+					breakpoint: 1200,
+					settings: {
+					slidesToShow: 3,
+					slidesToScroll: 1
+					}
+				},
+			{
+				breakpoint: 991,
+				settings: {
+				slidesToShow: 3,
+				slidesToScroll: 1,
+				autoplay: true,
+				arrows:false,
+				}
+			},
+			{
+				breakpoint: 500,
+				settings: {
+				slidesToShow: 2,
+				slidesToScroll: 1,
+				autoplay: true,
+				arrows:false,
+				}
+			}]
 		});
 	</script>
 @endsection
