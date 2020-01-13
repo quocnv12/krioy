@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Kriyo Introduce Kids Now</title>
+		<title>Kriyo Introduce Kid Now</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<link rel="stylesheet" href="asset/kriyo/css/index.css">
@@ -10,7 +10,7 @@
    		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
     	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
 
-    	<link rel="stylesheet" href="libs/bootstrap-4.0.0/dist/css/bootstrap.min.css">
+    	<link rel="stylesheet" href="asset/kriyo/css/bootstrap.min.css">
     	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
     
 	    <!-- Font Awesome -->
@@ -28,14 +28,14 @@
 				    <div class="navbar-header">
 				    	<a class="navbar-brand" href="#" style="display: flex;">
 				    		<img src="images/Kriyo Logo.png" alt="">
-				    		<p>Kids Now</p>
+				    		<p>Kid Now</p>
 				    	</a>
 				    	<div class="topnav" id="myTopnav">
-						    <a class="active" href="food.html">HOME</a>
-						    <a href="#">KIDS NOW APP</a>
+						    <a href="food.html">HOME</a>
+						    <a href="#">KID NOW APP</a>
 						    <a href="#">PRICING</a>
 						    <a href="#">ABOUT US</a>
-						    <a href="login">LOGIN</a>
+						    <a href="#">LOGIN</a>
 						    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
 							    <i class="fa fa-bars"></i>
 							</a>
@@ -218,7 +218,7 @@
 				<div class="col-md-4">
 					<div class="mixedSlider">
 		                <div class="MS-content">
-		                    <div class="item">
+		                    <div class="item-customer">
 		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kriyo app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kriyo.</p>
 		                    </div>
 		                    <div class="item-1">
@@ -231,7 +231,7 @@
 		        <div class="col-md-4">
 					<div class="mixedSlider">
 		                <div class="MS-content">
-		                    <div class="item">
+		                    <div class="item-customer">
 		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kriyo app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kriyo.</p>
 		                    </div>
 		                    <div class="item-1">
@@ -244,7 +244,7 @@
 		        <div class="col-md-4">
 					<div class="mixedSlider">
 		                <div class="MS-content">
-		                    <div class="item">
+		                    <div class="item-customer">
 		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kriyo app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kriyo.</p>
 		                    </div>
 		                    <div class="item-1">
@@ -257,7 +257,7 @@
 		        <div class="col-md-4">
 					<div class="mixedSlider">
 		                <div class="MS-content">
-		                    <div class="item">
+		                    <div class="item-customer">
 		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kriyo app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kriyo.</p>
 		                    </div>
 		                    <div class="item-1">
@@ -554,7 +554,7 @@
     
     <!-- Main Script -->
     <script src="js/main.js"></script>
-	<script src="slick-1.8.1/slick/slick.js"></script>
+	<script src="libs/slick-1.8.1/slick/slick.js"></script>
 	<script type="text/javascript">
 		$('.introduce-customers-1').slick({
 			infinite: true,
@@ -571,7 +571,7 @@
 					}
 				},
 			{
-				breakpoint: 992,
+				breakpoint: 991,
 				settings: {
 				slidesToShow: 2,
 				slidesToScroll: 1,

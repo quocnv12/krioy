@@ -15,7 +15,10 @@
 
 		@keyframes mymove {
 			0% {width: 200px;}
-			100% {width: 500px;}
+			100% {width: 100%;}
+		}
+		.scrollmenu-div button a{
+			color: #fff;
 		}
 	</style>
 	<body>
@@ -49,23 +52,17 @@
 
 	@endif
 	<section style="background-color:#f9f9f9">
-		<div class="row" style="padding: 10px">
-			<div class="col-lg-2 col-md-2 col-sm-12"></div>
-			<div class="col-lg-8 col-md-8 col-sm-12" style="padding-left:0px;padding-right:0px">
-				<div class="child-profile-ul">
-					<div _ngcontent-c10="" class="scrollmenu" id="nav">
-						<ul _ngcontent-c10="" class="scrollmenu-ul">
-							<!---->
-							@foreach($programs as $program)
-								<li _ngcontent-c10="">
-									<a _ngcontent-c10="" class="item active" href="kids-now/children/{{$program->id}}">{{$program->program_name}}</a>
-								</li>
-							@endforeach
-						</ul>
-					</div>
+		<div class="container">
+			<div class="scrollmenu-div">
+				@foreach($programs as $program)
+				<div class="scrollmenu-button" style="text-align: center;">
+					<!---->
+					<button type="submit" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
+						<a style="color: #fff;" href="kids-now/children/{{$program->id}}">{{$program->program_name}}</a>
+					</button>
 				</div>
+				@endforeach
 			</div>
-			<div class="col-lg-2 col-md-2 col-sm-12"></div>
 		</div>
 	</section>
 
@@ -146,6 +143,7 @@
 	</script>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+	<script src="libs/slick-1.8.1/slick/slick.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function($) {
 			var engine1 = new Bloodhound({
@@ -182,6 +180,40 @@
 					}
 				},
 			]);
+		});
+	</script>
+	<script type="text/javascript">
+		$('.scrollmenu-div').slick({
+			infinite: true,
+			slidesToShow: 7,
+			slidesToScroll: 1,
+			autoplay: false,
+			autoplaySpeed: 2000,
+			responsive: [{
+					breakpoint: 1200,
+					settings: {
+					slidesToShow: 3,
+					slidesToScroll: 1
+					}
+				},
+			{
+				breakpoint: 991,
+				settings: {
+				slidesToShow: 3,
+				slidesToScroll: 1,
+				autoplay: true,
+				arrows:false,
+				}
+			},
+			{
+				breakpoint: 500,
+				settings: {
+				slidesToShow: 2,
+				slidesToScroll: 1,
+				autoplay: true,
+				arrows:false,
+				}
+			}]
 		});
 	</script>
 	{{--<script type="text/javascript">--}}
