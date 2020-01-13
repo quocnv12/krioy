@@ -20,6 +20,6 @@ class ObservationModel extends Model
         return $this->belongsTo('App\Models\ObservationTypeModel','id_observations','id');
     }
     public function Childrent(){
-        return $this->belongsTo('App\Models\ChildrenProfiles','id_children','id');
+        return $this->belongsTo('App\models\ChildrenProfiles','id_children','id');
     }
 }
