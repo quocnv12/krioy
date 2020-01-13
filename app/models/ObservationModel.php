@@ -11,7 +11,8 @@ class ObservationModel extends Model
     protected $fillable = [
         'id',
         'id_children',
-        'id_observations'
+        'id_observations',
+        'detailObservation'
     ];
 
     public $timestamps = false;
