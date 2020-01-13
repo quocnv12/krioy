@@ -170,7 +170,7 @@
 										<img _ngcontent-c19="" class="img-circle" onerror="this.src='images/Child.png';" style="height: 80px" width="80" src="{{$children->image}}">
 										<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked"></i>
 										<!---->
-										<span _ngcontent-c19="" class="limitText ng-star-inserted">{{$children->first_name}} {{$children->last_name}}</span>
+										<span _ngcontent-c19="" class="limitText ng-star-inserted" >{{$children->first_name}} {{$children->last_name}}</span>
 										<input type="hidden" value="{{$children->id}}" class="link_to_children">
 									</div>
 									<!---->
@@ -195,7 +195,7 @@
 		<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-sm">
 				<div class="modal-content">
-					<ul>
+					<ul style="margin-left: 0">
 						<li style="color: #5363d6!important">Go to</li>
 						<li class="modal-li" data-href="" id="profile_children">Profile</li>
 						<li class="modal-li" data-href="" id="invoices_children">Invoices</li>
