@@ -27,50 +27,50 @@ class ChildrenProfilesController extends Controller
     {
         $this->validate($request,
             [
-                'first_name' => 'required',
-                'last_name' => 'required',
-                'birthday' => 'required',
-                'gender' => 'required',
-                'unique_id' => 'required|unique:children_profiles,unique_id',
-                'address' => 'nullable',
-                'allergies' => 'nullable',
-                'additional_note' => 'nullable',
-                'image' => 'image|nullable',
-                'status' => 'nullable',
-                'exist' => 'nullable',
+                'first_name'        => 'required',
+                'last_name'         => 'required',
+                'birthday'          => 'required',
+                'gender'            => 'required',
+                'unique_id'         => 'required|unique:children_profiles,unique_id',
+                'address'           => 'nullable',
+                'allergies'         => 'nullable',
+                'additional_note'   => 'nullable',
+                'image'             => 'image|nullable',
+                'status'            => 'nullable',
+                'exist'             => 'nullable',
 
-                'first_name_parent_1' => 'nullable',
-                'last_name_parent_1' => 'nullable',
-                'phone_parent_1' => 'numeric|required',
-                'email_parent_1' => 'email|nullable',
-                'gender_parent_1' => 'nullable',
-                'note_parent_1' => 'nullable',
-                'relationship_1' => 'nullable',
+                'first_name_parent_1'   => 'nullable',
+                'last_name_parent_1'    => 'nullable',
+                'phone_parent_1'        => 'numeric|nullable',
+                'email_parent_1'        => 'email|nullable',
+                'gender_parent_1'       => 'nullable',
+                'note_parent_1'         => 'nullable',
+                'relationship_1'        => 'nullable',
+                'image_parent_1'        => 'image|nullable',
 
-                'first_name_parent_2' => 'nullable',
-                'last_name_parent_2' => 'nullable',
-                'phone_parent_2' => 'numeric|nullable',
-                'email_parent_2' => 'email|nullable',
-                'gender_parent_2' => 'nullable',
-                'note_parent_2' => 'nullable',
-                'relationship_2' => 'nullable'
+                'first_name_parent_2'   => 'nullable',
+                'last_name_parent_2'    => 'nullable',
+                'phone_parent_2'        => 'numeric|nullable',
+                'email_parent_2'        => 'email|nullable',
+                'gender_parent_2'       => 'nullable',
+                'note_parent_2'         => 'nullable',
+                'relationship_2'        => 'nullable',
+                'image_parent_2'        => 'image|nullable',
             ],
             [
-                'first_name.required' => 'Please input first name',
-                'last_name.required' => 'Please input last name',
-                'gender.required' => 'Please choose gender',
-                'image.image' => 'Image is invalid',
-                'birthday.required' => 'Please input birthday',
-                'phone_parent_1.numeric' => 'Number is invalid',
-                'phone_parent_2.numeric' => 'Number is invalid',
-                'phone_parent_1.required' => 'Please input phone number',
-                'email_parent_1.email' => 'Email is invalid',
-                'relationship_1.required' => 'Please choose relationship',
-                'unique_id.unique' => 'ID is exist',
-                'unique_id.required' => 'Please input unique ID',
-                'email_parent_1.required' => 'Please input email',
-                'gender_parent_1.required' => 'Please choose gender',
-                'phone_parent_1' => 'Please input phone'
+                'first_name.required'       => 'Please input first name',
+                'last_name.required'        => 'Please input last name',
+                'gender.required'           => 'Please choose gender',
+                'image.image'               => 'Image is invalid',
+                'birthday.required'         => 'Please input birthday',
+                'phone_parent_1.numeric'    => 'Number is invalid',
+                'phone_parent_2.numeric'    => 'Number is invalid',
+                'email_parent_1.email'      => 'Email is invalid',
+                'email_parent_2.email'      => 'Email is invalid',
+                'unique_id.unique'          => 'ID is exist',
+                'unique_id.required'        => 'Please input unique ID',
+                'image_parent_1.image'      => 'Image is invalid',
+                'image_parent_2.image'      => 'Image is invalid',
             ]);
         $children_profiles = ChildrenProfiles::create($request->all());
         if ($request->hasFile('image')) {
@@ -220,52 +220,50 @@ class ChildrenProfilesController extends Controller
     {
         $this->validate($request,
             [
-                'first_name' => 'required',
-                'last_name' => 'required',
-                'birthday' => 'required',
-                'gender' => 'required',
-                'unique_id' => 'required|unique:children_profiles,unique_id,' . $id . '',
-                'address' => 'nullable',
-                'allergies' => 'nullable',
-                'additional_note' => 'nullable',
-                'image' => 'image|nullable',
-                'status' => 'nullable',
-                'exist' => 'nullable',
+                'first_name'        => 'required',
+                'last_name'         => 'required',
+                'birthday'          => 'required',
+                'gender'            => 'required',
+                'unique_id'         => 'required|unique:children_profiles,unique_id,' . $id . '',
+                'address'           => 'nullable',
+                'allergies'         => 'nullable',
+                'additional_note'   => 'nullable',
+                'image'             => 'image|nullable',
+                'status'            => 'nullable',
+                'exist'             => 'nullable',
 
-                'first_name_parent_1' => 'nullable',
-                'last_name_parent_1' => 'nullable',
-                'phone_parent_1' => 'numeric|required',
-                'email_parent_1' => 'email|nullable',
-                'gender_parent_1' => 'nullable',
-                'note_parent_1' => 'nullable',
-                'relationship_1' => 'nullable',
+                'first_name_parent_1'   => 'nullable',
+                'last_name_parent_1'    => 'nullable',
+                'phone_parent_1'        => 'numeric|nullable',
+                'email_parent_1'        => 'email|nullable',
+                'gender_parent_1'       => 'nullable',
+                'note_parent_1'         => 'nullable',
+                'relationship_1'        => 'nullable',
+                'image_parent_1'        => 'image|nullable',
 
-                'first_name_parent_2' => 'nullable',
-                'last_name_parent_2' => 'nullable',
-                'phone_parent_2' => 'numeric|nullable',
-                'email_parent_2' => 'email|nullable',
-                'gender_parent_2' => 'nullable',
-                'note_parent_2' => 'nullable',
-                'relationship_2' => 'nullable'
+                'first_name_parent_2'   => 'nullable',
+                'last_name_parent_2'    => 'nullable',
+                'phone_parent_2'        => 'numeric|nullable',
+                'email_parent_2'        => 'email|nullable',
+                'gender_parent_2'       => 'nullable',
+                'note_parent_2'         => 'nullable',
+                'relationship_2'        => 'nullable',
+                'image_parent_2'        => 'image|nullable',
             ],
             [
-                'first_name.required' => 'Please input first name',
-                'last_name.required' => 'Please input last name',
-                'gender.required' => 'Please choose gender',
-                'image.image' => 'Image is invalid',
-                'birthday.required' => 'Please input birthday',
-                'phone_parent_1.numeric' => 'Number is invalid',
-                'phone_parent_2.numeric' => 'Number is invalid',
-                'phone_parent_1.required' => 'Please input phone number',
-                'email_parent_1.email' => 'Email is invalid',
-                'relationship_1.required' => 'Please choose relationship',
-                'unique_id.unique' => 'ID is exist',
-                'unique_id.required' => 'Please input unique ID',
-                'first_name_parent_1.required' => 'Please input first name',
-                'last_name_parent_1.required' => 'Please input last name',
-                'email_parent_1.required' => 'Please input email',
-                'gender_parent_1.required' => 'Please choose gender',
-                'phone_parent_1' => 'Please input phone'
+                'first_name.required'           => 'Please input first name',
+                'last_name.required'            => 'Please input last name',
+                'gender.required'               => 'Please choose gender',
+                'image.image'                   => 'Image is invalid',
+                'birthday.required'             => 'Please input birthday',
+                'phone_parent_1.numeric'        => 'Number is invalid',
+                'phone_parent_2.numeric'        => 'Number is invalid',
+                'email_parent_1.email'          => 'Email is invalid',
+                'email_parent_2.email'          => 'Email is invalid',
+                'unique_id.unique'              => 'ID is exist',
+                'unique_id.required'            => 'Please input unique ID',
+                'image_parent_1.image'      => 'Image is invalid',
+                'image_parent_2.image'      => 'Image is invalid',
             ]);
         $children_profiles = ChildrenProfiles::findOrFail($id);
         $children_profiles->update($request->all());
@@ -439,9 +437,9 @@ class ChildrenProfilesController extends Controller
 
         $children_parent = ChildrenParent::where('id_children', '=', $id)->get();
 
-        foreach ($children_parent as $children) {
+        foreach ($children_parent as $child_parent) {
             //xoa parent cua children bi xoa
-            $parent = ParentProfiles::where('id', '=', $children->id_parent)->get();
+            $parent = ParentProfiles::where('id', '=', $child_parent->id_parent)->get();
             foreach ($parent as $person) {
                 if($person->image){
                     $old_image = $person->image;
@@ -449,8 +447,9 @@ class ChildrenProfilesController extends Controller
                     // ko xoa parent. lay thong tin sau nay dem ban data lay tien
                 }
             }
-            $children->delete();        //xoa children
+            $child_parent->delete();        //xoa children
         }
+
         $children_profiles->delete();
 
         $programs = Programs::all();

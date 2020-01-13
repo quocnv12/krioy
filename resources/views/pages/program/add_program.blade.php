@@ -28,7 +28,7 @@
 	<section class="page-top container">
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
-				<ul class="ul-td">
+				<ul class="ul-td" style="width: 100%">
 					<li class="level1"><a href="kids-now">HOME</a></li>
 					<li class="active1" style="pointer-events:none"><a href="kids-now/program">PROGRAM</a></li>
 					<li class="active1 active-1" style="pointer-events:none;"><a href="">ADD PROGRAM</a></li>
