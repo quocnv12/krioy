@@ -25,7 +25,7 @@
 			<div class="row">
 				<div class="col-md-12">
 				<ul style="width: 100%;" class="ul-td">
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home </a></li>
+                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
                     <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="kids-now/staff">Staff</a></li>
                    
 				</ul>
