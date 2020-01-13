@@ -4,6 +4,23 @@
 @endsection
 
 @section('content')
+	<style>
+		.tt-input{
+			background-color: white !important;
+		}
+		input.search-custom:focus{
+			animation: mymove 0.8s forwards;
+			background-color: white;
+		}
+
+		@keyframes mymove {
+			0% {width: 300px;}
+			100% {width: 400px;}
+		}
+		.scrollmenu-div button a{
+			color: #fff;
+		}
+	</style>
 	<body>
 		<section class="page-top container">
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
@@ -14,9 +31,9 @@
 						<li class="active1" style="pointer-events:none"><a href="">NOTICE BOARD</a></li>
 					</ul>
 				</div>
-				<div class="col-md-4" style="float: right">
+				<div class="col-md-6" style="display: flex; justify-content: flex-end">
 					<form class="typeahead" role="search" style="text-align: left">
-						<input type="search" name="q" class="form-control search-input" placeholder="Search Notice..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 300px;">
+						<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Notice..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 300px;">
 					</form>
 				</div>
 			</div>
@@ -67,6 +84,11 @@
 					</div>
 				</div>
 				@endforeach
+            @else
+                    <div style="margin: 50px">
+                        <p style="color: red; font-weight: bold">Hint :</p>
+                        <p>Click on a program tab in horizontal scroll bar to show all notice in that program / Or use the search bar to go to specific notice</p>
+                    </div>
 			@endif
 			</div>
 		</div>

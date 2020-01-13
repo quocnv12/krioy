@@ -40,7 +40,7 @@ Food
             <div class="mat-card" style="">
                 <div class="mat-content">
                     <div class="row">
-                        <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href="kids-now/food/menu-meal-type" class="btn btn-defaul">Meal Tpye</a>
+                        <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href="kids-now/food/menu-meal-type" class="btn btn-defaul">Meal Type</a>
                         <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href="kids-now/food/menu-quantity" class="btn btn-defaul">Quantity</a>
                         <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href="kids-now/food/menu-food-name" class="btn btn-defaul">Food Name</a>
                         <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href="kids-now/food/list" class="btn btn-defaul">Food</a>

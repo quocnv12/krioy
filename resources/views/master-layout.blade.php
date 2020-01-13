@@ -64,7 +64,9 @@
     <script>new WOW().init();</script>
     <script src="js/home.js"></script>
     <script src="asset/kriyo/js/toastr.min.js"></script>
-
+    <script>
+        $('div.alert').delay(5000).slideUp();
+    </script>
 @if(session('error'))
     <script type="text/javascript">
         toastr.error('{{ session('error') }}', 'Thông báo', {timeOut: 5000});

@@ -10,8 +10,8 @@
 			<div class="row">
 				<div class="col-md-6">
 					<ul class="ul-td">
-						<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="index.html">HOME</a></li>
-						<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="food.html">PROGRAM</a></li>
+						<li class="level1"><a href="kids-now">HOME</a></li>
+						<li class="active1" style="pointer-events:none"><a href="">PROGRAM</a></li>
 					</ul>
 				</div>
 				<div class="col-md-6">
