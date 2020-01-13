@@ -2,9 +2,10 @@
 
 namespace App\Exceptions;
 
+use ErrorException;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Whoops\Exception\ErrorException;
+
 
 class Handler extends ExceptionHandler
 {
