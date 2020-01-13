@@ -13,14 +13,6 @@
 		}
 	</style>
 
-    <style>
-        .text-danger{
-            display: flex;
-            justify-content: flex-start;
-            margin: 15px;
-        }
-    </style>
-
 	<body>
 
 	<section class="page-top container">
@@ -39,9 +31,7 @@
 			</div>
 
 		@endif
-		<form style="width: auto;
-    margin: 0 0;
-    text-align: center" action="kids-now/children/add" method="post" name="form" enctype="multipart/form-data">
+		<form style="width: auto;margin: 0;text-align: center" action="kids-now/children/add" method="post" name="form" enctype="multipart/form-data">
 			@csrf
 
 		<div class="mat-card">
@@ -61,7 +51,7 @@
 						</a>
 					</div>
 					<div class="col-md-10">
-						<div class="add a1-1 ">
+						<div class="add a1">
 							<div class="row">
 								<div class="col-md-6 input_box">
 							        <span>First Name *</span>
@@ -86,8 +76,8 @@
 					</div>
 				</div>
 				<hr style="margin: 0 0 5px 0;">
-				<div class="row">
-					<div class="add" style="width: 100%; margin: 15px">
+				<div class="add" style="width: 100%; margin: 15px">	
+					<div class="row">
 						<div class="col-md-3 input_box">
 							<span class="input_box_span_active">Birthday *</span>
 							<input type="date" name="birthday" placeholder="Birthday" value="{{old('birthday')}}">
@@ -141,42 +131,44 @@
 					</div>
 				</div>
 				<div class="add" style="width: 100%">
-					<div class="col-md-6 input_box" style="width: 100%;">
-						<span>Unique ID *</span>
-						<input type="text" name="unique_id" placeholder="Unique ID *" value="{{old('unique_id')}}">
-                        @if ($errors->has('unique_id'))
-                            <div class="text text-danger">
-                                {{ $errors->first('unique_id') }}
-                            </div>
-                        @endif
-					</div>
-                    <div class="col-md-3 input_box">
-                        <span>Status</span>
-                        <select name="status">
-                            <option value="">Status</option>
-                            <option value="1" @if(old('status') == 1) selected="selected" @endif>IN</option>
-                            <option value="2" @if(old('status') == 2) selected="selected" @endif>OUT</option>
-                            <option value="3" @if(old('status') == 3) selected="selected" @endif>ABSENT</option>
-                            <option value="4" @if(old('status') == 4) selected="selected" @endif>LEAVE</option>
-                        </select>
-                        @if ($errors->has('status'))
-                            <div class="text text-danger">
-                                {{ $errors->first('status') }}
-                            </div>
-                        @endif
-                    </div>
-					<div class="col-md-3 input_box">
-						<span>Exist</span>
-						<select name="exist">
-							<option value="">Exist</option>
-							<option value="1" @if(old('exist') == 1) selected="selected" @endif>Yes</option>
-							<option value="0" @if(old('exist') == 1) selected="selected" @endif>No</option>
-						</select>
-						@if ($errors->has('exist'))
-							<div class="text text-danger">
-								{{ $errors->first('exist') }}
-							</div>
-						@endif
+					<div class="row">
+						<div class="col-md-6 input_box" style="width: 100%;">
+							<span>Unique ID *</span>
+							<input type="text" name="unique_id" placeholder="Unique ID *" value="{{old('unique_id')}}">
+	                        @if ($errors->has('unique_id'))
+	                            <div class="text text-danger">
+	                                {{ $errors->first('unique_id') }}
+	                            </div>
+	                        @endif
+						</div>
+	                    <div class="col-md-3 input_box">
+	                        <span>Status</span>
+	                        <select name="status">
+	                            <option value="">Status</option>
+	                            <option value="1" @if(old('status') == 1) selected="selected" @endif>IN</option>
+	                            <option value="2" @if(old('status') == 2) selected="selected" @endif>OUT</option>
+	                            <option value="3" @if(old('status') == 3) selected="selected" @endif>ABSENT</option>
+	                            <option value="4" @if(old('status') == 4) selected="selected" @endif>LEAVE</option>
+	                        </select>
+	                        @if ($errors->has('status'))
+	                            <div class="text text-danger">
+	                                {{ $errors->first('status') }}
+	                            </div>
+	                        @endif
+	                    </div>
+						<div class="col-md-3 input_box">
+							<span>Exist</span>
+							<select name="exist">
+								<option value="">Exist</option>
+								<option value="1" @if(old('exist') == 1) selected="selected" @endif>Yes</option>
+								<option value="0" @if(old('exist') == 1) selected="selected" @endif>No</option>
+							</select>
+							@if ($errors->has('exist'))
+								<div class="text text-danger">
+									{{ $errors->first('exist') }}
+								</div>
+							@endif
+						</div>
 					</div>
 					<div class="input_box" style="width: 100%;">
 						<span>Residential Address *</span>
@@ -212,10 +204,10 @@
 				<div class="mat-content">
 					<button class="accordion" type="button">Programs</button>
 					<div class="panel">
-						<div _ngcontent-c20="" class="row" style="">
+						<div class="row" style="">
 							<!---->
 							@foreach($programs as $program)
-								<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer">
+								<div align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2" style="padding:10px 0;cursor:pointer;width: 50%;">
 									<button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" type="button" data-toggle="tooltip" title="{{$program->program_name}}" value="{{$program->id}}">{{$program->program_name}}</button>
 								</div>
 							@endforeach

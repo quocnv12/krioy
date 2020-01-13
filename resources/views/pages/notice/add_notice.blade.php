@@ -42,7 +42,7 @@
                         <div _ngcontent-c20="" class="row">
                             <!---->
                             @foreach($programs as $program)
-                                <div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer">
+                                <div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-6 col-md-2 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer;width: 50%;">
                                     <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" type="button" value="{{$program->id}}">{{$program->program_name}}</button>
                                 </div>
                             @endforeach

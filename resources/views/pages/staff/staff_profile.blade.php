@@ -25,7 +25,7 @@
 			<div class="row">
 				<div class="col-md-12">
 				<ul style="width: 100%;" class="ul-td">
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
+                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home </a></li>
                     <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="kids-now/staff">Staff</a></li>
                    
 				</ul>
@@ -84,7 +84,7 @@
 								<td>{{ $item->address }}</td>
 								<td> ádas </td>
 								<td>{{ Carbon\Carbon::parse($item->date_of_joining)->format('d-m-Y') }}</td>
-							<td><img style="width:30px;height:30px" src="images/{{ $item->image }}"></td>
+								<td><img style="width:30px;height:30px" src="images/{{ $item->image }}"></td>
 								<td style="text-align:center;width:12px">
 								<a href="kids-now/food/edit/{{ $item->id }}" title="Edit Staff" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
 									<a onclick="return confirm('Delete staff ? Do you want continue !')" title="Delete Staff" href="kids-now/food/delete/{{ $item->id }}" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>

@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Admin\Staff;
-use App\models\staff\StaffProfiles;
+use App\models\staff\{StaffProfiles,role};
+use App\models\Programs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,9 +15,22 @@ class StaffController extends Controller
         return view('pages.staff.staff_profile',$data);
     }
     //-----them
-    public  function GeAddStaff() 
+    public  function GetAddStaff() 
     {
-        return view('pages.staff.add_staff');
+        $data['roles']=role::all();
+        $data['programs']=Programs::all();
+        return view('pages.staff.add_staff',$data);
+    }
+    public  function PostAddStaff(request $request) 
+    {
+        dd($request->all());
+       $this->validate($request,[
+
+       ],[
+
+       ]);
+
+
     }
 
 

@@ -46,7 +46,7 @@ table th{
     margin: 30px;
 }
 .a1{
-    margin: 10px 0;
+    margin: 10px 10px;
 }
 .a1-1{
     margin: 30px 0;
@@ -320,7 +320,7 @@ select .mat-card .mat-content div > div.childClass:hover {
     background-color: #fff;
 }
 .textera-img{
-    margin-top: 6px;
+    margin-top: 40px;
 }
 .checked[_ngcontent-c9] {
     position: absolute;

@@ -40,10 +40,10 @@ Food
             <div class="mat-card" style="">
                 <div class="mat-content">
                     <div class="row">
-                        <a style="margin:5px 0px 13px 14px;width:100px;background:#5363d6;color:white" href="kids-now/food/menu-meal-type" class="btn btn-defaul">Meal Tpye</a>
-                        <a style="margin:5px 0px 13px 14px;width:100px;background:#5363d6;color:white" href="kids-now/food/menu-quantity" class="btn btn-defaul">Quantity</a>
-                        <a style="margin:5px 0px 13px 14px;width:100px;background:#5363d6;color:white" href="kids-now/food/menu-food-name" class="btn btn-defaul">Food Name</a>
-                        <a style="margin:5px 0px 13px 14px;width:100px;background:#5363d6;color:white" href="kids-now/food/list" class="btn btn-defaul">Food</a>
+                        <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href="kids-now/food/menu-meal-type" class="btn btn-defaul">Meal Tpye</a>
+                        <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href="kids-now/food/menu-quantity" class="btn btn-defaul">Quantity</a>
+                        <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href="kids-now/food/menu-food-name" class="btn btn-defaul">Food Name</a>
+                        <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href="kids-now/food/list" class="btn btn-defaul">Food</a>
                     </div>
                     
                     <button class="accordion" type="button">Programs</button>
@@ -51,8 +51,7 @@ Food
                         <div _ngcontent-c20="" class="row" style="">
                             @foreach($programs as $item)
                             <div _ngcontent-c20="" align="center"
-                                class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                style="padding:10px;cursor:pointer">
+                                class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer;width: 50%;">
                                 <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks3"
                         title="{{ $item->program_name }}"  style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px"
                                     type="button" value="{{ $item->id }}">{{ $item->program_name }}</button>
@@ -92,9 +91,7 @@ Food
                     <div class="panel_new">
                         <div _ngcontent-c20="" class="row">
                             @foreach ($itemfoods as $item)
-                            <div _ngcontent-c20="" align="center"
-                                class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                                style="padding:10px;cursor:pointer;">
+                            <div align="center" class="col-xs-6 col-sm-6 col-md-2 col-lg-2 ng-star-inserted"style="padding:10px;cursor:pointer;width: 50%;">
                                 <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
                                 title="{{ $item->food_name }}"     value="{{ $item->id }}" type="button"
                                     style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px;">{{ $item->food_name }}
@@ -119,6 +116,7 @@ Food
             </form>
         </div>
     </section>
+    
 </body>
 @endsection
 @section('js')
