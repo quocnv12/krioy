@@ -1,77 +1,123 @@
 @extends('master-layout')
 @section('title')
-Thực đơn
+Food
 @endsection
 @section('content')
 
-<body onload="time()">
+<body>
     <section class="page-top container">
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
             <div class="row">
-                <ul style="width:100%" class="ul-td">
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
-                    <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="kids-now/food/list" >Food</a></li>
-                    <li _ngcontent-c16="" class="level1" style="pointer-events:none"><a _ngcontent-c16="" href="kids-now/food/menu-food-name">Edit</a></li>
-
-                </ul>
+                <div class="col-md-6">
+                    <ul class="ul-td">
+                        <li _ngcontent-c16="" class="level1"><a href="kids-now">Home</a></li>
+                        <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a href="kids-now/food">Food</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-       
-        <div class="mat-card">
-            <div class="row">
-                {{-- <div class="mat-content"> --}}
-                    <form style="width:100%;text-align:left;padding:0 10px">
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Meal Type *</label>
-                            <select style="height: 35px;" class="form-control" id="exampleFormControlSelect1">
-                              <option>1</option>
-                              <option>2</option>
-                              <option>3</option>
-                              <option>4</option>
-                              <option>5</option>
-                            </select>
-                          </div>
-                        <div class="form-group">
-                          <label for="exampleFormControlSelect1">Quantity</label>
-                          <select style="height: 35px;" class="form-control" id="exampleFormControlSelect1">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                          </select>
+        <div>
+            @if(Session::has('thongbao'))
+                <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao') }}</p>
+            @endif
+             @if(Session::has('thongbao1'))
+                <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao1') }}</p>
+            @endif
+             @if(Session::has('thongbao2'))
+                <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao2') }}</p>
+            @endif
+             @if(Session::has('thongbao3'))
+                <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao3') }}</p>
+            @endif
+              @if(Session::has('thongbao4'))
+                <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao4') }}</p>
+            @endif
+        </div>
+        <div class="row">
+            <form method="post"  enctype="multipart/form-data" >
+                @csrf
+            <div class="mat-card" style="">
+                <div class="mat-content">
+                    <div class="row">
+                        <a style="margin:5px 0px 13px 14px;width:100px;background:#5363d6;color:white" href="kids-now/food/menu-meal-type" class="btn btn-primary">Meal Tpye</a>
+                        <a style="margin:5px 0px 13px 14px;width:100px;background:#5363d6;color:white" href="kids-now/food/menu-quantity" class="btn btn-primary">Quantity</a>
+                        <a style="margin:5px 0px 13px 14px;width:100px;background:#5363d6;color:white" href="kids-now/food/menu-food-name" class="btn btn-primary">Food Name</a>
+                        <a style="margin:5px 0px 13px 14px;width:100px;background:#5363d6;color:white" href="kids-now/food/list" class="btn btn-primary">Food</a>
+                    </div>
+                    <button class="accordion" title="Please chosse program" type="button">Programs</button>
+                    <div class="panel">
+                        <div _ngcontent-c20="" class="row" style="">
+                            @foreach($programs as $item)
+                            <div _ngcontent-c20="" align="center"
+                                class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
+                                style="padding:10px;cursor:pointer">
+                                <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks3 {{ $item->id==$foods->id_program ? 'tablinks_active' : '' }}"
+                        title="{{ $item->program_name }}" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px"
+                                    type="button" value="{{ $item->id }}">{{ $item->program_name }}</button>
+                            </div>
+                            @endforeach
+                        <input id="array_programsss" type="hidden" value="{{ $foods->id_program }}" name="programs">
                         </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlSelect1">Program</label>
-                            <select style="height: 35px;" class="form-control" id="exampleFormControlSelect1">
-                              <option>1</option>
-                              <option>2</option>
-                              <option>3</option>
-                              <option>4</option>
-                              <option>5</option>
-                            </select>
-                          </div>
-                          <div class="form-group">
-                            <label for="exampleFormControlSelect1">Food Name</label>
-                            <select style="height: 35px;" class="form-control" id="exampleFormControlSelect1">
-                              <option>1</option>
-                              <option>2</option>
-                              <option>3</option>
-                              <option>4</option>
-                              <option>5</option>
-                            </select>
-                          </div>
+                    </div>
+                    <div class="update">
+                        <p style="text-align:left;margin-top:12px" >Select Meal Type *</p>
+                        <div class="tab">
+                            @foreach ($mealtypes as $item)
+                            <button value="{{ $item->id }}" style="margin:5px 26px 5px 42px;font-size:14px"   title="{{ $item->name }}" type="button" data-id="lunch"
+                                class="tablinks {{ $item->id==$foods->meal_type ? 'tablinks_active' : '' }}">{{ $item->name }}</button>
+                            @endforeach
+                          
+                            <input id="array_program" type="hidden" value="{{ $foods->meal_type }}" name="mealtype">
+                        </div>
+                    </div>
+                   
+                    <hr>
+                    <div class="update"  style="text-align:left">
+                        <p>Select Quantity *</p>
+                        <div class="tab">
+                            @foreach ($quantytifoods as $item)
+                            <button type="button"   title="{{ $item->name }}" style="margin:5px 26px 5px 42px;font-size:14px" value="{{ $item->id }}"
+                                class="tablinks2 {{ $item->id==$foods->quantity ? 'tablinks_active' : '' }}">{{ $item->name }}</button>
+                            @endforeach
+                            <input id="array_programs" type="hidden" value="{{ $foods->quantity }}" name="qtyfood">
 
-                          <div class="comment">
-                            <div class="button" style="text-align: center;">
-                                <button class="button2">
-                                    <span>SEND</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <button type="button" style="width:100%" title="Please chosse food name" class="accordion_new">Meal Item Name *
+                        <i class="fa fa-chevron-circle-down"></i>
+                    </button>
+                    <div class="panel_new">
+                        <div _ngcontent-c20="" class="row">
+                            @foreach ($itemfoods as $item)
+                            {{-- @dd($item->fooditems) --}}
+                            <div _ngcontent-c20="" align="center"
+                                class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
+                                style="padding:10px;cursor:pointer;">
+                                <button   title="{{ $item->food_name }}" _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
+                                    value="{{ $item->id }}" type="button"
+                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px;">{{ $item->food_name }}
                                 </button>
                             </div>
+                            @endforeach
+                        <input id="array_programss" type="hidden" value="" name="food_name">
+                        
                         </div>
-                      </form>
-                {{-- </div> --}}
+                    </div>
+                    <div class="comment">
+                        <div class="button" style="text-align: center;">
+                            <button>
+                                <span>CANCEL</span>
+                            </button>
+                            <button class="button2">
+                                <span>SEND</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
+            </form>
         </div>
     </section>
 </body>
@@ -108,19 +154,39 @@ Thực đơn
     $('.tablinks2').click(function (event) {
         $('.tablinks2').removeClass('tablinks_active');
         $(this).addClass('tablinks_active');
+        var input = $(this).val();
+        $('#array_programs').attr('value', input);
     });
 
 </script>
 <script type="text/javascript">
+    var array = [];
     $('.tablinks1').click(function (event) {
         if ($(this).prop('class') == 'btn progBtn limitText bgClass tablinks1 tablinks1_active') {
             $(this).removeClass('tablinks1_active');
+            var program_pop = $(this).val();
+            array.splice(array.indexOf(program_pop),1);
         } else {
             $(this).addClass('tablinks1_active');
+            var program_push = $(this).val();
+            array.push(program_push);
         }
+        $('#array_programss').attr('value', array);
     });
 
 </script>
+
+<script type="text/javascript">
+      $('.tablinks3').click(function (event) {
+        $('.tablinks3').removeClass('tablinks_active');
+        $(this).addClass('tablinks_active');
+        var input = $(this).val();
+        $('#array_programsss').attr('value', input);
+    });
+
+
+</script>
+
 <script>
     var acc = document.getElementsByClassName("accordion");
     var i;
@@ -150,50 +216,7 @@ Thực đơn
     });
 
 </script>
-<script type="text/javascript">
-    function time() {
-        var today = new Date();
-        var weekday = new Array(7);
-        weekday[0] = "Sunday";
-        weekday[1] = "Monday";
-        weekday[2] = "Tuesday";
-        weekday[3] = "Wednesday";
-        weekday[4] = "Thursday";
-        weekday[5] = "Friday";
-        weekday[6] = "Saturday";
-        var day = weekday[today.getDay()];
-        var dd = today.getDate();
-        var mm = today.getMonth() + 1; //January is 0!
-        var yyyy = today.getFullYear();
-        var h = today.getHours();
-        var m = today.getMinutes();
-        var s = today.getSeconds();
-        m = checkTime(m);
-        s = checkTime(s);
-        nowTime = h + ":" + m + ":" + s;
-        if (dd < 10) {
-            dd = '0' + dd
-        }
-        if (mm < 10) {
-            mm = '0' + mm
-        }
-        today = day + ', ' + dd + '/' + mm + '/' + yyyy;
 
-        tmp = '<span class="date">' + today + ' | ' + nowTime + '</span>';
-
-        document.getElementById("clock").innerHTML = tmp;
-
-        clocktime = setTimeout("time()", "1000", "JavaScript");
-
-        function checkTime(i) {
-            if (i < 10) {
-                i = "0" + i;
-            }
-            return i;
-        }
-    }
-
-</script>
 
 <!-- tab img -->
 <script type="text/javascript">

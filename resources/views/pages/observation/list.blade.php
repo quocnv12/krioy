@@ -1,92 +1,90 @@
 @extends('master-layout')
 @section('title')
-    Observations
+    List meal type
 @endsection
-
 @section('content')
 
-    <body>
+@section('css')
 
-    <section class="page-top container">
-        <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
-            <div class="row">
-                <div class="col-md-6">
-                    <ul class="ul-td">
-                        <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">HOME</a></li>
-                        <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">Observation</a></li>
-                    </ul>
+    {{-- <link href="admin-template/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" /> --}}
+    <link href="admin-template/assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="admin-template/assets/plugins/jquery-datatable/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+    <link href="admin-template/assets/plugins/datatables-responsive/css/datatables.responsive.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="admin-template/assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen" />
+    {{-- <link href="admin-template/assets/plugins/bootstrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> --}}
+    <link href="admin-template/assets/plugins/bootstrapv3/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="admin-template/assets/plugins/animate.min.css" rel="stylesheet" type="text/css" />
+    <link href="admin-template/assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css" />
+    <link href="admin-template/webarch/css/webarch.css" rel="stylesheet" type="text/css" />
+
+@endsection
+<body>
+<section class="page-top container">
+    <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
+        <div class="row">
+            <ul class="ul-td" style="width:100%">
+                <div class="col-md-12">
+                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
+                    <li _ngcontent-c16="" class="active-1"><a _ngcontent-c16="" href="">Observation</a></li>
+                    <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="">Observation</a></li>
                 </div>
-                <div class="col-md-6">
-                    <ul class="ul-td" style="float: right">
-                        <form class="form-inline" action="{{route('admin.observations.search')}}" method = "get">
-                            <input class="form-control mr-sm-2" type="search"  placeholder="Search" name="Key" aria-label="Search" required>
-                            <button class="btn my-2 my-sm-0" type="submit" >Search</button>
-                        </form>
-                    </ul>
-                </div>
-
-
-            </div>
+            </ul>
         </div>
+    </div>
 
-        <table border="0">
-            <tbody>
-            <tr class="td1">
-                <th>STT</th>
-                <th>Frist_name</th>
-                <th>Last_name</th>
-                <th>Birthday</th>
-                <th>Gender</th>
-                <th>Observation</th>
-                <th>Chỉnh sửa</th>
-            </tr>
-
-            @foreach($observationtype as $key=> $value)
-                <tr>
-                    <th style="text-align: center">{{$key+1}}</th>
-                    <th>{{$value->Childrent->first_name}}</th>
-                    <th>{{$value->Childrent->last_name}}</th>
-                    <th>{{$value->Childrent->birthday}}</th>
-                    <th>{{$value->Childrent->gender}}</th>
-                    <th style="text-align: center">{{$value->ObservationType->name}}</th>
-                    <th style="text-align: center">
-                        <a href="{!! URL::route('admin.observations.getEdit', $value->Childrent->id ) !!}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
-                        <a  href="{!! URL::route('admin.observations.getDelete',  $value->Childrent->id ) !!}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
-                    </th>
-
-                </tr>
+    <div class="mat-card">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="grid simple ">
+                    <div class="grid-title">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4> List    <span class="semi-bold">Observation</span></h4>
+                            </div>
 
 
-            @endforeach
+                        </div>
+                    </div>
+                    <div class="grid-body ">
+                        <table class="table table-striped" id="example">
+                            <thead>
+                            <tr>
+                                <th style="text-align:left;width:18%">STT</th>
+                                <th style="text-align:left;width:18%">Frist_name</th>
+                                <th style="text-align:left;width:18%">Last name</th>
+                                <th style="text-align:left;width:18%">Birthday</th>
+                                <th style="text-align:left;width:18%">Gender</th>
+                                <th style="text-align:left;width:18%">Observation</th>
+                                <th style="text-align:left;width:18%">Chỉnh sửa</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($observationtype as $key=> $value)
+                                <tr>
+                                    <th style="text-align:left;width:18%">{{$key+1}}</th>
+                                    <th style="text-align:left;width:18%">{{$value->Childrent->first_name}}</th>
+                                    <th style="text-align:left;width:18%">{{$value->Childrent->last_name}}</th>
+                                    <th style="text-align:left;width:18%">{{$value->Childrent->birthday}}</th>
+                                    <th style="text-align:left;width:18%">{{$value->Childrent->gender}}</th>
+                                    <th style="text-align:left;width:18%">{{$value->ObservationType->name}}</th>
+                                    <th style="text-align:left;width:18%">
+                                        <a href="{!! URL::route('admin.observations.getEdit', $value->Childrent->id ) !!}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
+                                        <a  href="{!! URL::route('admin.observations.getDelete',  $value->id ) !!}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
+                                    </th>
+                                </tr>
+                            @endforeach
+                            </tbody>
 
-            </tbody>
-        </table>
-        <div class="pull-right">{{ $observationtype->links() }}</div>
-
-    </section>
-
-    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Bạn có muốn xóa ?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body" style="margin-left: 183px;">
-                    <button type="button" class="btn btn-success delProduct">Có</button>
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Không</button>
-                    <div>
+                        </table>
                     </div>
                 </div>
             </div>
-
-    </body>
-
-
+        </div>
+    </div>
+</section>
+</body>
 @endsection
-
 @section('js')
     <script src="https://code.jquery.com/jquery.min.js"></script>
 
@@ -94,19 +92,31 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
     <!-- jQuery sticky menu -->
-    <script src="asset/kriyo/js/owl.carousel.min.js"></script>
-    <script src="asset/kriyo/js/jquery.sticky.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
 
     <!-- jQuery easing -->
-    <script src="asset/kriyo/js/jquery.easing.1.3.min.js"></script>
+    <script src="js/jquery.easing.1.3.min.js"></script>
 
     <!-- Main Script -->
-    <script src="asset/kriyo/js/main.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function($) {
-            $(".td2").click(function() {
-                window.document.location = $(this).data("href");
-            });
-        });
-    </script>
+    <script src="js/main.js"></script>
+
+    <script src="admin-template/assets/plugins/pace/pace.min.js" type="text/javascript"></script>
+    <script src="admin-template/assets/plugins/jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="admin-template/assets/plugins/bootstrapv3/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="admin-template/assets/plugins/jquery-block-ui/jqueryblockui.min.js" type="text/javascript"></script>
+    <script src="admin-template/assets/plugins/jquery-unveil/jquery.unveil.min.js" type="text/javascript"></script>
+    <script src="admin-template/assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js" type="text/javascript"></script>
+    <script src="admin-template/assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js" type="text/javascript"></script>
+    <script src="admin-template/assets/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="admin-template/assets/plugins/bootstrap-select2/select2.min.js" type="text/javascript"></script>
+    <script src="admin-template/webarch/js/webarch.js" type="text/javascript"></script>
+    <script src="admin-template/assets/js/chat.js" type="text/javascript"></script>
+    <script src="admin-template/assets/plugins/bootstrap-select2/select2.min.js" type="text/javascript"></script>
+    <script src="admin-template/assets/plugins/jquery-datatable/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="admin-template/assets/plugins/jquery-datatable/extra/js/dataTables.tableTools.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="admin-template/assets/plugins/datatables-responsive/js/datatables.responsive.js"></script>
+    <script type="text/javascript" src="admin-template/assets/plugins/datatables-responsive/js/lodash.min.js"></script>
+    <script src="admin-template/assets/js/datatables.js" type="text/javascript"></script>
 @endsection
+

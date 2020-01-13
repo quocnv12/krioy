@@ -41,6 +41,9 @@
 					@endforeach
 				</div>
 			</div>
+			<div style="display: flex; justify-content: center; align-items: center; margin-top: 50px;">
+				{{$programs->links()}}
+			</div>
 		</div>
 	</section>
 	<div class="icon-plus" title="add">
@@ -75,7 +78,7 @@
 		$(document).ready(function($) {
 			var engine1 = new Bloodhound({
 				remote: {
-					url: 'http://localhost:8000/kids-now/program/search/program?q=%QUERY%',
+					url: 'http://kidsnow.web88.vn/kids-now/program/search/program?q=%QUERY%',
 					wildcard: '%QUERY%'
 				},
 				datumTokenizer: Bloodhound.tokenizers.whitespace('q'),

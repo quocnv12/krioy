@@ -51,11 +51,7 @@
 						<b>Select All-IN</b>
 					</a>
 				</div>
-				<div class="col-md-3 col-sm-3 all-1">
-					<a href="#" class="all-2">
-						<b>Select All</b>
-					</a>
-				</div>
+
 				<div class="col-md-2"></div>
 				<div align="right" class="col-md-3" style="margin: 10px;">
 					<a href="{{route('admin.health.getAdd')}}" class="done">
@@ -83,7 +79,7 @@
 							<!---->
 						</div>
 					</div>
-						@endforeach
+					@endforeach
 				</div>
 			</div>
 		</div>

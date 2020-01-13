@@ -70,7 +70,7 @@
 								</span>
 							</div>
 							<div class=" col-md-2">
-								<div align="center" style="color:#5363d6;font-size: 16px; display: flex;">
+								<div align="center" style="color:#5363d6;font-size: 16px;">
 									<span >{{date('d-m-Y',strtotime($notice->created_at))}}</span>
 									<br>
 								</div>
@@ -118,7 +118,7 @@
 		$(document).ready(function($) {
 			var engine1 = new Bloodhound({
 				remote: {
-					url: 'http://localhost:8000/kids-now/notice-board/search/name?q=%QUERY%',
+					url: 'http://kidsnow.web88.vn/kids-now/notice-board/search/name?q=%QUERY%',
 					wildcard: '%QUERY%'
 				},
 				datumTokenizer: Bloodhound.tokenizers.whitespace('q'),

@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-Thực đơn
+Add quantity food
 @endsection
 @section('content')
 

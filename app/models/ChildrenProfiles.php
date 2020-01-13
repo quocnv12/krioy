@@ -20,7 +20,6 @@ class ChildrenProfiles extends Model
         'allergies',
         'additional_note',
         'status',
-        'image',
         'exist',
     ];
     public function Health(){

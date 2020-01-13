@@ -32,6 +32,9 @@ Route::get('kids-now/notice-board/add','Admin\NoticeBoardController@create');
 Route::get('test',function (){
     return view('pages.children.create_child');
 });
+Route::get('',function (){
+    return view('pages.introduce.introduce-kid_now');
+});
 //---------------login----------------
 Route::get('login', 'Admin\LoginController@GetLogin')->middleware('CheckLogOut');
 Route::post('login', 'Admin\LoginController@PostLogin');
@@ -54,16 +57,13 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('select_child','Admin\ChildrenProfilesController@selectChild');
 
         //search by typeahead
-        Route::get('search/name', 'Admin\ChildrenProfilesController@searchByTypeahead');
+        Route::get('search/name', 'Admin\ChildrenProfilesController@searchByName');
     });
     //---------------staff----------------
     Route::group(['prefix' => 'staff'], function () {
-        Route::get('', function () {
-            return view('pages.staff.staff_profile');
-        });
-        Route::get('add', function () {
-            return view('pages.staff.create_staff');
-        });
+        Route::get('','Admin\Staff\StaffController@GetListStaff');
+        Route::get('add','Admin\Staff\StaffController@GeAddStaff');
+
         Route::get('edit', function () {
             return view('pages.staff.edit_staff');
         });
@@ -92,6 +92,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('search',['as'=>'admin.health.search','uses'=>'Admin\HealthController@getSearch']);
         Route::post('search',['as'=>'admin.health.search','uses'=>'Admin\HealthController@postSearch']);
         Route::get('them_child',['as'=>'admin.health.child','uses'=>'Admin\HealthController@getChild']);
+        Route::post('them_child',['as'=>'admin.health.child','uses'=>'Admin\HealthController@postChild']);
 
 
 
@@ -112,8 +113,12 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::post('sua/{id}',['as'=>'admin.observations.postEdit','uses'=>'Admin\ObservationController@postEdit']);
         Route::get('search',['as'=>'admin.observations.search','uses'=>'Admin\ObservationController@getSearch']);
         Route::post('search',['as'=>'admin.observations.search','uses'=>'Admin\ObservationController@postSearch']);
-
-
+        Route::get('them',['as'=>'admin.observations.getAdd','uses'=>'Admin\ObservationController@getAdd']);
+        Route::post('them',['as'=>'admin.observations.getAdd','uses'=>'Admin\ObservationController@postAdd']);
+        Route::get('them_child',['as'=>'admin.observations.child','uses'=>'Admin\ObservationController@getChild']);
+        Route::post('them_child',['as'=>'admin.observations.child','uses'=>'Admin\ObservationController@postChild']);
+        Route::get('search/children', 'Admin\ObservationController@searchByName');
+        Route::get('select_child/add','Admin\ObservationController@addSelectChild');   //ajax them children
     });
     //---------------food----------------
     Route::group(['prefix' => 'food'], function () {
@@ -131,6 +136,10 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('','Admin\FoodController@GetFood');
         Route::post('','Admin\FoodController@PostFood');
         Route::get('list','Admin\FoodController@GetList');
+        Route::get('edit/{id}','Admin\FoodController@GetEdit');
+        Route::post('edit/{id}','Admin\FoodController@PostEdit');
+        Route::get('delete/{id}','Admin\FoodController@DeleteFood');
+
   
 
         //loại bữa ăn
@@ -157,7 +166,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
             //tên món ăn
             Route::get('menu-food-name','Admin\FoodController@GetListMenuFoodName');
-            Route::get('menu-food-name/search','Admin\FoodController@SearchByName')->name('menu-search-by-name');
             Route::get('menu-food-name/add','Admin\FoodController@GetAddMenuFoodName')->name('menu-food-name-add');
             Route::post('menu-food-name/add','Admin\FoodController@PostAddMenuFoodName');
             Route::get('menu-food-name/edit/{id_food_name}','Admin\FoodController@GetEditMenuFoodName')->name('menu-food-name-edit');

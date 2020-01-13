@@ -1,9 +1,23 @@
 @extends('master-layout')
 @section('title')
-	Children Frofiles
+	Children Profiles
 @endsection
 
 @section('content')
+	<style>
+		.tt-input{
+			background-color: white !important;
+		}
+		input.search-custom:focus{
+			animation: mymove 0.8s forwards;
+			background-color: white;
+		}
+
+		@keyframes mymove {
+			0% {width: 200px;}
+			100% {width: 500px;}
+		}
+	</style>
 	<body>
 
 	<section class="page-top container">
@@ -21,8 +35,8 @@
 						{{--<span style="font-size:15px;font-weight: 900;">DEACTIVATED</span>--}}
 						{{--<span _ngcontent-c10="" class="badge" style="background-color: red;color:#fff;vertical-align: top;display: inline;line-height:0px">1</span>--}}
 					{{--</a>--}}
-					<form class="typeahead" role="search" style="text-align: left;float: left">
-						<input type="search" name="q" class="form-control search-input" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 500px;">
+					<form class="typeahead" role="search" style="float: right;" >
+						<input  type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 100%;">
 					</form>
 				</div>
 			</div>
@@ -34,45 +48,39 @@
 		</div>
 
 	@endif
-	<section _ngcontent-c10="" style="background-color:#f9f9f9">
-		<div _ngcontent-c10="" class="row" style="padding: 10px">
-			<div _ngcontent-c10="" align="right" class="col-lg-2 col-md-2 col-sm-2 scrollClassLeft">
-				<div _ngcontent-c10="" class="scroll-arrow-left" id="prev_nav" style="padding-right: 20px;color:#5363d6;cursor:pointer">
-					<i _ngcontent-c10="" aria-hidden="true" class="fa fa-angle-left" style="font-size:40px"></i>
+	<section style="background-color:#f9f9f9">
+		<div class="row" style="padding: 10px">
+			<div class="col-lg-2 col-md-2 col-sm-12"></div>
+			<div class="col-lg-8 col-md-8 col-sm-12" style="padding-left:0px;padding-right:0px">
+				<div class="child-profile-ul">
+					<div _ngcontent-c10="" class="scrollmenu" id="nav">
+						<ul _ngcontent-c10="" class="scrollmenu-ul">
+							<!---->
+							@foreach($programs as $program)
+								<li _ngcontent-c10="">
+									<a _ngcontent-c10="" class="item active" href="kids-now/children/{{$program->id}}">{{$program->program_name}}</a>
+								</li>
+							@endforeach
+						</ul>
+					</div>
 				</div>
 			</div>
-			<div _ngcontent-c10="" class="col-lg-8 col-md-8 col-sm-12" style="padding-left:0px;padding-right:0px">
-				<div _ngcontent-c10="" class="scrollmenu" id="nav">
-					<ul _ngcontent-c10="">
-						<!---->
-						@foreach($programs as $program)
-							<li _ngcontent-c10="">
-								<a _ngcontent-c10="" class="item active" href="kids-now/children/{{$program->id}}">{{$program->program_name}}</a>
-							</li>
-						@endforeach
-					</ul>
-				</div>
-			</div>
-			<div _ngcontent-c10="" align="left" class="col-lg-2 col-md-2 col-sm-2 scrollClassRight">
-				<div _ngcontent-c10="" class="scroll-arrow-right" id="next_nav" style="padding-left: 20px;color:#5363d6;cursor:pointer">
-					<i _ngcontent-c10="" aria-hidden="true" class="fa fa-angle-right" style="font-size:40px"></i>
-				</div>
-			</div>
+			<div class="col-lg-2 col-md-2 col-sm-12"></div>
 		</div>
 	</section>
 
 	<section class="container">
 		<div class="mat-card" style="min-height: 250px;">
 			<div class="mat-content">
-				<div _ngcontent-c19="" class="row ng-star-inserted" id="result">
+				<div class="row ng-star-inserted" id="result">
 					<!---->
 					@if(isset($children_profiles))
 						@foreach($children_profiles as $children)
 							<div class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted" style="padding:10px;cursor:pointer;">
-								<div type="button" data-toggle="modal" data-target=".bd-example-modal-sm" style="height: 120px;text-align: center;">
+								<div type="button" data-toggle="modal" data-target=".bd-example-modal-sm" style="height: 120px;text-align: center;-webkit-appearance: none;">
 									<img class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="assets/ls-icons/Child.png">
 									<!---->
-									<span class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;" >{{$children->first_name}} {{$children->last_name}}</span>
+									<span class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;display: block;" >{{$children->first_name}} {{$children->last_name}}</span>
 									<!---->
 									<input type="hidden" value="{{$children->id}}" class="link_to_children">
 								</div>
@@ -90,16 +98,13 @@
 		<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-sm">
 				<div class="modal-content">
-					<ul>
+					<ul style="margin-left: 0">
 						<li style="color: #5363d6!important">Go to</li>
 						<li class="modal-li" data-href="" id="profile_children">Profile</li>
-						<li class="modal-li" data-href="" id="invoices_children">Invoices</li>
+						<li class="modal-li" data-href="" id="health_children">Health</li>
 						<li class="modal-li" data-href="" id="attachments_children">Attachments</li>
-
-						<li class="modal-li" data-href="" id="authoriesd_pickups_children">Authoriesd Pickups</li>
-
 						<li class="modal-li" data-href="" id="authorised_pickups_children">Authoriesd Pickups</li>
-
+						<li class="modal-li" data-href="" id="authorised_pickups_children">Authoriesd Pickups</li>
 					</ul>
 				</div>
 			</div>
@@ -110,7 +115,6 @@
 
 @section('js')
 	<script src="https://code.jquery.com/jquery.min.js"></script>
-
 
 	<!-- Bootstrap JS form CDN -->
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -124,29 +128,13 @@
 
 	<!-- Main Script -->
 	<script src="asset/kriyo/js/main.js"></script>
-	<script type="text/javascript"></script>
 
-    
-    <!-- Bootstrap JS form CDN -->
-
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    
-    <!-- jQuery sticky menu -->
-    <script src="asset/kriyo/js/owl.carousel.min.js"></script>
-    <script src="asset/kriyo/js/jquery.sticky.js"></script>
-    
-    <!-- jQuery easing -->
-    <script src="asset/kriyo/js/jquery.easing.1.3.min.js"></script>
-    
-    <!-- Main Script -->
-    <script src="asset/kriyo/js/main.js"></script>
     <script type="text/javascript">
     	$(document).ready(function($) {
-
 			$('div.div_box_children').click(function () {
 				var id_children = $(this).children('div').children('input').val();
 				$('li#profile_children').attr('data-href','/kids-now/children/edit/'+id_children);
-				$('li#invoices_children').attr('data-href','/kids-now/children/edit/'+id_children);
+				$('li#health_children').attr('data-href','/kids-now/health/sua/'+id_children);
 				$('li#attachments_children').attr('data-href','/kids-now/children/edit/'+id_children);
 				$('li#authoriesd_pickups_children').attr('data-href','/kids-now/children/edit/'+id_children);
 			});
@@ -154,13 +142,6 @@
 			$(".modal-li").click(function() {
 				window.document.location = $(this).data("href");
 			});
-
-
-		    $(".modal-li").click(function() {
-		        window.document.location = $(this).data("href");
-
-		    });
-
 		});
 	</script>
 
@@ -169,7 +150,7 @@
 		$(document).ready(function($) {
 			var engine1 = new Bloodhound({
 				remote: {
-					url: 'http://localhost:8000/kids-now/children/search/name?q=%QUERY%',
+					url: 'http://kidsnow.web88.vn/kids-now/children/search/name?q=%QUERY%',
 					wildcard: '%QUERY%'
 				},
 				datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
@@ -203,4 +184,39 @@
 			]);
 		});
 	</script>
+	{{--<script type="text/javascript">--}}
+		{{--$('ul').slick({--}}
+			{{--infinite: true,--}}
+			{{--slidesToShow: 6,--}}
+			{{--slidesToScroll: 1,--}}
+			{{--arrows: true,--}}
+			{{--autoplay: true,--}}
+			{{--autoplaySpeed: 2000,--}}
+			{{--responsive: [{--}}
+					{{--breakpoint: 1200,--}}
+					{{--settings: {--}}
+					{{--slidesToShow: 3,--}}
+					{{--slidesToScroll: 1--}}
+					{{--}--}}
+				{{--},--}}
+			{{--{--}}
+				{{--breakpoint: 991,--}}
+				{{--settings: {--}}
+				{{--slidesToShow: 2,--}}
+				{{--slidesToScroll: 1,--}}
+				{{--autoplay: true,--}}
+				{{--arrows:false,--}}
+				{{--}--}}
+			{{--},--}}
+			{{--{--}}
+				{{--breakpoint: 500,--}}
+				{{--settings: {--}}
+				{{--slidesToShow: 1,--}}
+				{{--slidesToScroll: 1,--}}
+				{{--autoplay: true,--}}
+				{{--arrows:false,--}}
+				{{--}--}}
+			{{--}]--}}
+		{{--});--}}
+	{{--</script>--}}
 @endsection
