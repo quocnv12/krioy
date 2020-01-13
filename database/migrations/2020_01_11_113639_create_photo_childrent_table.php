@@ -14,9 +14,9 @@ class CreatePhotoChildrentTable extends Migration
     public function up()
     {
         Schema::create('photo_childrent', function (Blueprint $table) {
-            $table->bigInteger('id_photo');
+            $table->bigInteger('id_photo')->unsigned();
             $table->foreign('id_photo')->references('id')->on('photos')->onDelete('cascade');
-            $table->bigInteger('id_children');
+            $table->bigInteger('id_children')->unsigned();
             $table->foreign('id_children')->references('id')->on('children_profiles')->onDelete('cascade');
         });
     }
