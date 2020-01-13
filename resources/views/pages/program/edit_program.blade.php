@@ -298,7 +298,7 @@
 											<input type="hidden" value="{{$children->id}}">
 											<button class="btn btn-xs btn-danger" type="button" onclick="deleteChild({{$children->id}})">X</button>
 											<br>
-											<span class="limitText ng-star-inserted"><a target="_blank" href="kids-now/children/edit/{{$children->id}}">{{$children->first_name}} {{$children->last_name}}</a></span>
+											<span class="limitText ng-star-inserted"><a target="_blank" href="kids-now/children/edit/{{$children->id}}" style="margin: 0">{{$children->first_name}} {{$children->last_name}}</a></span>
 										</div>
 									</div>
 								</div>
