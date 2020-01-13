@@ -45,48 +45,50 @@
 
                         </div>
                     </div>
-                    <div class="grid-body ">
-                        <table class="table table-striped" id="example">
-                            <thead>
-                            <tr>
-                                <th style="text-align:left;">STT</th>
-                                <th style="text-align:left;width:18%">First name</th>
-                                <th style="text-align:left;width:20%">Last name</th>
-                                <th style="text-align:left;width:18%">Birthday</th>
-                                <th style="text-align:left;width:18%">Gender</th>
-                                <th style="text-align:center;width:12%">Sick</th>
-                                <th style="text-align:center;width:12%">Medicine</th>
-                                <th style="text-align:center;width:12%">Growth</th>
-                                <th style="text-align:center;width:12%">Incident</th>
-                                <th style="text-align:center;width:12%">Images</th>
-                                <th style="text-align:center;width:12%">Chỉnh sửa</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($health as $key=> $value)
+                    <div class="grid-body" style="padding: 0;">
+                        <div class="table-responsive">
+                            <table class="table table-striped" id="example">
+                                <thead>
                                 <tr>
-                                    <th style="text-align:left;width:5%">{{$key+1}}</th>
-                                    <th  style="text-align:left;width:10%">{{$value->ChildrenProfiles-> first_name }}</th>
-                                    <th style="text-align:left;width:10%">{{$value->ChildrenProfiles->last_name}}</th>
-                                    <th style="text-align:left;width:18%">{{$value->ChildrenProfiles->birthday}}</th>
-                                    <th style="text-align:left;width:5%">{{$value->ChildrenProfiles->gender}}</th>
-                                    <th style="text-align: center">{{$value->sick}}</th>
-                                    <th style="text-align:left;width:10%">{{$value->medicine}}</th>
-                                    <th style="text-align:left;width:30%">
-                                        <p >Growth_height</p>: {{$value->growth_height}}<p/>
-                                        <p>Growth_weight</p>: {{$value->growth_weight}}<p/>
-                                    </th>
-                                    <th style="text-align:left;width:18%">{{$value->incident}}</th>
-                                    <th style="text-align:left;width:18%"><img src="images/{{$value->image}}" width="30" height="30"></th>
-                                    <th style="text-align:left;width:5%">
-                                        <a href="{{route('admin.health.getEdit',$value->id)}}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
-                                        <a  href="{{route('admin.health.getDelete', $value->id)}}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
-                                    </th>
-
+                                    <th style="text-align:left;">STT</th>
+                                    <th style="text-align:left;width:18%">First name</th>
+                                    <th style="text-align:left;width:20%">Last name</th>
+                                    <th style="text-align:left;width:18%">Birthday</th>
+                                    <th style="text-align:left;width:18%">Gender</th>
+                                    <th style="text-align:center;width:12%">Sick</th>
+                                    <th style="text-align:center;width:12%">Medicine</th>
+                                    <th style="text-align:center;width:12%">Growth</th>
+                                    <th style="text-align:center;width:12%">Incident</th>
+                                    <th style="text-align:center;width:12%">Images</th>
+                                    <th style="text-align:center;width:12%">Chỉnh sửa</th>
                                 </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                @foreach($health as $key=> $value)
+                                    <tr>
+                                        <th style="text-align:left;width:5%">{{$key+1}}</th>
+                                        <th  style="text-align:left;width:10%">{{$value->ChildrenProfiles-> first_name }}</th>
+                                        <th style="text-align:left;width:10%">{{$value->ChildrenProfiles->last_name}}</th>
+                                        <th style="text-align:left;width:18%">{{$value->ChildrenProfiles->birthday}}</th>
+                                        <th style="text-align:left;width:5%">{{$value->ChildrenProfiles->gender}}</th>
+                                        <th style="text-align: center">{{$value->sick}}</th>
+                                        <th style="text-align:left;width:10%">{{$value->medicine}}</th>
+                                        <th style="text-align:left;width:30%">
+                                            <p >Growth_height</p>: {{$value->growth_height}}<p/>
+                                            <p>Growth_weight</p>: {{$value->growth_weight}}<p/>
+                                        </th>
+                                        <th style="text-align:left;width:18%">{{$value->incident}}</th>
+                                        <th style="text-align:left;width:18%"><img src="images/{{$value->image}}" width="30" height="30"></th>
+                                        <th style="text-align:left;width:5%">
+                                            <a href="{{route('admin.health.getEdit',$value->id)}}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
+                                            <a  href="{{route('admin.health.getDelete', $value->id)}}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
+                                        </th>
+
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
