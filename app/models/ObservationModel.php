@@ -17,7 +17,7 @@ class ObservationModel extends Model
 
     public $timestamps = false;
     public function ObservationType(){
-        return $this->belongsTo('App\Models\ObservationTypeModel','id_observations','id');
+        return $this->belongsTo('App\models\ObservationTypeModel','id_observations','id');
     }
     public function Childrent(){
         return $this->belongsTo('App\models\ChildrenProfiles','id_children','id');
