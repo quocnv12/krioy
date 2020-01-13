@@ -40,12 +40,13 @@
                     <div class="grid-title">
                         <div class="row">
                             <div class="col-md-6">
-                                <h4> List    <span class="semi-bold">Observation</span></h4>
+                                <h4> List<span class="semi-bold">Observation</span></h4>
                             </div>
 
 
                         </div>
                     </div>
+
                     <div class="grid-body ">
                         <table class="table table-striped" id="example">
                             <thead>
@@ -74,11 +75,27 @@
                                         <a href="{!! URL::route('admin.observations.getEdit', $value->Childrent->id ) !!}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
                                         <a  href="{!! URL::route('admin.observations.getDelete',  $value->id ) !!}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
                                     </th>
-                                </tr>
-                            @endforeach
-                            </tbody>
 
-                        </table>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($observationtype as $key=> $value)
+                                        <tr>
+                                            <th style="text-align:left;width:18%">{{$key+1}}</th>
+                                            <th style="text-align:left;width:18%">{{$value->Childrent->first_name}}</th>
+                                            <th style="text-align:left;width:18%">{{$value->Childrent->last_name}}</th>
+                                            <th style="text-align:left;width:18%">{{$value->Childrent->birthday}}</th>
+                                            <th style="text-align:left;width:18%">{{$value->Childrent->gender}}</th>
+                                            <th style="text-align:left;width:18%">{{$value->ObservationType->name}}</th>
+                                            <th style="text-align:left;width:18%">
+                                                <a href="{!! URL::route('admin.observations.getEdit', $value->Childrent->id ) !!}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
+                                                <a  href="{!! URL::route('admin.observations.getDelete',  $value->id ) !!}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
+                                            </th>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

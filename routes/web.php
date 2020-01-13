@@ -21,17 +21,11 @@
 
 //route fix
 Route::get('kids-now/children/add','Admin\ChildrenProfilesController@create');
-Route::get('kids-now/children/select_child','Admin\ChildrenProfilesController@selectChild');
-
 
 
 Route::get('kids-now/children/add','Admin\ChildrenProfilesController@create');
 Route::get('kids-now/notice-board/add','Admin\NoticeBoardController@create');
 
-
-Route::get('test',function (){
-    return view('pages.children.create_child');
-});
 Route::get('',function (){
     return view('pages.introduce.introduce-kid_now');
 });
@@ -95,14 +89,9 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('them_child',['as'=>'admin.health.child','uses'=>'Admin\HealthController@getChild']);
         Route::post('them_child',['as'=>'admin.health.child','uses'=>'Admin\HealthController@postChild']);
 
-
-
         //Route::resource('health','Admin\HealthController');
         //Route::get('xoa/{id}','Admin\HealthController@destroy')->name('deletehealth');
         //Route::get('chitiet/{id}','Admin\HealthController@getChitiet')->name('Chitiet');
-
-
-
 
     });
 
@@ -127,7 +116,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
             return view('pages.food.food');
         });
     });
-
 
 
     //---------------food----------------
@@ -165,13 +153,13 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
 
 
-            //tên món ăn
-            Route::get('menu-food-name','Admin\FoodController@GetListMenuFoodName');
-            Route::get('menu-food-name/add','Admin\FoodController@GetAddMenuFoodName')->name('menu-food-name-add');
-            Route::post('menu-food-name/add','Admin\FoodController@PostAddMenuFoodName');
-            Route::get('menu-food-name/edit/{id_food_name}','Admin\FoodController@GetEditMenuFoodName')->name('menu-food-name-edit');
-            Route::post('menu-food-name/edit/{id_food_name}','Admin\FoodController@PostEditMenuFoodName');
-            Route::get('menu-food-name/delete/{id_food_name}','Admin\FoodController@DeleteFoodName')->name('menu-food-name-del');
+        //tên món ăn
+        Route::get('menu-food-name','Admin\FoodController@GetListMenuFoodName');
+        Route::get('menu-food-name/add','Admin\FoodController@GetAddMenuFoodName')->name('menu-food-name-add');
+        Route::post('menu-food-name/add','Admin\FoodController@PostAddMenuFoodName');
+        Route::get('menu-food-name/edit/{id_food_name}','Admin\FoodController@GetEditMenuFoodName')->name('menu-food-name-edit');
+        Route::post('menu-food-name/edit/{id_food_name}','Admin\FoodController@PostEditMenuFoodName');
+        Route::get('menu-food-name/delete/{id_food_name}','Admin\FoodController@DeleteFoodName')->name('menu-food-name-del');
 
     });
 
@@ -216,17 +204,11 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
         Route::get('edit/{id}', 'Admin\ProgramsController@edit');
         Route::post('edit/{id}', 'Admin\ProgramsController@update');
-
         Route::get('view/{id}', 'Admin\ProgramsController@show');
-
         Route::get('delete/{id}','Admin\ProgramsController@destroy');
 
         Route::get('search/children','Admin\ProgramsController@searchChildren');
         Route::get('search/staff','Admin\ProgramsController@searchStaff');
         Route::get('search/program','Admin\ProgramsController@searchProgram');
     });
-});
-
-Route::get('clear_session',function (){
-   return (\Illuminate\Support\Facades\Session::forget('array_children'));
 });
