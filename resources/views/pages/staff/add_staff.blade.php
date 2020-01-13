@@ -17,17 +17,17 @@ Staff Frofiles
                             STAFF</a></li>
                 </ul>
             </div>
-        </div>
+		</div>
+		<form method="POST">
+			@csrf
         <div class="mat-card">
             <div class="mat-content">
                 <button class="accordion add-staff">ADD STAFF *</button>
                 <div class="row">
                     <div class="col-md-2 textera-img">
-                        <a href="#">
-                            <img src="images/Staff.png" alt="">
-                            <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10=""
-                                    aria-hidden="true" class="fa fa-camera"></i></span>
-                        </a>
+						<input id="img" type="file" name="image" style="display:none" value="" class="form-control hidden" 
+						onchange="changeImg(this)">
+						<img id="avatar" class="thumbnail" style="border: 1px solid white;border-radius: 50%;width:150px;height:150px" src="images/Staff.png" >
                     </div>
                     <div class="col-md-10">
                         <div class="add a1 ">
@@ -96,24 +96,18 @@ Staff Frofiles
 
         <div class="mat-card">
             <div class="mat-content">
-                <button class="accordion">Programs</button>
+                <button type="button" class="accordion">Programs</button>
                 <div class="panel">
                     <div _ngcontent-c20="" class="row" style="">
-                        <!---->
+                        @foreach ($programs as $item)
                         <div _ngcontent-c20="" align="center"
                             class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
                             style="padding:10px;cursor:pointer;">
                             <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
-                                style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Attendance
+                            title="{{ $item->program_name }}"    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">{{ $item->program_name }}
                             </button>
                         </div>
-                        <div _ngcontent-c20="" align="center"
-                            class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-                            style="padding:10px;cursor:pointer">
-                            <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
-                                style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Behaviour
-                            </button>
-                        </div>
+						@endforeach
                     </div>
                 </div>
             </div>
@@ -121,7 +115,7 @@ Staff Frofiles
 
         <div class="mat-card">
             <div class="mat-content">
-                <button class="accordion accordion1 clearfix">
+                <button type="button" class="accordion accordion1 clearfix">
                     <p style="float: left;">Permissions *</p>
                     <a href="select_child.blade.php" style="float: right;text-align: right">
                         <p
@@ -130,14 +124,17 @@ Staff Frofiles
                     </a>
                 </button>
                 <div class="panel">
-					<div _ngcontent-c20="" align="center"
-					class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
-					style="padding:10px;cursor:pointer">
-					<button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
-						style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Behaviour
-					</button>
+					<div _ngcontent-c20="" class="row">
+                    @foreach ($roles as $item)
+                    <div _ngcontent-c20="" align="center" class="col-xs-3 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
+                        style="padding:10px;cursor:pointer">
+                        <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
+						title="{{ $item->name }}"   style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">{{ $item->name }}
+                        </button>
+					</div>
+					@endforeach
 				</div>
-                </div>
+			</div>
             </div>
         </div>
         </div>
@@ -150,7 +147,8 @@ Staff Frofiles
                     <span>SAVE</span>
                 </button>
             </div>
-        </div>
+		</div>
+	</form>
     </section>
 </body>
 @endsection
@@ -219,4 +217,25 @@ Staff Frofiles
     });
 
 </script>
+
+<script>
+	function changeImg(input){
+		   //Nếu như tồn thuộc tính file, đồng nghĩa người dùng đã chọn file mới
+		   if(input.files && input.files[0]){
+			   var reader = new FileReader();
+			   //Sự kiện file đã được load vào website
+			   reader.onload = function(e){
+				   //Thay đổi đường dẫn ảnh
+				   $('#avatar').attr('src',e.target.result);
+			   }
+			   reader.readAsDataURL(input.files[0]);
+		   }
+	   }
+	   $(document).ready(function() {
+		   $('#avatar').click(function(){
+			   $('#img').click();
+		   });
+	   });
+
+   </script>
 @endsection
