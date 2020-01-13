@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Kriyo Introduce Kid Now</title>
+		<title>Kriyo Introduce Kids Now</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<link rel="stylesheet" href="asset/kriyo/css/index.css">
@@ -219,7 +219,7 @@
 					<div class="mixedSlider">
 		                <div class="MS-content">
 		                    <div class="item-customer">
-		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kriyo app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kriyo.</p>
+		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
 		                    </div>
 		                    <div class="item-1">
 		                    	<p class="item-a">Khanh-1</p>
@@ -232,7 +232,7 @@
 					<div class="mixedSlider">
 		                <div class="MS-content">
 		                    <div class="item-customer">
-		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kriyo app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kriyo.</p>
+		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
 		                    </div>
 		                    <div class="item-1">
 		                    	<p class="item-a">Khanh-2</p>
@@ -245,7 +245,7 @@
 					<div class="mixedSlider">
 		                <div class="MS-content">
 		                    <div class="item-customer">
-		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kriyo app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kriyo.</p>
+		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
 		                    </div>
 		                    <div class="item-1">
 		                    	<p class="item-a">Khanh-3</p>
@@ -258,7 +258,7 @@
 					<div class="mixedSlider">
 		                <div class="MS-content">
 		                    <div class="item-customer">
-		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kriyo app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kriyo.</p>
+		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
 		                    </div>
 		                    <div class="item-1">
 		                    	<p class="item-a">Khanh-4</p>
@@ -445,7 +445,7 @@
 				<h2>About Us</h2>
 				<div class="hr"></div>	
 			</div>
-			<p>Kriyo is an initiative by Alumni of IIM-Ahmedabad, ISB-Hyderabad and IIT-Kharagpur. We have come together to bring a digital transformation in Early Childhood Care & Education (ECCE) industry. We at Kriyo, are building a range of Products that cater to Digital Administration of Pre-Schools & Creches to manage the complete academic cycle starting from enquiries, admissions, fee payments to providing seamless communication with Parents and help the School Owners grow their business.</p>
+			<p>Kids Now is an initiative by Alumni of IIM-Ahmedabad, ISB-Hyderabad and IIT-Kharagpur. We have come together to bring a digital transformation in Early Childhood Care & Education (ECCE) industry. We at Kids Now, are building a range of Products that cater to Digital Administration of Pre-Schools & Creches to manage the complete academic cycle starting from enquiries, admissions, fee payments to providing seamless communication with Parents and help the School Owners grow their business.</p>
 		</div>
 	</section>
 	<section class="container">
@@ -485,7 +485,7 @@
 			</div>
 			<div style="text-align: center;">
 				<img src="images/email.png" alt="" width="40px">
-				<span style="margin-left:10px;"> hello@ikriyo.com</span>
+				<span style="margin-left:10px;"> hello@kidsnow.com</span>
 			</div>
 		</div>
 	</section>
@@ -505,7 +505,7 @@
 			</div>
 			<div class="row">
 				<p> 2019 © 
-					<b>Kids Now</b>, a product of <b>Little Soldiers</b>
+					<b>Kids Now</b>, a product of <b><a href="http://www.web88.vn/">Web88</a></b>
 				</p>
 				<p>
 					<a href="https://lssplprod.s3.amazonaws.com/Help/Kriyo-schoolApp-Privacy-Policies.html" class="termsHover"> Privacy Policy</a>
