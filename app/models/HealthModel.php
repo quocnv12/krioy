@@ -24,6 +24,6 @@ class HealthModel extends Model
 
     public $timestamps = false;
     public function ChildrenProfiles(){
-        return $this->belongsTo('App\Models\ChildrenProfiles','id_children','id');
+        return $this->belongsTo('App\models\ChildrenProfiles','id_children','id');
     }
 }

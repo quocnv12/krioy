@@ -21,9 +21,9 @@
                         <li class="active1 active-1" style="pointer-events:none;"><a href="">EDIT NOTICE</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target=".bd-example-modal-sm">
-                    <button class="notice" type="button">
-                        <span><a href="kids-now/notice-board/delete/{{$notice_board->id}}" onclick="return deleteConfirm()" style="color: inherit;">DELETE</a></span>
+                <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target=".bd-example-modal-sm" style="display: flex; justify-content: flex-end">
+                    <button class="notice" type="button" >
+                        <span><a href="kids-now/notice-board/delete/{{$notice_board->id}}" style="color: inherit; " onclick="return deleteConfirm()" >DELETE</a></span>
                     </button>
                 </div>
             </div>

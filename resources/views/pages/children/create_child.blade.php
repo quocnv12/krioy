@@ -76,7 +76,7 @@
 					</div>
 				</div>
 				<hr style="margin: 0 0 5px 0;">
-				<div class="add" style="width: 100%; margin: 15px">	
+				<div class="add" style="width: 100%; margin: 15px 0">
 					<div class="row">
 						<div class="col-md-3 input_box">
 							<span class="input_box_span_active">Birthday *</span>

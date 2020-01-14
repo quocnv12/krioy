@@ -45,7 +45,7 @@
 							<div _ngcontent-c20="" class="row" style="">
 								@foreach($observationtype  as $observationtype)
 								<div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer;">
-									<button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" value="{{$observationtype->id}}">{{$observationtype->name}} </button>
+									<button _ngcontent-c20="" name="observation" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" value="{{$observationtype->id}}">{{$observationtype->name}} </button>
 								</div>
 
 								@endforeach
@@ -56,7 +56,7 @@
 						<div class="row">
 							<div class="col-md-11 input_box">
 								<span>Enter Details here *</span>
-								<input type="text" name="detail" placeholder="Enter Details here *">
+								<input type="text" name="detailObservation" placeholder="Enter Details here *">
 							</div>
 							<div class="col-md-1">
 								<div class="zoom">
@@ -141,7 +141,7 @@
 		$(document).ready(function($) {
 			var engine1 = new Bloodhound({
 				remote: {
-					url: 'http://localhost:8000/kids-now/observations/search/children?q=%QUERY%',
+					url: 'http://localhost:8080/krioy/public/kids-now/observations/search/children?q=%QUERY%',
 					wildcard: '%QUERY%'
 				},
 				datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
