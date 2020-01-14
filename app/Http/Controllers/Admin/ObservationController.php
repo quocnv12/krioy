@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 class ObservationController extends Controller
 {
     public function getList(){
-        $observationtype= ObservationModel::paginate(5);
+        $observationtype= ObservationModel::all();
         return view('pages.observation.list', compact('observationtype'));
     }
 
@@ -63,18 +63,12 @@ class ObservationController extends Controller
         return view('pages.observation.sua',compact('observationtype','vendors','childrent'));
     }
     public function postEdit(Request $request, $id){
-
-        $vendors = ObservationTypeModel::all();
         $observationtype = ObservationTypeModel::find($id);
-        $childrent = ChildrenProfiles::find($id);
-        $childrent->first_name = $request->first_name;
-        $childrent->last_name = $request->last_name;
-        $childrent->birthday = $request->birthday;
-        $childrent->gender = $request->gender;
-        //$observationtype->name = $request->id;
-        //$observationtype->save();
-        $childrent->save();
-        return view('pages.observation.sua',compact('observationtype','childrent','vendors'));
+       $observationtype->name=$request->name;
+        $observationtype->detailObservation= $request->detailObservation;
+        $observationtype->save();
+
+        return redirect('kids-now/observations/danhsach');
     }
     public function getSearch(Request $req){
 

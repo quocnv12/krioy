@@ -95,13 +95,20 @@
                             </div>
                         </div>
                     </fieldset>
+                    <fieldset class="form-group">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Detail</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input class="form-control gender" name="detailObservation"   value="{{$observationtype->detailObservation}}"  placeholder="Nhập gender ">
+                            </div>
+                        </div>
+                    </fieldset>
                 </form>
             </div>
+            
         </div>
-        <div class="button-sua" style="text-align: center; margin-bottom: 30px;">
-            <button type="submit" class="btn btn-success">Sửa</button>
-            <button type="reset" class="btn btn-primary">Nhập Lại</button>
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        </div>
+
     </div>
 @endsection

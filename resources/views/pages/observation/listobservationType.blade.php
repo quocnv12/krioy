@@ -62,8 +62,8 @@
                                     <th style="text-align:left;">{{$key+1}}</th>
                                     <th style="text-align:center;width:80%">{{$value->name}}</th>
                                     <th style="text-align:left;">
-                                        <a href="" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
-                                        <a  href="" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
+                                        <a href="{!! URL::route('admin.observationtype.getEdit',  $value->id ) !!}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
+                                        <a  href="{!! URL::route('admin.observationtype.getDelete',  $value->id ) !!}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
                                     </th>
 
                                 </tr>
@@ -74,6 +74,11 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="icon-plus">
+        <a href="{{route('admin.observationtype.add')}}">
+            <i class="fa fa-plus"></i>
+        </a>
     </div>
     </div>
 </section>

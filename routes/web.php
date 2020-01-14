@@ -111,7 +111,18 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('them_child',['as'=>'admin.observations.child','uses'=>'Admin\ObservationController@getChild']);
         Route::post('them_child',['as'=>'admin.observations.child','uses'=>'Admin\ObservationController@postChild']);
         Route::get('search/children', 'Admin\ObservationController@searchByName');
-        Route::get('select_child/add','Admin\ObservationController@addSelectChild');   //ajax them children
+        Route::get('select_child/add','Admin\ObservationController@addSelectChild');
+
+    });
+    Route::group(['prefix' => 'observationtype'], function () {
+
+        Route::get('xoa/{id}',['as'=>'admin.observationtype.getDelete','uses'=>'Admin\ObservationTypeController@getDelete']);
+        Route::get('sua/{id}',['as'=>'admin.observationtype.getEdit','uses'=>'Admin\ObservationTypeController@getEdit']);
+        Route::post('sua/{id}',['as'=>'admin.observationtype.getEdit','uses'=>'Admin\ObservationTypeController@postEdit']);
+        Route::get('them',['as'=>'admin.observationtype.add','uses'=>'Admin\ObservationTypeController@getAdd']);
+        Route::post('them',['as'=>'admin.observationtype.add','uses'=>'Admin\ObservationTypeController@postAdd']);
+
+
     });
     //---------------food----------------
     Route::group(['prefix' => 'food'], function () {

@@ -11,7 +11,7 @@
 			<div class="row">
 				<div class="col-sm-6">
 				<ul class="ul-td">
-					<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="index.html">Home</a></li>
+					<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
 					<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">Health</a></li>
 				</ul>
 				</div>
