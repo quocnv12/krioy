@@ -29,19 +29,33 @@ class HealthController extends Controller
         $health = HealthModel::all();
         return view('pages.heath.heath', compact('health'));
     }
-    public function postAdd(Request $request){
-        $health = new HealthModel;
-        $imageName = $request->file('image')->getClientOriginalName();
-        $request->file('image')->move(
-            base_path(). 'images/'.$imageName
-        );
-        $health->sick= $request->sick;
-        $health->medicine= $request->medicine;
-        $health->growth_height= $request->growth_height;
-        $health->growth_weight= $request->growth_weight;
-        $health->incident= $request->incident;
-        $health->save();
-        return redirect()->route('admin.health.list')->with(['flash_level'=>'success','flash_message'=>'Thêm tin  thành công!!!']);
+    public function postAdd(Request $request, $id){
+        $image = $request->image;
+        $img_current ='images/'.$request->fImageCurrent;
+        if(!empty($image)) {
+            $filename= $image->getClientOriginalName();
+            $health = HealthModel::find($id);
+
+            $health->sick= $request->sick;
+            $health->medicine= $request->medicine;
+            $health->growth_height= $request->growth_height;
+            $health->growth_weight= $request->growth_weight;
+            $health->incident= $request->incident;
+            $health->image= $request->image;
+            $health->save();
+
+            $image ->move(base_path() . 'images/', $filename);
+            File::delete($img_current);
+        }else {
+            $health = HealthModel::find($id);
+
+            $health->sick= $request->sick;
+            $health->medicine= $request->medicine;
+            $health->growth_height= $request->growth_height;
+            $health->growth_weight= $request->growth_weight;
+            $health->incident= $request->incident;
+            $health->save();
+        }
 
     }
 
@@ -75,10 +89,11 @@ class HealthController extends Controller
             $health->growth_height= $request->growth_height;
             $health->growth_weight= $request->growth_weight;
             $health->incident= $request->incident;
+            $health->save();
         }
 
 
-        return redirect()->route('admin.heath.list')->with(['flash_level'=>'success','flash_message'=>'Edit tin tuyển dụng thành công!!!']);
+        return redirect()->route('admin.health.list')->with(['flash_level'=>'success','flash_message'=>'Edit tin tuyển dụng thành công!!!']);
     }
 
     public function getDelete($id){
