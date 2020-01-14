@@ -32,7 +32,7 @@
 				    	</a>
 				    	<div class="topnav" id="myTopnav">
 						    <a href="food.html">HOME</a>
-						    <a href="#">KID NOW APP</a>
+						    <a href="#">KIDS NOW APP</a>
 						    <a href="#">PRICING</a>
 						    <a href="#">ABOUT US</a>
 						    <a href="login">LOGIN</a>
@@ -76,7 +76,7 @@
 	<section class="introduce-school">
 		<div class="container">
 			<div class="schoolTiltle">
-				<h2>KID NOW APP</h2>
+				<h2>KIDS NOW APP</h2>
 				<div class="hr"></div>	
 			</div>
 			<div class="row">
@@ -224,7 +224,7 @@
 		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Khanh-1</p>
+		                    	<p class="item-a">Nguyen Van Khanh</p>
 		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
 		                    </div>
 		                </div>                 
@@ -237,7 +237,7 @@
 		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Khanh-2</p>
+		                    	<p class="item-a">Nguyen Thu Ha</p>
 		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
 		                    </div>
 		                </div>                 
@@ -250,7 +250,7 @@
 		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Khanh-3</p>
+		                    	<p class="item-a">Nguyen Khanh Linh</p>
 		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
 		                    </div>
 		                </div>                 
@@ -263,7 +263,7 @@
 		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Khanh-4</p>
+		                    	<p class="item-a">Tran Trong Hieu</p>
 		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
 		                    </div>
 		                </div>                 
@@ -447,7 +447,7 @@
 				<h2>About Us</h2>
 				<div class="hr"></div>	
 			</div>
-			<p>Kids Now is an initiative by Alumni of IIM-Ahmedabad, ISB-Hyderabad and IIT-Kharagpur. We have come together to bring a digital transformation in Early Childhood Care & Education (ECCE) industry. We at Kids Now, are building a range of Products that cater to Digital Administration of Pre-Schools & Creches to manage the complete academic cycle starting from enquiries, admissions, fee payments to providing seamless communication with Parents and help the School Owners grow their business.</p>
+			<p>Kids Now ipsum dolor sit amet, consectetur adipisicing elit. Delectus possimus aut eaque adipisci, accusamus illum exercitationem labore sequi tenetur vitae, est ipsum. Cupiditate quas laboriosam, autem cumque sint quia cum odit eligendi dolore, consequatur nobis rem ipsa dolorem non, eum eius earum quo voluptate repellendus vitae maxime. Beatae natus atque praesentium soluta ut voluptate, cupiditate ipsum tempora iste distinctio, sit corrupti inventore ea suscipit, odit modi illo omnis animi quae.</p>
 		</div>
 	</section>
 	<section class="container">
@@ -464,13 +464,13 @@
 					<span style="font-size: 14px;color: #5363d6;">Talent Wins</span>
 				</div>
 				<div class="col-sm-4 col-md-4">
-					<img src="images/xuan.png" alt="">
+					<img src="images/hiep.png" alt="">
 					<p>Mr. Lê Anh Xuân</p>
 					<span style="color: cornflowerblue;font-size: 15px;">CEO</span>
-					<span style="font-size: 14px;color: #5363d6;">Ths. Khoa Học Máy Tính</span>
+					<span style="font-size: 14px;color: #5363d6;">Ts. Khoa Học Máy Tính</span>
 				</div>
 				<div class="col-sm-4 col-md-4">
-					<img src="images/hiep.png" alt="">
+					<img src="images/xuan.png" alt="">
 					<p>Mr. Nguyễn Quang Hiệp</p>
 					<span style="color: cornflowerblue;font-size: 15px;">CEO</span>
 					<span style="font-size: 14px;color: #5363d6;">Ths. Khoa Học Máy Tính</span>
