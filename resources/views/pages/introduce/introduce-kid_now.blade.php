@@ -27,7 +27,7 @@
 				<div class="container-fluid">
 				    <div class="navbar-header">
 				    	<a class="navbar-brand" href="#" style="display: flex;">
-				    		<img src="images/Kriyo Logo.png" alt="">
+				    		<img src="images/a.png" alt="">
 				    		<p>Kids Now</p>
 				    	</a>
 				    	<div class="topnav" id="myTopnav">
