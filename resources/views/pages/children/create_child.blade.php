@@ -170,32 +170,40 @@
 							@endif
 						</div>
 					</div>
-					<div class="input_box" style="width: 100%;">
-						<span>Residential Address </span>
-						<input type="text" name="address" placeholder="Residential Address" value="{{old('address')}}">
-                        @if ($errors->has('address'))
-                            <div class="text text-danger">
-                                {{ $errors->first('address') }}
-                            </div>
-                        @endif
-					</div>
-					<div class="input_box" style="width: 100%;">
-						<span>Allergies (if any) </span>
-						<input type="text" name="allergies" placeholder="Allergies (if any)" value="{{old('allergies')}}">
-                        @if ($errors->has('allergies'))
-                            <div class="text text-danger">
-                                {{ $errors->first('allergies') }}
-                            </div>
-                        @endif
-					</div>
-					<div class="input_box" style="width: 100%;">
-						<span>Additional Notes </span>
-						<input type="text" name="additional_note" placeholder="Additional Notes" value="{{old('additional_note')}}">
-                        @if ($errors->has('additional_note'))
-                            <div class="text text-danger">
-                                {{ $errors->first('additional_note') }}
-                            </div>
-                        @endif
+					<div class="row">
+						<div class="col-md-12">
+							<div class="input_box" style="width: 100%;">
+								<span>Residential Address *</span>
+								<input type="text" name="address" placeholder="Residential Address" value="{{old('address')}}">
+		                        @if ($errors->has('address'))
+		                            <div class="text text-danger">
+		                                {{ $errors->first('address') }}
+		                            </div>
+		                        @endif
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="input_box" style="width: 100%;">
+								<span>Allergies (if any) *</span>
+								<input type="text" name="allergies" placeholder="Allergies (if any)" value="{{old('allergies')}}">
+		                        @if ($errors->has('allergies'))
+		                            <div class="text text-danger">
+		                                {{ $errors->first('allergies') }}
+		                            </div>
+		                        @endif
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="input_box" style="width: 100%;">
+								<span>Additional Notes *</span>
+								<input type="text" name="additional_note" placeholder="Additional Notes" value="{{old('additional_note')}}">
+		                        @if ($errors->has('additional_note'))
+		                            <div class="text text-danger">
+		                                {{ $errors->first('additional_note') }}
+		                            </div>
+		                        @endif
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

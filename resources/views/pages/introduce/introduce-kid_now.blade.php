@@ -35,14 +35,15 @@
 						    <a href="#">KID NOW APP</a>
 						    <a href="#">PRICING</a>
 						    <a href="#">ABOUT US</a>
-						    <a href="#">LOGIN</a>
-						    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+						    <a href="login">LOGIN</a>
+						    <a href="javascript:void(0);"  class="icon" onclick="myFunction()">
 							    <i class="fa fa-bars"></i>
 							</a>
 						</div>
 				    </div>
 				</div>
 			</nav>
+			
 			<div class="textMsg" align="center">
 				<div class="textMsg-children">
 					<span style="opacity: 1;position: relative;z-index: 2;cursor: pointer;">
@@ -386,7 +387,7 @@
 					<img src="images/baby.png" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/jis.png" alt="">
+					<img src="images/montess.png" alt="">
 				</div>
 			</div>
 			<div class="row">
@@ -456,22 +457,22 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-4 col-md-4">
-					<img src="images/hinh-anh-anime-chibi-dep-de-thuong-15.jpg" alt="">
-					<p>Sucharitha</p>
+					<img src="images/hai.png" alt="">
+					<p>Mr. Vũ Minh Hải</p>
 					<span style="color: cornflowerblue;font-size: 15px;">CEO</span>
-					<span style="font-size: 14px;color: #5363d6;">alumna, IIM Ahmedabad</span>
+					<span style="font-size: 14px;color: #5363d6;">Talent Wins</span>
 				</div>
 				<div class="col-sm-4 col-md-4">
-					<img src="images/hinh-anh-anime-chibi-dep-de-thuong-15.jpg" alt="">
-					<p>Sucharitha</p>
+					<img src="images/xuan.png" alt="">
+					<p>Mr. Lê Anh Xuân</p>
 					<span style="color: cornflowerblue;font-size: 15px;">CEO</span>
-					<span style="font-size: 14px;color: #5363d6;">alumna, IIM Ahmedabad</span>
+					<span style="font-size: 14px;color: #5363d6;">Ths. Khoa Học Máy Tính</span>
 				</div>
 				<div class="col-sm-4 col-md-4">
-					<img src="images/hinh-anh-anime-chibi-dep-de-thuong-15.jpg" alt="">
-					<p>Sucharitha</p>
+					<img src="images/hiep.png" alt="">
+					<p>Mr. Nguyễn Quang Hiệp</p>
 					<span style="color: cornflowerblue;font-size: 15px;">CEO</span>
-					<span style="font-size: 14px;color: #5363d6;">alumna, IIM Ahmedabad</span>
+					<span style="font-size: 14px;color: #5363d6;">Ths. Khoa Học Máy Tính</span>
 				</div>
 			</div>
 		</div>
@@ -600,4 +601,3 @@
 			}
 		}
 	</script>
-</html>
