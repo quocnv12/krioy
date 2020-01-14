@@ -36,8 +36,9 @@
 						    <a href="#">PRICING</a>
 						    <a href="#">ABOUT US</a>
 						    <a href="login">LOGIN</a>
-						    <a href="javascript:void(0);"  class="icon" onclick="myFunction()">
-							    <i class="fa fa-bars"></i>
+						    <a href="javascript:void(0);"  class="icon" onclick="myFunction()" id="icon-close">
+							    <i class="fa fa-bars" style="display: inline-block;"></i>
+							    <i class="fa fa-times-circle" aria-hidden="true" style="display: none"></i>
 							</a>
 						</div>
 				    </div>
@@ -594,10 +595,16 @@
 	<script>
 		function myFunction() {
 			var x = document.getElementById("myTopnav");
+			var close_menu=document.getElementById('icon-close');
 			if (x.className === "topnav") {
 				x.className += " responsive";
+				close_menu.children[0].style.display="none";
+				close_menu.children[1].style.display="inline-block";
+
 			} else {
 			    x.className = "topnav";
+			    close_menu.children[1].style.display="none";
+				close_menu.children[0].style.display="inline-block";
 			}
 		}
 	</script>
