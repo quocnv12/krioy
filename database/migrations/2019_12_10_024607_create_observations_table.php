@@ -17,6 +17,7 @@ class CreateObservationsTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('id_children')->unsigned();
             $table->string('detailObservation')->nullable();
+
             $table->foreign('id_children')->references('id')->on('children_profiles')->onDelete('cascade');
             $table->bigInteger('id_observations')->unsigned();
             $table->foreign('id_observations')->references('id')->on('observations_type')->onDelete('cascade');

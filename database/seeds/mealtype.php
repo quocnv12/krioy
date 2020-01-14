@@ -19,6 +19,5 @@ class mealtype extends Seeder
             ['id'=>3,'name'=>'Snacks'],
             ['id'=>4,'name'=>'Dinner'],
         ]);
-
     }
 }

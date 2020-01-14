@@ -11,8 +11,8 @@
 				<div class="row">
 					<div class="col-sm-6">
 					<ul class="ul-td">
-						<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">Home</a></li>
-						<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">OBSERVATIONS</a></li>
+						<li _ngcontent-c16="" class="level1"><a _ngcontent-c16=""href="kids-now">Home</a></li>
+						<li _ngcontent-c16="" class="active1" style="pointer-events:none" ><a _ngcontent-c16="">OBSERVATIONS</a></li>
 					</ul>
 					</div>
 					<div class="col-sm-6">
@@ -23,6 +23,7 @@
 			<div class="row">
 				<div class="mat-card" style="width: 100%">
 					<div class="mat-content">
+						<a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href="{{route('admin.observations.listobservationtype')}}" class="btn btn-defaul">ObservationType</a>
 						<button class="accordion accordion1 clearfix">
 							<p style="float: left;">Children *</p>
 								<form class="typeahead" role="search" style="float: right; text-align: left">
