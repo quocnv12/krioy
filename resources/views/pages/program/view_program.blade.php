@@ -134,19 +134,23 @@
 				<div class="panel">
 					<div _ngcontent-c20="" class="row" style="">
 						<!---->
-						@foreach($staff_profiles as $staff)
-						<div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1"  onclick="myFunction()">
-							<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
-								<div _ngcontent-c9="" class="image">
-									<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Staff.png';" width="80" src="{{$staff->image}}">
-									<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked"></i>
+						@if(count($staff_profiles) > 0)
+							@foreach($staff_profiles as $staff)
+							<div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1"  onclick="myFunction()">
+								<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
+									<div _ngcontent-c9="" class="image">
+										<img _ngcontent-c19="" class="img-circle" onerror="this.src='images/Staff.png';" style="height: 80px" width="80" src="{{$staff->image}}">
+										<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked"></i>
+										<!---->
+										<span _ngcontent-c19="" class="limitText ng-star-inserted">{{$staff->first_name}} {{$staff->last_name}}</span>
+									</div>
 									<!---->
-									<span _ngcontent-c19="" class="limitText ng-star-inserted">{{$staff->first_name}} {{$staff->last_name}}</span>
 								</div>
-								<!---->
 							</div>
-						</div>
-						@endforeach
+							@endforeach
+						@else
+							<p style="font-size: 18px; margin: 10px;">No staff was chosen</p>
+						@endif
 					</div>
 				</div>
 			</div>
@@ -158,20 +162,24 @@
 				<div class="panel">
 					<div _ngcontent-c20="" class="row" style="">
 						<!---->
-						@foreach($children_profiles as $children)
-						<div _ngcontent-c19="" class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1">
-							<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center; cursor: pointer">
-								<div _ngcontent-c9="" class="image" data-toggle="modal" data-target=".bd-example-modal-sm">
-									<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="{{$children->image}}">
-									<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked"></i>
+						@if(count($staff_profiles) > 0)
+							@foreach($children_profiles as $children)
+							<div _ngcontent-c19="" class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1">
+								<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center; cursor: pointer">
+									<div _ngcontent-c9="" class="image" data-toggle="modal" data-target=".bd-example-modal-sm">
+										<img _ngcontent-c19="" class="img-circle" onerror="this.src='images/Child.png';" style="height: 80px" width="80" src="{{$children->image}}">
+										<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked"></i>
+										<!---->
+										<span _ngcontent-c19="" class="limitText ng-star-inserted" >{{$children->first_name}} {{$children->last_name}}</span>
+										<input type="hidden" value="{{$children->id}}" class="link_to_children">
+									</div>
 									<!---->
-									<span _ngcontent-c19="" class="limitText ng-star-inserted">{{$children->first_name}} {{$children->last_name}}</span>
-									<input type="hidden" value="{{$children->id}}" class="link_to_children">
 								</div>
-								<!---->
 							</div>
-						</div>
-						@endforeach
+							@endforeach
+						@else
+							<p style="font-size: 18px; margin: 10px;">No children was chosen</p>
+						@endif
 					</div>
 				</div>
 			</div>
@@ -187,7 +195,7 @@
 		<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-sm">
 				<div class="modal-content">
-					<ul>
+					<ul style="margin-left: 0">
 						<li style="color: #5363d6!important">Go to</li>
 						<li class="modal-li" data-href="" id="profile_children">Profile</li>
 						<li class="modal-li" data-href="" id="invoices_children">Invoices</li>

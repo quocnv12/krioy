@@ -35,7 +35,7 @@
                         <li class="active1 active-1" ><a href="">EDIT PROGRAM</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target="">
+                <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target="" style="display: flex; justify-content: flex-end">
                     <button class="notice" type="button">
                         <span><a href="kids-now/program/delete/{{$program->id}}" style="color: inherit" onclick="return deleteConfirm()">DELETE</a></span>
                     </button>
@@ -253,19 +253,26 @@
 					</button>
 					<div class="panel">
 						<div _ngcontent-c20="" class="row" style="" id="staff_list">
-							@foreach($staff_in_program as $staff)
-								<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
-									<div class="child-class" style="height: 120px;text-align: center;">
-										<div class="image">
-											<img class="img-circle" height="80" onerror="this.src='images/Staff.png';" style="height: 80px" width="80" src="{{$staff->image}}">
-											<input type="hidden" value="{{$staff->id}}">
-											<button class="btn btn-xs btn-danger" type="button" onclick="deleteStaff({{$staff->id}})">X</button>
-											<br>
-											<span class="limitText ng-star-inserted"><a target="_blank" href="">{{$staff->first_name}} {{$staff->last_name}}</a></span>
-										</div>
-									</div>
-								</div>
-							@endforeach
+                            @foreach($staff_in_program as $staff)
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
+                                    <div class="child-class" style="height: 120px;text-align: center;">
+                                        <div class="image">
+                                            <img class="img-circle" height="80" onerror="this.src='images/Staff.png';" style="height: 80px" width="80" src="{{$staff->image}}">
+                                            <input type="hidden" value="{{$staff->id}}">
+                                            <button class="btn btn-xs btn-danger" type="button" onclick="deleteStaff({{$staff->id}})">X</button>
+                                            <br>
+                                            <span class="limitText ng-star-inserted"><a target="_blank" href="">{{$staff->first_name}} {{$staff->last_name}}</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+
+                            @if(count($staff_in_program) == 0)
+                                <div style="margin: 10px" id="hint_staff">
+                                    <span style="color: red; font-weight: bold">Hint :</span>
+                                    <span>Use the search bar to add specific staff in this program</span>
+                                </div>
+                            @endif
 							<!---->
 							{{-- ajax ProgramController@addSelectStaff do vao day--}}
 							<!---->
@@ -291,11 +298,17 @@
 											<input type="hidden" value="{{$children->id}}">
 											<button class="btn btn-xs btn-danger" type="button" onclick="deleteChild({{$children->id}})">X</button>
 											<br>
-											<span class="limitText ng-star-inserted"><a target="_blank" href="kids-now/children/edit/{{$children->id}}">{{$children->first_name}} {{$children->last_name}}</a></span>
+											<span class="limitText ng-star-inserted"><a target="_blank" href="kids-now/children/edit/{{$children->id}}" style="margin: 0">{{$children->first_name}} {{$children->last_name}}</a></span>
 										</div>
 									</div>
 								</div>
 							@endforeach
+                                @if(count($children_in_program) == 0)
+                                    <div style="margin: 10px" id="hint_children">
+                                        <span style="color: red; font-weight: bold">Hint :</span>
+                                        <span>Use the search bar to add specific children in this program</span>
+                                    </div>
+                            @endif
 							<!---->
 							{{-- ajax ProgramController@addSelectChildren do vao day--}}
 							<!---->
@@ -379,6 +392,7 @@
 		}
 
 		function getIdChildren(id){
+            $('#hint_children').remove();
 			$.ajax({
 				type: 'get',
 				url: '{{ URL::to('kids-now/program/select_child/add') }}',
@@ -408,6 +422,7 @@
 		}
 
 		function getIdStaff(id){
+            $('#hint_staff').remove();
 			$.ajax({
 				type: 'get',
 				url: '{{ URL::to('kids-now/program/select_staff/add') }}',
@@ -497,7 +512,7 @@
 		$(document).ready(function($) {
 			var engine1 = new Bloodhound({
 				remote: {
-					url: 'http://localhost:8000/kids-now/program/search/children?q=%QUERY%',
+					url: 'http://kidsnow.web88.vn/kids-now/program/search/children?q=%QUERY%',
 					wildcard: '%QUERY%'
 				},
 				datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
@@ -531,7 +546,7 @@
 
 			var engine2 = new Bloodhound({
 				remote: {
-					url: 'http://localhost:8000/kids-now/program/search/staff?q2=%QUERY%',
+					url: 'http://kidsnow.web88.vn/kids-now/program/search/staff?q2=%QUERY%',
 					wildcard: '%QUERY%'
 				},
 				datumTokenizer: Bloodhound.tokenizers.whitespace('q2'),

@@ -738,6 +738,15 @@ div.daily-report span{
   z-index: 2;
   cursor: pointer;
 }
+.table-responsive {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #DDD;
+}
 
 
 
@@ -795,4 +804,17 @@ div.daily-report span{
   .update .zoom{
     margin: 10px 0;
   }
+}
+
+@media screen and (max-width: 767px) {
+
+    .table-responsive {
+        width: 100%;
+        margin-bottom: 15px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        border: 1px solid #DDD;
+    }
 }

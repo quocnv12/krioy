@@ -50,7 +50,7 @@ class ProgramsController extends Controller
             ->selectRaw('count(children_programs.id_children) AS total_children')
             ->groupBy(['programs.program_name', 'programs.id'])
             ->orderBy('programs.program_name')
-            ->paginate(1);
+            ->simplePaginate(8);
 
         return view('pages.program.program', ['programs' => $programs]);
     }
@@ -308,7 +308,7 @@ class ProgramsController extends Controller
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
 							    <div class="child-class" style="height: 120px;text-align: center;">
 							        <div class="image">
-                                        <img class="img-circle" height="80" onerror="this.src=\'images/Child.png\';" style="height: 80px" width="80" src="' . $children_profiles->image . '">
+                                        <img class="img-circle" onerror="this.src=\'images/Child.png\';" style="height: 80px" width="80" src="' . $children_profiles->image . '">
                                         <input type="hidden" value="' . $children_profiles->id . '">
                                         <button class="btn btn-xs btn-danger" type="button" onclick="deleteChild(' . $children_profiles->id . ')">X</button>
                                         <span class="limitText ng-star-inserted">' . $children_profiles->first_name . ' ' . $children_profiles->last_name . '</span>
@@ -338,7 +338,7 @@ class ProgramsController extends Controller
                                 <div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
                                     <div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
                                         <div _ngcontent-c9="" class="image">
-                                            <img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src=\'images/Staff.png\';" width="80" src="' . $staff_profiles->image . '">
+                                            <img _ngcontent-c19="" class="img-circle" onerror="this.src=\'images/Staff.png\';" style="height: 80px" width="80" src="' . $staff_profiles->image . '">
                                             <input type="hidden" value="' . $staff_profiles->id . '">
                                             <button class="btn btn-xs btn-danger" type="button" onclick="deleteStaff(' . $staff_profiles->id . ')">X</button>
                                             <span _ngcontent-c19="" class="limitText ng-star-inserted">' . $staff_profiles->first_name . ' ' . $staff_profiles->last_name . '</span>

@@ -16,9 +16,9 @@
 			<div class="row">
 				<div class="col-lg-10 col-md-10 col-sm-10">
 					<ul class="ul-td">
-						<li _ngcontent-c16="" class="level1"><a href="kids-now">HOME</a></li>
-						<li _ngcontent-c16="" class="active1"><a href="kids-now/notice-board">NOTICE BOARD</a></li>
-						<li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a href="">EDIT NOTICE</a></li>
+						<li class="level1"><a href="kids-now">HOME</a></li>
+						<li class="active1"><a href="kids-now/notice-board">NOTICE BOARD</a></li>
+						<li class="active1 active-1" style="pointer-events:none;"><a href="">ADD NOTICE</a></li>
 					</ul>
 				</div>
 				<div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target=".bd-example-modal-sm">
@@ -43,7 +43,7 @@
                             <!---->
                             @foreach($programs as $program)
                                 <div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-6 col-md-2 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer;width: 50%;">
-                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" type="button" value="{{$program->id}}">{{$program->program_name}}</button>
+                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" type="button" data-toggle="tooltip" title="{{$program->program_name}}" value="{{$program->id}}">{{$program->program_name}}</button>
                                 </div>
                             @endforeach
                             <input id="array_program" type="hidden" value="" name="programs">

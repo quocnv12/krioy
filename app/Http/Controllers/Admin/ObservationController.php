@@ -25,6 +25,25 @@ class ObservationController extends Controller
         $observationtype = ObservationTypeModel::all();
         return view('pages.observation.observation', compact('observationtype'));
     }
+    public function postAdd(Request $request)
+    {
+        $observationtype = ObservationModel::create($request->all());
+        $observationtype->save();
+
+        if ($request->array_all_children !== null) {
+            //string to array
+            $array_all_children = explode(',', $request->array_all_children);
+
+            //luu vao bang children_programs
+            foreach ($array_all_children as $children) {
+                $children_program = new ChildrenProfiles();
+                $children_program->id_children = $children;
+                $children_program->save();
+            }
+            $children_program->save();
+        }
+        return redirect()->back()->with('notify', 'Added Successfully');
+    }
     public function getDelete($id){
         $observationtype= DB::table('observations')->where('id',$id)->delete();
         return redirect()->route('admin.observations.list', compact('observationtype'))->with(['flash_level'=>'success','flash_message'=>'Del tin tuyển dụng thành công!!!']);
@@ -40,6 +59,7 @@ class ObservationController extends Controller
         return view('pages.observation.sua',compact('observationtype','vendors','childrent'));
     }
     public function postEdit(Request $request, $id){
+
         $vendors = ObservationTypeModel::all();
         $observationtype = ObservationTypeModel::find($id);
         $childrent = ChildrenProfiles::find($id);
@@ -88,9 +108,9 @@ class ObservationController extends Controller
     public function searchByName(Request $request)
     {
         $children_profiles = ChildrenProfiles::where('first_name', 'like', '%' . $request->get('q') . '%')
-            ->orWhere('last_name', 'like', '%' . $request->get('q') . '%')
-            ->orderBy('last_name')
-            ->get();
+        ->orWhere('last_name', 'like', '%' . $request->get('q') . '%')
+        ->orderBy('last_name')
+        ->get();
         return response()->json($children_profiles);
     }
 
@@ -105,7 +125,7 @@ class ObservationController extends Controller
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
 							    <div class="child-class" style="height: 120px;text-align: center;">
 							        <div class="image">
-                                        <img class="img-circle" height="80" onerror="this.src=\'images/Child.png\';" style="height: 80px" width="80" src="' . $children_profiles->image . '">
+                                        <img class="img-circle" onerror="this.src=\'images/Child.png\';" style="height: 80px" width="80" src="' . $children_profiles->image . '">
                                         <input type="hidden" value="' . $children_profiles->id . '">
                                         <button class="btn btn-xs btn-danger" type="button" onclick="deleteChild(' . $children_profiles->id . ')">X</button>
                                         <span class="limitText ng-star-inserted">' . $children_profiles->first_name . ' ' . $children_profiles->last_name . '</span>

@@ -14,8 +14,8 @@
 		}
 
 		@keyframes mymove {
-			0% {width: 200px;}
-			100% {width: 100%;}
+			0% {width: 300px;}
+			100% {width: 400px;}
 		}
 		.scrollmenu-div button a{
 			color: #fff;
@@ -39,7 +39,7 @@
 						{{--<span _ngcontent-c10="" class="badge" style="background-color: red;color:#fff;vertical-align: top;display: inline;line-height:0px">1</span>--}}
 					{{--</a>--}}
 					<form class="typeahead" role="search" style="float: right;" >
-						<input  type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 100%;">
+						<input  type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 300px;">
 					</form>
 				</div>
 			</div>
@@ -83,6 +83,11 @@
 								</div>
 							</div>
 						@endforeach
+					@else
+						<div style="margin: 50px">
+							<p style="color: red; font-weight: bold">Hint :</p>
+							<p>Click on a program tab in horizontal scroll bar to show all children in that program / Or use the search bar to go to specific children's profile</p>
+						</div>
 					@endif
 				</div>
 			</div>
