@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Kriyo Introduce Kid Now</title>
+		<title>Kriyo Introduce Kids Now</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<link rel="stylesheet" href="asset/kriyo/css/index.css">
@@ -28,14 +28,14 @@
 				    <div class="navbar-header">
 				    	<a class="navbar-brand" href="#" style="display: flex;">
 				    		<img src="images/Kriyo Logo.png" alt="">
-				    		<p>Kid Now</p>
+				    		<p>Kids Now</p>
 				    	</a>
 				    	<div class="topnav" id="myTopnav">
 						    <a href="food.html">HOME</a>
-						    <a href="#">KID NOW APP</a>
+						    <a href="#">KIDS NOW APP</a>
 						    <a href="#">PRICING</a>
 						    <a href="#">ABOUT US</a>
-						    <a href="#">LOGIN</a>
+						    <a href="login">LOGIN</a>
 						    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
 							    <i class="fa fa-bars"></i>
 							</a>
@@ -74,7 +74,7 @@
 	<section class="introduce-school">
 		<div class="container">
 			<div class="schoolTiltle">
-				<h2>KID NOW APP</h2>
+				<h2>KIDS NOW APP</h2>
 				<div class="hr"></div>	
 			</div>
 			<div class="row">
@@ -158,7 +158,7 @@
 	<section class="introduce-parent">
 		<div class="container">
 			<div class="schoolTiltle">
-				<h2>KID NOW PARENT APP</h2>
+				<h2>KIDS NOW PARENT APP</h2>
 				<div class="hr"></div>	
 			</div>
 			<div class="row">
