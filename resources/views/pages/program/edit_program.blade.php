@@ -35,7 +35,7 @@
                         <li class="active1 active-1" ><a href="">EDIT PROGRAM</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target="">
+                <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target="" style="display: flex; justify-content: flex-end">
                     <button class="notice" type="button">
                         <span><a href="kids-now/program/delete/{{$program->id}}" style="color: inherit" onclick="return deleteConfirm()">DELETE</a></span>
                     </button>
@@ -298,7 +298,7 @@
 											<input type="hidden" value="{{$children->id}}">
 											<button class="btn btn-xs btn-danger" type="button" onclick="deleteChild({{$children->id}})">X</button>
 											<br>
-											<span class="limitText ng-star-inserted"><a target="_blank" href="kids-now/children/edit/{{$children->id}}">{{$children->first_name}} {{$children->last_name}}</a></span>
+											<span class="limitText ng-star-inserted"><a target="_blank" href="kids-now/children/edit/{{$children->id}}" style="margin: 0">{{$children->first_name}} {{$children->last_name}}</a></span>
 										</div>
 									</div>
 								</div>

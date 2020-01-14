@@ -377,27 +377,27 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/maplebear.jpg" alt="">
+					<img src="images/sun.png" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/sesame-street.png" alt="">
+					<img src="images/vasch.png" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/bachpan-logo.png" alt="">
+					<img src="images/baby.png" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/maars.jpg" alt="">
+					<img src="images/jis.png" alt="">
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/little-genie.png" alt="">
+					<img src="images/vin.jpg" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/little-bees.png" alt="">
+					<img src="images/kinder.png" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/apomye.png" alt="">
+					<img src="images/academy.jpg" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-3">
 					<img src="images/kinder-garden.png" alt="">
@@ -405,16 +405,16 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/discover.png" alt="">
+					<img src="images/gateway.png" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/seed.jpg" alt="">
+					<img src="images/lion.jpg" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/mummaa-bear.png" alt="">
+					<img src="images/happy.png" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/hello-kids.png" alt="">
+					<img src="images/hoa.png" alt="">
 				</div>
 			</div>
 			<div class="row">

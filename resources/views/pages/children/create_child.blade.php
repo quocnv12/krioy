@@ -76,7 +76,7 @@
 					</div>
 				</div>
 				<hr style="margin: 0 0 5px 0;">
-				<div class="add" style="width: 100%; margin: 15px">	
+				<div class="add" style="width: 100%; margin: 15px 0">
 					<div class="row">
 						<div class="col-md-3 input_box">
 							<span class="input_box_span_active">Birthday *</span>
@@ -171,7 +171,7 @@
 						</div>
 					</div>
 					<div class="input_box" style="width: 100%;">
-						<span>Residential Address *</span>
+						<span>Residential Address </span>
 						<input type="text" name="address" placeholder="Residential Address" value="{{old('address')}}">
                         @if ($errors->has('address'))
                             <div class="text text-danger">
@@ -180,7 +180,7 @@
                         @endif
 					</div>
 					<div class="input_box" style="width: 100%;">
-						<span>Allergies (if any) *</span>
+						<span>Allergies (if any) </span>
 						<input type="text" name="allergies" placeholder="Allergies (if any)" value="{{old('allergies')}}">
                         @if ($errors->has('allergies'))
                             <div class="text text-danger">
@@ -189,7 +189,7 @@
                         @endif
 					</div>
 					<div class="input_box" style="width: 100%;">
-						<span>Additional Notes *</span>
+						<span>Additional Notes </span>
 						<input type="text" name="additional_note" placeholder="Additional Notes" value="{{old('additional_note')}}">
                         @if ($errors->has('additional_note'))
                             <div class="text text-danger">
