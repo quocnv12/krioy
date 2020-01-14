@@ -23,28 +23,24 @@
 
 
 		<div class="row">
-			<form action="" style="width: 100%" >
-				@csrf
-			<div class="mat-card">
-				<div class="mat-content">
-					<button class="accordion accordion1 clearfix">
-						<p style="float: left;">Children *</p>
-						<a href="{{route('admin.health.child')}}" style="float: right;text-align: right">SELECT</a>
-					</button>
+			<div class="mat-card" style="width: 100%">
 					<div class="mat-content">
+						<button class="accordion accordion1 clearfix">
+							<p style="float: left;">Children *</p>
+							<form class="typeahead" role="search" style="float: right; text-align: left">
+								<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="float:right;line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">
+							</form>
+						</button>
 
-						<div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img"  onclick="myFunction()" style="padding:10px;cursor:pointer;margin: 5px 20px;">
-							<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
-								<div _ngcontent-c9="" class="image">
-									<img _ngcontent-c19="" class="img-circle" height="80" width="80" src="images/Child.png" >
-									<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked" style="display: none"></i>
-									<!---->
-									<span _ngcontent-c19="" class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;font-weight: bold;font-size: 16px;">f</span>
-								</div>
-								<!---->
+
+						<div class="panel" >
+							<div class="row" id="children_list">
+								{{-- ajax ObservationController@addSelectChildren do vao day--}}
 							</div>
+							<input type="hidden" name="array_all_children" value="">
 						</div>
 					</div>
+					<hr>
 					<div id="clock" name="time"></div>
 					<div class="update">
 						<p>Select Health Update Type*</p>
@@ -220,7 +216,7 @@
 					</div><br>
 				</div>
 			</div>
-			</form>
+
 		</div>
 	</section>
 	</body>

@@ -20,6 +20,10 @@ class ObservationController extends Controller
         $observationtype = ChildrenProfiles::all();
         return view('pages.observation.select_child', compact('observationtype'));
     }
+    public  function getListObservation(){
+        $observationtype = ObservationTypeModel::all();
+        return view('pages.observation.listobservationType', compact('observationtype'));
+    }
 
     public function getAdd(){
         $observationtype = ObservationTypeModel::all();
