@@ -377,8 +377,8 @@
 			<div class="hr"></div>	
 		</div>
 		<div class="container">
-			<div class="row">
-				<div class="col-xs-6 col-sm-3 col-md-3">
+			<div class="row"> 
+				<div class="col-xs-6 col-sm-3 col-md-3 banner-img">
 					<img src="images/sun.png" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-3">
