@@ -110,7 +110,7 @@
 					<p>Get useful insights about your school through easy to read reports</p>
 				</div>
 				<div class="col-sm-4 col-md-4">
-					<img class="features-block__image" src="https://s3.amazonaws.com/lssplprod/templateimages/NewloginGiff.gif" alt="">
+					<img class="features-block__image" src="images/kidsnow.png" alt="">
 				</div>
 				<div class="col-sm-4 col-md-4 featured-item">
 					<img src="images/Diary.png" alt="">
@@ -456,7 +456,7 @@
 				<h2>Our Team</h2>
 				<div class="hr"></div>	
 			</div>
-			<div class="row">
+			<div class="row our-team">
 				<div class="col-sm-4 col-md-4">
 					<img src="images/hai.png" alt="">
 					<p>Mr. Vũ Minh Hải</p>
@@ -466,14 +466,20 @@
 				<div class="col-sm-4 col-md-4">
 					<img src="images/hiep.png" alt="">
 					<p>Mr. Lê Anh Xuân</p>
-					<span style="color: cornflowerblue;font-size: 15px;">CEO</span>
+					<span style="color: cornflowerblue;font-size: 15px;">Co founder</span>
 					<span style="font-size: 14px;color: #5363d6;">Ts. Khoa Học Máy Tính</span>
 				</div>
 				<div class="col-sm-4 col-md-4">
 					<img src="images/xuan.png" alt="">
 					<p>Mr. Nguyễn Quang Hiệp</p>
-					<span style="color: cornflowerblue;font-size: 15px;">CEO</span>
+					<span style="color: cornflowerblue;font-size: 15px;">Co founder</span>
 					<span style="font-size: 14px;color: #5363d6;">Ths. Khoa Học Máy Tính</span>
+				</div>
+				<div class="col-sm-4 col-md-4">
+					<img src="images/xuan.png" alt="">
+					<p>Mr. Nguyễn Quang Hiệp</p>
+					<span style="color: cornflowerblue;font-size: 15px;">Font-end</span>
+					<span style="font-size: 14px;color: #5363d6;">Lap trinh vien</span>
 				</div>
 			</div>
 		</div>

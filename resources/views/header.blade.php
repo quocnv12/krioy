@@ -29,7 +29,7 @@
                         <img style="width: 40px; height: 40px;" src="images/Staff.png" alt="">
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#"><i class="fa fa-users" aria-hidden="true"></i> Nguyen Cong Khanh</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-users" aria-hidden="true"></i> Nguyen Van Khanh</a>
                         <a class="dropdown-item" href="#"><i class="fa fa-phone-square" aria-hidden="true"></i> 0123456</a>
                         <a class="dropdown-item" href="#"><i class="fa fa-bell" aria-hidden="true"></i> Notification Center</a>
                         <a class="dropdown-item" href="#"><i class="fa fa-retweet" aria-hidden="true"></i> Refresh Account</a>
@@ -48,7 +48,7 @@
             <a href="#">INVOICES</a>
             <a href="#">Settings</a>
             <a href="#">Help</a>
-            <a href="kids-now">My kriyo</a>
+            <a href="kids-now">My Kids Now</a>
         </div>
        
         <nav class="navbar navbar-expand-sm bg-light">
