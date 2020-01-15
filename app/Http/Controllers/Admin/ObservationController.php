@@ -5,6 +5,7 @@ use App\models\ChildrenProfiles;
 use App\models\ObservationModel;
 use App\Http\Controllers\Controller;
 use App\models\ObservationTypeModel;
+use App\models\Programs;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 class ObservationController extends Controller
 {
     public function getList(){
-        $observationtype= ObservationModel::paginate(5);
+        $observationtype= ObservationModel::all();
         return view('pages.observation.list', compact('observationtype'));
     }
 
@@ -20,38 +21,58 @@ class ObservationController extends Controller
         $observationtype = ChildrenProfiles::all();
         return view('pages.observation.select_child', compact('observationtype'));
     }
+    public  function getListObservation(){
+        $observationtype = ObservationTypeModel::all();
+        return view('pages.observation.listobservationType', compact('observationtype'));
+    }
 
     public function getAdd(){
         $observationtype = ObservationTypeModel::all();
-        return view('pages.observation.observation', compact('observationtype'));
+        $programs = Programs::all();
+        return view('pages.observation.add', compact('observationtype','programs'));
     }
+
     public function postAdd(Request $request)
     {
-        $observationtype = ObservationModel::create($request->all());
-        $observationtype->save();
+//        $observationtype = ObservationModel::create($request->all());
+//        $observationtype->save();
+//
+//        if ($request->array_all_children !== null) {
+//            //string to array
+//            $array_all_children = explode(',', $request->array_all_children);
+//
+//            //luu vao bang children_programs
+//            foreach ($array_all_children as $children) {
+//                $children_program = new ChildrenProfiles();
+//                $children_program->id_children = $children;
+//                $children_program->save();
+//            }
+//            $children_program->save();
+//        }
+//        return redirect()->back()->with('notify', 'Added Successfully');
 
-        if ($request->array_all_children !== null) {
+        if ($request->programs) {
             //string to array
-            $array_all_children = explode(',', $request->array_all_children);
-
+            $programs = explode(',', $request->programs);
             //luu vao bang children_programs
-            foreach ($array_all_children as $children) {
-                $children_program = new ChildrenProfiles();
-                $children_program->id_children = $children;
+            foreach ($programs as $program) {
+                $children_program = new ChildrenProgram();
+                $children_program->id_children = $children_id;
+                $children_program->id_program = $program;
                 $children_program->save();
             }
             $children_program->save();
         }
-        return redirect()->back()->with('notify', 'Added Successfully');
+
     }
     public function getDelete($id){
-        $observationtype= DB::table('observations')->where('id',$id)->delete();
+        $observation= DB::table('observations')->where('id',$id)->delete();
         return redirect()->route('admin.observations.list', compact('observationtype'))->with(['flash_level'=>'success','flash_message'=>'Del tin tuyển dụng thành công!!!']);
     }
 
     public function getEdit($id)
     {
-       $vendors = ObservationTypeModel::all();
+        $vendors = ObservationTypeModel::all();
         $childrent =DB::table('children_profiles')->where('id',$id)->first();
 
         $observationtype = DB::table('observations')->where('id',$id)->first();
@@ -59,18 +80,12 @@ class ObservationController extends Controller
         return view('pages.observation.sua',compact('observationtype','vendors','childrent'));
     }
     public function postEdit(Request $request, $id){
-
-        $vendors = ObservationTypeModel::all();
         $observationtype = ObservationTypeModel::find($id);
-        $childrent = ChildrenProfiles::find($id);
-        $childrent->first_name = $request->first_name;
-        $childrent->last_name = $request->last_name;
-        $childrent->birthday = $request->birthday;
-        $childrent->gender = $request->gender;
-        //$observationtype->name = $request->id;
-        //$observationtype->save();
-        $childrent->save();
-        return view('pages.observation.sua',compact('observationtype','childrent','vendors'));
+       $observationtype->name=$request->name;
+        $observationtype->detailObservation= $request->detailObservation;
+        $observationtype->save();
+
+        return redirect('kids-now/observations/danhsach');
     }
     public function getSearch(Request $req){
 
@@ -101,8 +116,6 @@ class ObservationController extends Controller
             ->orWhere('gender','like','%'.$req->key.'%')
             ->orWhere('name','like','%'.$req->key.'%')->get();
         return view('pages.observation.search',compact('search'));
-
-
     }
 
     public function searchByName(Request $request)
@@ -143,4 +156,18 @@ class ObservationController extends Controller
             return Response($output);
         }
     }
+
+    public function showChildrenInProgram($id){
+        $observationtype = ObservationTypeModel::all();
+        $programs = Programs::all();
+        $children_profiles = DB::table('children_profiles')
+                            ->join('children_programs','children_profiles.id','=','children_programs.id_children')
+                            ->where('children_programs.id_program','=',$id)
+                            ->get();
+        return view('pages.observation.add',['children_profiles'=>$children_profiles,
+                                                    'observationtype'=>$observationtype,
+                                                    'programs'=>$programs]);
+    }
+
+
 }

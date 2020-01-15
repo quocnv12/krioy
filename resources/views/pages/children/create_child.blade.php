@@ -41,7 +41,7 @@
 					<div class="col-md-2 textera-img">
 						<a style="cursor: pointer;">
 							<input type="file" id="uploadfile" name="image" accept="image/*">
-							<img src="images/Child.png" alt="" id="demo_image" style="height: 100px">
+							<img src="images/Child.png" alt="" id="demo_image">
 							<span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
 							@if ($errors->has('image'))
 								<div class="text text-danger">
@@ -170,32 +170,40 @@
 							@endif
 						</div>
 					</div>
-					<div class="input_box" style="width: 100%;">
-						<span>Residential Address </span>
-						<input type="text" name="address" placeholder="Residential Address" value="{{old('address')}}">
-                        @if ($errors->has('address'))
-                            <div class="text text-danger">
-                                {{ $errors->first('address') }}
-                            </div>
-                        @endif
-					</div>
-					<div class="input_box" style="width: 100%;">
-						<span>Allergies (if any) </span>
-						<input type="text" name="allergies" placeholder="Allergies (if any)" value="{{old('allergies')}}">
-                        @if ($errors->has('allergies'))
-                            <div class="text text-danger">
-                                {{ $errors->first('allergies') }}
-                            </div>
-                        @endif
-					</div>
-					<div class="input_box" style="width: 100%;">
-						<span>Additional Notes </span>
-						<input type="text" name="additional_note" placeholder="Additional Notes" value="{{old('additional_note')}}">
-                        @if ($errors->has('additional_note'))
-                            <div class="text text-danger">
-                                {{ $errors->first('additional_note') }}
-                            </div>
-                        @endif
+					<div class="row">
+						<div class="col-md-12">
+							<div class="input_box" style="width: 100%;">
+								<span>Residential Address *</span>
+								<input type="text" name="address" placeholder="Residential Address" value="{{old('address')}}">
+		                        @if ($errors->has('address'))
+		                            <div class="text text-danger">
+		                                {{ $errors->first('address') }}
+		                            </div>
+		                        @endif
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="input_box" style="width: 100%;">
+								<span>Allergies (if any) *</span>
+								<input type="text" name="allergies" placeholder="Allergies (if any)" value="{{old('allergies')}}">
+		                        @if ($errors->has('allergies'))
+		                            <div class="text text-danger">
+		                                {{ $errors->first('allergies') }}
+		                            </div>
+		                        @endif
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="input_box" style="width: 100%;">
+								<span>Additional Notes *</span>
+								<input type="text" name="additional_note" placeholder="Additional Notes" value="{{old('additional_note')}}">
+		                        @if ($errors->has('additional_note'))
+		                            <div class="text text-danger">
+		                                {{ $errors->first('additional_note') }}
+		                            </div>
+		                        @endif
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -222,12 +230,12 @@
 				<button class="accordion" type="button">Parents *</button>
 				<div class="panel" style="background-color: #f9f9f9;margin-bottom: 0;margin: 0 -10px;">
 					{{--parent 1--}}
-					<div class="panel-1">
+					<div class="panel-1" style="margin: 15px 0px">
 						<div class="row">
 							<div class="col-md-2 textera-img">
 								<a style="cursor: pointer;">
 									<input class="parent_1" type="file" id="uploadfile_parent_1" name="image_parent_1" accept="image/*">
-									<img src="images/Child.png" alt="" id="demo_image_parent_1" style="height: 100px">
+									<img src="images/Child.png" alt="" id="demo_image_parent_1">
 									<span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
 									@if ($errors->has('image_parent_1'))
 										<div class="text text-danger">
@@ -324,12 +332,12 @@
 					</div>
 
 					{{--parent 2--}}
-					<div class="panel-1">
+					<div class="panel-1" style="margin:15px 0px;">
 						<div class="row">
 							<div class="col-md-2 textera-img">
 								<a style="cursor: pointer;">
 									<input class="parent_2" type="file" id="uploadfile_parent_2" name="image_parent_2" accept="image/*">
-									<img src="images/Child.png" alt="" id="demo_image_parent_2" style="height: 100px">
+									<img src="images/Child.png" alt="" id="demo_image_parent_2">
 									<span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
 									@if ($errors->has('image_parent_2'))
 										<div class="text text-danger">

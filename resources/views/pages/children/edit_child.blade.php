@@ -47,7 +47,7 @@
                     <div class="row">
                         <div class="col-md-2 textera-img">
                             <a style="cursor: pointer;">
-                                <input type="file" id="uploadfile" name="image">
+                                <input type="file" id="uploadfile" name="image" accept="image/*">
                                 <img src="{{$children_profiles->image ? $children_profiles->image : 'images/Child.png'}}" alt="" id="demo_image" style="height: 100px">
                                 <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
                                 @if ($errors->has('image'))
@@ -236,7 +236,7 @@
                             <div class="row">
                                 <div class="col-md-2 textera-img">
                                     <a style="cursor: pointer;">
-                                        <input type="file" id="uploadfile_parent_1" name="image_parent_1">
+                                        <input type="file" id="uploadfile_parent_1" name="image_parent_1" accept="image/*">
                                         <img src="{{$parent_profiles_1->image ? $parent_profiles_1->image : 'images/Staff.png'}}" alt="" id="demo_image_parent_1" style="height: 100px">
                                         <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
                                         @if ($errors->has('image_parent_1'))
@@ -251,7 +251,7 @@
                                         <div class="row">
                                             <div class="col-md-6 input_box">
                                                 <span class="input_box_span_active">First Name *</span>
-                                                <input  type="text" name="first_name_parent_1" placeholder="First Name *" value="{{$parent_profiles_1->first_name}}">
+                                                <input id="first_name_parent_1" type="text" name="first_name_parent_1" placeholder="First Name *" value="{{$parent_profiles_1->first_name}}">
                                                 @if ($errors->has('first_name_parent_1'))
                                                     <div class="text text-danger">
                                                         {{ $errors->first('first_name_parent_1') }}
@@ -260,7 +260,7 @@
                                             </div>
                                             <div class="col-md-6 input_box">
                                                 <span class="input_box_span_active">Last Name *</span>
-                                                <input type="text" name="last_name_parent_1" placeholder="Last Name *" value="{{$parent_profiles_1->last_name}}">
+                                                <input id="last_name_parent_1" type="text" name="last_name_parent_1" placeholder="Last Name *" value="{{$parent_profiles_1->last_name}}">
                                                 @if ($errors->has('last_name_parent_1'))
                                                     <div class="text text-danger">
                                                         {{ $errors->first('last_name_parent_1') }}
@@ -338,7 +338,7 @@
                                 <div class="row">
                                 <div class="col-md-2 textera-img">
                                     <a style="cursor: pointer;">
-                                        <input type="file" id="uploadfile_parent_2" name="image_parent_2">
+                                        <input type="file" id="uploadfile_parent_2" name="image_parent_2" accept="image/*">
                                         <img src="{{$parent_profiles_2->image ? $parent_profiles_2->image : 'images/Staff.png'}}" alt="" id="demo_image_parent_2" style="height: 100px">
                                         <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
                                         @if ($errors->has('image_parent_2'))
@@ -353,7 +353,7 @@
                                         <div class="row">
                                             <div class="col-md-6 input_box">
                                                 <span class="input_box_span_active">First Name *</span>
-                                                <input  type="text" name="first_name_parent_2" placeholder="First Name *" value="{{$parent_profiles_2->first_name}}">
+                                                <input id="first_name_parent_2" type="text" name="first_name_parent_2" placeholder="First Name *" value="{{$parent_profiles_2->first_name}}">
                                                 @if ($errors->has('first_name_parent_2'))
                                                     <div class="text text-danger">
                                                         {{ $errors->first('first_name_parent_2') }}
@@ -362,7 +362,7 @@
                                             </div>
                                             <div class="col-md-6 input_box">
                                                 <span class="input_box_span_active">Last Name *</span>
-                                                <input type="text" name="last_name_parent_2" placeholder="Last Name *" value="{{$parent_profiles_2->last_name}}">
+                                                <input id="last_name_parent_2" type="text" name="last_name_parent_2" placeholder="Last Name *" value="{{$parent_profiles_2->last_name}}">
                                                 @if ($errors->has('last_name_parent_2'))
                                                     <div class="text text-danger">
                                                         {{ $errors->first('last_name_parent_2') }}
@@ -439,7 +439,7 @@
                                 <div class="row">
                                     <div class="col-md-2 textera-img">
                                         <a style="cursor: pointer;">
-                                            <input class="parent_2" type="file" id="uploadfile_parent_2" name="image_parent_2">
+                                            <input class="parent_2" type="file" id="uploadfile_parent_2" name="image_parent_2" accept="image/*">
                                             <img src="images/Child.png" alt="" id="demo_image_parent_2" style="height: 100px">
                                             <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
                                             @if ($errors->has('image_parent_2'))
@@ -454,7 +454,7 @@
                                             <div class="row">
                                                 <div class="col-md-6 input_box">
                                                     <span>First Name *</span>
-                                                    <input  type="text" name="first_name_parent_2" placeholder="First Name *" value="{{old('first_name_parent_2')}}">
+                                                    <input id="first_name_parent_2" type="text" name="first_name_parent_2" placeholder="First Name *" value="{{old('first_name_parent_2')}}">
                                                     @if ($errors->has('first_name_parent_2'))
                                                         <div class="text text-danger">
                                                             {{ $errors->first('first_name_parent_2') }}
@@ -463,7 +463,7 @@
                                                 </div>
                                                 <div class="col-md-6 input_box">
                                                     <span>Last Name *</span>
-                                                    <input type="text" name="last_name_parent_2" placeholder="Last Name *" value="{{old('last_name_parent_2')}}">
+                                                    <input id="last_name_parent_2" type="text" name="last_name_parent_2" placeholder="Last Name *" value="{{old('last_name_parent_2')}}">
                                                     @if ($errors->has('last_name_parent_2'))
                                                         <div class="text text-danger">
                                                             {{ $errors->first('last_name_parent_2') }}

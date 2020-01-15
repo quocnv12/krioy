@@ -50,7 +50,7 @@
             <a href="#">INVOICES</a>
             <a href="#">Settings</a>
             <a href="#">Help</a>
-            <a href="kids-now">Kids-now</a>
+            <a href="kids-now">My Kids Now</a>
         </div>
        
         <nav class="navbar navbar-expand-sm bg-light">

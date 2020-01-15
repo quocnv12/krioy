@@ -92,15 +92,10 @@
                         </div>
                     </div>
                 </div>
+                <button type="submit" class="btn btn-success">Save</button>
             </form>
         </div>
-        <div class="comment">
-            <div class="button" style="text-align: center;">
-                <button type="submit" class="btn btn-success">Sửa</button>
-                <button type="reset" class="btn btn-primary">Nhập Lại</button>
-                <button class="btn btn-secondary" type="button">Cancel</button>
-            </div>
-        </div>
+
     </section>
     </body>
 @endsection

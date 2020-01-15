@@ -9,6 +9,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
    		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
     	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+    	<link rel="icon" href="images/a.png"/>
 
     	<link rel="stylesheet" href="asset/kriyo/css/bootstrap.min.css">
     	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
@@ -27,7 +28,7 @@
 				<div class="container-fluid">
 				    <div class="navbar-header">
 				    	<a class="navbar-brand" href="#" style="display: flex;">
-				    		<img src="images/Kriyo Logo.png" alt="">
+				    		<img src="images/a.png" alt="">
 				    		<p>Kids Now</p>
 				    	</a>
 				    	<div class="topnav" id="myTopnav">
@@ -36,13 +37,15 @@
 						    <a href="#">PRICING</a>
 						    <a href="#">ABOUT US</a>
 						    <a href="login">LOGIN</a>
-						    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-							    <i class="fa fa-bars"></i>
+						    <a href="javascript:void(0);"  class="icon" onclick="myFunction()" id="icon-close">
+							    <i class="fa fa-bars" style="display: inline-block;"></i>
+							    <i class="fa fa-times-circle" aria-hidden="true" style="display: none"></i>
 							</a>
 						</div>
 				    </div>
 				</div>
 			</nav>
+			
 			<div class="textMsg" align="center">
 				<div class="textMsg-children">
 					<span style="opacity: 1;position: relative;z-index: 2;cursor: pointer;">
@@ -108,7 +111,7 @@
 					<p>Get useful insights about your school through easy to read reports</p>
 				</div>
 				<div class="col-sm-4 col-md-4">
-					<img class="features-block__image" src="https://s3.amazonaws.com/lssplprod/templateimages/NewloginGiff.gif" alt="">
+					<img class="features-block__image" src="images/kidsnow.png" alt="">
 				</div>
 				<div class="col-sm-4 col-md-4 featured-item">
 					<img src="images/Diary.png" alt="">
@@ -222,7 +225,7 @@
 		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Khanh-1</p>
+		                    	<p class="item-a">Nguyen Van Khanh</p>
 		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
 		                    </div>
 		                </div>                 
@@ -235,7 +238,7 @@
 		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Khanh-2</p>
+		                    	<p class="item-a">Nguyen Thu Ha</p>
 		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
 		                    </div>
 		                </div>                 
@@ -248,7 +251,7 @@
 		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Khanh-3</p>
+		                    	<p class="item-a">Nguyen Khanh Linh</p>
 		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
 		                    </div>
 		                </div>                 
@@ -261,7 +264,7 @@
 		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Khanh-4</p>
+		                    	<p class="item-a">Tran Trong Hieu</p>
 		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
 		                    </div>
 		                </div>                 
@@ -375,8 +378,8 @@
 			<div class="hr"></div>	
 		</div>
 		<div class="container">
-			<div class="row">
-				<div class="col-xs-6 col-sm-3 col-md-3">
+			<div class="row"> 
+				<div class="col-xs-6 col-sm-3 col-md-3 banner-img">
 					<img src="images/sun.png" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-3">
@@ -386,7 +389,7 @@
 					<img src="images/baby.png" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/jis.png" alt="">
+					<img src="images/montess.png" alt="">
 				</div>
 			</div>
 			<div class="row">
@@ -445,7 +448,7 @@
 				<h2>About Us</h2>
 				<div class="hr"></div>	
 			</div>
-			<p>Kids Now is an initiative by Alumni of IIM-Ahmedabad, ISB-Hyderabad and IIT-Kharagpur. We have come together to bring a digital transformation in Early Childhood Care & Education (ECCE) industry. We at Kids Now, are building a range of Products that cater to Digital Administration of Pre-Schools & Creches to manage the complete academic cycle starting from enquiries, admissions, fee payments to providing seamless communication with Parents and help the School Owners grow their business.</p>
+			<p>Kids Now ipsum dolor sit amet, consectetur adipisicing elit. Delectus possimus aut eaque adipisci, accusamus illum exercitationem labore sequi tenetur vitae, est ipsum. Cupiditate quas laboriosam, autem cumque sint quia cum odit eligendi dolore, consequatur nobis rem ipsa dolorem non, eum eius earum quo voluptate repellendus vitae maxime. Beatae natus atque praesentium soluta ut voluptate, cupiditate ipsum tempora iste distinctio, sit corrupti inventore ea suscipit, odit modi illo omnis animi quae.</p>
 		</div>
 	</section>
 	<section class="container">
@@ -454,24 +457,24 @@
 				<h2>Our Team</h2>
 				<div class="hr"></div>	
 			</div>
-			<div class="row">
+			<div class="row our-team">
 				<div class="col-sm-4 col-md-4">
-					<img src="images/hinh-anh-anime-chibi-dep-de-thuong-15.jpg" alt="">
-					<p>Sucharitha</p>
+					<img src="images/hai.png" alt="">
+					<p>Mr. Vũ Minh Hải</p>
 					<span style="color: cornflowerblue;font-size: 15px;">CEO</span>
-					<span style="font-size: 14px;color: #5363d6;">alumna, IIM Ahmedabad</span>
+					<span style="font-size: 14px;color: #5363d6;">Talent Wins</span>
 				</div>
 				<div class="col-sm-4 col-md-4">
-					<img src="images/hinh-anh-anime-chibi-dep-de-thuong-15.jpg" alt="">
-					<p>Sucharitha</p>
-					<span style="color: cornflowerblue;font-size: 15px;">CEO</span>
-					<span style="font-size: 14px;color: #5363d6;">alumna, IIM Ahmedabad</span>
+					<img src="images/hiep.png" alt="">
+					<p>Mr. Lê Anh Xuân</p>
+					<span style="color: cornflowerblue;font-size: 15px;">Co founder</span>
+					<span style="font-size: 14px;color: #5363d6;">Ts. Khoa Học Máy Tính</span>
 				</div>
 				<div class="col-sm-4 col-md-4">
-					<img src="images/hinh-anh-anime-chibi-dep-de-thuong-15.jpg" alt="">
-					<p>Sucharitha</p>
-					<span style="color: cornflowerblue;font-size: 15px;">CEO</span>
-					<span style="font-size: 14px;color: #5363d6;">alumna, IIM Ahmedabad</span>
+					<img src="images/xuan.png" alt="">
+					<p>Mr. Nguyễn Quang Hiệp</p>
+					<span style="color: cornflowerblue;font-size: 15px;">Co founder</span>
+					<span style="font-size: 14px;color: #5363d6;">Ths. Khoa Học Máy Tính</span>
 				</div>
 			</div>
 		</div>
@@ -593,11 +596,16 @@
 	<script>
 		function myFunction() {
 			var x = document.getElementById("myTopnav");
+			var close_menu=document.getElementById('icon-close');
 			if (x.className === "topnav") {
 				x.className += " responsive";
+				close_menu.children[0].style.display="none";
+				close_menu.children[1].style.display="inline-block";
+
 			} else {
 			    x.className = "topnav";
+			    close_menu.children[1].style.display="none";
+				close_menu.children[0].style.display="inline-block";
 			}
 		}
 	</script>
-</html>
