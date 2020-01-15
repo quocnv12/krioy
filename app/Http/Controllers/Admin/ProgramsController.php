@@ -310,7 +310,7 @@ class ProgramsController extends Controller
 							        <div class="image">
                                         <img class="img-circle" onerror="this.src=\'images/Child.png\';" style="height: 80px" width="80" src="' . $children_profiles->image . '">
                                         <input type="hidden" value="' . $children_profiles->id . '">
-                                        <button class="btn btn-xs btn-danger" type="button" onclick="deleteChild(' . $children_profiles->id . ')">X</button>
+                                        <button class="btn btn-sm btn-danger" type="button" onclick="deleteChild(' . $children_profiles->id . ')">X</button>
                                         <span class="limitText ng-star-inserted">' . $children_profiles->first_name . ' ' . $children_profiles->last_name . '</span>
                                     </div>
                                 </div>
@@ -340,7 +340,7 @@ class ProgramsController extends Controller
                                         <div _ngcontent-c9="" class="image">
                                             <img _ngcontent-c19="" class="img-circle" onerror="this.src=\'images/Staff.png\';" style="height: 80px" width="80" src="' . $staff_profiles->image . '">
                                             <input type="hidden" value="' . $staff_profiles->id . '">
-                                            <button class="btn btn-xs btn-danger" type="button" onclick="deleteStaff(' . $staff_profiles->id . ')">X</button>
+                                            <button class="btn btn-sm btn-danger" type="button" onclick="deleteStaff(' . $staff_profiles->id . ')">X</button>
                                             <span _ngcontent-c19="" class="limitText ng-star-inserted">' . $staff_profiles->first_name . ' ' . $staff_profiles->last_name . '</span>
                                         </div>
                                     </div>
