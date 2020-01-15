@@ -6,6 +6,7 @@
 
 		<link rel="stylesheet" href="asset/kriyo/css/index.css">
 		<link rel="stylesheet" type="text/css" href="asset/kriyo/css/staff_profile.css">
+		<link rel="icon" href="images/a.png"/>
 
 		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
    		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
