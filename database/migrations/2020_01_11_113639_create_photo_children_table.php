@@ -28,6 +28,6 @@ class CreatePhotoChildrentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('photo_childrent');
+        Schema::dropIfExists('photo_children');
     }
 }
