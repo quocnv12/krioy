@@ -56,7 +56,7 @@
 					<div class="comment">
 						<div class="row">
 							<div class="col-md-11 input_box">
-								<span>Enter Details here *</span>
+								<span>Enter Detail here *</span>
 								<input type="text" name="detailObservation" placeholder="Enter Details here *">
 							</div>
 							<div class="col-md-1">
