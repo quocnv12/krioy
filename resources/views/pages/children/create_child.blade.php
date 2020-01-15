@@ -230,7 +230,7 @@
 				<button class="accordion" type="button">Parents *</button>
 				<div class="panel" style="background-color: #f9f9f9;margin-bottom: 0;margin: 0 -10px;">
 					{{--parent 1--}}
-					<div class="panel-1" style="margin: 15px 5px">
+					<div class="panel-1" style="margin: 15px 0px">
 						<div class="row">
 							<div class="col-md-2 textera-img">
 								<a style="cursor: pointer;">
@@ -332,7 +332,7 @@
 					</div>
 
 					{{--parent 2--}}
-					<div class="panel-1" style="margin:15px 5px;">
+					<div class="panel-1" style="margin:15px 0px;">
 						<div class="row">
 							<div class="col-md-2 textera-img">
 								<a style="cursor: pointer;">

@@ -9,6 +9,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
    		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
     	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+    	<link rel="icon" href="images/a.png"/>
 
     	<link rel="stylesheet" href="asset/kriyo/css/bootstrap.min.css">
     	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
@@ -474,12 +475,6 @@
 					<p>Mr. Nguyễn Quang Hiệp</p>
 					<span style="color: cornflowerblue;font-size: 15px;">Co founder</span>
 					<span style="font-size: 14px;color: #5363d6;">Ths. Khoa Học Máy Tính</span>
-				</div>
-				<div class="col-sm-4 col-md-4">
-					<img src="images/xuan.png" alt="">
-					<p>Mr. Nguyễn Quang Hiệp</p>
-					<span style="color: cornflowerblue;font-size: 15px;">Font-end</span>
-					<span style="font-size: 14px;color: #5363d6;">Lap trinh vien</span>
 				</div>
 			</div>
 		</div>

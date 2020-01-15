@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kids-now  @yield('title')</title>
-    <link rel="shortcut icon" type="image/x-icon" href="" />
+    <link rel="icon" href="images/a.png"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <base href="{{asset('')}}">
     <!-- CSS libs -->
@@ -34,12 +34,6 @@
     <!-- Custom CSS -->
         <link rel="stylesheet" href="libs/slick-1.8.1/slick/slick.css">
         <link rel="stylesheet" href="libs/slick-1.8.1/slick/slick-theme.css">
-    
-
-
-
-
-
     @yield('css')
     <style>
         .line .item a{

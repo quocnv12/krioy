@@ -37,7 +37,7 @@ table th{
 	margin: 20px 0;
 }
 .mat-content div a img{
-    width: 70%;height: auto;
+    width: 120px;height: 120px;
     object-fit: cover;margin: 10px 0;
     border-radius: 50%;
     border: 2px solid #ff4081;
@@ -513,10 +513,6 @@ button.mat-button-class{
         font-size: 14px;
         margin-left: 5px;
     }
-    .mat-content div a img{
-        margin: 10px 5px;
-        width: 50%;
-    }
     .btnClass[_ngcontent-c10]{
         left: -35px;bottom: -55px;
     }
@@ -531,26 +527,21 @@ button.mat-button-class{
 }
 
 @media (min-width: 411px) and (max-width: 620px){
-    .mat-content div a img{
-        margin: 10px 20px;
-        width: 40%;
-    }
     .btnClass[_ngcontent-c10],.textera-img span.img-span{
-        left: -65px;bottom: -65px;
+        left: -55px;bottom: -35px;
     }
 }
 @media (min-width: 621px) and (max-width: 767px){
      .mat-content div a img{
         margin: 10px 20px;
-        width: 35%;
     }
     .btnClass[_ngcontent-c10],.textera-img span.img-span{
-        left: -65px;bottom: -75px;
-    } 
+        left: -55px;bottom: -55px;
+    }
 }
 @media (min-width: 768px) and (max-width: 991px){
     .mat-content div a img{
-        width: 100%;margin-left: 5px;
+        margin-left: 5px;height: 90px;
     }
     .btnClass[_ngcontent-c10],.textera-img span.img-span{
         left: 40px;bottom: 30px;
