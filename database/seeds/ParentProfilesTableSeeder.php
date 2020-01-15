@@ -23,7 +23,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'email'         =>  'laura@gmail.com',
                 'note'          =>  'son of the bitch',
                 'phone'         =>  '4815617651',
-                'image'         =>  'images'
+                'image'         =>  ''
             ],
             [
                 'id'            =>  2,
@@ -33,7 +33,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'email'         =>  'see@gmail.com',
                 'note'          =>  'son of the bitch',
                 'phone'         =>  '645343',
-                'image'         =>  'images'
+                'image'         =>  ''
             ],
             [
                 'id'            =>  3,
@@ -43,7 +43,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'email'         =>  'shen@gmail.com',
                 'note'          =>  'son of the bitch',
                 'phone'         =>  '324324325',
-                'image'         =>  'images'
+                'image'         =>  ''
             ],
             [
                 'id'            =>  4,
@@ -53,7 +53,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'email'         =>  'dawn@gmail.com',
                 'note'          =>  'son of the bitch',
                 'phone'         =>  '343535435',
-                'image'         =>  'images'
+                'image'         =>  ''
             ],
             [
                 'id'            =>  5,
@@ -63,7 +63,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'email'         =>  'chen@gmail.com',
                 'note'          =>  'son of the bitch',
                 'phone'         =>  '3542353',
-                'image'         =>  'images'
+                'image'         =>  ''
             ],
             [
                 'id'            =>  6,
@@ -73,7 +73,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'email'         =>  'example@gmail.com',
                 'note'          =>  'son of the bitch',
                 'phone'         =>  '98867543',
-                'image'         =>  'images'
+                'image'         =>  ''
             ],
         ]);
     }

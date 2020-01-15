@@ -17,7 +17,7 @@ class ChildrenProfilesTableSeeder extends Seeder
         DB::table('children_profiles')->insert([
            [
                'id'             =>1,
-               'first_name'     =>'john',
+               'first_name'     =>'Beatriz',
                'last_name'      =>'Cena',
                'birthday'       =>'2010-10-10',
                'blood_group'    =>'A',
@@ -86,7 +86,7 @@ class ChildrenProfilesTableSeeder extends Seeder
             [
                 'id'             =>5,
                 'first_name'     =>'HEELO',
-                'last_name'      =>'FR',
+                'last_name'      =>'Charles',
                 'birthday'       =>'2010-10-10',
                 'blood_group'    =>'A',
                 'gender'         =>1,
@@ -103,7 +103,7 @@ class ChildrenProfilesTableSeeder extends Seeder
             [
                 'id'             =>6,
                 'first_name'     =>'FACEBOOK',
-                'last_name'      =>'LALALA',
+                'last_name'      =>'Diya',
                 'birthday'       =>'2010-10-10',
                 'blood_group'    =>'A',
                 'gender'         =>1,
@@ -119,8 +119,8 @@ class ChildrenProfilesTableSeeder extends Seeder
             ],
             [
                 'id'             =>7,
-                'first_name'     =>'DEMACIA',
-                'last_name'      =>'LEU LEU',
+                'first_name'     =>'Eric',
+                'last_name'      =>'Laura',
                 'birthday'       =>'2010-10-10',
                 'blood_group'    =>'A',
                 'gender'         =>1,
@@ -136,8 +136,8 @@ class ChildrenProfilesTableSeeder extends Seeder
             ],
             [
                 'id'             =>8,
-                'first_name'     =>'HEHE',
-                'last_name'      =>'HHOHO',
+                'first_name'     =>'Fatima',
+                'last_name'      =>'Gabriel',
                 'birthday'       =>'2010-10-10',
                 'blood_group'    =>'A',
                 'gender'         =>1,
@@ -170,8 +170,8 @@ class ChildrenProfilesTableSeeder extends Seeder
             ],
             [
                 'id'             =>10,
-                'first_name'     =>'BUM',
-                'last_name'      =>'BBUM',
+                'first_name'     =>'Alison',
+                'last_name'      =>'Michael',
                 'birthday'       =>'2010-10-10',
                 'blood_group'    =>'A',
                 'gender'         =>1,
