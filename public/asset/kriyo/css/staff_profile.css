@@ -319,9 +319,6 @@ select .mat-card .mat-content div > div.childClass:hover {
     border:2px solid #ccc;
     background-color: #fff;
 }
-.textera-img{
-    margin-top: 40px;
-}
 .checked[_ngcontent-c9] {
     position: absolute;
     right: 20px;
@@ -539,7 +536,7 @@ button.mat-button-class{
         width: 40%;
     }
     .btnClass[_ngcontent-c10],.textera-img span.img-span{
-        left: -50px;bottom: -55px;
+        left: -65px;bottom: -65px;
     }
 }
 @media (min-width: 621px) and (max-width: 767px){
@@ -548,15 +545,19 @@ button.mat-button-class{
         width: 35%;
     }
     .btnClass[_ngcontent-c10],.textera-img span.img-span{
-        left: -50px;bottom: -55px;
+        left: -65px;bottom: -75px;
     } 
 }
 @media (min-width: 768px) and (max-width: 991px){
     .mat-content div a img{
-        width: 30%;
+        width: 100%;margin-left: 5px;
     }
     .btnClass[_ngcontent-c10],.textera-img span.img-span{
-        left: -65px;bottom: -75px;
+        left: 40px;bottom: 30px;
+        font-size: 15px;
+    }
+    .mat-content div a {
+         margin: 0px; 
     }
 }
 @media screen and (max-width: 767px) {
