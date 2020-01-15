@@ -29,12 +29,12 @@ class HealthController extends Controller
         $health = HealthModel::all();
         return view('pages.heath.heath', compact('health'));
     }
-    public function postAdd(Request $request, $id){
+    public function postAdd(Request $request){
         $image = $request->image;
         $img_current ='images/'.$request->fImageCurrent;
         if(!empty($image)) {
             $filename= $image->getClientOriginalName();
-            $health = HealthModel::find($id);
+            $health = new HealthModel();
 
             $health->sick= $request->sick;
             $health->medicine= $request->medicine;
@@ -47,7 +47,7 @@ class HealthController extends Controller
             $image ->move(base_path() . 'images/', $filename);
             File::delete($img_current);
         }else {
-            $health = HealthModel::find($id);
+            $health = new HealthModel();
 
             $health->sick= $request->sick;
             $health->medicine= $request->medicine;
