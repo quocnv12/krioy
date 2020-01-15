@@ -161,7 +161,7 @@
 	<section class="introduce-parent">
 		<div class="container">
 			<div class="schoolTiltle">
-				<h2>KID NOW PARENT APP</h2>
+				<h2>KIDS NOW PARENT APP</h2>
 				<div class="hr"></div>	
 			</div>
 			<div class="row">
