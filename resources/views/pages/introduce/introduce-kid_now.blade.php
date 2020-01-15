@@ -496,13 +496,13 @@
 	<footer class="site-footer">
 		<div class="container">
 			<div class="row icon-lienket">
-			 	<a href="#">
-			 		<img src="images/facebook-circle-white.png" alt="" title="Face-book">
+			 	<a href="https://www.facebook.com/Web88Pro/">
+			 		<img src="images/facebook-circle-white.png" alt="" title="Facebook">
 			 	</a>
-			 	<a href="#">
-			 		<img src="images/linkedin-circle-white.png" title="Linkedin">
+			 	<a href="https://www.instagram.com/accounts/login/?hl=vi">
+			 		<img src="images/linkedin-circle-white.png" title="Instagram">
 			 	</a>
-			 	<a href="#">
+			 	<a href="https://mail.google.com/mail/u/0/#inbox">
 			 		<img src="images/mail-circle-white.png" alt="" title="Email">
 			 	</a>
 			</div>
