@@ -40,14 +40,12 @@
                     <div class="grid-title">
                         <div class="row">
                             <div class="col-md-6">
-                                <h4> List<span class="semi-bold">ObservationType</span></h4>
+                                <h4> List <span class="semi-bold">ObservationType</span></h4>
                             </div>
-
-
                         </div>
                     </div>
 
-                    <div class="grid-body ">
+                    <div class="grid-body" style="overflow-x: auto;">
                         <table class="table table-striped" id="example">
                             <thead>
                             <tr>
