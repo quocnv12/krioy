@@ -95,8 +95,8 @@
 								<td style="font-size:12px">{{ Carbon\Carbon::parse($item->date_of_joining)->format('d-m-Y') }}</td>
 								<td ><img style="width:30px;height:30px;border-radius:50%" src="images/staff/{{ $item->image }}"></td>
 								<td style="text-align:center;width:12px">
-								<a style="font-size:6px" href="kids-now/food/edit/{{ $item->id }}" title="Edit Staff" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
-								<a style="font-size:6px" onclick="return confirm('Delete staff ? Do you want continue !')" title="Delete Staff" href="kids-now/staff/delete/{{ $item->id }}" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+								<a  href="kids-now/food/edit/{{ $item->id }}" title="Edit Staff" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+								<a  onclick="return confirm('Delete staff ? Do you want continue !')" title="Delete Staff" href="kids-now/staff/delete/{{ $item->id }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
 								</td>
 							</tr>
 						  @endforeach
