@@ -521,7 +521,7 @@
 
 	<div class="modal fade bd-example-modal-sm modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-sm" style="width: 560px;">
-		    <iframe width="560" height="315" src="https://www.youtube.com/embed/XNl6uV26wgQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		   <iframe width="560" height="315" src="https://www.youtube.com/embed/SrEPQMRfzoc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		</div>			
 	</div>
 	<div class="modal fade bd-example-modal-sm1 modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
