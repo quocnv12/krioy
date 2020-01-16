@@ -93,7 +93,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::post('them_child',['as'=>'admin.health.child','uses'=>'Admin\HealthController@postChild']);
         Route::get('search/children', 'Admin\HealthController@searchByName');
         Route::get('select_child/add','Admin\HealthController@addSelectChild');
-
+        Route::get('show/{id}','Admin\HealthController@showChildrenInProgram');
 
     });
 
