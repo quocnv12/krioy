@@ -21,23 +21,24 @@
 				</div>
 			</div>
 		</section>
-		<section _ngcontent-c10="" style="background-color:#f9f9f9">
-			<div _ngcontent-c10="" class="row">
-				<div class="col-md-2"></div>
-				<div _ngcontent-c10="" class="col-md-8" style="padding-left:0px;padding-right:0px;margin: 10px 0;">
-					<div _ngcontent-c10="" class="scrollmenu tab-wrapper" id="nav">
-						<ul _ngcontent-c10="">
-							<!---->
-							<li _ngcontent-c10="">
-								<a _ngcontent-c10="" href="#" class="item active">Kindergarten (1)</a>
-							</li>
-							<li _ngcontent-c10="">
-								<a _ngcontent-c10="" href="#" class="item">STAFF</a>
-							</li>
-						</ul>
+		<section style="background-color:#f9f9f9">
+			<div class="row" style="padding: 10px">
+				<div class="col-lg-2 col-md-2 col-sm-12"></div>
+				<div class="col-lg-8 col-md-8 col-sm-12" style="padding-left:0px;padding-right:0px">
+					<div class="child-profile-ul">
+						<div _ngcontent-c10="" class="scrollmenu" id="nav">
+							<ul _ngcontent-c10="" class="scrollmenu-ul">
+								<!---->
+								@foreach($programs as $row)
+									<li _ngcontent-c10="">
+										<a _ngcontent-c10="" class="item active" href="kids-now/attendance/{{$row->id}}">{{$row->program_name}}</a>
+									</li>
+								@endforeach
+							</ul>
+						</div>
 					</div>
 				</div>
-				<div class="col-md-2"></div>
+				<div class="col-lg-2 col-md-2 col-sm-12"></div>
 			</div>
 		</section>
 		<section class="container attendance-layout">
@@ -97,17 +98,23 @@
 				<div class="mat-content" id="tab-main">
 					<div _ngcontent-c19="" class="row ng-star-inserted">
 						<!---->
-						<div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img"  onclick="myFunction()">
-							<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
-								<div _ngcontent-c9="" class="image">
-									<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="Child.png">
-									<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked" style="display: none"></i>
+						@if(isset($children_profiles))
+							@foreach($children_profiles as $row)
+							<div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img"  onclick="myFunction()">
+								<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
+									<div _ngcontent-c9="" class="image">
+										<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="Child.png">
+										<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked" style="display: none"></i>
+										<!---->
+										<span _ngcontent-c19="" class="limitText ng-star-inserted">{{$row->first_name}} {{$row->last_name}}</span>
+									</div>
 									<!---->
-									<span _ngcontent-c19="" class="limitText ng-star-inserted">Riya Demo Child</span>
 								</div>
-								<!---->
 							</div>
-						</div>
+							@endforeach
+						@else
+						@endif
+
 					</div>
 				</div>
 			</div>

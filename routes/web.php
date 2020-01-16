@@ -74,12 +74,13 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
             return view('pages.children.select_child');
         });
     });
+
     //---------------attendance----------------
     Route::group(['prefix' => 'attendance'], function () {
-        Route::get('', function () {
-            return view('pages.attendance.attendance');
-        });
+        Route::get('/','Admin\AttendanceChildrenController@index')->name('attendance.index');
+        Route::get('/{id}','Admin\AttendanceChildrenController@show')->name('attendance.show');
     });
+
     //---------------health----------------
     Route::group(['prefix' => 'health'], function () {
 
