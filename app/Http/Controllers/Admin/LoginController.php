@@ -8,13 +8,17 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
+    protected $maxAttempts = 2; // mặc định là 5, thay đổi thành 3
+    protected $decayMinutes = 1; 
     public  function GetLogin() 
     {
         return view('pages.addmin-login.login');
     }
 
+    
     public  function PostLogin(LoginRequest $request) 
     {
+       
         $phone=$request->phone;
         $password=$request->password;
         if( Auth::attempt(['phone' => $phone, 'password' => $password]))
