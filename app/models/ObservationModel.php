@@ -11,14 +11,15 @@ class ObservationModel extends Model
     protected $fillable = [
         'id',
         'id_children',
-        'id_observations'
+        'id_observations',
+        'detailObservation'
     ];
 
     public $timestamps = false;
     public function ObservationType(){
-        return $this->belongsTo('App\Models\ObservationTypeModel','id_observations','id');
+        return $this->belongsTo('App\models\ObservationTypeModel','id_observations','id');
     }
     public function Childrent(){
-        return $this->belongsTo('App\Models\ChildrenProfiles','id_children','id');
+        return $this->belongsTo('App\models\ChildrenProfiles','id_children','id');
     }
 }

@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Kriyo Introduce Kids Now</title>
+		<title>Kids Now Introduce</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<link rel="stylesheet" href="asset/kriyo/css/index.css">
@@ -9,8 +9,9 @@
 		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
    		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
     	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+    	<link rel="icon" href="images/a.png"/>
 
-    	<link rel="stylesheet" href="libs/bootstrap-4.0.0/dist/css/bootstrap.min.css">
+    	<link rel="stylesheet" href="asset/kriyo/css/bootstrap.min.css">
     	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
     
 	    <!-- Font Awesome -->
@@ -27,22 +28,24 @@
 				<div class="container-fluid">
 				    <div class="navbar-header">
 				    	<a class="navbar-brand" href="#" style="display: flex;">
-				    		<img src="images/Kriyo Logo.png" alt="">
+				    		<img src="images/a.png" alt="">
 				    		<p>Kids Now</p>
 				    	</a>
 				    	<div class="topnav" id="myTopnav">
-						    <a class="active" href="food.html">HOME</a>
+						    <a href="food.html">HOME</a>
 						    <a href="#">KIDS NOW APP</a>
 						    <a href="#">PRICING</a>
 						    <a href="#">ABOUT US</a>
 						    <a href="login">LOGIN</a>
-						    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-							    <i class="fa fa-bars"></i>
+						    <a href="javascript:void(0);"  class="icon" onclick="myFunction()" id="icon-close">
+							    <i class="fa fa-bars" style="display: inline-block;"></i>
+							    <i class="fa fa-times-circle" aria-hidden="true" style="display: none"></i>
 							</a>
 						</div>
 				    </div>
 				</div>
 			</nav>
+			
 			<div class="textMsg" align="center">
 				<div class="textMsg-children">
 					<span style="opacity: 1;position: relative;z-index: 2;cursor: pointer;">
@@ -74,7 +77,7 @@
 	<section class="introduce-school">
 		<div class="container">
 			<div class="schoolTiltle">
-				<h2>KID NOW APP</h2>
+				<h2>KIDS NOW APP</h2>
 				<div class="hr"></div>	
 			</div>
 			<div class="row">
@@ -108,7 +111,7 @@
 					<p>Get useful insights about your school through easy to read reports</p>
 				</div>
 				<div class="col-sm-4 col-md-4">
-					<img class="features-block__image" src="https://s3.amazonaws.com/lssplprod/templateimages/NewloginGiff.gif" alt="">
+					<img class="features-block__image" src="images/kidsnow.png" alt="">
 				</div>
 				<div class="col-sm-4 col-md-4 featured-item">
 					<img src="images/Diary.png" alt="">
@@ -158,7 +161,7 @@
 	<section class="introduce-parent">
 		<div class="container">
 			<div class="schoolTiltle">
-				<h2>KID NOW PARENT APP</h2>
+				<h2>KIDS NOW PARENT APP</h2>
 				<div class="hr"></div>	
 			</div>
 			<div class="row">
@@ -218,11 +221,11 @@
 				<div class="col-md-4">
 					<div class="mixedSlider">
 		                <div class="MS-content">
-		                    <div class="item">
-		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kriyo app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kriyo.</p>
+		                    <div class="item-customer">
+		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Khanh-1</p>
+		                    	<p class="item-a">Nguyen Van Khanh</p>
 		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
 		                    </div>
 		                </div>                 
@@ -231,11 +234,11 @@
 		        <div class="col-md-4">
 					<div class="mixedSlider">
 		                <div class="MS-content">
-		                    <div class="item">
-		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kriyo app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kriyo.</p>
+		                    <div class="item-customer">
+		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Khanh-2</p>
+		                    	<p class="item-a">Nguyen Thu Ha</p>
 		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
 		                    </div>
 		                </div>                 
@@ -244,11 +247,11 @@
 		        <div class="col-md-4">
 					<div class="mixedSlider">
 		                <div class="MS-content">
-		                    <div class="item">
-		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kriyo app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kriyo.</p>
+		                    <div class="item-customer">
+		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Khanh-3</p>
+		                    	<p class="item-a">Nguyen Khanh Linh</p>
 		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
 		                    </div>
 		                </div>                 
@@ -257,11 +260,11 @@
 		        <div class="col-md-4">
 					<div class="mixedSlider">
 		                <div class="MS-content">
-		                    <div class="item">
-		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kriyo app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kriyo.</p>
+		                    <div class="item-customer">
+		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Khanh-4</p>
+		                    	<p class="item-a">Tran Trong Hieu</p>
 		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
 		                    </div>
 		                </div>                 
@@ -375,29 +378,29 @@
 			<div class="hr"></div>	
 		</div>
 		<div class="container">
-			<div class="row">
-				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/maplebear.jpg" alt="">
+			<div class="row"> 
+				<div class="col-xs-6 col-sm-3 col-md-3 banner-img">
+					<img src="images/sun.png" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/sesame-street.png" alt="">
+					<img src="images/vasch.png" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/bachpan-logo.png" alt="">
+					<img src="images/baby.png" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/maars.jpg" alt="">
+					<img src="images/montess.png" alt="">
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/little-genie.png" alt="">
+					<img src="images/vin.jpg" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/little-bees.png" alt="">
+					<img src="images/kinder.png" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/apomye.png" alt="">
+					<img src="images/academy.jpg" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-3">
 					<img src="images/kinder-garden.png" alt="">
@@ -405,16 +408,16 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/discover.png" alt="">
+					<img src="images/gateway.png" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/seed.jpg" alt="">
+					<img src="images/lion.jpg" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/mummaa-bear.png" alt="">
+					<img src="images/happy.png" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-3">
-					<img src="images/hello-kids.png" alt="">
+					<img src="images/hoa.png" alt="">
 				</div>
 			</div>
 			<div class="row">
@@ -445,7 +448,7 @@
 				<h2>About Us</h2>
 				<div class="hr"></div>	
 			</div>
-			<p>Kriyo is an initiative by Alumni of IIM-Ahmedabad, ISB-Hyderabad and IIT-Kharagpur. We have come together to bring a digital transformation in Early Childhood Care & Education (ECCE) industry. We at Kriyo, are building a range of Products that cater to Digital Administration of Pre-Schools & Creches to manage the complete academic cycle starting from enquiries, admissions, fee payments to providing seamless communication with Parents and help the School Owners grow their business.</p>
+			<p>Kids Now ipsum dolor sit amet, consectetur adipisicing elit. Delectus possimus aut eaque adipisci, accusamus illum exercitationem labore sequi tenetur vitae, est ipsum. Cupiditate quas laboriosam, autem cumque sint quia cum odit eligendi dolore, consequatur nobis rem ipsa dolorem non, eum eius earum quo voluptate repellendus vitae maxime. Beatae natus atque praesentium soluta ut voluptate, cupiditate ipsum tempora iste distinctio, sit corrupti inventore ea suscipit, odit modi illo omnis animi quae.</p>
 		</div>
 	</section>
 	<section class="container">
@@ -454,24 +457,24 @@
 				<h2>Our Team</h2>
 				<div class="hr"></div>	
 			</div>
-			<div class="row">
+			<div class="row our-team">
 				<div class="col-sm-4 col-md-4">
-					<img src="images/hinh-anh-anime-chibi-dep-de-thuong-15.jpg" alt="">
-					<p>Sucharitha</p>
+					<img src="images/hai.png" alt="">
+					<p>Mr. Vũ Minh Hải</p>
 					<span style="color: cornflowerblue;font-size: 15px;">CEO</span>
-					<span style="font-size: 14px;color: #5363d6;">alumna, IIM Ahmedabad</span>
+					<span style="font-size: 14px;color: #5363d6;">Talent Wins</span>
 				</div>
 				<div class="col-sm-4 col-md-4">
-					<img src="images/hinh-anh-anime-chibi-dep-de-thuong-15.jpg" alt="">
-					<p>Sucharitha</p>
-					<span style="color: cornflowerblue;font-size: 15px;">CEO</span>
-					<span style="font-size: 14px;color: #5363d6;">alumna, IIM Ahmedabad</span>
+					<img src="images/hiep.png" alt="">
+					<p>Mr. Lê Anh Xuân</p>
+					<span style="color: cornflowerblue;font-size: 15px;">Co founder</span>
+					<span style="font-size: 14px;color: #5363d6;">Ts. Khoa Học Máy Tính</span>
 				</div>
 				<div class="col-sm-4 col-md-4">
-					<img src="images/hinh-anh-anime-chibi-dep-de-thuong-15.jpg" alt="">
-					<p>Sucharitha</p>
-					<span style="color: cornflowerblue;font-size: 15px;">CEO</span>
-					<span style="font-size: 14px;color: #5363d6;">alumna, IIM Ahmedabad</span>
+					<img src="images/xuan.png" alt="">
+					<p>Mr. Nguyễn Quang Hiệp</p>
+					<span style="color: cornflowerblue;font-size: 15px;">Co founder</span>
+					<span style="font-size: 14px;color: #5363d6;">Ths. Khoa Học Máy Tính</span>
 				</div>
 			</div>
 		</div>
@@ -485,7 +488,7 @@
 			</div>
 			<div style="text-align: center;">
 				<img src="images/email.png" alt="" width="40px">
-				<span style="margin-left:10px;"> hello@ikriyo.com</span>
+				<span style="margin-left:10px;"> hello@kidsnow.com</span>
 			</div>
 		</div>
 	</section>
@@ -493,19 +496,19 @@
 	<footer class="site-footer">
 		<div class="container">
 			<div class="row icon-lienket">
-			 	<a href="#">
-			 		<img src="images/facebook-circle-white.png" alt="" title="Face-book">
+			 	<a href="https://www.facebook.com/Web88Pro/">
+			 		<img src="images/facebook-circle-white.png" alt="" title="Facebook">
 			 	</a>
-			 	<a href="#">
-			 		<img src="images/linkedin-circle-white.png" title="Linkedin">
+			 	<a href="https://www.instagram.com/accounts/login/?hl=vi">
+			 		<img src="images/linkedin-circle-white.png" title="Instagram">
 			 	</a>
-			 	<a href="#">
+			 	<a href="https://mail.google.com/mail/u/0/#inbox">
 			 		<img src="images/mail-circle-white.png" alt="" title="Email">
 			 	</a>
 			</div>
 			<div class="row">
 				<p> 2019 © 
-					<b>Kids Now</b>, a product of <b>Little Soldiers</b>
+					<b>Kids Now</b>, a product of <b><a href="http://www.web88.vn/">Web88</a></b>
 				</p>
 				<p>
 					<a href="https://lssplprod.s3.amazonaws.com/Help/Kriyo-schoolApp-Privacy-Policies.html" class="termsHover"> Privacy Policy</a>
@@ -518,7 +521,7 @@
 
 	<div class="modal fade bd-example-modal-sm modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-sm" style="width: 560px;">
-		    <iframe width="560" height="315" src="https://www.youtube.com/embed/XNl6uV26wgQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		   <iframe width="560" height="315" src="https://www.youtube.com/embed/SrEPQMRfzoc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		</div>			
 	</div>
 	<div class="modal fade bd-example-modal-sm1 modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
@@ -554,7 +557,7 @@
     
     <!-- Main Script -->
     <script src="js/main.js"></script>
-	<script src="slick-1.8.1/slick/slick.js"></script>
+	<script src="libs/slick-1.8.1/slick/slick.js"></script>
 	<script type="text/javascript">
 		$('.introduce-customers-1').slick({
 			infinite: true,
@@ -571,7 +574,7 @@
 					}
 				},
 			{
-				breakpoint: 992,
+				breakpoint: 991,
 				settings: {
 				slidesToShow: 2,
 				slidesToScroll: 1,
@@ -593,11 +596,16 @@
 	<script>
 		function myFunction() {
 			var x = document.getElementById("myTopnav");
+			var close_menu=document.getElementById('icon-close');
 			if (x.className === "topnav") {
 				x.className += " responsive";
+				close_menu.children[0].style.display="none";
+				close_menu.children[1].style.display="inline-block";
+
 			} else {
 			    x.className = "topnav";
+			    close_menu.children[1].style.display="none";
+				close_menu.children[0].style.display="inline-block";
 			}
 		}
 	</script>
-</html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kids-now  @yield('title')</title>
-    <link rel="shortcut icon" type="image/x-icon" href="" />
+    <link rel="icon" href="images/a.png"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <base href="{{asset('')}}">
     <!-- CSS libs -->
@@ -31,12 +31,9 @@
     <link rel="stylesheet" href="asset/kriyo/css/font-awesome.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="asset/kriyo/css/owl.carousel.css">
-    
-
-
-
-
-
+    <!-- Custom CSS -->
+        <link rel="stylesheet" href="libs/slick-1.8.1/slick/slick.css">
+        <link rel="stylesheet" href="libs/slick-1.8.1/slick/slick-theme.css">
     @yield('css')
     <style>
         .line .item a{
@@ -61,7 +58,9 @@
     <script>new WOW().init();</script>
     <script src="js/home.js"></script>
     <script src="asset/kriyo/js/toastr.min.js"></script>
-
+    <script>
+        $('div.alert').delay(5000).slideUp();
+    </script>
 @if(session('error'))
     <script type="text/javascript">
         toastr.error('{{ session('error') }}', 'Thông báo', {timeOut: 5000});

@@ -11,7 +11,7 @@
 			<div class="row">
 				<div class="col-sm-6">
 				<ul class="ul-td">
-					<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="index.html">Home</a></li>
+					<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
 					<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">Health</a></li>
 				</ul>
 				</div>
@@ -23,36 +23,26 @@
 
 
 		<div class="row">
-			<form action="" style="width: 100%" >
+			<form method="post"  enctype="multipart/form-data" style="width: 100%;">
 				@csrf
-			<div class="mat-card">
-				<div class="mat-content">
-					<button class="accordion accordion1 clearfix">
-						<p style="float: left;">Children *</p>
-						<a href="{{route('admin.health.child')}}" style="float: right;text-align: right">SELECT</a>
-					</button>
+			<div class="mat-card" style="width: 100%">
 					<div class="mat-content">
+						<button class="accordion accordion1 clearfix">
+							<p style="float: left;">Children *</p>
+							<form class="typeahead" role="search" style="float: right; text-align: left">
+								<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="float:right;line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">
+							</form>
+						</button>
 
-						<div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img"  onclick="myFunction()" style="padding:10px;cursor:pointer;margin: 5px 20px;">
-							<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
-								<div _ngcontent-c9="" class="image">
-									<img _ngcontent-c19="" class="img-circle" height="80" width="80" src="images/Child.png" >
-									<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked" style="display: none"></i>
-									<!---->
-									<span _ngcontent-c19="" class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;font-weight: bold;font-size: 16px;">f</span>
-								</div>
-								<!---->
+
+						<div class="panel" >
+							<div class="row" id="children_list">
+								{{-- ajax ObservationController@addSelectChildren do vao day--}}
 							</div>
+							<input type="hidden" name="array_all_children" value="">
 						</div>
-
-
-
-
-
-
 					</div>
-
-
+					<hr>
 					<div id="clock" name="time"></div>
 					<div class="update">
 						<p>Select Health Update Type*</p>
@@ -85,11 +75,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="button" style="text-align: center;">
-								<button class="button2">
-									<span>SEND</span>
-								</button>
-							</div>
+
 						</div>
 						<div id="Medicine" class="tabcontent">
 							<div class="row">
@@ -114,11 +100,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="button" style="text-align: center;">
-								<button class="button2">
-									<span>SEND</span>
-								</button>
-							</div>
+
 						</div>
 						<div id="Growth" class="tabcontent">
 							<div class="row growth">
@@ -190,11 +172,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="button" style="text-align: center;">
-								<button type="submit" class="button2">
-									<span>SEND</span>
-								</button>
-							</div>
+
 						</div>
 						<div id="Incident" class="tabcontent">
 							<div class="row">
@@ -219,16 +197,13 @@
 									</div>
 								</div>
 							</div>
-							<div class="button" style="text-align: center;">
-								<button class="button2">
-									<span>SEND</span>
-								</button>
-							</div>
+
 						</div>
 					</div><br>
 				</div>
 			</div>
-			</form>
+		<button type="submit" class="btn btn-primary">Save</button>
+		</form>
 		</div>
 	</section>
 	</body>
@@ -252,6 +227,7 @@
 	<script>
 		var acc = document.getElementsByClassName("accordion");
 		var i;
+
 		for (i = 0; i < acc.length; i++) {
 			acc[i].addEventListener("click", function() {
 				this.classList.toggle("active");
@@ -264,82 +240,19 @@
 			});
 		}
 	</script>
-	<script type="text/javascript">
-		function time() {
-			var today = new Date();
-			var weekday=new Array(7);
-			weekday[0]="Sunday";
-			weekday[1]="Monday";
-			weekday[2]="Tuesday";
-			weekday[3]="Wednesday";
-			weekday[4]="Thursday";
-			weekday[5]="Friday";
-			weekday[6]="Saturday";
-			var day = weekday[today.getDay()];
-			var dd = today.getDate();
-			var mm = today.getMonth()+1; //January is 0!
-			var yyyy = today.getFullYear();
-			var h=today.getHours();
-			var m=today.getMinutes();
-			var s=today.getSeconds();
-			m=checkTime(m);
-			s=checkTime(s);
-			nowTime = h+":"+m+":"+s;
-			if(dd<10){dd='0'+dd} if(mm<10){mm='0'+mm} today = day+', '+ dd+'/'+mm+'/'+yyyy;
-			tmp='<span class="date">'+today+' | '+nowTime+'</span>';
-			document.getElementById("clock").innerHTML=tmp;
-			clocktime=setTimeout("time()","1000","JavaScript");
-			function checkTime(i)
-			{
-				if(i<10){
-					i="0" + i;
-				}
-				return i;
-			}
+	<script language="javascript">
+		var button = document.getElementById("btn");
+		button.onclick = function(){
+			alert("Thông tin đã lưu thành công!!!");
 		}
 	</script>
-	<!-- click menu duoi -->
-	<script>
-		function openCity(evt, cityName) {
-			var i, tabcontent, tablinks;
-			tabcontent = document.getElementsByClassName("tabcontent");
-			for (i = 0; i < tabcontent.length; i++) {
-				tabcontent[i].style.display = "none";
-			}
-			tablinks = document.getElementsByClassName("tablinks");
-			for (i = 0; i < tablinks.length; i++) {
-				tablinks[i].className = tablinks[i].className.replace(" active", "");
-			}
-			document.getElementById(cityName).style.display = "block";
-			evt.currentTarget.className += " active";
-		}
-		// Get the element with id="defaultOpen" and click on it
-		// document.getElementById("defaultOpen").click();
-	</script>
 	<script type="text/javascript">
-		$('.tablinks').click(function(event) {
-			$('.tablinks').removeClass('tablinks_active');
-			$(this).addClass('tablinks_active');
-		});
-	</script>
-
-	<!-- input file -->
-	<script type="text/javascript">
-		// click hiện img
-		function readURL(input) {
-			if (input.files && input.files[0]) {
-				var reader = new FileReader();
-				reader.onload = function (e) {
-					var id_input = input.id;
-					$('#'+id_input).siblings('.input-img').show();
-					$('#'+id_input).siblings('.input-img').children('.blah').attr('src', e.target.result);
-				};
-				reader.readAsDataURL(input.files[0]);
+		$('.tablinks1').click(function(event) {
+			if ($(this).prop('class')=='btn progBtn limitText bgClass tablinks1 tablinks1_active') {
+				$(this).removeClass('tablinks1_active');
+			}else{
+				$(this).addClass('tablinks1_active');
 			}
-		}
-		// button close
-		$('.button_close_show_img').click(function(event) {
-			$(this).parent('.input-img').hide();
 		});
 	</script>
 	<script type="text/javascript">
@@ -352,4 +265,5 @@
 			}
 		});
 	</script>
+
 @endsection

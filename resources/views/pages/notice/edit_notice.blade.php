@@ -21,9 +21,9 @@
                         <li class="active1 active-1" style="pointer-events:none;"><a href="">EDIT NOTICE</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target=".bd-example-modal-sm">
-                    <button class="notice" type="button">
-                        <span><a href="kids-now/notice-board/delete/{{$notice_board->id}}" onclick="return deleteConfirm()" style="color: inherit;">DELETE</a></span>
+                <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target=".bd-example-modal-sm" style="display: flex; justify-content: flex-end">
+                    <button class="notice" type="button" >
+                        <span><a href="kids-now/notice-board/delete/{{$notice_board->id}}" style="color: inherit; " onclick="return deleteConfirm()" >DELETE</a></span>
                     </button>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                             <!---->
                             @foreach($programs as $program)
                                 <div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer">
-                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1 @if(in_array($program->id, $array_programs_choose)) tablinks1_active @endif" style="background-color: transparent; border:1px solid #5363d6;border-radius: 4px" type="button" value="{{$program->id}}">{{$program->program_name}}</button>
+                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1 @if(in_array($program->id, $array_programs_choose)) tablinks1_active @endif" style="background-color: transparent; border:1px solid #5363d6;border-radius: 4px" type="button" data-toggle="tooltip" title="{{$program->program_name}}" value="{{$program->id}}">{{$program->program_name}}</button>
                                 </div>
                             @endforeach
                             <input id="array_programs_new" type="hidden" value="" name="programs_new">
@@ -58,7 +58,7 @@
                     </div>
                     <div class="add">
                         <div class="input_box" style="width: 100%;">
-                            <span>Title of Notice *</span>
+                            <span class="input_box_span_active">Title of Notice *</span>
                             <input type="text" name="title" placeholder="Title of Notice *" value="{{$notice_board->title}}">
                             @if ($errors->has('title'))
                                 <div class="text text-danger">
@@ -100,7 +100,7 @@
                     <div class="comment">
                         <div class="row">
                             <div class="col-md-11 input_box">
-                                <span>Enter Details here *</span>
+                                <span class="input_box_span_active">Enter Details here </span>
                                 <input type="text" name="content" placeholder="Enter Details here *" value="{{$notice_board->content}}">
                                 @if ($errors->has('content'))
                                     <div class="text text-danger">
@@ -132,14 +132,13 @@
                                 </div>
                             @endif
                             @foreach(explode('/*endfile*/',$notice_board->clip_board) as $clipboard)
-                                <div class="col-md-7" style="text-align: left">
-                                    <a href="kids-now/notice-board/clip_board/{{$notice_board->id}}/{{$clipboard}}" target="_blank">{{Str::limit($clipboard,50)}}</a>
-                                </div>
-                                <div class="col-md-2">
-                                    @if($clipboard)<a href="kids-now/notice-board/delete_clipboard/{{$notice_board->id}}/{{$clipboard}}" style="color: inherit"><button type="button" class="btn btn-xs btn-danger">Delete</button></a>@endif
-                                </div>
-                                <div class="col-md-3">
-
+                                <div class="row" style="margin-top: 5px">
+                                    <div class="col-md-10" style="text-align: left">
+                                        <a href="kids-now/notice-board/clip_board/{{$notice_board->id}}/{{$clipboard}}" target="_blank">{{Str::limit($clipboard,70)}}</a>
+                                    </div>
+                                    <div class="col-md-2">
+                                        @if($clipboard)<a href="kids-now/notice-board/delete_clipboard/{{$notice_board->id}}/{{$clipboard}}" style="color: inherit"><button type="button" class="btn btn-sm btn-danger">Delete</button></a>@endif
+                                    </div>
                                 </div>
                             @endforeach
                                 <br>
@@ -199,22 +198,22 @@
     
     <!-- Main Script -->
     <script src="asset/kriyo/js/main.js"></script>
-    {{--<script>--}}
-		{{--var acc = document.getElementsByClassName("accordion");--}}
-		{{--var i;--}}
+    <script>
+		var acc = document.getElementsByClassName("accordion");
+		var i;
 
-		{{--for (i = 0; i < acc.length; i++) {--}}
-		  {{--acc[i].addEventListener("click", function() {--}}
-		    {{--this.classList.toggle("active");--}}
-		    {{--var panel = this.nextElementSibling;--}}
-		    {{--if (panel.style.maxHeight) {--}}
-		      {{--panel.style.maxHeight = null;--}}
-		    {{--} else {--}}
-		      {{--panel.style.maxHeight = panel.scrollHeight + "px";--}}
-		    {{--} --}}
-		  {{--});--}}
-		{{--}--}}
-	{{--</script>--}}
+		for (i = 0; i < acc.length; i++) {
+		  acc[i].addEventListener("click", function() {
+		    this.classList.toggle("active");
+		    var panel = this.nextElementSibling;
+		    if (panel.style.maxHeight) {
+		      panel.style.maxHeight = null;
+		    } else {
+		      panel.style.maxHeight = panel.scrollHeight + "px";
+		    }
+		  });
+		}
+	</script>
 	<script type="text/javascript">
         var array = $('#array_programs_old').val().split(',');
 

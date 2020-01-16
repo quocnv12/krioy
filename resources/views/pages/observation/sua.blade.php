@@ -37,29 +37,17 @@
             <div class="hr"></div>
             <div style="margin: 10px 0">
                 <form role="form" method="post" enctype="multipart/form-data">
-                    @csrf
+                @csrf
                     <input type="hidden" name="id" class="idProduct">
                     <fieldset class="form-group">
                         <div class="row">
                             <div class="col-md-2">
                                 <label>Frist_name</label>
-    <div class="observation-sua">
-        <div class="row" style="margin: 5px">
-                    <form role="form" method="post" enctype="multipart/form-data">
-                        @csrf
-                        <input type="hidden" name="id" class="idProduct">
-                        <fieldset class="form-group">
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <label>Frist_name</label>
-                                </div>
-                                <div class="col-sm-9">
-                                    <input class="form-control first_name"  value="{{$childrent->first_name}}" name="first_name" placeholder="Nhập tên first_name "style="width: 500px;">
-                                </div>
                             </div>
                             <div class="col-md-10">
                                 <input class="form-control first_name"  value="{{$childrent->first_name}}" name="first_name" placeholder="Nhập tên first_name ">
                             </div>
+                        </div>
                     </fieldset>
                     <fieldset class="form-group">
                         <div class="row">
@@ -69,6 +57,7 @@
                             <div class="col-md-10">
                                 <input class="form-control last_name"  value="{{$childrent->last_name}}" name="last_name"   placeholder="Nhập tên last_name">
                             </div>
+                        </div>
                     </fieldset>
                     <fieldset class="form-group">
                         <div class="row">
@@ -78,6 +67,7 @@
                             <div class="col-md-10">
                                 <input class="form-control birthday"  value="{{$childrent->birthday}}"  name="birthday" placeholder="Nhập birthday "type="date" name="birthday" placeholder="Birthday">
                             </div>
+                        </div>
                     </fieldset>
 
                     <fieldset class="form-group">
@@ -88,6 +78,7 @@
                             <div class="col-md-10">
                                 <input class="form-control gender" name="gender"   value="{{$childrent->gender}}"  placeholder="Nhập gender ">
                             </div>
+                        </div>
                     </fieldset>
                     <fieldset class="form-group">
                         <div class="row">
@@ -102,17 +93,22 @@
                                     @endforeach
                                 </select>
                             </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <label>Detail</label>
+                            </div>
+                            <div class="col-md-10">
+                                <input class="form-control gender" name="detailObservation"   value="{{$observationtype->detailObservation}}"  placeholder="Nhập gender ">
+                            </div>
+                        </div>
                     </fieldset>
                 </form>
             </div>
+
         </div>
-        <div class="button-sua" style="text-align: center;">
-            <button type="submit" class="btn btn-success">Sửa</button>
-            <button type="reset" class="btn btn-primary">Nhập Lại</button>
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-        </div>
-    </div>
-    </div>
-    </div>
+
     </div>
 @endsection

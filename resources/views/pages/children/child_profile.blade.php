@@ -14,8 +14,11 @@
 		}
 
 		@keyframes mymove {
-			0% {width: 200px;}
-			100% {width: 500px;}
+			0% {width: 300px;}
+			100% {width: 400px;}
+		}
+		.scrollmenu-div button a{
+			color: #fff;
 		}
 	</style>
 	<body>
@@ -36,7 +39,7 @@
 						{{--<span _ngcontent-c10="" class="badge" style="background-color: red;color:#fff;vertical-align: top;display: inline;line-height:0px">1</span>--}}
 					{{--</a>--}}
 					<form class="typeahead" role="search" style="float: right;" >
-						<input  type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 100%;">
+						<input  type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 300px;">
 					</form>
 				</div>
 			</div>
@@ -49,23 +52,17 @@
 
 	@endif
 	<section style="background-color:#f9f9f9">
-		<div class="row" style="padding: 10px">
-			<div class="col-lg-2 col-md-2 col-sm-12"></div>
-			<div class="col-lg-8 col-md-8 col-sm-12" style="padding-left:0px;padding-right:0px">
-				<div class="child-profile-ul">
-					<div _ngcontent-c10="" class="scrollmenu" id="nav">
-						<ul _ngcontent-c10="" class="scrollmenu-ul">
-							<!---->
-							@foreach($programs as $program)
-								<li _ngcontent-c10="">
-									<a _ngcontent-c10="" class="item active" href="kids-now/children/{{$program->id}}">{{$program->program_name}}</a>
-								</li>
-							@endforeach
-						</ul>
-					</div>
+		<div class="container">
+			<div class="scrollmenu-div">
+				@foreach($programs as $program)
+				<div class="scrollmenu-button" style="text-align: center;">
+					<!---->
+					<button type="submit" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
+						<a style="color: #fff;" href="kids-now/children/{{$program->id}}">{{$program->program_name}}</a>
+					</button>
 				</div>
+				@endforeach
 			</div>
-			<div class="col-lg-2 col-md-2 col-sm-12"></div>
 		</div>
 	</section>
 
@@ -86,6 +83,11 @@
 								</div>
 							</div>
 						@endforeach
+					@else
+						<div style="margin: 50px">
+							<p style="color: red; font-weight: bold">Hint :</p>
+							<p>Click on a program tab in horizontal scroll bar to show all children in that program / Or use the search bar to go to specific children's profile</p>
+						</div>
 					@endif
 				</div>
 			</div>
@@ -146,6 +148,7 @@
 	</script>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+	<script src="libs/slick-1.8.1/slick/slick.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function($) {
 			var engine1 = new Bloodhound({
@@ -182,6 +185,40 @@
 					}
 				},
 			]);
+		});
+	</script>
+	<script type="text/javascript">
+		$('.scrollmenu-div').slick({
+			infinite: true,
+			slidesToShow: 7,
+			slidesToScroll: 1,
+			autoplay: false,
+			autoplaySpeed: 2000,
+			responsive: [{
+					breakpoint: 1200,
+					settings: {
+					slidesToShow: 3,
+					slidesToScroll: 1
+					}
+				},
+			{
+				breakpoint: 991,
+				settings: {
+				slidesToShow: 3,
+				slidesToScroll: 1,
+				autoplay: true,
+				arrows:false,
+				}
+			},
+			{
+				breakpoint: 500,
+				settings: {
+				slidesToShow: 2,
+				slidesToScroll: 1,
+				autoplay: true,
+				arrows:false,
+				}
+			}]
 		});
 	</script>
 	{{--<script type="text/javascript">--}}

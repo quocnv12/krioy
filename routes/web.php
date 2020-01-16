@@ -21,17 +21,11 @@
 
 //route fix
 Route::get('kids-now/children/add','Admin\ChildrenProfilesController@create');
-Route::get('kids-now/children/select_child','Admin\ChildrenProfilesController@selectChild');
-
 
 
 Route::get('kids-now/children/add','Admin\ChildrenProfilesController@create');
 Route::get('kids-now/notice-board/add','Admin\NoticeBoardController@create');
 
-
-Route::get('test',function (){
-    return view('pages.children.create_child');
-});
 Route::get('',function (){
     return view('pages.introduce.introduce-kid_now');
 });
@@ -59,20 +53,17 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         //search by typeahead
         Route::get('search/name', 'Admin\ChildrenProfilesController@searchByName');
     });
+
+
+    
     //---------------staff----------------
     Route::group(['prefix' => 'staff'], function () {
         Route::get('','Admin\Staff\StaffController@GetListStaff');
-        Route::get('add','Admin\Staff\StaffController@GeAddStaff');
-
-        Route::get('edit', function () {
-            return view('pages.staff.edit_staff');
-        });
-        Route::get('profile', function () {
-            return view('pages.staff.profile');
-        });
-        Route::get('select', function () {
-            return view('pages.children.select_child');
-        });
+        Route::get('add','Admin\Staff\StaffController@GetAddStaff');
+        Route::post('add','Admin\Staff\StaffController@PostAddStaff');
+        Route::get('edit/{id}','Admin\Staff\StaffController@GetEditStaff');
+        Route::post('edit/{id}','Admin\Staff\StaffController@PostEditStaff');
+        Route::get('delete/{id}','Admin\Staff\StaffController@DeleteStaff');
     });
 
     //---------------attendance----------------
@@ -94,14 +85,8 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::post('search',['as'=>'admin.health.search','uses'=>'Admin\HealthController@postSearch']);
         Route::get('them_child',['as'=>'admin.health.child','uses'=>'Admin\HealthController@getChild']);
         Route::post('them_child',['as'=>'admin.health.child','uses'=>'Admin\HealthController@postChild']);
-
-
-
-        //Route::resource('health','Admin\HealthController');
-        //Route::get('xoa/{id}','Admin\HealthController@destroy')->name('deletehealth');
-        //Route::get('chitiet/{id}','Admin\HealthController@getChitiet')->name('Chitiet');
-
-
+        Route::get('search/children', 'Admin\HealthController@searchByName');
+        Route::get('select_child/add','Admin\HealthController@addSelectChild');
 
 
     });
@@ -109,17 +94,31 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
     //---------------observation----------------
     Route::group(['prefix' => 'observations'], function () {
         Route::get('danhsach', ['as'=>'admin.observations.list','uses'=>'Admin\ObservationController@getList']);
+        Route::get('danhsachobservationtype', ['as'=>'admin.observations.listobservationtype','uses'=>'Admin\ObservationController@getListObservation']);
         Route::get('xoa/{id}',['as'=>'admin.observations.getDelete','uses'=>'Admin\ObservationController@getDelete']);
         Route::get('sua/{id}',['as'=>'admin.observations.getEdit','uses'=>'Admin\ObservationController@getEdit']);
         Route::post('sua/{id}',['as'=>'admin.observations.postEdit','uses'=>'Admin\ObservationController@postEdit']);
         Route::get('search',['as'=>'admin.observations.search','uses'=>'Admin\ObservationController@getSearch']);
         Route::post('search',['as'=>'admin.observations.search','uses'=>'Admin\ObservationController@postSearch']);
         Route::get('them',['as'=>'admin.observations.getAdd','uses'=>'Admin\ObservationController@getAdd']);
-        Route::post('them',['as'=>'admin.observations.getAdd','uses'=>'Admin\ObservationController@postAdd']);
+        Route::post('them',['as'=>'admin.observations.postAdd','uses'=>'Admin\ObservationController@postAdd']);
         Route::get('them_child',['as'=>'admin.observations.child','uses'=>'Admin\ObservationController@getChild']);
         Route::post('them_child',['as'=>'admin.observations.child','uses'=>'Admin\ObservationController@postChild']);
         Route::get('search/children', 'Admin\ObservationController@searchByName');
-        Route::get('select_child/add','Admin\ObservationController@addSelectChild');   //ajax them children
+        Route::get('select_child/add','Admin\ObservationController@addSelectChild');
+
+        Route::get('show/{id}','Admin\ObservationController@showChildrenInProgram');
+
+    });
+    Route::group(['prefix' => 'observationtype'], function () {
+
+        Route::get('xoa/{id}',['as'=>'admin.observationtype.getDelete','uses'=>'Admin\ObservationTypeController@getDelete']);
+        Route::get('sua/{id}',['as'=>'admin.observationtype.getEdit','uses'=>'Admin\ObservationTypeController@getEdit']);
+        Route::post('sua/{id}',['as'=>'admin.observationtype.getEdit','uses'=>'Admin\ObservationTypeController@postEdit']);
+        Route::get('them',['as'=>'admin.observationtype.add','uses'=>'Admin\ObservationTypeController@getAdd']);
+        Route::post('them',['as'=>'admin.observationtype.add','uses'=>'Admin\ObservationTypeController@postAdd']);
+
+
     });
     //---------------food----------------
     Route::group(['prefix' => 'food'], function () {
@@ -127,7 +126,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
             return view('pages.food.food');
         });
     });
-
 
 
     //---------------food----------------
@@ -165,13 +163,13 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
 
 
-            //tên món ăn
-            Route::get('menu-food-name','Admin\FoodController@GetListMenuFoodName');
-            Route::get('menu-food-name/add','Admin\FoodController@GetAddMenuFoodName')->name('menu-food-name-add');
-            Route::post('menu-food-name/add','Admin\FoodController@PostAddMenuFoodName');
-            Route::get('menu-food-name/edit/{id_food_name}','Admin\FoodController@GetEditMenuFoodName')->name('menu-food-name-edit');
-            Route::post('menu-food-name/edit/{id_food_name}','Admin\FoodController@PostEditMenuFoodName');
-            Route::get('menu-food-name/delete/{id_food_name}','Admin\FoodController@DeleteFoodName')->name('menu-food-name-del');
+        //tên món ăn
+        Route::get('menu-food-name','Admin\FoodController@GetListMenuFoodName');
+        Route::get('menu-food-name/add','Admin\FoodController@GetAddMenuFoodName')->name('menu-food-name-add');
+        Route::post('menu-food-name/add','Admin\FoodController@PostAddMenuFoodName');
+        Route::get('menu-food-name/edit/{id_food_name}','Admin\FoodController@GetEditMenuFoodName')->name('menu-food-name-edit');
+        Route::post('menu-food-name/edit/{id_food_name}','Admin\FoodController@PostEditMenuFoodName');
+        Route::get('menu-food-name/delete/{id_food_name}','Admin\FoodController@DeleteFoodName')->name('menu-food-name-del');
 
     });
 
@@ -216,17 +214,11 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
         Route::get('edit/{id}', 'Admin\ProgramsController@edit');
         Route::post('edit/{id}', 'Admin\ProgramsController@update');
-
         Route::get('view/{id}', 'Admin\ProgramsController@show');
-
         Route::get('delete/{id}','Admin\ProgramsController@destroy');
 
         Route::get('search/children','Admin\ProgramsController@searchChildren');
         Route::get('search/staff','Admin\ProgramsController@searchStaff');
         Route::get('search/program','Admin\ProgramsController@searchProgram');
     });
-});
-
-Route::get('clear_session',function (){
-   return (\Illuminate\Support\Facades\Session::forget('array_children'));
 });

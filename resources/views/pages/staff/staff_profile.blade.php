@@ -49,31 +49,30 @@
 					  <div class="tools">
 					  </div>
 					</div>
-					<div class="grid-body ">
+					<div class="grid-body " style="overflow-x: auto;">
 					  <table class="table table-striped" id="example">
 						<thead>
 						  <tr>
 							<th style="text-align:left;">ID</th>
-							<th style="text-align:left">Name</th>
-							<th style="text-align:left">Phone</th>
-							<th style="text-align:left">Email</th>
-							<th style="text-align:left">Gender</th>
-						
-							<th style="text-align:left">Address</th>
-							<th style="text-align:left">Job</th>
-							<th style="text-align:left">Date Of Joining</th>
-							<th style="text-align:left">Image</th>
-							<th style="text-align:center;width:12%">Thao Tác</th>
+							<th style="text-align:left;">Name</th>
+							<th style="text-align:left;">Phone</th>
+							<th style="text-align:lef">Email</th>
+							<th style="text-align:left;">Gender</th>
+							<th style="text-align:left;">Address</th>
+							<th style="text-align:left;">Program</th>
+							<th style="text-align:left;">Date Of Joining</th>
+							<th style="text-align:left;">Image</th>
+							<th style="text-align:center;width:9%">Thao Tác</th>
 						  </tr>
 						</thead>
 						<tbody>
 							@foreach ($staff as $item)
 							<tr class="odd gradeX">
-								<td>{{ $item->id }}</td>
-								<td>{{ $item->first_name }} {{ $item->last_name }}</td>
-								<td>{{ $item->phone }}</td>
-								<td>{{ $item->email }}</td>
-								<td>
+								<td style="font-size:12px">{{ $item->id }}</td>
+								<td style="font-size:12px">{{ $item->first_name }} {{ $item->last_name }}</td>
+								<td style="font-size:12px">{{ $item->phone }}</td>
+								<td style="font-size:11px;font-weight: bold;">{{ $item->email }}</td>
+								<td style="font-size:12px">
 									@if ($item->gender==1)
 										{{ 'Nam' }}
 									@else
@@ -81,13 +80,25 @@
 									@endif
 								</td>
 								
-								<td>{{ $item->address }}</td>
-								<td> ádas </td>
-								<td>{{ Carbon\Carbon::parse($item->date_of_joining)->format('d-m-Y') }}</td>
-							<td><img style="width:30px;height:30px" src="images/{{ $item->image }}"></td>
+								<td style="font-size:12px">{{ $item->address }}</td>
+								<td style="font-size:12px"> 
+									
+									@php
+										$resultstr = array();
+									@endphp
+									@foreach ($item->programstaff as $value)
+									@php
+										$resultstr[] = $value->program_name
+									@endphp
+									@endforeach
+									{{  implode(",",$resultstr) }}
+								
+								</td>
+								<td style="font-size:12px">{{ Carbon\Carbon::parse($item->date_of_joining)->format('d-m-Y') }}</td>
+								<td ><img style="width:30px;height:30px;border-radius:50%" src="images/staff/{{ $item->image }}"></td>
 								<td style="text-align:center;width:12px">
-								<a href="kids-now/food/edit/{{ $item->id }}" title="Edit Staff" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
-									<a onclick="return confirm('Delete staff ? Do you want continue !')" title="Delete Staff" href="kids-now/food/delete/{{ $item->id }}" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+								<a  href="kids-now/staff/edit/{{ $item->id }}" title="Edit Staff" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+								<a  onclick="return confirm('Delete staff ? Do you want continue !')" title="Delete Staff" href="kids-now/staff/delete/{{ $item->id }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
 								</td>
 							</tr>
 						  @endforeach

@@ -30,18 +30,32 @@ class HealthController extends Controller
         return view('pages.heath.heath', compact('health'));
     }
     public function postAdd(Request $request){
-        $health = new HealthModel;
-        $imageName = $request->file('image')->getClientOriginalName();
-        $request->file('image')->move(
-            base_path(). 'images/'.$imageName
-        );
-        $health->sick= $request->sick;
-        $health->medicine= $request->medicine;
-        $health->growth_height= $request->growth_height;
-        $health->growth_weight= $request->growth_weight;
-        $health->incident= $request->incident;
-        $health->save();
-        return redirect()->route('admin.health.list')->with(['flash_level'=>'success','flash_message'=>'Thêm tin  thành công!!!']);
+        $image = $request->image;
+        $img_current ='images/'.$request->fImageCurrent;
+        if(!empty($image)) {
+            $filename= $image->getClientOriginalName();
+            $health = new HealthModel();
+
+            $health->sick= $request->sick;
+            $health->medicine= $request->medicine;
+            $health->growth_height= $request->growth_height;
+            $health->growth_weight= $request->growth_weight;
+            $health->incident= $request->incident;
+            $health->image= $request->image;
+            $health->save();
+
+            $image ->move(base_path() . 'images/', $filename);
+            File::delete($img_current);
+        }else {
+            $health = new HealthModel();
+
+            $health->sick= $request->sick;
+            $health->medicine= $request->medicine;
+            $health->growth_height= $request->growth_height;
+            $health->growth_weight= $request->growth_weight;
+            $health->incident= $request->incident;
+            $health->save();
+        }
 
     }
 
@@ -75,10 +89,11 @@ class HealthController extends Controller
             $health->growth_height= $request->growth_height;
             $health->growth_weight= $request->growth_weight;
             $health->incident= $request->incident;
+            $health->save();
         }
 
 
-        return redirect()->route('admin.heath.list')->with(['flash_level'=>'success','flash_message'=>'Edit tin tuyển dụng thành công!!!']);
+        return redirect()->route('admin.health.list')->with(['flash_level'=>'success','flash_message'=>'Edit tin tuyển dụng thành công!!!']);
     }
 
     public function getDelete($id){
@@ -116,6 +131,44 @@ class HealthController extends Controller
             ->paginate(5);
         return view('pages.heath.search', compact('search'));
 
+    }
+    public function searchByName(Request $request)
+    {
+        $children_profiles = ChildrenProfiles::where('first_name', 'like', '%' . $request->get('q') . '%')
+            ->orWhere('last_name', 'like', '%' . $request->get('q') . '%')
+            ->orderBy('last_name')
+            ->get();
+        return response()->json($children_profiles);
+    }
+
+    public function addSelectChild(Request $request)
+    {
+        if ($request->ajax()) {
+            $output = '';
+            $children_profiles = ChildrenProfiles::find($request->id_children);
+
+            if ($children_profiles){
+                $output = '
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
+							    <div class="child-class" style="height: 120px;text-align: center;">
+							        <div class="image">
+                                        <img class="img-circle" onerror="this.src=\'images/Child.png\';" style="height: 80px" width="80" src="' . $children_profiles->image . '">
+                                        <input type="hidden" value="' . $children_profiles->id . '">
+                                        <button class="btn btn-xs btn-danger" type="button" onclick="deleteChild(' . $children_profiles->id . ')">X</button>
+                                        <span class="limitText ng-star-inserted">' . $children_profiles->first_name . ' ' . $children_profiles->last_name . '</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <script>
+                                $(\'.btn-danger\').click(function() {
+                                  $(this).parent(\'div\').parent(\'div\').parent(\'div\').hide();
+                                })
+                            </script>
+                            ';
+            }
+            return Response($output);
+        }
     }
 
 
