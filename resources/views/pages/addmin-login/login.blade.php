@@ -116,6 +116,33 @@
 	     	</div>
 	    </div>
 	</div>
+
+	<div class="modal fade" id="myModal-login" role="dialog">
+		<div class="modal-dialog">
+	      <!-- Modal content-->
+	    	<div class="modal-content">
+		        <div class="modal-header" style="background-color:#FF4081;color:#fff;border-radius: 5px 5px 0px 0px">
+		        	<button type="button" class="close" data-dismiss="modal" style="font-size:30px;color:#fff;opacity:1">&times;</button>
+		        	<h4 class="modal-title" align="center" style="text-transform: none;font-size:18px;font-weight: 600;">Forgot password</h4>
+		        </div>
+		        <div class="modal-body" style="border-radius: 0px 0px 5px 0px;margin-bottom: 5px;overflow:auto;height: auto;">
+		        	<div class="row add">
+		          		<div class="col-md-6 input_box">
+		          			<span>Email *</span>
+		          			<input type="email" name="" placeholder="Email">
+		          		</div>
+		          		<div class="col-md-6 input_box">
+		          			<span>Phone Number *</span>
+		          			<input type="number" name="" placeholder="Phone Number *">
+		          		</div>
+		        	</div>
+		        	<div style="margin: 10px 0;">
+		        		<button style="width: 76px;float:right;margin-right: 10px;background: #ff4081;box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);color: white;border-radius: 5px;">OK</button>
+		        	</div>
+		        </div>
+	     	</div>
+	    </div>
+	</div>
 </body>
 
 	<script src="https://code.jquery.com/jquery.min.js"></script>

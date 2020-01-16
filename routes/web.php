@@ -53,25 +53,19 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         //search by typeahead
         Route::get('search/name', 'Admin\ChildrenProfilesController@searchByName');
     });
+
+
+    
     //---------------staff----------------
     Route::group(['prefix' => 'staff'], function () {
         Route::get('','Admin\Staff\StaffController@GetListStaff');
         Route::get('add','Admin\Staff\StaffController@GetAddStaff');
         Route::post('add','Admin\Staff\StaffController@PostAddStaff');
-
-
+        Route::get('edit/{id}','Admin\Staff\StaffController@GetEditStaff');
+        Route::post('edit/{id}','Admin\Staff\StaffController@PostEditStaff');
         Route::get('delete/{id}','Admin\Staff\StaffController@DeleteStaff');
-
-        Route::get('edit', function () {
-            return view('pages.staff.edit_staff');
-        });
-        Route::get('profile', function () {
-            return view('pages.staff.profile');
-        });
-        Route::get('select', function () {
-            return view('pages.children.select_child');
-        });
     });
+
     //---------------attendance----------------
     Route::group(['prefix' => 'attendance'], function () {
         Route::get('', function () {

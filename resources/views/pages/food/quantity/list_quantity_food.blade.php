@@ -68,8 +68,8 @@ List quantity food
                                 <td style="text-align:center">{{ $item->id }}</td>
                                 <td style="text-align:center;text-transform:capitalize">{{ $item->name}}</td>
                                 <td style="text-align:center">
-                                <a href="{{ route('menu-quantity-edit',['id_qty'=>$item->id]) }}" title="Edit Quantity Food" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
-                                <a onclick="return confirm('Delete meal type ? Do you want continue !')"" title="Delete Quantity Food" href="{{ route('menu-quantity-del',['id_qty'=>$item->id]) }}" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                <a href="{{ route('menu-quantity-edit',['id_qty'=>$item->id]) }}" title="Edit Quantity Food" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                <a onclick="return confirm('Delete meal type ? Do you want continue !')"" title="Delete Quantity Food" href="{{ route('menu-quantity-del',['id_qty'=>$item->id]) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
                           @endforeach
