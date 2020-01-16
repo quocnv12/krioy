@@ -496,13 +496,13 @@
 	<footer class="site-footer">
 		<div class="container">
 			<div class="row icon-lienket">
-			 	<a href="#">
-			 		<img src="images/facebook-circle-white.png" alt="" title="Face-book">
+			 	<a href="https://www.facebook.com/Web88Pro/">
+			 		<img src="images/facebook-circle-white.png" alt="" title="Facebook">
 			 	</a>
-			 	<a href="#">
-			 		<img src="images/linkedin-circle-white.png" title="Linkedin">
+			 	<a href="https://www.instagram.com/accounts/login/?hl=vi">
+			 		<img src="images/linkedin-circle-white.png" title="Instagram">
 			 	</a>
-			 	<a href="#">
+			 	<a href="https://mail.google.com/mail/u/0/#inbox">
 			 		<img src="images/mail-circle-white.png" alt="" title="Email">
 			 	</a>
 			</div>
@@ -521,7 +521,7 @@
 
 	<div class="modal fade bd-example-modal-sm modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-sm" style="width: 560px;">
-		    <iframe width="560" height="315" src="https://www.youtube.com/embed/XNl6uV26wgQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		   <iframe width="560" height="315" src="https://www.youtube.com/embed/SrEPQMRfzoc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		</div>			
 	</div>
 	<div class="modal fade bd-example-modal-sm1 modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">

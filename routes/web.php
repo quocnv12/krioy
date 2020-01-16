@@ -88,9 +88,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('search/children', 'Admin\HealthController@searchByName');
         Route::get('select_child/add','Admin\HealthController@addSelectChild');
 
-        //Route::resource('health','Admin\HealthController');
-        //Route::get('xoa/{id}','Admin\HealthController@destroy')->name('deletehealth');
-        //Route::get('chitiet/{id}','Admin\HealthController@getChitiet')->name('Chitiet');
 
     });
 

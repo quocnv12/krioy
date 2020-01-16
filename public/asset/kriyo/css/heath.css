@@ -192,7 +192,8 @@ a,a:hover, a:focus,button:focus{
   padding: 7px;
   transition: 0.3s;
   font-size: 17px;
-  width: 10%;
+  width: auto;
+  min-width: 12%;
   border: 1px solid #5363d6;
   background-color: rgb(255, 255, 255);
     color: #5363d6;

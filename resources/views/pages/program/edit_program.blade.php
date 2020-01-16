@@ -259,8 +259,9 @@
                                         <div class="image">
                                             <img class="img-circle" height="80" onerror="this.src='images/Staff.png';" style="height: 80px" width="80" src="{{$staff->image}}">
                                             <input type="hidden" value="{{$staff->id}}">
-                                            <button class="btn btn-sm btn-danger" type="button" onclick="deleteStaff({{$staff->id}})">X</button>
-                                            <br>
+                                            {{--<button class="btn btn-sm btn-danger" type="button" onclick="deleteStaff({{$staff->id}})">X</button>--}}
+											<span class="delete-staff" onclick="deleteStaff({{$staff->id}})" style="position: absolute; top: 0"><i class="fas fa-times-circle" style="color: red ; cursor: pointer"></i></span>
+											<br>
                                             <span class="limitText ng-star-inserted"><a target="_blank" href="">{{$staff->first_name}} {{$staff->last_name}}</a></span>
                                         </div>
                                     </div>
@@ -296,7 +297,8 @@
 										<div class="image">
 											<img class="img-circle" height="80" onerror="this.src='images/Child.png';" style="height: 80px" width="80" src="{{$children->image}}">
 											<input type="hidden" value="{{$children->id}}">
-											<button class="btn btn-sm btn-danger" type="button" onclick="deleteChild({{$children->id}})">X</button>
+											{{--<button class="btn btn-sm btn-danger" type="button" onclick="deleteChild({{$children->id}})">X</button>--}}
+											<span class="delete-child" onclick="deleteChild({{$children->id}})" style="position: absolute; top: 0"><i class="fas fa-times-circle" style="color: red ; cursor: pointer"></i></span>
 											<br>
 											<span class="limitText ng-star-inserted"><a target="_blank" href="kids-now/children/edit/{{$children->id}}" style="margin: 0">{{$children->first_name}} {{$children->last_name}}</a></span>
 										</div>
@@ -468,7 +470,11 @@
 
     </script>
 	<script >
-		$('.btn-danger').click(function() {
+		$('.delete-child').click(function() {
+			$(this).parent('div').parent('div').parent('div').hide();
+		})
+
+		$('.delete-staff').click(function() {
 			$(this).parent('div').parent('div').parent('div').hide();
 		})
 
