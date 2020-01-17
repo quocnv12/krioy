@@ -3,7 +3,16 @@
 	Attendance
 @endsection
 
-
+<style type="text/css">
+	button.icon-plus-button{
+    font-size: 14px;
+    color: #fff;border: none;
+    margin-bottom: 7px;
+    border-radius: 20px;
+    padding: 0 10px;
+    min-width: 90px;
+}
+</style>
 @section('content')
 	<body onload="time()">
 		<section class="page-top container">
@@ -115,15 +124,24 @@
 					</div>
 				</div>
 			</div>
-			<div class="icon-plus-1">
+			{{-- <div class="icon-plus-1">
 				<ul>
-					
 					<li style="background-color: #37bd9c;" data-toggle="modal" data-target=".bd-example-modal-sm">IN</li>
 					<li style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm">OUT</li>
 					<li style="background-color: #ed5564;" data-toggle="modal" data-target=".bd-example-modal-sm">ABSENT</li>
 					<li style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm">UNMARK</li>
-					<!-- <li style="background-color: #ffc200;" data-toggle="modal" data-target=".bd-example-modal-sm">LEAVE</li> -->
+					<li style="background-color: #ffc200;" data-toggle="modal" data-target=".bd-example-modal-sm">LEAVE</li>
 				</ul>
+			</div> --}}
+			<div class="icon-plus-1">
+				<button class="icon-plus-button" style="background-color: #37bd9c;" data-toggle="modal" data-target=".bd-example-modal-sm">IN</button>
+				<br>
+				<button class="icon-plus-button" style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm">OUT</button>
+				<br>
+				<button class="icon-plus-button" style="background-color: #ed5564;" data-toggle="modal" data-target=".bd-example-modal-sm">ABSENT</button>
+				<br>
+				<button class="icon-plus-button" style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm">UNMARK</button><br>
+				<button class="icon-plus-button" style="background-color: #ffc200;" data-toggle="modal" data-target=".bd-example-modal-sm">LEAVE</button>
 			</div>
 		</form>
 		</section>
