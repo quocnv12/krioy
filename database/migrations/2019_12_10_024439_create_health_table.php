@@ -17,7 +17,7 @@ class CreateHealthTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('id_children')->unsigned();
             $table->foreign('id_children')->references('id')->on('children_profiles')->onDelete('cascade');
-            $table->date('time');
+
             $table->text('sick')->nullable();
             $table->float('growth_height')->nullable();
             $table->float('growth_weight')->nullable();
@@ -25,7 +25,7 @@ class CreateHealthTable extends Migration
             $table->text('incident')->nullable();
             $table->string('blood_group');
             $table->string('image')->nullable();
-            $table->string('file_pdf');
+            $table->string('file_pdf')->nullable();
             $table->timestamps();
         });
     }
