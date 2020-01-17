@@ -94,37 +94,41 @@
 			</div>
 		</section>
 		<section class="container">
+			<form style="width: auto;margin: 0;text-align: center" action="{{route('admin.observations.postAdd')}}" method="post" id="addObservation" enctype="multipart/form-data">
 			<div class="mat-card tab-content" style="min-height: 500px;">
 				<div class="mat-content" id="tab-main">
 					<div _ngcontent-c19="" class="row ng-star-inserted">
 						<!---->
 						@if(isset($children_profiles))
-                                @foreach($children_profiles as $children)
-                                    <div _ngcontent-c19="" class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted" style="padding:10px;cursor:pointer;">
-                                        <div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
-                                            <img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="Child.png">
-                                            <i _ngcontent-c9="" aria-hidden="true" class="fa fa-check" id="checked" style="display: block;top:10px"></i>                                            <span class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;display: block;">{{$children->first_name}} {{$children->last_name}}</span>
-                                            <input type="hidden" value="{{$children->id}}">
-                                        </div>
+                            @foreach($children_profiles as $children)
+                                <div _ngcontent-c19="" class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted" style="padding:10px;cursor:pointer;">
+                                    <div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
+                                        <img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="Child.png">
+                                        <i _ngcontent-c9="" aria-hidden="true" class="fa fa-check" id="checked" style="display: block;top:10px"></i>                                            <span class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;display: block;">{{$children->first_name}} {{$children->last_name}}</span>
+                                        <input type="hidden" value="{{$children->id}}">
                                     </div>
-                                @endforeach
-                                <input id="array_children_observation" type="hidden" value="" name="children_observations">
-                            @endif
+                                </div>
+                            @endforeach
+                            <input id="array_children_observation" type="hidden" value="" name="children_observations">
+                        @endif
 
 					</div>
 				</div>
 			</div>
+			<div class="icon-plus-1">
+				<ul>
+					
+					<li style="background-color: #37bd9c;" data-toggle="modal" data-target=".bd-example-modal-sm">IN</li>
+					<li style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm">OUT</li>
+					<li style="background-color: #ed5564;" data-toggle="modal" data-target=".bd-example-modal-sm">ABSENT</li>
+					<li style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm">UNMARK</li>
+					<!-- <li style="background-color: #ffc200;" data-toggle="modal" data-target=".bd-example-modal-sm">LEAVE</li> -->
+				</ul>
+			</div>
+		</form>
 		</section>
 
-		<div class="icon-plus-1">
-			<ul>
-				<li style="background-color: #37bd9c;" data-toggle="modal" data-target=".bd-example-modal-sm">IN</li>
-				<li style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm">OUT</li>
-				<li style="background-color: #ed5564;" data-toggle="modal" data-target=".bd-example-modal-sm">ABSENT</li>
-				<li style="background-color: #ffc200;" data-toggle="modal" data-target=".bd-example-modal-sm">LEAVE</li>
-				<li style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm">UNMARK</li>
-			</ul>
-		</div>
+		
 
 		<div class="modal fade bd-example-modal-sm modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-sm" style="">
