@@ -148,17 +148,6 @@ div > input:focus,select:focus{
     font-size: 20px;
     text-decoration: none;
 }
-.icon-plus-1 ul{
-    list-style-type: none;
-    padding-left: 0 !important;
-}
-.icon-plus-1 ul li{
-    font-size: 14px;
-    color: #fff;border: none;
-    margin-bottom: 7px;
-    border-radius: 20px;
-    padding: 0 10px;
-}
 
                     /*ADD_STAFF*/
                     
