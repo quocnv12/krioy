@@ -118,5 +118,5 @@
 		    x.style.display = "none";
 		  }
 		}
-	 </script>
+	</script>
 @endsection
