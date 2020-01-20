@@ -3,16 +3,7 @@
 	Attendance
 @endsection
 
-<style type="text/css">
-	button.icon-plus-button{
-    font-size: 14px;
-    color: #fff;border: none;
-    margin-bottom: 7px;
-    border-radius: 20px;
-    padding: 0 10px;
-    min-width: 90px;
-}
-</style>
+
 @section('content')
 	<body onload="time()">
 		<section class="page-top container">
@@ -103,50 +94,41 @@
 			</div>
 		</section>
 		<section class="container">
-			<form style="width: auto;margin: 0;text-align: center" action="{{route('admin.observations.postAdd')}}" method="post" id="addObservation" enctype="multipart/form-data">
 			<div class="mat-card tab-content" style="min-height: 500px;">
 				<div class="mat-content" id="tab-main">
 					<div _ngcontent-c19="" class="row ng-star-inserted">
 						<!---->
 						@if(isset($children_profiles))
-                            @foreach($children_profiles as $children)
-                                <div _ngcontent-c19="" class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted" style="padding:10px;cursor:pointer;">
-                                    <div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
-                                        <img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="Child.png">
-                                        <i _ngcontent-c9="" aria-hidden="true" class="fa fa-check" id="checked" style="display: block;top:10px"></i>                                            <span class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;display: block;">{{$children->first_name}} {{$children->last_name}}</span>
-                                        <input type="hidden" value="{{$children->id}}">
-                                    </div>
-                                </div>
-                            @endforeach
-                            <input id="array_children_observation" type="hidden" value="" name="children_observations">
-                        @endif
+							@foreach($children_profiles as $row)
+							<div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img"  onclick="myFunction()">
+								<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
+									<div _ngcontent-c9="" class="image">
+										<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="Child.png">
+										<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked" style="display: none"></i>
+										<!---->
+										<span _ngcontent-c19="" class="limitText ng-star-inserted">{{$row->first_name}} {{$row->last_name}}</span>
+									</div>
+									<!---->
+								</div>
+							</div>
+							@endforeach
+						@else
+						@endif
 
 					</div>
 				</div>
 			</div>
-			{{-- <div class="icon-plus-1">
-				<ul>
-					<li style="background-color: #37bd9c;" data-toggle="modal" data-target=".bd-example-modal-sm">IN</li>
-					<li style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm">OUT</li>
-					<li style="background-color: #ed5564;" data-toggle="modal" data-target=".bd-example-modal-sm">ABSENT</li>
-					<li style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm">UNMARK</li>
-					<li style="background-color: #ffc200;" data-toggle="modal" data-target=".bd-example-modal-sm">LEAVE</li>
-				</ul>
-			</div> --}}
-			<div class="icon-plus-1">
-				<button class="icon-plus-button" style="background-color: #37bd9c;" data-toggle="modal" data-target=".bd-example-modal-sm">IN</button>
-				<br>
-				<button class="icon-plus-button" style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm">OUT</button>
-				<br>
-				<button class="icon-plus-button" style="background-color: #ed5564;" data-toggle="modal" data-target=".bd-example-modal-sm">ABSENT</button>
-				<br>
-				<button class="icon-plus-button" style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm">UNMARK</button><br>
-				<button class="icon-plus-button" style="background-color: #ffc200;" data-toggle="modal" data-target=".bd-example-modal-sm">LEAVE</button>
-			</div>
-		</form>
 		</section>
 
-		
+		<div class="icon-plus-1">
+			<ul>
+				<li style="background-color: #37bd9c;" data-toggle="modal" data-target=".bd-example-modal-sm">IN</li>
+				<li style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm">OUT</li>
+				<li style="background-color: #ed5564;" data-toggle="modal" data-target=".bd-example-modal-sm">ABSENT</li>
+				<li style="background-color: #ffc200;" data-toggle="modal" data-target=".bd-example-modal-sm">LEAVE</li>
+				<li style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm">UNMARK</li>
+			</ul>
+		</div>
 
 		<div class="modal fade bd-example-modal-sm modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-sm" style="">
@@ -192,24 +174,20 @@
     <!-- Main Script -->
     <script src="asset/kriyo/js/main.js"></script>
     <script type="text/javascript">
-    	var array_children_observation = [];
-        $('.div_box_children').children('div').children('i').hide()
-
-        $('.div_box_children').click(function () {
-            if ($(this).children('div').children('i').hasClass('checked')){
-                ($(this).children('div').children('i').removeClass('checked'))
-                $(this).children('div').children('i').hide()
-                var observation_pop = $(this).children('div').children('input').val();
-                array_children_observation.splice( array_children_observation.indexOf(observation_pop), 1 );
-
-            }else {
-                $(this).children('div').children('i').addClass('checked')
-                $(this).children('div').children('i').show()
-                var observation_push = $(this).children('div').children('input').val();
-                array_children_observation.push(observation_push);
-            }
-            console.log(array_children_observation)
-        })
+    	$('.all-1').click(function(event) {
+    		$('.all-1').removeClass('all-1-click');
+    		$(this).addClass('all-1-click');
+    	});
+    </script>
+    <script type="text/javascript">
+		function myFunction() {
+		  var x = document.getElementById("checked");
+		  if (x.style.display === "none") {
+		    x.style.display = "block";
+		  } else {
+		    x.style.display = "none";
+		  }
+		}
 	 </script>
 
 	 <!-- clock -->

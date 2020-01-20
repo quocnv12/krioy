@@ -40,7 +40,7 @@
                     <div class="grid-title">
                         <div class="row">
                             <div class="col-md-6">
-                                <h4>List<span class="semi-bold">Health</span></h4>
+                                <h4>List    <span class="semi-bold">Health</span></h4>
                             </div>
 
                         </div>

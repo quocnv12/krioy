@@ -73,10 +73,10 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
     //---------------attendance----------------
     Route::group(['prefix' => 'attendance'], function () {
-        Route::get('', function () {
-            return view('pages.attendance.attendance');
-        });
+        Route::get('/','Admin\AttendanceChildrenController@index')->name('attendance.index');
+        Route::get('/{id}','Admin\AttendanceChildrenController@show')->name('attendance.show');
     });
+
     //---------------health----------------
     Route::group(['prefix' => 'health'], function () {
 
@@ -92,7 +92,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::post('them_child',['as'=>'admin.health.child','uses'=>'Admin\HealthController@postChild']);
         Route::get('search/children', 'Admin\HealthController@searchByName');
         Route::get('select_child/add','Admin\HealthController@addSelectChild');
-
+        Route::get('show/{id}','Admin\HealthController@showChildrenInProgram');
 
     });
 
