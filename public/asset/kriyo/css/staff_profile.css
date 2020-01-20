@@ -37,7 +37,7 @@ table th{
 	margin: 20px 0;
 }
 .mat-content div a img{
-    width: 70%;height: auto;
+    width: 120px;height: 120px;
     object-fit: cover;margin: 10px 0;
     border-radius: 50%;
     border: 2px solid #ff4081;
@@ -147,17 +147,6 @@ div > input:focus,select:focus{
     text-align: center;
     font-size: 20px;
     text-decoration: none;
-}
-.icon-plus-1 ul{
-    list-style-type: none;
-    padding-left: 0 !important;
-}
-.icon-plus-1 ul li{
-    font-size: 14px;
-    color: #fff;border: none;
-    margin-bottom: 7px;
-    border-radius: 20px;
-    padding: 0 10px;
 }
 
                     /*ADD_STAFF*/
@@ -318,9 +307,6 @@ select .mat-card .mat-content div > div.childClass:hover {
     margin: 30px;
     border:2px solid #ccc;
     background-color: #fff;
-}
-.textera-img{
-    margin-top: 40px;
 }
 .checked[_ngcontent-c9] {
     position: absolute;
@@ -516,10 +502,6 @@ button.mat-button-class{
         font-size: 14px;
         margin-left: 5px;
     }
-    .mat-content div a img{
-        margin: 10px 5px;
-        width: 50%;
-    }
     .btnClass[_ngcontent-c10]{
         left: -35px;bottom: -55px;
     }
@@ -534,29 +516,28 @@ button.mat-button-class{
 }
 
 @media (min-width: 411px) and (max-width: 620px){
-    .mat-content div a img{
-        margin: 10px 20px;
-        width: 40%;
-    }
     .btnClass[_ngcontent-c10],.textera-img span.img-span{
-        left: -50px;bottom: -55px;
+        left: -55px;bottom: -35px;
     }
 }
 @media (min-width: 621px) and (max-width: 767px){
      .mat-content div a img{
         margin: 10px 20px;
-        width: 35%;
     }
     .btnClass[_ngcontent-c10],.textera-img span.img-span{
-        left: -50px;bottom: -55px;
-    } 
+        left: -55px;bottom: -55px;
+    }
 }
 @media (min-width: 768px) and (max-width: 991px){
     .mat-content div a img{
-        width: 30%;
+        margin-left: 5px;height: 90px;
     }
     .btnClass[_ngcontent-c10],.textera-img span.img-span{
-        left: -65px;bottom: -75px;
+        left: 40px;bottom: 30px;
+        font-size: 15px;
+    }
+    .mat-content div a {
+         margin: 0px; 
     }
 }
 @media screen and (max-width: 767px) {

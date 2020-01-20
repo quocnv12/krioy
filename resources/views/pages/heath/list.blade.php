@@ -26,7 +26,7 @@
             <ul class="ul-td" style="width:100%">
                 <div class="col-md-12">
                     <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
-                    <li _ngcontent-c16="" class="active-1"><a _ngcontent-c16="" href="">Health</a></li>
+                    <li _ngcontent-c16="" class="active-1"><a _ngcontent-c16="" href="{{route('admin.health.getAdd')}}">Health</a></li>
                     <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="">Health</a></li>
                 </div>
             </ul>
@@ -40,7 +40,7 @@
                     <div class="grid-title">
                         <div class="row">
                             <div class="col-md-6">
-                                <h4>List<span class="semi-bold">Health</span></h4>
+                                <h4>List    <span class="semi-bold">Health</span></h4>
                             </div>
 
                         </div>
@@ -70,7 +70,14 @@
                                         <th  style="text-align:left;width:10%">{{$value->ChildrenProfiles-> first_name }}</th>
                                         <th style="text-align:left;width:10%">{{$value->ChildrenProfiles->last_name}}</th>
                                         <th style="text-align:left;width:18%">{{$value->ChildrenProfiles->birthday}}</th>
-                                        <th style="text-align:left;width:5%">{{$value->ChildrenProfiles->gender}}</th>
+                                        <th style="text-align:left;width:5%">
+                                            @if($value->ChildrenProfiles->gender==1)
+                                                {{"Nam"}}
+                                            @else
+                                                {{"Nữ"}}
+                                            @endif
+
+                                        </th>
                                         <th style="text-align: center">{{$value->sick}}</th>
                                         <th style="text-align:left;width:10%">{{$value->medicine}}</th>
                                         <th style="text-align:left;width:30%">

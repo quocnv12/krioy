@@ -35,10 +35,11 @@ a:focus{
   height: 350px;
   top: 0;
   left: 0;
-  background-color: #bd2130;
+  background-color: #5363d6;
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 60px; }
+  padding-top: 60px;
+  border-radius: 5px; }
   .menu_mobile #menu_mobile a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -92,13 +93,16 @@ a:focus{
     align-content: center;
     align-items: center; }
     .product1 .line .item:hover {
-      background: rgba(255, 192, 203, 0.5); }
+      background: rgba(255, 192, 203, 0.5);
+      border-radius: 5px;
+    box-shadow: 4px 4px 4px 0px #999; }
     .product1 .line .item a:hover {
       text-decoration: none; }
     .product1 .line .item img {
       width: 60px;
       height: 60px; 
-      display: inline-flex;}
+      display: inline-flex;
+      border-radius: 50%;}
       .product1 .line .item img:hover {
         transform: translate(0, -1em);
         transition: all 0.4s ease 0s; }
@@ -133,7 +137,9 @@ a:focus{
       align-content: center;
       align-items: center; }
       .product2 .line .item:hover {
-        background: rgba(255, 192, 203, 0.5); }
+        background: rgba(255, 192, 203, 0.5);
+        border-radius: 5px;
+    box-shadow: 4px 4px 4px 0px #999; }
       .product2 .line .item a:hover {
         text-decoration: none; }
       .product2 .line .item img {
@@ -151,7 +157,8 @@ a:focus{
           font-style: normal;
           font-weight: 500;
            padding-top: 13px;
-          margin-bottom: 1rem; }
+          margin-bottom: 1rem;
+          text-align: center; }
           .product2 .line .item .title p:hover {
             font-weight: 700; }
 
@@ -170,7 +177,9 @@ a:focus{
     align-content: center;
     align-items: center; }
     .product3 .line .item:hover {
-      background: rgba(255, 192, 203, 0.5); }
+      background: rgba(255, 192, 203, 0.5);
+      border-radius: 5px;
+    box-shadow: 4px 4px 4px 0px #999; }
     .product3 .line .item a:hover {
       text-decoration: none; }
     .product3 .line .item img {
@@ -188,12 +197,53 @@ a:focus{
         font-style: normal;
         font-weight: 500;
          padding-top: 13px;
-        margin-bottom: 1rem; }
+        margin-bottom: 1rem;
+        text-align: center; }
         .product3 .line .item .title p:hover {
           font-weight: 700; }
 
+.add-application .cap-main {
+  padding-top: 30px; }
+  .add-application .cap-main h3 {
+    font-size: 28px;
+    color: #333333;
+    text-align: center;}
+.add-application .line {
+  margin-top: 3%; }
+  .add-application .line .item {
+    padding: 1%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center; }
+    .add-application .line .item:hover {
+      background: rgba(255, 192, 203, 0.5);
+      border-radius: 5px;
+      box-shadow: 4px 4px 4px 0px #999; }
+    .add-application .line .item a:hover {
+      text-decoration: none; }
+    .add-application .line .item img {
+      width: 60px;
+      height: 60px; }
+      .add-application .line .item img:hover {
+        transform: translate(0, -1em);
+        transition: all 0.4s ease 0s; }
+    .add-application .line .item .title {
+      margin-top: 5%;
+      text-align: center; }
+      .add-application .line .item .title p {
+        color: black;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+         padding-top: 13px;
+        margin-bottom: 1rem;
+        text-align: center; }
+        .add-application .line .item .title p:hover {
+          font-weight: 700; }
+
 .product4 {
-  background-color: #f9f9f9; }
+  background-color: #fff; }
   .product4 .cap-main {
     padding-top: 30px; }
     .product4 .cap-main h3 {
@@ -209,12 +259,15 @@ a:focus{
       align-content: center;
       align-items: center; }
       .product4 .line .item:hover {
-        background: rgba(255, 192, 203, 0.5); }
+        background: rgba(255, 192, 203, 0.5);
+        border-radius: 5px;
+    box-shadow: 4px 4px 4px 0px #999; }
       .product4 .line .item a:hover {
         text-decoration: none; }
       .product4 .line .item img {
         width: 60px;
-        height: 60px; }
+        height: 60px;
+        border-radius: 50%; }
         .product4 .line .item img:hover {
           transform: translate(0, -1em);
           transition: all 0.4s ease 0s; }
@@ -227,7 +280,8 @@ a:focus{
           font-style: normal;
           font-weight: 500;
            padding-top: 13px;
-          margin-bottom: 1rem; }
+          margin-bottom: 1rem;
+          text-align: center; }
           .product4 .line .item .title p:hover {
             font-weight: 700; }
 
@@ -254,6 +308,11 @@ a:focus{
   }
   .hr{
     margin: 0 auto 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .menu_desktop .navbar-nav .nav-item .dropdown-menu{
+    left: 70%;
   }
 }
 @media screen and (max-width: 767px) {

@@ -68,8 +68,8 @@ List meal type
                                     <td style="text-align:center">{{ $item->id }}</td>
                                     <td style="text-align:center;text-transform:capitalize">{{ $item->name}}</td>
                                     <td style="text-align:center">
-                                    <a href="kids-now/food/menu-meal-type/edit/{{ $item->id }}" title="Edit Meal Type" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
-                                        <a onclick="return confirm('Delete meal type ? Do you want continue !')"" title="Delete Meal Type" href="kids-now/food/menu-meal-type/delete/{{ $item->id }}" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                    <a href="kids-now/food/menu-meal-type/edit/{{ $item->id }}" title="Edit Meal Type" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                        <a onclick="return confirm('Delete meal type ? Do you want continue !')"" title="Delete Meal Type" href="kids-now/food/menu-meal-type/delete/{{ $item->id }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
                               @endforeach

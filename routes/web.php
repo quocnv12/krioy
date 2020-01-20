@@ -30,8 +30,13 @@ Route::get('',function (){
     return view('pages.introduce.introduce-kid_now');
 });
 //---------------login----------------
-Route::get('login', 'Admin\LoginController@GetLogin')->middleware('CheckLogOut');
+Route::get('login', 'Admin\LoginController@GetLogin')->name('login')->middleware('CheckLogOut');
 Route::post('login', 'Admin\LoginController@PostLogin');
+
+Route::get('forgot', 'Auth\ForgotPasswordController@GetFormResetPassword')->name('get.reset.password');
+Route::post('forgot', 'Auth\ForgotPasswordController@PostFormResetPassword');
+Route::get('password/reset', 'Auth\ForgotPasswordController@ResetPassword')->name('link.reset.password');
+Route::post('password/reset', 'Auth\ForgotPasswordController@PostResetPassword');
 Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function () {
     Route::get('logout', 'Admin\LoginController@Logout');
     Route::get('/', function () {
@@ -54,28 +59,25 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         //search by typeahead
         Route::get('search/name', 'Admin\ChildrenProfilesController@searchByName');
     });
+
+
+    
     //---------------staff----------------
     Route::group(['prefix' => 'staff'], function () {
         Route::get('','Admin\Staff\StaffController@GetListStaff');
         Route::get('add','Admin\Staff\StaffController@GetAddStaff');
         Route::post('add','Admin\Staff\StaffController@PostAddStaff');
-
-        Route::get('edit', function () {
-            return view('pages.staff.edit_staff');
-        });
-        Route::get('profile', function () {
-            return view('pages.staff.profile');
-        });
-        Route::get('select', function () {
-            return view('pages.children.select_child');
-        });
+        Route::get('edit/{id}','Admin\Staff\StaffController@GetEditStaff');
+        Route::post('edit/{id}','Admin\Staff\StaffController@PostEditStaff');
+        Route::get('delete/{id}','Admin\Staff\StaffController@DeleteStaff');
     });
+
     //---------------attendance----------------
     Route::group(['prefix' => 'attendance'], function () {
-        Route::get('', function () {
-            return view('pages.attendance.attendance');
-        });
+        Route::get('/','Admin\AttendanceChildrenController@index')->name('attendance.index');
+        Route::get('/{id}','Admin\AttendanceChildrenController@show')->name('attendance.show');
     });
+
     //---------------health----------------
     Route::group(['prefix' => 'health'], function () {
 
@@ -91,10 +93,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::post('them_child',['as'=>'admin.health.child','uses'=>'Admin\HealthController@postChild']);
         Route::get('search/children', 'Admin\HealthController@searchByName');
         Route::get('select_child/add','Admin\HealthController@addSelectChild');
-
-        //Route::resource('health','Admin\HealthController');
-        //Route::get('xoa/{id}','Admin\HealthController@destroy')->name('deletehealth');
-        //Route::get('chitiet/{id}','Admin\HealthController@getChitiet')->name('Chitiet');
+        Route::get('show/{id}','Admin\HealthController@showChildrenInProgram');
 
     });
 

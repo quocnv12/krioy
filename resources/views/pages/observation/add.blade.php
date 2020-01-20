@@ -39,7 +39,7 @@
 			<div class="row">
 				<div class="mat-card" style="width: 100%">
 					<div class="mat-content">
-						<a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href="{{route('admin.observations.listobservationtype')}}" class="btn btn-defaul">ObservationType</a>
+						<a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white; float: left" href="{{route('admin.observations.listobservationtype')}}" class="btn btn-defaul">ObservationType</a>
 						<button class="accordion accordion1 clearfix" type="button">
 							<p style="float: left;">Children *</p>
 								{{--<form class="typeahead" role="search" style="float: right; text-align: left">--}}

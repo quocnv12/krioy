@@ -5,15 +5,18 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\StoreHeathRequests;
 use App\models\ChildrenProfiles;
 use App\models\HealthModel;
+use App\models\ObservationTypeModel;
+use App\models\Programs;
 use Faker\Provider\File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class HealthController extends Controller
 {
     public function getList(){
-        $health = HealthModel :: paginate(4);
+        $health = HealthModel :: all();
 
         return view('pages.heath.list', compact('health'));
     }
@@ -27,21 +30,60 @@ class HealthController extends Controller
     }
     public function getAdd(){
         $health = HealthModel::all();
-        return view('pages.heath.heath', compact('health'));
+        $programs = Programs::all();
+        return view('pages.heath.heath', compact('health','programs'));
     }
     public function postAdd(Request $request){
-        $health = new HealthModel;
-        $imageName = $request->file('image')->getClientOriginalName();
-        $request->file('image')->move(
-            base_path(). 'images/'.$imageName
-        );
-        $health->sick= $request->sick;
-        $health->medicine= $request->medicine;
-        $health->growth_height= $request->growth_height;
-        $health->growth_weight= $request->growth_weight;
-        $health->incident= $request->incident;
-        $health->save();
-        return redirect()->route('admin.health.list')->with(['flash_level'=>'success','flash_message'=>'Thêm tin  thành công!!!']);
+        $image = $request->image;
+        $img_current ='images/'.$request->image;
+        if(!empty($image)) {
+            $filename= $image->getClientOriginalName();
+            $health = new HealthModel();
+            $health->id_children = $request->children_health;
+
+
+            $health->sick= $request->sick;
+            $health->medicine= $request->medicine;
+            $health->growth_height= $request->growth_height;
+            $health->growth_weight= $request->growth_weight;
+            $health->incident= $request->incident;
+            $health->blood_group = $request->blood_group;
+            $health->image= $request->image;
+            $health->file_pdf= $request->file_pdf;
+            $health->save();
+
+            $image ->move(base_path() . 'images/', $filename);
+            File::delete($img_current);
+        }else {
+            $health = new HealthModel();
+            $health->id_children = $request->children_health;
+
+            $health->sick= $request->sick;
+            $health->medicine= $request->medicine;
+            $health->growth_height= $request->growth_height;
+            $health->growth_weight= $request->growth_weight;
+            $health->incident= $request->incident;
+
+            $health->blood_group = $request->blood_group;
+            $health->file_pdf= $request->file_pdf;
+            $health->save();
+        }
+
+
+        if ($request->programs) {
+            //string to array
+            $programs = explode(',', $request->programs);
+            //luu vao bang children_programs
+            foreach ($programs as $program) {
+                $children_program = new ChildrenProgram();
+                $children_program->id_children = $children_id;
+                $children_program->id_program = $program;
+                $children_program->save();
+            }
+            $children_program->save();
+        }
+        return redirect()->route('admin.health.list');
+
 
     }
 
@@ -75,10 +117,11 @@ class HealthController extends Controller
             $health->growth_height= $request->growth_height;
             $health->growth_weight= $request->growth_weight;
             $health->incident= $request->incident;
+            $health->save();
         }
 
 
-        return redirect()->route('admin.heath.list')->with(['flash_level'=>'success','flash_message'=>'Edit tin tuyển dụng thành công!!!']);
+        return redirect()->route('admin.health.list')->with(['flash_level'=>'success','flash_message'=>'Edit tin tuyển dụng thành công!!!']);
     }
 
     public function getDelete($id){
@@ -155,6 +198,18 @@ class HealthController extends Controller
             return Response($output);
         }
     }
+    public function showChildrenInProgram($id){
+        $observationtype = ObservationTypeModel::all();
+        $programs = Programs::all();
+        $children_profiles = DB::table('children_profiles')
+            ->join('children_programs','children_profiles.id','=','children_programs.id_children')
+            ->where('children_programs.id_program','=',$id)
+            ->get();
+        return view('pages.heath.heath',['children_profiles'=>$children_profiles,
+            'observationtype'=>$observationtype,
+            'programs'=>$programs]);
+    }
+
 
 
 

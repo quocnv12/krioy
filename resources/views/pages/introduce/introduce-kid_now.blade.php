@@ -9,6 +9,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
    		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
     	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+    	<link rel="icon" href="images/a.png"/>
 
     	<link rel="stylesheet" href="asset/kriyo/css/bootstrap.min.css">
     	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
@@ -32,7 +33,7 @@
 				    	</a>
 				    	<div class="topnav" id="myTopnav">
 						    <a href="food.html">HOME</a>
-						    <a href="#">KID NOW APP</a>
+						    <a href="#">KIDS NOW APP</a>
 						    <a href="#">PRICING</a>
 						    <a href="#">ABOUT US</a>
 						    <a href="login">LOGIN</a>
@@ -76,7 +77,7 @@
 	<section class="introduce-school">
 		<div class="container">
 			<div class="schoolTiltle">
-				<h2>KID NOW APP</h2>
+				<h2>KIDS NOW APP</h2>
 				<div class="hr"></div>	
 			</div>
 			<div class="row">
@@ -110,7 +111,7 @@
 					<p>Get useful insights about your school through easy to read reports</p>
 				</div>
 				<div class="col-sm-4 col-md-4">
-					<img class="features-block__image" src="https://s3.amazonaws.com/lssplprod/templateimages/NewloginGiff.gif" alt="">
+					<img class="features-block__image" src="images/kidsnow.png" alt="">
 				</div>
 				<div class="col-sm-4 col-md-4 featured-item">
 					<img src="images/Diary.png" alt="">
@@ -160,7 +161,7 @@
 	<section class="introduce-parent">
 		<div class="container">
 			<div class="schoolTiltle">
-				<h2>KID NOW PARENT APP</h2>
+				<h2>KIDS NOW PARENT APP</h2>
 				<div class="hr"></div>	
 			</div>
 			<div class="row">
@@ -224,7 +225,7 @@
 		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Khanh-1</p>
+		                    	<p class="item-a">Nguyen Van Khanh</p>
 		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
 		                    </div>
 		                </div>                 
@@ -237,7 +238,7 @@
 		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Khanh-2</p>
+		                    	<p class="item-a">Nguyen Thu Ha</p>
 		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
 		                    </div>
 		                </div>                 
@@ -250,7 +251,7 @@
 		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Khanh-3</p>
+		                    	<p class="item-a">Nguyen Khanh Linh</p>
 		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
 		                    </div>
 		                </div>                 
@@ -263,7 +264,7 @@
 		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Khanh-4</p>
+		                    	<p class="item-a">Tran Trong Hieu</p>
 		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
 		                    </div>
 		                </div>                 
@@ -377,8 +378,8 @@
 			<div class="hr"></div>	
 		</div>
 		<div class="container">
-			<div class="row">
-				<div class="col-xs-6 col-sm-3 col-md-3">
+			<div class="row"> 
+				<div class="col-xs-6 col-sm-3 col-md-3 banner-img">
 					<img src="images/sun.png" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-3 col-md-3">
@@ -447,7 +448,7 @@
 				<h2>About Us</h2>
 				<div class="hr"></div>	
 			</div>
-			<p>Kids Now is an initiative by Alumni of IIM-Ahmedabad, ISB-Hyderabad and IIT-Kharagpur. We have come together to bring a digital transformation in Early Childhood Care & Education (ECCE) industry. We at Kids Now, are building a range of Products that cater to Digital Administration of Pre-Schools & Creches to manage the complete academic cycle starting from enquiries, admissions, fee payments to providing seamless communication with Parents and help the School Owners grow their business.</p>
+			<p>Kids Now ipsum dolor sit amet, consectetur adipisicing elit. Delectus possimus aut eaque adipisci, accusamus illum exercitationem labore sequi tenetur vitae, est ipsum. Cupiditate quas laboriosam, autem cumque sint quia cum odit eligendi dolore, consequatur nobis rem ipsa dolorem non, eum eius earum quo voluptate repellendus vitae maxime. Beatae natus atque praesentium soluta ut voluptate, cupiditate ipsum tempora iste distinctio, sit corrupti inventore ea suscipit, odit modi illo omnis animi quae.</p>
 		</div>
 	</section>
 	<section class="container">
@@ -456,7 +457,7 @@
 				<h2>Our Team</h2>
 				<div class="hr"></div>	
 			</div>
-			<div class="row">
+			<div class="row our-team">
 				<div class="col-sm-4 col-md-4">
 					<img src="images/hai.png" alt="">
 					<p>Mr. Vũ Minh Hải</p>
@@ -464,15 +465,15 @@
 					<span style="font-size: 14px;color: #5363d6;">Talent Wins</span>
 				</div>
 				<div class="col-sm-4 col-md-4">
-					<img src="images/xuan.png" alt="">
+					<img src="images/hiep.png" alt="">
 					<p>Mr. Lê Anh Xuân</p>
-					<span style="color: cornflowerblue;font-size: 15px;">CEO</span>
-					<span style="font-size: 14px;color: #5363d6;">Ths. Khoa Học Máy Tính</span>
+					<span style="color: cornflowerblue;font-size: 15px;">Co founder</span>
+					<span style="font-size: 14px;color: #5363d6;">Ts. Khoa Học Máy Tính</span>
 				</div>
 				<div class="col-sm-4 col-md-4">
-					<img src="images/hiep.png" alt="">
+					<img src="images/xuan.png" alt="">
 					<p>Mr. Nguyễn Quang Hiệp</p>
-					<span style="color: cornflowerblue;font-size: 15px;">CEO</span>
+					<span style="color: cornflowerblue;font-size: 15px;">Co founder</span>
 					<span style="font-size: 14px;color: #5363d6;">Ths. Khoa Học Máy Tính</span>
 				</div>
 			</div>
@@ -495,13 +496,13 @@
 	<footer class="site-footer">
 		<div class="container">
 			<div class="row icon-lienket">
-			 	<a href="#">
-			 		<img src="images/facebook-circle-white.png" alt="" title="Face-book">
+			 	<a href="https://www.facebook.com/Web88Pro/">
+			 		<img src="images/facebook-circle-white.png" alt="" title="Facebook">
 			 	</a>
-			 	<a href="#">
-			 		<img src="images/linkedin-circle-white.png" title="Linkedin">
+			 	<a href="https://www.instagram.com/accounts/login/?hl=vi">
+			 		<img src="images/linkedin-circle-white.png" title="Instagram">
 			 	</a>
-			 	<a href="#">
+			 	<a href="https://mail.google.com/mail/u/0/#inbox">
 			 		<img src="images/mail-circle-white.png" alt="" title="Email">
 			 	</a>
 			</div>
@@ -520,7 +521,7 @@
 
 	<div class="modal fade bd-example-modal-sm modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-sm" style="width: 560px;">
-		    <iframe width="560" height="315" src="https://www.youtube.com/embed/XNl6uV26wgQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		   <iframe width="560" height="315" src="https://www.youtube.com/embed/SrEPQMRfzoc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		</div>			
 	</div>
 	<div class="modal fade bd-example-modal-sm1 modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
