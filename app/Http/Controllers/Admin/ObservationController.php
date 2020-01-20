@@ -7,14 +7,14 @@ use App\Http\Controllers\Controller;
 use App\models\ObservationTypeModel;
 use App\models\Programs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
 
 class ObservationController extends Controller
 {
     public function getList(){
-        $observationtype= ObservationModel::all();
-        return view('pages.observation.list', compact('observationtype'));
+        return view('pages.observation.list');
     }
 
     public function getChild(){
@@ -34,64 +34,83 @@ class ObservationController extends Controller
 
     public function postAdd(Request $request)
     {
-//        $observationtype = ObservationModel::create($request->all());
-//        $observationtype->save();
-//
-//        if ($request->array_all_children !== null) {
-//            //string to array
-//            $array_all_children = explode(',', $request->array_all_children);
-//
-//            //luu vao bang children_programs
-//            foreach ($array_all_children as $children) {
-//                $children_program = new ChildrenProfiles();
-//                $children_program->id_children = $children;
-//                $children_program->save();
-//            }
-//            $children_program->save();
-//        }
-//        return redirect()->back()->with('notify', 'Added Successfully');
+        $this->validate($request,
+            [
+                'observations'          =>  'required',
+                'children_observations' =>  'required',
+                'detailObservation'     =>  'nullable',
+            ],
+            [
+                'observations.required' =>  'Please choose observations',
+                'children_observations.required' =>  'Please choose children',
+            ]);
 
-        if ($request->programs) {
-            //string to array
-            $programs = explode(',', $request->programs);
-            //luu vao bang children_programs
-            foreach ($programs as $program) {
-                $children_program = new ChildrenProgram();
-                $children_program->id_children = $children_id;
-                $children_program->id_program = $program;
-                $children_program->save();
+
+        //string to array
+        $children_observations = explode(',', $request->children_observations);
+        //luu vao bang observations
+        foreach ($children_observations as $children_id) {
+            $check_id_children_isset = ObservationModel::where('id_children','=',$children_id)->first();
+            $month_check = date('m', strtotime($check_id_children_isset->created_at->month));
+            $year_check = date('Y', strtotime($check_id_children_isset->created_at->year));
+
+            if (isset($check_id_children_isset)) {
+                if (($month_check == now()->month) && ($year_check == now()->year)){
+                    $child_observation = ObservationModel::where('id_children','=',$children_id)->first();
+                    $child_observation->id_observations = $request->observations;
+                    $child_observation->detailObservation = $request->detailObservation;
+                    $child_observation->save();
+                }else{
+                    $child_observation = new ObservationModel();
+                    $child_observation->id_children = $children_id;
+                    $child_observation->id_observations = $request->observations;
+                    $child_observation->detailObservation = $request->detailObservation;
+                    $child_observation->save();
+                }
+            }else{
+                $child_observation = new ObservationModel();
+                $child_observation->id_children = $children_id;
+                $child_observation->id_observations = $request->observations;
+                $child_observation->detailObservation = $request->detailObservation;
+                $child_observation->save();
             }
-            $children_program->save();
         }
-
-    }
-    public function getDelete($id){
-        $observation= DB::table('observations')->where('id',$id)->delete();
-        return redirect()->route('admin.observations.list', compact('observationtype'))->with(['flash_level'=>'success','flash_message'=>'Del tin tuyển dụng thành công!!!']);
+        return redirect()->back()->with('notify','Add successfully');
     }
 
     public function getEdit($id)
     {
         $vendors = ObservationTypeModel::all();
-        $childrent =DB::table('children_profiles')->where('id',$id)->first();
+        $children_profiles = ChildrenProfiles::find($id);
+        $observationtype = ObservationTypeModel::all();
+        $child_observation = ObservationModel::where('id_children','=',$id)->first();
+        $array_observation_choose = explode(',',$child_observation->id_observations);
 
-        $observationtype = DB::table('observations')->where('id',$id)->first();
-
-        return view('pages.observation.sua',compact('observationtype','vendors','childrent'));
+        return view('pages.observation.edit',compact('observationtype','vendors','children_profiles','array_observation_choose'));
     }
     public function postEdit(Request $request, $id){
-        $observationtype = ObservationTypeModel::find($id);
-       $observationtype->name=$request->name;
-        $observationtype->detailObservation= $request->detailObservation;
-        $observationtype->save();
+        $this->validate($request,
+            [
+                'observations'          =>  'required',
+                'detailObservation'     =>  'nullable',
+            ],
+            [
+                'observations.required' =>  'Please choose observations',
+            ]);
 
-        return redirect('kids-now/observations/danhsach');
+        $child_observation = ObservationModel::where('id_children','=',$id)->first();
+        $child_observation->id_observations = $request->observations;
+        $child_observation->detailObservation = $request->detailObservation;
+        $child_observation->save();
+        return redirect()->back()->with('notify','Edit successfully');
     }
+
+    public function getDelete($id){
+        $observation= DB::table('observations')->where('id',$id)->delete();
+        return redirect()->route('admin.observations.list', compact('observationtype'))->with(['flash_level'=>'success','flash_message'=>'Delete successfully!!!']);
+    }
+
     public function getSearch(Request $req){
-
-
-
-
         $search = DB::table('observations')
            ->join('children_profiles','children_profiles.id','=','observations.id_children')
            ->join('observations_type','observations_type.id','=','observations.id_observations')
@@ -168,6 +187,5 @@ class ObservationController extends Controller
                                                     'observationtype'=>$observationtype,
                                                     'programs'=>$programs]);
     }
-
 
 }

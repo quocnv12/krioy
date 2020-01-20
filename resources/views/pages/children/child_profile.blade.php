@@ -54,6 +54,12 @@
 	<section style="background-color:#f9f9f9">
 		<div class="container">
 			<div class="scrollmenu-div">
+				<div class="scrollmenu-button" style="text-align: center;">
+					<!---->
+					<button type="submit" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
+						<a style="color: #fff;" href="kids-now/children/0">Untagged</a>
+					</button>
+				</div>
 				@foreach($programs as $program)
 				<div class="scrollmenu-button" style="text-align: center;">
 					<!---->
@@ -75,7 +81,7 @@
 						@foreach($children_profiles as $children)
 							<div class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted" style="padding:10px;cursor:pointer;">
 								<div type="button" data-toggle="modal" data-target=".bd-example-modal-sm" style="height: 120px;text-align: center;-webkit-appearance: none;">
-									<img class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="assets/ls-icons/Child.png">
+									<img class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="{{$children->image}}" style="height: 80px;">
 									<!---->
 									<span class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;display: block;" >{{$children->first_name}} {{$children->last_name}}</span>
 									<!---->
@@ -92,8 +98,13 @@
 				</div>
 			</div>
 		</div>
+		@if(isset($children_profiles))
+			<div style="display: flex; justify-content: center">
+				{{$children_profiles->links()}}
+			</div>
+		@endif
 		<div class="icon-plus" title="add">
-			<a href="kids-now/children/add">
+			<a href="kids-now/observations/add">
 				<i class="fa fa-plus"></i>
 			</a>
 		</div>
@@ -104,9 +115,8 @@
 						<li style="color: #5363d6!important">Go to</li>
 						<li class="modal-li" data-href="" id="profile_children">Profile</li>
 						<li class="modal-li" data-href="" id="health_children">Health</li>
-						<li class="modal-li" data-href="" id="attachments_children">Attachments</li>
-						<li class="modal-li" data-href="" id="authorised_pickups_children">Authoriesd Pickups</li>
-						<li class="modal-li" data-href="" id="authorised_pickups_children">Authoriesd Pickups</li>
+						<li class="modal-li" data-href="" id="attachments_children" style="pointer-events: none">Attachments</li>
+						<li class="modal-li" data-href="" id="authorised_pickups_children" style="pointer-events: none">Authorised Pickups</li>
 					</ul>
 				</div>
 			</div>
@@ -135,10 +145,8 @@
     	$(document).ready(function($) {
 			$('div.div_box_children').click(function () {
 				var id_children = $(this).children('div').children('input').val();
-				$('li#profile_children').attr('data-href','/kids-now/children/edit/'+id_children);
+				$('li#profile_children').attr('data-href','/kids-now/children/view/'+id_children);
 				$('li#health_children').attr('data-href','/kids-now/health/sua/'+id_children);
-				$('li#attachments_children').attr('data-href','/kids-now/children/edit/'+id_children);
-				$('li#authoriesd_pickups_children').attr('data-href','/kids-now/children/edit/'+id_children);
 			});
 
 			$(".modal-li").click(function() {
@@ -221,39 +229,5 @@
 			}]
 		});
 	</script>
-	{{--<script type="text/javascript">--}}
-		{{--$('ul').slick({--}}
-			{{--infinite: true,--}}
-			{{--slidesToShow: 6,--}}
-			{{--slidesToScroll: 1,--}}
-			{{--arrows: true,--}}
-			{{--autoplay: true,--}}
-			{{--autoplaySpeed: 2000,--}}
-			{{--responsive: [{--}}
-					{{--breakpoint: 1200,--}}
-					{{--settings: {--}}
-					{{--slidesToShow: 3,--}}
-					{{--slidesToScroll: 1--}}
-					{{--}--}}
-				{{--},--}}
-			{{--{--}}
-				{{--breakpoint: 991,--}}
-				{{--settings: {--}}
-				{{--slidesToShow: 2,--}}
-				{{--slidesToScroll: 1,--}}
-				{{--autoplay: true,--}}
-				{{--arrows:false,--}}
-				{{--}--}}
-			{{--},--}}
-			{{--{--}}
-				{{--breakpoint: 500,--}}
-				{{--settings: {--}}
-				{{--slidesToShow: 1,--}}
-				{{--slidesToScroll: 1,--}}
-				{{--autoplay: true,--}}
-				{{--arrows:false,--}}
-				{{--}--}}
-			{{--}]--}}
-		{{--});--}}
-	{{--</script>--}}
+
 @endsection
