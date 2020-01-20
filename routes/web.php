@@ -30,8 +30,13 @@ Route::get('',function (){
     return view('pages.introduce.introduce-kid_now');
 });
 //---------------login----------------
-Route::get('login', 'Admin\LoginController@GetLogin')->middleware('CheckLogOut');
+Route::get('login', 'Admin\LoginController@GetLogin')->name('login')->middleware('CheckLogOut');
 Route::post('login', 'Admin\LoginController@PostLogin');
+
+Route::get('forgot', 'Auth\ForgotPasswordController@GetFormResetPassword')->name('get.reset.password');
+Route::post('forgot', 'Auth\ForgotPasswordController@PostFormResetPassword');
+Route::get('password/reset', 'Auth\ForgotPasswordController@ResetPassword')->name('link.reset.password');
+Route::post('password/reset', 'Auth\ForgotPasswordController@PostResetPassword');
 Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function () {
     Route::get('logout', 'Admin\LoginController@Logout');
     Route::get('/', function () {

@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Kriyo Login</title>
+		<title>Kids-now Login</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<link rel="stylesheet" href="asset/kriyo/css/index.css">
@@ -35,6 +35,10 @@
 					@if (session('thongbao'))
 					<p style="font-size: 14px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;width:80%;margin-top:20px;margin-bottom:0px;">* {{ session('thongbao') }}</p>
 					@endif
+					@if (session('success'))
+					<p style="font-size: 14px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;width:80%;margin-top:20px;margin-bottom:0px;">* {{ session('success') }}</p>
+					@endif
+						<p style="margin-top:10px;color:red" id="expired"></p>
 						<div class="add">
 							<div class="input_box" style="width: 100%;">
 						        <span>Phone Number *</span>
@@ -54,11 +58,16 @@
 							</div>
 						</div>
 					</div>
+					<div style="margin-top:10px" class="row">
+						<div class="col-md-6" >
+						
+							<input type="checkbox"  name="remember"> Remember me
+						
+						</div>
+						<a href="forgot">Forgot password?</a>
+					</div>
 					<div class="login-button" align="center">
-						<button type="submit">
-							<span>Login</span>
-						</button>
-						<a data-toggle="modal" data-target="#myModal-login">Forgot password?</a>
+						<button type="submit"><span>Login</span></button>
 					</div>
 				</div>
 			</form>
@@ -90,59 +99,37 @@
 			</div>
 		</div>
 	</footer>
-	<div class="modal fade" id="myModal-login" role="dialog">
-		<div class="modal-dialog">
-	      <!-- Modal content-->
-	    	<div class="modal-content">
-		        <div class="modal-header" style="background-color:#FF4081;color:#fff;border-radius: 5px 5px 0px 0px">
-		        	<button type="button" class="close" data-dismiss="modal" style="font-size:30px;color:#fff;opacity:1">&times;</button>
-		        	<h4 class="modal-title" align="center" style="text-transform: none;font-size:18px;font-weight: 600;">Forgot password</h4>
-		        </div>
-		        <div class="modal-body" style="border-radius: 0px 0px 5px 0px;margin-bottom: 5px;overflow:auto;height: auto;">
-		        	<div class="row add">
-		          		<div class="col-md-6 input_box">
-		          			<span>Email *</span>
-		          			<input type="email" name="" placeholder="Email">
-		          		</div>
-		          		<div class="col-md-6 input_box">
-		          			<span>Phone Number *</span>
-		          			<input type="number" name="" placeholder="Phone Number *">
-		          		</div>
-		        	</div>
-		        	<div style="margin: 10px 0;">
-		        		<button style="width: 76px;float:right;margin-right: 10px;background: #ff4081;box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);color: white;border-radius: 5px;">OK</button>
-		        	</div>
-		        </div>
-	     	</div>
-	    </div>
-	</div>
 
-	<div class="modal fade" id="myModal-login" role="dialog">
-		<div class="modal-dialog">
+
+	{{-- <div class="modal fade" id="myModal-login" role="dialog">
+		<div class="modal-dialog modal-sm">
 	      <!-- Modal content-->
 	    	<div class="modal-content">
 		        <div class="modal-header" style="background-color:#FF4081;color:#fff;border-radius: 5px 5px 0px 0px">
 		        	<button type="button" class="close" data-dismiss="modal" style="font-size:30px;color:#fff;opacity:1">&times;</button>
 		        	<h4 class="modal-title" align="center" style="text-transform: none;font-size:18px;font-weight: 600;">Forgot password</h4>
-		        </div>
-		        <div class="modal-body" style="border-radius: 0px 0px 5px 0px;margin-bottom: 5px;overflow:auto;height: auto;">
-		        	<div class="row add">
-		          		<div class="col-md-6 input_box">
-		          			<span>Email *</span>
-		          			<input type="email" name="" placeholder="Email">
-		          		</div>
-		          		<div class="col-md-6 input_box">
-		          			<span>Phone Number *</span>
-		          			<input type="number" name="" placeholder="Phone Number *">
-		          		</div>
-		        	</div>
-		        	<div style="margin: 10px 0;">
-		        		<button style="width: 76px;float:right;margin-right: 10px;background: #ff4081;box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);color: white;border-radius: 5px;">OK</button>
-		        	</div>
-		        </div>
+				</div>
+				<form action="forgot" method="POST">
+					@csrf
+					<div class="modal-body" style="border-radius: 0px 0px 5px 0px;margin-bottom: 5px;overflow:auto;height: auto;">
+						<div class="add">
+							
+								<p style="text-align:left;    padding: 0px 0px 5px 0px;">Email *</p>
+								@if ($errors->has('emailreset'))
+								<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;text-align: left;width:80%;">* {{ $errors->first('emailreset') }}</p>
+								@endif
+								<input type="text" name="emailreset" class="form-control" placeholder="Please Enter Email">
+								
+							</div>
+						
+						<div  style="margin: 10px 0;">
+							<button type="submit" style="margin:0px;width: 76px;float:right;margin-right: 10px;background: #ff4081;box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);color: white;border-radius: 5px;">OK</button>
+						</div>
+					</div>
+			</form>
 	     	</div>
 	    </div>
-	</div>
+	</div> --}}
 </body>
 
 	<script src="https://code.jquery.com/jquery.min.js"></script>
@@ -168,5 +155,18 @@
 	      		$(this).siblings('span').removeClass('input_box_span_active');
 	    	}
 		});
+		@if(session()->has('expired'))
+			var expired = document.getElementById('expired');
+			var time = {{ session()->get('expired') }}
+			var countDown = setInterval(() => {
+				if(time <= 1)
+				{
+					clearInterval(countDown);
+					expired.style.display = "none";
+				}
+				time--;
+				expired.innerHTML = `Please waiting for ${time}s to continue`;
+			},1000)
+		@endif
 	</script>
 </html>
