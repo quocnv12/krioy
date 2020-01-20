@@ -28,6 +28,12 @@
 					</div>
 				</div>
 			</div>
+			@if(session('notify'))
+				<div class="alert alert-success font-weight-bold">
+					{{session('notify')}}
+				</div>
+
+			@endif
 		<form style="width: auto;margin: 0;text-align: center" action="{{route('admin.observations.postAdd')}}" method="post" id="addObservation" enctype="multipart/form-data">
 			@csrf
 			<div class="row">
@@ -52,27 +58,33 @@
                         </div>
                         <div class="row">
                             @if(isset($children_profiles))
-                                @foreach($children_profiles as $children)
-                                    <div class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted" style="padding:10px;cursor:pointer;">
-                                        <div type="button" data-toggle="modal" data-target=".bd-example-modal-sm" style="height: 120px;text-align: center;-webkit-appearance: none;">
-                                            <img class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="images/Child.png">
-                                            <i _ngcontent-c9="" aria-hidden="true" class="fa fa-check" id="checked" style="display: block;top:10px"></i>                                            <span class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;display: block;">{{$children->first_name}} {{$children->last_name}}</span>
-                                            <input type="hidden" value="{{$children->id}}">
-                                        </div>
-                                    </div>
-                                @endforeach
+								@if(count($children_profiles) > 0)
+									@foreach($children_profiles as $children)
+										<div class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted" style="padding:10px;cursor:pointer;">
+											<div type="button" data-toggle="modal" data-target=".bd-example-modal-sm" style="height: 120px;text-align: center;-webkit-appearance: none;">
+												<img class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="images/Child.png">
+												<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check" id="checked" style="display: block;top:10px"></i>                                            <span class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;display: block;">{{$children->first_name}} {{$children->last_name}}</span>
+												<input type="hidden" value="{{$children->id}}">
+											</div>
+										</div>
+									@endforeach
+								@else
+									<div style="font-weight: bold; margin: 50px">No Children were founded</div>
+								@endif
                                 <input id="array_children_observation" type="hidden" value="" name="children_observations">
+							@else
+								<div style="margin: 50px;">
+									<span style="color: red; font-weight: bold">Hint :</span>
+									<span>Click on a program tab in horizontal scroll bar to show all children in that program</span>
+								</div>
                             @endif
                         </div>
-
-						<div class="panel" >
-							<div class="row" id="children_list">
-								 {{--ajax ObservationController@addSelectChildren do vao day--}}
-
-							</div>
-							<input type="hidden" id="array_all_children" name="array_all_children" value="">
-						</div>
 					</div>
+					@if ($errors->has('children_observations'))
+						<div class="text text-danger">
+							{{ $errors->first('children_observations') }}
+						</div>
+					@endif
 					<hr>
 					<div class="mat-content">
 						<button class="accordion" type="button">Observation Type</button>
@@ -80,13 +92,19 @@
 							<div _ngcontent-c20="" class="row" style="">
 								@foreach($observationtype  as $observation)
 									<div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer;">
-										<button type="button" _ngcontent-c20="" name="observation" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" data-toggle="tooltip" title="{{$observation->name}}" value="{{$observation->id}}">{{$observation->name}} </button>
+										<button type="button" _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" data-toggle="tooltip" title="{{$observation->name}}" value="{{$observation->id}}">{{$observation->name}} </button>
 									</div>
 								@endforeach
 								<input id="array_observation" type="hidden" value="" name="observations">
+
 							</div>
 						</div>
 					</div>
+					@if ($errors->has('observations'))
+						<div class="text text-danger">
+							{{ $errors->first('observations') }}
+						</div>
+					@endif
 					<div class="comment">
 						<div class="row">
 							<div class="col-md-11 input_box">
@@ -213,7 +231,6 @@
         //end select children_observation
 		var button = document.getElementById("submit_button");
 		button.onclick = function(){
-			alert("Thông tin đã lưu thành công!!!");
 			$('#array_all_children').attr('value', array_children);
 			$('#array_observation').attr('value', array_observation);
 			$('#array_children_observation').attr('value', array_children_observation);

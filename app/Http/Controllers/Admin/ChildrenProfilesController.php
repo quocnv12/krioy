@@ -31,6 +31,7 @@ class ChildrenProfilesController extends Controller
                 'last_name'         => 'required',
                 'birthday'          => 'required',
                 'gender'            => 'required',
+                'date_of_joining'   => 'required',
                 'unique_id'         => 'required|unique:children_profiles,unique_id',
                 'address'           => 'nullable',
                 'allergies'         => 'nullable',
@@ -41,7 +42,7 @@ class ChildrenProfilesController extends Controller
 
                 'first_name_parent_1'   => 'nullable',
                 'last_name_parent_1'    => 'nullable',
-                'phone_parent_1'        => 'numeric|nullable',
+                'phone_parent_1'        => 'numeric|nullable|digits_between:9,12',
                 'email_parent_1'        => 'email|nullable',
                 'gender_parent_1'       => 'nullable',
                 'note_parent_1'         => 'nullable',
@@ -50,7 +51,7 @@ class ChildrenProfilesController extends Controller
 
                 'first_name_parent_2'   => 'nullable',
                 'last_name_parent_2'    => 'nullable',
-                'phone_parent_2'        => 'numeric|nullable',
+                'phone_parent_2'        => 'numeric|nullable|digits_between:9,12',
                 'email_parent_2'        => 'email|nullable',
                 'gender_parent_2'       => 'nullable',
                 'note_parent_2'         => 'nullable',
@@ -58,19 +59,22 @@ class ChildrenProfilesController extends Controller
                 'image_parent_2'        => 'image|nullable',
             ],
             [
-                'first_name.required'       => 'Please input first name',
-                'last_name.required'        => 'Please input last name',
-                'gender.required'           => 'Please choose gender',
-                'image.image'               => 'Image is invalid',
-                'birthday.required'         => 'Please input birthday',
-                'phone_parent_1.numeric'    => 'Number is invalid',
-                'phone_parent_2.numeric'    => 'Number is invalid',
-                'email_parent_1.email'      => 'Email is invalid',
-                'email_parent_2.email'      => 'Email is invalid',
-                'unique_id.unique'          => 'ID is exist',
-                'unique_id.required'        => 'Please input unique ID',
-                'image_parent_1.image'      => 'Image is invalid',
-                'image_parent_2.image'      => 'Image is invalid',
+                'first_name.required'           => 'Please input first name',
+                'last_name.required'            => 'Please input last name',
+                'gender.required'               => 'Please choose gender',
+                'image.image'                   => 'Image is invalid',
+                'birthday.required'             => 'Please input birthday',
+                'date_of_joining.required'      => 'Please input date of joining',
+                'phone_parent_1.numeric'        => 'Number is invalid',
+                'phone_parent_2.numeric'        => 'Number is invalid',
+                'phone_parent_1.digits_between' => 'The length is between 9 -12 digits',
+                'phone_parent_2.digits_between' => 'The length is between 9 -12 digits',
+                'email_parent_1.email'          => 'Email is invalid',
+                'email_parent_2.email'          => 'Email is invalid',
+                'unique_id.unique'              => 'ID is exist',
+                'unique_id.required'            => 'Please input unique ID',
+                'image_parent_1.image'          => 'Image is invalid',
+                'image_parent_2.image'          => 'Image is invalid',
             ]);
         $children_profiles = ChildrenProfiles::create($request->all());
         if ($request->hasFile('image')) {
@@ -164,18 +168,27 @@ class ChildrenProfilesController extends Controller
     {
         //
         $programs = Programs::all();
-        $children_profiles = DB::table('programs')
-            ->join('children_programs', 'programs.id', '=', 'children_programs.id_program')
-            ->join('children_profiles', 'children_profiles.id', '=', 'children_programs.id_children')
-            ->select(['children_profiles.*'])
-            ->where('children_programs.id_program', '=', $id)
-            ->get();
+
+        if ($id == 0){
+            $children_profiles = DB::table('children_profiles')
+                ->leftJoin('children_programs', 'children_profiles.id', '=', 'children_programs.id_children')
+                ->select(['children_profiles.*'])
+                ->where('children_programs.id_program', '=', null)
+                ->simplePaginate(18);
+        }
+        else{
+            $children_profiles = DB::table('programs')
+                ->join('children_programs', 'programs.id', '=', 'children_programs.id_program')
+                ->join('children_profiles', 'children_profiles.id', '=', 'children_programs.id_children')
+                ->select(['children_profiles.*'])
+                ->where('children_programs.id_program', '=', $id)
+                ->simplePaginate(18);
+        }
+
         return view('pages.children.child_profile', ['children_profiles' => $children_profiles, 'programs' => $programs]);
     }
 
-    public function edit($id)
-    {
-        //
+    public function view($id){
         $children_profiles = ChildrenProfiles::find($id);
         $programs = Programs::all();
         $programs_choose = DB::table('programs')
@@ -194,7 +207,54 @@ class ChildrenProfilesController extends Controller
             ->where('id_children', '=', $id)
             ->get();
 
-        if (count($parent_profiles_all) > 1){
+        if (count($parent_profiles_all) == 2){
+            $parent_profiles_1 = $parent_profiles_all[0];
+            $parent_profiles_2 = $parent_profiles_all[1];
+
+            return view('pages.children.view_child', ['children_profiles' => $children_profiles,
+                'programs' => $programs,
+                'array_programs_choose' => $array_programs_choose,
+                'parent_profiles_1' => $parent_profiles_1,
+                'parent_profiles_2' => $parent_profiles_2,
+            ]);
+        }
+        else if(count($parent_profiles_all) == 1){
+            $parent_profiles_1 = $parent_profiles_all[0];
+            return view('pages.children.view_child', ['children_profiles' => $children_profiles,
+                'programs' => $programs,
+                'array_programs_choose' => $array_programs_choose,
+                'parent_profiles_1' => $parent_profiles_1,
+            ]);
+        }
+        else{
+            return view('pages.children.view_child', ['children_profiles' => $children_profiles,
+                'programs' => $programs,
+                'array_programs_choose' => $array_programs_choose,
+            ]);
+        }
+    }
+
+    public function edit($id)
+    {
+        $children_profiles = ChildrenProfiles::find($id);
+        $programs = Programs::all();
+        $programs_choose = DB::table('programs')
+            ->join('children_programs', 'programs.id', '=', 'children_programs.id_program')
+            ->select('id')
+            ->where('id_children', '=', $id)
+            ->get();
+        // array chua cac id program ma children dang hoc
+        $array_programs_choose = [];
+        foreach ($programs_choose as $key => $value) {
+            array_push($array_programs_choose, $value->id);
+        }
+        $parent_profiles_all = DB::table('parent_profiles')
+            ->join('children_parent', 'parent_profiles.id', '=', 'children_parent.id_parent')
+            ->select('*')
+            ->where('id_children', '=', $id)
+            ->get();
+
+        if (count($parent_profiles_all) == 2){
             $parent_profiles_1 = $parent_profiles_all[0];
             $parent_profiles_2 = $parent_profiles_all[1];
 
@@ -204,7 +264,8 @@ class ChildrenProfilesController extends Controller
                 'parent_profiles_1' => $parent_profiles_1,
                 'parent_profiles_2' => $parent_profiles_2,
             ]);
-        }else{
+        }
+        else if(count($parent_profiles_all) == 1){
             $parent_profiles_1 = $parent_profiles_all[0];
             return view('pages.children.edit_child', ['children_profiles' => $children_profiles,
                 'programs' => $programs,
@@ -212,8 +273,12 @@ class ChildrenProfilesController extends Controller
                 'parent_profiles_1' => $parent_profiles_1,
             ]);
         }
-
-
+        else{
+            return view('pages.children.edit_child', ['children_profiles' => $children_profiles,
+                'programs' => $programs,
+                'array_programs_choose' => $array_programs_choose,
+            ]);
+        }
     }
 
     public function update(Request $request, $id)
@@ -234,7 +299,7 @@ class ChildrenProfilesController extends Controller
 
                 'first_name_parent_1'   => 'nullable',
                 'last_name_parent_1'    => 'nullable',
-                'phone_parent_1'        => 'numeric|nullable',
+                'phone_parent_1'        => 'numeric|nullable|digits_between:9,12',
                 'email_parent_1'        => 'email|nullable',
                 'gender_parent_1'       => 'nullable',
                 'note_parent_1'         => 'nullable',
@@ -243,7 +308,7 @@ class ChildrenProfilesController extends Controller
 
                 'first_name_parent_2'   => 'nullable',
                 'last_name_parent_2'    => 'nullable',
-                'phone_parent_2'        => 'numeric|nullable',
+                'phone_parent_2'        => 'numeric|nullable|digits_between:9,12',
                 'email_parent_2'        => 'email|nullable',
                 'gender_parent_2'       => 'nullable',
                 'note_parent_2'         => 'nullable',
@@ -258,13 +323,16 @@ class ChildrenProfilesController extends Controller
                 'birthday.required'             => 'Please input birthday',
                 'phone_parent_1.numeric'        => 'Number is invalid',
                 'phone_parent_2.numeric'        => 'Number is invalid',
+                'phone_parent_1.digits_between' => 'The length is between 9 -12 digits',
+                'phone_parent_2.digits_between' => 'The length is between 9 -12 digits',
                 'email_parent_1.email'          => 'Email is invalid',
                 'email_parent_2.email'          => 'Email is invalid',
                 'unique_id.unique'              => 'ID is exist',
                 'unique_id.required'            => 'Please input unique ID',
-                'image_parent_1.image'      => 'Image is invalid',
-                'image_parent_2.image'      => 'Image is invalid',
+                'image_parent_1.image'          => 'Image is invalid',
+                'image_parent_2.image'          => 'Image is invalid',
             ]);
+
         $children_profiles = ChildrenProfiles::findOrFail($id);
         $children_profiles->update($request->all());
         if ($request->hasFile('image')) {
@@ -277,6 +345,7 @@ class ChildrenProfilesController extends Controller
             $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('images/children/'), $filename);
             $children_profiles->image = 'images/children/' . $filename;
+            $children_profiles->save();
         }
         $children_profiles->save();
 
@@ -318,7 +387,7 @@ class ChildrenProfilesController extends Controller
             ->get();
 
         // co 1 parent
-        if (count($parent_profiles_all) < 2) {
+        if (count($parent_profiles_all) == 1) {
             $parent_1 = ParentProfiles::find($request->id_parent_profiles_1);
             $parent_1->first_name = $request->first_name_parent_1;
             $parent_1->last_name = $request->last_name_parent_1;
@@ -372,7 +441,7 @@ class ChildrenProfilesController extends Controller
                 $children_parent_2->save();
 
             }
-        }else{  //co 2 parent
+        }else if(count($parent_profiles_all) == 2){  //co 2 parent
             $parent_1 = ParentProfiles::find($request->id_parent_profiles_1);
             $parent_1->first_name = $request->first_name_parent_1;
             $parent_1->last_name = $request->last_name_parent_1;
@@ -430,24 +499,25 @@ class ChildrenProfilesController extends Controller
         //
         $children_profiles = ChildrenProfiles::findOrFail($id);
 
-        if($children_profiles->image){
+        if(isset($children_profiles->image)){
             $old_image = $children_profiles->image;
             unlink($old_image);
         }
 
         $children_parent = ChildrenParent::where('id_children', '=', $id)->get();
-
-        foreach ($children_parent as $child_parent) {
-            //xoa parent cua children bi xoa
-            $parent = ParentProfiles::where('id', '=', $child_parent->id_parent)->get();
-            foreach ($parent as $person) {
-                if($person->image){
-                    $old_image = $person->image;
-                    unlink($old_image);
-                    // ko xoa parent. lay thong tin sau nay dem ban data lay tien
+        if (isset($children_parent)){
+            foreach ($children_parent as $child_parent) {
+                //xoa parent cua children bi xoa
+                $parent = ParentProfiles::where('id', '=', $child_parent->id_parent)->get();
+                foreach ($parent as $person) {
+                    if($person->image){
+                        $old_image = $person->image;
+                        unlink($old_image);
+                        // ko xoa parent. lay thong tin sau nay dem ban data lay tien
+                    }
                 }
+                DB::table('children_parent')->where('id_children','=',$child_parent)->delete();
             }
-            $child_parent->delete();        //xoa children
         }
 
         $children_profiles->delete();

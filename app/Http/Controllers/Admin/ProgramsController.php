@@ -63,6 +63,15 @@ class ProgramsController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request,
+            [
+                'program_fee'   =>  'numeric|min:0'
+            ],
+            [
+                'program_fee.numeric'   =>  'Program fee is invalid',
+                'program_fee.min'       =>  'Program fee is invalid',
+            ]);
+
         $programs = Programs::create($request->all());
         $programs->schedule = $request->schedule;
         $programs->save();
@@ -191,8 +200,26 @@ class ProgramsController extends Controller
 
     public function update(Request $request, $id)
     {
+        $this->validate($request,
+            [
+                'program_fee'   =>  'numeric|min:0'
+            ],
+            [
+                'program_fee.numeric'   =>  'Program fee is invalid',
+                'program_fee.min'       =>  'Program fee is invalid',
+            ]);
+
         $programs = Programs::findOrFail($id);
         $programs->update($request->all());
+
+        $all_schedule = $request->schedule_new;
+        $arr = [];
+        foreach ((array)$all_schedule as $schedule) {
+            array_push($arr, $schedule);
+        }
+        $arr_all_schedule = implode(",", $arr);  //turn array to string to save in database
+        $programs->schedule = $arr_all_schedule;
+
         $programs->save();
 
         //neu thay doi children
@@ -265,7 +292,16 @@ class ProgramsController extends Controller
         //
         $programs = Programs::findOrFail($id);
         $programs->delete();
-        return view('pages.program.program')->with('notify','Deleted Successfully');
+
+        $programs = DB::table('programs')
+            ->leftJoin('children_programs', 'programs.id', '=', 'children_programs.id_program')
+            ->select(['programs.program_name', 'programs.id'])
+            ->selectRaw('count(children_programs.id_children) AS total_children')
+            ->groupBy(['programs.program_name', 'programs.id'])
+            ->orderBy('programs.program_name')
+            ->simplePaginate(8);
+
+        return view('pages.program.program',['programs'=>$programs])->with('notify','Deleted Successfully');
     }
 
     public function searchChildren(Request $request)
