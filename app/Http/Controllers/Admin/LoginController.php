@@ -23,15 +23,15 @@ class LoginController extends Controller
     {
        //dd($request->all());
        
-       if($this->hasTooManyLoginAttempts($request))
-        {
-            $this->fireLockoutEvent($request);
-            return redirect()->back()->with([
-                "expired" => $this->decayMinutes * 60
-            ]);
-        }
-        else
-        {
+    //    if($this->hasTooManyLoginAttempts($request))
+    //     {
+    //         $this->fireLockoutEvent($request);
+    //         return redirect()->back()->with([
+    //             "expired" => $this->decayMinutes * 60
+    //         ]);
+    //     }
+    //     else
+    //     {
          //   $this->incrementLoginAttempts($request);
             $phone = $request->phone;
             $password = $request->password;
@@ -44,7 +44,7 @@ class LoginController extends Controller
             {
                 return  redirect()->back()->with("thongbao","Tài khoản hoặc mật khẩu không chính xác !")->withInput();
             }
-        }
+        //}
     }
 
     public function Logout()
