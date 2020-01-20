@@ -23,7 +23,7 @@ class StaffProfilesTableSeeder extends Seeder
                 'phone'             =>  '0912345678',
                 'image'             =>  'Staff-01.png',
                 'gender'            =>  1,
-                'email'             =>  'robert@gmail.com',
+                'email'             =>  'kingofking.vnn90@gmail.com',
                 'address'           =>  'hcm city',
                 'birthday'          =>  '1990-12-12',
                 'blood_group'       =>  'A',

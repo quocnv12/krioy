@@ -28,6 +28,9 @@ class CreateStaffProfilesTable extends Migration
             $table->date('date_of_joining');
             $table->string('exist')->default(1);
             $table->tinyInteger('status')->default(1);
+            $table->string('code')->nullable();
+            $table->string('time_code')->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }
