@@ -20,17 +20,24 @@
                 </div>
             </div>
         </div>
-        <form style="width: auto;margin: 0;text-align: center" action="" method="post" id="addObservation" enctype="multipart/form-data">
+        @if(session('notify'))
+            <div class="alert alert-success font-weight-bold">
+                {{session('notify')}}
+            </div>
+        @endif
+        <form style="width: auto;margin: 0;text-align: center" action="{{route('admin.observations.postEdit',['id'=>$child_observation->id])}}" method="post" id="editObservation" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="mat-card" style="width: 100%">
                     <div class="mat-content">
-                        <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href="{{route('admin.observations.listobservationtype')}}" class="btn btn-defaul">ObservationType</a>
+                        <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href="{{route('admin.observations.listobservationtype')}}" class="btn btn-default">ObservationType</a>
+                        <div>
+                            Seminar: {{$child_observation->month}} - {{$child_observation->year}}
+                        </div>
                         <button class="accordion accordion1 clearfix" type="button">
                             <p style="float: left;">Children *</p>
                         </button>
                     </div>
-
                     <div class="mat-content">
                         <div class="row">
                             <div class="col-md-2 textera-img">
@@ -257,7 +264,7 @@
         //end select children_observation
         var button = document.getElementById("submit_button");
         button.onclick = function(){
-            alert("Thông tin đã lưu thành công!!!");
+            // alert("Thông tin đã lưu thành công!!!");
             $('#array_all_children').attr('value', array_children);
             $('#array_observation_new').attr('value', array_observation);
             $('#array_children_observation').attr('value', array_children_observation);
