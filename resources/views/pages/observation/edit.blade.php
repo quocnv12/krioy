@@ -12,11 +12,11 @@
                 <div class="col-sm-6">
                     <ul class="ul-td">
                         <li class="level1"><a href="kids-now">Home</a></li>
-                        <li class="active1" style="pointer-events:none" ><a href="">OBSERVATIONS</a></li>
+                        <li class="active1" style="" ><a href="kids-now/observations/list">OBSERVATIONS</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-6">
-                    <a href="{{route('admin.observations.list')}}" class="btn btn-success" style="float: right">Quản lí danh sách</a>
+                    <a href="{{route('admin.observations.list')}}" class="btn btn-success" style="float: right">Children List</a>
                 </div>
             </div>
         </div>
