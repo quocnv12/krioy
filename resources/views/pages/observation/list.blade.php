@@ -47,30 +47,35 @@
                             {{-- <div style="text-align:right;padding-right:22px" class="col-md-6">
                                 <a style="margin:0px;" href="{{ route('menu-food-name-add') }}" class="btn btn-success btn-cons"" title="Add Food Name"><i style="" class="fa fa-plus-circle"></i> Add</a>
                             </div> --}}
-                            <div style="float: right">
-                                Seminar:
-                                <select name="month" id="month">
-                                    <option value="">Choose Month</option>
-                                    <option value="Jan">January</option>
-                                    <option value="Feb">February</option>
-                                    <option value="Mar">March</option>
-                                    <option value="Apr">April</option>
-                                    <option value="May">May</option>
-                                    <option value="Jun">June</option>
-                                    <option value="Jul">July</option>
-                                    <option value="Aug">August</option>
-                                    <option value="Sep">September</option>
-                                    <option value="Oct">October</option>
-                                    <option value="Nov">November</option>
-                                    <option value="Dec">December</option>
-                                </select>
-                                -
-                                <select name="year" id="">
-                                    @for($i = 2020; $i <= 2040; $i++)
-                                        <option value="{{$i}}" @if(now()->year == $i) selected @endif>{{$i}}</option>
-                                    @endfor
-                                </select>
-                            </div>
+                            <form action="kids-now/observations/list" method="get" >
+
+                                <div class="col-md-6" style="display: flex; justify-content: flex-end; align-items: center">
+                                    Seminar&nbsp;&nbsp;:&nbsp;&nbsp;
+                                    <select name="month" id="month" >
+                                        <option value="">Choose Month</option>
+                                        <option value="Jan">January</option>
+                                        <option value="Feb">February</option>
+                                        <option value="Mar">March</option>
+                                        <option value="Apr">April</option>
+                                        <option value="May">May</option>
+                                        <option value="Jun">June</option>
+                                        <option value="Jul">July</option>
+                                        <option value="Aug">August</option>
+                                        <option value="Sep">September</option>
+                                        <option value="Oct">October</option>
+                                        <option value="Nov">November</option>
+                                        <option value="Dec">December</option>
+                                    </select>
+                                    &nbsp;&nbsp;-&nbsp;&nbsp;
+                                    <select name="year" id="year">
+                                        @for($i = 2020; $i <= 2040; $i++)
+                                            <option value="{{$i}}" @if(now()->year == $i) selected @endif>{{$i}}</option>
+                                        @endfor
+                                    </select>
+                                    &nbsp;&nbsp;
+                                    <button class="btn btn-info btn-sm" type="submit">GO</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <div class="grid-body ">
@@ -78,25 +83,29 @@
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th style="width:80%">Children's Name</th>
-                                <th>Thao Tác</th>
+                                <th style="width:50%">Children's Name</th>
+                                <th style="width:20%">Birthday</th>
+                                <th style="width:10%">Gender</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <?php $i = 1;?>
-                            @foreach ($child_observations as $item)
-                                <tr class="odd gradeX">
-                                    <td style="text-align:center">{{ $i }}</td>
-                                    <td style="text-align:center;text-transform:capitalize">{{ $item->Children->first_name}} {{ $item->Children->last_name}}</td>
-                                    <td style="text-align:center">
-                                        <a href="{{ route('admin.observations.getEdit',['id'=>$item->id]) }}" title="Edit Observation" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
-                                        <a onclick="return confirm('Delete Observation ? Do you want continue !')" title="Delete Observation" href="{{ route('admin.observations.getDelete',['id'=>$item->id]) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
-                                    </td>
-                                </tr>
-                                @if($i <= count($child_observations))
-                                    <?php $i ++?>
-                                @endif
-                            @endforeach
+                                <?php $i = 1;?>
+                                @foreach ($child_observations as $item)
+                                    <tr class="odd gradeX">
+                                        <td style="text-align:center">{{ $i }}</td>
+                                        <td style="text-align:center;text-transform:capitalize">{{ $item->Children->first_name}} {{ $item->Children->last_name}}</td>
+                                        <td style="text-align:center;text-transform:capitalize">{{ $item->Children->birthday}}</td>
+                                        <td style="text-align:center;text-transform:capitalize">{{ $item->Children->gender == 1 ? 'Male' : 'Female'}}</td>
+                                        <td style="text-align:center">
+                                            <a href="{{ route('admin.observations.getEdit',['id'=>$item->id]) }}" title="Edit Observation" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                            <a onclick="return confirm('Delete Observation ? Do you want continue !')" title="Delete Observation" href="{{ route('admin.observations.getDelete',['id'=>$item->id]) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                        </td>
+                                    </tr>
+                                    @if($i <= count($child_observations))
+                                        <?php $i ++?>
+                                    @endif
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -113,8 +122,6 @@
 </body>
 @endsection
 @section('js')
-
-
     <script src="https://code.jquery.com/jquery.min.js"></script>
 
     <!-- Bootstrap JS form CDN -->

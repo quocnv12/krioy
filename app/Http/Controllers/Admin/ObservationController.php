@@ -6,6 +6,7 @@ use App\models\ObservationModel;
 use App\Http\Controllers\Controller;
 use App\models\ObservationTypeModel;
 use App\models\Programs;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -13,10 +14,15 @@ use Illuminate\Support\Facades\DB;
 
 class ObservationController extends Controller
 {
-    public function getList(){
-        $current_month = Carbon::now()->format('M');
-        $child_observations = ObservationModel::where('month','=',$current_month)->where('year','=',now()->year)->get();
-        return view('pages.observation.list', compact('child_observations'));
+    public function getList(Request $request){
+        if ($request->month || $request->year) {
+            $child_observations = ObservationModel::where('month', '=', $request->month)->where('year', '=', $request->year)->get();
+            return view('pages.observation.list', compact('child_observations'));
+        }else {
+            $current_month = Carbon::now()->format('M');
+            $child_observations = ObservationModel::where('month', '=', $current_month)->where('year', '=', now()->year)->get();
+            return view('pages.observation.list', compact('child_observations'));
+        }
     }
 
     public function getChild(){
