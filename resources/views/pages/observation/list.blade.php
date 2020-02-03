@@ -83,9 +83,11 @@
                             <thead>
                             <tr>
                                 <th>ID</th>
-                                <th style="width:50%">Children's Name</th>
-                                <th style="width:20%">Birthday</th>
+                                <th style="width:30%">Children's Name</th>
+                                <th style="width:10%">Birthday</th>
                                 <th style="width:10%">Gender</th>
+                                <th style="width:20%">Observer</th>
+                                <th style="width:10%">Time</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -97,8 +99,11 @@
                                         <td style="text-align:center;text-transform:capitalize">{{ $item->Children->first_name}} {{ $item->Children->last_name}}</td>
                                         <td style="text-align:center;text-transform:capitalize">{{ $item->Children->birthday}}</td>
                                         <td style="text-align:center;text-transform:capitalize">{{ $item->Children->gender == 1 ? 'Male' : 'Female'}}</td>
+                                        <td style="text-align:center;text-transform:capitalize">{{ $item->observer}}</td>
+                                        <td style="text-align:center;text-transform:capitalize">{{ $item->month}} / {{$item->year}}</td>
                                         <td style="text-align:center">
-                                            <a href="{{ route('admin.observations.getEdit',['id'=>$item->id]) }}" title="Edit Observation" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                            <a href="{{ route('admin.observations.view',['id'=>$item->id]) }}" title="View Observation" class="btn btn-sm btn-outline-primary"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                            <a href="{{ route('admin.observations.getEdit',['id'=>$item->id]) }}" title="Edit Observation" class="btn btn-sm btn-outline-warning"><i class="fa fa-edit" aria-hidden="true"></i></a>
                                             <a onclick="return confirm('Delete Observation ? Do you want continue !')" title="Delete Observation" href="{{ route('admin.observations.getDelete',['id'=>$item->id]) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
                                         </td>
                                     </tr>

@@ -25,12 +25,11 @@
                 {{session('notify')}}
             </div>
         @endif
-        <form style="width: auto;margin: 0;text-align: center" action="{{route('admin.observations.postEdit',['id'=>$child_observation->id])}}" method="post" id="editObservation" enctype="multipart/form-data">
+        <form style="width: auto;margin: 0;text-align: center" action="" method="" id="editObservation" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="mat-card" style="width: 100%">
                     <div class="mat-content">
-                        <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href="{{route('admin.observations.listobservationtype')}}" class="btn btn-default">Observation Type</a>
                         <div style="font-weight: bold; font-size: 20px">
                             Seminar: {{$child_observation->month}} - {{$child_observation->year}}
                         </div>
@@ -132,7 +131,7 @@
                             <div _ngcontent-c20="" class="row" style="">
                                 @foreach($observationtype  as $observation)
                                     <div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer;">
-                                        <button type="button" _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1 @if(in_array($observation->id, $array_observation_choose)) tablinks1_active @endif" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" data-toggle="tooltip" title="{{$observation->name}}" value="{{$observation->id}}">{{$observation->name}} </button>
+                                        <button disabled type="button" _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1 @if(in_array($observation->id, $array_observation_choose)) tablinks1_active @endif" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" data-toggle="tooltip" title="{{$observation->name}}" value="{{$observation->id}}">{{$observation->name}} </button>
                                     </div>
                                 @endforeach
                                     <input id="array_observation_new" type="hidden" value="" name="observation_new">
@@ -152,19 +151,21 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="button" style="text-align: center;">
-                            <button type="reset">
-                                <span>CANCEL</span>
-                            </button>
-                            <button class="button2" id="submit_button" type="submit">
-                                <span>SAVE</span>
-                            </button>
-                        </div>
                     </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+
                 </div>
             </div>
         </form>
     </section>
+    <div class="icon-plus">
+        <a href="{{ route('admin.observations.getEdit',['id'=>$child_observation->id]) }}">
+            <i class="fa fa-edit"></i>
+        </a>
+    </div>
     </body>
 @endsection
 

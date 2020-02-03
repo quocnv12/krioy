@@ -166,7 +166,6 @@ class ChildrenProfilesController extends Controller
 
     public function show($id)
     {
-        //
         $programs = Programs::all();
 
         if ($id == 0){
@@ -496,7 +495,6 @@ class ChildrenProfilesController extends Controller
 
     public function destroy($id)
     {
-        //
         $children_profiles = ChildrenProfiles::findOrFail($id);
 
         if(isset($children_profiles->image)){

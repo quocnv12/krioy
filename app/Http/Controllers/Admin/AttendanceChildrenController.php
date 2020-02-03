@@ -27,4 +27,7 @@ class AttendanceChildrenController extends Controller
        
         return view('pages.attendance.attendance',$data);
     }
+    public function postAdd(){
+        
+    }
 }

@@ -1,7 +1,6 @@
 <?php
-namespace App\Http\Controllers\Admin;
 
-
+namespace App\Http\Controllers\Api;
 
 use App\models\ChildrenProfiles;
 
@@ -12,38 +11,12 @@ use App\models\StaffProgram;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Session;
 
 class ProgramsController extends Controller
 {
+
     public function index()
     {
-//        $programs = DB::table('programs')
-//            ->join('children_programs','programs.id','=','children_programs.id_program')
-//            ->groupBy('programs.program_name')
-//            ->get();
-//
-//        foreach($programs as $key => $program)
-//        {
-//            $programs[$key]->schedule = explode(',',$programs[$key]->schedule); //turn string to array to show
-//            $programs[$key]->id_children = DB::table('programs')
-//                ->join('children_programs','programs.id','=','children_programs.id_program')
-//                ->join('children_profiles','children_profiles.id','=','children_programs.id_children')
-//                ->select(['children_profiles.*'])
-//                ->where('children_programs.id_program','=',$program->id)
-//                ->get();
-//
-//            $programs[$key]->id_staff = DB::table('programs')
-//                ->join('staff_programs','programs.id','=','staff_programs.id_program')
-//                ->join('staff_profiles','staff_profiles.id','=','staff_programs.id_staff')
-//                ->select(['staff_profiles.*'])
-//                ->where('staff_programs.id_program','=',$program->id)
-//                ->get();
-//
-//        }
-
-//        return response()->json(['programs'=>$programs],200);
-
         $programs = DB::table('programs')
             ->leftJoin('children_programs', 'programs.id', '=', 'children_programs.id_program')
             ->select(['programs.program_name', 'programs.id'])
@@ -52,12 +25,22 @@ class ProgramsController extends Controller
             ->orderBy('programs.program_name')
             ->simplePaginate(8);
 
-        return view('pages.program.program', ['programs' => $programs]);
+        if (!$programs){
+            return response()->json([
+                'Something wrong'
+            ]);
+        }else{
+            return response()->json([
+                'programs' => $programs
+            ], 200);
+        }
+
     }
+
 
     public function create()
     {
-        return view('pages.program.add_program');
+        return response()->json(null, 200);
     }
 
 
@@ -118,31 +101,14 @@ class ProgramsController extends Controller
             $staff_program->save();
         }
 
-        return redirect()->back()->with('notify', 'Added Successfully');
-
+        return response()->json([
+            'programs'=>$programs
+        ], 201);
     }
+
 
     public function show($id)
     {
-//        $program = Programs::find($id);
-//        $program->schedule = explode(',',$program->schedule); //turn string to array to show
-//
-//        $children = DB::table('programs')
-//            ->join('children_programs','programs.id','=','children_programs.id_program')
-//            ->join('children_profiles','children_profiles.id','=','children_programs.id_children')
-//            ->select(['children_profiles.*'])
-//            ->where('children_programs.id_program','=',$id)
-//            ->get();
-//
-//        $staff = DB::table('programs')
-//            ->join('staff_programs','programs.id','=','staff_programs.id_program')
-//            ->join('staff_profiles','staff_profiles.id','=','staff_programs.id_staff')
-//            ->select(['staff_profiles.*'])
-//            ->where('staff_programs.id_program','=',$program->id)
-//            ->get();
-//
-//        return response()->json(['programs'=>$program, 'children'=>$children, 'staff'=>$staff],200);
-
         $program = Programs::find($id);
         $array_schedule = explode(',',$program->schedule);  //string to array
 
@@ -157,16 +123,21 @@ class ProgramsController extends Controller
             ->select(['*'])
             ->where('staff_programs.id_program','=',$id)
             ->get();
-        return view('pages.program.view_program',['program'=>$program,
-                                                        'array_schedule'=>$array_schedule,
-                                                        'children_profiles'=>$children_profiles,
-                                                        'staff_profiles'=>$staff_profiles]);
+        return response()->json([
+            'program'=>$program,
+            'array_schedule'=>$array_schedule,
+            'children_profiles'=>$children_profiles,
+            'staff_profiles'=>$staff_profiles
+        ], 200);
     }
 
 
     public function edit($id)
     {
         $program = Programs::find($id);
+        if (! $program){
+            return response()->json('Something wrong');
+        }
         $children_in_program = DB::table('children_profiles')
             ->join('children_programs', 'children_profiles.id', '=', 'children_programs.id_children')
             ->select('*')
@@ -190,13 +161,16 @@ class ProgramsController extends Controller
         }
 
         $array_schedule_choose = explode(',',$program->schedule);
-        return view('pages.program.edit_program',['program'=>$program,
-                                                        'children_in_program'=>$children_in_program,
-                                                        'array_children_old'=>$array_children_old,
-                                                        'staff_in_program'=>$staff_in_program,
-                                                        'array_staff_old'=>$array_staff_old,
-                                                        'array_schedule_choose'=>$array_schedule_choose]);
+        return response()->json([
+            'program'=>$program,
+            'children_in_program'=>$children_in_program,
+            'array_children_old'=>$array_children_old,
+            'staff_in_program'=>$staff_in_program,
+            'array_staff_old'=>$array_staff_old,
+            'array_schedule_choose'=>$array_schedule_choose
+        ], 200);
     }
+
 
     public function update(Request $request, $id)
     {
@@ -284,8 +258,11 @@ class ProgramsController extends Controller
             }
         }
 
-        return redirect()->back()->with('notify', 'Updated Successfully');
+        return response()->json([
+            'programs'=>$programs
+        ], 200);
     }
+
 
     public function destroy($id)
     {
@@ -300,7 +277,9 @@ class ProgramsController extends Controller
             ->orderBy('programs.program_name')
             ->simplePaginate(8);
 
-        return view('pages.program.program',['programs'=>$programs])->with('notify','Deleted Successfully');
+        return response()->json([
+            'programs'=>$programs
+        ]);
     }
 
     public function searchChildren(Request $request)
@@ -326,8 +305,8 @@ class ProgramsController extends Controller
     public function searchProgram(Request $request)
     {
         $programs = Programs::where('program_name', 'like', '%' . $request->get('q') . '%')
-                            ->orderBy('program_name')
-                            ->get();
+            ->orderBy('program_name')
+            ->get();
 
         return response()->json($programs);
     }
@@ -392,4 +371,3 @@ class ProgramsController extends Controller
         }
     }
 }
-

@@ -21,7 +21,7 @@
             <div class="row line">
                 <div class="col-xs-6 col-sm-6 col-md-2dot4 item">
                     <a href="kids-now/attendance">
-                        <img src="images/attendance.png" alt="">
+                        <img src="images/attendance1.png" alt="" style="background: darkgrey;">
                         <div class="title">
                             <p>Attendance</p>
                         </div>
@@ -68,7 +68,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="{{route('admin.observations.getAdd')}}">
+                    <a href="{{route('admin.observations.list')}}">
                         <img src="images/Observation-01.png" alt="">
                         <div class="title">
                             <p>Observations</p>
