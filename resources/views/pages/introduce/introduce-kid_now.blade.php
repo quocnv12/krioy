@@ -28,7 +28,7 @@
 				<div class="container-fluid">
 				    <div class="navbar-header">
 				    	<a class="navbar-brand" href="#" style="display: flex;">
-				    		<img src="images/logo.jpeg" alt="">
+				    		<img src="images/logo.png" alt="">
 				    		<p>Kids Now</p>
 				    	</a>
 				    	<div class="topnav" id="myTopnav">
