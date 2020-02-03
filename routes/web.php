@@ -39,6 +39,8 @@ Route::get('password/reset', 'Auth\ForgotPasswordController@ResetPassword')->nam
 Route::post('password/reset', 'Auth\ForgotPasswordController@PostResetPassword');
 Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function () {
     Route::get('logout', 'Admin\LoginController@Logout');
+    Route::get('update-password', 'Auth\ForgotPasswordController@getUpdatePassword');
+    Route::post('update-password', 'Auth\ForgotPasswordController@PostUpdatePassword');
     Route::get('/', function () {
         return view('pages.home');
     });
