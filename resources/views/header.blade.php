@@ -2,7 +2,7 @@
     <div class="menu_desktop d-none d-md-block "> 
         <nav class="navbar navbar-expand-sm bg-light" style="background-color: white !important;box-shadow: rgb(242, 242, 242) 0px 3px 6px 3px;">
             <a href="#" style="display: flex;outline: none;text-decoration: none;">
-                <img src="images/logo.png" alt="">
+                <img src="images/logo.jpeg" alt="">
                 <p style="margin: 20px 0;font-size: 30px;color: #ff4081;">Kids Now</p>
             </a>
             <!-- Links -->
