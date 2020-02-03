@@ -83,7 +83,7 @@ class StaffProfilesTableSeeder extends Seeder
                 'address'           =>  '116 Xuân Thủy Cầu Giấy Hà Nội',
                 'birthday'          =>  '1990-12-12',
                 'blood_group'       =>  'A',
-                'date_of_joining'  =>  '2000-10-10',
+                'date_of_joining'   =>  '2000-10-10',
             ],
         ]);
     }
