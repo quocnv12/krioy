@@ -20,11 +20,11 @@
 					<div class="col-sm-6">
 					<ul class="ul-td">
 						<li class="level1"><a href="kids-now">Home</a></li>
-						<li class="active1" style="pointer-events:none" ><a href="">OBSERVATIONS</a></li>
+						<li class="active1" style="" ><a href="kids-now/observations/list">OBSERVATIONS</a></li>
 					</ul>
 					</div>
 					<div class="col-sm-6">
-						<a href="{{route('admin.observations.list')}}" class="btn btn-success" style="float: right">Quản lí danh sách</a>
+						<a href="{{route('admin.observations.list')}}" class="btn btn-success" style="float: right">Children List</a>
 					</div>
 				</div>
 			</div>
@@ -32,7 +32,6 @@
 				<div class="alert alert-success font-weight-bold">
 					{{session('notify')}}
 				</div>
-
 			@endif
 		<form style="width: auto;margin: 0;text-align: center" action="{{route('admin.observations.postAdd')}}" method="post" id="addObservation" enctype="multipart/form-data">
 			@csrf
@@ -40,6 +39,31 @@
 				<div class="mat-card" style="width: 100%">
 					<div class="mat-content">
 						<a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white; float: left" href="{{route('admin.observations.listobservationtype')}}" class="btn btn-defaul">ObservationType</a>
+						<div style="width: 280px; float: right">
+							Seminar:
+							<select name="month" id="month">
+								<option value="">Choose Month</option>
+								<option value="Jan">January</option>
+								<option value="Feb">February</option>
+								<option value="Mar">March</option>
+								<option value="Apr">April</option>
+								<option value="May">May</option>
+								<option value="Jun">June</option>
+								<option value="Jul">July</option>
+								<option value="Aug">August</option>
+								<option value="Sep">September</option>
+								<option value="Oct">October</option>
+								<option value="Nov">November</option>
+								<option value="Dec">December</option>
+							</select>
+							-
+							<select name="year" id="">
+								@for($i = 2020; $i <= 2040; $i++)
+									<option value="{{$i}}" @if(now()->year == $i) selected @endif>{{$i}}</option>
+								@endfor
+							</select>
+						</div>
+
 						<button class="accordion accordion1 clearfix" type="button">
 							<p style="float: left;">Children *</p>
 								{{--<form class="typeahead" role="search" style="float: right; text-align: left">--}}

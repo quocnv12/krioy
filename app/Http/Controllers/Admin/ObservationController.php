@@ -6,6 +6,7 @@ use App\models\ObservationModel;
 use App\Http\Controllers\Controller;
 use App\models\ObservationTypeModel;
 use App\models\Programs;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
@@ -13,8 +14,15 @@ use Illuminate\Support\Facades\DB;
 
 class ObservationController extends Controller
 {
-    public function getList(){
-        return view('pages.observation.list');
+    public function getList(Request $request){
+        if ($request->month || $request->year) {
+            $child_observations = ObservationModel::where('month', '=', $request->month)->where('year', '=', $request->year)->get();
+            return view('pages.observation.list', compact('child_observations'));
+        }else {
+            $current_month = Carbon::now()->format('M');
+            $child_observations = ObservationModel::where('month', '=', $current_month)->where('year', '=', now()->year)->get();
+            return view('pages.observation.list', compact('child_observations'));
+        }
     }
 
     public function getChild(){
@@ -41,8 +49,8 @@ class ObservationController extends Controller
                 'detailObservation'     =>  'nullable',
             ],
             [
-                'observations.required' =>  'Please choose observations',
-                'children_observations.required' =>  'Please choose children',
+                'observations.required'         =>  'Please choose observations',
+                'children_observations.required'=>  'Please choose children',
             ]);
 
 
@@ -50,21 +58,37 @@ class ObservationController extends Controller
         $children_observations = explode(',', $request->children_observations);
         //luu vao bang observations
         foreach ($children_observations as $children_id) {
-            $check_id_children_isset = ObservationModel::where('id_children','=',$children_id)->first();
-            $month_check = date('m', strtotime($check_id_children_isset->created_at->month));
-            $year_check = date('Y', strtotime($check_id_children_isset->created_at->year));
+            $check_id_children_isset = ObservationModel::where('id_children','=',$children_id)->get();
+
+            //array chua month da ton tai
+            $array_month = [];
+            foreach ($check_id_children_isset as $collection)
+            {
+                array_push($array_month, $collection->month);
+            }
+
+            //array chua year da ton tai
+            $array_year = [];
+            foreach ($check_id_children_isset as $collection)
+            {
+                array_push($array_year, $collection->year);
+            }
 
             if (isset($check_id_children_isset)) {
-                if (($month_check == now()->month) && ($year_check == now()->year)){
-                    $child_observation = ObservationModel::where('id_children','=',$children_id)->first();
+                if ((in_array($request->month, $array_month)) && (in_array($request->year, $array_year))){
+                    $child_observation = ObservationModel::where('id_children','=',$children_id)->where('month','=',$request->month)->where('year','=',$request->year)->first();
                     $child_observation->id_observations = $request->observations;
                     $child_observation->detailObservation = $request->detailObservation;
+                    $child_observation->month = $request->month;
+                    $child_observation->year = $request->year;
                     $child_observation->save();
                 }else{
                     $child_observation = new ObservationModel();
                     $child_observation->id_children = $children_id;
                     $child_observation->id_observations = $request->observations;
                     $child_observation->detailObservation = $request->detailObservation;
+                    $child_observation->month = $request->month;
+                    $child_observation->year = $request->year;
                     $child_observation->save();
                 }
             }else{
@@ -72,6 +96,8 @@ class ObservationController extends Controller
                 $child_observation->id_children = $children_id;
                 $child_observation->id_observations = $request->observations;
                 $child_observation->detailObservation = $request->detailObservation;
+                $child_observation->month = $request->month;
+                $child_observation->year = $request->year;
                 $child_observation->save();
             }
         }
@@ -81,25 +107,21 @@ class ObservationController extends Controller
     public function getEdit($id)
     {
         $vendors = ObservationTypeModel::all();
-        $children_profiles = ChildrenProfiles::find($id);
         $observationtype = ObservationTypeModel::all();
-        $child_observation = ObservationModel::where('id_children','=',$id)->first();
+        $child_observation = ObservationModel::find($id);
+        $children_profiles = ChildrenProfiles::where('id','=',$child_observation->id_children)->first();
         $array_observation_choose = explode(',',$child_observation->id_observations);
 
-        return view('pages.observation.edit',compact('observationtype','vendors','children_profiles','array_observation_choose'));
+        return view('pages.observation.edit',compact('observationtype','vendors','children_profiles','array_observation_choose','child_observation'));
     }
     public function postEdit(Request $request, $id){
         $this->validate($request,
             [
-                'observations'          =>  'required',
                 'detailObservation'     =>  'nullable',
-            ],
-            [
-                'observations.required' =>  'Please choose observations',
             ]);
 
-        $child_observation = ObservationModel::where('id_children','=',$id)->first();
-        $child_observation->id_observations = $request->observations;
+        $child_observation = ObservationModel::find($id);
+        $child_observation->id_observations = $request->observation_new;
         $child_observation->detailObservation = $request->detailObservation;
         $child_observation->save();
         return redirect()->back()->with('notify','Edit successfully');
@@ -107,7 +129,7 @@ class ObservationController extends Controller
 
     public function getDelete($id){
         $observation= DB::table('observations')->where('id',$id)->delete();
-        return redirect()->route('admin.observations.list', compact('observationtype'))->with(['flash_level'=>'success','flash_message'=>'Delete successfully!!!']);
+        return redirect()->route('admin.observations.list')->with(['flash_level'=>'success','flash_message'=>'Delete successfully!!!']);
     }
 
     public function getSearch(Request $req){
