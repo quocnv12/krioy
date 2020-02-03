@@ -43,18 +43,18 @@
 							Seminar:
 							<select name="month" id="month">
 								<option value="">Choose Month</option>
-								<option value="Jan">January</option>
-								<option value="Feb">February</option>
-								<option value="Mar">March</option>
-								<option value="Apr">April</option>
-								<option value="May">May</option>
-								<option value="Jun">June</option>
-								<option value="Jul">July</option>
-								<option value="Aug">August</option>
-								<option value="Sep">September</option>
-								<option value="Oct">October</option>
-								<option value="Nov">November</option>
-								<option value="Dec">December</option>
+								<option value="Jan" @if(now()->month == 1) selected @endif>January</option>
+								<option value="Feb" @if(now()->month == 2) selected @endif>February</option>
+								<option value="Mar" @if(now()->month == 3) selected @endif>March</option>
+								<option value="Apr" @if(now()->month == 4) selected @endif>April</option>
+								<option value="May" @if(now()->month == 5) selected @endif>May</option>
+								<option value="Jun" @if(now()->month == 6) selected @endif>June</option>
+								<option value="Jul" @if(now()->month == 7) selected @endif>July</option>
+								<option value="Aug" @if(now()->month == 8) selected @endif>August</option>
+								<option value="Sep" @if(now()->month == 9) selected @endif>September</option>
+								<option value="Oct" @if(now()->month == 10) selected @endif>October</option>
+								<option value="Nov" @if(now()->month == 11) selected @endif>November</option>
+								<option value="Dec" @if(now()->month == 12) selected @endif>December</option>
 							</select>
 							-
 							<select name="year" id="">

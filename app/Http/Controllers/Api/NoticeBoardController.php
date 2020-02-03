@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Api;
 
 use App\models\NoticeBoard;
 use App\models\ProgramNotice;
@@ -15,9 +15,14 @@ class NoticeBoardController extends Controller
 
     public function index()
     {
-        //
         $programs = Programs::all();
-        return view('pages.notice.notice_board',['programs'=>$programs]);
+        if (! $programs){
+            return response()->json('Something wrong');
+        }else{
+            return response()->json([
+               'program'=>$programs
+            ], 200);
+        }
     }
 
     public function detail($id){
@@ -33,15 +38,23 @@ class NoticeBoardController extends Controller
         foreach ($programs_choose as $key => $value) {
             array_push($array_programs_choose, $value->id);
         }
-        return view('pages.notice.notice_detail',['notice_board'=>$notice_board,
-                                                        'programs'=>$programs,
-                                                        'array_programs_choose'=>$array_programs_choose]);
+        return response()->json([
+            'notice_board'=>$notice_board,
+            'programs'=>$programs,
+            'array_programs_choose'=>$array_programs_choose
+        ], 200);
     }
 
     public function create()
     {
         $programs = Programs::all();
-        return view('pages.notice.add_notice',['programs'=>$programs]);
+        if (! $programs){
+            return response()->json('Something wrong');
+        }else{
+            return response()->json([
+                'program'=>$programs
+            ], 200);
+        }
     }
 
 
@@ -95,7 +108,9 @@ class NoticeBoardController extends Controller
             $program_notice->save();
         }
 
-        return redirect()->back()->with('notify','Added Successfully');
+        return response()->json([
+            'notice_board'=>$notice_board
+        ], 201);
     }
 
     public function displayClipboard($id,$name)
@@ -121,21 +136,24 @@ class NoticeBoardController extends Controller
         $file_path = storage_path('app/public/clip_board/'.$name);
         unlink($file_path);
 
-        return redirect()->back()->with('notify_clipboard','Deleted file successfully');
+        return response()->json(null, 204);
     }
 
     public function show($id)
     {
         $notice_board = DB::table('notice_board')
-                        ->join('programs_notice','notice_board.id','=','programs_notice.id_notice')
-                        ->where('programs_notice.id_programs','=',$id)
-                        ->select('notice_board.*')
-                        ->orderBy('created_at','DESC')
-                        ->get();
+            ->join('programs_notice','notice_board.id','=','programs_notice.id_notice')
+            ->where('programs_notice.id_programs','=',$id)
+            ->select('notice_board.*')
+            ->orderBy('created_at','DESC')
+            ->get();
 
         $programs = Programs::all();
 
-        return view('pages.notice.notice_board',['notice_board'=>$notice_board, 'programs'=>$programs]);
+        return response()->json([
+            'notice_board'=>$notice_board,
+            'programs'=>$programs
+        ],200);
     }
 
 
@@ -157,7 +175,11 @@ class NoticeBoardController extends Controller
             array_push($array_programs_choose, $value->id);
         }
 
-        return view('pages.notice.edit_notice',['notice_board'=>$notice_board, 'programs'=>$programs, 'array_programs_choose'=>$array_programs_choose]);
+        return response()->json([
+            'notice_board'=>$notice_board,
+            'programs'=>$programs,
+            'array_programs_choose'=>$array_programs_choose
+        ], 200);
 
     }
 
@@ -228,8 +250,9 @@ class NoticeBoardController extends Controller
 
         $notice_board->save();
 
-
-        return redirect()->back()->with('notify','Updated Successfully');
+        return response()->json([
+           'notice_board'=>$notice_board
+        ]);
     }
 
 
@@ -248,9 +271,11 @@ class NoticeBoardController extends Controller
         }
         $notice_board->delete();
 
-
         $programs = Programs::all();
-        return view('pages.notice.notice_board',['programs'=>$programs])->with('notify','Deleted Successfully');
+
+        return response()->json([
+            'programs'=>$programs
+        ], 204);
     }
 
     public function searchByTitle(Request $request)

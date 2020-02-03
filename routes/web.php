@@ -117,8 +117,10 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('select_child/add','Admin\ObservationController@addSelectChild');
 
         Route::get('show/{id}','Admin\ObservationController@showChildrenInProgram');
+        Route::get('view/{id}',['as'=>'admin.observations.view','uses'=>'Admin\ObservationController@view']);
 
     });
+
     Route::group(['prefix' => 'observationtype'], function () {
 
         Route::get('xoa/{id}',['as'=>'admin.observationtype.getDelete','uses'=>'Admin\ObservationTypeController@getDelete']);

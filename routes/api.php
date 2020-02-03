@@ -19,23 +19,90 @@ use Illuminate\Http\Request;
 
 Route::get('test','Api\TestApiController@GetTest');
 
+Route::group(['prefix' => 'kids-now'], function () {
 
+    //---------------children----------------
+    Route::group(['prefix' => 'children'], function () {
+        Route::get('/', 'Api\ChildrenProfilesController@index');
+        Route::get('/{id}', 'Api\ChildrenProfilesController@show');
+        Route::get('add', 'Api\ChildrenProfilesController@create');
+        Route::post('add', 'Api\ChildrenProfilesController@store');
+        Route::get('view/{id}', 'Api\ChildrenProfilesController@view');
+        Route::get('edit/{id}', 'Api\ChildrenProfilesController@edit');
+        Route::post('edit/{id}', 'Api\ChildrenProfilesController@update');
+        Route::get('delete/{id}', 'Api\ChildrenProfilesController@destroy');
 
-//children_profiles
-Route::get('children_profiles','Admin\ChildrenProfilesController@index');
-Route::get('children_profiles/{id}','Admin\ChildrenProfilesController@show');
-Route::post('children_profiles', 'Admin\ChildrenProfilesController@store');
-Route::put('children_profiles/{id}','Admin\ChildrenProfilesController@update');
-Route::delete('children_profiles/{id}','Admin\ChildrenProfilesController@destroy');
+        Route::get('add_parent', 'Api\ChildrenProfilesController@addParent');
+        Route::get('select_child', 'Api\ChildrenProfilesController@selectChild');
 
-//attendance_children
-Route::get('attendance_children','Admin\AttendanceChildrenController@index');
-Route::get('attendance_children/{id}','Admin\AttendanceChildrenController@show');
+        //search by typeahead
+        Route::get('search/name', 'Api\ChildrenProfilesController@searchByName');
+    });
 
-//programs
-Route::get('programs','Admin\ProgramsController@index');
-Route::get('programs/{id}','Admin\ProgramsController@show');
-Route::post('programs', 'Admin\ProgramsController@store');
-Route::put('programs/{id}','Admin\ProgramsController@update');
-Route::delete('programs/{id}','Admin\ProgramsController@destroy');
+    //---------------program----------------
+    Route::group(['prefix' => 'program'], function () {
+        Route::get('', 'Api\ProgramsController@index');
+        Route::get('add', 'Api\ProgramsController@create');
+        Route::post('add', 'Api\ProgramsController@store');
+
+        Route::get('select_staff','Api\ProgramsController@selectStaff');
+        Route::get('select_child','Api\ProgramsController@selectChild');
+
+        Route::get('select_child/add','Api\ProgramsController@addSelectChild');   //ajax them children
+        Route::get('select_staff/add','Api\ProgramsController@addSelectStaff');   //ajax them staff
+
+        Route::get('edit/{id}', 'Api\ProgramsController@edit');
+        Route::post('edit/{id}', 'Api\ProgramsController@update');
+        Route::get('view/{id}', 'Api\ProgramsController@show');
+        Route::get('delete/{id}','Api\ProgramsController@destroy');
+
+        Route::get('search/children','Api\ProgramsController@searchChildren');
+        Route::get('search/staff','Api\ProgramsController@searchStaff');
+        Route::get('search/program','Api\ProgramsController@searchProgram');
+    });
+
+    //---------------notice board----------------
+    Route::group(['prefix' => 'notice-board'], function () {
+        Route::get('', 'Api\NoticeBoardController@index');
+        Route::get('/{id}', 'Api\NoticeBoardController@show');
+
+        Route::get('add', 'Api\NoticeBoardController@create');
+        Route::post('add', 'Api\NoticeBoardController@store');
+
+        Route::get('detail/{id}','Api\NoticeBoardController@detail');
+
+        Route::get('edit/{id}', 'Api\NoticeBoardController@edit');
+        Route::post('edit/{id}', 'Api\NoticeBoardController@update');
+
+        Route::get('delete/{id}','Api\NoticeBoardController@destroy');
+
+        //search by typeahead
+        Route::get('search/name', 'Api\NoticeBoardController@searchByTitle');
+
+        //clip board
+        Route::get('clip_board/{id}/{name}','Api\NoticeBoardController@displayClipboard');
+        Route::get('delete_clipboard/{id}/{name}','Api\NoticeBoardController@deleteClipboard');
+    });
+
+    //---------------observation----------------
+    Route::group(['prefix' => 'observations'], function () {
+        Route::get('list', ['as'=>'admin.observations.list','uses'=>'Api\ObservationController@getList']);
+        Route::get('danhsachobservationtype', ['as'=>'admin.observations.listobservationtype','uses'=>'Api\ObservationController@getListObservation']);
+        Route::get('delete/{id}',['as'=>'admin.observations.getDelete','uses'=>'Api\ObservationController@getDelete']);
+        Route::get('edit/{id}',['as'=>'admin.observations.getEdit','uses'=>'Api\ObservationController@getEdit']);
+        Route::post('edit/{id}',['as'=>'admin.observations.postEdit','uses'=>'Api\ObservationController@postEdit']);
+        Route::get('search',['as'=>'admin.observations.search','uses'=>'Api\ObservationController@getSearch']);
+        Route::post('search',['as'=>'admin.observations.search','uses'=>'Api\ObservationController@postSearch']);
+        Route::get('add',['as'=>'admin.observations.getAdd','uses'=>'Api\ObservationController@getAdd']);
+        Route::post('add',['as'=>'admin.observations.postAdd','uses'=>'Api\ObservationController@postAdd']);
+        Route::get('them_child',['as'=>'admin.observations.child','uses'=>'Api\ObservationController@getChild']);
+        Route::post('them_child',['as'=>'admin.observations.child','uses'=>'Api\ObservationController@postChild']);
+        Route::get('search/children', 'Api\ObservationController@searchByName');
+        Route::get('select_child/add','Api\ObservationController@addSelectChild');
+
+        Route::get('show/{id}','Api\ObservationController@showChildrenInProgram');
+        Route::get('view/{id}',['as'=>'admin.observations.view','uses'=>'Api\ObservationController@view']);
+
+    });
+});
 
