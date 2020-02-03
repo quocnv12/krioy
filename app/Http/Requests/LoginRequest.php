@@ -31,11 +31,11 @@ class LoginRequest extends FormRequest
     public function messages()
     {
         return [
-            'phone.required'=>'Số điện thoại không được để trống !',
-            'phone.numeric'=>'Số điện thoại phải là kiểu số !',
-            'phone.min'=>'Số điện thoại tối thiểu 10 kí tự !',
-            'password.required'=>'Mật khẩu không được để trống !',
-            'password.min'=>'Mật khẩu phải lớn hơn 8 kí tự !'
+            'phone.required'=>'Please enter phone !',
+            'phone.numeric'=>'Phone numbers must be numeric !',
+            'phone.min'=>'Phone must be greater than 10 characters !',
+            'password.required'=>'Please enter password !',
+            'password.min'=>'Password must be greater than 8 characters !'
         ];
     }
 }

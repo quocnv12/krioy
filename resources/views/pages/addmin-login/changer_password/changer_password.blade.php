@@ -1,13 +1,16 @@
 @extends('master-layout')
 @section('title')
-	List Staff
+List Staff
 @endsection
 @section('css')
 
 {{-- <link href="admin-template/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" /> --}}
-<link href="admin-template/assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen" />
-<link href="admin-template/assets/plugins/jquery-datatable/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
-<link href="admin-template/assets/plugins/datatables-responsive/css/datatables.responsive.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="admin-template/assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css"
+    media="screen" />
+<link href="admin-template/assets/plugins/jquery-datatable/css/jquery.dataTables.css" rel="stylesheet"
+    type="text/css" />
+<link href="admin-template/assets/plugins/datatables-responsive/css/datatables.responsive.css" rel="stylesheet"
+    type="text/css" media="screen" />
 <link href="admin-template/assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen" />
 {{-- <link href="admin-template/assets/plugins/bootstrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> --}}
 <link href="admin-template/assets/plugins/bootstrapv3/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
@@ -19,42 +22,116 @@
 @endsection
 @section('content')
 
+<body>
+    <section class="page-top container">
+        <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="ul-td">
+                        <li _ngcontent-c16="" class="level1"><a href="kids-now">Home</a></li>
+                        <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a
+                                href="kids-now/food">Changer Password</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <form method="post" action="kids-now/update-password" style="width: 100%;">
+                @csrf
+                <div class="mat-card" style="">
+                    <div class="mat-content">
+                        <h3 style="text-align:center;margin-bottom:10px">Changer Password</h3>
+                        @if (session('thongbao'))
+                        <p
+                            style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;;width:80%">
+                            * {{ session('thongbao') }}</p>
+                        @endif
 
+                        <div class="form-group" style="position: relative;">
+                            <label for="email">Password Old:</label>
+                            <input type="password" class="form-control" placeholder="Enter password old"
+                                name="password_old">
+                            <a style="position: absolute;top: 15%;right: -20px;" href="javascript:;void(0)"><i
+                                    class="fa fa-eye"></i></a>
 
+                        </div>
+                        @if (session('thongbao1'))
+                        <p
+                            style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;;width:80%">
+                            * {{ session('thongbao1') }}</p>
+                        @endif
+                        @if ($errors->has('password_old'))
+                        <p
+                            style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;;width:80%">
+                            * {{ $errors->first('password_old') }}</p>
+                        @endif
+                        <div class="form-group" style="position: relative;">
+                            <label for="pwd">Password New:</label>
+                            <input type="password" class="form-control" placeholder="Enter password new"
+                                name="password">
+                            <a style="position: absolute;top: 15%;right: -20px;" href="javascript:;void(0)"><i
+                                    class="fa fa-eye"></i></a>
+
+                        </div>
+                        @if ($errors->has('password'))
+                        <p
+                            style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;;width:80%">
+                            * {{ $errors->first('password') }}</p>
+                        @endif
+                        <div class="form-group" style="position: relative;">
+                            <label for="pwds">Confirm Password:</label>
+                            <input type="password" class="form-control" placeholder="Enter confirm password"
+                                name="password_confirmation">
+                            <a style="position: absolute;top: 15%;right: -20px;" href="javascript:;void(0)"><i
+                                    class="fa fa-eye"></i></a>
+
+                        </div>
+                        @if ($errors->has('password_confirmation'))
+                        <p
+                            style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;;width:80%">
+                            * {{ $errors->first('password_confirmation') }}</p>
+                        @endif
+                        <button type="submit" class="btn btn-primary">Ok</button>
+                        <button type="button" class="btn btn-primary"><a style="color:white"
+                                href="kids-now">Cancel</a></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
 </body>
 @endsection
 
 @section('js')
-	<script src="https://code.jquery.com/jquery.min.js"></script>
-    
-    <!-- Bootstrap JS form CDN -->
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    
-    <!-- jQuery sticky menu -->
-    <script src="asset/kriyo/js/owl.carousel.min.js"></script>
-    <script src="asset/kriyo/js/jquery.sticky.js"></script>
-    
-    <!-- jQuery easing -->
-    <script src="asset/kriyo/js/jquery.easing.1.3.min.js"></script>
-    
-    <!-- Main Script -->
-    <script src="asset/kriyo/js/main.js"></script>
-   
-    <script src="admin-template/assets/plugins/pace/pace.min.js" type="text/javascript"></script>
-    <script src="admin-template/assets/plugins/jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
-    <script src="admin-template/assets/plugins/bootstrapv3/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="admin-template/assets/plugins/jquery-block-ui/jqueryblockui.min.js" type="text/javascript"></script>
-    <script src="admin-template/assets/plugins/jquery-unveil/jquery.unveil.min.js" type="text/javascript"></script>
-    <script src="admin-template/assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js" type="text/javascript"></script>
-    <script src="admin-template/assets/plugins/jquery-numberAnimate/jquery.animateNumbers.js" type="text/javascript"></script>
-    <script src="admin-template/assets/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
-    <script src="admin-template/assets/plugins/bootstrap-select2/select2.min.js" type="text/javascript"></script>
-    <script src="admin-template/webarch/js/webarch.js" type="text/javascript"></script>
-    <script src="admin-template/assets/js/chat.js" type="text/javascript"></script>
-    <script src="admin-template/assets/plugins/bootstrap-select2/select2.min.js" type="text/javascript"></script>
-    <script src="admin-template/assets/plugins/jquery-datatable/js/jquery.dataTables.min.js" type="text/javascript"></script>
-    <script src="admin-template/assets/plugins/jquery-datatable/extra/js/dataTables.tableTools.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="admin-template/assets/plugins/datatables-responsive/js/datatables.responsive.js"></script>
-    <script type="text/javascript" src="admin-template/assets/plugins/datatables-responsive/js/lodash.min.js"></script>
-    <script src="admin-template/assets/js/datatables.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery.min.js"></script>
+
+<!-- Bootstrap JS form CDN -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<!-- jQuery sticky menu -->
+<script src="asset/kriyo/js/owl.carousel.min.js"></script>
+<script src="asset/kriyo/js/jquery.sticky.js"></script>
+
+<!-- jQuery easing -->
+<script src="asset/kriyo/js/jquery.easing.1.3.min.js"></script>
+
+<!-- Main Script -->
+<script src="asset/kriyo/js/main.js"></script>
+<script>
+    $(function () {
+        $(".form-group a").click(function () {
+            let $this = $(this);
+            if ($this.hasClass('active')) {
+                $this.parents('.form-group').find('input').attr('type', 'password');
+                $this.removeClass('active');
+            } else {
+                $this.parents('.form-group').find('input').attr('type', 'text');
+                $this.addClass('active');
+            }
+
+        });
+    });
+
+</script>
 @endsection
