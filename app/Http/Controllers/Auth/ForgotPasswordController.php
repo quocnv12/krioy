@@ -124,4 +124,10 @@ class ForgotPasswordController extends Controller
 
     }
 
+
+    public function getUpdatePassword()
+    {
+        return view('pages.addmin-login.changer_password.changer_password');
+    }
+
 }

@@ -23,28 +23,28 @@ class LoginController extends Controller
     {
        //dd($request->all());
        
-    //    if($this->hasTooManyLoginAttempts($request))
-    //     {
-    //         $this->fireLockoutEvent($request);
-    //         return redirect()->back()->with([
-    //             "expired" => $this->decayMinutes * 60
-    //         ]);
-    //     }
-    //     else
-    //     {
-         //   $this->incrementLoginAttempts($request);
+       if($this->hasTooManyLoginAttempts($request))
+        {
+            $this->fireLockoutEvent($request);
+            return redirect()->back()->with([
+                "expired" => $this->decayMinutes * 60
+            ]);
+        }
+        else
+        {
+           $this->incrementLoginAttempts($request);
             $phone = $request->phone;
             $password = $request->password;
             if(Auth::attempt(['phone' => $phone, 'password' => $password],$request->remember))
             {
-                Auth::logoutOtherDevices(Auth::user()->password);
+              //  Auth::logoutOtherDevices(Auth::user()->password);
                 return redirect('kids-now');
             }
             else
             {
                 return  redirect()->back()->with("thongbao","Tài khoản hoặc mật khẩu không chính xác !")->withInput();
             }
-        //}
+        }
     }
 
     public function Logout()
