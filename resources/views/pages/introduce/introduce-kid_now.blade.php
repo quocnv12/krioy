@@ -55,8 +55,8 @@
 						</p>
 					</span>
 					<div class="introduce-button" align="center">
-						<button class="btt-1" data-toggle="modal" data-target=".bd-example-modal-sm1">
-							<span>SIGNUP</span>
+						<button class="btt-1">
+							<a style="color:white" href="login">	<span>SIGNUP</span></a>
 						</button>
 						<button class="btt-2" data-toggle="modal" data-target=".bd-example-modal-sm1">
 							<SPAN>GET A FREE TRIAL</SPAN>
@@ -530,8 +530,8 @@
 		   		<h2 style="text-transform: none;font-size:18px">I am a</h2>
 		   </div>
 		   <div class="modal-body">
-		   		<button style="color: #3f51b5;">
-		   			<span>School Owner/Admin</span>
+		   		<button style="color: #ff4081;">
+		   			<a href="account"><span>School Owner/Admin</span></a>
 		   		</button>
 		   		<button style="color: #ff4081">
 		   			<span>School Owner/Admin</span>
