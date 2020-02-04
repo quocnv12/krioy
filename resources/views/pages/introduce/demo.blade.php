@@ -28,13 +28,19 @@
 								<div class="col-md-6">
 									<div class="input_box" style="width: 100%;">
 									 	<span>First Name</span>
-									 	<input type="text" name="First Name" placeholder="First Name*">
+										 <input type="text" value="{{ old('first_name') }}" name="first_name" placeholder="First Name*">
+										 @if ($errors->has('first_name'))
+										<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;width:80%;margin-top:10px;margin-bottom:0px">* {{ $errors->first('first_name') }}</p>
+										@endif
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="input_box" style="width: 100%;">
-										<span>Last Name</span>
-										<input type="text" name=" Last Name" placeholder="Last Name*">
+										<span>Email</span>
+										<input type="text" value="{{ old('email') }}"  name="email" placeholder="Email*">
+										@if ($errors->has('email'))
+										<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;width:80%;margin-top:10px;margin-bottom:0px">* {{ $errors->first('email') }}</p>
+										@endif
 									</div>
 								</div>
 							</div>
@@ -63,7 +69,7 @@
 						</div>
 					</div>
 					<div class="login-button" align="center">
-						<button type="submit"><span>Login</span></button>
+						<button type="submit"><span>Register</span></button>
 					</div>
 				</div>
 			</form>
