@@ -19,7 +19,7 @@ class ChildrenProfilesController extends Controller
     {
         $programs = Programs::all();
         if (! $programs){
-            return response()->json('Somthing wrong');
+            return response()->json('Somthing wrong', 404);
         }else{
             return response()->json([
                 'programs'=>$programs
@@ -32,7 +32,7 @@ class ChildrenProfilesController extends Controller
     {
         $programs = Programs::all();
         if (! $programs){
-            return response()->json('Somthing wrong');
+            return response()->json('Somthing wrong', 404);
         }else{
             return response()->json([
                 'programs'=>$programs
@@ -188,7 +188,7 @@ class ChildrenProfilesController extends Controller
     {
         $programs = Programs::all();
         if (! $programs){
-            return response()->json('Somthing wrong');
+            return response()->json('Somthing wrong', 404);
         }else {
             if ($id == 0) {
                 $children_profiles = DB::table('children_profiles')
@@ -214,97 +214,103 @@ class ChildrenProfilesController extends Controller
 
     public function view($id){
         $children_profiles = ChildrenProfiles::find($id);
-        $programs = Programs::all();
-        $programs_choose = DB::table('programs')
-            ->join('children_programs', 'programs.id', '=', 'children_programs.id_program')
-            ->select('id')
-            ->where('id_children', '=', $id)
-            ->get();
-        // array chua cac id program ma children dang hoc
-        $array_programs_choose = [];
-        foreach ($programs_choose as $key => $value) {
-            array_push($array_programs_choose, $value->id);
-        }
-        $parent_profiles_all = DB::table('parent_profiles')
-            ->join('children_parent', 'parent_profiles.id', '=', 'children_parent.id_parent')
-            ->select('*')
-            ->where('id_children', '=', $id)
-            ->get();
 
-        if (count($parent_profiles_all) == 2){
-            $parent_profiles_1 = $parent_profiles_all[0];
-            $parent_profiles_2 = $parent_profiles_all[1];
+        if (!$children_profiles){
+            return response()->json('Something wrong', 404);
+        }else {
+            $programs = Programs::all();
+            $programs_choose = DB::table('programs')
+                ->join('children_programs', 'programs.id', '=', 'children_programs.id_program')
+                ->select('id')
+                ->where('id_children', '=', $id)
+                ->get();
+            // array chua cac id program ma children dang hoc
+            $array_programs_choose = [];
+            foreach ($programs_choose as $key => $value) {
+                array_push($array_programs_choose, $value->id);
+            }
+            $parent_profiles_all = DB::table('parent_profiles')
+                ->join('children_parent', 'parent_profiles.id', '=', 'children_parent.id_parent')
+                ->select('*')
+                ->where('id_children', '=', $id)
+                ->get();
 
-            return response()->json([
-                'children_profiles' => $children_profiles,
-                'programs' => $programs,
-                'array_programs_choose' => $array_programs_choose,
-                'parent_profiles_1' => $parent_profiles_1,
-                'parent_profiles_2' => $parent_profiles_2,
-            ], 200);
-        }
-        else if(count($parent_profiles_all) == 1){
-            $parent_profiles_1 = $parent_profiles_all[0];
-            return response()->json([
-                'children_profiles' => $children_profiles,
-                'programs' => $programs,
-                'array_programs_choose' => $array_programs_choose,
-                'parent_profiles_1' => $parent_profiles_1,
-            ], 200);
-        }
-        else{
-            return response()->json([
-                'children_profiles' => $children_profiles,
-                'programs' => $programs,
-                'array_programs_choose' => $array_programs_choose,
-            ], 200);
+            if (count($parent_profiles_all) == 2) {
+                $parent_profiles_1 = $parent_profiles_all[0];
+                $parent_profiles_2 = $parent_profiles_all[1];
+
+                return response()->json([
+                    'children_profiles' => $children_profiles,
+                    'programs' => $programs,
+                    'array_programs_choose' => $array_programs_choose,
+                    'parent_profiles_1' => $parent_profiles_1,
+                    'parent_profiles_2' => $parent_profiles_2,
+                ], 200);
+            } else if (count($parent_profiles_all) == 1) {
+                $parent_profiles_1 = $parent_profiles_all[0];
+                return response()->json([
+                    'children_profiles' => $children_profiles,
+                    'programs' => $programs,
+                    'array_programs_choose' => $array_programs_choose,
+                    'parent_profiles_1' => $parent_profiles_1,
+                ], 200);
+            } else {
+                return response()->json([
+                    'children_profiles' => $children_profiles,
+                    'programs' => $programs,
+                    'array_programs_choose' => $array_programs_choose,
+                ], 200);
+            }
         }
     }
 
     public function edit($id)
     {
         $children_profiles = ChildrenProfiles::find($id);
-        $programs = Programs::all();
-        $programs_choose = DB::table('programs')
-            ->join('children_programs', 'programs.id', '=', 'children_programs.id_program')
-            ->select('id')
-            ->where('id_children', '=', $id)
-            ->get();
-        // array chua cac id program ma children dang hoc
-        $array_programs_choose = [];
-        foreach ($programs_choose as $key => $value) {
-            array_push($array_programs_choose, $value->id);
-        }
-        $parent_profiles_all = DB::table('parent_profiles')
-            ->join('children_parent', 'parent_profiles.id', '=', 'children_parent.id_parent')
-            ->select('*')
-            ->where('id_children', '=', $id)
-            ->get();
 
-        if (count($parent_profiles_all) == 2){
-            $parent_profiles_1 = $parent_profiles_all[0];
-            $parent_profiles_2 = $parent_profiles_all[1];
+        if (!$children_profiles){
+            return response()->json('Something wrong', 404);
+        }else {
+            $programs = Programs::all();
+            $programs_choose = DB::table('programs')
+                ->join('children_programs', 'programs.id', '=', 'children_programs.id_program')
+                ->select('id')
+                ->where('id_children', '=', $id)
+                ->get();
+            // array chua cac id program ma children dang hoc
+            $array_programs_choose = [];
+            foreach ($programs_choose as $key => $value) {
+                array_push($array_programs_choose, $value->id);
+            }
+            $parent_profiles_all = DB::table('parent_profiles')
+                ->join('children_parent', 'parent_profiles.id', '=', 'children_parent.id_parent')
+                ->select('*')
+                ->where('id_children', '=', $id)
+                ->get();
 
-            return response()->json(['children_profiles' => $children_profiles,
-                'programs' => $programs,
-                'array_programs_choose' => $array_programs_choose,
-                'parent_profiles_1' => $parent_profiles_1,
-                'parent_profiles_2' => $parent_profiles_2,
-            ]);
-        }
-        else if(count($parent_profiles_all) == 1){
-            $parent_profiles_1 = $parent_profiles_all[0];
-            return response()->json(['children_profiles' => $children_profiles,
-                'programs' => $programs,
-                'array_programs_choose' => $array_programs_choose,
-                'parent_profiles_1' => $parent_profiles_1,
-            ]);
-        }
-        else{
-            return response()->json(['children_profiles' => $children_profiles,
-                'programs' => $programs,
-                'array_programs_choose' => $array_programs_choose,
-            ]);
+            if (count($parent_profiles_all) == 2) {
+                $parent_profiles_1 = $parent_profiles_all[0];
+                $parent_profiles_2 = $parent_profiles_all[1];
+
+                return response()->json(['children_profiles' => $children_profiles,
+                    'programs' => $programs,
+                    'array_programs_choose' => $array_programs_choose,
+                    'parent_profiles_1' => $parent_profiles_1,
+                    'parent_profiles_2' => $parent_profiles_2,
+                ], 200);
+            } else if (count($parent_profiles_all) == 1) {
+                $parent_profiles_1 = $parent_profiles_all[0];
+                return response()->json(['children_profiles' => $children_profiles,
+                    'programs' => $programs,
+                    'array_programs_choose' => $array_programs_choose,
+                    'parent_profiles_1' => $parent_profiles_1,
+                ], 200);
+            } else {
+                return response()->json(['children_profiles' => $children_profiles,
+                    'programs' => $programs,
+                    'array_programs_choose' => $array_programs_choose,
+                ], 200);
+            }
         }
     }
 
@@ -528,33 +534,37 @@ class ChildrenProfilesController extends Controller
     {
         $children_profiles = ChildrenProfiles::findOrFail($id);
 
-        if(isset($children_profiles->image)){
-            $old_image = $children_profiles->image;
-            unlink($old_image);
-        }
-
-        $children_parent = ChildrenParent::where('id_children', '=', $id)->get();
-        if (isset($children_parent)){
-            foreach ($children_parent as $child_parent) {
-                //xoa parent cua children bi xoa
-                $parent = ParentProfiles::where('id', '=', $child_parent->id_parent)->get();
-                foreach ($parent as $person) {
-                    if($person->image){
-                        $old_image = $person->image;
-                        unlink($old_image);
-                        // ko xoa parent. lay thong tin sau nay dem ban data lay tien
-                    }
-                }
-                DB::table('children_parent')->where('id_children','=',$child_parent)->delete();
+        if (! $children_profiles){
+            return response()->json('Something wrong', 404);
+        }else {
+            if (isset($children_profiles->image)) {
+                $old_image = $children_profiles->image;
+                unlink($old_image);
             }
+
+            $children_parent = ChildrenParent::where('id_children', '=', $id)->get();
+            if (isset($children_parent)) {
+                foreach ($children_parent as $child_parent) {
+                    //xoa parent cua children bi xoa
+                    $parent = ParentProfiles::where('id', '=', $child_parent->id_parent)->get();
+                    foreach ($parent as $person) {
+                        if ($person->image) {
+                            $old_image = $person->image;
+                            unlink($old_image);
+                            // ko xoa parent. lay thong tin sau nay dem ban data lay tien
+                        }
+                    }
+                    DB::table('children_parent')->where('id_children', '=', $child_parent)->delete();
+                }
+            }
+
+            $children_profiles->delete();
+
+            $programs = Programs::all();
+            return response()->json([
+                'programs' => $programs
+            ], 204);
         }
-
-        $children_profiles->delete();
-
-        $programs = Programs::all();
-        return response()->json([
-            'programs'=>$programs
-        ], 204);
     }
 
     public function searchByName(Request $request)
@@ -564,8 +574,12 @@ class ChildrenProfilesController extends Controller
             ->orderBy('last_name')
             ->get();
 
-        return response()->json([
-            'children_profiles'=>$children_profiles
-        ], 200);
+        if (!$children_profiles){
+            return response()->json('Not found', 404);
+        }else {
+            return response()->json([
+                'children_profiles' => $children_profiles
+            ], 200);
+        }
     }
 }

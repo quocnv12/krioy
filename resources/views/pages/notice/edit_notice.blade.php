@@ -217,8 +217,6 @@
 	<script type="text/javascript">
         var array = $('#array_programs_old').val().split(',');
 
-        console.log(array);
-
         $('.tablinks1').click(function(event) {
             if ($(this).hasClass('tablinks1_active')) {
                 $(this).removeClass('tablinks1_active');
@@ -229,7 +227,6 @@
                 var program_push = $(this).val();
                 array.push(program_push);
             }
-            console.log(array);
         });
 
         $('#btn').click(function(event) {

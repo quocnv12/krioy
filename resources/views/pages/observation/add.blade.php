@@ -201,7 +201,6 @@
 				var observation_push = $(this).val();
 				array_observation.push(observation_push);
     		}
-			console.log(array_observation);
     	});
 
 		//begin select children
@@ -209,7 +208,6 @@
 
 		function deleteChild(id_children) {
 			array_children.splice( array_children.indexOf(id_children), 1 );
-			console.log('array children sau khi xoa: '+array_children)
 		}
 
 		function getIdChildren(id){
@@ -223,8 +221,6 @@
 					if (! array_children.includes(id)){
 						$('#children_list').append(data);
 						array_children.push(id);
-						console.log('id children them vao:'+id)
-						console.log('day la array children khi them:'+array_children);
 					}else {
 						alert('children exists')
 					}
@@ -250,7 +246,6 @@
                 var observation_push = $(this).children('div').children('input').val();
                 array_children_observation.push(observation_push);
             }
-            console.log(array_children_observation)
         })
         //end select children_observation
 		var button = document.getElementById("submit_button");
