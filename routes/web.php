@@ -27,7 +27,13 @@ Route::get('kids-now/children/add','Admin\ChildrenProfilesController@create');
 Route::get('kids-now/notice-board/add','Admin\NoticeBoardController@create');
 
 Route::get('','Admin\IndexController@getIndex');
+//------------tai khoan demo-------
 Route::get('account','Admin\IndexController@getDemoAccount');
+Route::post('account','Admin\IndexController@postDemoAccount');
+
+//---------xac nhan tai khoan------------
+Route::get('vrify','Admin\IndexController@verifyAccount')->name('user.verify.account');
+
 //---------------login----------------
 Route::get('login', 'Admin\LoginController@GetLogin')->name('login')->middleware('CheckLogOut');
 Route::post('login', 'Admin\LoginController@PostLogin');

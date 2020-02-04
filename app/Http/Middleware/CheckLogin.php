@@ -17,6 +17,10 @@ class CheckLogin
     {
         if(Auth::check())
         {
+            // if (Auth::user()->active==0) {
+            //     Auth()->logout();
+            //     return redirect('login')->with('thongbao', 'You need to verify the account.');
+            // }
             return $next($request);
         }else{
             
