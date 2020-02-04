@@ -21,7 +21,7 @@
             <div class="row line">
                 <div class="col-xs-6 col-sm-6 col-md-2dot4 item">
                     <a href="kids-now/attendance">
-                        <img src="images/attendance.png" alt="">
+                        <img src="images/attendance1.png" alt="" style="background: darkgrey;">
                         <div class="title">
                             <p>Attendance</p>
                         </div>

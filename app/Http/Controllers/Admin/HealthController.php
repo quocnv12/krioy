@@ -33,58 +33,80 @@ class HealthController extends Controller
         $programs = Programs::all();
         return view('pages.heath.heath', compact('health','programs'));
     }
-    public function postAdd(Request $request){
-        $image = $request->image;
-        $img_current ='images/'.$request->image;
-        if(!empty($image)) {
-            $filename= $image->getClientOriginalName();
-            $health = new HealthModel();
-            $health->id_children = $request->children_health;
-
-
-            $health->sick= $request->sick;
-            $health->medicine= $request->medicine;
-            $health->growth_height= $request->growth_height;
-            $health->growth_weight= $request->growth_weight;
-            $health->incident= $request->incident;
-            $health->blood_group = $request->blood_group;
-            $health->image= $request->image;
-            $health->file_pdf= $request->file_pdf;
-            $health->save();
-
-            $image ->move(base_path() . 'images/', $filename);
-            File::delete($img_current);
-        }else {
-            $health = new HealthModel();
-            $health->id_children = $request->children_health;
-
-            $health->sick= $request->sick;
-            $health->medicine= $request->medicine;
-            $health->growth_height= $request->growth_height;
-            $health->growth_weight= $request->growth_weight;
-            $health->incident= $request->incident;
-
-            $health->blood_group = $request->blood_group;
-            $health->file_pdf= $request->file_pdf;
-            $health->save();
+    public function postAdd(Request $request)
+    {
+        if($request->sick==null)
+        {
+            return redirect()->back()->with('thongbao1','Pleasea choose sick !')->withInput();
         }
+        elseif ($request->medicine==null) {
+            return redirect()->back()->with('thongbao2','Pleasea choose  medicine !')->withInput();
+        }
+        elseif($request->growth_height==null)
+        {
+            return redirect()->back()->with('thongbao3','Pleasea choose growth_height !')->withInput();
+        }
+        elseif($request->incident==null)
+        {
+            return redirect()->back()->with('thongbao4','Pleasea choose incident !')->withInput();
+        }
+        elseif($request->blood_group==null)
+        {
+            return redirect()->back()->with('thongbao5','Pleasea choose blood_group !')->withInput();
+        }
+        else {
+
+            $image = $request->image;
+            $img_current = 'images/' . $request->image;
+            if (!empty($image)) {
+                $filename = $image->getClientOriginalName();
+                $health = new HealthModel();
+                $health->id_children = $request->children_health;
 
 
-        if ($request->programs) {
-            //string to array
-            $programs = explode(',', $request->programs);
-            //luu vao bang children_programs
-            foreach ($programs as $program) {
-                $children_program = new ChildrenProgram();
-                $children_program->id_children = $children_id;
-                $children_program->id_program = $program;
+                $health->sick = $request->sick;
+                $health->medicine = $request->medicine;
+                $health->growth_height = $request->growth_height;
+                $health->growth_weight = $request->growth_weight;
+                $health->incident = $request->incident;
+                $health->blood_group = $request->blood_group;
+                $health->image = $request->image;
+                $health->file_pdf = $request->file_pdf;
+                $health->save();
+
+                $image->move(base_path() . 'images/', $filename);
+                File::delete($img_current);
+            } else {
+                $health = new HealthModel();
+                $health->id_children = $request->children_health;
+
+                $health->sick = $request->sick;
+                $health->medicine = $request->medicine;
+                $health->growth_height = $request->growth_height;
+                $health->growth_weight = $request->growth_weight;
+                $health->incident = $request->incident;
+
+                $health->blood_group = $request->blood_group;
+                $health->file_pdf = $request->file_pdf;
+                $health->save();
+            }
+
+
+            if ($request->programs) {
+                //string to array
+                $programs = explode(',', $request->programs);
+                //luu vao bang children_programs
+                foreach ($programs as $program) {
+                    $children_program = new ChildrenProgram();
+                    $children_program->id_children = $children_id;
+                    $children_program->id_program = $program;
+                    $children_program->save();
+                }
                 $children_program->save();
             }
-            $children_program->save();
+            return redirect()->back()->with('notify', 'Add successfully');
+
         }
-        return redirect()->route('admin.health.list');
-
-
     }
 
     public function getEdit($id){
@@ -92,41 +114,55 @@ class HealthController extends Controller
         $childrent = DB::table('children_profiles')->where('id',$id)->first();
         return view('pages.heath.edit', compact('health','childrent'));
     }
-    public function postEdit(Request $request, $id){
-        $image = $request->image;
-        $img_current ='images/'.$request->fImageCurrent;
-        if(!empty($image)) {
-            $filename= $image->getClientOriginalName();
-            $health = HealthModel::find($id);
+    public function postEdit(Request $request, $id)
+    {
 
-            $health->sick= $request->sick;
-            $health->medicine= $request->medicine;
-            $health->growth_height= $request->growth_height;
-            $health->growth_weight= $request->growth_weight;
-            $health->incident= $request->incident;
-            $health->image= $request->image;
-            $health->save();
+        if ($request->sick == null) {
+            return redirect()->back()->with('thongbao1', 'Pleasea choose sick !')->withInput();
+        } elseif ($request->medicine == null) {
+            return redirect()->back()->with('thongbao2', 'Pleasea choose  medicine !')->withInput();
+        } elseif ($request->growth_height == null) {
+            return redirect()->back()->with('thongbao3', 'Pleasea choose growth_height !')->withInput();
+        } elseif ($request->incident == null) {
+            return redirect()->back()->with('thongbao4', 'Pleasea choose incident !')->withInput();
+        } elseif ($request->blood_group == null) {
+            return redirect()->back()->with('thongbao5', 'Pleasea choose blood_group !')->withInput();
+        } else {
+            $image = $request->image;
+            $img_current = 'images/' . $request->fImageCurrent;
+            if (!empty($image)) {
+                $filename = $image->getClientOriginalName();
+                $health = HealthModel::find($id);
 
-            $image ->move(base_path() . 'images/', $filename);
-            File::delete($img_current);
-        }else {
-            $health = HealthModel::find($id);
+                $health->sick = $request->sick;
+                $health->medicine = $request->medicine;
+                $health->growth_height = $request->growth_height;
+                $health->growth_weight = $request->growth_weight;
+                $health->incident = $request->incident;
+                $health->image = $request->image;
+                $health->save();
 
-            $health->sick= $request->sick;
-            $health->medicine= $request->medicine;
-            $health->growth_height= $request->growth_height;
-            $health->growth_weight= $request->growth_weight;
-            $health->incident= $request->incident;
-            $health->save();
+                $image->move(base_path() . 'images/', $filename);
+                File::delete($img_current);
+            } else {
+                $health = HealthModel::find($id);
+
+                $health->sick = $request->sick;
+                $health->medicine = $request->medicine;
+                $health->growth_height = $request->growth_height;
+                $health->growth_weight = $request->growth_weight;
+                $health->incident = $request->incident;
+                $health->save();
+            }
+
+
+            return redirect()->back()->with('notify', 'Edit successfully');
         }
-
-
-        return redirect()->route('admin.health.list')->with(['flash_level'=>'success','flash_message'=>'Edit tin tuyển dụng thành công!!!']);
     }
 
     public function getDelete($id){
         $health= DB::table('health')->where('id',$id)->delete();
-        return redirect()->route('admin.health.list', compact('health'))->with(['flash_level'=>'success','flash_message'=>'Del tin tuyển dụng thành công!!!']);
+        return redirect()->back()->with('notify','Deleted file successfully');
     }
     public function getSearch(Request $req){
 

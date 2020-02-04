@@ -25,7 +25,7 @@ class HealthTableSeeder extends Seeder
                 'medicine'      =>  'none',
                 'incident'      =>  'none',
                 'blood_group'   =>  'A',
-                'image'         =>  'images',
+                'image'         =>  'Child.png',
                 'file_pdf'      =>  'file pdf',
             ],
             [
@@ -38,7 +38,7 @@ class HealthTableSeeder extends Seeder
                 'medicine'      =>  'none',
                 'incident'      =>  'none',
                 'blood_group'   =>  'A',
-                'image'         =>  'images',
+                'image'         =>  'Child.png',
                 'file_pdf'      =>  'file pdf',
             ],
             [
@@ -51,7 +51,7 @@ class HealthTableSeeder extends Seeder
                 'medicine'      =>  'none',
                 'incident'      =>  'none',
                 'blood_group'   =>  'A',
-                'image'         =>  'images',
+                'image'         =>  'Child.png',
                 'file_pdf'      =>  'file pdf',
             ],
             [
@@ -64,7 +64,7 @@ class HealthTableSeeder extends Seeder
                 'medicine'      =>  'none',
                 'incident'      =>  'none',
                 'blood_group'   =>  'A',
-                'image'         =>  'images',
+                'image'         =>  'Child.png',
                 'file_pdf'      =>  'file pdf',
             ],
             [
@@ -77,7 +77,7 @@ class HealthTableSeeder extends Seeder
                 'medicine'      =>  'none',
                 'incident'      =>  'none',
                 'blood_group'   =>  'A',
-                'image'         =>  'images',
+                'image'         =>  'Child.png',
                 'file_pdf'      =>  'file pdf',
             ],
         ]);

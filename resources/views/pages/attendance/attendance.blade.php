@@ -34,18 +34,16 @@
 			<div class="row" style="padding: 10px">
 				<div class="col-lg-2 col-md-2 col-sm-12"></div>
 				<div class="col-lg-8 col-md-8 col-sm-12" style="padding-left:0px;padding-right:0px">
-					<div class="child-profile-ul">
-						<div _ngcontent-c10="" class="scrollmenu" id="nav">
-							<ul _ngcontent-c10="" class="scrollmenu-ul">
-								<!---->
-								@foreach($programs as $row)
-									<li _ngcontent-c10="">
-										<a _ngcontent-c10="" class="item active" href="kids-now/attendance/{{$row->id}}">{{$row->program_name}}</a>
-									</li>
-								@endforeach
-							</ul>
-						</div>
-					</div>
+					<div class="scrollmenu-div">
+				@foreach($programs as $program)
+				<div class="scrollmenu-button" style="text-align: center;">
+					<!---->
+					<button type="submit" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
+						<a style="color: #fff;" href="kids-now/attendance/{{$program->id}}">{{$program->program_name}}</a>
+					</button>
+				</div>
+				@endforeach
+			</div>
 				</div>
 				<div class="col-lg-2 col-md-2 col-sm-12"></div>
 			</div>
@@ -104,6 +102,7 @@
 		</section>
 		<section class="container">
 			<form style="width: auto;margin: 0;text-align: center" action="{{route('admin.observations.postAdd')}}" method="post" id="addObservation" enctype="multipart/form-data">
+			@csrf
 			<div class="mat-card tab-content" style="min-height: 500px;">
 				<div class="mat-content" id="tab-main">
 					<div _ngcontent-c19="" class="row ng-star-inserted">
@@ -118,13 +117,13 @@
                                     </div>
                                 </div>
                             @endforeach
-                            <input id="array_children_observation" type="hidden" value="" name="children_observations">
+                            <input id="array_children_attendance" type="hidden" value="" name="children_observations">
                         @endif
 
 					</div>
 				</div>
 			</div>
-			{{-- <div class="icon-plus-1">
+			 <!-- <div class="icon-plus-1">
 				<ul>
 					<li style="background-color: #37bd9c;" data-toggle="modal" data-target=".bd-example-modal-sm">IN</li>
 					<li style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm">OUT</li>
@@ -132,16 +131,13 @@
 					<li style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm">UNMARK</li>
 					<li style="background-color: #ffc200;" data-toggle="modal" data-target=".bd-example-modal-sm">LEAVE</li>
 				</ul>
-			</div> --}}
+			</div> -->
 			<div class="icon-plus-1">
-				<button class="icon-plus-button" style="background-color: #37bd9c;" data-toggle="modal" data-target=".bd-example-modal-sm">IN</button>
-				<br>
-				<button class="icon-plus-button" style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm">OUT</button>
-				<br>
-				<button class="icon-plus-button" style="background-color: #ed5564;" data-toggle="modal" data-target=".bd-example-modal-sm">ABSENT</button>
-				<br>
+				<button class="icon-plus-button" style="background-color: #37bd9c;" data-toggle="modal" data-target=".bd-example-modal-sm">IN</button><br>
+				<button class="icon-plus-button" style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm">OUT</button><br>
+				<button class="icon-plus-button" style="background-color: #ed5564;" data-toggle="modal" data-target=".bd-example-modal-sm">ABSENT</button><br>
 				<button class="icon-plus-button" style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm">UNMARK</button><br>
-				<button class="icon-plus-button" style="background-color: #ffc200;" data-toggle="modal" data-target=".bd-example-modal-sm">LEAVE</button>
+				<!-- <button class="icon-plus-button" style="background-color: #ffc200;" data-toggle="modal" data-target=".bd-example-modal-sm">LEAVE</button> -->
 			</div>
 		</form>
 		</section>
@@ -191,8 +187,10 @@
     
     <!-- Main Script -->
     <script src="asset/kriyo/js/main.js"></script>
+    <script src="libs/slick-1.8.1/slick/slick.js"></script>
+
     <script type="text/javascript">
-    	var array_children_observation = [];
+    	var array_children_attendance = [];
         $('.div_box_children').children('div').children('i').hide()
 
         $('.div_box_children').click(function () {
@@ -200,15 +198,15 @@
                 ($(this).children('div').children('i').removeClass('checked'))
                 $(this).children('div').children('i').hide()
                 var observation_pop = $(this).children('div').children('input').val();
-                array_children_observation.splice( array_children_observation.indexOf(observation_pop), 1 );
+                array_children_attendance.splice( array_children_attendance.indexOf(observation_pop), 1 );
 
             }else {
                 $(this).children('div').children('i').addClass('checked')
                 $(this).children('div').children('i').show()
                 var observation_push = $(this).children('div').children('input').val();
-                array_children_observation.push(observation_push);
+                array_children_attendance.push(observation_push);
             }
-            console.log(array_children_observation)
+            console.log(array_children_attendance)
         })
 	 </script>
 
@@ -249,5 +247,39 @@
 		      return i;
 		   }
 		}
+	</script>
+	<script type="text/javascript">
+		$('.scrollmenu-div').slick({
+			infinite: true,
+			slidesToShow: 7,
+			slidesToScroll: 1,
+			autoplay: false,
+			autoplaySpeed: 2000,
+			responsive: [{
+					breakpoint: 1200,
+					settings: {
+					slidesToShow: 3,
+					slidesToScroll: 1
+					}
+				},
+			{
+				breakpoint: 991,
+				settings: {
+				slidesToShow: 3,
+				slidesToScroll: 1,
+				autoplay: true,
+				arrows:false,
+				}
+			},
+			{
+				breakpoint: 500,
+				settings: {
+				slidesToShow: 2,
+				slidesToScroll: 1,
+				autoplay: true,
+				arrows:false,
+				}
+			}]
+		});
 	</script>
 @endsection

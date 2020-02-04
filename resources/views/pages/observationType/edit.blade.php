@@ -17,6 +17,12 @@
                 </ul>
             </div>
         </div>
+
+        @if(session('notify'))
+            <div class="alert alert-success font-weight-bold">
+                {{session('notify')}}
+            </div>
+        @endif
         <div class="row">
             <div class="mat-card">
                 <div class="mat-content">
