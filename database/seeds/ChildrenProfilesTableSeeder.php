@@ -27,7 +27,7 @@ class ChildrenProfilesTableSeeder extends Seeder
                'address'        =>'Washington DC',
                'allergies'      =>'none',
                'additional_note'=>'none',
-               
+               'image'          =>'Child.png',
                'status'         =>1,
                'exist'          =>1,
                
@@ -44,7 +44,7 @@ class ChildrenProfilesTableSeeder extends Seeder
                 'address'        =>'Washington DC',
                 'allergies'      =>'none',
                 'additional_note'=>'none',
-                
+                'image'          =>'Child.png',
                 'status'         =>1,
                 'exist'          =>1,
                 
@@ -61,7 +61,7 @@ class ChildrenProfilesTableSeeder extends Seeder
                 'address'        =>'Washington DC',
                 'allergies'      =>'none',
                 'additional_note'=>'none',
-                
+                'image'          =>'Child.png',
                 'status'         =>1,
                 'exist'          =>1,
                 
@@ -78,7 +78,7 @@ class ChildrenProfilesTableSeeder extends Seeder
                 'address'        =>'Washington DC',
                 'allergies'      =>'none',
                 'additional_note'=>'none',
-                
+                'image'          =>'Child.png',
                 'status'         =>1,
                 'exist'          =>1,
                 
@@ -95,7 +95,7 @@ class ChildrenProfilesTableSeeder extends Seeder
                 'address'        =>'Washington DC',
                 'allergies'      =>'none',
                 'additional_note'=>'none',
-                
+                'image'          =>'Child.png',
                 'status'         =>1,
                 'exist'          =>1,
                 
@@ -112,7 +112,7 @@ class ChildrenProfilesTableSeeder extends Seeder
                 'address'        =>'Washington DC',
                 'allergies'      =>'none',
                 'additional_note'=>'none',
-                
+                'image'          =>'Child.png',
                 'status'         =>1,
                 'exist'          =>1,
                 
@@ -129,7 +129,7 @@ class ChildrenProfilesTableSeeder extends Seeder
                 'address'        =>'Washington DC',
                 'allergies'      =>'none',
                 'additional_note'=>'none',
-                
+                'image'          =>'Child.png',
                 'status'         =>1,
                 'exist'          =>1,
                 
@@ -146,7 +146,7 @@ class ChildrenProfilesTableSeeder extends Seeder
                 'address'        =>'Washington DC',
                 'allergies'      =>'none',
                 'additional_note'=>'none',
-                
+                'image'          =>'Child.png',
                 'status'         =>1,
                 'exist'          =>1,
                 
@@ -163,7 +163,7 @@ class ChildrenProfilesTableSeeder extends Seeder
                 'address'        =>'Washington DC',
                 'allergies'      =>'none',
                 'additional_note'=>'none',
-                
+                'image'          =>'Child.png',
                 'status'         =>1,
                 'exist'          =>1,
                 
@@ -180,7 +180,7 @@ class ChildrenProfilesTableSeeder extends Seeder
                 'address'        =>'Washington DC',
                 'allergies'      =>'none',
                 'additional_note'=>'none',
-                
+                'image'          =>'Child.png',
                 'status'         =>1,
                 'exist'          =>1,
                 

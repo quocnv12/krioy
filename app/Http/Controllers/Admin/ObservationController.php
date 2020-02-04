@@ -70,7 +70,7 @@ class ObservationController extends Controller
                     array_push($array_month, $collection->month);
                 }
             }
-            dd($array_month);
+            //dd($array_month);
 
             //array chua year da ton tai
             $array_year = [];
@@ -158,7 +158,7 @@ class ObservationController extends Controller
 
     public function getDelete($id){
         $observation= DB::table('observations')->where('id',$id)->delete();
-        return redirect()->route('admin.observations.list')->with(['flash_level'=>'success','flash_message'=>'Delete successfully!!!']);
+        return redirect()->back()->with('notify_clipboard','Deleted file successfully');
     }
 
     public function getSearch(Request $req){
