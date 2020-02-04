@@ -2,9 +2,16 @@
     <div class="menu_desktop d-none d-md-block "> 
         <nav class="navbar navbar-expand-sm bg-light" style="background-color: white !important;box-shadow: rgb(242, 242, 242) 0px 3px 6px 3px;">
             <a href="#" style="display: flex;outline: none;text-decoration: none;">
-                <img src="images/logo.png" alt="">
-                <p style="margin: 20px 0;font-size: 30px;color: #ff4081;">Kids Now</p>
+                <img src="images/logo-ngang.png" alt="" class="logo">
+               <!--  <p style="margin: 20px 0;font-size: 30px;color: #ff4081;">Kids Now</p> -->
             </a>
+            <div class="dropdown-logo1">
+                <button class="dropbtn-logo1"><img src="images/viet.png" style="width: 35px;height: 25px"></button>
+                <div class="dropdown-content-logo1">
+                    <a href="#"><img src="images/viet.png"> VietNamese</a>
+                    <a href="#"><img src="images/usa.png"> English</a>
+                </div>
+            </div>
             <!-- Links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">

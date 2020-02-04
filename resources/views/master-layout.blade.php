@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kids-now  @yield('title')</title>
-    <link rel="icon" href="images/a.png"/>
+    <link rel="icon" href="images/logo.png"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <base href="{{asset('')}}">
     <!-- CSS libs -->
