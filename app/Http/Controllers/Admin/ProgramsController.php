@@ -16,34 +16,9 @@ use Illuminate\Support\Facades\Session;
 
 class ProgramsController extends Controller
 {
+
     public function index()
     {
-//        $programs = DB::table('programs')
-//            ->join('children_programs','programs.id','=','children_programs.id_program')
-//            ->groupBy('programs.program_name')
-//            ->get();
-//
-//        foreach($programs as $key => $program)
-//        {
-//            $programs[$key]->schedule = explode(',',$programs[$key]->schedule); //turn string to array to show
-//            $programs[$key]->id_children = DB::table('programs')
-//                ->join('children_programs','programs.id','=','children_programs.id_program')
-//                ->join('children_profiles','children_profiles.id','=','children_programs.id_children')
-//                ->select(['children_profiles.*'])
-//                ->where('children_programs.id_program','=',$program->id)
-//                ->get();
-//
-//            $programs[$key]->id_staff = DB::table('programs')
-//                ->join('staff_programs','programs.id','=','staff_programs.id_program')
-//                ->join('staff_profiles','staff_profiles.id','=','staff_programs.id_staff')
-//                ->select(['staff_profiles.*'])
-//                ->where('staff_programs.id_program','=',$program->id)
-//                ->get();
-//
-//        }
-
-//        return response()->json(['programs'=>$programs],200);
-
         $programs = DB::table('programs')
             ->leftJoin('children_programs', 'programs.id', '=', 'children_programs.id_program')
             ->select(['programs.program_name', 'programs.id'])

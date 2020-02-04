@@ -104,7 +104,7 @@
 			</div>
 		@endif
 		<div class="icon-plus" title="add">
-			<a href="kids-now/observations/add">
+			<a href="kids-now/children/add">
 				<i class="fa fa-plus"></i>
 			</a>
 		</div>
@@ -161,7 +161,7 @@
 		$(document).ready(function($) {
 			var engine1 = new Bloodhound({
 				remote: {
-					url: 'http://kidsnow.web88.vn/kids-now/children/search/name?q=%QUERY%',
+					url: 'kids-now/children/search/name?q=%QUERY%',
 					wildcard: '%QUERY%'
 				},
 				datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
@@ -182,13 +182,13 @@
 					},
 					templates: {
 						empty: [
-							'<div class="list-group search-results-dropdown" style="width: 500px;"><div class="list-group-item">Nothing found.</div></div>'
+							'<div class="list-group search-results-dropdown" style="width: 400px;"><div class="list-group-item">Nothing found.</div></div>'
 						],
 						header: [
 
 						],
 						suggestion: function (data) {
-							return '<a href="/kids-now/children/edit/' + data.id + '" class="list-group-item" style="width: 500px;"> ' + data.first_name +' '+ data.last_name +  '</a>';
+							return '<a href="/kids-now/children/edit/' + data.id + '" class="list-group-item" style="width: 400px; color: inherit"><span style=""> ' + data.first_name +' '+ data.last_name + ' </span><span style="float: right"> ' + data.birthday + ' </span></a>';
 						}
 					}
 				},

@@ -43,7 +43,7 @@ class ChildrenProfilesController extends Controller
                 'first_name_parent_1'   => 'nullable',
                 'last_name_parent_1'    => 'nullable',
                 'phone_parent_1'        => 'numeric|nullable|digits_between:9,12',
-                'email_parent_1'        => 'email|nullable',
+                'email_parent_1'        => 'email|nullable|unique:parent_profiles,email',
                 'gender_parent_1'       => 'nullable',
                 'note_parent_1'         => 'nullable',
                 'relationship_1'        => 'nullable',
@@ -52,7 +52,7 @@ class ChildrenProfilesController extends Controller
                 'first_name_parent_2'   => 'nullable',
                 'last_name_parent_2'    => 'nullable',
                 'phone_parent_2'        => 'numeric|nullable|digits_between:9,12',
-                'email_parent_2'        => 'email|nullable',
+                'email_parent_2'        => 'email|nullable|unique:parent_profiles,email',
                 'gender_parent_2'       => 'nullable',
                 'note_parent_2'         => 'nullable',
                 'relationship_2'        => 'nullable',
@@ -71,12 +71,15 @@ class ChildrenProfilesController extends Controller
                 'phone_parent_2.digits_between' => 'The length is between 9 -12 digits',
                 'email_parent_1.email'          => 'Email is invalid',
                 'email_parent_2.email'          => 'Email is invalid',
+                'email_parent_1.unique'         => 'The email has already been taken',
+                'email_parent_2.unique'         => 'The email has already been taken',
                 'unique_id.unique'              => 'ID is exist',
                 'unique_id.required'            => 'Please input unique ID',
                 'image_parent_1.image'          => 'Image is invalid',
                 'image_parent_2.image'          => 'Image is invalid',
             ]);
         $children_profiles = ChildrenProfiles::create($request->all());
+        //xu ly avatar
         if ($request->hasFile('image')) {
             $file = $request->image;
             $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
@@ -90,7 +93,7 @@ class ChildrenProfilesController extends Controller
 
         if ($request->programs) {
             //string to array
-            $programs = explode(',', $request->programs);
+            $programs = explode(',', $request->programs);   //turn string into array
             //luu vao bang children_programs
             foreach ($programs as $program) {
                 $children_program = new ChildrenProgram();
@@ -195,6 +198,7 @@ class ChildrenProfilesController extends Controller
             ->select('id')
             ->where('id_children', '=', $id)
             ->get();
+
         // array chua cac id program ma children dang hoc
         $array_programs_choose = [];
         foreach ($programs_choose as $key => $value) {
@@ -206,9 +210,10 @@ class ChildrenProfilesController extends Controller
             ->where('id_children', '=', $id)
             ->get();
 
-        if (count($parent_profiles_all) == 2){
-            $parent_profiles_1 = $parent_profiles_all[0];
-            $parent_profiles_2 = $parent_profiles_all[1];
+        //dem parent
+        if (count($parent_profiles_all) == 2){      //co 2 parent
+            $parent_profiles_1 = $parent_profiles_all[0];   //parent 1
+            $parent_profiles_2 = $parent_profiles_all[1];   //parent 2
 
             return view('pages.children.view_child', ['children_profiles' => $children_profiles,
                 'programs' => $programs,
@@ -217,7 +222,7 @@ class ChildrenProfilesController extends Controller
                 'parent_profiles_2' => $parent_profiles_2,
             ]);
         }
-        else if(count($parent_profiles_all) == 1){
+        else if(count($parent_profiles_all) == 1){  //co 1 parent
             $parent_profiles_1 = $parent_profiles_all[0];
             return view('pages.children.view_child', ['children_profiles' => $children_profiles,
                 'programs' => $programs,
@@ -225,7 +230,7 @@ class ChildrenProfilesController extends Controller
                 'parent_profiles_1' => $parent_profiles_1,
             ]);
         }
-        else{
+        else{   //ko co parent
             return view('pages.children.view_child', ['children_profiles' => $children_profiles,
                 'programs' => $programs,
                 'array_programs_choose' => $array_programs_choose,
@@ -242,6 +247,7 @@ class ChildrenProfilesController extends Controller
             ->select('id')
             ->where('id_children', '=', $id)
             ->get();
+
         // array chua cac id program ma children dang hoc
         $array_programs_choose = [];
         foreach ($programs_choose as $key => $value) {

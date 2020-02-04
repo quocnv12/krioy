@@ -370,7 +370,6 @@
 	</script>
 	<script type="text/javascript">
 		var array = $('#array_schedule_old').val().split(',');
-		console.log(array)
     	$('.listClass').click(function(event) {
     		if ($(this).hasClass('tablinks1_active')) {
     			$(this).removeClass('tablinks1_active');
@@ -381,7 +380,6 @@
 				var schedule_push = $(this).val();
 				array.push(schedule_push);
     		}
-			console.log(array);
     	});
 
 		//begin select children
@@ -390,7 +388,6 @@
 
 		function deleteChild(id_children) {
 			array_children.splice( array_children.indexOf(id_children), 1 );
-			console.log('array children sau khi xoa: '+array_children)
 		}
 
 		function getIdChildren(id){
@@ -405,8 +402,6 @@
 					if (! array_children.includes(id)){
 						$('#children_list').append(data);
 						array_children.push(id);
-						console.log('id children them vao:'+id)
-						console.log('day la array children khi them:'+array_children);
 					}else {
 						alert('children exists')
 					}
@@ -420,7 +415,6 @@
 
 		function deleteStaff(id_staff) {
 			array_staff.splice( array_staff.indexOf(id_staff), 1 );
-			console.log('array staff sau khi xoa: '+array_staff)
 		}
 
 		function getIdStaff(id){
@@ -435,8 +429,6 @@
 					if (! array_staff.includes(id)){
 						$('#staff_list').append(data);
 						array_staff.push(id)
-						console.log('id staff them vao:'+id)
-						console.log('day la array staff khi them: ' + array_staff);
 					}else {
 						alert('staff exists')
 					}
