@@ -11,7 +11,7 @@ class ObservationTypeController extends Controller
 {
     public function getDelete($id){
         $observationtype= DB::table('observations_type')->where('id',$id)->delete();
-        return redirect()->route('admin.observations.listobservationtype', compact('observationtype'));
+        return redirect()->back()->with('notify', 'Delete successfully');
     }
     public function getEdit($id){
         $observationtype = ObservationTypeModel::find($id);
@@ -30,7 +30,7 @@ class ObservationTypeController extends Controller
         $observationtype = ObservationTypeModel::find($id);
         $observationtype->name = $request->name;
         $observationtype->save();
-        return redirect('kids-now/observations/danhsachobservationtype');
+        return redirect()->back()->with('notify', 'Edit successfully');
     }
     public function getAdd()
     {

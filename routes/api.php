@@ -104,5 +104,15 @@ Route::group(['prefix' => 'kids-now'], function () {
         Route::get('view/{id}',['as'=>'admin.observations.view','uses'=>'Api\ObservationController@view']);
 
     });
+    Route::group(['prefix' => 'observationtype'], function () {
+
+        Route::get('xoa/{id}',['as'=>'admin.observationtype.getDelete','uses'=>'Api\ObservationTypeController@getDelete']);
+        Route::get('sua/{id}',['as'=>'admin.observationtype.getEdit','uses'=>'Api\ObservationTypeController@getEdit']);
+        Route::post('sua/{id}',['as'=>'admin.observationtype.getEdit','uses'=>'Api\ObservationTypeController@postEdit']);
+        Route::get('them',['as'=>'admin.observationtype.add','uses'=>'Api\ObservationTypeController@getAdd']);
+        Route::post('them',['as'=>'admin.observationtype.add','uses'=>'Api\ObservationTypeController@postAdd']);
+
+
+    });
 });
 
