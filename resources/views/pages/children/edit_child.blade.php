@@ -114,9 +114,9 @@
                                 @endif
                             </div>
                             <div class="col-md-3 input_box">
-                                <span class="input_box_span_active">Gender</span>
+                                <span class="input_box_span_active">Gender *</span>
                                 <select name="gender">
-                                    <option selected value="">Gender</option>
+                                    <option selected value="">Gender *</option>
                                     <option value="1" @if($children_profiles->gender == 1) selected="selected" @endif>Nam</option>
                                     <option value="2" @if($children_profiles->gender == 2) selected="selected" @endif>Nữ</option>
                                 </select>
@@ -543,7 +543,7 @@
                                     <div class="col-md-2 textera-img">
                                         <a style="cursor: pointer;">
                                             <input class="parent_2" type="file" id="uploadfile_parent_2" name="image_parent_2" accept="image/*">
-                                            <img src="images/Child.png" alt="" id="demo_image_parent_2" style="height: 100px">
+                                            <img src="images/Staff.png" alt="" id="demo_image_parent_2" style="height: 100px">
                                             <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
                                             @if ($errors->has('image_parent_2'))
                                                 <div class="text text-danger">
@@ -695,8 +695,6 @@
     <script type="text/javascript">
         var array = $('#array_programs_old').val().split(',');
 
-        console.log(array);
-
         $('.tablinks1').click(function(event) {
             if ($(this).hasClass('tablinks1_active')) {
                 $(this).removeClass('tablinks1_active');
@@ -707,7 +705,6 @@
                 var program_push = $(this).val();
                 array.push(program_push);
             }
-            console.log(array);
         });
 
         $('#submit_button').click(function(event) {

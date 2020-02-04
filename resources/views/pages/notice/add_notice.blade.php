@@ -192,7 +192,6 @@
                 var program_push = $(this).val();
                 array.push(program_push);
             }
-            console.log(array);
         });
 
         $('#btn').click(function(event) {

@@ -78,7 +78,7 @@
 		$(document).ready(function($) {
 			var engine1 = new Bloodhound({
 				remote: {
-					url: 'http://kidsnow.web88.vn/kids-now/program/search/program?q=%QUERY%',
+					url: 'kids-now/program/search/program?q=%QUERY%',
 					wildcard: '%QUERY%'
 				},
 				datumTokenizer: Bloodhound.tokenizers.whitespace('q'),

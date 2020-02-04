@@ -326,7 +326,6 @@
 				var program_push = $(this).val();
 				array.push(program_push);
     		}
-			console.log(array);
     	});
         //end schedule
 
@@ -336,7 +335,6 @@
 
         function deleteChild(id_children) {
             array_children.splice( array_children.indexOf(id_children), 1 );
-            console.log('array children sau khi xoa: '+array_children)
         }
 
         function getIdChildren(id){
@@ -350,8 +348,6 @@
                     if (! array_children.includes(id)){
                         $('#children_list').append(data);
                         array_children.push(id);
-                        console.log('id children them vao:'+id)
-                        console.log('day la array children khi them:'+array_children);
                     }else {
                         alert('children exists')
                     }
@@ -365,7 +361,6 @@
 
         function deleteStaff(id_staff) {
             array_staff.splice( array_staff.indexOf(id_staff), 1 );
-            console.log('array staff sau khi xoa: '+array_staff)
         }
 
         function getIdStaff(id){
@@ -379,8 +374,6 @@
                     if (! array_staff.includes(id)){
                         $('#staff_list').append(data);
                         array_staff.push(id)
-                        console.log('id staff them vao:'+id)
-                        console.log('day la array staff khi them: ' + array_staff);
                     }else {
                         alert('staff exists')
                     }

@@ -70,7 +70,7 @@ class ObservationController extends Controller
                     array_push($array_month, $collection->month);
                 }
             }
-            dd($array_month);
+
 
             //array chua year da ton tai
             $array_year = [];
@@ -141,7 +141,7 @@ class ObservationController extends Controller
         $children_profiles = ChildrenProfiles::where('id','=',$child_observation->id_children)->first();
         $array_observation_choose = explode(',',$child_observation->id_observations);
 
-        return view('pages.observation.edit',compact('observationtype','vendors','children_profiles','array_observation_choose','child_observation'));
+        return view('pages.observation.edit',compact('observationtype','vendors','children_profiles','array_observation_choose'));
     }
     public function postEdit(Request $request, $id){
         $this->validate($request,
@@ -158,7 +158,7 @@ class ObservationController extends Controller
 
     public function getDelete($id){
         $observation= DB::table('observations')->where('id',$id)->delete();
-        return redirect()->route('admin.observations.list')->with(['flash_level'=>'success','flash_message'=>'Delete successfully!!!']);
+        return redirect()->back()->with('notify_clipboard','Deleted file successfully');
     }
 
     public function getSearch(Request $req){
@@ -247,7 +247,5 @@ class ObservationController extends Controller
         $array_observation_choose = explode(',',$child_observation->id_observations);
 
         return view('pages.observation.view',compact('observationtype','vendors','children_profiles','array_observation_choose','child_observation'));
-
     }
-
 }

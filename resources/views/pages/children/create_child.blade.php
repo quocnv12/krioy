@@ -107,9 +107,9 @@
                             @endif
 						</div>
 						<div class="col-md-3 input_box">
-							<span>Gender</span>
+							<span>Gender *</span>
 							<select name="gender">
-								<option selected value="">Gender</option>
+								<option selected value="">Gender *</option>
 								<option value="1" @if(old('gender') == 1) selected="selected" @endif>Nam</option>
 								<option value="2" @if(old('gender') == 2) selected="selected" @endif>Nữ</option>
 							</select>
@@ -337,7 +337,7 @@
 							<div class="col-md-2 textera-img">
 								<a style="cursor: pointer;">
 									<input class="parent_2" type="file" id="uploadfile_parent_2" name="image_parent_2" accept="image/*">
-									<img src="images/Child.png" alt="" id="demo_image_parent_2">
+									<img src="images/Staff.png" alt="" id="demo_image_parent_2">
 									<span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
 									@if ($errors->has('image_parent_2'))
 										<div class="text text-danger">
@@ -494,7 +494,6 @@
     			var program_push = $(this).val();
     			array.push(program_push);
     		}
-			console.log(array);
 		});
 
 		$('#submit_button').click(function(event) {
@@ -597,25 +596,37 @@
 	{{-- finish xu ly anh--}}
 
 	<script>
+		$('.parent_1').attr('disabled', true);
+		$('.parent_2').attr('disabled', true);
+
 		$(document).ready(function () {
 			$('.accordion').click()
-			$('.parent_1').attr('disabled', true);
+
+			disableParent1();
 			$('#first_name_parent_1').focusout() && $('#last_name_parent_1').focusout(function () {
-				if ($('#first_name_parent_1').val() == '' && $('#last_name_parent_1').val() == ''){
-					$('.parent_1').attr('disabled', true);
-				}else {
-					$('.parent_1').attr('disabled', false);
-				}
+				disableParent1();
 			})
 
-			$('.parent_2').attr('disabled', true);
+			disableParent2();
 			$('#first_name_parent_2').focusout() && $('#last_name_parent_2').focusout(function () {
-				if ($('#first_name_parent_2').val() == '' && $('#last_name_parent_2').val() == ''){
-					$('.parent_2').attr('disabled', true);
-				}else {
-					$('.parent_2').attr('disabled', false);
-				}
+				disableParent2()
 			})
 		})
+
+		function disableParent1() {
+			if ($('#first_name_parent_1').val() == '' && $('#last_name_parent_1').val() == ''){
+				$('.parent_1').attr('disabled', true);
+			}else {
+				$('.parent_1').attr('disabled', false);
+			}
+		}
+
+		function disableParent2() {
+			if ($('#first_name_parent_2').val() == '' && $('#last_name_parent_2').val() == ''){
+				$('.parent_2').attr('disabled', true);
+			}else {
+				$('.parent_2').attr('disabled', false);
+			}
+		}
 	</script>
 @endsection
