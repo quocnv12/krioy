@@ -1,25 +1,29 @@
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Kids-now Login</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+@extends('master-layout')
+@section('title')
+	Login
+@endsection
+@section('css')
 
-		<link rel="stylesheet" href="asset/kriyo/css/index.css">
+{{-- <link href="admin-template/assets/plugins/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" /> --}}
+<link href="admin-template/assets/plugins/bootstrap-select2/select2.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="admin-template/assets/plugins/jquery-datatable/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+<link href="admin-template/assets/plugins/datatables-responsive/css/datatables.responsive.css" rel="stylesheet" type="text/css" media="screen" />
+
+<link rel="stylesheet" href="asset/kriyo/css/index.css">
 		<link rel="stylesheet" type="text/css" href="asset/kriyo/css/staff_profile.css">
 		<link rel="icon" href="images/a.png"/>
 
-		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
-   		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
-    	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+<link href="admin-template/assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen" />
+{{-- <link href="admin-template/assets/plugins/bootstrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> --}}
+<link href="admin-template/assets/plugins/bootstrapv3/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="admin-template/assets/plugins/animate.min.css" rel="stylesheet" type="text/css" />
+<link href="admin-template/assets/plugins/jquery-scrollbar/jquery.scrollbar.css" rel="stylesheet" type="text/css" />
+<link href="admin-template/webarch/css/webarch.css" rel="stylesheet" type="text/css" />
 
-    	<link rel="stylesheet" href="asset/kriyo/css/bootstrap.min.css">
-    
-	    <!-- Font Awesome -->
-	    <link rel="stylesheet" href="asset/kriyo/css/font-awesome.min.css">
-	    
-	    <!-- Custom CSS -->
-	    <link rel="stylesheet" href="asset/kriyo/css/owl.carousel.css">
-	</head>
+@endsection
+@section('content')
+
 <body id="login">
 	<section class="page-top-center container">
 		<div class="row">
@@ -74,31 +78,6 @@
 			<div class="col-md-3"></div>
 		</div>
 	</section>
-	<footer class="site-footer">
-		<div class="container">
-			<div class="row icon-lienket">
-			 	<a href="#">
-			 		<img src="images/facebook-circle-white.png" alt="" title="Face-book">
-			 	</a>
-			 	<a href="#">
-			 		<img src="images/linkedin-circle-white.png" title="Linkedin">
-			 	</a>
-			 	<a href="#">
-			 		<img src="images/mail-circle-white.png" alt="" title="Email">
-			 	</a>
-			</div>
-			<div class="row">
-				<p> 2019 © 
-					<b>Kids Now</b>, a product of <b><a href="http://www.web88.vn/">Web88</a></b>
-				</p>
-				<p>
-					<a href="#" class="termsHover"> Privacy Policy</a>
-					<span>&</span>
-					<a href="#" class="termsHover"> Terms and Conditions</a>
-				</p>
-			</div>
-		</div>
-	</footer>
 
 
 	{{-- <div class="modal fade" id="myModal-login" role="dialog">
@@ -131,7 +110,8 @@
 	    </div>
 	</div> --}}
 </body>
-
+@endsection
+@section('js')
 	<script src="https://code.jquery.com/jquery.min.js"></script>
     
     <!-- Bootstrap JS form CDN -->
@@ -169,4 +149,4 @@
 			},1000)
 		@endif
 	</script>
-</html>
+@endsection
