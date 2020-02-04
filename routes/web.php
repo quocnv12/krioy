@@ -26,23 +26,32 @@ Route::get('kids-now/children/add','Admin\ChildrenProfilesController@create');
 Route::get('kids-now/children/add','Admin\ChildrenProfilesController@create');
 Route::get('kids-now/notice-board/add','Admin\NoticeBoardController@create');
 
-Route::get('',function (){
-    return view('pages.introduce.introduce-kid_now');
-});
+Route::get('','Admin\IndexController@getIndex');
+Route::get('account','Admin\IndexController@getDemoAccount');
 //---------------login----------------
-Route::get('login', 'Admin\LoginController@GetLogin')->middleware('CheckLogOut');
+Route::get('login', 'Admin\LoginController@GetLogin')->name('login')->middleware('CheckLogOut');
 Route::post('login', 'Admin\LoginController@PostLogin');
+
+Route::get('forgot', 'Auth\ForgotPasswordController@GetFormResetPassword')->name('get.reset.password');
+Route::post('forgot', 'Auth\ForgotPasswordController@PostFormResetPassword');
+Route::get('password/reset', 'Auth\ForgotPasswordController@ResetPassword')->name('link.reset.password');
+Route::post('password/reset', 'Auth\ForgotPasswordController@PostResetPassword');
+
 Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function () {
     Route::get('logout', 'Admin\LoginController@Logout');
+    Route::get('update-password', 'Admin\LoginController@getUpdatePassword');
+    Route::post('update-password', 'Admin\LoginController@postUpdatePassword');
     Route::get('/', function () {
         return view('pages.home');
     });
+   
     //---------------children----------------
     Route::group(['prefix' => 'children'], function () {
         Route::get('/', 'Admin\ChildrenProfilesController@index');
         Route::get('/{id}', 'Admin\ChildrenProfilesController@show');
         Route::get('add', 'Admin\ChildrenProfilesController@create');
         Route::post('add', 'Admin\ChildrenProfilesController@store');
+        Route::get('view/{id}','Admin\ChildrenProfilesController@view');
         Route::get('edit/{id}','Admin\ChildrenProfilesController@edit');
         Route::post('edit/{id}','Admin\ChildrenProfilesController@update');
         Route::get('delete/{id}','Admin\ChildrenProfilesController@destroy');
@@ -70,6 +79,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
     Route::group(['prefix' => 'attendance'], function () {
         Route::get('/','Admin\AttendanceChildrenController@index')->name('attendance.index');
         Route::get('/{id}','Admin\AttendanceChildrenController@show')->name('attendance.show');
+        Route::get('add','Admin\AttendanceChildrenController@show')->name('attendance.show');
     });
 
     //---------------health----------------
@@ -93,23 +103,25 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
     //---------------observation----------------
     Route::group(['prefix' => 'observations'], function () {
-        Route::get('danhsach', ['as'=>'admin.observations.list','uses'=>'Admin\ObservationController@getList']);
+        Route::get('list', ['as'=>'admin.observations.list','uses'=>'Admin\ObservationController@getList']);
         Route::get('danhsachobservationtype', ['as'=>'admin.observations.listobservationtype','uses'=>'Admin\ObservationController@getListObservation']);
-        Route::get('xoa/{id}',['as'=>'admin.observations.getDelete','uses'=>'Admin\ObservationController@getDelete']);
-        Route::get('sua/{id}',['as'=>'admin.observations.getEdit','uses'=>'Admin\ObservationController@getEdit']);
-        Route::post('sua/{id}',['as'=>'admin.observations.postEdit','uses'=>'Admin\ObservationController@postEdit']);
+        Route::get('delete/{id}',['as'=>'admin.observations.getDelete','uses'=>'Admin\ObservationController@getDelete']);
+        Route::get('edit/{id}',['as'=>'admin.observations.getEdit','uses'=>'Admin\ObservationController@getEdit']);
+        Route::post('edit/{id}',['as'=>'admin.observations.postEdit','uses'=>'Admin\ObservationController@postEdit']);
         Route::get('search',['as'=>'admin.observations.search','uses'=>'Admin\ObservationController@getSearch']);
         Route::post('search',['as'=>'admin.observations.search','uses'=>'Admin\ObservationController@postSearch']);
-        Route::get('them',['as'=>'admin.observations.getAdd','uses'=>'Admin\ObservationController@getAdd']);
-        Route::post('them',['as'=>'admin.observations.postAdd','uses'=>'Admin\ObservationController@postAdd']);
+        Route::get('add',['as'=>'admin.observations.getAdd','uses'=>'Admin\ObservationController@getAdd']);
+        Route::post('add',['as'=>'admin.observations.postAdd','uses'=>'Admin\ObservationController@postAdd']);
         Route::get('them_child',['as'=>'admin.observations.child','uses'=>'Admin\ObservationController@getChild']);
         Route::post('them_child',['as'=>'admin.observations.child','uses'=>'Admin\ObservationController@postChild']);
         Route::get('search/children', 'Admin\ObservationController@searchByName');
         Route::get('select_child/add','Admin\ObservationController@addSelectChild');
 
         Route::get('show/{id}','Admin\ObservationController@showChildrenInProgram');
+        Route::get('view/{id}',['as'=>'admin.observations.view','uses'=>'Admin\ObservationController@view']);
 
     });
+
     Route::group(['prefix' => 'observationtype'], function () {
 
         Route::get('xoa/{id}',['as'=>'admin.observationtype.getDelete','uses'=>'Admin\ObservationTypeController@getDelete']);

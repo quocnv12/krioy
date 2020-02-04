@@ -16,18 +16,21 @@ class CreateStaffProfilesTable extends Migration
         Schema::create('staff_profiles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('first_name');
-            $table->string('last_name');
+            $table->string('last_name')->nullable();
             $table->string('phone');
             $table->string('password')->default(bcrypt('123456789'));
-            $table->string('image');
-            $table->tinyInteger('gender');
+            $table->string('image')->nullable();
+            $table->tinyInteger('gender')->nullable();
             $table->string('email');
-            $table->text('address');
-            $table->date('birthday');
-            $table->string('blood_group');
-            $table->date('date_of_joining');
+            $table->text('address')->nullable();
+            $table->date('birthday')->nullable();
+            $table->string('blood_group')->nullable();
+            $table->date('date_of_joining')->nullable();
             $table->string('exist')->default(1);
             $table->tinyInteger('status')->default(1);
+            $table->string('code')->nullable();
+            $table->string('time_code')->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }

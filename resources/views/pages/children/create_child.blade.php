@@ -109,7 +109,7 @@
 						<div class="col-md-3 input_box">
 							<span>Gender</span>
 							<select name="gender">
-								<option selected>Gender</option>
+								<option selected value="">Gender</option>
 								<option value="1" @if(old('gender') == 1) selected="selected" @endif>Nam</option>
 								<option value="2" @if(old('gender') == 2) selected="selected" @endif>Nữ</option>
 							</select>
@@ -310,7 +310,7 @@
 									</div>
 									<div class="input_box" style="width: 100%;">
 										<span>E-Mail Address </span>
-										<input class="parent_1" type="email" name="email_parent_1" placeholder="E-Mail Address " value="{{old('email_parent_1')}}">
+										<input class="parent_1" name="email_parent_1" placeholder="E-Mail Address " value="{{old('email_parent_1')}}">
 										@if ($errors->has('email_parent_1'))
 											<div class="text text-danger">
 												{{ $errors->first('email_parent_1') }}
@@ -412,7 +412,7 @@
 									</div>
 									<div class="input_box" style="width: 100%;">
 										<span>E-Mail Address </span>
-										<input class="parent_2" type="email" name="email_parent_2" placeholder="E-Mail Address " value="{{old('email_parent_2')}}">
+										<input class="parent_2" name="email_parent_2" placeholder="E-Mail Address " value="{{old('email_parent_2')}}">
 										@if ($errors->has('email_parent_2'))
 											<div class="text text-danger">
 												{{ $errors->first('email_parent_2') }}

@@ -90,7 +90,7 @@
 						<div class="row">
 							<div class="col-md-6 input_box">
 								<span>Program Fee</span>
-								<input type="text" name="program_fee" id="program_fee" placeholder="Program Fee" value="{{old('program_fee')}}">
+								<input type="text" min="0" name="program_fee" id="program_fee" placeholder="Program Fee" value="{{old('program_fee')}}">
                                 @if ($errors->has('program_fee'))
                                     <div class="text text-danger">
                                         {{ $errors->first('program_fee') }}
@@ -390,13 +390,19 @@
         //end select staff
 
         //begin validate
-		$('#error_program_name').html('This field must not be empty')
+		if ( $('#program_name').val() !== ""){
+			$('#error_program_name').html('')
+			$('#error_total').html('');
+		}else {
+			$('#error_program_name').html('This field is required')
+		}
+
 		$('#program_name').focusout(function () {
 			if ( $('#program_name').val() !== ""){
 				$('#error_program_name').html('')
 				$('#error_total').html('');
 			}else {
-				$('#error_program_name').html('This field must not be empty')
+				$('#error_program_name').html('This field is required')
 			}
 		})
         //end validate

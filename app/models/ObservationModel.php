@@ -15,11 +15,10 @@ class ObservationModel extends Model
         'detailObservation'
     ];
 
-    public $timestamps = false;
     public function ObservationType(){
         return $this->belongsTo('App\models\ObservationTypeModel','id_observations','id');
     }
-    public function Childrent(){
+    public function Children(){
         return $this->belongsTo('App\models\ChildrenProfiles','id_children','id');
     }
 }

@@ -322,7 +322,7 @@
 			<div class="comment">
 				<p id="error_total" style="text-align: center; color: red"></p>
 				<div class="button" style="text-align: center;">
-					<button type="reset">
+					<button type="reset" onclick="goBack()">
 						<span>CANCEL</span>
 					</button>
 					<button class="button2" type="submit" id="submit_button">
@@ -370,7 +370,7 @@
 	</script>
 	<script type="text/javascript">
 		var array = $('#array_schedule_old').val().split(',');
-
+		console.log(array)
     	$('.listClass').click(function(event) {
     		if ($(this).hasClass('tablinks1_active')) {
     			$(this).removeClass('tablinks1_active');
@@ -467,6 +467,10 @@
 				$('#editProgram').submit();
 			}
 		});
+
+		function goBack() {
+			window.history.back();
+		}
 
     </script>
 	<script >

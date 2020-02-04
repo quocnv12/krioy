@@ -20,20 +20,50 @@
 					<div class="col-sm-6">
 					<ul class="ul-td">
 						<li class="level1"><a href="kids-now">Home</a></li>
-						<li class="active1" style="pointer-events:none" ><a href="">OBSERVATIONS</a></li>
+						<li class="active1" style="" ><a href="kids-now/observations/list">OBSERVATIONS</a></li>
 					</ul>
 					</div>
 					<div class="col-sm-6">
-						<a href="{{route('admin.observations.list')}}" class="btn btn-success" style="float: right">Quản lí danh sách</a>
+						<a href="{{route('admin.observations.list')}}" class="btn btn-success" style="float: right">Children List</a>
 					</div>
 				</div>
 			</div>
+			@if(session('notify'))
+				<div class="alert alert-success font-weight-bold">
+					{{session('notify')}}
+				</div>
+			@endif
 		<form style="width: auto;margin: 0;text-align: center" action="{{route('admin.observations.postAdd')}}" method="post" id="addObservation" enctype="multipart/form-data">
 			@csrf
 			<div class="row">
 				<div class="mat-card" style="width: 100%">
 					<div class="mat-content">
 						<a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white; float: left" href="{{route('admin.observations.listobservationtype')}}" class="btn btn-defaul">ObservationType</a>
+						<div style="width: 280px; float: right">
+							Seminar:
+							<select name="month" id="month">
+								<option value="">Choose Month</option>
+								<option value="Jan" @if(now()->month == 1) selected @endif>January</option>
+								<option value="Feb" @if(now()->month == 2) selected @endif>February</option>
+								<option value="Mar" @if(now()->month == 3) selected @endif>March</option>
+								<option value="Apr" @if(now()->month == 4) selected @endif>April</option>
+								<option value="May" @if(now()->month == 5) selected @endif>May</option>
+								<option value="Jun" @if(now()->month == 6) selected @endif>June</option>
+								<option value="Jul" @if(now()->month == 7) selected @endif>July</option>
+								<option value="Aug" @if(now()->month == 8) selected @endif>August</option>
+								<option value="Sep" @if(now()->month == 9) selected @endif>September</option>
+								<option value="Oct" @if(now()->month == 10) selected @endif>October</option>
+								<option value="Nov" @if(now()->month == 11) selected @endif>November</option>
+								<option value="Dec" @if(now()->month == 12) selected @endif>December</option>
+							</select>
+							-
+							<select name="year" id="">
+								@for($i = 2020; $i <= 2040; $i++)
+									<option value="{{$i}}" @if(now()->year == $i) selected @endif>{{$i}}</option>
+								@endfor
+							</select>
+						</div>
+
 						<button class="accordion accordion1 clearfix" type="button">
 							<p style="float: left;">Children *</p>
 								{{--<form class="typeahead" role="search" style="float: right; text-align: left">--}}
@@ -52,27 +82,33 @@
                         </div>
                         <div class="row">
                             @if(isset($children_profiles))
-                                @foreach($children_profiles as $children)
-                                    <div class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted" style="padding:10px;cursor:pointer;">
-                                        <div type="button" data-toggle="modal" data-target=".bd-example-modal-sm" style="height: 120px;text-align: center;-webkit-appearance: none;">
-                                            <img class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="images/Child.png">
-                                            <i _ngcontent-c9="" aria-hidden="true" class="fa fa-check" id="checked" style="display: block;top:10px"></i>                                            <span class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;display: block;">{{$children->first_name}} {{$children->last_name}}</span>
-                                            <input type="hidden" value="{{$children->id}}">
-                                        </div>
-                                    </div>
-                                @endforeach
+								@if(count($children_profiles) > 0)
+									@foreach($children_profiles as $children)
+										<div class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted" style="padding:10px;cursor:pointer;">
+											<div type="button" data-toggle="modal" data-target=".bd-example-modal-sm" style="height: 120px;text-align: center;-webkit-appearance: none;">
+												<img class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="images/Child.png">
+												<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check" id="checked" style="display: block;top:10px"></i>                                            <span class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;display: block;">{{$children->first_name}} {{$children->last_name}}</span>
+												<input type="hidden" value="{{$children->id}}">
+											</div>
+										</div>
+									@endforeach
+								@else
+									<div style="font-weight: bold; margin: 50px">No Children were founded</div>
+								@endif
                                 <input id="array_children_observation" type="hidden" value="" name="children_observations">
+							@else
+								<div style="margin: 50px;">
+									<span style="color: red; font-weight: bold">Hint :</span>
+									<span>Click on a program tab in horizontal scroll bar to show all children in that program</span>
+								</div>
                             @endif
                         </div>
-
-						<div class="panel" >
-							<div class="row" id="children_list">
-								 {{--ajax ObservationController@addSelectChildren do vao day--}}
-
-							</div>
-							<input type="hidden" id="array_all_children" name="array_all_children" value="">
-						</div>
 					</div>
+					@if ($errors->has('children_observations'))
+						<div class="text text-danger">
+							{{ $errors->first('children_observations') }}
+						</div>
+					@endif
 					<hr>
 					<div class="mat-content">
 						<button class="accordion" type="button">Observation Type</button>
@@ -80,13 +116,19 @@
 							<div _ngcontent-c20="" class="row" style="">
 								@foreach($observationtype  as $observation)
 									<div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer;">
-										<button type="button" _ngcontent-c20="" name="observation" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" data-toggle="tooltip" title="{{$observation->name}}" value="{{$observation->id}}">{{$observation->name}} </button>
+										<button type="button" _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" data-toggle="tooltip" title="{{$observation->name}}" value="{{$observation->id}}">{{$observation->name}} </button>
 									</div>
 								@endforeach
 								<input id="array_observation" type="hidden" value="" name="observations">
+
 							</div>
 						</div>
 					</div>
+					@if ($errors->has('observations'))
+						<div class="text text-danger">
+							{{ $errors->first('observations') }}
+						</div>
+					@endif
 					<div class="comment">
 						<div class="row">
 							<div class="col-md-11 input_box">
@@ -213,7 +255,6 @@
         //end select children_observation
 		var button = document.getElementById("submit_button");
 		button.onclick = function(){
-			alert("Thông tin đã lưu thành công!!!");
 			$('#array_all_children').attr('value', array_children);
 			$('#array_observation').attr('value', array_observation);
 			$('#array_children_observation').attr('value', array_children_observation);

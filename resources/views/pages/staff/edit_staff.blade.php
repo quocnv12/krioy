@@ -31,7 +31,7 @@ Staff Frofiles
                             <input id="img" type="file" name="image" style="display:none" value=""
                                 class="form-control hidden" onchange="changeImg(this)">
                             <img id="avatar" class="thumbnail"
-                                style="border: 1px solid white;border-radius: 50%;width:150px;height:150px"
+                                style="border: 1px solid white;border-radius: 50%;width:150px;height:150px;    margin-top: 35px;"
 							src="images/staff/{{ $staff->image }}">
 							
                         </div>

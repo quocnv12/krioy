@@ -1,25 +1,9 @@
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Kids-now Login</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+@extends('master-layout')
+@section('title')
+	Add Notice
+@endsection
 
-		<link rel="stylesheet" href="asset/kriyo/css/index.css">
-		<link rel="stylesheet" type="text/css" href="asset/kriyo/css/staff_profile.css">
-		<link rel="icon" href="images/a.png"/>
-
-		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
-   		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
-    	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
-
-    	<link rel="stylesheet" href="asset/kriyo/css/bootstrap.min.css">
-    
-	    <!-- Font Awesome -->
-	    <link rel="stylesheet" href="asset/kriyo/css/font-awesome.min.css">
-	    
-	    <!-- Custom CSS -->
-	    <link rel="stylesheet" href="asset/kriyo/css/owl.carousel.css">
-	</head>
+@section('content')
 <body id="login">
 	<section class="page-top-center container">
 		<div class="row">
@@ -29,7 +13,7 @@
 					@csrf
 				<div class="login" align="center">
 					<div class="login-label">
-						<p>Kids Now App Login</p>
+						<p>Kids Now Account Demo</p>
 					</div>
 					<div class="login-input">
 					@if (session('thongbao'))
@@ -57,14 +41,6 @@
 								@endif
 							</div>
 						</div>
-					</div>
-					<div style="margin-top:10px" class="row">
-						<div class="col-md-6" >
-						
-							<input type="checkbox"  name="remember"> Remember me
-						
-						</div>
-						<a href="forgot">Forgot password?</a>
 					</div>
 					<div class="login-button" align="center">
 						<button type="submit"><span>Login</span></button>
@@ -99,39 +75,9 @@
 			</div>
 		</div>
 	</footer>
-
-
-	{{-- <div class="modal fade" id="myModal-login" role="dialog">
-		<div class="modal-dialog modal-sm">
-	      <!-- Modal content-->
-	    	<div class="modal-content">
-		        <div class="modal-header" style="background-color:#FF4081;color:#fff;border-radius: 5px 5px 0px 0px">
-		        	<button type="button" class="close" data-dismiss="modal" style="font-size:30px;color:#fff;opacity:1">&times;</button>
-		        	<h4 class="modal-title" align="center" style="text-transform: none;font-size:18px;font-weight: 600;">Forgot password</h4>
-				</div>
-				<form action="forgot" method="POST">
-					@csrf
-					<div class="modal-body" style="border-radius: 0px 0px 5px 0px;margin-bottom: 5px;overflow:auto;height: auto;">
-						<div class="add">
-							
-								<p style="text-align:left;    padding: 0px 0px 5px 0px;">Email *</p>
-								@if ($errors->has('emailreset'))
-								<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;text-align: left;width:80%;">* {{ $errors->first('emailreset') }}</p>
-								@endif
-								<input type="text" name="emailreset" class="form-control" placeholder="Please Enter Email">
-								
-							</div>
-						
-						<div  style="margin: 10px 0;">
-							<button type="submit" style="margin:0px;width: 76px;float:right;margin-right: 10px;background: #ff4081;box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);color: white;border-radius: 5px;">OK</button>
-						</div>
-					</div>
-			</form>
-	     	</div>
-	    </div>
-	</div> --}}
 </body>
-
+@endsection
+@section('js')
 	<script src="https://code.jquery.com/jquery.min.js"></script>
     
     <!-- Bootstrap JS form CDN -->
@@ -169,4 +115,4 @@
 			},1000)
 		@endif
 	</script>
-</html>
+@endsection

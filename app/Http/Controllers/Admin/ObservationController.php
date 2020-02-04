@@ -6,15 +6,24 @@ use App\models\ObservationModel;
 use App\Http\Controllers\Controller;
 use App\models\ObservationTypeModel;
 use App\models\Programs;
+use http\Env\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 
 class ObservationController extends Controller
 {
-    public function getList(){
-        $observationtype= ObservationModel::all();
-        return view('pages.observation.list', compact('observationtype'));
+    public function getList(Request $request){
+        if ($request->month || $request->year) {
+            $child_observations = ObservationModel::where('month', '=', $request->month)->where('year', '=', $request->year)->get();
+            return view('pages.observation.list', compact('child_observations'));
+        }else {
+            $current_month = Carbon::now()->format('M');
+            $child_observations = ObservationModel::where('month', '=', $current_month)->where('year', '=', now()->year)->get();
+            return view('pages.observation.list', compact('child_observations'));
+        }
     }
 
     public function getChild(){
@@ -34,64 +43,125 @@ class ObservationController extends Controller
 
     public function postAdd(Request $request)
     {
-//        $observationtype = ObservationModel::create($request->all());
-//        $observationtype->save();
-//
-//        if ($request->array_all_children !== null) {
-//            //string to array
-//            $array_all_children = explode(',', $request->array_all_children);
-//
-//            //luu vao bang children_programs
-//            foreach ($array_all_children as $children) {
-//                $children_program = new ChildrenProfiles();
-//                $children_program->id_children = $children;
-//                $children_program->save();
-//            }
-//            $children_program->save();
-//        }
-//        return redirect()->back()->with('notify', 'Added Successfully');
+        $this->validate($request,
+            [
+                'observations'          =>  'required',
+                'children_observations' =>  'required',
+                'detailObservation'     =>  'nullable',
+            ],
+            [
+                'observations.required'         =>  'Please choose observations',
+                'children_observations.required'=>  'Please choose children',
+            ]);
 
-        if ($request->programs) {
-            //string to array
-            $programs = explode(',', $request->programs);
-            //luu vao bang children_programs
-            foreach ($programs as $program) {
-                $children_program = new ChildrenProgram();
-                $children_program->id_children = $children_id;
-                $children_program->id_program = $program;
-                $children_program->save();
+
+        //string to array
+        $children_observations = explode(',', $request->children_observations);
+        //luu vao bang observations
+        foreach ($children_observations as $children_id) {
+            $check_id_children_isset = ObservationModel::where('id_children','=',$children_id)->get();
+            $observer = Auth::user()->first_name.' '.Auth::user()->last_name;
+
+            //array chua month da ton tai
+            $array_month = [];
+            foreach ($check_id_children_isset as $collection)
+            {
+                if (! in_array($collection->month, $array_month)){
+                    array_push($array_month, $collection->month);
+                }
             }
-            $children_program->save();
-        }
+            dd($array_month);
 
-    }
-    public function getDelete($id){
-        $observation= DB::table('observations')->where('id',$id)->delete();
-        return redirect()->route('admin.observations.list', compact('observationtype'))->with(['flash_level'=>'success','flash_message'=>'Del tin tuyển dụng thành công!!!']);
+            //array chua year da ton tai
+            $array_year = [];
+            foreach ($check_id_children_isset as $collection)
+            {
+                if (! in_array($collection->year, $array_year)) {
+                    array_push($array_year, $collection->year);
+                }
+            }
+
+            //array chua observer da ton tai
+            $array_observer = [];
+            foreach ($check_id_children_isset as $collection)
+            {
+                if (! in_array($collection->observer, $array_observer)) {
+                    array_push($array_observer, $collection->observer);
+                }
+            }
+
+            if (isset($check_id_children_isset)) {
+                if ((in_array($request->month, $array_month)) && (in_array($request->year, $array_year))){
+                    if (in_array($observer, $array_observer)){
+                        $child_observation = ObservationModel::where('id_children','=',$children_id)->where('month','=',$request->month)->where('year','=',$request->year)->where('observer','=',$observer)->first();
+                        $child_observation->id_observations = $request->observations;
+                        $child_observation->detailObservation = $request->detailObservation;
+                        $child_observation->month = $request->month;
+                        $child_observation->year = $request->year;
+                        $child_observation->save();
+                    }else{
+                        $child_observation = new ObservationModel();
+                        $child_observation->id_children = $children_id;
+                        $child_observation->id_observations = $request->observations;
+                        $child_observation->detailObservation = $request->detailObservation;
+                        $child_observation->month = $request->month;
+                        $child_observation->year = $request->year;
+                        $child_observation->observer = $observer;
+                        $child_observation->save();
+                    }
+                }else{
+                    $child_observation = new ObservationModel();
+                    $child_observation->id_children = $children_id;
+                    $child_observation->id_observations = $request->observations;
+                    $child_observation->detailObservation = $request->detailObservation;
+                    $child_observation->month = $request->month;
+                    $child_observation->year = $request->year;
+                    $child_observation->observer = $observer;
+                    $child_observation->save();
+                }
+            }else{
+                $child_observation = new ObservationModel();
+                $child_observation->id_children = $children_id;
+                $child_observation->id_observations = $request->observations;
+                $child_observation->detailObservation = $request->detailObservation;
+                $child_observation->month = $request->month;
+                $child_observation->year = $request->year;
+                $child_observation->observer = $observer;
+                $child_observation->save();
+            }
+        }
+        return redirect()->back()->with('notify','Add successfully');
     }
 
     public function getEdit($id)
     {
         $vendors = ObservationTypeModel::all();
-        $childrent =DB::table('children_profiles')->where('id',$id)->first();
+        $observationtype = ObservationTypeModel::all();
+        $child_observation = ObservationModel::find($id);
+        $children_profiles = ChildrenProfiles::where('id','=',$child_observation->id_children)->first();
+        $array_observation_choose = explode(',',$child_observation->id_observations);
 
-        $observationtype = DB::table('observations')->where('id',$id)->first();
-
-        return view('pages.observation.sua',compact('observationtype','vendors','childrent'));
+        return view('pages.observation.edit',compact('observationtype','vendors','children_profiles','array_observation_choose','child_observation'));
     }
     public function postEdit(Request $request, $id){
-        $observationtype = ObservationTypeModel::find($id);
-       $observationtype->name=$request->name;
-        $observationtype->detailObservation= $request->detailObservation;
-        $observationtype->save();
+        $this->validate($request,
+            [
+                'detailObservation'     =>  'nullable',
+            ]);
 
-        return redirect('kids-now/observations/danhsach');
+        $child_observation = ObservationModel::find($id);
+        $child_observation->id_observations = $request->observation_new;
+        $child_observation->detailObservation = $request->detailObservation;
+        $child_observation->save();
+        return redirect()->back()->with('notify','Edit successfully');
     }
+
+    public function getDelete($id){
+        $observation= DB::table('observations')->where('id',$id)->delete();
+        return redirect()->route('admin.observations.list')->with(['flash_level'=>'success','flash_message'=>'Delete successfully!!!']);
+    }
+
     public function getSearch(Request $req){
-
-
-
-
         $search = DB::table('observations')
            ->join('children_profiles','children_profiles.id','=','observations.id_children')
            ->join('observations_type','observations_type.id','=','observations.id_observations')
@@ -127,35 +197,35 @@ class ObservationController extends Controller
         return response()->json($children_profiles);
     }
 
-    public function addSelectChild(Request $request)
-    {
-        if ($request->ajax()) {
-            $output = '';
-            $children_profiles = ChildrenProfiles::find($request->id_children);
-
-            if ($children_profiles){
-                $output = '
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
-							    <div class="child-class" style="height: 120px;text-align: center;">
-							        <div class="image">
-                                        <img class="img-circle" onerror="this.src=\'images/Child.png\';" style="height: 80px" width="80" src="' . $children_profiles->image . '">
-                                        <input type="hidden" value="' . $children_profiles->id . '">
-                                        <button class="btn btn-xs btn-danger" type="button" onclick="deleteChild(' . $children_profiles->id . ')">X</button>
-                                        <span class="limitText ng-star-inserted">' . $children_profiles->first_name . ' ' . $children_profiles->last_name . '</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <script>
-                                $(\'.btn-danger\').click(function() {
-                                  $(this).parent(\'div\').parent(\'div\').parent(\'div\').hide();
-                                })
-                            </script>
-                            ';
-            }
-            return Response($output);
-        }
-    }
+//    public function addSelectChild(Request $request)
+//    {
+//        if ($request->ajax()) {
+//            $output = '';
+//            $children_profiles = ChildrenProfiles::find($request->id_children);
+//
+//            if ($children_profiles){
+//                $output = '
+//                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
+//							    <div class="child-class" style="height: 120px;text-align: center;">
+//							        <div class="image">
+//                                        <img class="img-circle" onerror="this.src=\'images/Child.png\';" style="height: 80px" width="80" src="' . $children_profiles->image . '">
+//                                        <input type="hidden" value="' . $children_profiles->id . '">
+//                                        <button class="btn btn-xs btn-danger" type="button" onclick="deleteChild(' . $children_profiles->id . ')">X</button>
+//                                        <span class="limitText ng-star-inserted">' . $children_profiles->first_name . ' ' . $children_profiles->last_name . '</span>
+//                                    </div>
+//                                </div>
+//                            </div>
+//
+//                            <script>
+//                                $(\'.btn-danger\').click(function() {
+//                                  $(this).parent(\'div\').parent(\'div\').parent(\'div\').hide();
+//                                })
+//                            </script>
+//                            ';
+//            }
+//            return Response($output);
+//        }
+//    }
 
     public function showChildrenInProgram($id){
         $observationtype = ObservationTypeModel::all();
@@ -169,5 +239,15 @@ class ObservationController extends Controller
                                                     'programs'=>$programs]);
     }
 
+    public function view($id){
+        $vendors = ObservationTypeModel::all();
+        $observationtype = ObservationTypeModel::all();
+        $child_observation = ObservationModel::find($id);
+        $children_profiles = ChildrenProfiles::where('id','=',$child_observation->id_children)->first();
+        $array_observation_choose = explode(',',$child_observation->id_observations);
+
+        return view('pages.observation.view',compact('observationtype','vendors','children_profiles','array_observation_choose','child_observation'));
+
+    }
 
 }
