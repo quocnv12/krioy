@@ -491,6 +491,41 @@ section.introduce-packages .introduce-packages-content .row > div>div >div> div.
 	background-color: #ccc;
 }
 
+/*logo languge header*/
+.dropbtn-logo1 {
+  color: white;
+  margin-left: 5px;
+  font-size: 16px;
+  border: none;border-radius: 5px;
+}
+.dropdown-logo1 {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content-logo1 {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;margin-left: 5px;
+}
+.dropdown-content-logo1 a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content-logo1 a img{
+    width: 30px;
+}
+.dropdown-content-logo1 a:hover {background-color: #ddd;}
+
+.dropdown-logo1:hover .dropdown-content-logo1 {display: block;}
+.menu_desktop img.logo {
+    width: auto;height: 50px;margin: 15px 0;
+}
+/*end*/
 
 
 /*REPONSIVE*/
