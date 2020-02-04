@@ -68,8 +68,7 @@
                         <a class="dropdown-item" href="#"><i class="fa fa-bell" aria-hidden="true"></i> Notification Center</a>
                         <a class="dropdown-item" href="#"><i class="fa fa-retweet" aria-hidden="true"></i> Refresh Account</a>
                         <a class="dropdown-item" href="#"><i class="fa fa-key" aria-hidden="true"></i> Change Password </a>
-                        <a class="dropdown-item" href="kids-now/logout"><i class="fa fa-arrow-right" aria-hidden="true"></i> Logout</a>
-
+                        <a class="dropdown-item" href="kids-now/logout"><i class="fa fa-arrow-right" aria-hidden="true"></i>Logout</a>
                     </div>
                 </li>
             </ul>
