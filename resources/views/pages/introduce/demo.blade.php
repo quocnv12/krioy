@@ -11,7 +11,7 @@
 			<div class="col-md-6">
 				<form method="POST">
 					@csrf
-				<div class="login" align="center">
+				<div class="login" align="center" style="width: 100%">
 					<div class="login-label">
 						<p>Kids Now Account Demo</p>
 					</div>
@@ -24,21 +24,41 @@
 					@endif
 						<p style="margin-top:10px;color:red" id="expired"></p>
 						<div class="add">
-							<div class="input_box" style="width: 100%;">
-						        <span>Phone Number *</span>
-								<input type="phone" name="phone" value="{{ old('phone') }}" placeholder="Phone Number*">
-								@if ($errors->has('phone'))
-								<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;width:80%;margin-top:10px;margin-bottom:0px">* {{ $errors->first('phone') }}</p>
-								@endif
-						    </div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="input_box" style="width: 100%;">
+									 	<span>First Name</span>
+									 	<input type="text" name="First Name" placeholder="First Name*">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="input_box" style="width: 100%;">
+										<span>Last Name</span>
+										<input type="text" name=" Last Name" placeholder="Last Name*">
+									</div>
+								</div>
+							</div>
 						</div>
 						<div class="add">
-							<div class="input_box" style="width: 100%;">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="input_box" style="width: 100%;">
+								        <span>Phone Number *</span>
+										<input type="phone" name="phone" value="{{ old('phone') }}" placeholder="Phone Number*">
+										@if ($errors->has('phone'))
+										<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;width:80%;margin-top:10px;margin-bottom:0px">* {{ $errors->first('phone') }}</p>
+										@endif
+								    </div>
+								</div>
+								<div class="col-md-6">
+									<div class="input_box" style="width: 100%;">
 								<span>Enter your password</span>
 								<input type="password" name="password" placeholder="PassWord">
 								@if ($errors->has('password'))
 								<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;;width:80%;margin-top:10px;margin-bottom:0px">* {{ $errors->first('password') }}</p>
 								@endif
+							</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -52,7 +72,7 @@
 	</section>
 	<footer class="site-footer">
 		<div class="container">
-			<div class="row icon-lienket">
+			<div class="row icon-lienket" style="display: block;">
 			 	<a href="#">
 			 		<img src="images/facebook-circle-white.png" alt="" title="Face-book">
 			 	</a>
@@ -63,7 +83,7 @@
 			 		<img src="images/mail-circle-white.png" alt="" title="Email">
 			 	</a>
 			</div>
-			<div class="row">
+			<div class="row" style="display: block;">
 				<p> 2019 © 
 					<b>Kids Now</b>, a product of <b><a href="http://www.web88.vn/">Web88</a></b>
 				</p>
