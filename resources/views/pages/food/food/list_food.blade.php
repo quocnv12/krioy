@@ -80,7 +80,7 @@
 								<td style="text-transform:capitalize">{{ $item->quantityfood->name }}</td>
 								<td style="text-transform:capitalize">{{ $item->programfood->program_name }}</td>
 								<td style="text-align:center">
-								<a href="kids-now/food/edit/{{ $item->id }}" title="Edit Food" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+									<a href="kids-now/food/edit/{{ $item->id }}" title="Edit Food" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
 									<a onclick="return confirm('Delete food ? Do you want continue !')" title="Delete Food" href="kids-now/food/delete/{{ $item->id }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
 								</td>
 							</tr>

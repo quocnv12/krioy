@@ -27,7 +27,7 @@
                     <a class="nav-link" href="#">Help</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Kids-now</a>
+                    <a class="nav-link" href="kids-now">Kids-now</a>
                 </li>
                
                 <!-- Dropdown -->
@@ -57,7 +57,7 @@
             <a href="#">INVOICES</a>
             <a href="#">Settings</a>
             <a href="#">Help</a>
-            <a href="/">My Kids Now</a>
+            <a href="kids-now">My Kids Now</a>
         </div>
        
         <nav class="navbar navbar-expand-sm bg-light">

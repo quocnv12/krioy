@@ -19,6 +19,8 @@ use Illuminate\Http\Request;
 
 Route::get('test','Api\TestApiController@GetTest');
 
+Route::get('login', 'Api\LoginController@GetLogin');
+
 Route::group(['prefix' => 'kids-now'], function () {
 
     //---------------children----------------
