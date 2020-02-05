@@ -88,16 +88,30 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="row">
-							<div class="col-md-6 input_box">
+							<div class="col-md-5 input_box">
 								<span>Program Fee</span>
-								<input type="text" min="0" name="program_fee" id="program_fee" placeholder="Program Fee" value="{{old('program_fee')}}">
+								<input type="number" min="0" name="program_fee" id="program_fee" placeholder="Program Fee" value="{{old('program_fee')}}">
                                 @if ($errors->has('program_fee'))
                                     <div class="text text-danger">
                                         {{ $errors->first('program_fee') }}
                                     </div>
                                 @endif
 							</div>
-							<div class="col-md-6 input_box">
+							<div class="col-md-3 input_box">
+								<span>Currency</span>
+								<select name="currency">
+									<option value="" selected>Currency</option>
+									<option @if(old('currency') == "VND") selected='selected' @endif value="VND">/VND</option>
+									<option @if(old('currency') == "USD") selected='selected' @endif value="USD">/USD</option>
+									<option @if(old('currency') == "EUR") selected='selected' @endif value="EUR">/EUR</option>
+								</select>
+								@if ($errors->has('period_fee'))
+									<div class="text text-danger">
+										{{ $errors->first('period_fee') }}
+									</div>
+								@endif
+							</div>
+							<div class="col-md-4 input_box">
 								<span>Period Fee</span>
 								<select name="period_fee">
 									<option value="" selected>Period Fee</option>
@@ -231,6 +245,10 @@
 				</div>
 			</div>
 		</div>
+			<div style="margin: 0px; text-align: center" id="hint">
+				<span style="color: red; font-weight: bold">Hint :</span>
+				Use the search bar to add Staff / Children to the program
+			</div>
 		<div class="mat-card">
 			<div class="mat-content">
 				<button class="accordion accordion1 clearfix" type="button">
@@ -454,7 +472,7 @@
 		$(document).ready(function($) {
 			var engine1 = new Bloodhound({
 				remote: {
-					url: 'http://kidsnow.web88.vn/kids-now/program/search/children?q=%QUERY%',
+					url: 'kids-now/program/search/children?q=%QUERY%',
 					wildcard: '%QUERY%'
 				},
 				datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
@@ -480,7 +498,7 @@
 
 						],
 						suggestion: function (data) {
-							return '<a onclick="getIdChildren('+data.id+')" class="list-group-item" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;padding: 10px; margin: 0;color: #424949;width: 500px;"> ' + data.first_name +' '+ data.last_name + '<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
+							return '<a onclick="getIdChildren('+data.id+')" class="list-group-item" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;padding: 10px; margin: 0;color: #424949;width: 500px;"> ' + data.first_name +' '+ data.last_name + ' ('+ data.birthday +')<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
 						}
 					}
 				},
@@ -488,7 +506,7 @@
 
 			var engine2 = new Bloodhound({
 				remote: {
-					url: 'http://kidsnow.web88.vn/kids-now/program/search/staff?q2=%QUERY%',
+					url: 'kids-now/program/search/staff?q2=%QUERY%',
 					wildcard: '%QUERY%'
 				},
 				datumTokenizer: Bloodhound.tokenizers.whitespace('q2'),

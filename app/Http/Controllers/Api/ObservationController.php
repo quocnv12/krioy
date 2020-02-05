@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\models\ObservationTypeModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class ObservationController extends Controller
 {
@@ -12,7 +13,7 @@ class ObservationController extends Controller
         if ($request->month || $request->year) {
             $child_observations = ObservationModel::where('month', '=', $request->month)->where('year', '=', $request->year)->get();
             if (! $child_observations){
-                return response()->json('Something wrong', 404);
+                return response()->json(['message'=>'Something wrong'], 404);
             }else{
                 return response()->json([
                     'child_observations'=>$child_observations
@@ -22,7 +23,7 @@ class ObservationController extends Controller
             $current_month = Carbon::now()->format('M');
             $child_observations = ObservationModel::where('month', '=', $current_month)->where('year', '=', now()->year)->get();
             if (! $child_observations){
-                return response()->json('Something wrong', 404);
+                return response()->json(['message'=>'Something wrong'], 404);
             }else{
                 return response()->json([
                     'child_observations'=>$child_observations
@@ -39,7 +40,7 @@ class ObservationController extends Controller
         ], 200);
     }
 
-    public  function getListObservation(){
+    public function getListObservation(){
         $observationtype = ObservationTypeModel::all();
         return response()->json([
             'observationtype'=>$observationtype
@@ -57,17 +58,19 @@ class ObservationController extends Controller
 
     public function postAdd(Request $request)
     {
-        $this->validate($request,
-            [
+        $rules = [
                 'observations'          =>  'required',
                 'children_observations' =>  'required',
                 'detailObservation'     =>  'nullable',
-            ],
-            [
-                'observations.required'         =>  'Please choose observations',
-                'children_observations.required'=>  'Please choose children',
-            ]);
+            ];
 
+         $validator = Validator::make($request->all(), $rules,[
+             'observations.required'         =>  'Please choose observations',
+             'children_observations.required'=>  'Please choose children',
+         ]);
+        if ($validator->fails()){
+            return response()->json($validator->errors(), 400);
+        }
 
         //string to array
         $children_observations = explode(',', $request->children_observations);
@@ -164,14 +167,23 @@ class ObservationController extends Controller
         ], 200);
     }
     public function postEdit(Request $request, $id){
-        $this->validate($request,
-            [
-                'detailObservation'     =>  'nullable',
-            ]);
+        $rules = [
+            'observations'          =>  'required',
+            'children_observations' =>  'required',
+            'detailObservation'     =>  'nullable',
+        ];
+
+        $validator = Validator::make($request->all(), $rules,[
+            'observations.required'         =>  'Please choose observations',
+            'children_observations.required'=>  'Please choose children',
+        ]);
+        if ($validator->fails()){
+            return response()->json($validator->errors(), 400);
+        }
 
         $child_observation = ObservationModel::find($id);
         if (!$child_observation){
-            return response()->json('Something wrong', 404);
+            return response()->json(['message'=>'Something wrong'], 404);
         }else{
             $child_observation->id_observations = $request->observation_new;
             $child_observation->detailObservation = $request->detailObservation;
@@ -186,7 +198,7 @@ class ObservationController extends Controller
     public function getDelete($id){
         $observation= DB::table('observations')->where('id',$id)->delete();
         if (!$observation){
-            return response()->json('Something wrong', 404);
+            return response()->json(['message'=>'Something wrong'], 404);
         }else{
             return response()->json(null, 204);
         }
@@ -294,7 +306,7 @@ class ObservationController extends Controller
         $array_observation_choose = explode(',',$child_observation->id_observations);
 
         if (! $child_observation){
-            return response()->json('Something wrong', 404);
+            return response()->json(['message'=>'Something wrong'], 404);
         }else{
             return response()->json([
                 'observationtype'=>$observationtype,
