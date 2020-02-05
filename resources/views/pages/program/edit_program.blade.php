@@ -100,7 +100,7 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="row">
-								<div class="col-md-6 input_box">
+								<div class="col-md-5 input_box">
 									<span class="input_box_span_active">Program Fee</span>
 									<input type="text" name="program_fee" id="program_fee" placeholder="Program Fee" value="{{($program->program_fee)}}">
 									@if ($errors->has('program_fee'))
@@ -109,7 +109,21 @@
 										</div>
 									@endif
 								</div>
-								<div class="col-md-6 input_box">
+								<div class="col-md-3 input_box">
+									<span>Currency</span>
+									<select name="currency">
+										<option value="" selected>Currency</option>
+										<option @if(old('currency') == "VND") selected='selected' @endif value="VND">/VND</option>
+										<option @if(old('currency') == "USD") selected='selected' @endif value="USD">/USD</option>
+										<option @if(old('currency') == "EUR") selected='selected' @endif value="EUR">/EUR</option>
+									</select>
+									@if ($errors->has('period_fee'))
+										<div class="text text-danger">
+											{{ $errors->first('period_fee') }}
+										</div>
+									@endif
+								</div>
+								<div class="col-md-4 input_box">
 									<span class="input_box_span_active">Period Fee</span>
 									<select name="period_fee">
 										<option value="" selected>Period Fee</option>
@@ -514,7 +528,7 @@
 		$(document).ready(function($) {
 			var engine1 = new Bloodhound({
 				remote: {
-					url: 'http://kidsnow.web88.vn/kids-now/program/search/children?q=%QUERY%',
+					url: 'kids-now/program/search/children?q=%QUERY%',
 					wildcard: '%QUERY%'
 				},
 				datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
@@ -548,7 +562,7 @@
 
 			var engine2 = new Bloodhound({
 				remote: {
-					url: 'http://kidsnow.web88.vn/kids-now/program/search/staff?q2=%QUERY%',
+					url: 'kids-now/program/search/staff?q2=%QUERY%',
 					wildcard: '%QUERY%'
 				},
 				datumTokenizer: Bloodhound.tokenizers.whitespace('q2'),

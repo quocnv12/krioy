@@ -8,6 +8,7 @@ use App\models\Programs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
 class NoticeBoardController extends Controller
@@ -17,7 +18,7 @@ class NoticeBoardController extends Controller
     {
         $programs = Programs::all();
         if (! $programs){
-            return response()->json('Something wrong', 404);
+            return response()->json(['message'=>'Something wrong'], 404);
         }else{
             return response()->json([
                'program'=>$programs
@@ -29,7 +30,7 @@ class NoticeBoardController extends Controller
         $notice_board = NoticeBoard::find($id);
 
         if (!$notice_board){
-            return response()->json('Something wrong', 404);
+            return response()->json(['message'=>'Something wrong'], 404);
         }else {
             $programs = Programs::all();
             $programs_choose = DB::table('programs')
@@ -54,7 +55,7 @@ class NoticeBoardController extends Controller
     {
         $programs = Programs::all();
         if (! $programs){
-            return response()->json('Something wrong', 404);
+            return response()->json(['message'=>'Something wrong'], 404);
         }else{
             return response()->json([
                 'program'=>$programs
@@ -65,21 +66,23 @@ class NoticeBoardController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request,
-            [
+        $rules = [
                 'title'     =>  'required',
                 'important' =>  'nullable',
                 'archive'   =>  'nullable',
                 'content'   =>  'required',
                 'writer'    =>  'nullable',
                 'programs'  =>  'required'
-            ],
-            [
-                'title.required'        =>  'Please input title',
-                'content.required'      =>  'Please input content',
-                'programs.required'     =>  'Please choose programs',
-            ]);
+            ];
 
+        $validator = Validator::make($request->all(), $rules, [
+            'title.required'    =>  'Title is required',
+            'content.required'  =>  'Content is required',
+            'programs.required' =>  'Please choose program'
+        ]);
+        if ($validator->fails()){
+            return response()->json($validator->errors(), 400);
+        }
         $notice_board = NoticeBoard::create($request->all());
         $request->important ? $notice_board->important = 1 : $notice_board->important = 0;
 
@@ -128,7 +131,7 @@ class NoticeBoardController extends Controller
     {
         $notice_board = NoticeBoard::find($id);
         if (!$notice_board){
-            return response()->json('Something wrong', 404);
+            return response()->json(['message'=>'Something wrong'], 404);
         }else {
             //chuoi cu
             $old_array = explode('/*endfile*/', $notice_board->clip_board);
@@ -158,7 +161,7 @@ class NoticeBoardController extends Controller
             ->get();
 
         if (!$notice_board){
-            return response()->json('Something wrong', 404);
+            return response()->json(['message'=>'Something wrong'], 404);
         }else {
             $programs = Programs::all();
 
@@ -175,7 +178,7 @@ class NoticeBoardController extends Controller
         $notice_board = NoticeBoard::find($id);
 
         if (!$notice_board){
-            return response()->json('Something wrong', 404);
+            return response()->json(['message'=>'Something wrong'], 404);
         }else {
             $programs = Programs::all();
 
@@ -202,22 +205,27 @@ class NoticeBoardController extends Controller
 
     public function update(Request $request, $id)
     {
-        $this->validate($request,
-            [
-                'title'     =>  'required',
-                'important' =>  'nullable',
-                'archive'   =>  'nullable',
-                'content'   =>  'required',
-                'writer'    =>  'nullable',
-            ],
-            [
-                'title.required'        =>  'Please input title',
-                'content.required'      =>  'Please input content',
-            ]);
+        $rules = [
+            'title'     =>  'required',
+            'important' =>  'nullable',
+            'archive'   =>  'nullable',
+            'content'   =>  'required',
+            'writer'    =>  'nullable',
+            'programs'  =>  'required'
+        ];
+
+        $validator = Validator::make($request->all(), $rules,[
+            'title.required'    =>  'Title is required',
+            'content.required'  =>  'Content is required',
+            'programs.required' =>  'Please choose program'
+        ]);
+        if ($validator->fails()){
+            return response()->json($validator->errors(), 400);
+        }
 
         $notice_board = NoticeBoard::findOrFail($id);
         if (!$notice_board){
-            return response()->json('Something wrong', 404);
+            return response()->json(['message'=>'Something wrong'], 404);
         }else {
             $notice_board->update($request->all());
             $request->important ? $notice_board->important = 1 : $notice_board->important = 0;
@@ -281,7 +289,7 @@ class NoticeBoardController extends Controller
         $notice_board = NoticeBoard::findOrFail($id);
 
         if (!$notice_board){
-            return response()->json('Something wrong', 404);
+            return response()->json(['message'=>'Something wrong'], 404);
         }else {
             if ($notice_board->clip_board) {
                 $old_array = explode('/*endfile*/', $notice_board->clip_board);
@@ -309,7 +317,7 @@ class NoticeBoardController extends Controller
             ->get();
 
         if (!$notice_board){
-            return response()->json('Something wrong', 404);
+            return response()->json(['message'=>'Something wrong'], 404);
         }else {
             return response()->json([
                 'notice_board'=>$notice_board
