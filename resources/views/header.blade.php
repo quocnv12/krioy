@@ -8,28 +8,27 @@
             <div class="dropdown-logo1">
                 <button class="dropbtn-logo1"><img src="images/viet.png" style="width: 35px;height: 25px"></button>
                 <div class="dropdown-content-logo1">
-                    <a href="#"><img src="images/viet.png"> VietNamese</a>
-                    <a href="#"><img src="images/usa.png"> English</a>
+                    <a href="locale/vi"><img src="images/viet.png"> VietNamese</a>
+                    <a href="locale/en"><img src="images/usa.png"> English</a>
                 </div>
             </div>
             <!-- Links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">PROFILES</a>
+                    <a class="nav-link" href="#">@lang('kidsnow.menu_profiles')</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">INVOICES</a>
+                    <a class="nav-link" href="#">@lang('kidsnow.menu_invoices')</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Settings</a>
+                    <a class="nav-link" href="#">@lang('kidsnow.menu_settings')</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Help</a>
+                    <a class="nav-link" href="#">@lang('kidsnow.menu_help')</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="kids-now">Kids-now</a>
                 </li>
-               
                 <!-- Dropdown -->
                 @if (Auth::check())
                 <li class="nav-item">
@@ -37,7 +36,6 @@
                     <img style="width: 30px; height: 30px;" src="images/{{ Auth::user()->image }}" alt="">
                     </a>
                     <div class="dropdown-menu">
-               
                     <a class="dropdown-item" href="#"><i class="fa fa-users" aria-hidden="true"></i> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </a>
                         <a class="dropdown-item" href="#"><i class="fa fa-phone-square" aria-hidden="true"></i> {{ Auth::user()->phone }}</a>
                         {{--  <a class="dropdown-item" href="#"><i class="fa fa-bell" aria-hidden="true"></i> Notification Center</a>
@@ -53,7 +51,7 @@
     <div class="d-block d-md-none menu_mobile">
         <div id="menu_mobile">
             <div class="closebtn" onclick="closeNav()">×</div>
-            <a href="#">PROFILES</a>
+            <a href="#">@lang('kidsnow.menu_profiles')</a>
             <a href="#">INVOICES</a>
             <a href="#">Settings</a>
             <a href="#">Help</a>
