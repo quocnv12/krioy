@@ -63,19 +63,20 @@
                         <!-- Links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Dropdown -->
+                @if (Auth::check())
                 <li class="nav-item">
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                        <img style="width: 40px; height: 40px;" src="images/Staff.png" alt="">
+                    <img style="width: 30px; height: 30px;" src="images/{{ Auth::user()->image }}" alt="">
                     </a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#"><i class="fa fa-users" aria-hidden="true"></i> Nguyen Cong Khanh</a>
-                        <a class="dropdown-item" href="#"><i class="fa fa-phone-square" aria-hidden="true"></i> 0123456</a>
-                        <a class="dropdown-item" href="#"><i class="fa fa-bell" aria-hidden="true"></i> Notification Center</a>
-                        <a class="dropdown-item" href="#"><i class="fa fa-retweet" aria-hidden="true"></i> Refresh Account</a>
-                        <a class="dropdown-item" href="#"><i class="fa fa-key" aria-hidden="true"></i> Change Password </a>
-                        <a class="dropdown-item" href="kids-now/logout"><i class="fa fa-arrow-right" aria-hidden="true"></i>Logout</a>
-                    </div>
-                </li>
+               
+                    <a class="dropdown-item" href="#"><i class="fa fa-users" aria-hidden="true"></i> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-phone-square" aria-hidden="true"></i> {{ Auth::user()->phone }}</a>
+                        {{--  <a class="dropdown-item" href="#"><i class="fa fa-bell" aria-hidden="true"></i> Notification Center</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-retweet" aria-hidden="true"></i> Refresh Account</a>  --}}
+                        <a class="dropdown-item" href="kids-now/update-password"><i class="fa fa-key" aria-hidden="true"></i> Change Password </a>
+                        <a class="dropdown-item" href="kids-now/logout"><i class="fa fa-arrow-right" aria-hidden="true"></i> Logout</a>
+                @endif
             </ul>
         </nav>
     </div>

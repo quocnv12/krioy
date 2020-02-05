@@ -27,7 +27,13 @@ Route::get('kids-now/children/add','Admin\ChildrenProfilesController@create');
 Route::get('kids-now/notice-board/add','Admin\NoticeBoardController@create');
 
 Route::get('','Admin\IndexController@getIndex');
+//------------tai khoan demo-------
 Route::get('account','Admin\IndexController@getDemoAccount');
+Route::post('account','Admin\IndexController@postDemoAccount');
+
+//---------xac nhan tai khoan------------
+Route::get('vrify','Admin\IndexController@verifyAccount')->name('user.verify.account');
+
 //---------------login----------------
 Route::get('login', 'Admin\LoginController@GetLogin')->name('login')->middleware('CheckLogOut');
 Route::post('login', 'Admin\LoginController@PostLogin');
@@ -52,9 +58,9 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('add', 'Admin\ChildrenProfilesController@create');
         Route::post('add', 'Admin\ChildrenProfilesController@store');
         Route::get('view/{id}','Admin\ChildrenProfilesController@view');
-        Route::get('edit/{id}','Admin\ChildrenProfilesController@edit');
+        Route::get('edit/{id}','Admin\ChildrenProfilesController@edit')->middleware(['can:edit-profile']);
         Route::post('edit/{id}','Admin\ChildrenProfilesController@update');
-        Route::get('delete/{id}','Admin\ChildrenProfilesController@destroy');
+        Route::get('delete/{id}','Admin\ChildrenProfilesController@destroy')->middleware(['can:edit-profile']);
 
         Route::get('add_parent','Admin\ChildrenProfilesController@addParent');
         Route::get('select_child','Admin\ChildrenProfilesController@selectChild');
@@ -70,9 +76,9 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('','Admin\Staff\StaffController@GetListStaff');
         Route::get('add','Admin\Staff\StaffController@GetAddStaff');
         Route::post('add','Admin\Staff\StaffController@PostAddStaff');
-        Route::get('edit/{id}','Admin\Staff\StaffController@GetEditStaff');
+        Route::get('edit/{id}','Admin\Staff\StaffController@GetEditStaff')->middleware(['can:edit-profile']);
         Route::post('edit/{id}','Admin\Staff\StaffController@PostEditStaff');
-        Route::get('delete/{id}','Admin\Staff\StaffController@DeleteStaff');
+        Route::get('delete/{id}','Admin\Staff\StaffController@DeleteStaff')->middleware(['can:edit-profile']);
     });
 
     //---------------attendance----------------
@@ -88,8 +94,8 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('danhsach', ['as'=>'admin.health.list','uses'=>'Admin\HealthController@getList']);
         Route::get('them',['as'=>'admin.health.getAdd','uses'=>'Admin\HealthController@getAdd']);
         Route::post('them',['as'=>'admin.health.getAdd','uses'=>'Admin\HealthController@postAdd']);
-        Route::get('xoa/{id}',['as'=>'admin.health.getDelete','uses'=>'Admin\HealthController@getDelete']);
-        Route::get('sua/{id}',['as'=>'admin.health.getEdit','uses'=>'Admin\HealthController@getEdit']);
+        Route::get('xoa/{id}',['as'=>'admin.health.getDelete','uses'=>'Admin\HealthController@getDelete'])->middleware(['can:edit-profile']);
+        Route::get('sua/{id}',['as'=>'admin.health.getEdit','uses'=>'Admin\HealthController@getEdit'])->middleware(['can:edit-profile']);
         Route::post('sua/{id}',['as'=>'admin.health.postEdit','uses'=>'Admin\HealthController@postEdit']);
         Route::get('search',['as'=>'admin.health.search','uses'=>'Admin\HealthController@getSearch']);
         Route::post('search',['as'=>'admin.health.search','uses'=>'Admin\HealthController@postSearch']);
@@ -105,8 +111,8 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
     Route::group(['prefix' => 'observations'], function () {
         Route::get('list', ['as'=>'admin.observations.list','uses'=>'Admin\ObservationController@getList']);
         Route::get('danhsachobservationtype', ['as'=>'admin.observations.listobservationtype','uses'=>'Admin\ObservationController@getListObservation']);
-        Route::get('delete/{id}',['as'=>'admin.observations.getDelete','uses'=>'Admin\ObservationController@getDelete']);
-        Route::get('edit/{id}',['as'=>'admin.observations.getEdit','uses'=>'Admin\ObservationController@getEdit']);
+        Route::get('delete/{id}',['as'=>'admin.observations.getDelete','uses'=>'Admin\ObservationController@getDelete'])->middleware(['can:edit-profile']);
+        Route::get('edit/{id}',['as'=>'admin.observations.getEdit','uses'=>'Admin\ObservationController@getEdit'])->middleware(['can:edit-profile']);
         Route::post('edit/{id}',['as'=>'admin.observations.postEdit','uses'=>'Admin\ObservationController@postEdit']);
         Route::get('search',['as'=>'admin.observations.search','uses'=>'Admin\ObservationController@getSearch']);
         Route::post('search',['as'=>'admin.observations.search','uses'=>'Admin\ObservationController@postSearch']);
@@ -124,21 +130,15 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
     Route::group(['prefix' => 'observationtype'], function () {
 
-        Route::get('xoa/{id}',['as'=>'admin.observationtype.getDelete','uses'=>'Admin\ObservationTypeController@getDelete']);
-        Route::get('sua/{id}',['as'=>'admin.observationtype.getEdit','uses'=>'Admin\ObservationTypeController@getEdit']);
+        Route::get('xoa/{id}',['as'=>'admin.observationtype.getDelete','uses'=>'Admin\ObservationTypeController@getDelete'])->middleware(['can:edit-profile']);
+        Route::get('sua/{id}',['as'=>'admin.observationtype.getEdit','uses'=>'Admin\ObservationTypeController@getEdit'])->middleware(['can:edit-profile']);
         Route::post('sua/{id}',['as'=>'admin.observationtype.getEdit','uses'=>'Admin\ObservationTypeController@postEdit']);
         Route::get('them',['as'=>'admin.observationtype.add','uses'=>'Admin\ObservationTypeController@getAdd']);
         Route::post('them',['as'=>'admin.observationtype.add','uses'=>'Admin\ObservationTypeController@postAdd']);
 
 
     });
-    //---------------food----------------
-    Route::group(['prefix' => 'food'], function () {
-        Route::get('', function () {
-            return view('pages.food.food');
-        });
-    });
-
+   
 
     //---------------food----------------
     Route::group(['prefix' => 'food'], function () {
@@ -147,9 +147,9 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('','Admin\FoodController@GetFood');
         Route::post('','Admin\FoodController@PostFood');
         Route::get('list','Admin\FoodController@GetList');
-        Route::get('edit/{id}','Admin\FoodController@GetEdit');
+        Route::get('edit/{id}','Admin\FoodController@GetEdit')->middleware(['can:edit-profile']);
         Route::post('edit/{id}','Admin\FoodController@PostEdit');
-        Route::get('delete/{id}','Admin\FoodController@DeleteFood');
+        Route::get('delete/{id}','Admin\FoodController@DeleteFood')->middleware(['can:edit-profile']);
 
   
 
@@ -157,9 +157,9 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('menu-meal-type','Admin\FoodController@GetListMenuMealType');
         Route::get('menu-meal-type/add','Admin\FoodController@GetAddMenuMealType')->name('menu-meal-type-add');
         Route::post('menu-meal-type/add','Admin\FoodController@PostAddMenuMealType');
-        Route::get('menu-meal-type/edit/{id}','Admin\FoodController@GetEditMenuMealType')->name('menu-meal-type-edit');
+        Route::get('menu-meal-type/edit/{id}','Admin\FoodController@GetEditMenuMealType')->name('menu-meal-type-edit')->middleware(['can:edit-profile']);
         Route::post('menu-meal-type/edit/{id}','Admin\FoodController@PostEditMenuMealType');
-        Route::get('menu-meal-type/delete/{id}','Admin\FoodController@DeleteMenuMealType')->name('menu-meal-type-del');
+        Route::get('menu-meal-type/delete/{id}','Admin\FoodController@DeleteMenuMealType')->name('menu-meal-type-del')->middleware(['can:edit-profile']);
 
 
 
@@ -169,9 +169,9 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('menu-quantity','Admin\FoodController@GetListMenuQuantity');
         Route::get('menu-quantity/add','Admin\FoodController@GetAddMenuQuantity')->name('menu-quantity-add');
         Route::post('menu-quantity/add','Admin\FoodController@PostAddMenuQuantity');
-        Route::get('menu-quantity/edit/{id_qty}','Admin\FoodController@GetEditMenuQuantity')->name('menu-quantity-edit');
+        Route::get('menu-quantity/edit/{id_qty}','Admin\FoodController@GetEditMenuQuantity')->name('menu-quantity-edit')->middleware(['can:edit-profile']);
         Route::post('menu-quantity/edit/{id_qty}','Admin\FoodController@PostEditMenuQuantity');
-        Route::get('menu-quantity/delete/{id_qty}','Admin\FoodController@DeleteMenuQuantity')->name('menu-quantity-del');
+        Route::get('menu-quantity/delete/{id_qty}','Admin\FoodController@DeleteMenuQuantity')->name('menu-quantity-del')->middleware(['can:edit-profile']);
 
 
 
@@ -179,9 +179,9 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('menu-food-name','Admin\FoodController@GetListMenuFoodName');
         Route::get('menu-food-name/add','Admin\FoodController@GetAddMenuFoodName')->name('menu-food-name-add');
         Route::post('menu-food-name/add','Admin\FoodController@PostAddMenuFoodName');
-        Route::get('menu-food-name/edit/{id_food_name}','Admin\FoodController@GetEditMenuFoodName')->name('menu-food-name-edit');
+        Route::get('menu-food-name/edit/{id_food_name}','Admin\FoodController@GetEditMenuFoodName')->name('menu-food-name-edit')->middleware(['can:edit-profile']);
         Route::post('menu-food-name/edit/{id_food_name}','Admin\FoodController@PostEditMenuFoodName');
-        Route::get('menu-food-name/delete/{id_food_name}','Admin\FoodController@DeleteFoodName')->name('menu-food-name-del');
+        Route::get('menu-food-name/delete/{id_food_name}','Admin\FoodController@DeleteFoodName')->name('menu-food-name-del')->middleware(['can:edit-profile']);
 
     });
 
@@ -196,10 +196,10 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
         Route::get('detail/{id}','Admin\NoticeBoardController@detail');
 
-        Route::get('edit/{id}', 'Admin\NoticeBoardController@edit');
+        Route::get('edit/{id}', 'Admin\NoticeBoardController@edit')->middleware(['can:edit-profile']);
         Route::post('edit/{id}', 'Admin\NoticeBoardController@update');
 
-        Route::get('delete/{id}','Admin\NoticeBoardController@destroy');
+        Route::get('delete/{id}','Admin\NoticeBoardController@destroy')->middleware(['can:edit-profile']);
 
         //search by typeahead
         Route::get('search/name', 'Admin\NoticeBoardController@searchByTitle');
@@ -224,10 +224,10 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('select_child/add','Admin\ProgramsController@addSelectChild');   //ajax them children
         Route::get('select_staff/add','Admin\ProgramsController@addSelectStaff');   //ajax them staff
 
-        Route::get('edit/{id}', 'Admin\ProgramsController@edit');
+        Route::get('edit/{id}', 'Admin\ProgramsController@edit')->middleware(['can:edit-profile']);
         Route::post('edit/{id}', 'Admin\ProgramsController@update');
         Route::get('view/{id}', 'Admin\ProgramsController@show');
-        Route::get('delete/{id}','Admin\ProgramsController@destroy');
+        Route::get('delete/{id}','Admin\ProgramsController@destroy')->middleware(['can:edit-profile']);
 
         Route::get('search/children','Admin\ProgramsController@searchChildren');
         Route::get('search/staff','Admin\ProgramsController@searchStaff');

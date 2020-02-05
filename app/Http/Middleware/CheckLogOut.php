@@ -17,9 +17,11 @@ class CheckLogOut
     {
         if(Auth::check())
         {
+           
             return redirect('kids-now');
         }
-        else{
+        else
+        {
             return $next($request);
         }
        

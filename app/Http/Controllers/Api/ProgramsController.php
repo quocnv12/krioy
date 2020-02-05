@@ -11,6 +11,7 @@ use App\models\StaffProgram;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class ProgramsController extends Controller
 {
@@ -46,14 +47,17 @@ class ProgramsController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request,
-            [
+        $rules = [
                 'program_fee'   =>  'numeric|min:0'
-            ],
-            [
-                'program_fee.numeric'   =>  'Program fee is invalid',
-                'program_fee.min'       =>  'Program fee is invalid',
-            ]);
+            ];
+
+         $validator = Validator::make($request->all(), $rules,[
+             'program_fee.numeric'   =>  'Program fee is invalid',
+             'program_fee.min'       =>  'Program fee is invalid',
+         ]);
+        if ($validator->fails()){
+            return response()->json($validator->errors(), 400);
+        }
 
         $programs = Programs::create($request->all());
         $programs->schedule = $request->schedule;
@@ -181,14 +185,19 @@ class ProgramsController extends Controller
 
     public function update(Request $request, $id)
     {
-        $this->validate($request,
-            [
-                'program_fee'   =>  'numeric|min:0'
-            ],
-            [
-                'program_fee.numeric'   =>  'Program fee is invalid',
-                'program_fee.min'       =>  'Program fee is invalid',
-            ]);
+        $rules = [
+            'program_fee'   =>  'numeric|min:0',
+            'program_name'  =>  'required'
+        ];
+
+         $validator = Validator::make($request->all(), $rules,[
+             'program_fee.numeric'   =>  'Program fee is invalid',
+             'program_fee.min'       =>  'Program fee is invalid',
+             'program_name.required' =>  'Program name is required',
+         ]);
+        if ($validator->fails()){
+            return response()->json($validator->errors(), 400);
+        }
 
         $programs = Programs::findOrFail($id);
 
@@ -336,13 +345,13 @@ class ProgramsController extends Controller
 
             if ($children_profiles){
                 $output = '
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
-							    <div class="child-class" style="height: 120px;text-align: center;">
-							        <div class="image">
-                                        <img class="img-circle" onerror="this.src=\'images/Child.png\';" style="height: 80px" width="80" src="' . $children_profiles->image . '">
+                            <div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
+							    <div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
+							        <div _ngcontent-c19="" class="image">
+                                        <img _ngcontent-c19="" class="img-circle" onerror="this.src=\'images/Child.png\';" style="height: 80px" width="80" src="' . $children_profiles->image . '">
                                         <input type="hidden" value="' . $children_profiles->id . '">
                                         <span class="delete-child" onclick="deleteChild(' . $children_profiles->id . ')" style="position: absolute; top: 0"><i class="fas fa-times-circle" style="color: red ; cursor: pointer"></i></span>
-                                        <span class="limitText ng-star-inserted">' . $children_profiles->first_name . ' ' . $children_profiles->last_name . '</span>
+                                        <span _ngcontent-c19="" class="limitText ng-star-inserted">' . $children_profiles->first_name . ' ' . $children_profiles->last_name . '</span>
                                     </div>
                                 </div>
                             </div>
@@ -372,7 +381,7 @@ class ProgramsController extends Controller
                                             <img _ngcontent-c19="" class="img-circle" onerror="this.src=\'images/Staff.png\';" style="height: 80px" width="80" src="' . $staff_profiles->image . '">
                                             <input type="hidden" value="' . $staff_profiles->id . '">
                                             <span class="delete-staff" onclick="deleteStaff(' . $staff_profiles->id . ')" style="position: absolute; top: 0"><i class="fas fa-times-circle" style="color: red ; cursor: pointer"></i></span>
-                                            <span _ngcontent-c19="" class="limitText ng-star-inserted">' . $staff_profiles->first_name . ' ' . $staff_profiles->last_name . '</span>
+                                            <span _ngcontent-c19="" class="limitText ng-star-inserted">' . $staff_profiles->first_name . ' ' . $staff_profiles->last_name . '</span _ngcontent-c19="">
                                         </div>
                                     </div>
                                 </div>
