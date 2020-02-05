@@ -234,3 +234,9 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('search/program','Admin\ProgramsController@searchProgram');
     });
 });
+
+
+Route::get('locale/{locale}', function($locale){
+    Session::put('locale', $locale);
+    return redirect()->back();
+});
