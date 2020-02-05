@@ -145,8 +145,8 @@
     	$(document).ready(function($) {
 			$('div.div_box_children').click(function () {
 				var id_children = $(this).children('div').children('input').val();
-				$('li#profile_children').attr('data-href','/kids-now/children/view/'+id_children);
-				$('li#health_children').attr('data-href','/kids-now/health/sua/'+id_children);
+				$('li#profile_children').attr('data-href','kids-now/children/view/'+id_children);
+				$('li#health_children').attr('data-href','kids-now/health/sua/'+id_children);
 			});
 
 			$(".modal-li").click(function() {
@@ -188,7 +188,7 @@
 
 						],
 						suggestion: function (data) {
-							return '<a href="/kids-now/children/edit/' + data.id + '" class="list-group-item" style="width: 400px; color: inherit"><span style=""> ' + data.first_name +' '+ data.last_name + ' </span><span style="float: right"> ' + data.birthday + ' </span></a>';
+							return '<a href="kids-now/children/view/' + data.id + '" class="list-group-item" style="width: 400px; color: inherit"><span style=""> ' + data.first_name +' '+ data.last_name + ' </span><span style="float: right"> ' + data.birthday + ' </span></a>';
 						}
 					}
 				},

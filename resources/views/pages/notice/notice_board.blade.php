@@ -156,7 +156,7 @@
 
 						],
 						suggestion: function (data) {
-							return '<a href="/kids-now/notice-board/detail/' + data.id + '" class="list-group-item" style="width: 500px;"> ' + data.title +  '</a>';
+							return '<a href="kids-now/notice-board/detail/' + data.id + '" class="list-group-item" style="width: 500px;"> ' + data.title +  '</a>';
 						}
 					}
 				},

@@ -23,7 +23,8 @@ class CreateProgramsTable extends Migration
             $table->time('start_time')->nullable();
             $table->time('finish_time')->nullable();
             $table->string('schedule')->nullable();
-            $table->string('program_fee')->nullable();
+            $table->double('program_fee',20)->nullable();
+            $table->string('currency')->nullable();
             $table->string('period_fee')->nullable();
             $table->integer('status')->nullable();
             $table->timestamps();

@@ -105,14 +105,11 @@
 
 						],
 						suggestion: function (data) {
-							return '<a href="/kids-now/program/view/' + data.id + '" class="list-group-item" style="width: 500px;"> ' + data.program_name +  '</a>';
+							return '<a href="kids-now/program/view/' + data.id + '" class="list-group-item" style="width: 500px; color: inherit"> ' + data.program_name +  '</a>';
 						}
 					}
 				},
 			]);
 		});
-	</script>
-	<script>
-		localStorage.getItem('array_children');
 	</script>
 @endsection
