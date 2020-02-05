@@ -19,10 +19,10 @@ use Illuminate\Http\Request;
 
 Route::get('test','Api\TestApiController@GetTest');
 
-Route::get('login', 'Api\LoginController@GetLogin');
+Route::post('login', 'Api\LoginController@login');
 
 Route::group(['prefix' => 'kids-now'], function () {
-
+    Route::post('logout', 'Api\LoginController@logout');
     //---------------children----------------
     Route::group(['prefix' => 'children'], function () {
         Route::get('/', 'Api\ChildrenProfilesController@index');
