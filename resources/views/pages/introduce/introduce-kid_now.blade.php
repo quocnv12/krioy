@@ -32,7 +32,7 @@
 				    		<p>Kids Now</p>
 				    	</a>
 				    	<div class="topnav" id="myTopnav">
-						    <a href="food.html">HOME</a>
+						    <a href="#">HOME</a>
 						    <a href="#">KIDS NOW APP</a>
 						    <a href="#">PRICING</a>
 						    <a href="#">ABOUT US</a>

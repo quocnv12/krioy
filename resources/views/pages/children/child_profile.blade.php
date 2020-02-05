@@ -145,8 +145,8 @@
     	$(document).ready(function($) {
 			$('div.div_box_children').click(function () {
 				var id_children = $(this).children('div').children('input').val();
-				$('li#profile_children').attr('data-href','/kids-now/children/view/'+id_children);
-				$('li#health_children').attr('data-href','/kids-now/health/sua/'+id_children);
+				$('li#profile_children').attr('data-href','kids-now/children/view/'+id_children);
+				$('li#health_children').attr('data-href','kids-now/health/sua/'+id_children);
 			});
 
 			$(".modal-li").click(function() {
