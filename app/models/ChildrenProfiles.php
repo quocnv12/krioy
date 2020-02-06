@@ -28,6 +28,9 @@ class ChildrenProfiles extends Model
     public function Observation(){
         return $this->hasMany('App\Models\ObservationModel','id_children','id');
     }
+    public function chil_atd(){
+        return $this->hasMany(Attendance_children::class,'id_children','id');
+    }
 
 
 

@@ -30,7 +30,7 @@
 				</div>
 			</div>
 		</section>
-		<form style="width: auto;margin: 0;text-align: center" method="post" action="{{route('attendance.postAdd')}}" id="addAttendance" enctype="multipart/form-data">
+		<form style="width: auto;margin: 0;text-align: center" method="post" id="addAttendance" enctype="multipart/form-data">
 			@csrf
 			<section style="background-color:#f9f9f9">
 				<div class="row" style="padding: 10px">
