@@ -364,7 +364,7 @@
                 </div>
                 <div class="col-xs-6 col-md-2 col-sm-6 item">
                     <a href="#">
-                        <img src="images/video-youtobe.png" alt="">
+                        <img src="images/video-youtobekids.png" alt="" style="border-radius: 50%;">
                         <div class="title">
                             <p>Video</p>
                         </div>

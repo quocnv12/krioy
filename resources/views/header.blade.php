@@ -5,15 +5,17 @@
                 <img src="images/logo-ngang.png" alt="" class="logo">
                <!--  <p style="margin: 20px 0;font-size: 30px;color: #ff4081;">Kids Now</p> -->
             </a>
-            <div class="dropdown-logo1">
-                <button class="dropbtn-logo1"><img src="images/viet.png" style="width: 35px;height: 25px"></button>
-                <div class="dropdown-content-logo1">
-                    <a href="locale/vi"><img src="images/viet.png"> VietNamese</a>
-                    <a href="locale/en"><img src="images/usa.png"> English</a>
-                </div>
-            </div>
             <!-- Links -->
             <ul class="navbar-nav ml-auto">
+                <li>
+                    <div class="dropdown-logo1">
+                        <button class="dropbtn-logo1"><img src="images/viet.png" style="width: 20px;height: 20px"></button>
+                        <div class="dropdown-content-logo1">
+                            <a href="#"><img src="images/viet.png"> VietNamese</a>
+                            <a href="#"><img src="images/usa.png"> English</a>
+                        </div>
+                    </div>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">@lang('kidsnow.menu_profiles')</a>
                 </li>
