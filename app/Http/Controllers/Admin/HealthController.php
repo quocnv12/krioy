@@ -20,7 +20,7 @@ class HealthController extends Controller
 
         return view('pages.heath.list', compact('health'));
     }
-    public function getChild(){
+    public function  getChild(){
         $health = ChildrenProfiles::all();
         return view('pages.heath.select_health', compact('health'));
     }
