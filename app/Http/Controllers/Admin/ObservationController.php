@@ -57,6 +57,7 @@ class ObservationController extends Controller
 
         //string to array
         $children_observations = explode(',', $request->children_observations);
+        
         //luu vao bang observations
         foreach ($children_observations as $children_id) {
             $check_id_children_isset = ObservationModel::where('id_children','=',$children_id)->get();

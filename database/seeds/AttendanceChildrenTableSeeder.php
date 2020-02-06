@@ -23,7 +23,9 @@ class AttendanceChildrenTableSeeder extends Seeder
                 'total_come'    =>20,
                 'total_absent'  =>2,
                 'month'         =>10,
-                'year'          =>2012
+                'year'          =>2019,
+                'created_at'    =>'2019-02-04 16:52:33',
+                'updated_at'    =>'2019-02-04 16:52:33',
             ],
             [
                 'id'            =>2,
@@ -31,7 +33,9 @@ class AttendanceChildrenTableSeeder extends Seeder
                 'total_come'    =>20,
                 'total_absent'  =>2,
                 'month'         =>10,
-                'year'          =>2012
+                'year'          =>2019,
+                'created_at'    =>'2019-02-04 16:52:33',
+                'updated_at'    =>'2019-02-04 16:52:33',
             ],
             [
                 'id'            =>3,
@@ -39,7 +43,9 @@ class AttendanceChildrenTableSeeder extends Seeder
                 'total_come'    =>20,
                 'total_absent'  =>2,
                 'month'         =>10,
-                'year'          =>2012
+                'year'          =>2019,
+                'created_at'    =>'2019-02-04 16:52:33',
+                'updated_at'    =>'2019-02-04 16:52:33',
             ],
             [
                 'id'            =>4,
@@ -47,7 +53,9 @@ class AttendanceChildrenTableSeeder extends Seeder
                 'total_come'    =>20,
                 'total_absent'  =>2,
                 'month'         =>10,
-                'year'          =>2012
+                'year'          =>2019,
+                'created_at'    =>'2019-02-04 16:52:33',
+                'updated_at'    =>'2019-02-04 16:52:33',
             ],
             [
                 'id'            =>10,
@@ -55,7 +63,9 @@ class AttendanceChildrenTableSeeder extends Seeder
                 'total_come'    =>20,
                 'total_absent'  =>2,
                 'month'         =>10,
-                'year'          =>2012
+                'year'          =>2019,
+                'created_at'    =>'2019-02-04 16:52:33',
+                'updated_at'    =>'2019-02-04 16:52:33',
             ],
             [
                 'id'            =>5,
@@ -63,7 +73,9 @@ class AttendanceChildrenTableSeeder extends Seeder
                 'total_come'    =>20,
                 'total_absent'  =>2,
                 'month'         =>10,
-                'year'          =>2012
+                'year'          =>2019,
+                'created_at'    =>'2019-02-04 16:52:33',
+                'updated_at'    =>'2019-02-04 16:52:33',
             ],
             [
                 'id'            =>6,
@@ -71,7 +83,9 @@ class AttendanceChildrenTableSeeder extends Seeder
                 'total_come'    =>20,
                 'total_absent'  =>2,
                 'month'         =>10,
-                'year'          =>2012
+                'year'          =>2019,
+                'created_at'    =>'2019-02-04 16:52:33',
+                'updated_at'    =>'2019-02-04 16:52:33',
             ],
             [
                 'id'            =>7,
@@ -79,7 +93,9 @@ class AttendanceChildrenTableSeeder extends Seeder
                 'total_come'    =>20,
                 'total_absent'  =>2,
                 'month'         =>10,
-                'year'          =>2012
+                'year'          =>2019,
+                'created_at'    =>'2019-02-04 16:52:33',
+                'updated_at'    =>'2019-02-04 16:52:33',
             ],
             [
                 'id'            =>8,
@@ -87,7 +103,9 @@ class AttendanceChildrenTableSeeder extends Seeder
                 'total_come'    =>20,
                 'total_absent'  =>2,
                 'month'         =>10,
-                'year'          =>2012
+                'year'          =>2019,
+                'created_at'    =>'2019-02-04 16:52:33',
+                'updated_at'    =>'2019-02-04 16:52:33',
             ],
             [
                 'id'            =>9,
@@ -95,7 +113,9 @@ class AttendanceChildrenTableSeeder extends Seeder
                 'total_come'    =>20,
                 'total_absent'  =>2,
                 'month'         =>10,
-                'year'          =>2012
+                'year'          =>2019,
+                'created_at'    =>'2019-02-04 16:52:33',
+                'updated_at'    =>'2019-02-04 16:52:33',
             ],
         ]);
     }

@@ -19,8 +19,8 @@ class CreateAttendanceStaffTable extends Migration
             $table->foreign('id_staff')->references('id')->on('staff_profiles')->onDelete('cascade');
             $table->integer('total_come');
             $table->integer('total_absent');
-            $table->tinyInteger('month');
-            $table->year('year');
+            $table->tinyInteger('month')->nullable();
+            $table->year('year')->nullable();
             $table->timestamps();
         });
     }
