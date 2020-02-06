@@ -40,7 +40,13 @@ class LoginController extends Controller
             $password = $request->password;
             if(Auth::attempt(['phone' => $phone, 'password' => $password],$request->remember))
             {
-              //  Auth::logoutOtherDevices(Auth::user()->password);
+            //  Auth::logoutOtherDevices(Auth::user()->password);
+            //   dd(Auth::user()->active==0);
+               if (Auth::user()->active==0) 
+                {
+                    Auth()->logout();
+                    return redirect('login')->with('thongbao', 'You need to verify the account.');
+                }
                 return redirect('kids-now');
             }
             else
@@ -57,7 +63,7 @@ class LoginController extends Controller
     }
 
 
-
+    //thay doi mat khau
     public function getUpdatePassword()
     {
         return view('pages.addmin-login.changer_password.changer_password');
@@ -67,9 +73,12 @@ class LoginController extends Controller
     {
         if (Hash::check($request->password_old, Auth::user()->password))
             {
-            $user=StaffProfiles::find(Auth::user()->id);
-            $user->password=bcrypt($request->password);
-            $user->save();
+                // $user=StaffProfiles::find(Auth::user()->id);
+                // $user->password=bcrypt($request->password);
+                // $user->save();
+            Auth::user()->update([
+                'password' => bcrypt($request->password)
+            ]);
             // return redirect('login')->with('thongbao','Changer password success !');
             return redirect()->back()->with('thongbao','Changer password success !');
             }
@@ -78,5 +87,9 @@ class LoginController extends Controller
                 return redirect()->back()->with('thongbao1','Password old false !');
             }
     }
+
+
+
+    
 
 }

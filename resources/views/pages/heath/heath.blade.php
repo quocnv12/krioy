@@ -20,7 +20,24 @@
 				</div>
 			</div>
 		</div>
-
+        @if(Session::has('thongbao'))
+            <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao') }}</p>
+        @endif
+        @if(Session::has('thongbao1'))
+            <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao1') }}</p>
+        @endif
+        @if(Session::has('thongbao2'))
+            <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao2') }}</p>
+        @endif
+        @if(Session::has('thongbao3'))
+            <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao3') }}</p>
+        @endif
+        @if(Session::has('thongbao4'))
+            <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao4') }}</p>
+        @endif
+        @if(Session::has('thongbao5'))
+            <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao5') }}</p>
+        @endif
 
 		<form style="width: auto;margin: 0;text-align: center" action="{{route('admin.health.getAdd')}}" method="post" id="addObservation" enctype="multipart/form-data">
 			@csrf
@@ -84,6 +101,7 @@
 									<span>Enter details here *</span>
 									<input type="text" name="sick" placeholder="Enter details here *">
 								</div>
+
 								<div class="col-md-3">
 									<div class="input-file-container">
 										<input class="input-file" type='file' onchange="readURL(this);" id="input-Sick" />
@@ -108,6 +126,7 @@
 								<div class="col-md-9 input_box">
 									<span>Enter details here *</span>
 									<input type="text" name="medicine" placeholder="Enter details here *">
+
 								</div>
 								<div class="col-md-3">
 									<div class="input-file-container">
@@ -133,6 +152,7 @@
 								<div class="col-md-4 growth_input input_box">
 									<span>Height</span>
 									<input type="text" name="growth_height" placeholder="Height">
+
 									<label class="label">
 										<div class="label-text">cm</div>
 										<div class="toggle">
@@ -148,6 +168,7 @@
 								<div class="col-md-4 growth_input input_box">
 									<span>Weight</span>
 									<input type="text" name="growth_weight" placeholder="Weight">
+
 									<label class="label">
 										<div class="label-text">kg</div>
 										<div class="toggle">
@@ -180,6 +201,7 @@
 								<div class="col-md-9 input_box">
 									<span>Enter details here *</span>
 									<input type="text" name="blood_group" placeholder="Enter details here *">
+
 								</div>
 								<div class="col-md-3">
 									<div class="input-file-container">
@@ -205,6 +227,7 @@
 								<div class="col-md-9 input_box">
 									<span>Enter details here *</span>
 									<input type="text" name="incident" placeholder="Enter details here *">
+
 								</div>
 								<div class="col-md-3">
 									<div class="input-file-container">
@@ -230,6 +253,7 @@
 								<div class="col-md-9 input_box">
 									<span>Enter details here *</span>
 									<input type="text" name="blood_group" placeholder="Enter details here *">
+
 								</div>
 								<div class="col-md-3">
 									<div class="input-file-container">

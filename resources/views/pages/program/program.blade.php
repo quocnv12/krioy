@@ -78,7 +78,7 @@
 		$(document).ready(function($) {
 			var engine1 = new Bloodhound({
 				remote: {
-					url: 'http://kidsnow.web88.vn/kids-now/program/search/program?q=%QUERY%',
+					url: 'kids-now/program/search/program?q=%QUERY%',
 					wildcard: '%QUERY%'
 				},
 				datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
@@ -105,14 +105,11 @@
 
 						],
 						suggestion: function (data) {
-							return '<a href="/kids-now/program/view/' + data.id + '" class="list-group-item" style="width: 500px;"> ' + data.program_name +  '</a>';
+							return '<a href="kids-now/program/view/' + data.id + '" class="list-group-item" style="width: 500px; color: inherit"> ' + data.program_name +  '</a>';
 						}
 					}
 				},
 			]);
 		});
-	</script>
-	<script>
-		localStorage.getItem('array_children');
 	</script>
 @endsection

@@ -10,6 +10,7 @@ use App\models\Programs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
 class ChildrenProfilesController extends Controller
@@ -19,7 +20,7 @@ class ChildrenProfilesController extends Controller
     {
         $programs = Programs::all();
         if (! $programs){
-            return response()->json('Somthing wrong');
+            return response()->json(['message'=>['message'=>'Something wrong']], 404);
         }else{
             return response()->json([
                 'programs'=>$programs
@@ -32,7 +33,7 @@ class ChildrenProfilesController extends Controller
     {
         $programs = Programs::all();
         if (! $programs){
-            return response()->json('Somthing wrong');
+            return response()->json(['message'=>['message'=>'Something wrong']], 404);
         }else{
             return response()->json([
                 'programs'=>$programs
@@ -42,8 +43,7 @@ class ChildrenProfilesController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request,
-            [
+        $rules = [
                 'first_name'        => 'required',
                 'last_name'         => 'required',
                 'birthday'          => 'required',
@@ -74,25 +74,31 @@ class ChildrenProfilesController extends Controller
                 'note_parent_2'         => 'nullable',
                 'relationship_2'        => 'nullable',
                 'image_parent_2'        => 'image|nullable',
-            ],
-            [
-                'first_name.required'           => 'Please input first name',
-                'last_name.required'            => 'Please input last name',
-                'gender.required'               => 'Please choose gender',
-                'image.image'                   => 'Image is invalid',
-                'birthday.required'             => 'Please input birthday',
-                'date_of_joining.required'      => 'Please input date of joining',
-                'phone_parent_1.numeric'        => 'Number is invalid',
-                'phone_parent_2.numeric'        => 'Number is invalid',
-                'phone_parent_1.digits_between' => 'The length is between 9 -12 digits',
-                'phone_parent_2.digits_between' => 'The length is between 9 -12 digits',
-                'email_parent_1.email'          => 'Email is invalid',
-                'email_parent_2.email'          => 'Email is invalid',
-                'unique_id.unique'              => 'ID is exist',
-                'unique_id.required'            => 'Please input unique ID',
-                'image_parent_1.image'          => 'Image is invalid',
-                'image_parent_2.image'          => 'Image is invalid',
-            ]);
+            ];
+
+        $validator = Validator::make($request->all(), $rules,[
+            'first_name.required'           => 'First name is required',
+            'last_name.required'            => 'Last name is required',
+            'gender.required'               => 'Gender is required',
+            'image.image'                   => 'Image is invalid',
+            'birthday.required'             => 'Birthday is required',
+            'date_of_joining.required'      => 'Date of joining is required',
+            'phone_parent_1.numeric'        => 'Number is invalid',
+            'phone_parent_2.numeric'        => 'Number is invalid',
+            'phone_parent_1.digits_between' => 'The length is between 9 -12 digits',
+            'phone_parent_2.digits_between' => 'The length is between 9 -12 digits',
+            'email_parent_1.email'          => 'Email is invalid',
+            'email_parent_2.email'          => 'Email is invalid',
+            'unique_id.unique'              => 'ID is exist',
+            'unique_id.required'            => 'Unique ID is required',
+            'image_parent_1.image'          => 'Image is invalid',
+            'image_parent_2.image'          => 'Image is invalid',
+        ]);
+
+        if ($validator->fails()){
+            return response()->json($validator->errors(), 400);
+        }
+
         $children_profiles = ChildrenProfiles::create($request->all());
         if ($request->hasFile('image')) {
             $file = $request->image;
@@ -188,7 +194,7 @@ class ChildrenProfilesController extends Controller
     {
         $programs = Programs::all();
         if (! $programs){
-            return response()->json('Somthing wrong');
+            return response()->json(['message'=>['message'=>'Something wrong']], 404);
         }else {
             if ($id == 0) {
                 $children_profiles = DB::table('children_profiles')
@@ -214,152 +220,164 @@ class ChildrenProfilesController extends Controller
 
     public function view($id){
         $children_profiles = ChildrenProfiles::find($id);
-        $programs = Programs::all();
-        $programs_choose = DB::table('programs')
-            ->join('children_programs', 'programs.id', '=', 'children_programs.id_program')
-            ->select('id')
-            ->where('id_children', '=', $id)
-            ->get();
-        // array chua cac id program ma children dang hoc
-        $array_programs_choose = [];
-        foreach ($programs_choose as $key => $value) {
-            array_push($array_programs_choose, $value->id);
-        }
-        $parent_profiles_all = DB::table('parent_profiles')
-            ->join('children_parent', 'parent_profiles.id', '=', 'children_parent.id_parent')
-            ->select('*')
-            ->where('id_children', '=', $id)
-            ->get();
 
-        if (count($parent_profiles_all) == 2){
-            $parent_profiles_1 = $parent_profiles_all[0];
-            $parent_profiles_2 = $parent_profiles_all[1];
+        if (!$children_profiles){
+            return response()->json(['message'=>'Something wrong'], 404);
+        }else {
+            $programs = Programs::all();
+            $programs_choose = DB::table('programs')
+                ->join('children_programs', 'programs.id', '=', 'children_programs.id_program')
+                ->select('id')
+                ->where('id_children', '=', $id)
+                ->get();
+            // array chua cac id program ma children dang hoc
+            $array_programs_choose = [];
+            foreach ($programs_choose as $key => $value) {
+                array_push($array_programs_choose, $value->id);
+            }
+            $parent_profiles_all = DB::table('parent_profiles')
+                ->join('children_parent', 'parent_profiles.id', '=', 'children_parent.id_parent')
+                ->select('*')
+                ->where('id_children', '=', $id)
+                ->get();
 
-            return response()->json([
-                'children_profiles' => $children_profiles,
-                'programs' => $programs,
-                'array_programs_choose' => $array_programs_choose,
-                'parent_profiles_1' => $parent_profiles_1,
-                'parent_profiles_2' => $parent_profiles_2,
-            ], 200);
-        }
-        else if(count($parent_profiles_all) == 1){
-            $parent_profiles_1 = $parent_profiles_all[0];
-            return response()->json([
-                'children_profiles' => $children_profiles,
-                'programs' => $programs,
-                'array_programs_choose' => $array_programs_choose,
-                'parent_profiles_1' => $parent_profiles_1,
-            ], 200);
-        }
-        else{
-            return response()->json([
-                'children_profiles' => $children_profiles,
-                'programs' => $programs,
-                'array_programs_choose' => $array_programs_choose,
-            ], 200);
+            if (count($parent_profiles_all) == 2) {
+                $parent_profiles_1 = $parent_profiles_all[0];
+                $parent_profiles_2 = $parent_profiles_all[1];
+
+                return response()->json([
+                    'children_profiles' => $children_profiles,
+                    'programs' => $programs,
+                    'array_programs_choose' => $array_programs_choose,
+                    'parent_profiles_1' => $parent_profiles_1,
+                    'parent_profiles_2' => $parent_profiles_2,
+                ], 200);
+            } else if (count($parent_profiles_all) == 1) {
+                $parent_profiles_1 = $parent_profiles_all[0];
+                return response()->json([
+                    'children_profiles' => $children_profiles,
+                    'programs' => $programs,
+                    'array_programs_choose' => $array_programs_choose,
+                    'parent_profiles_1' => $parent_profiles_1,
+                ], 200);
+            } else {
+                return response()->json([
+                    'children_profiles' => $children_profiles,
+                    'programs' => $programs,
+                    'array_programs_choose' => $array_programs_choose,
+                ], 200);
+            }
         }
     }
 
     public function edit($id)
     {
         $children_profiles = ChildrenProfiles::find($id);
-        $programs = Programs::all();
-        $programs_choose = DB::table('programs')
-            ->join('children_programs', 'programs.id', '=', 'children_programs.id_program')
-            ->select('id')
-            ->where('id_children', '=', $id)
-            ->get();
-        // array chua cac id program ma children dang hoc
-        $array_programs_choose = [];
-        foreach ($programs_choose as $key => $value) {
-            array_push($array_programs_choose, $value->id);
-        }
-        $parent_profiles_all = DB::table('parent_profiles')
-            ->join('children_parent', 'parent_profiles.id', '=', 'children_parent.id_parent')
-            ->select('*')
-            ->where('id_children', '=', $id)
-            ->get();
 
-        if (count($parent_profiles_all) == 2){
-            $parent_profiles_1 = $parent_profiles_all[0];
-            $parent_profiles_2 = $parent_profiles_all[1];
+        if (!$children_profiles){
+            return response()->json(['message'=>'Something wrong'], 404);
+        }else {
+            $programs = Programs::all();
+            $programs_choose = DB::table('programs')
+                ->join('children_programs', 'programs.id', '=', 'children_programs.id_program')
+                ->select('id')
+                ->where('id_children', '=', $id)
+                ->get();
+            // array chua cac id program ma children dang hoc
+            $array_programs_choose = [];
+            foreach ($programs_choose as $key => $value) {
+                array_push($array_programs_choose, $value->id);
+            }
+            $parent_profiles_all = DB::table('parent_profiles')
+                ->join('children_parent', 'parent_profiles.id', '=', 'children_parent.id_parent')
+                ->select('*')
+                ->where('id_children', '=', $id)
+                ->get();
 
-            return response()->json(['children_profiles' => $children_profiles,
-                'programs' => $programs,
-                'array_programs_choose' => $array_programs_choose,
-                'parent_profiles_1' => $parent_profiles_1,
-                'parent_profiles_2' => $parent_profiles_2,
-            ]);
-        }
-        else if(count($parent_profiles_all) == 1){
-            $parent_profiles_1 = $parent_profiles_all[0];
-            return response()->json(['children_profiles' => $children_profiles,
-                'programs' => $programs,
-                'array_programs_choose' => $array_programs_choose,
-                'parent_profiles_1' => $parent_profiles_1,
-            ]);
-        }
-        else{
-            return response()->json(['children_profiles' => $children_profiles,
-                'programs' => $programs,
-                'array_programs_choose' => $array_programs_choose,
-            ]);
+            if (count($parent_profiles_all) == 2) {
+                $parent_profiles_1 = $parent_profiles_all[0];
+                $parent_profiles_2 = $parent_profiles_all[1];
+
+                return response()->json(['children_profiles' => $children_profiles,
+                    'programs' => $programs,
+                    'array_programs_choose' => $array_programs_choose,
+                    'parent_profiles_1' => $parent_profiles_1,
+                    'parent_profiles_2' => $parent_profiles_2,
+                ], 200);
+            } else if (count($parent_profiles_all) == 1) {
+                $parent_profiles_1 = $parent_profiles_all[0];
+                return response()->json(['children_profiles' => $children_profiles,
+                    'programs' => $programs,
+                    'array_programs_choose' => $array_programs_choose,
+                    'parent_profiles_1' => $parent_profiles_1,
+                ], 200);
+            } else {
+                return response()->json(['children_profiles' => $children_profiles,
+                    'programs' => $programs,
+                    'array_programs_choose' => $array_programs_choose,
+                ], 200);
+            }
         }
     }
 
 
     public function update(Request $request, $id)
     {
-        $this->validate($request,
-            [
-                'first_name'        => 'required',
-                'last_name'         => 'required',
-                'birthday'          => 'required',
-                'gender'            => 'required',
-                'unique_id'         => 'required|unique:children_profiles,unique_id,' . $id . '',
-                'address'           => 'nullable',
-                'allergies'         => 'nullable',
-                'additional_note'   => 'nullable',
-                'image'             => 'image|nullable',
-                'status'            => 'nullable',
-                'exist'             => 'nullable',
+        $rules = [
+            'first_name'        => 'required',
+            'last_name'         => 'required',
+            'birthday'          => 'required',
+            'gender'            => 'required',
+            'date_of_joining'   => 'required',
+            'unique_id'         => 'required|unique:children_profiles,unique_id',
+            'address'           => 'nullable',
+            'allergies'         => 'nullable',
+            'additional_note'   => 'nullable',
+            'image'             => 'image|nullable',
+            'status'            => 'nullable',
+            'exist'             => 'nullable',
 
-                'first_name_parent_1'   => 'nullable',
-                'last_name_parent_1'    => 'nullable',
-                'phone_parent_1'        => 'numeric|nullable|digits_between:9,12',
-                'email_parent_1'        => 'email|nullable',
-                'gender_parent_1'       => 'nullable',
-                'note_parent_1'         => 'nullable',
-                'relationship_1'        => 'nullable',
-                'image_parent_1'        => 'image|nullable',
+            'first_name_parent_1'   => 'nullable',
+            'last_name_parent_1'    => 'nullable',
+            'phone_parent_1'        => 'numeric|nullable|digits_between:9,12',
+            'email_parent_1'        => 'email|nullable',
+            'gender_parent_1'       => 'nullable',
+            'note_parent_1'         => 'nullable',
+            'relationship_1'        => 'nullable',
+            'image_parent_1'        => 'image|nullable',
 
-                'first_name_parent_2'   => 'nullable',
-                'last_name_parent_2'    => 'nullable',
-                'phone_parent_2'        => 'numeric|nullable|digits_between:9,12',
-                'email_parent_2'        => 'email|nullable',
-                'gender_parent_2'       => 'nullable',
-                'note_parent_2'         => 'nullable',
-                'relationship_2'        => 'nullable',
-                'image_parent_2'        => 'image|nullable',
-            ],
-            [
-                'first_name.required'           => 'Please input first name',
-                'last_name.required'            => 'Please input last name',
-                'gender.required'               => 'Please choose gender',
-                'image.image'                   => 'Image is invalid',
-                'birthday.required'             => 'Please input birthday',
-                'phone_parent_1.numeric'        => 'Number is invalid',
-                'phone_parent_2.numeric'        => 'Number is invalid',
-                'phone_parent_1.digits_between' => 'The length is between 9 -12 digits',
-                'phone_parent_2.digits_between' => 'The length is between 9 -12 digits',
-                'email_parent_1.email'          => 'Email is invalid',
-                'email_parent_2.email'          => 'Email is invalid',
-                'unique_id.unique'              => 'ID is exist',
-                'unique_id.required'            => 'Please input unique ID',
-                'image_parent_1.image'          => 'Image is invalid',
-                'image_parent_2.image'          => 'Image is invalid',
-            ]);
+            'first_name_parent_2'   => 'nullable',
+            'last_name_parent_2'    => 'nullable',
+            'phone_parent_2'        => 'numeric|nullable|digits_between:9,12',
+            'email_parent_2'        => 'email|nullable',
+            'gender_parent_2'       => 'nullable',
+            'note_parent_2'         => 'nullable',
+            'relationship_2'        => 'nullable',
+            'image_parent_2'        => 'image|nullable',
+        ];
+
+        $validator = Validator::make($request->all(), $rules,[
+            'first_name.required'           => 'First name is required',
+            'last_name.required'            => 'Last name is required',
+            'gender.required'               => 'Gender is required',
+            'image.image'                   => 'Image is invalid',
+            'birthday.required'             => 'Birthday is required',
+            'date_of_joining.required'      => 'Date of joining is required',
+            'phone_parent_1.numeric'        => 'Number is invalid',
+            'phone_parent_2.numeric'        => 'Number is invalid',
+            'phone_parent_1.digits_between' => 'The length is between 9 -12 digits',
+            'phone_parent_2.digits_between' => 'The length is between 9 -12 digits',
+            'email_parent_1.email'          => 'Email is invalid',
+            'email_parent_2.email'          => 'Email is invalid',
+            'unique_id.unique'              => 'ID is exist',
+            'unique_id.required'            => 'Unique ID is required',
+            'image_parent_1.image'          => 'Image is invalid',
+            'image_parent_2.image'          => 'Image is invalid',
+        ]);
+
+        if ($validator->fails()){
+            return response()->json($validator->errors(), 400);
+        }
 
         $children_profiles = ChildrenProfiles::findOrFail($id);
         $children_profiles->update($request->all());
@@ -528,33 +546,37 @@ class ChildrenProfilesController extends Controller
     {
         $children_profiles = ChildrenProfiles::findOrFail($id);
 
-        if(isset($children_profiles->image)){
-            $old_image = $children_profiles->image;
-            unlink($old_image);
-        }
-
-        $children_parent = ChildrenParent::where('id_children', '=', $id)->get();
-        if (isset($children_parent)){
-            foreach ($children_parent as $child_parent) {
-                //xoa parent cua children bi xoa
-                $parent = ParentProfiles::where('id', '=', $child_parent->id_parent)->get();
-                foreach ($parent as $person) {
-                    if($person->image){
-                        $old_image = $person->image;
-                        unlink($old_image);
-                        // ko xoa parent. lay thong tin sau nay dem ban data lay tien
-                    }
-                }
-                DB::table('children_parent')->where('id_children','=',$child_parent)->delete();
+        if (! $children_profiles){
+            return response()->json(['message'=>'Something wrong'], 404);
+        }else {
+            if (isset($children_profiles->image)) {
+                $old_image = $children_profiles->image;
+                unlink($old_image);
             }
+
+            $children_parent = ChildrenParent::where('id_children', '=', $id)->get();
+            if (isset($children_parent)) {
+                foreach ($children_parent as $child_parent) {
+                    //xoa parent cua children bi xoa
+                    $parent = ParentProfiles::where('id', '=', $child_parent->id_parent)->get();
+                    foreach ($parent as $person) {
+                        if ($person->image) {
+                            $old_image = $person->image;
+                            unlink($old_image);
+                            // ko xoa parent. lay thong tin sau nay dem ban data lay tien
+                        }
+                    }
+                    DB::table('children_parent')->where('id_children', '=', $child_parent)->delete();
+                }
+            }
+
+            $children_profiles->delete();
+
+            $programs = Programs::all();
+            return response()->json([
+                'programs' => $programs
+            ], 204);
         }
-
-        $children_profiles->delete();
-
-        $programs = Programs::all();
-        return response()->json([
-            'programs'=>$programs
-        ], 204);
     }
 
     public function searchByName(Request $request)
@@ -564,8 +586,12 @@ class ChildrenProfilesController extends Controller
             ->orderBy('last_name')
             ->get();
 
-        return response()->json([
-            'children_profiles'=>$children_profiles
-        ], 200);
+        if (!$children_profiles){
+            return response()->json(['message'=>'Not found'], 404);
+        }else {
+            return response()->json([
+                'children_profiles' => $children_profiles
+            ], 200);
+        }
     }
 }

@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Middleware;
-use Auth;
+
 use Closure;
 
-class CheckLogOut
+class Localization
 {
     /**
      * Handle an incoming request.
@@ -15,15 +15,9 @@ class CheckLogOut
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::check())
-        {
-           
-            return redirect('kids-now');
+        if(\Session::has('locale')){
+            \App::setlocale(\Session::get('locale'));
         }
-        else
-        {
-            return $next($request);
-        }
-       
+        return $next($request);
     }
 }

@@ -18,6 +18,7 @@ class Programs extends Model
         'start_time',
         'finish_time',
         'program_fee',
+        'currency',
         'period_fee',
         'status',
     ];

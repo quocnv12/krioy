@@ -8,6 +8,7 @@ use App\models\Programs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
 class NoticeBoardController extends Controller
@@ -17,7 +18,7 @@ class NoticeBoardController extends Controller
     {
         $programs = Programs::all();
         if (! $programs){
-            return response()->json('Something wrong');
+            return response()->json(['message'=>'Something wrong'], 404);
         }else{
             return response()->json([
                'program'=>$programs
@@ -27,29 +28,34 @@ class NoticeBoardController extends Controller
 
     public function detail($id){
         $notice_board = NoticeBoard::find($id);
-        $programs = Programs::all();
-        $programs_choose = DB::table('programs')
-            ->join('programs_notice', 'programs.id', '=', 'programs_notice.id_programs')
-            ->select('id')
-            ->where('id_notice', '=', $id)
-            ->get();
-        // array chua cac id program ma children dang hoc
-        $array_programs_choose = [];
-        foreach ($programs_choose as $key => $value) {
-            array_push($array_programs_choose, $value->id);
+
+        if (!$notice_board){
+            return response()->json(['message'=>'Something wrong'], 404);
+        }else {
+            $programs = Programs::all();
+            $programs_choose = DB::table('programs')
+                ->join('programs_notice', 'programs.id', '=', 'programs_notice.id_programs')
+                ->select('id')
+                ->where('id_notice', '=', $id)
+                ->get();
+            // array chua cac id program ma children dang hoc
+            $array_programs_choose = [];
+            foreach ($programs_choose as $key => $value) {
+                array_push($array_programs_choose, $value->id);
+            }
+            return response()->json([
+                'notice_board' => $notice_board,
+                'programs' => $programs,
+                'array_programs_choose' => $array_programs_choose
+            ], 200);
         }
-        return response()->json([
-            'notice_board'=>$notice_board,
-            'programs'=>$programs,
-            'array_programs_choose'=>$array_programs_choose
-        ], 200);
     }
 
     public function create()
     {
         $programs = Programs::all();
         if (! $programs){
-            return response()->json('Something wrong');
+            return response()->json(['message'=>'Something wrong'], 404);
         }else{
             return response()->json([
                 'program'=>$programs
@@ -60,21 +66,23 @@ class NoticeBoardController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request,
-            [
+        $rules = [
                 'title'     =>  'required',
                 'important' =>  'nullable',
                 'archive'   =>  'nullable',
                 'content'   =>  'required',
                 'writer'    =>  'nullable',
                 'programs'  =>  'required'
-            ],
-            [
-                'title.required'        =>  'Please input title',
-                'content.required'      =>  'Please input content',
-                'programs.required'     =>  'Please choose programs',
-            ]);
+            ];
 
+        $validator = Validator::make($request->all(), $rules, [
+            'title.required'    =>  'Title is required',
+            'content.required'  =>  'Content is required',
+            'programs.required' =>  'Please choose program'
+        ]);
+        if ($validator->fails()){
+            return response()->json($validator->errors(), 400);
+        }
         $notice_board = NoticeBoard::create($request->all());
         $request->important ? $notice_board->important = 1 : $notice_board->important = 0;
 
@@ -122,21 +130,25 @@ class NoticeBoardController extends Controller
     public function deleteClipboard($id,$name)
     {
         $notice_board = NoticeBoard::find($id);
-        //chuoi cu
-        $old_array = explode('/*endfile*/',$notice_board->clip_board);
+        if (!$notice_board){
+            return response()->json(['message'=>'Something wrong'], 404);
+        }else {
+            //chuoi cu
+            $old_array = explode('/*endfile*/', $notice_board->clip_board);
 
-        $index = array_search($name, $old_array);
-        array_splice($old_array, $index, 1);
+            $index = array_search($name, $old_array);
+            array_splice($old_array, $index, 1);
 
-        //cap nhat lai chuoi
-        $notice_board->clip_board = implode('/*endfile*/',$old_array);
-        $notice_board->save();
+            //cap nhat lai chuoi
+            $notice_board->clip_board = implode('/*endfile*/', $old_array);
+            $notice_board->save();
 
-        //xoa file
-        $file_path = storage_path('app/public/clip_board/'.$name);
-        unlink($file_path);
+            //xoa file
+            $file_path = storage_path('app/public/clip_board/' . $name);
+            unlink($file_path);
 
-        return response()->json(null, 204);
+            return response()->json(null, 204);
+        }
     }
 
     public function show($id)
@@ -148,12 +160,16 @@ class NoticeBoardController extends Controller
             ->orderBy('created_at','DESC')
             ->get();
 
-        $programs = Programs::all();
+        if (!$notice_board){
+            return response()->json(['message'=>'Something wrong'], 404);
+        }else {
+            $programs = Programs::all();
 
-        return response()->json([
-            'notice_board'=>$notice_board,
-            'programs'=>$programs
-        ],200);
+            return response()->json([
+                'notice_board' => $notice_board,
+                'programs' => $programs
+            ], 200);
+        }
     }
 
 
@@ -161,98 +177,110 @@ class NoticeBoardController extends Controller
     {
         $notice_board = NoticeBoard::find($id);
 
-        $programs = Programs::all();
+        if (!$notice_board){
+            return response()->json(['message'=>'Something wrong'], 404);
+        }else {
+            $programs = Programs::all();
 
-        $programs_choose = DB::table('programs')
-            ->join('programs_notice','programs.id','=','programs_notice.id_programs')
-            ->select('id')
-            ->where('id_notice','=',$id)
-            ->get();
+            $programs_choose = DB::table('programs')
+                ->join('programs_notice', 'programs.id', '=', 'programs_notice.id_programs')
+                ->select('id')
+                ->where('id_notice', '=', $id)
+                ->get();
 
-        // array chua cac id program ma children dang hoc
-        $array_programs_choose = [];
-        foreach ($programs_choose as $key=>$value){
-            array_push($array_programs_choose, $value->id);
+            // array chua cac id program ma children dang hoc
+            $array_programs_choose = [];
+            foreach ($programs_choose as $key => $value) {
+                array_push($array_programs_choose, $value->id);
+            }
+
+            return response()->json([
+                'notice_board' => $notice_board,
+                'programs' => $programs,
+                'array_programs_choose' => $array_programs_choose
+            ], 200);
         }
-
-        return response()->json([
-            'notice_board'=>$notice_board,
-            'programs'=>$programs,
-            'array_programs_choose'=>$array_programs_choose
-        ], 200);
-
     }
 
 
     public function update(Request $request, $id)
     {
-        $this->validate($request,
-            [
-                'title'     =>  'required',
-                'important' =>  'nullable',
-                'archive'   =>  'nullable',
-                'content'   =>  'required',
-                'writer'    =>  'nullable',
-            ],
-            [
-                'title.required'        =>  'Please input title',
-                'content.required'      =>  'Please input content',
-            ]);
+        $rules = [
+            'title'     =>  'required',
+            'important' =>  'nullable',
+            'archive'   =>  'nullable',
+            'content'   =>  'required',
+            'writer'    =>  'nullable',
+            'programs'  =>  'required'
+        ];
+
+        $validator = Validator::make($request->all(), $rules,[
+            'title.required'    =>  'Title is required',
+            'content.required'  =>  'Content is required',
+            'programs.required' =>  'Please choose program'
+        ]);
+        if ($validator->fails()){
+            return response()->json($validator->errors(), 400);
+        }
 
         $notice_board = NoticeBoard::findOrFail($id);
-        $notice_board->update($request->all());
-        $request->important ? $notice_board->important = 1 : $notice_board->important = 0;
-        $request->archive ? $notice_board->archive = 1 : $notice_board->archive = 0;
+        if (!$notice_board){
+            return response()->json(['message'=>'Something wrong'], 404);
+        }else {
+            $notice_board->update($request->all());
+            $request->important ? $notice_board->important = 1 : $notice_board->important = 0;
+            $request->archive ? $notice_board->archive = 1 : $notice_board->archive = 0;
 
-        if ($request->programs_new){
-            //array chua cac id program ma children dang hoc
-            $array_programs_old = [];
-            $programs_old = explode(',',$request->programs_old);    //string to array
-            foreach ($programs_old as $item){
-                array_push($array_programs_old, $item);
+            if ($request->programs_new) {
+                //array chua cac id program ma children dang hoc
+                $array_programs_old = [];
+                $programs_old = explode(',', $request->programs_old);    //string to array
+                foreach ($programs_old as $item) {
+                    array_push($array_programs_old, $item);
+                }
+
+                //array chua cac id program ma children moi dang ky
+                $array_programs_new = [];
+                $programs_new = explode(',', $request->programs_new);    //string to array
+                foreach ($programs_new as $item) {
+                    array_push($array_programs_new, $item);
+                }
+
+                //so sanh array cu va moi
+                $programs_add = array_diff($array_programs_new, $array_programs_old);
+                $programs_remove = array_diff($array_programs_old, $array_programs_new);
+
+                //them record programs_notice
+                foreach ($programs_add as $program_id) {
+                    $programs_notice = new ProgramNotice();
+                    $programs_notice->id_notice = $id;
+                    $programs_notice->id_programs = $program_id;
+                    $programs_notice->save();
+                }
+
+                //xoa record programs_notice
+                foreach ($programs_remove as $program_id) {
+                    $programs_notice = ProgramNotice::where([['id_notice', '=', $id], ['id_programs', '=', $program_id]]);
+                    $programs_notice->delete();
+                }
             }
 
-            //array chua cac id program ma children moi dang ky
-            $array_programs_new = [];
-            $programs_new = explode(',',$request->programs_new);    //string to array
-            foreach ($programs_new as $item){
-                array_push($array_programs_new, $item);
+            if ($request->hasFile('clip_board')) {
+                $old_array = explode('/*endfile*/', $notice_board->clip_board);
+                foreach ($request->file('clip_board') as $file_name) {
+                    $uniqueFileName = (Str::random(4) . '_' . $file_name->getClientOriginalName());
+                    array_push($old_array, $uniqueFileName);
+                    $file_name->move(storage_path('app/public/clip_board/'), $uniqueFileName);
+                }
+                $notice_board->clip_board = implode('/*endfile*/', $old_array);
             }
 
-            //so sanh array cu va moi
-            $programs_add = array_diff($array_programs_new, $array_programs_old);
-            $programs_remove = array_diff($array_programs_old, $array_programs_new);
+            $notice_board->save();
 
-            //them record programs_notice
-            foreach ($programs_add as $program_id){
-                $programs_notice = new ProgramNotice();
-                $programs_notice->id_notice = $id;
-                $programs_notice->id_programs = $program_id;
-                $programs_notice->save();
-            }
-
-            //xoa record programs_notice
-            foreach ($programs_remove as $program_id){
-                $programs_notice = ProgramNotice::where([['id_notice','=',$id], ['id_programs','=',$program_id]]);
-                $programs_notice->delete();
-            }
+            return response()->json([
+                'notice_board' => $notice_board
+            ], 200);
         }
-
-        if ($request->hasFile('clip_board')){
-            $old_array = explode('/*endfile*/',$notice_board->clip_board);
-            foreach ($request->file('clip_board') as $file_name){
-                $uniqueFileName = (Str::random(4).'_'.$file_name->getClientOriginalName());
-                array_push($old_array, $uniqueFileName);
-                $file_name->move(storage_path('app/public/clip_board/') , $uniqueFileName);
-            }
-            $notice_board->clip_board = implode('/*endfile*/',$old_array);
-        }
-
-        $notice_board->save();
-
-        return response()->json([
-           'notice_board'=>$notice_board
-        ]);
     }
 
 
@@ -260,22 +288,26 @@ class NoticeBoardController extends Controller
     {
         $notice_board = NoticeBoard::findOrFail($id);
 
-        if ($notice_board->clip_board){
-            $old_array = explode('/*endfile*/',$notice_board->clip_board);
-            foreach ($old_array as $key=>$value){
-                $file_path = 'app/public/clip_board/'.$value;
-                if ($file_path != 'app/public/clip_board/'){
-                    unlink(storage_path($file_path));
+        if (!$notice_board){
+            return response()->json(['message'=>'Something wrong'], 404);
+        }else {
+            if ($notice_board->clip_board) {
+                $old_array = explode('/*endfile*/', $notice_board->clip_board);
+                foreach ($old_array as $key => $value) {
+                    $file_path = 'app/public/clip_board/' . $value;
+                    if ($file_path != 'app/public/clip_board/') {
+                        unlink(storage_path($file_path));
+                    }
                 }
             }
+            $notice_board->delete();
+
+            $programs = Programs::all();
+
+            return response()->json([
+                'programs' => $programs
+            ], 204);
         }
-        $notice_board->delete();
-
-        $programs = Programs::all();
-
-        return response()->json([
-            'programs'=>$programs
-        ], 204);
     }
 
     public function searchByTitle(Request $request)
@@ -284,6 +316,12 @@ class NoticeBoardController extends Controller
             ->orderBy('title')
             ->get();
 
-        return response()->json($notice_board);
+        if (!$notice_board){
+            return response()->json(['message'=>'Something wrong'], 404);
+        }else {
+            return response()->json([
+                'notice_board'=>$notice_board
+            ], 200);
+        }
     }
 }

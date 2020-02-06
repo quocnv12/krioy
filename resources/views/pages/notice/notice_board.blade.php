@@ -129,7 +129,7 @@
 		$(document).ready(function($) {
 			var engine1 = new Bloodhound({
 				remote: {
-					url: 'http://kidsnow.web88.vn/kids-now/notice-board/search/name?q=%QUERY%',
+					url: 'kids-now/notice-board/search/name?q=%QUERY%',
 					wildcard: '%QUERY%'
 				},
 				datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
@@ -156,7 +156,7 @@
 
 						],
 						suggestion: function (data) {
-							return '<a href="/kids-now/notice-board/detail/' + data.id + '" class="list-group-item" style="width: 500px;"> ' + data.title +  '</a>';
+							return '<a href="kids-now/notice-board/detail/' + data.id + '" class="list-group-item" style="width: 500px;"> ' + data.title +  '</a>';
 						}
 					}
 				},

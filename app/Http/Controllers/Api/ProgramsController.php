@@ -11,6 +11,7 @@ use App\models\StaffProgram;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class ProgramsController extends Controller
 {
@@ -28,7 +29,7 @@ class ProgramsController extends Controller
         if (!$programs){
             return response()->json([
                 'Something wrong'
-            ]);
+            ], 404);
         }else{
             return response()->json([
                 'programs' => $programs
@@ -46,14 +47,17 @@ class ProgramsController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request,
-            [
+        $rules = [
                 'program_fee'   =>  'numeric|min:0'
-            ],
-            [
-                'program_fee.numeric'   =>  'Program fee is invalid',
-                'program_fee.min'       =>  'Program fee is invalid',
-            ]);
+            ];
+
+         $validator = Validator::make($request->all(), $rules,[
+             'program_fee.numeric'   =>  'Program fee is invalid',
+             'program_fee.min'       =>  'Program fee is invalid',
+         ]);
+        if ($validator->fails()){
+            return response()->json($validator->errors(), 400);
+        }
 
         $programs = Programs::create($request->all());
         $programs->schedule = $request->schedule;
@@ -110,25 +114,31 @@ class ProgramsController extends Controller
     public function show($id)
     {
         $program = Programs::find($id);
-        $array_schedule = explode(',',$program->schedule);  //string to array
 
-        $children_profiles = DB::table('children_profiles')
-            ->join('children_programs','children_profiles.id','=','children_programs.id_children')
-            ->select(['*'])
-            ->where('children_programs.id_program','=',$id)
-            ->get();
+        if (!$program){
+            return response()->json('Something wrong', 404);
+        }else {
+            $array_schedule = explode(',', $program->schedule);  //string to array
 
-        $staff_profiles = DB::table('staff_profiles')
-            ->join('staff_programs','staff_profiles.id','=','staff_programs.id_staff')
-            ->select(['*'])
-            ->where('staff_programs.id_program','=',$id)
-            ->get();
-        return response()->json([
-            'program'=>$program,
-            'array_schedule'=>$array_schedule,
-            'children_profiles'=>$children_profiles,
-            'staff_profiles'=>$staff_profiles
-        ], 200);
+            $children_profiles = DB::table('children_profiles')
+                ->join('children_programs', 'children_profiles.id', '=', 'children_programs.id_children')
+                ->select(['*'])
+                ->where('children_programs.id_program', '=', $id)
+                ->get();
+
+            $staff_profiles = DB::table('staff_profiles')
+                ->join('staff_programs', 'staff_profiles.id', '=', 'staff_programs.id_staff')
+                ->select(['*'])
+                ->where('staff_programs.id_program', '=', $id)
+                ->get();
+
+            return response()->json([
+                'program' => $program,
+                'array_schedule' => $array_schedule,
+                'children_profiles' => $children_profiles,
+                'staff_profiles' => $staff_profiles
+            ], 200);
+        }
     }
 
 
@@ -136,150 +146,166 @@ class ProgramsController extends Controller
     {
         $program = Programs::find($id);
         if (! $program){
-            return response()->json('Something wrong');
+            return response()->json('Something wrong', 404);
+        }else {
+            $children_in_program = DB::table('children_profiles')
+                ->join('children_programs', 'children_profiles.id', '=', 'children_programs.id_children')
+                ->select('*')
+                ->where('id_program', '=', $id)
+                ->get();
+
+            $staff_in_program = DB::table('staff_profiles')
+                ->join('staff_programs', 'staff_profiles.id', '=', 'staff_programs.id_staff')
+                ->select('*')
+                ->where('id_program', '=', $id)
+                ->get();
+
+            $array_children_old = [];
+            foreach ($children_in_program as $key => $value) {
+                array_push($array_children_old, $value->id);
+            }
+
+            $array_staff_old = [];
+            foreach ($staff_in_program as $key => $value) {
+                array_push($array_staff_old, $value->id);
+            }
+
+            $array_schedule_choose = explode(',', $program->schedule);
+            return response()->json([
+                'program' => $program,
+                'children_in_program' => $children_in_program,
+                'array_children_old' => $array_children_old,
+                'staff_in_program' => $staff_in_program,
+                'array_staff_old' => $array_staff_old,
+                'array_schedule_choose' => $array_schedule_choose
+            ], 200);
         }
-        $children_in_program = DB::table('children_profiles')
-            ->join('children_programs', 'children_profiles.id', '=', 'children_programs.id_children')
-            ->select('*')
-            ->where('id_program', '=', $id)
-            ->get();
-
-        $staff_in_program = DB::table('staff_profiles')
-            ->join('staff_programs', 'staff_profiles.id', '=', 'staff_programs.id_staff')
-            ->select('*')
-            ->where('id_program', '=', $id)
-            ->get();
-
-        $array_children_old = [];
-        foreach ($children_in_program as $key => $value) {
-            array_push($array_children_old, $value->id);
-        }
-
-        $array_staff_old = [];
-        foreach ($staff_in_program as $key => $value) {
-            array_push($array_staff_old, $value->id);
-        }
-
-        $array_schedule_choose = explode(',',$program->schedule);
-        return response()->json([
-            'program'=>$program,
-            'children_in_program'=>$children_in_program,
-            'array_children_old'=>$array_children_old,
-            'staff_in_program'=>$staff_in_program,
-            'array_staff_old'=>$array_staff_old,
-            'array_schedule_choose'=>$array_schedule_choose
-        ], 200);
     }
 
 
     public function update(Request $request, $id)
     {
-        $this->validate($request,
-            [
-                'program_fee'   =>  'numeric|min:0'
-            ],
-            [
-                'program_fee.numeric'   =>  'Program fee is invalid',
-                'program_fee.min'       =>  'Program fee is invalid',
-            ]);
+        $rules = [
+            'program_fee'   =>  'numeric|min:0',
+            'program_name'  =>  'required'
+        ];
+
+         $validator = Validator::make($request->all(), $rules,[
+             'program_fee.numeric'   =>  'Program fee is invalid',
+             'program_fee.min'       =>  'Program fee is invalid',
+             'program_name.required' =>  'Program name is required',
+         ]);
+        if ($validator->fails()){
+            return response()->json($validator->errors(), 400);
+        }
 
         $programs = Programs::findOrFail($id);
-        $programs->update($request->all());
 
-        $all_schedule = $request->schedule_new;
-        $arr = [];
-        foreach ((array)$all_schedule as $schedule) {
-            array_push($arr, $schedule);
+        if (! $programs){
+            return response()->json('Something wrong', 404);
+        }else {
+            $programs->update($request->all());
+
+            $all_schedule = $request->schedule_new;
+            $arr = [];
+            foreach ((array)$all_schedule as $schedule) {
+                array_push($arr, $schedule);
+            }
+            $arr_all_schedule = implode(",", $arr);  //turn array to string to save in database
+            $programs->schedule = $arr_all_schedule;
+
+            $programs->save();
+
+            //neu thay doi children
+            if ($request->array_children_new) {
+                //array chua cac id children trong program
+                $array_children_old = [];
+                $children_old = explode(',', $request->array_children_old);    //string to array
+                foreach ($children_old as $item) {
+                    array_push($array_children_old, $item);
+                }
+                //array chua cac id children moi them vao program
+                $array_children_new = [];
+                $children_new = explode(',', $request->array_children_new);    //string to array
+                foreach ($children_new as $item) {
+                    array_push($array_children_new, $item);
+                }
+                //so sanh array cu va moi
+                $children_add = array_diff($array_children_new, $array_children_old);
+                $children_remove = array_diff($array_children_old, $array_children_new);
+                //them record children_programs
+                foreach ($children_add as $children_id) {
+                    $children_programs = new ChildrenProgram();
+                    $children_programs->id_program = $id;
+                    $children_programs->id_children = $children_id;
+                    $children_programs->save();
+                }
+                //xoa record children_programs
+                foreach ($children_remove as $children_id) {
+                    $children_programs = ChildrenProgram::where([['id_program', '=', $id], ['id_children', '=', $children_id]]);
+                    $children_programs->delete();
+                }
+            }
+
+            //neu thay doi staff
+            if ($request->array_staff_new) {
+                //array chua cac id children trong program
+                $array_staff_old = [];
+                $staff_old = explode(',', $request->array_staff_old);    //string to array
+                foreach ($staff_old as $item) {
+                    array_push($array_staff_old, $item);
+                }
+                //array chua cac id children moi them vao program
+                $array_staff_new = [];
+                $staff_new = explode(',', $request->array_staff_new);    //string to array
+                foreach ($staff_new as $item) {
+                    array_push($array_staff_new, $item);
+                }
+                //so sanh array cu va moi
+                $staff_add = array_diff($array_staff_new, $array_staff_old);
+                $staff_remove = array_diff($array_staff_old, $array_staff_new);
+                //them record children_programs
+                foreach ($staff_add as $staff_id) {
+                    $staff_programs = new StaffProgram();
+                    $staff_programs->id_program = $id;
+                    $staff_programs->id_staff = $staff_id;
+                    $staff_programs->save();
+                }
+                //xoa record children_programs
+                foreach ($staff_remove as $staff_id) {
+                    $staff_programs = StaffProgram::where([['id_program', '=', $id], ['id_staff', '=', $staff_id]]);
+                    $staff_programs->delete();
+                }
+            }
+
+            return response()->json([
+                'programs' => $programs
+            ], 200);
         }
-        $arr_all_schedule = implode(",", $arr);  //turn array to string to save in database
-        $programs->schedule = $arr_all_schedule;
-
-        $programs->save();
-
-        //neu thay doi children
-        if ($request->array_children_new) {
-            //array chua cac id children trong program
-            $array_children_old = [];
-            $children_old = explode(',', $request->array_children_old);    //string to array
-            foreach ($children_old as $item) {
-                array_push($array_children_old, $item);
-            }
-            //array chua cac id children moi them vao program
-            $array_children_new = [];
-            $children_new = explode(',', $request->array_children_new);    //string to array
-            foreach ($children_new as $item) {
-                array_push($array_children_new, $item);
-            }
-            //so sanh array cu va moi
-            $children_add = array_diff($array_children_new, $array_children_old);
-            $children_remove = array_diff($array_children_old, $array_children_new);
-            //them record children_programs
-            foreach ($children_add as $children_id) {
-                $children_programs = new ChildrenProgram();
-                $children_programs->id_program = $id;
-                $children_programs->id_children = $children_id;
-                $children_programs->save();
-            }
-            //xoa record children_programs
-            foreach ($children_remove as $children_id) {
-                $children_programs = ChildrenProgram::where([['id_program', '=', $id], ['id_children', '=', $children_id]]);
-                $children_programs->delete();
-            }
-        }
-
-        //neu thay doi staff
-        if ($request->array_staff_new) {
-            //array chua cac id children trong program
-            $array_staff_old = [];
-            $staff_old = explode(',', $request->array_staff_old);    //string to array
-            foreach ($staff_old as $item) {
-                array_push($array_staff_old, $item);
-            }
-            //array chua cac id children moi them vao program
-            $array_staff_new = [];
-            $staff_new = explode(',', $request->array_staff_new);    //string to array
-            foreach ($staff_new as $item) {
-                array_push($array_staff_new, $item);
-            }
-            //so sanh array cu va moi
-            $staff_add = array_diff($array_staff_new, $array_staff_old);
-            $staff_remove = array_diff($array_staff_old, $array_staff_new);
-            //them record children_programs
-            foreach ($staff_add as $staff_id) {
-                $staff_programs = new StaffProgram();
-                $staff_programs->id_program = $id;
-                $staff_programs->id_staff = $staff_id;
-                $staff_programs->save();
-            }
-            //xoa record children_programs
-            foreach ($staff_remove as $staff_id) {
-                $staff_programs = StaffProgram::where([['id_program', '=', $id], ['id_staff', '=', $staff_id]]);
-                $staff_programs->delete();
-            }
-        }
-
-        return response()->json([
-            'programs'=>$programs
-        ], 200);
     }
 
 
     public function destroy($id)
     {
         $programs = Programs::findOrFail($id);
-        $programs->delete();
 
-        $programs = DB::table('programs')
-            ->leftJoin('children_programs', 'programs.id', '=', 'children_programs.id_program')
-            ->select(['programs.program_name', 'programs.id'])
-            ->selectRaw('count(children_programs.id_children) AS total_children')
-            ->groupBy(['programs.program_name', 'programs.id'])
-            ->orderBy('programs.program_name')
-            ->simplePaginate(8);
+        if (! $programs){
+            return response()->json('Something wrong', 404);
+        }else {
+            $programs->delete();
 
-        return response()->json([
-            'programs'=>$programs
-        ]);
+            $programs = DB::table('programs')
+                ->leftJoin('children_programs', 'programs.id', '=', 'children_programs.id_program')
+                ->select(['programs.program_name', 'programs.id'])
+                ->selectRaw('count(children_programs.id_children) AS total_children')
+                ->groupBy(['programs.program_name', 'programs.id'])
+                ->orderBy('programs.program_name')
+                ->simplePaginate(8);
+
+            return response()->json([
+                'programs' => $programs
+            ], 200);
+        }
     }
 
     public function searchChildren(Request $request)
@@ -319,13 +345,13 @@ class ProgramsController extends Controller
 
             if ($children_profiles){
                 $output = '
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
-							    <div class="child-class" style="height: 120px;text-align: center;">
-							        <div class="image">
-                                        <img class="img-circle" onerror="this.src=\'images/Child.png\';" style="height: 80px" width="80" src="' . $children_profiles->image . '">
+                            <div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
+							    <div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
+							        <div _ngcontent-c19="" class="image">
+                                        <img _ngcontent-c19="" class="img-circle" onerror="this.src=\'images/Child.png\';" style="height: 80px" width="80" src="' . $children_profiles->image . '">
                                         <input type="hidden" value="' . $children_profiles->id . '">
                                         <span class="delete-child" onclick="deleteChild(' . $children_profiles->id . ')" style="position: absolute; top: 0"><i class="fas fa-times-circle" style="color: red ; cursor: pointer"></i></span>
-                                        <span class="limitText ng-star-inserted">' . $children_profiles->first_name . ' ' . $children_profiles->last_name . '</span>
+                                        <span _ngcontent-c19="" class="limitText ng-star-inserted">' . $children_profiles->first_name . ' ' . $children_profiles->last_name . '</span>
                                     </div>
                                 </div>
                             </div>
@@ -355,7 +381,7 @@ class ProgramsController extends Controller
                                             <img _ngcontent-c19="" class="img-circle" onerror="this.src=\'images/Staff.png\';" style="height: 80px" width="80" src="' . $staff_profiles->image . '">
                                             <input type="hidden" value="' . $staff_profiles->id . '">
                                             <span class="delete-staff" onclick="deleteStaff(' . $staff_profiles->id . ')" style="position: absolute; top: 0"><i class="fas fa-times-circle" style="color: red ; cursor: pointer"></i></span>
-                                            <span _ngcontent-c19="" class="limitText ng-star-inserted">' . $staff_profiles->first_name . ' ' . $staff_profiles->last_name . '</span>
+                                            <span _ngcontent-c19="" class="limitText ng-star-inserted">' . $staff_profiles->first_name . ' ' . $staff_profiles->last_name . '</span _ngcontent-c19="">
                                         </div>
                                     </div>
                                 </div>

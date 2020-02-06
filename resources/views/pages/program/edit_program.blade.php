@@ -100,7 +100,7 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="row">
-								<div class="col-md-6 input_box">
+								<div class="col-md-5 input_box">
 									<span class="input_box_span_active">Program Fee</span>
 									<input type="text" name="program_fee" id="program_fee" placeholder="Program Fee" value="{{($program->program_fee)}}">
 									@if ($errors->has('program_fee'))
@@ -109,7 +109,21 @@
 										</div>
 									@endif
 								</div>
-								<div class="col-md-6 input_box">
+								<div class="col-md-3 input_box">
+									<span>Currency</span>
+									<select name="currency">
+										<option value="" selected>Currency</option>
+										<option @if(old('currency') == "VND") selected='selected' @endif value="VND">/VND</option>
+										<option @if(old('currency') == "USD") selected='selected' @endif value="USD">/USD</option>
+										<option @if(old('currency') == "EUR") selected='selected' @endif value="EUR">/EUR</option>
+									</select>
+									@if ($errors->has('period_fee'))
+										<div class="text text-danger">
+											{{ $errors->first('period_fee') }}
+										</div>
+									@endif
+								</div>
+								<div class="col-md-4 input_box">
 									<span class="input_box_span_active">Period Fee</span>
 									<select name="period_fee">
 										<option value="" selected>Period Fee</option>
@@ -370,7 +384,6 @@
 	</script>
 	<script type="text/javascript">
 		var array = $('#array_schedule_old').val().split(',');
-		console.log(array)
     	$('.listClass').click(function(event) {
     		if ($(this).hasClass('tablinks1_active')) {
     			$(this).removeClass('tablinks1_active');
@@ -381,7 +394,6 @@
 				var schedule_push = $(this).val();
 				array.push(schedule_push);
     		}
-			console.log(array);
     	});
 
 		//begin select children
@@ -390,7 +402,6 @@
 
 		function deleteChild(id_children) {
 			array_children.splice( array_children.indexOf(id_children), 1 );
-			console.log('array children sau khi xoa: '+array_children)
 		}
 
 		function getIdChildren(id){
@@ -405,8 +416,6 @@
 					if (! array_children.includes(id)){
 						$('#children_list').append(data);
 						array_children.push(id);
-						console.log('id children them vao:'+id)
-						console.log('day la array children khi them:'+array_children);
 					}else {
 						alert('children exists')
 					}
@@ -420,7 +429,6 @@
 
 		function deleteStaff(id_staff) {
 			array_staff.splice( array_staff.indexOf(id_staff), 1 );
-			console.log('array staff sau khi xoa: '+array_staff)
 		}
 
 		function getIdStaff(id){
@@ -435,8 +443,6 @@
 					if (! array_staff.includes(id)){
 						$('#staff_list').append(data);
 						array_staff.push(id)
-						console.log('id staff them vao:'+id)
-						console.log('day la array staff khi them: ' + array_staff);
 					}else {
 						alert('staff exists')
 					}
@@ -522,7 +528,7 @@
 		$(document).ready(function($) {
 			var engine1 = new Bloodhound({
 				remote: {
-					url: 'http://kidsnow.web88.vn/kids-now/program/search/children?q=%QUERY%',
+					url: 'kids-now/program/search/children?q=%QUERY%',
 					wildcard: '%QUERY%'
 				},
 				datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
@@ -556,7 +562,7 @@
 
 			var engine2 = new Bloodhound({
 				remote: {
-					url: 'http://kidsnow.web88.vn/kids-now/program/search/staff?q2=%QUERY%',
+					url: 'kids-now/program/search/staff?q2=%QUERY%',
 					wildcard: '%QUERY%'
 				},
 				datumTokenizer: Bloodhound.tokenizers.whitespace('q2'),

@@ -10,13 +10,42 @@
     <section class="page-top container">
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
             <div class="row">
-                <ul class="ul-td" style="width: 100%;">
-                    <li ngcontent-c16="" class="level1"><a ngcontent-c16="">HOME</a></li>
-                    <li ngcontent-c16="" class="active1" style="pointer-events:none"><a ngcontent-c16="">HEALTH PROFILES</a></li>
-                    <li ngcontent-c16="" class="active1 active-1" style="pointer-events:none;"><a ngcontent-c16="">EDIT HEALTH</a></li>
-                </ul>
+                <div class="col-sm-6">
+                    <ul class="ul-td">
+                        <li class="level1"><a href="kids-now">Home</a></li>
+                        <li class="active1" style="" ><a href="kids-now/health/list">Health</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                    <a href="{{route('admin.health.list')}}" class="btn btn-success" style="float: right">Health List</a>
+                </div>
             </div>
         </div>
+
+        @if(session('notify'))
+            <div class="alert alert-success font-weight-bold">
+                {{session('notify')}}
+            </div>
+        @endif
+
+        @if(Session::has('thongbao'))
+            <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao') }}</p>
+        @endif
+        @if(Session::has('thongbao1'))
+            <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao1') }}</p>
+        @endif
+        @if(Session::has('thongbao2'))
+            <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao2') }}</p>
+        @endif
+        @if(Session::has('thongbao3'))
+            <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao3') }}</p>
+        @endif
+        @if(Session::has('thongbao4'))
+            <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao4') }}</p>
+        @endif
+        @if(Session::has('thongbao5'))
+            <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao5') }}</p>
+        @endif
         <div class="mat-card">
             <form method="post" action="" >
                 @csrf
@@ -71,13 +100,17 @@
                         </div>
                         <div class="add a1">
                             <div class="row">
-                                <div class="col-md-6 input_box">
+                                <div class="col-md-4 input_box">
                                     <span>medicine</span>
                                     <input type="text" name="medicine"  value="{{$health->medicine}}"placeholder="Nhập medicine nếu có">
                                 </div>
-                                <div class="col-md-6 input_box">
+                                <div class="col-md-4 input_box">
                                     <span>incident</span>
                                     <input type="text" name="incident" value="{{$health->incident}}" placeholder="Nhập incident nếu có">
+                                </div>
+                                <div class="col-md-4 input_box">
+                                    <span>incident</span>
+                                    <input type="text" name="blood_group" value="{{$health->blood_group}}" placeholder="Nhập blood_group nếu có">
                                 </div>
                             </div>
                             <div class="col-lg-12">

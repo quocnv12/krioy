@@ -74,13 +74,13 @@
 		<div class="container">
 			<div class="row icon-lienket" style="display: block;">
 			 	<a href="#">
-			 		<img src="images/facebook-circle-white.png" alt="" title="Face-book">
+			 		<img src="../images/facebook-circle-white.png" alt="" title="Face-book">
 			 	</a>
 			 	<a href="#">
-			 		<img src="images/linkedin-circle-white.png" title="Linkedin">
+			 		<img src="../images/linkedin-circle-white.png" title="Linkedin">
 			 	</a>
 			 	<a href="#">
-			 		<img src="images/mail-circle-white.png" alt="" title="Email">
+			 		<img src="../images/mail-circle-white.png" alt="" title="Email">
 			 	</a>
 			</div>
 			<div class="row" style="display: block;">
@@ -110,7 +110,7 @@
     <script src="../asset/kriyo/js/jquery.easing.1.3.min.js"></script>
     
     <!-- Main Script -->
-    <script src="asset/kriyo/js/main.js"></script>
+    <script src="../asset/kriyo/js/main.js"></script>
     <script type="text/javascript">
 		$('.input_box input').focus(function(event) {
 	    	$(this).siblings('span').addClass('input_box_span_active');
