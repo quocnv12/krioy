@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="mat-card" style="width: 100%">
                     <div class="mat-content">
-                        <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href="{{route('admin.observations.listobservationtype')}}" class="btn btn-default">Observation Type</a>
+                        <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href=" {{route('admin.observations.listobservationtype')}}" class="btn btn-default">Observation Type</a>
                         <div style="font-weight: bold; font-size: 20px">
                             Seminar: {{$child_observation->month}} - {{$child_observation->year}}
                         </div>
