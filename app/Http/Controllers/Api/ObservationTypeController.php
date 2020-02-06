@@ -65,4 +65,5 @@ class ObservationTypeController extends Controller
             'observationtype'=>$observationtype
         ], 204);
     }
+//    hecbn
 }
