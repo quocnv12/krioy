@@ -20,6 +20,7 @@ class CreateObservationsTable extends Migration
             $table->string('month')->nullable();
             $table->integer('year')->nullable();
             $table->string('observer')->nullable();
+            $table->text('clip_board')->nullable();
             $table->foreign('id_children')->references('id')->on('children_profiles')->onDelete('cascade');
             $table->string('id_observations');
             $table->timestamps();
