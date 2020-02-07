@@ -32,7 +32,10 @@ class ChildrenProfiles extends Model
         return $this->hasMany(Attendance_children::class,'id_children','id');
     }
 
-
+    public function getFullNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
 
     protected $timestamp = false;
 

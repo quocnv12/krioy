@@ -21,6 +21,7 @@
 					<ul class="ul-td">
 						<li class="level1"><a href="kids-now">Home</a></li>
 						<li class="active1" style="" ><a href="kids-now/observations/list">OBSERVATIONS</a></li>
+						<li class="active1 active-1" style="pointer-events: none" ><a href="">ADD OBSERVATION</a></li>
 					</ul>
 					</div>
 					{{--<div class="col-sm-6">--}}

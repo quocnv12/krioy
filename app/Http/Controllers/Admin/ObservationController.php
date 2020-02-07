@@ -165,7 +165,7 @@ class ObservationController extends Controller
                 $child_observation->save();
             }
         }
-        return redirect()->back()->with('notify','Add successfully');
+        return redirect()->back()->with('success','Added Observations');
     }
 
     public function getEdit($id)
@@ -199,7 +199,7 @@ class ObservationController extends Controller
         }
 
         $child_observation->save();
-        return redirect()->back()->with('notify','Edit successfully');
+        return redirect()->back()->with('success','Updated Observation');
     }
 
     public function getDelete($id){
@@ -218,7 +218,7 @@ class ObservationController extends Controller
 
         $current_month = Carbon::now()->format('M');
         $child_observations = ObservationModel::where('month', '=', $current_month)->where('year', '=', now()->year)->get();
-        return view('pages.observation.list', compact('child_observations'));
+        return view('pages.observation.list', compact('child_observations'))->with('success','Deleted Observation');
     }
 
     public function getSearch(Request $req){
@@ -250,10 +250,8 @@ class ObservationController extends Controller
 
     public function searchByName(Request $request)
     {
-        $children_profiles = ChildrenProfiles::where('first_name', 'like', '%' . $request->get('q') . '%')
-        ->orWhere('last_name', 'like', '%' . $request->get('q') . '%')
-        ->orderBy('last_name')
-        ->get();
+        $children_profiles = ChildrenProfiles::where(DB::raw("concat(first_name ,' ', last_name)"), 'like', '%' . $request->get('q') . '%')->get();
+
         return response()->json($children_profiles);
     }
 
@@ -333,6 +331,6 @@ class ObservationController extends Controller
         $file_path = storage_path('app/public/clip_board/'.$name);
         unlink($file_path);
 
-        return redirect()->back()->with('notify_clipboard','Deleted file successfully');
+        return redirect()->back()->with('success','Deleted File');
     }
 }
