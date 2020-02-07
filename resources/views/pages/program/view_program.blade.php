@@ -149,7 +149,7 @@
 							</div>
 							@endforeach
 						@else
-							<p style="font-size: 18px; margin: 10px;">No staff was chosen</p>
+							<p style="font-size: 18px; margin: 10px;">No staff was founded</p>
 						@endif
 					</div>
 				</div>
@@ -178,7 +178,7 @@
 							</div>
 							@endforeach
 						@else
-							<p style="font-size: 18px; margin: 10px;">No children was chosen</p>
+							<p style="font-size: 18px; margin: 10px;">No children was founded</p>
 						@endif
 					</div>
 				</div>

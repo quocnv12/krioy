@@ -36,7 +36,10 @@ class ChildrenProfiles extends Model
         return $this->belongsToMany(Programs::class, 'children_programs', 'id_children', 'id_program');
     }
 
-
+    public function getFullNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
 
     protected $timestamp = false;
 
