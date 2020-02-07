@@ -4,15 +4,6 @@
 @endsection
 
 @section('content')
-    {{--<style>--}}
-        {{--.slick-prev{--}}
-            {{--left: 0 !important;--}}
-        {{--}--}}
-
-        {{--.slick-next{--}}
-            {{--right: 0 !important;--}}
-        {{--}--}}
-    {{--</style>--}}
 	<body>
 		<section class="page-top container">
 			<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
@@ -33,126 +24,139 @@
 					{{session('notify')}}
 				</div>
 			@endif
-		<form style="width: auto;margin: 0;text-align: center" action=" {{route('admin.observations.postAdd')}}" method="post" id="addObservation" enctype="multipart/form-data">
-			@csrf
-			<div class="row">
-				<div class="mat-card" style="width: 100%">
-					<div class="mat-content">
-						<a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white; float: left" href="{{route('admin.observations.listobservationtype')}}" class="btn btn-defaul">ObservationType</a>
-						<div style="width: 280px; float: right">
-							Seminar:
-							<select name="month" id="month">
-								<option value="">Choose Month</option>
-								<option value="Jan" @if(now()->month == 1) selected @endif>January</option>
-								<option value="Feb" @if(now()->month == 2) selected @endif>February</option>
-								<option value="Mar" @if(now()->month == 3) selected @endif>March</option>
-								<option value="Apr" @if(now()->month == 4) selected @endif>April</option>
-								<option value="May" @if(now()->month == 5) selected @endif>May</option>
-								<option value="Jun" @if(now()->month == 6) selected @endif>June</option>
-								<option value="Jul" @if(now()->month == 7) selected @endif>July</option>
-								<option value="Aug" @if(now()->month == 8) selected @endif>August</option>
-								<option value="Sep" @if(now()->month == 9) selected @endif>September</option>
-								<option value="Oct" @if(now()->month == 10) selected @endif>October</option>
-								<option value="Nov" @if(now()->month == 11) selected @endif>November</option>
-								<option value="Dec" @if(now()->month == 12) selected @endif>December</option>
-							</select>
-							-
-							<select name="year" id="">
-								@for($i = 2020; $i <= 2040; $i++)
-									<option value="{{$i}}" @if(now()->year == $i) selected @endif>{{$i}}</option>
-								@endfor
-							</select>
-						</div>
-
-						<button class="accordion accordion1 clearfix" type="button">
-							<p style="float: left;">Children *</p>
-								{{--<form class="typeahead" role="search" style="float: right; text-align: left">--}}
-									{{--<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">--}}
-								{{--</form>--}}
-						</button>
-
-                        <div class="scrollmenu-div">
-                            @foreach($programs as $program)
-                                <div class="scrollmenu-button" style="text-align: center;">
-                                    <button type="button" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
-                                        <a style="color: #fff;" href="kids-now/observations/show/{{$program->id}}">{{$program->program_name}}</a>
-                                    </button>
-                                </div>
-                            @endforeach
-                        </div>
-                        <div class="row">
-                            @if(isset($children_profiles))
-								@if(count($children_profiles) > 0)
-									@foreach($children_profiles as $children)
-										<div class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted" style="padding:10px;cursor:pointer;">
-											<div type="button" data-toggle="modal" data-target=".bd-example-modal-sm" style="height: 120px;text-align: center;-webkit-appearance: none;">
-												<img class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="images/Child.png">
-												<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check" id="checked" style="display: block;top:10px"></i>                                            <span class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;display: block;">{{$children->first_name}} {{$children->last_name}}</span>
-												<input type="hidden" value="{{$children->id}}">
+			<form style="width: auto;margin: 0;text-align: center" method="post" id="addObservation" enctype="multipart/form-data">
+				@csrf
+				<div class="row">
+					<div class="mat-card" style="width: 100%">
+						<div class="mat-content">
+							<section class="container attendance-layout">
+								<div class="row">
+									<div class="col-lg-8 col-md-8 col-sm-8">
+										<div class="attendance-button">
+											<button class="btn tableStyle ng-star-inserted" style="color: rgb(75, 0, 130);">
+												<p>Total</p>
+												<!---->
+												<span class="ng-star-inserted">0/1</span>
+												<!---->
+											</button>
+											<button class="btn tableStyle ng-star-inserted" style="color: rgb(55, 189, 156);">
+												<p>IN</p>
+												<!---->
+												<span class="ng-star-inserted">0/1</span>
+												<!---->
+											</button>
+											<button class="btn tableStyle ng-star-inserted" style="color: rgb(169, 179, 189);">
+												<p>OUT</p>
+												<!---->
+												<span class="ng-star-inserted">0/1</span>
+												<!---->
+											</button>
+											<button class="btn tableStyle ng-star-inserted" style="color: rgb(237, 85, 100);">
+												<p>ABSENT</p>
+												<!---->
+												<span class="ng-star-inserted">0/1</span>
+												<!---->
+											</button>
+											<button class="btn tableStyle ng-star-inserted" style="color: rgb(255, 194, 0);">
+												<p>LEAVE</p>
+												<!---->
+												<span class="ng-star-inserted">0/1</span>
+												<!---->
+											</button>
+										</div>
+									</div>
+									<div class="col-lg-4 col-md-4 col-sm-4">
+										<div class="select-all">
+											<div class="all-1" >
+												<a href="#" class="all-2">
+													<b>Select All-IN</b>
+												</a>
+											</div>
+											<div class="all-1">
+												<a href="#" class="all-2">
+													<b>Select All</b>
+												</a>
 											</div>
 										</div>
-									@endforeach
-								@else
-									<div style="font-weight: bold; margin: 50px">No Children were founded</div>
-								@endif
-                                <input id="array_children_observation" type="hidden" value="" name="children_observations">
-							@else
-								<div style="margin: 50px;">
-									<span style="color: red; font-weight: bold">Hint :</span>
-									<span>Click on a program tab in horizontal scroll bar to show all children in that program</span>
-								</div>
-                            @endif
-                        </div>
-					</div>
-					@if ($errors->has('children_observations'))
-						<div class="text text-danger">
-							{{ $errors->first('children_observations') }}
-						</div>
-					@endif
-					<hr>
-					<div class="mat-content">
-						<button class="accordion" type="button">Observation Type</button>
-						<div class="panel">
-							<div _ngcontent-c20="" class="row" style="">
-								@foreach($observationtype  as $observation)
-									<div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer;">
-										<button type="button" _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" data-toggle="tooltip" title="{{$observation->name}}" value="{{$observation->id}}">{{$observation->name}} </button>
 									</div>
-								@endforeach
-								<input id="array_observation" type="hidden" value="" name="observations">
+								</div>
+							</section>
+							<button class="accordion accordion1 clearfix" type="button">
+								<p style="float: left;">Children</p>
+							</button>
 
+	                        <div class="scrollmenu-div">
+	                            @foreach($programs as $program)
+	                                <div class="scrollmenu-button" style="text-align: center;">
+	                                    <button type="button" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
+	                                        <a style="color: #fff;" href="kids-now/attendance/{{$program->id}}">{{$program->program_name}}</a>
+	                                    </button>
+	                                </div>
+	                            @endforeach
+	                        </div>
+
+					        
+							
+	                        <div class="row">
+	                            @if(isset($children_profiles))
+									@if(count($children_profiles) > 0)
+										@foreach($children_profiles as $children)
+											<div class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted" style="padding:10px;cursor:pointer;">
+												<div type="button" style="height: 120px;text-align: center;-webkit-appearance: none;">
+													<img class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="images/Child.png">
+													<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check" id="checked" style="display: block;top:10px"></i>                                            <span class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;display: block;">{{$children->first_name}} {{$children->last_name}}</span>
+													<input type="hidden" value="{{$children->id}}">
+												</div>
+											</div>
+										@endforeach
+									@else
+										<div style="font-weight: bold; margin: 50px">No Children were founded</div>
+									@endif
+	                                <input id="array_children_observation" type="hidden" value="" name="children_observations">
+								@else
+									<div style="margin: 50px;">
+										<span style="color: red; font-weight: bold">Hint :</span>
+										<span>Click on a program tab in horizontal scroll bar to show all children in that program</span>
+									</div>
+	                            @endif
+	                        </div>
+	                        <div class="icon-plus-1" >
+								<button  type="button" class="icon-plus-button groupStatus" style="background-color: #37bd9c;" data-toggle="modal" data-target=".bd-example-modal-sm" value="1" name='status' >IN</button><br>
+								<button  type="button" class="icon-plus-button groupStatus" style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm" value="2" name='status'>OUT</button><br>
+								<button  type="button" class="icon-plus-button groupStatus" style="background-color: #ed5564;" data-toggle="modal" data-target=".bd-example-modal-sm" value="3" name='status'>ABSENT</button><br>
+								<button  type="button" class="icon-plus-button groupStatus" style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm" value="4" name='status'>UNMARK</button><br>
+								<!-- <button class="icon-plus-button" style="background-color: #ffc200;" data-toggle="modal" data-target=".bd-example-modal-sm">LEAVE</button> -->
+								<input type="hidden" name="children_status" value="" id="children_status">
 							</div>
-						</div>
-					</div>
-					@if ($errors->has('observations'))
-						<div class="text text-danger">
-							{{ $errors->first('observations') }}
-						</div>
-					@endif
-					<div class="comment">
-						<div class="row">
-							<div class="col-md-11 input_box">
-								<span>Enter Details here *</span>
-								<input type="text" name="detailObservation" placeholder="Enter Details here *">
-							</div>
-							<div class="col-md-1">
-								<div class="zoom">
-									<a _ngcontent-c9="" class="zoom-fab zoom-btn-large fa fa-paperclip" id="zoomBtn" style="font-size: 30px;cursor: pointer"></a>
+							<div class="modal fade bd-example-modal-sm modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+								<div class="modal-dialog modal-sm" style="">
+									<div class="modal-content" style="font-size: 18px;">
+										<h3>Aler</h3>
+										<hr style="clear:both;margin-top:0px;margin-bottom:0px">
+										<div align="center">
+											<p style="margin: 0;font-size: 18px;">You are marking attendance with time selected as 10:53 am</p>
+										</div>
+										<hr style="clear:both;margin-top:0px;margin-bottom:0px">
+										<div class="row" style="margin: 0;">
+											<div class="col-xs-6 col-md-6 mat-dialog-actions " style="border-right: 1px solid lightgrey;">
+												<button class="mat-button-class" style="color: #5363d6;border-left: 1px solid transparent; font-size: 16px;" >
+													<span class="mat-button-wrapper button2" id="submit_button">PROCEED</span>
+												</button>
+											</div>
+											<div class="col-xs-6 col-md-6 mat-dialog-actions">
+												<button class="mat-button-class" style="color: red;font-size: 16px;">
+													<span class="mat-button-wrapper">CANCEL</span>
+												</button>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="button" style="text-align: center;">
-							<button type="reset">
-								<span>CANCEL</span>
-							</button>
-							<button class="button2" id="submit_button" type="submit">
-								<span>SAVE</span>
-							</button>
 						</div>
 					</div>
 				</div>
-			</div>
-		</form>
+
+			</form>
 		</section>
 	</body>
 @endsection
@@ -201,6 +205,7 @@
 				var observation_push = $(this).val();
 				array_observation.push(observation_push);
     		}
+			console.log(array_observation);
     	});
 
 		//begin select children
@@ -208,6 +213,7 @@
 
 		function deleteChild(id_children) {
 			array_children.splice( array_children.indexOf(id_children), 1 );
+			console.log('array children sau khi xoa: '+array_children)
 		}
 
 		function getIdChildren(id){
@@ -221,6 +227,8 @@
 					if (! array_children.includes(id)){
 						$('#children_list').append(data);
 						array_children.push(id);
+						console.log('id children them vao:'+id)
+						console.log('day la array children khi them:'+array_children);
 					}else {
 						alert('children exists')
 					}
@@ -246,8 +254,15 @@
                 var observation_push = $(this).children('div').children('input').val();
                 array_children_observation.push(observation_push);
             }
+            console.log(array_children_observation)
         })
         //end select children_observation
+
+        $('.groupStatus').click(function () {
+			var selectStatus = $(this).val();
+			$('#children_status').attr('value', selectStatus);
+		})
+
 		var button = document.getElementById("submit_button");
 		button.onclick = function(){
 			$('#array_all_children').attr('value', array_children);

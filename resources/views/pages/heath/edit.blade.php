@@ -54,7 +54,7 @@
                     <div class="row">
                         <div class="col-md-2 textera-img">
                             <a href="#">
-                                <img src="images/{{$childrent->image}}" alt="" style="width: 100px; height: 100px">
+                                <img src="images/ {{$childrent->image}}" alt="" style="width: 100px; height: 100px">
                                 <span ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
                             </a>
                         </div>

@@ -36,7 +36,7 @@
 
     @if(session('notify'))
         <div class="alert alert-success font-weight-bold">
-            {{session('notify')}}
+             {{session('notify')}}
         </div>
     @endif
 

@@ -82,7 +82,7 @@
                                             @endif
 
                                         </th>
-                                        <th style="text-align: center">{{$value->sick}}</th>
+                                        <th style="text-align: center"> {{$value->sick}}</th>
                                         <th style="text-align:left;width:10%">{{$value->medicine}}</th>
                                         <th style="text-align:left;width:30%">
                                             <p >Growth_height</p>: {{$value->growth_height}}<p/>

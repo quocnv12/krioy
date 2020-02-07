@@ -85,7 +85,9 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
     Route::group(['prefix' => 'attendance'], function () {
         Route::get('/','Admin\AttendanceChildrenController@index')->name('attendance.index');
         Route::get('/{id}','Admin\AttendanceChildrenController@show')->name('attendance.show');
-        Route::get('add','Admin\AttendanceChildrenController@show')->name('attendance.show');
+        // Route::get('add','Admin\AttendanceChildrenController@getAdd')->name('attendance.getAdd');
+        Route::post('add','Admin\AttendanceChildrenController@postAdd')->name('attendance.postAdd');
+        // Route::post('add',['as'=>'attendance.postAdd','uses'=>'Admin\AttendanceChildrenController@add']);
     });
 
     //---------------health----------------
