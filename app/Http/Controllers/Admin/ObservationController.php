@@ -142,7 +142,7 @@ class ObservationController extends Controller
         $children_profiles = ChildrenProfiles::where('id','=',$child_observation->id_children)->first();
         $array_observation_choose = explode(',',$child_observation->id_observations);
 
-        return view('pages.observation.edit',compact('observationtype','vendors','children_profiles','array_observation_choose'));
+        return view('pages.observation.edit',compact('child_observation','observationtype','vendors','children_profiles','array_observation_choose'));
     }
     public function postEdit(Request $request, $id){
         $this->validate($request,
