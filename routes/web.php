@@ -128,6 +128,9 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('show/{id}','Admin\ObservationController@showChildrenInProgram');
         Route::get('view/{id}',['as'=>'admin.observations.view','uses'=>'Admin\ObservationController@view']);
 
+        //clip board
+        Route::get('clip_board/{id}/{name}','Admin\ObservationController@displayClipboard');
+        Route::get('delete_clipboard/{id}/{name}','Admin\ObservationController@deleteClipboard');
     });
 
     Route::group(['prefix' => 'observationtype'], function () {

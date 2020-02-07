@@ -13,11 +13,15 @@
                     <ul class="ul-td">
                         <li class="level1"><a href="kids-now">Home</a></li>
                         <li class="active1" style="" ><a href="kids-now/observations/list">OBSERVATIONS</a></li>
+                        <li class="active1 active-1" style="pointer-events: none" ><a href="">EDIT OBSERVATION</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-6">
-                    <a href="{{route('admin.observations.list')}}" class="btn btn-success" style="float: right">Children List</a>
+                <div class="col-sm-6" style="display: flex; justify-content: flex-end">
+                    <button class="notice" type="button" >
+                        <span><a href="kids-now/observations/delete/{{$child_observation->id}}" style="color: inherit; " onclick="return deleteConfirm()" >DELETE</a></span>
+                    </button>
                 </div>
+
             </div>
         </div>
         @if(session('notify'))
@@ -30,7 +34,9 @@
             <div class="row">
                 <div class="mat-card" style="width: 100%">
                     <div class="mat-content">
-                        <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href=" {{route('admin.observations.listobservationtype')}}" class="btn btn-default">Observation Type</a>
+                        <a style="min-width:110px;background:#eb87c1;color:white; float: left;font-weight: bold" href="{{route('admin.observations.listobservationtype')}}" class="btn btn-default">OBSERVATION TYPES</a>
+                        <a style="min-width:110px;background:#eb87c1;color:white; float: right; border: none;font-weight: bold" href="{{route('admin.observations.list')}}" class="btn btn-success" >CHILDREN LIST</a>
+
                         <div style="font-weight: bold; font-size: 20px">
                             Seminar: {{$child_observation->month}} - {{$child_observation->year}}
                         </div>
@@ -148,9 +154,39 @@
                             </div>
                             <div class="col-md-1">
                                 <div class="zoom">
-                                    <a _ngcontent-c9="" class="zoom-fab zoom-btn-large fa fa-paperclip" id="zoomBtn" style="font-size: 30px;cursor: pointer"></a>
+                                    <a _ngcontent-c9="" class="zoom-fab zoom-btn-large fa fa-paperclip" id="button_file" style="font-size: 30px;cursor: pointer"></a>
+                                    {{--<a _ngcontent-c9="" class="zoom-fab zoom-btn-large fa fa-image" id="button_image" style="font-size: 30px;cursor: pointer"></a>--}}
+                                    <input type="file" id="file" name="clip_board[]" multiple="multiple" value="{{old('clip_board')}}" accept=
+                                    ".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf">
                                 </div>
                             </div>
+                            <div class="col-md-12" style="color: blue; margin-top: 50px; display: flex; justify-content: flex-start; ">
+                                <p id="show_clip_board"></p>
+
+                                @if ($errors->has('clip_board'))
+                                    <div class="text text-danger">
+                                        {{ $errors->first('clip_board') }}
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="">
+                            @if(session('notify_clipboard'))
+                                <div class="alert alert-success">
+                                    {{session('notify_clipboard')}}
+                                </div>
+                            @endif
+                            @foreach(explode('/*endfile*/',$child_observation->clip_board) as $clipboard)
+                                <div class="row" style="margin-top: 5px">
+                                    <div class="col-md-10" style="text-align: left">
+                                        <a href="kids-now/observations/clip_board/{{$child_observation->id}}/{{$clipboard}}" target="_blank">{{Str::limit($clipboard,70)}}</a>
+                                    </div>
+                                    <div class="col-md-2">
+                                        @if($clipboard)<a href="kids-now/observations/delete_clipboard/{{$child_observation->id}}/{{$clipboard}}" style="color: inherit"><button type="button" class="btn btn-sm btn-danger" onclick="return confirm('Are you want to delete this file ?')">Delete</button></a>@endif
+                                    </div>
+                                </div>
+                            @endforeach
+                            <br>
                         </div>
                         <div class="button" style="text-align: center;">
                             <button type="reset">
@@ -278,7 +314,32 @@
             }
         });
 
+        //begin clip-board
+        var input_file = $("#file");
+        input_file.on("change", function () {
+            var files = input_file.prop("files")
+            if ($('#file').val() != null){
+                $('#show_clip_board').html('');
+            }
+            var names = $.map(files, function (val) { return val.name; });
+            $.each(names, function (i, name) {
+                $('#show_clip_board').append(name+'<br>');
+            });
+        });
 
+        $('#file').hide();
+        $('#image').hide();
+        $('#button_file').click(function () {
+            $('#file').click();
+        })
+        $('#button_image').click(function () {
+            $('#image').click();
+        })
+
+        function deleteConfirm() {
+            return confirm("Are you want to delete ?");
+        }
+        //finish clip-board
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>

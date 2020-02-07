@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 
 class ObservationController extends Controller
@@ -99,6 +100,17 @@ class ObservationController extends Controller
                         $child_observation->detailObservation = $request->detailObservation;
                         $child_observation->month = $request->month;
                         $child_observation->year = $request->year;
+                        if ($request->hasFile('clip_board')){
+                            $array_file = [];
+                            foreach ($request->file('clip_board') as $file_name){
+                                $uniqueFileName = (Str::random(4).'_'.$file_name->getClientOriginalName());
+                                array_push($array_file, $uniqueFileName);
+                                $file_name->move(storage_path('app/public/clip_board/') , $uniqueFileName);
+                            }
+
+                            $child_observation->clip_board = implode('/*endfile*/',$array_file);
+
+                        }
                         $child_observation->save();
                     }else{
                         $child_observation = new ObservationModel();
@@ -108,6 +120,17 @@ class ObservationController extends Controller
                         $child_observation->month = $request->month;
                         $child_observation->year = $request->year;
                         $child_observation->observer = $observer;
+                        if ($request->hasFile('clip_board')){
+                            $array_file = [];
+                            foreach ($request->file('clip_board') as $file_name){
+                                $uniqueFileName = (Str::random(4).'_'.$file_name->getClientOriginalName());
+                                array_push($array_file, $uniqueFileName);
+                                $file_name->move(storage_path('app/public/clip_board/') , $uniqueFileName);
+                            }
+
+                            $child_observation->clip_board = implode('/*endfile*/',$array_file);
+
+                        }
                         $child_observation->save();
                     }
                 }else{
@@ -118,6 +141,17 @@ class ObservationController extends Controller
                     $child_observation->month = $request->month;
                     $child_observation->year = $request->year;
                     $child_observation->observer = $observer;
+                    if ($request->hasFile('clip_board')){
+                        $array_file = [];
+                        foreach ($request->file('clip_board') as $file_name){
+                            $uniqueFileName = (Str::random(4).'_'.$file_name->getClientOriginalName());
+                            array_push($array_file, $uniqueFileName);
+                            $file_name->move(storage_path('app/public/clip_board/') , $uniqueFileName);
+                        }
+
+                        $child_observation->clip_board = implode('/*endfile*/',$array_file);
+
+                    }
                     $child_observation->save();
                 }
             }else{
@@ -142,7 +176,7 @@ class ObservationController extends Controller
         $children_profiles = ChildrenProfiles::where('id','=',$child_observation->id_children)->first();
         $array_observation_choose = explode(',',$child_observation->id_observations);
 
-        return view('pages.observation.edit',compact('observationtype','vendors','children_profiles','array_observation_choose'));
+        return view('pages.observation.edit',compact('observationtype','vendors','children_profiles','array_observation_choose','child_observation'));
     }
     public function postEdit(Request $request, $id){
         $this->validate($request,
@@ -153,13 +187,38 @@ class ObservationController extends Controller
         $child_observation = ObservationModel::find($id);
         $child_observation->id_observations = $request->observation_new;
         $child_observation->detailObservation = $request->detailObservation;
+
+        if ($request->hasFile('clip_board')){
+            $old_array = explode('/*endfile*/',$child_observation->clip_board);
+            foreach ($request->file('clip_board') as $file_name){
+                $uniqueFileName = (Str::random(4).'_'.$file_name->getClientOriginalName());
+                array_push($old_array, $uniqueFileName);
+                $file_name->move(storage_path('app/public/clip_board/') , $uniqueFileName);
+            }
+            $child_observation->clip_board = implode('/*endfile*/',$old_array);
+        }
+
         $child_observation->save();
         return redirect()->back()->with('notify','Edit successfully');
     }
 
     public function getDelete($id){
-        $observation= DB::table('observations')->where('id',$id)->delete();
-        return redirect()->back()->with('notify_clipboard','Deleted file successfully');
+        $observation = ObservationModel::findOrFail($id);
+
+        if ($observation->clip_board){
+            $old_array = explode('/*endfile*/',$observation->clip_board);
+            foreach ($old_array as $key=>$value){
+                $file_path = 'app/public/clip_board/'.$value;
+                if ($file_path != 'app/public/clip_board/'){
+                    unlink(storage_path($file_path));
+                }
+            }
+        }
+        $observation->delete();
+
+        $current_month = Carbon::now()->format('M');
+        $child_observations = ObservationModel::where('month', '=', $current_month)->where('year', '=', now()->year)->get();
+        return view('pages.observation.list', compact('child_observations'));
     }
 
     public function getSearch(Request $req){
@@ -248,5 +307,32 @@ class ObservationController extends Controller
         $array_observation_choose = explode(',',$child_observation->id_observations);
 
         return view('pages.observation.view',compact('observationtype','vendors','children_profiles','array_observation_choose','child_observation'));
+    }
+
+    public function displayClipboard($id,$name)
+    {
+        return response()->file(storage_path('app/public/clip_board/'.$name),[
+            'Content-Disposition' => 'inline; filename="'. $name .'"']);
+    }
+
+    public function deleteClipboard($id,$name)
+    {
+        $child_observation = ObservationModel::find($id);
+
+        //chuoi cu
+        $old_array = explode('/*endfile*/',$child_observation->clip_board);
+
+        $index = array_search($name, $old_array);
+        array_splice($old_array, $index, 1);
+
+        //cap nhat lai chuoi
+        $child_observation->clip_board = implode('/*endfile*/',$old_array);
+        $child_observation->save();
+
+        //xoa file
+        $file_path = storage_path('app/public/clip_board/'.$name);
+        unlink($file_path);
+
+        return redirect()->back()->with('notify_clipboard','Deleted file successfully');
     }
 }

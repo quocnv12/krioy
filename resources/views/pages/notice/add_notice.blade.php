@@ -21,11 +21,11 @@
 						<li class="active1 active-1" style="pointer-events:none;"><a href="">ADD NOTICE</a></li>
 					</ul>
 				</div>
-				<div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target=".bd-example-modal-sm">
-					<button class="notice" type="button">
-						<span>DELETE</span>
-					</button>
-				</div>
+				{{--<div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target=".bd-example-modal-sm">--}}
+					{{--<button class="notice" type="button">--}}
+						{{--<span>DELETE</span>--}}
+					{{--</button>--}}
+				{{--</div>--}}
 			</div>
 		</div>
         @if(session('notify'))
@@ -209,12 +209,24 @@
 		});
 </script>
 	<script>
-        $('#file').change(function() {
-            var filename = $('#file').val();
-            $('#show_clip_board').html(filename);
+        // $('#file').change(function() {
+        //     var filename = $('#file').val();
+        //     $('#show_clip_board').html(filename);
+        // });
+
+        var input_file = $("#file");
+        input_file.on("change", function () {
+            var files = input_file.prop("files")
+            if ($('#file').val() != null){
+                $('#show_clip_board').html('');
+            }
+            var names = $.map(files, function (val) {
+                return val.name;
+            });
+            $.each(names, function (i, name) {
+                $('#show_clip_board').append(name+'<br>');
+            });
         });
-
-
 
 		$('#file').hide();
 		$('#image').hide();
