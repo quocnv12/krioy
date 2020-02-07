@@ -31,6 +31,10 @@ class ChildrenProfiles extends Model
     public function chil_atd(){
         return $this->hasMany(Attendance_children::class,'id_children','id');
     }
+    public function chil_progam()
+    {
+        return $this->belongsToMany(Programs::class, 'children_programs', 'id_children', 'id_program');
+    }
 
 
 

@@ -24,4 +24,9 @@ class Programs extends Model
     ];
 
     protected $timestamp = false;
+
+    public function program_chil()
+    {
+        return $this->belongsToMany(ChildrenProfiles::class, 'children_programs', 'id_program', 'id_children');
+    }
 }
