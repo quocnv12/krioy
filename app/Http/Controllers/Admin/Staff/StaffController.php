@@ -94,7 +94,7 @@ class StaffController extends Controller
         }
         $staff->pesmissionstaff()->Attach($mangs);
 
-        return redirect('kids-now/staff')->with('thongbao','Add staff success !')->withInput();
+        return redirect('kids-now/staff')->with('success','Add staff success !')->withInput();
 
     }
 
@@ -189,7 +189,7 @@ class StaffController extends Controller
        }
        $staff->pesmissionstaff()->Sync($mangs);
 
-       return redirect('kids-now/staff')->with('thongbao','Edit staff success !')->withInput();
+       return redirect('kids-now/staff')->with('success','Edit staff success !')->withInput();
        
     }
 
@@ -202,7 +202,7 @@ class StaffController extends Controller
     public  function DeleteStaff($id) 
     {
         StaffProfiles::destroy($id);
-        return redirect('kids-now/staff')->with('delete','Delete staff success !');
+        return redirect('kids-now/staff')->with('success','Delete staff success !');
     }
 
 

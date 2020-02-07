@@ -17,7 +17,7 @@
 					</div>
 					<div class="login-input">
 					@if (session('thongbao'))
-					<p style="font-size: 14px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;width:80%;margin-top:20px;margin-bottom:0px;">* {{ session('thongbao') }}</p>
+					<p style="font-size: 14px;font-weight: 100;color:#0d31de;font-style: italic;line-height: 25px;text-align: left;width:80%;margin-top:20px;margin-bottom:0px;">* {{ session('thongbao') }}</p>
 					@endif
 					@if (session('success'))
 					<p style="font-size: 14px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;width:80%;margin-top:20px;margin-bottom:0px;">* {{ session('success') }}</p>

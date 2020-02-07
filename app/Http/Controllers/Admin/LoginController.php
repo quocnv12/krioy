@@ -45,13 +45,13 @@ class LoginController extends Controller
                if (Auth::user()->active==0) 
                 {
                     Auth()->logout();
-                    return redirect('login')->with('thongbao', 'You need to verify the account.');
+                    return redirect('login')->with('danger', 'You need to verify the account.');
                 }
                 return redirect('kids-now');
             }
             else
             {
-                return  redirect()->back()->with("thongbao","Phone or password false !")->withInput();
+                return  redirect()->back()->with("danger","Phone or password false !")->withInput();
             }
         }
     }
@@ -80,11 +80,11 @@ class LoginController extends Controller
                 'password' => bcrypt($request->password)
             ]);
             // return redirect('login')->with('thongbao','Changer password success !');
-            return redirect()->back()->with('thongbao','Changer password success !');
+            return redirect()->back()->with('success','Changer password success !');
             }
         else 
             {
-                return redirect()->back()->with('thongbao1','Password old false !');
+                return redirect()->back()->with('danger','Password old false !');
             }
     }
 
