@@ -12,7 +12,9 @@ class ObservationModel extends Model
         'id',
         'id_children',
         'id_observations',
-        'detailObservation'
+        'detailObservation',
+        'year',
+        'month'
     ];
 
     public function ObservationType(){

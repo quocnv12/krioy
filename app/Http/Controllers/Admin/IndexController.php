@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\models\staff\StaffProfiles;
 use Mail;
+use Auth;
 use Carbon\Carbon;
+
 
 class IndexController extends Controller
 {
@@ -33,18 +35,20 @@ class IndexController extends Controller
 
         $email = $staff->email;
         $code = bcrypt(time().$email);
-        $url = route('user.verify.account',['id'=>$staff->id,'code'=>$code]);
+        $url = route('user.verify.account',['id'=>$staff->id,'code'=>$code,'phone'=>$staff->phone,'password'=>$staff->password]);
         $staff->code_active =$code;
         $staff->time_active =Carbon::now();
         $staff->save();
         $data=[
-            'route' => $url
+            'route' => $url,
+            'phone' =>$request->phone,
+            'password' =>$request->password
         ] ;
 
         Mail::send('pages.introduce.verify', $data, function($message) use ($email){
             $message->to($email, 'Verify Account')->subject('Link Verify Account !');
         });
-        return redirect('/')->with('thongbao','Registration successful please login email to confirm your account !');
+        return redirect()->back()->with('thongbao','Registration successful please login email to confirm your account !');
     }
 
     //xac nhan tai khoan
@@ -61,7 +65,15 @@ class IndexController extends Controller
             }
         $staff->active=1;
         $staff->save();
-        return redirect('/')->with('thongbao','Verify account success !');
+
+
+        $phone = $request->phone;
+        $password =$request->password;
+        if(Auth::attempt(['phone' => $phone, 'password' => $password]))
+        {
+            return redirect('kids-now');
+        }
+        return redirect('kids-now');
     }
 
 }

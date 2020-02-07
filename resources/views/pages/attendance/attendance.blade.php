@@ -30,80 +30,80 @@
 				</div>
 			</div>
 		</section>
-		<form style="width: auto;margin: 0;text-align: center" method="post" action="{{route('attendance.postAdd')}}" id="addAttendance" enctype="multipart/form-data">
-			@csrf
-			<section style="background-color:#f9f9f9">
-				<div class="row" style="padding: 10px">
-					<div class="col-lg-2 col-md-2 col-sm-12"></div>
-					<div class="col-lg-8 col-md-8 col-sm-12" style="padding-left:0px;padding-right:0px">
-						<div class="scrollmenu-div">
-					@foreach($programs as $program)
-					<div class="scrollmenu-button" style="text-align: center;">
-						<!---->
-						<button type="submit" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
-							<a style="color: #fff;" href="kids-now/attendance/{{$program->id}}">{{$program->program_name}}</a>
+		
+		<section style="background-color:#f9f9f9">
+			<div class="row" style="padding: 10px">
+				<div class="col-lg-2 col-md-2 col-sm-12"></div>
+				<div class="col-lg-8 col-md-8 col-sm-12" style="padding-left:0px;padding-right:0px">
+					<div class="scrollmenu-div">
+				@foreach($programs as $program)
+				<div class="scrollmenu-button" style="text-align: center;">
+					<!---->
+					<button type="submit" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
+						<a style="color: #fff;" href="kids-now/attendance/{{$program->id}}">{{$program->program_name}}</a>
+					</button>
+				</div>
+				@endforeach
+			</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-12"></div>
+			</div>
+		</section>
+		<section class="container attendance-layout">
+			<div class="row">
+				<div class="col-lg-8 col-md-8 col-sm-8">
+					<div class="attendance-button">
+						<button class="btn tableStyle ng-star-inserted" style="color: rgb(75, 0, 130);">
+							<p>Total</p>
+							<!---->
+							<span class="ng-star-inserted">{{$count_chil}}</span>
+							<!---->
 						</button>
+						<button class="btn tableStyle ng-star-inserted" style="color: rgb(55, 189, 156);">
+							<p>IN</p>
+							<!---->
+							<span class="ng-star-inserted">{{$count_in}}</span>
+							<!---->
+						</button>
+						<button class="btn tableStyle ng-star-inserted" style="color: rgb(169, 179, 189);">
+							<p>OUT</p>
+							<!---->
+							<span class="ng-star-inserted">{{$count_out}}</span>
+							<!---->
+						</button>
+						<button class="btn tableStyle ng-star-inserted" style="color: rgb(237, 85, 100);">
+							<p>ABSENT</p>
+							<!---->
+							<span class="ng-star-inserted">{{$count_absent}}</span>
+							<!---->
+						</button>
+						<!-- <button class="btn tableStyle ng-star-inserted" style="color: rgb(255, 194, 0);">
+							<p>LEAVE</p>
+							
+							<span class="ng-star-inserted">0/1</span>
+							
+						</button> -->
 					</div>
-					@endforeach
 				</div>
-					</div>
-					<div class="col-lg-2 col-md-2 col-sm-12"></div>
-				</div>
-			</section>
-			<section class="container attendance-layout">
-				<div class="row">
-					<div class="col-lg-8 col-md-8 col-sm-8">
-						<div class="attendance-button">
-							<button class="btn tableStyle ng-star-inserted" style="color: rgb(75, 0, 130);">
-								<p>Total</p>
-								<!---->
-								<span class="ng-star-inserted">0/1</span>
-								<!---->
-							</button>
-							<button class="btn tableStyle ng-star-inserted" style="color: rgb(55, 189, 156);">
-								<p>IN</p>
-								<!---->
-								<span class="ng-star-inserted">0/1</span>
-								<!---->
-							</button>
-							<button class="btn tableStyle ng-star-inserted" style="color: rgb(169, 179, 189);">
-								<p>OUT</p>
-								<!---->
-								<span class="ng-star-inserted">0/1</span>
-								<!---->
-							</button>
-							<button class="btn tableStyle ng-star-inserted" style="color: rgb(237, 85, 100);">
-								<p>ABSENT</p>
-								<!---->
-								<span class="ng-star-inserted">0/1</span>
-								<!---->
-							</button>
-							<button class="btn tableStyle ng-star-inserted" style="color: rgb(255, 194, 0);">
-								<p>LEAVE</p>
-								<!---->
-								<span class="ng-star-inserted">0/1</span>
-								<!---->
-							</button>
+				<div class="col-lg-4 col-md-4 col-sm-4">
+					<div class="select-all">
+						<div class="all-1" >
+							<a href="#" class="all-2">
+								<b>Select All-IN</b>
+							</a>
 						</div>
-					</div>
-					<div class="col-lg-4 col-md-4 col-sm-4">
-						<div class="select-all">
-							<div class="all-1" >
-								<a href="#" class="all-2">
-									<b>Select All-IN</b>
-								</a>
-							</div>
-							<div class="all-1">
-								<a href="#" class="all-2">
-									<b>Select All</b>
-								</a>
-							</div>
+						<div class="all-1">
+							<a href="#" class="all-2">
+								<b>Select All</b>
+							</a>
 						</div>
 					</div>
 				</div>
-			</section>
-			<section class="container">
-				
+			</div>
+		</section>
+		<section class="container">
+			<form style="width: auto;margin: 0;text-align: center" method="post" action="{{route('attendance.postAdd')}}" id="addAttendance" enctype="multipart/form-data">
+			@csrf
 				<div class="mat-card tab-content" style="min-height: 500px;">
 					<div class="mat-content" id="tab-main">
 						<div _ngcontent-c19="" class="row ng-star-inserted">
@@ -165,9 +165,9 @@
 						</div>
 					</div>
 				</div>
-			
-			</section>
-		</form>
+			</form>
+		</section>
+		
 
 		
 

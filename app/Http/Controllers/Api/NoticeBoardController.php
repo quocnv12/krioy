@@ -17,13 +17,10 @@ class NoticeBoardController extends Controller
     public function index()
     {
         $programs = Programs::all();
-        if (! $programs){
-            return response()->json(['message'=>'Something wrong'], 404);
-        }else{
-            return response()->json([
-               'program'=>$programs
-            ], 200);
-        }
+        return response()->json([
+           'program'=>$programs
+        ], 200);
+
     }
 
     public function detail($id){
@@ -54,13 +51,11 @@ class NoticeBoardController extends Controller
     public function create()
     {
         $programs = Programs::all();
-        if (! $programs){
-            return response()->json(['message'=>'Something wrong'], 404);
-        }else{
-            return response()->json([
-                'program'=>$programs
-            ], 200);
-        }
+
+        return response()->json([
+            'program'=>$programs
+        ], 200);
+
     }
 
 

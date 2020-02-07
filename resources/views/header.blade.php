@@ -35,7 +35,7 @@
                 @if (Auth::check())
                 <li class="nav-item">
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                    <img style="width: 30px; height: 30px;" src="images/{{ Auth::user()->image }}" alt="">
+                    <img style="width: 30px; height: 30px;border-radius: 50%;" src="images/staff/{{ Auth::user()->image }}" alt="">
                     </a>
                     <div class="dropdown-menu">
                     <a class="dropdown-item" href="#"><i class="fa fa-users" aria-hidden="true"></i> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </a>
@@ -68,7 +68,7 @@
                 @if (Auth::check())
                 <li class="nav-item">
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                    <img style="width: 30px; height: 30px;" src="images/{{ Auth::user()->image }}" alt="">
+                    <img style="width: 30px; height: 30px;" src="images/staff/{{ Auth::user()->image }}" alt="">
                     </a>
                     <div class="dropdown-menu">
                

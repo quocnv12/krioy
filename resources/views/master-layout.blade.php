@@ -47,6 +47,18 @@
 </head>
 <body>
     @include('header')
+    @if(session('success'))
+        <div style="position: absolute;right: 120px;margin-top: 10px;top: 50px;font-style: italic;opacity: 1;font-size: 14px;" class="alert alert-success">
+            <strong>Success ! </strong> {{ session('success') }} 🎉
+        </div>
+    @endif
+    @if(session('danger'))
+        <div style="position: absolute;right: 120px;margin-top: 10px;top: 50px;font-style: italic;opacity: 1;font-size: 14px;" class="alert alert-danger">
+            <strong>Danger ! </strong> {{ session('danger') }} 🎉
+        </div>
+    @endif
+   
+  
     @yield('content')
     @include('footer')
 </body>

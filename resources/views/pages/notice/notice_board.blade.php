@@ -63,7 +63,7 @@
 			<div class="mat-content">
 			@if(isset($notice_board))
 				@foreach($notice_board as $notice)
-					<div class="mat-card" style="margin: 0;">
+				<div class="mat-card" style="margin: 0;">
 					<div class="row">
 						<div class="notice" data-href="kids-now/notice-board/detail/{{$notice->id}}" style="width: 100%;">
 							<div class=" col-md-10">
@@ -83,6 +83,7 @@
 						</div>
 					</div>
 				</div>
+						<br>
 				@endforeach
             @else
                     <div style="margin: 50px">
