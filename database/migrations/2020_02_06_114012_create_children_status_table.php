@@ -15,11 +15,11 @@ class CreateChildrenStatusTable extends Migration
     {
         Schema::create('children_status', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('in')->nullable();
-            $table->integer('out')->nullable();
-            $table->integer('absent')->nullable();
-            $table->integer('leave')->nullable();
-            $table->bigInteger('id_children')->unsigned();
+            $table->string('in')->nullable();
+            $table->string('out')->nullable();
+            $table->string('absent')->nullable();
+            $table->tinyInteger('status')->nullable();
+            $table->bigInteger('id_children')->unsigned;
             $table->foreign('id_children')->references('id')->on('children_profiles')->onDelete('cascade');
             $table->timestamps();
         });
