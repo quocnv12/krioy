@@ -11,112 +11,132 @@ Food
                 <div class="col-md-6">
                     <ul class="ul-td">
                         <li _ngcontent-c16="" class="level1"><a href="kids-now">Home</a></li>
-                        <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a href="kids-now/food">Food</a>
+                        <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a
+                                href="kids-now/food">Food</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div>
+        {{-- <div>
             @if(Session::has('thongbao'))
-                <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao') }}</p>
+            <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">*
+                {{ Session::get('thongbao') }}</p>
             @endif
-             @if(Session::has('thongbao1'))
-                <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao1') }}</p>
+            @if(Session::has('thongbao1'))
+            <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">*
+                {{ Session::get('thongbao1') }}</p>
             @endif
-             @if(Session::has('thongbao2'))
-                <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao2') }}</p>
+            @if(Session::has('thongbao2'))
+            <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">*
+                {{ Session::get('thongbao2') }}</p>
             @endif
-             @if(Session::has('thongbao3'))
-                <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao3') }}</p>
+            @if(Session::has('thongbao3'))
+            <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">*
+                {{ Session::get('thongbao3') }}</p>
             @endif
-              @if(Session::has('thongbao4'))
-                <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao4') }}</p>
+            @if(Session::has('thongbao4'))
+            <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">*
+                {{ Session::get('thongbao4') }}</p>
             @endif
-        </div>
+        </div> --}}
         <div class="row">
-            <form method="post"  enctype="multipart/form-data" style="width: 100%;">
+            <form method="post" enctype="multipart/form-data" style="width: 100%;">
                 @csrf
-            <div class="mat-card" style="">
-                <div class="mat-content">
-                    <div class="row">
-                        <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href="kids-now/food/menu-meal-type" class="btn btn-defaul">Meal Type</a>
-                        <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href="kids-now/food/menu-quantity" class="btn btn-defaul">Quantity</a>
-                        <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href="kids-now/food/menu-food-name" class="btn btn-defaul">Food Name</a>
-                        <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href="kids-now/food/list" class="btn btn-defaul">Food</a>
-                    </div>
-                    
-                    <button class="accordion" type="button">Programs</button>
-                    <div class="panel">
-                        <div _ngcontent-c20="" class="row" style="">
-                            @foreach($programs as $item)
-                            <div _ngcontent-c20="" align="center"
-                                class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer;width: 50%;">
-                                <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks3"
-                        title="{{ $item->program_name }}"  style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px"
-                                    type="button" value="{{ $item->id }}">{{ $item->program_name }}</button>
+                <div class="mat-card" style="">
+                    <div class="mat-content">
+                        <div class="row">
+                            <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white"
+                                href="kids-now/food/menu-meal-type" class="btn btn-defaul">Meal Type</a>
+                            <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white"
+                                href="kids-now/food/menu-quantity" class="btn btn-defaul">Quantity</a>
+                            <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white"
+                                href="kids-now/food/menu-food-name" class="btn btn-defaul">Food Name</a>
+                            <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white"
+                                href="kids-now/food/list" class="btn btn-defaul">Food</a>
+                        </div>
+
+                        <button class="accordion" type="button">Programs</button>
+                        <div class="panel">
+                            <div _ngcontent-c20="" class="row" style="">
+                                @foreach($programs as $item)
+                                <div _ngcontent-c20="" align="center"
+                                    class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
+                                    style="padding:10px;cursor:pointer;width: 50%;">
+                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks3"
+                                        title="{{ $item->program_name }}"
+                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px"
+                                        type="button" value="{{ $item->id }}">{{ $item->program_name }}</button>
+                                </div>
+                                @endforeach
+                                <input id="array_programsss" type="hidden" value="" name="programs">
                             </div>
-                            @endforeach
-                            <input id="array_programsss" type="hidden" value="" name="programs">
                         </div>
-                    </div>
-                    <div class="update">
-                        <p style="text-align:left;margin-top:12px" >Select Meal Type *</p>
-                        <div class="tab">
-                            @foreach ($mealtypes as $item)
-                            <button value="{{ $item->id }}" style="margin:5px 19px;font-size:14px" type="button" data-id="lunch"
-                                title="{{ $item->name }}"    class="tablinks">{{ $item->name }}</button>
-                            @endforeach
-                            <input id="array_program" type="hidden" value="" name="mealtype">
+                        <div class="update">
+                            <p style="text-align:left;margin-top:12px">Select Meal Type *</p>
+                            <div class="tab">
+                                @foreach ($mealtypes as $item)
+                                <button value="{{ $item->id }}" style="margin:5px 19px;font-size:14px" type="button"
+                                    data-id="lunch" title="{{ $item->name }}"
+                                    class="tablinks">{{ $item->name }}</button>
+                                @endforeach
+                                <input id="array_program" type="hidden" value="" name="mealtype">
 
+                            </div>
                         </div>
-                    </div>
-                    {{--  <div style="text-align:left" id="clock" style="margin: 20px 0;font-size: 18px;"></div>  --}}
-                    <hr>
-                    <div class="update"  style="text-align:left">
-                        <p>Select Quantity *</p>
-                        <div class="tab">
-                            @foreach ($quantytifoods as $item)
-                            <button type="button" style="margin:5px 19px;font-size:14px" value="{{ $item->id }}"
-                                title="{{ $item->name }}"     class="tablinks2">{{ $item->name }}</button>
-                            @endforeach
-                            <input id="array_programs" type="hidden" value="" name="qtyfood">
+                        {{--  <div style="text-align:left" id="clock" style="margin: 20px 0;font-size: 18px;"></div>  --}}
+                        <hr>
+                        <div class="update" style="text-align:left">
+                            <p>Select Quantity *</p>
+                            <div class="tab">
+                                @foreach ($quantytifoods as $item)
+                                <button type="button" style="margin:5px 19px;font-size:14px" value="{{ $item->id }}"
+                                    title="{{ $item->name }}" class="tablinks2">{{ $item->name }}</button>
+                                @endforeach
+                                <input id="array_programs" type="hidden" value="" name="qtyfood">
 
+                            </div>
                         </div>
-                    </div>
-                    <hr>
-                    <button type="button" style="width:100%" class="accordion_new">Meal Item Name *
-                        <i class="fa fa-chevron-circle-down"></i>
-                    </button>
-                    <div class="panel_new">
-                        <div _ngcontent-c20="" class="row">
-                            @foreach ($itemfoods as $item)
-                            <div align="center" class="col-xs-6 col-sm-6 col-md-2 col-lg-2 ng-star-inserted"style="padding:10px;cursor:pointer;width: 50%;">
-                                <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
-                                title="{{ $item->food_name }}"     value="{{ $item->id }}" type="button"
-                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px;">{{ $item->food_name }}
+                        <hr>
+                        <button type="button" style="width:100%" class="accordion_new">Meal Item Name *
+                            <i class="fa fa-chevron-circle-down"></i>
+                        </button>
+                        <div class="panel_new">
+                            <div _ngcontent-c20="" class="row">
+                                @foreach ($itemfoods as $item)
+                                <div align="center" class="col-xs-6 col-sm-6 col-md-2 col-lg-2 ng-star-inserted"
+                                    style="padding:10px;cursor:pointer;width: 50%;">
+                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
+                                        title="{{ $item->food_name }}" value="{{ $item->id }}" type="button"
+                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px;">{{ $item->food_name }}
+                                    </button>
+                                </div>
+                                @endforeach
+                                <input id="array_programss" type="hidden" value="" name="food_name">
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <div class="button" style="text-align: center;">
+                                <button>
+                                    <span>CANCEL</span>
+                                </button>
+                                <button class="button2">
+                                    <span>SEND</span>
                                 </button>
                             </div>
-                            @endforeach
-                            <input id="array_programss" type="hidden" value="" name="food_name">
-                        </div>
-                    </div>
-                    <div class="comment">
-                        <div class="button" style="text-align: center;">
-                            <button>
-                                <span>CANCEL</span>
-                            </button>
-                            <button class="button2">
-                                <span>SEND</span>
-                            </button>
                         </div>
                     </div>
                 </div>
-            </div>
             </form>
         </div>
     </section>
+
     
+
+
+
+
+
 </body>
 @endsection
 @section('js')
@@ -162,7 +182,7 @@ Food
         if ($(this).prop('class') == 'btn progBtn limitText bgClass tablinks1 tablinks1_active') {
             $(this).removeClass('tablinks1_active');
             var program_pop = $(this).val();
-            array.splice(array.indexOf(program_pop),1);
+            array.splice(array.indexOf(program_pop), 1);
         } else {
             $(this).addClass('tablinks1_active');
             var program_push = $(this).val();
@@ -174,13 +194,12 @@ Food
 </script>
 
 <script type="text/javascript">
-      $('.tablinks3').click(function (event) {
+    $('.tablinks3').click(function (event) {
         $('.tablinks3').removeClass('tablinks_active');
         $(this).addClass('tablinks_active');
         var input = $(this).val();
         $('#array_programsss').attr('value', input);
     });
-
 
 </script>
 
