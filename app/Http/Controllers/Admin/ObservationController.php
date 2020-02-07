@@ -58,6 +58,7 @@ class ObservationController extends Controller
 
         //string to array
         $children_observations = explode(',', $request->children_observations);
+        
         //luu vao bang observations
         foreach ($children_observations as $children_id) {
             $check_id_children_isset = ObservationModel::where('id_children','=',$children_id)->get();
@@ -171,7 +172,7 @@ class ObservationController extends Controller
     {
         $vendors = ObservationTypeModel::all();
         $observationtype = ObservationTypeModel::all();
-        $child_observation = ObservationModel::find($id);
+        $child_observation  = ObservationModel::find($id);
         $children_profiles = ChildrenProfiles::where('id','=',$child_observation->id_children)->first();
         $array_observation_choose = explode(',',$child_observation->id_observations);
 

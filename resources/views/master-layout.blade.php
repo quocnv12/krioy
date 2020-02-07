@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{app()->getLocale()}}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kids-now  @yield('title')</title>
-    <link rel="icon" href="images/a.png"/>
+    <link rel="icon" href="images/logo.png"/>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <base href="{{asset('')}}">
     <!-- CSS libs -->
@@ -47,6 +47,18 @@
 </head>
 <body>
     @include('header')
+    @if(session('success'))
+        <div style="position: absolute;right: 120px;margin-top: 10px;top: 50px;font-style: italic;opacity: 1;font-size: 14px;" class="alert alert-success">
+            <strong>Succes ! </strong> {{ session('success') }} 🎉
+        </div>
+    @endif
+    @if(session('danger'))
+        <div style="position: absolute;right: 120px;margin-top: 10px;top: 50px;font-style: italic;opacity: 1;font-size: 14px;" class="alert alert-danger">
+            <strong>Danger ! </strong> {{ session('danger') }} 🎉
+        </div>
+    @endif
+   
+  
     @yield('content')
     @include('footer')
 </body>

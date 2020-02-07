@@ -33,12 +33,26 @@
 		</div>
 		</div>
 		<div>
-			@if(session('thongbao'))
+			{{-- @if (Session::has('thongbao'))
+				<div class="Toastify__toast Toastify__toast--success"
+					style="margin:0 0 16px;transition: transform 0.2s ease 0s, opacity 0.2s ease 0s; transform: translateX(0px); opacity: 1;background-color:#07bc0c">
+					<div role="alert" class="Toastify__toast-body">
+						<div>
+							<p>Chúc mừng bạn đã hoàn thành bài học <strong>Bài 1. Thuật ngữ (terms) là gì?</strong> 🎉</p>
+						</div>
+					</div><button class="Toastify__close-button Toastify__close-button--success" type="button"
+						aria-label="close">✖</button>
+					<div class="Toastify__progress-bar Toastify__progress-bar--animated Toastify__progress-bar--success"
+						style="animation-duration: 5000ms; animation-play-state: paused; opacity: 0;">
+					</div>
+				</div>
+			@endif --}}
+			{{-- @if(session('thongbao'))
 			<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">* {{ session('thongbao') }}</p>
-            @endif
-            @if(session('delete'))
+            @endif --}}
+            {{-- @if(session('delete'))
 			<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">* {{ session('delete') }}</p>
-		    @endif
+		    @endif --}}
 		</div>
 		<div class="mat-card">
 			<div class="row-fluid">
@@ -80,7 +94,7 @@
 								<td style="text-transform:capitalize">{{ $item->quantityfood->name }}</td>
 								<td style="text-transform:capitalize">{{ $item->programfood->program_name }}</td>
 								<td style="text-align:center">
-								<a href="kids-now/food/edit/{{ $item->id }}" title="Edit Food" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+									<a href="kids-now/food/edit/{{ $item->id }}" title="Edit Food" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
 									<a onclick="return confirm('Delete food ? Do you want continue !')" title="Delete Food" href="kids-now/food/delete/{{ $item->id }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
 								</td>
 							</tr>

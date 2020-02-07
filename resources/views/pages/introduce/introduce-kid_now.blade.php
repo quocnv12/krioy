@@ -9,7 +9,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
    		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
     	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
-    	<link rel="icon" href="images/a.png"/>
+    	<link rel="icon" href="images/logo.png"/>
 
     	<link rel="stylesheet" href="asset/kriyo/css/bootstrap.min.css">
     	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
@@ -32,7 +32,7 @@
 				    		<p>Kids Now</p>
 				    	</a>
 				    	<div class="topnav" id="myTopnav">
-						    <a href="food.html">HOME</a>
+						    <a href="#">HOME</a>
 						    <a href="#">KIDS NOW APP</a>
 						    <a href="#">PRICING</a>
 						    <a href="#">ABOUT US</a>
@@ -49,6 +49,16 @@
 			<div class="textMsg" align="center">
 				<div class="textMsg-children">
 					<span style="opacity: 1;position: relative;z-index: 2;cursor: pointer;">
+						@if (session('thongbao'))
+							<div  style="width:300px" class="alert alert-success" role="alert">
+								<strong>{{ session('thongbao') }}</strong>
+							</div>
+						@endif
+						@if (session('thongbao1'))
+							<div  class="alert alert-danger" role="alert">
+								<strong>{{ session('thongbao1') }}</strong>
+							</div>
+						@endif
 						<h2>One Stop Destination for Preschool &amp; Daycare Management</h2>
 						<p data-toggle="modal" data-target=".bd-example-modal-sm">
 							<img src="images/Playbutton.png" alt="">

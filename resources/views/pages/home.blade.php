@@ -330,15 +330,15 @@
                 <div class="hr"></div>
             </div>
             <div class="row line">
-                <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
+                <div class="col-xs-6 col-md-2 col-sm-6 item">
                     <a href="#">
                         <img src="images/shop.png" alt="">
                         <div class="title">
-                            <p>Shopping</p>
+                            <p>Shop</p>
                         </div>
                     </a>
                 </div>
-                <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
+                <div class="col-xs-6 col-md-2 col-sm-6 item">
                     <a href="#">
                         <img src="images/game.png" alt="">
                         <div class="title">
@@ -346,27 +346,35 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
+                <div class="col-xs-6 col-md-2 col-sm-6 item">
                     <a href="#">
                         <img src="images/Blog-icon.png" alt="">
                         <div class="title">
-                            <p>Blog</p>
+                            <p>Ebook/Blog</p>
                         </div>
                     </a>
                 </div>
-                <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
+                <div class="col-xs-6 col-md-2 col-sm-6 item">
                     <a href="#">
                         <img src="images/course.png" alt="">
                         <div class="title">
-                            <p>Course</p>
+                            <p>Courses</p>
                         </div>
                     </a>
                 </div>
-                <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
+                <div class="col-xs-6 col-md-2 col-sm-6 item">
                     <a href="#">
-                        <img src="images/application.png" alt="">
+                        <img src="images/video-youtobekids.png" alt="" style="border-radius: 50%;">
                         <div class="title">
-                            <p>Application</p>
+                            <p>Video</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-6 col-md-2 col-sm-6 item">
+                    <a href="#">
+                        <img src="images/audio.jpg" alt="" style="border-radius: 50%;">
+                        <div class="title">
+                            <p>Audio Book</p>
                         </div>
                     </a>
                 </div>

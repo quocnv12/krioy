@@ -36,6 +36,7 @@
                     <div class="mat-content">
                         <a style="min-width:110px;background:#eb87c1;color:white; float: left;font-weight: bold" href="{{route('admin.observations.listobservationtype')}}" class="btn btn-default">OBSERVATION TYPES</a>
                         <a style="min-width:110px;background:#eb87c1;color:white; float: right; border: none;font-weight: bold" href="{{route('admin.observations.list')}}" class="btn btn-success" >CHILDREN LIST</a>
+
                         <div style="font-weight: bold; font-size: 20px">
                             Seminar: {{$child_observation->month}} - {{$child_observation->year}}
                         </div>

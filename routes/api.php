@@ -19,7 +19,17 @@ use Illuminate\Http\Request;
 
 Route::get('test','Api\TestApiController@GetTest');
 
+Route::post('login', 'Api\LoginController@login');
+
 Route::group(['prefix' => 'kids-now'], function () {
+    Route::post('logout', 'Api\LoginController@logout');
+
+    //------------food----------------
+   
+    Route::group(['prefix' => 'food'], function () {
+        Route::get('', 'Api\FoodController@index');
+        Route::get('show', 'Api\FoodController@show');
+    });
 
     //---------------children----------------
     Route::group(['prefix' => 'children'], function () {

@@ -18,6 +18,7 @@ Food
             </div>
         </div>
         <div>
+ 
             @if(Session::has('thongbao'))
                 <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao') }}</p>
             @endif
@@ -67,11 +68,9 @@ Food
                             <button value="{{ $item->id }}" style="margin:5px 26px 5px 42px;font-size:14px"   title="{{ $item->name }}" type="button" data-id="lunch"
                                 class="tablinks {{ $item->id==$foods->meal_type ? 'tablinks_active' : '' }}">{{ $item->name }}</button>
                             @endforeach
-                          
                             <input id="array_program" type="hidden" value="{{ $foods->meal_type }}" name="mealtype">
                         </div>
                     </div>
-                   
                     <hr>
                     <div class="update"  style="text-align:left">
                         <p>Select Quantity *</p>

@@ -30,7 +30,11 @@ class CreateStaffProfilesTable extends Migration
             $table->tinyInteger('status')->default(1);
             $table->string('code')->nullable();
             $table->string('time_code')->nullable();
+            $table->tinyInteger('level')->default(1);
             $table->rememberToken();
+            $table->tinyInteger('active')->default(1);
+            $table->string('code_active')->nullable();
+            $table->string('time_active')->nullable();
             $table->timestamps();
         });
     }

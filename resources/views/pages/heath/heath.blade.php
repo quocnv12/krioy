@@ -124,7 +124,7 @@
 						<div id="Medicine" class="tabcontent">
 							<div class="row">
 								<div class="col-md-9 input_box">
-									<span>Enter details here *</span>
+									<span> Enter details here *</span>
 									<input type="text" name="medicine" placeholder="Enter details here *">
 
 								</div>
