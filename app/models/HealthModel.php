@@ -18,11 +18,10 @@ class HealthModel extends Model
         'medicine',
         'incident',
         'blood_group',
-        'image',
         'file_pdf',
     ];
 
-    public $timestamps = false;
+    protected $proxies = '*';
     public function ChildrenProfiles(){
         return $this->belongsTo('App\models\ChildrenProfiles','id_children','id');
     }

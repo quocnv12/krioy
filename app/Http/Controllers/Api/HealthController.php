@@ -19,13 +19,18 @@ class HealthController extends Controller
 
         $health = HealthModel :: all();
 
-        return view('pages.heath.list', compact('health'));
+        return response()->json([
+            'health'=>$health
+        ], 200);
     }
 
     public function getAdd(){
         $health = HealthModel::all();
         $programs = Programs::all();
-        return view('pages.heath.heath', compact('health','programs'));
+        return response()->json([
+            'health'=>$health,
+            'programs'=>$programs
+        ]);
     }
     public function postAdd(Request $request)
     {
@@ -70,16 +75,20 @@ class HealthController extends Controller
 
             $health->save();
 
-            return redirect()->back()->with('notify', 'Add successfully');
+            return response()->json([
+                'health'=>$health
+            ], 201);
 
         }
     }
 
     public function getEdit($id){
         $health = HealthModel::find($id);
-
         $childrent = DB::table('children_profiles')->where('id',$id)->first();
-        return view('pages.heath.edit', compact('health','childrent'));
+        return response()->json([
+            'health'=>$health,
+            'childrent'=>$childrent,
+        ], 200);
     }
     public function postEdit(Request $request, $id)
     {
@@ -122,13 +131,19 @@ class HealthController extends Controller
             $health->save();
 
 
-            return redirect()->back()->with('notify', 'Edit successfully');
+            return response()->json([
+                'health'=>$health
+            ], 200);
         }
     }
 
     public function getDelete($id){
         $health= DB::table('health')->where('id',$id)->delete();
-        return redirect()->back()->with('notify','Deleted file successfully');
+        if (!$health){
+            return response()->json(['message'=>'Something wrong'], 404);
+        }else{
+            return response()->json(null, 204);
+        }
     }
     public function getSearch(Request $req){
 
@@ -142,7 +157,13 @@ class HealthController extends Controller
             ->join('health as b', 'a.id','=','b.id_children')
             ->select('a.*','b.*')
             ->paginate(5);
-        return view('pages.heath.search', compact('search'));
+        if (!$search){
+            return response()->json('Not found', 404);
+        }else{
+            return response()->json([
+                'search'=>$search
+            ], 200);
+        }
     }
     public function postSearch(Request $req){
 
@@ -159,15 +180,24 @@ class HealthController extends Controller
 
 
             ->paginate(5);
-        return view('pages.heath.search', compact('search'));
+        if (!$search){
+            return response()->json('Not found', 404);
+        }else{
+            return response()->json([
+                'search'=>$search
+            ], 200);
+        }
 
     }
-
     public function searchByName(Request $request)
     {
-        $children_profiles = ChildrenProfiles::where(DB::raw("concat(first_name ,' ', last_name)"), 'like', '%' . $request->get('q') . '%')->get();
-
-        return response()->json($children_profiles);
+        $children_profiles = ChildrenProfiles::where('first_name', 'like', '%' . $request->get('q') . '%')
+            ->orWhere('last_name', 'like', '%' . $request->get('q') . '%')
+            ->orderBy('last_name')
+            ->get();
+        return response()->json([
+            'children_profiles'=>$children_profiles
+        ], 200);
     }
 
     public function addSelectChild(Request $request)
@@ -206,9 +236,11 @@ class HealthController extends Controller
             ->join('children_programs','children_profiles.id','=','children_programs.id_children')
             ->where('children_programs.id_program','=',$id)
             ->get();
-        return view('pages.heath.heath',['children_profiles'=>$children_profiles,
+        return response()->json([
+            'children_profiles'=>$children_profiles,
             'observationtype'=>$observationtype,
-            'programs'=>$programs]);
+            'programs'=>$programs
+        ], 200);
     }
 
 
