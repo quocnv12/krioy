@@ -21,162 +21,162 @@
             <div class="row line">
                 <div class="col-xs-6 col-sm-6 col-md-2dot4 item">
                     <a href="kids-now/attendance">
-                        <img src="images/attendance1.png" alt="" style="background: darkgrey;">
+                        <img src="images/attendance1.png" alt="@lang('kidsnow.attendance')" style="background: darkgrey;">
                         <div class="title">
-                            <p>Attendance</p>
+                            <p>@lang('kidsnow.attendance')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-2dot4 item">
                     <a href="#">
-                        <img src="images/Diary.png" alt="">
+                        <img src="images/Diary.png" alt="@lang('kidsnow.diary')">
                         <div class="title">
-                            <p>Diary</p>
+                            <p>@lang('kidsnow.diary')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="kids-now/food">
-                        <img src="images/Food-01.png" alt="">
+                        <img src="images/Food-01.png" alt="@lang('kidsnow.food')">
                         <div class="title">
-                            <p>Food</p>
+                            <p>@lang('kidsnow.food')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/Star-01.png" alt="">
+                        <img src="images/Star-01.png" alt="@lang('kidsnow.star')">
                         <div class="title">
-                            <p>Star</p>
+                            <p>@lang('kidsnow.star')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/Potty-01.png" alt="">
+                        <img src="images/Potty-01.png" alt="@lang('kidsnow.potty')">
                         <div class="title">
-                            <p>Potty</p>
+                            <p>@lang('kidsnow.potty')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="{{route('admin.health.getAdd')}}">
-                        <img src="images/Health-01.png" alt="">
+                        <img src="images/Health-01.png" alt="@lang('kidsnow.health')">
                         <div class="title">
-                            <p>Health</p>
+                            <p>@lang('kidsnow.health')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="{{route('admin.observations.list')}}">
-                        <img src="images/Observation-01.png" alt="">
+                        <img src="images/Observation-01.png" alt="//@lang('kidsnow.observations')">
                         <div class="title">
-                            <p>Observations</p>
+                            <p>//@lang('kidsnow.observations')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/Photots-01.png" alt="">
+                        <img src="images/Photots-01.png" alt="@lang('kidsnow.photos')">
                         <div class="title">
-                            <p>Photos</p>
+                            <p>@lang('kidsnow.photos')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/Play and Learn-01.png" alt="">
+                        <img src="images/Play and Learn-01.png" alt="@lang('kidsnow.play_and_learn')">
                         <div class="title">
-                            <p>Play and Learn</p>
+                            <p>@lang('kidsnow.play_and_learn')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/Sleep-01.png" alt="">
+                        <img src="images/Sleep-01.png" alt="@lang('kidsnow.sleep')">
                         <div class="title">
-                            <p>Sleep</p>
+                            <p>@lang('kidsnow.sleep')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="kids-now/notice-board">
-                        <img src="images/Notice Board Circle-01.png" alt="">
+                        <img src="images/Notice Board Circle-01.png" alt="@lang('kidsnow.notice_board')">
                         <div class="title">
-                            <p>Notice Board</p>
+                            <p>@lang('kidsnow.notice_board')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/calender-01.png" alt="">
+                        <img src="images/calender-01.png" alt="@lang('kidsnow.calendar')">
                         <div class="title">
-                            <p>Calendar</p>
+                            <p>@lang('kidsnow.calendar')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/Parent Note with Backgroud -01.png" alt="">
+                        <img src="images/Parent Note with Backgroud -01.png" alt="@lang('kidsnow.parent_notes')">
                         <div class="title">
-                            <p>Parent Notes</p>
+                            <p>@lang('kidsnow.parent_notes')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/Route Tracker.png" alt="">
+                        <img src="images/Route Tracker.png" alt="@lang('kidsnow.route_tracker')">
                         <div class="title">
-                            <p>Route Tracker</p>
+                            <p>@lang('kidsnow.route_tracker')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/report.jpg" alt="">
+                        <img src="images/report.jpg" alt="@lang('kidsnow.reports')">
                         <div class="title">
-                            <p>Reports</p>
+                            <p>@lang('kidsnow.reports')</p>
                         </div>
                     </a>
                 </div>
 
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/Daily report.png" alt="">
+                        <img src="images/Daily report.png" alt="@lang('kidsnow.daily_reports')">
                         <div class="title">
-                            <p>Daily Reports</p>
+                            <p>@lang('kidsnow.daily_reports')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/History.png" alt="">
+                        <img src="images/History.png" alt="@lang('kidsnow.history')">
                         <div class="title">
-                            <p>History</p>
+                            <p>@lang('kidsnow.history')y</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/Add Note (1)-01.png" alt="">
+                        <img src="images/Add Note (1)-01.png" alt="@lang('kidsnow.enquiries')">
                         <div class="title">
-                            <p>Enquiries</p>
+                            <p>@lang('kidsnow.enquiries')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/invoice.jpg" alt="">
+                        <img src="images/invoice.jpg" alt="@lang('kidsnow.invoices')">
                         <div class="title">
-                            <p>Invoices</p>
+                            <p>@lang('kidsnow.invoices')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/ExpenseManagement1.png" alt="">
+                        <img src="images/ExpenseManagement1.png" alt="@lang('kidsnow.expenses')">
                         <div class="title">
-                            <p>Expenses</p>
+                            <p>@lang('kidsnow.expenses')</p>
                         </div>
                     </a>
                 </div>
@@ -186,47 +186,47 @@
     <div class="product2">
         <div class="container">
             <div class="cap-main">
-                <h3><strong>Profiles</strong></h3>
+                <h3><strong>@lang('kidsnow.profiles')</strong></h3>
                 <div class="hr"></div>
             </div>
             <div class="row line">
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="kids-now/children">
-                        <img src="images/Child.png" alt="">
+                        <img src="images/Child.png" alt="@lang('kidsnow.children_profiles')">
                         <div class="title">
-                            <p>Children Profiles</p>
+                            <p>@lang('kidsnow.children_profiles')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="kids-now/staff">
-                        <img src="images/Staff.png" alt="">
+                        <img src="images/Staff.png" alt="@lang('kidsnow.staff_profiles')">
                         <div class="title">
-                            <p>Staff Profiles</p>
+                            <p>@lang('kidsnow.staff_profiles')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="kids-now/program">
-                        <img src="images/Programs.png" alt="">
+                        <img src="images/Programs.png" alt="@lang('kidsnow.programs')">
                         <div class="title">
-                            <p>Programs</p>
+                            <p>@lang('kidsnow.programs')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/School Icon.png" alt="">
+                        <img src="images/School Icon.png" alt="@lang('kidsnow.school')">
                         <div class="title">
-                            <p>School</p>
+                            <p>@lang('kidsnow.school')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/graduate.png" alt="">
+                        <img src="images/graduate.png" alt="@lang('kidsnow.archives')">
                         <div class="title">
-                            <p>Archives</p>
+                            <p>@lang('kidsnow.archives')</p>
                         </div>
                     </a>
                 </div>
@@ -236,87 +236,87 @@
     <div class="product3">
         <div class="container">
             <div class="cap-main">
-                <h3><strong>Setup & Settings</strong></h3>
+                <h3><strong>@lang('kidsnow.setup_and_settings')</strong></h3>
                 <div class="hr"></div>
             </div>
             <div class="row line">
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/RoomRatio1.png" alt="">
+                        <img src="images/RoomRatio1.png" alt="@lang('kidsnow.room_ratio')">
                         <div class="title">
-                            <p>Room Ratio</p>
+                            <p>@lang('kidsnow.room_ratio')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/Favourite School.png" alt="">
+                        <img src="images/Favourite School.png" alt="@lang('kidsnow.favourite')">
                         <div class="title">
-                            <p>Favourite</p>
+                            <p>@lang('kidsnow.favourite')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/tags.png" alt="">
+                        <img src="images/tags.png" alt="@lang('kidsnow.tags')">
                         <div class="title">
-                            <p>Tags</p>
+                            <p>@lang('kidsnow.tags')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/Trasnsport setup.png" alt="">
+                        <img src="images/Trasnsport setup.png" alt="@lang('kidsnow.transaport_setup')">
                         <div class="title">
-                            <p>Transaport Setup</p>
+                            <p>@lang('kidsnow.transaport_setup')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/QR Code Download-01.png" alt="">
+                        <img src="images/QR Code Download-01.png" alt="@lang('kidsnow.qr_download')">
                         <div class="title">
-                            <p>QR Download</p>
+                            <p>@lang('kidsnow.qr_download')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/Sickness-01.png" alt="">
+                        <img src="images/Sickness-01.png" alt="@lang('kidsnow.allergies_info')">
                         <div class="title">
-                            <p>Allergies Info</p>
+                            <p>@lang('kidsnow.allergies_info')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/Parent.png" alt="">
+                        <img src="images/Parent.png" alt="@lang('kidsnow.invite_parents')">
                         <div class="title">
-                            <p>Invite Parents</p>
+                            <p>@lang('kidsnow.invite_parents')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/Staff.png" alt="">
+                        <img src="images/Staff.png" alt="@lang('kidsnow.invite_staff')">
                         <div class="title">
-                            <p>Invite Staff</p>
+                            <p>@lang('kidsnow.invite_staff')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/CCTv.png" alt="">
+                        <img src="images/CCTv.png" alt="@lang('kidsnow.cctv_access')">
                         <div class="title">
-                            <p>CCTV Access</p>
+                            <p>@lang('kidsnow.cctv_access')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/settings.png" alt="">
+                        <img src="images/settings.png" alt="@lang('kidsnow.configuratios')">
                         <div class="title">
-                            <p>Configurations</p>
+                            <p>@lang('kidsnow.configuratios')</p>
                         </div>
                     </a>
                 </div>
@@ -326,55 +326,55 @@
     <div class="add-application" style="background: #f9f9f9;">
         <div class="container">
             <div class="cap-main">
-                <h3><strong>Application</strong></h3>
+                <h3><strong>@lang('kidsnow.application')</strong></h3>
                 <div class="hr"></div>
             </div>
             <div class="row line">
                 <div class="col-xs-6 col-md-2 col-sm-6 item">
                     <a href="#">
-                        <img src="images/shop.png" alt="">
+                        <img src="images/shop.png" alt="@lang('kidsnow.shop')">
                         <div class="title">
-                            <p>Shop</p>
+                            <p>@lang('kidsnow.shop')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2 col-sm-6 item">
                     <a href="#">
-                        <img src="images/game.png" alt="">
+                        <img src="images/game.png" alt="@lang('kidsnow.game')">
                         <div class="title">
-                            <p>Game</p>
+                            <p>@lang('kidsnow.game')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2 col-sm-6 item">
                     <a href="#">
-                        <img src="images/Blog-icon.png" alt="">
+                        <img src="images/Blog-icon.png" alt="@lang('kidsnow.ebook_blog')">
                         <div class="title">
-                            <p>Ebook/Blog</p>
+                            <p>@lang('kidsnow.ebook_blog')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2 col-sm-6 item">
                     <a href="#">
-                        <img src="images/course.png" alt="">
+                        <img src="images/course.png" alt="@lang('kidsnow.courses')">
                         <div class="title">
-                            <p>Courses</p>
+                            <p>@lang('kidsnow.courses')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2 col-sm-6 item">
                     <a href="#">
-                        <img src="images/video-youtobekids.png" alt="" style="border-radius: 50%;">
+                        <img src="images/video-youtobekids.png" alt="@lang('kidsnow.video')" style="border-radius: 50%;">
                         <div class="title">
-                            <p>Video</p>
+                            <p>@lang('kidsnow.video')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2 col-sm-6 item">
                     <a href="#">
-                        <img src="images/audio.jpg" alt="" style="border-radius: 50%;">
+                        <img src="images/audio.jpg" alt="@lang('kidsnow.audio_book')" style="border-radius: 50%;">
                         <div class="title">
-                            <p>Audio Book</p>
+                            <p>@lang('kidsnow.audio_book')</p>
                         </div>
                     </a>
                 </div>
@@ -384,25 +384,25 @@
     <div class="product4">
         <div class="container">
             <div class="cap-main">
-                <h3><strong>Help</strong></h3>
+                <h3><strong>@lang('kidsnow.menu_help')</strong></h3>
                 <div class="hr"></div>
             </div>
             <div class="row line">
                 <div class="col-md-3"></div>
                 <div class="col-xs-6 col-md-3 col-sm-6 item">
                     <a href="#">
-                        <img src="images/FAQ.png" alt="">
+                        <img src="images/FAQ.png" alt="@lang('kidsnow.faqs')">
                         <div class="title">
-                            <p>FAQs</p>
+                            <p>@lang('kidsnow.faqs')</p>
                         </div>
                     </a>
                 </div>
 
                 <div class="col-xs-6 col-md-3 col-sm-6 item">
                     <a href="#">
-                        <img src="images/Help Video-01.png" alt="">
+                        <img src="images/Help Video-01.png" alt="@lang('kidsnow.help_videos')">
                         <div class="title">
-                            <p>Help Videos</p>
+                            <p>@lang('kidsnow.help_videos')</p>
                         </div>
                     </a>
                 </div>
