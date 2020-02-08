@@ -31,7 +31,7 @@ class AttendanceChildrenController extends Controller
         $dayupdate =  date('d', strtotime($day));
         $data['time'] = date('H:s:i', strtotime($day));
 
-        
+
         $data['id'] = $id;
         $data['count_chil'] = $data['children_profiles']->count();
         $data['count_in'] = Children_status::where('status','1')->where('id_program',$id)->whereDay('updated_at',$dayupdate)->count();
@@ -67,7 +67,6 @@ class AttendanceChildrenController extends Controller
                 $check_attendance_day = Children_status::where('id_children',$id_children)->whereDay('updated_at',$dayupdate)->first();
 
                 if(empty($check_attendance_day)){
-                    echo ' Chưa điểm rank ';
                     $chil_status = new Children_status;
                     $chil_status->id_children = $id_children;
                     $chil_status->id_program = $id;
@@ -83,7 +82,6 @@ class AttendanceChildrenController extends Controller
                     $chil_status->save();
                     
                 }else{
-                    echo ' Đã điểm rank ';
                     $chil_status = Children_status::where('id_children',$id_children)->whereDay('updated_at',$dayupdate)->first();
                     if($req->children_status == 1) {
                         $chil_status->in = $timestatus;
@@ -105,7 +103,18 @@ class AttendanceChildrenController extends Controller
             return redirect()->back()->with('success','Attendance success !')->withInput();
         }
         
-
-        
     }
+    public function list(Request $req){
+        $data['programs']  = Programs::all();
+        if ($req->program || $req->day || $req->month || $req->year) {
+            $data['child_atd'] = Children_status::where('id_program', '=', $req->program)->whereDay('created_at', '=', $req->day)->whereMonth('created_at', '=', $req->month)->whereYear('created_at', '=', $req->year)->get();
+            return view('pages.attendance.list', $data);
+        }else {
+            // $current_month = Carbon::now()->format('M');
+            // $data['child_atd'] = Children_status::where('created_at', '=', $current_month)->where('created_at', '=', now()->year)->get();
+            return view('pages.attendance.list', $data);
+        }
+    }
+
+
 }

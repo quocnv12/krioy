@@ -21,11 +21,16 @@
 					<div class="col-md-6">
 						<ul class="ul-td">
 							<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="index.html">HOME</a></li>
-							<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="food.html">ATTENDANCE</a></li>
+							<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="{{route('attendance.index')}}">ATTENDANCE</a></li>
 						</ul>
 					</div>
 					<div class="col-md-6">
 						<div id="clock" style="margin: 20px 0;font-size: 16px;text-align: right;"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						<a style="min-width:110px;background:#eb87c1;color:white; float: right; border: none;font-weight: bold" href="{{route('attendance.list')}}" class="btn btn-success" >CHILDREN LIST</a>
 					</div>
 				</div>
 			</div>
