@@ -267,9 +267,67 @@ select .mat-card .mat-content div > div.childClass:hover {
     box-shadow: 0 0 10px rgba(0,0,0,.15);
 }
 
-
+.span-md{
+    border-radius: 5px;
+}
 .img-circle {
     border-radius: 50%;
+}
+.img-bd-md{
+    border: none;
+}
+.img-bd-xam{
+    border: 3px solid #ccc;
+}
+.img-bd-xanh{
+    border: 3px solid #37bd9c;
+}
+.img-bd-do{
+    border: 3px solid #ed5564;
+}
+.span-bg-md{
+    background: 
+}
+.span-bg-xam{
+    color: #fff;
+    background: #ccc;
+}
+.span-bg-xanh{
+    color: #fff;
+    background: #37bd9c;
+}
+.span-bg-do{
+    color: #fff;
+    background: #ed5564;
+}
+.span-bg-md{
+    color:#5363d6;
+}
+.span-clock p{
+  margin: 0px;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+.span-clock-md p{
+color: #5363d6;background: #fff;
+}
+.span-clock-xam p{
+    background: #ccc;
+    color: #fff; 
+}
+.span-clock-xanh p{
+    background: #37bd9c;
+    color: #fff; 
+}
+.span-clock-do p{
+    background: #ed5564;
+    color: #fff; 
+}
+.span-clock p{
+    margin-bottom: 0 !important;
 }
 /*child_profile modal*/
 .modal-content ul{
