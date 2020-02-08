@@ -53,6 +53,15 @@
     <div class="d-block d-md-none menu_mobile">
         <div id="menu_mobile">
             <div class="closebtn" onclick="closeNav()">×</div>
+            <a>
+                <div class="dropdown-logo1">
+                    <button class="dropbtn-logo1"><img src="images/viet.png" style="width: 20px;height: 20px"></button>
+                    <div class="dropdown-content-logo1">
+                        <a href="#" style="color: black;"><img src="images/viet.png"> VietNamese</a>
+                        <a href="#" style="color: black;"><img src="images/usa.png"> English</a>
+                    </div>
+                </div>
+            </a>
             <a href="#">@lang('kidsnow.menu_profiles')</a>
             <a href="#">INVOICES</a>
             <a href="#">Settings</a>

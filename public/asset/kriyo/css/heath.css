@@ -85,6 +85,7 @@ a,a:hover, a:focus,button:focus{
 }
 .ul-td li.active1 a {
     background: #eb87c1;
+    color: white;
 }
 .ul-td li.active1 a:after {
     border-left: 30px solid #eb87c1;
@@ -95,6 +96,7 @@ a,a:hover, a:focus,button:focus{
     list-style: none;
     overflow: hidden;
     margin: 5px 10px;
+    width: 100%;
 }
 
 /*table*/

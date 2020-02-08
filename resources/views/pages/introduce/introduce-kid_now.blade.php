@@ -28,8 +28,7 @@
 				<div class="container-fluid">
 				    <div class="navbar-header">
 				    	<a class="navbar-brand" href="#" style="display: flex;">
-				    		<img src="images/logo.png" alt="">
-				    		<p>Kids Now</p>
+				    		<img src="images/logo-ngang.png" style="border-radius: 0;width: auto;margin: -7px 0;" alt="">
 				    	</a>
 				    	<div class="topnav" id="myTopnav">
 						    <a href="#">HOME</a>

@@ -24,8 +24,8 @@ a:focus{
       background-color: #fff;
       border-radius: 15px;}
   .menu_desktop .navbar-nav .nav-item .dropdown-menu {
-    left: 83%;
-    top: 70%; }
+    left: auto;top: auto;
+    right: 0; }
     .menu_desktop .navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
       color: #bd2130; }
 .menu_mobile #menu_mobile {
@@ -59,7 +59,10 @@ a:focus{
     color: white;
     cursor: pointer; }
 .menu_mobile .navbar-nav .dropdown-menu {
-  position: absolute; }
+  position: absolute;
+  left: auto;
+    right: 0;
+    top: auto; }
 .menu_mobile .openbtn {
   font-size: 20px;
   cursor: pointer;
@@ -285,7 +288,7 @@ a:focus{
           .product4 .line .item .title p:hover {
             font-weight: 700; }
 
-@media screen and (min-width: 1120px) and (max-width: 1330px) {
+/*@media screen and (min-width: 1120px) and (max-width: 1330px) {
   .menu_desktop .navbar-nav .nav-item .dropdown-menu {
     left: 81%;
     top: 70%; } }
@@ -301,7 +304,7 @@ a:focus{
   .menu_desktop .navbar-nav .nav-item .dropdown-menu {
     left: 70%;
     top: 70%; } }
-
+*/
 @media screen and (max-width: 796px) { 
   .menu_desktop .navbar-nav .nav-item {
     padding: 0 5px;
@@ -312,7 +315,7 @@ a:focus{
 }
 @media screen and (max-width: 768px) {
   .menu_desktop .navbar-nav .nav-item .dropdown-menu{
-    left: 70%;
+    left: auto;right: 0;
   }
 }
 @media screen and (max-width: 767px) {
