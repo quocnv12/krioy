@@ -24,5 +24,10 @@ class food extends Model
    {
        return $this->belongsTo('App\models\Programs', 'id_program', 'id');
    }
+   protected $fillable = [
+    'meal_type',
+    'quantity',
+    'id_program',
+    ];
 
 }

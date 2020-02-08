@@ -42,6 +42,7 @@ class Handler extends ExceptionHandler
             echo 'dang trong qua trinh phat trien';
         }
 
+
         parent::report($exception);
 
 

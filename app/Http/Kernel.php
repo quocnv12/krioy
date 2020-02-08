@@ -63,6 +63,8 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'CheckLogin' => \App\Http\Middleware\CheckLogin::class,
         'CheckLogOut' => \App\Http\Middleware\CheckLogOut::class,
+        'Jwtapi' => \App\Http\Middleware\VerifyJWTToken::class,
+        
     ];
 
     /**

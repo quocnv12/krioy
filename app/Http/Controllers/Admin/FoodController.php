@@ -21,6 +21,7 @@ class FoodController extends Controller
 
     public function PostFood(request $request) 
     {
+       // dd($request->all());
         if($request->programs==null)
         {
             return redirect()->back()->with('danger','Pleasea choose program !')->withInput();
@@ -38,6 +39,7 @@ class FoodController extends Controller
         }
         else 
         {
+            
             $foods =new food;
             $foods->meal_type = $request->mealtype;
             $foods->quantity = $request->qtyfood;

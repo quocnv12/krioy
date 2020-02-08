@@ -31,6 +31,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="kids-now">Kids-now</a>
                 </li>
+            
                 <!-- Dropdown -->
                 @if (Auth::check())
                 <li class="nav-item">
@@ -50,6 +51,7 @@
             </ul>
         </nav>
     </div>
+  
     <div class="d-block d-md-none menu_mobile">
         <div id="menu_mobile">
             <div class="closebtn" onclick="closeNav()">×</div>
