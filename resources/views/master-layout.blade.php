@@ -33,6 +33,13 @@
         .line .item a{
             text-align: center;
         }
+        @keyframes example {
+            0%   {right:0px; top:50px;}
+            /* 25%  {right:0px; top:50px;} */
+            50%  {right:120px; top:50px;}
+            /* 75%  {right:60px; top:50px;} */
+            75% {right:0px; top:50px}
+}
     </style>
     <!-- JS libs --> 
     <script type="text/javascript" src="libs/jquery-3.4.1.min.js"></script>
@@ -42,17 +49,18 @@
 <body>
     @include('header')
     @if(session('success'))
-        <div style="position: absolute;right: 120px;margin-top: 10px;top: 50px;font-style: italic;opacity: 1;font-size: 14px;" class="alert alert-success">
-            <strong>Success ! </strong> {{ session('success') }} 🎉
+        <div style="position: absolute;right: 0px;margin-top: 10px;top: 50px;font-style: italic;opacity: 1;font-size: 14px;animation-name: example;
+        animation-duration: 5s;animation-iteration-count: 2;animation-direction: alternate; " class="alert alert-success">
+            <strong>Succes ! </strong> {{ session('success') }} 🎉
         </div>
     @endif
     @if(session('danger'))
-        <div style="position: absolute;right: 120px;margin-top: 10px;top: 50px;font-style: italic;opacity: 1;font-size: 14px;" class="alert alert-danger">
+        <div style="position: absolute;right: 0px;margin-top: 10px;top: 50px;font-style: italic;opacity: 1;font-size: 14px;animation-name: example;
+        animation-duration: 5s;animation-iteration-count: 2;animation-direction: alternate;" class="alert alert-danger">
             <strong>Danger ! </strong> {{ session('danger') }} 🎉
         </div>
     @endif
    
-  
     @yield('content')
     @include('footer')
 </body>
@@ -65,19 +73,19 @@
     <script src="js/home.js"></script>
     <script src="asset/kriyo/js/toastr.min.js"></script>
     <script>
-        $('div.alert').delay(5000).slideUp();
+        $('div.alert').delay(3000).slideUp();
     </script>
-@if(session('error'))
-    <script type="text/javascript">
-        toastr.error('{{ session('error') }}', 'Thông báo', {timeOut: 5000});
-    </script>
-@endif
+    @if(session('error'))
+        <script type="text/javascript">
+            toastr.error('{{ session('error') }}', 'Thông báo', {timeOut: 5000});
+        </script>
+    @endif
 
-@if(session('thongbao'))
-    <script type="text/javascript">
-        toastr.success('{{ session('thongbao') }}', 'Thông báo', {timeOut: 5000});
-    </script>
-@endif
+    @if(session('thongbao'))
+        <script type="text/javascript">
+            toastr.success('{{ session('thongbao') }}', 'Thông báo', {timeOut: 5000});
+        </script>
+    @endif
     @yield('js')
 
 </html>

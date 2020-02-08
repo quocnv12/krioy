@@ -28,6 +28,7 @@ class IndexController extends Controller
         $staff->first_name = $request->first_name;
         $staff->email = $request->email;
         $staff->phone = $request->phone;
+        $staff->image = 'no-img.png';
         $staff->password = bcrypt($request->password);
         $staff->active =0;
         $staff->level =0;
@@ -35,7 +36,7 @@ class IndexController extends Controller
 
         $email = $staff->email;
         $code = bcrypt(time().$email);
-        $url = route('user.verify.account',['id'=>$staff->id,'code'=>$code,'phone'=>$staff->phone,'password'=>$staff->password]);
+        $url = route('user.verify.account',['id'=>$staff->id,'code'=>$code]);
         $staff->code_active =$code;
         $staff->time_active =Carbon::now();
         $staff->save();
@@ -48,7 +49,7 @@ class IndexController extends Controller
         Mail::send('pages.introduce.verify', $data, function($message) use ($email){
             $message->to($email, 'Verify Account')->subject('Link Verify Account !');
         });
-        return redirect()->back()->with('thongbao','Registration successful please login email to confirm your account !');
+        return redirect()->back()->with('success','Registration successful please login email to confirm your account !');
     }
 
     //xac nhan tai khoan
@@ -61,7 +62,7 @@ class IndexController extends Controller
             'id'=>$id])->first();
             if(!$staff)
             {
-                return redirect()->back()->with('thongbao','Link verify false !');
+                return redirect()->back()->with('danger','Link verify false !');
             }
         $staff->active=1;
         $staff->save();
@@ -69,11 +70,10 @@ class IndexController extends Controller
 
         $phone = $request->phone;
         $password =$request->password;
-        if(Auth::attempt(['phone' => $phone, 'password' => $password]))
+        if(Auth::loginUsingId($staff->id))
         {
-            return redirect('kids-now');
+            return redirect('kids-now')->with('success','Verify success');
         }
-        return redirect('kids-now');
     }
 
 }

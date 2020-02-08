@@ -21,15 +21,31 @@ Route::get('test','Api\TestApiController@GetTest');
 
 Route::post('login', 'Api\LoginController@login');
 
-Route::group(['prefix' => 'kids-now'], function () {
+Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
     Route::post('logout', 'Api\LoginController@logout');
 
     //------------food----------------
    
+    
     Route::group(['prefix' => 'food'], function () {
         Route::get('', 'Api\FoodController@index');
-        Route::get('show', 'Api\FoodController@show');
+        Route::post('add', 'Api\FoodController@store');
+        Route::get('show/{id}', 'Api\FoodController@show');
+        Route::post('update/{id}', 'Api\FoodController@update');
+        Route::get('delete/{id}', 'Api\FoodController@destroy');
+
+
+        //meal type
+        Route::get('menu-meal-type', 'Api\FoodController@indexMealType');
+        Route::post('menu-meal-type/add', 'Api\FoodController@storeMealType');
+        Route::get('menu-meal-type/show/{id}', 'Api\FoodController@showMealType');
+        Route::post('menu-meal-type/update/{id}', 'Api\FoodController@updateMealType');
+        Route::get('menu-meal-type/delete/{id}', 'Api\FoodController@destroyMealType');
+
     });
+   
+    // Route::apiResource('food', 'api\FoodController@add');
+    // Route::apiResource('food', 'api\FoodController');
 
     //---------------children----------------
     Route::group(['prefix' => 'children'], function () {
