@@ -70,7 +70,7 @@
         </div>
        
         <nav class="navbar navbar-expand-sm bg-light">
-            <button class="openbtn" onclick="openNav()">☰ Menu</button>
+            <button class="openbtn" onclick="openNav()">☰ KIDS NOW</button>
                         <!-- Links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Dropdown -->
