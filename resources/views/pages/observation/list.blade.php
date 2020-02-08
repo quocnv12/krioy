@@ -33,7 +33,7 @@
         <p style="font-size: 12px;margin-left:11px;font-weight: 100;color:#0D1CE9;font-style: italic;line-height: 25px;margin-top:10px;">{{ session('thongbao') }} </p>
     @endif
     @if (session('delete'))
-        <p style="font-size: 12px;margin-left:11px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:10px;">{{ session('delete') }} </p>
+        <p style="font-size: 12px;margin-left:11px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:10px;"> {{ session('delete') }} </p>
     @endif
     <div class="mat-card">
         <div class="row-fluid">
@@ -47,10 +47,10 @@
                             {{-- <div style="text-align:right;padding-right:22px" class="col-md-6">
                                 <a style="margin:0px;" href="{{ route('menu-food-name-add') }}" class="btn btn-success btn-cons"" title="Add Food Name"><i style="" class="fa fa-plus-circle"></i> Add</a>
                             </div> --}}
-                            <form action="kids-now/observations/list" method="get" >
+                            <form action="kids-now/observations/list" method="get" style="display: contents">
 
                                 <div class="col-md-6" style="display: flex; justify-content: flex-end; align-items: center">
-                                    Seminar&nbsp;&nbsp;:&nbsp;&nbsp;
+                                    <span style="font-weight: bold">Seminar</span>&nbsp;&nbsp;:&nbsp;&nbsp;
                                     <select name="month" id="month" >
                                         <option value="">Choose Month</option>
                                         <option value="Jan">January</option>
@@ -82,7 +82,6 @@
                         <table class="table table-striped" id="example">
                             <thead>
                             <tr>
-                                <th>ID</th>
                                 <th style="width:30%">Children's Name</th>
                                 <th style="width:10%">Birthday</th>
                                 <th style="width:10%">Gender</th>
@@ -92,10 +91,8 @@
                             </tr>
                             </thead>
                             <tbody>
-                                <?php $i = 1;?>
-                                @foreach ($child_observations as $item)
+                                @foreach ($child_observations as $key=>$item)
                                     <tr class="odd gradeX">
-                                        <td style="text-align:center">{{ $i }}</td>
                                         <td style="text-align:center;text-transform:capitalize">{{ $item->Children->first_name}} {{ $item->Children->last_name}}</td>
                                         <td style="text-align:center;text-transform:capitalize">{{ $item->Children->birthday}}</td>
                                         <td style="text-align:center;text-transform:capitalize">{{ $item->Children->gender == 1 ? 'Male' : 'Female'}}</td>
@@ -107,9 +104,6 @@
                                             <a onclick="return confirm('Delete Observation ? Do you want continue !')" title="Delete Observation" href="{{ route('admin.observations.getDelete',['id'=>$item->id]) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
                                         </td>
                                     </tr>
-                                    @if($i <= count($child_observations))
-                                        <?php $i ++?>
-                                    @endif
                                 @endforeach
                             </tbody>
                         </table>

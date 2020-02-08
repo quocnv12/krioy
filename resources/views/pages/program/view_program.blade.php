@@ -130,26 +130,26 @@
 		<div class="mat-card">
 			<div class="mat-content">
 				<button class="accordion">Staff</button>
-				</button>
 				<div class="panel">
 					<div _ngcontent-c20="" class="row" style="">
 						<!---->
 						@if(count($staff_profiles) > 0)
 							@foreach($staff_profiles as $staff)
-							<div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1"  onclick="myFunction()">
-								<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
-									<div _ngcontent-c9="" class="image">
+							<div _ngcontent-c19="" class="div_box_staff col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1">
+								<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;cursor: pointer">
+									<div _ngcontent-c9="" class="image" data-toggle="modal" data-target=".bd-example-modal-sm">
 										<img _ngcontent-c19="" class="img-circle" onerror="this.src='images/Staff.png';" style="height: 80px" width="80" src="{{$staff->image}}">
 										<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked"></i>
 										<!---->
 										<span _ngcontent-c19="" class="limitText ng-star-inserted">{{$staff->first_name}} {{$staff->last_name}}</span>
+										<input type="hidden" value="{{$staff->id}}" class="link_to_children">
 									</div>
 									<!---->
 								</div>
 							</div>
 							@endforeach
 						@else
-							<p style="font-size: 18px; margin: 10px;">No staff was chosen</p>
+							<p style="font-size: 18px; margin: 10px;">No staff was founded</p>
 						@endif
 					</div>
 				</div>
@@ -178,7 +178,7 @@
 							</div>
 							@endforeach
 						@else
-							<p style="font-size: 18px; margin: 10px;">No children was chosen</p>
+							<p style="font-size: 18px; margin: 10px;">No children was founded</p>
 						@endif
 					</div>
 				</div>
@@ -197,10 +197,10 @@
 				<div class="modal-content">
 					<ul style="margin-left: 0">
 						<li style="color: #5363d6!important">Go to</li>
-						<li class="modal-li" data-href="" id="profile_children">Profile</li>
-						<li class="modal-li" data-href="" id="invoices_children">Invoices</li>
-						<li class="modal-li" data-href="" id="attachments_children">Attachments</li>
-						<li class="modal-li" data-href="" id="authorised_pickups_children">Authoriesd Pickups</li>
+						<li class="modal-li" data-href="" id="profile">Profile</li>
+						<li class="modal-li" data-href="" id="health">Health</li>
+						<li class="modal-li" data-href="" id="attachments">Attachments</li>
+						<li class="modal-li" data-href="" id="authorised">Authoriesd Pickups</li>
 					</ul>
 				</div>
 			</div>
@@ -280,10 +280,18 @@
 
 			$('div.div_box_children').click(function () {
 				var id_children = $(this).children('div').children('div').children('input').val();
-				$('li#profile_children').attr('data-href','/kids-now/children/edit/'+id_children);
-				$('li#invoices_children').attr('data-href','/kids-now/children/edit/'+id_children);
-				$('li#attachments_children').attr('data-href','/kids-now/children/edit/'+id_children);
-				$('li#authoriesd_pickups_children').attr('data-href','/kids-now/children/edit/'+id_children);
+				$('li#profile').attr('data-href','/kids-now/children/view/'+id_children);
+				$('li#health').attr('data-href','/kids-now/health/edit/'+id_children);
+				$('li#attachments').attr('data-href','/kids-now/children/edit/'+id_children);
+				$('li#authoriesd').attr('data-href','/kids-now/children/edit/'+id_children);
+			});
+
+			$('div.div_box_staff').click(function () {
+				var id_staff = $(this).children('div').children('div').children('input').val();
+				$('li#profile').attr('data-href','/kids-now/staff/edit/'+id_staff);
+				$('li#health').attr('data-href','/kids-now/health/edit/'+id_children);
+				$('li#attachments').attr('data-href','/kids-now/children/edit/'+id_children);
+				$('li#authoriesd').attr('data-href','/kids-now/children/edit/'+id_children);
 			});
 
 			$(".modal-li").click(function() {

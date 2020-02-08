@@ -32,8 +32,6 @@
             </ul>
         </div>
     </div>
-
-
     @if(session('notify'))
         <div class="alert alert-success font-weight-bold">
             {{session('notify')}}
@@ -67,8 +65,8 @@
                                     <th style="text-align:left;">{{$key+1}}</th>
                                     <th style="text-align:center;width:80%">{{$value->name}}</th>
                                     <th style="text-align:left;">
-                                        <a href="{!! URL::route('admin.observationtype.getEdit',  $value->id ) !!}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
-                                        <a  href="{!! URL::route('admin.observationtype.getDelete',  $value->id ) !!}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
+                                        <a href="{!! URL::route('admin.observationtype.getEdit',  $value->id ) !!}" title="Edit ObservationType" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                        <a onclick="return confirm('Delete ObservationType ? Do you want continue !')"" title="Delete ObservationType " href="{{ route('admin.observationtype.getDelete',  $value->id) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
                                     </th>
 
                                 </tr>

@@ -63,7 +63,9 @@
                                     <th style="text-align:center;width:12%">Medicine</th>
                                     <th style="text-align:center;width:12%">Growth</th>
                                     <th style="text-align:center;width:12%">Incident</th>
+                                    <th style="text-align:center;width:12%">Blood</th>
                                     <th style="text-align:center;width:12%">Images</th>
+                                    <th>Time</th>
                                     <th style="text-align:center;width:12%">Chỉnh sửa</th>
                                 </tr>
                                 </thead>
@@ -89,12 +91,14 @@
                                             <p>Growth_weight</p>: {{$value->growth_weight}}<p/>
                                         </th>
                                         <th style="text-align:left;width:18%">{{$value->incident}}</th>
-                                        <th style="text-align:left;width:18%"><img src="images/{{$value->image}}" width="30" height="30"></th>
-                                        <th style="text-align:left;width:5%">
-                                            <a href="{{route('admin.health.getEdit',$value->id)}}" type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Chỉnh sửa"><i class="fa fa-pencil fa-fw"></i></a>
-                                            <a  href="{{route('admin.health.getDelete', $value->id)}}" type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="left" title="Xóa"><i class="fa fa-trash-o  fa-fw"></i></a>
-                                        </th>
+                                        <th style="text-align:left;width:18%">{{$value->blood_group}}</th>
+                                        <th style="text-align:left;width:18%"><img src="{{$value->image}}" width="30" height="30"></th>
+                                        <th>{{$value->created_at}}</th>
 
+                                        <th style="text-align:left;">
+                                            <a href="{!! URL::route('admin.health.getEdit',$value->id ) !!}" title="Edit Health" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                            <a onclick="return confirm('Delete Health ? Do you want continue !')"" title="Delete Health " href="{{ route('admin.health.getDelete', $value->id) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                        </th>
                                     </tr>
                                 @endforeach
                                 </tbody>

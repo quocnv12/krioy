@@ -95,7 +95,7 @@ class NoticeBoardController extends Controller
             $program_notice->save();
         }
 
-        return redirect()->back()->with('notify','Added Successfully');
+        return redirect()->back()->with('success','Added Notice');
     }
 
     public function displayClipboard($id,$name)
@@ -121,7 +121,7 @@ class NoticeBoardController extends Controller
         $file_path = storage_path('app/public/clip_board/'.$name);
         unlink($file_path);
 
-        return redirect()->back()->with('notify_clipboard','Deleted file successfully');
+        return redirect()->back()->with('success','Deleted File');
     }
 
     public function show($id)
@@ -229,7 +229,7 @@ class NoticeBoardController extends Controller
         $notice_board->save();
 
 
-        return redirect()->back()->with('notify','Updated Successfully');
+        return redirect()->back()->with('success','Updated Notice');
     }
 
 
@@ -250,7 +250,7 @@ class NoticeBoardController extends Controller
 
 
         $programs = Programs::all();
-        return view('pages.notice.notice_board',['programs'=>$programs])->with('notify','Deleted Successfully');
+        return view('pages.notice.notice_board',['programs'=>$programs])->with('success','Deleted Notice'.$notice_board->title);
     }
 
     public function searchByTitle(Request $request)

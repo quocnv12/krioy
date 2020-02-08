@@ -16,18 +16,12 @@ use Illuminate\Support\Str;
 class HealthController extends Controller
 {
     public function getList(){
+
         $health = HealthModel :: all();
 
         return view('pages.heath.list', compact('health'));
     }
-    public function getChild(){
-        $health = ChildrenProfiles::all();
-        return view('pages.heath.select_health', compact('health'));
-    }
-    public function postChild(Request $request, $id){
-        $childrent = DB::table('children_profiles')->where('id',$id)->first();
-        return view('pages.heath.heath', compact('childrent'));
-    }
+
     public function getAdd(){
         $health = HealthModel::all();
         $programs = Programs::all();
@@ -35,6 +29,7 @@ class HealthController extends Controller
     }
     public function postAdd(Request $request)
     {
+
         if($request->sick==null)
         {
             return redirect()->back()->with('thongbao1','Pleasea choose sick !')->withInput();
@@ -56,54 +51,25 @@ class HealthController extends Controller
         }
         else {
 
-            $image = $request->image;
-            $img_current = 'images/' . $request->image;
-            if (!empty($image)) {
-                $filename = $image->getClientOriginalName();
-                $health = new HealthModel();
-                $health->id_children = $request->children_health;
+            $health = new HealthModel();
 
+            $health->id_children = $request->children_health;
+            $health->sick = $request->sick;
+            $health->medicine = $request->medicine;
+            $health->growth_height = $request->growth_height;
+            $health->growth_weight = $request->growth_weight;
+            $health->incident = $request->incident;
+            $health->blood_group = $request->blood_group;
 
-                $health->sick = $request->sick;
-                $health->medicine = $request->medicine;
-                $health->growth_height = $request->growth_height;
-                $health->growth_weight = $request->growth_weight;
-                $health->incident = $request->incident;
-                $health->blood_group = $request->blood_group;
-                $health->image = $request->image;
-                $health->file_pdf = $request->file_pdf;
-                $health->save();
-
-                $image->move(base_path() . 'images/', $filename);
-                File::delete($img_current);
-            } else {
-                $health = new HealthModel();
-                $health->id_children = $request->children_health;
-
-                $health->sick = $request->sick;
-                $health->medicine = $request->medicine;
-                $health->growth_height = $request->growth_height;
-                $health->growth_weight = $request->growth_weight;
-                $health->incident = $request->incident;
-
-                $health->blood_group = $request->blood_group;
-                $health->file_pdf = $request->file_pdf;
-                $health->save();
+            if ($request->hasFile('image')) {
+                $file = $request->image;
+                $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path('images/health/'), $filename);
+                $health->image = 'images/health/' . $filename;
             }
 
+            $health->save();
 
-            if ($request->programs) {
-                //string to array
-                $programs = explode(',', $request->programs);
-                //luu vao bang children_programs
-                foreach ($programs as $program) {
-                    $children_program = new ChildrenProgram();
-                    $children_program->id_children = $children_id;
-                    $children_program->id_program = $program;
-                    $children_program->save();
-                }
-                $children_program->save();
-            }
             return redirect()->back()->with('notify', 'Add successfully');
 
         }
@@ -111,6 +77,7 @@ class HealthController extends Controller
 
     public function getEdit($id){
         $health = HealthModel::find($id);
+
         $childrent = DB::table('children_profiles')->where('id',$id)->first();
         return view('pages.heath.edit', compact('health','childrent'));
     }
@@ -128,32 +95,31 @@ class HealthController extends Controller
         } elseif ($request->blood_group == null) {
             return redirect()->back()->with('thongbao5', 'Pleasea choose blood_group !')->withInput();
         } else {
-            $image = $request->image;
-            $img_current = 'images/' . $request->fImageCurrent;
-            if (!empty($image)) {
-                $filename = $image->getClientOriginalName();
-                $health = HealthModel::find($id);
 
-                $health->sick = $request->sick;
-                $health->medicine = $request->medicine;
-                $health->growth_height = $request->growth_height;
-                $health->growth_weight = $request->growth_weight;
-                $health->incident = $request->incident;
-                $health->image = $request->image;
-                $health->save();
+            $health = HealthModel::find($id);
 
-                $image->move(base_path() . 'images/', $filename);
-                File::delete($img_current);
-            } else {
-                $health = HealthModel::find($id);
+            $health->sick = $request->sick;
+            $health->medicine = $request->medicine;
+            $health->growth_height = $request->growth_height;
+            $health->growth_weight = $request->growth_weight;
+            $health->incident = $request->incident;
+            $health->blood_group = $request->blood_group;
 
-                $health->sick = $request->sick;
-                $health->medicine = $request->medicine;
-                $health->growth_height = $request->growth_height;
-                $health->growth_weight = $request->growth_weight;
-                $health->incident = $request->incident;
+
+            if ($request->image != null) {
+                // xoa anh cu
+                if ($health->image) {
+                    $old_image = $health->image;
+                    unlink($old_image);
+                }
+                $file = $request->image;
+                $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path('images/health/'), $filename);
+                $health->image = 'images/health/' . $filename;
                 $health->save();
             }
+
+            $health->save();
 
 
             return redirect()->back()->with('notify', 'Edit successfully');
@@ -196,12 +162,11 @@ class HealthController extends Controller
         return view('pages.heath.search', compact('search'));
 
     }
+
     public function searchByName(Request $request)
     {
-        $children_profiles = ChildrenProfiles::where('first_name', 'like', '%' . $request->get('q') . '%')
-            ->orWhere('last_name', 'like', '%' . $request->get('q') . '%')
-            ->orderBy('last_name')
-            ->get();
+        $children_profiles = ChildrenProfiles::where(DB::raw("concat(first_name ,' ', last_name)"), 'like', '%' . $request->get('q') . '%')->get();
+
         return response()->json($children_profiles);
     }
 

@@ -18,7 +18,33 @@
 // 	})->name('home');
 // });
 
+// route update modun khanh'
+ Route::get('archives', function () {
+        return view('pages.archives.Archives');
+    });
+ Route::get('allergyinfo', function () {
+        return view('pages.allergyinfo.test');
+    });
+ Route::get('configurations', function () {
+        return view('pages.configurations.configurations');
+    });
+ Route::get('FAQs', function () {
+        return view('pages.FAQs.FAQs');
+    });
+ Route::get('favouriteschool', function () {
+        return view('pages.favouriteschool.favouriteschool');
+    });
+ Route::get('inviteparents', function () {
+        return view('pages.inviteparents.inviteparents');
+    });
+ Route::get('invitestaff', function () {
+        return view('pages.invitestaff.invitestaff');
+    });
+ Route::get('video-help', function () {
+        return view('pages.video-help.video-help');
+    });
 
+ 
 //route fix
 Route::get('kids-now/children/add','Admin\ChildrenProfilesController@create');
 
@@ -85,7 +111,9 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
     Route::group(['prefix' => 'attendance'], function () {
         Route::get('/','Admin\AttendanceChildrenController@index')->name('attendance.index');
         Route::get('/{id}','Admin\AttendanceChildrenController@show')->name('attendance.show');
-        Route::get('add','Admin\AttendanceChildrenController@show')->name('attendance.show');
+        // Route::get('add','Admin\AttendanceChildrenController@getAdd')->name('attendance.getAdd');
+        Route::post('add/{id}','Admin\AttendanceChildrenController@postAdd')->name('attendance.postAdd');
+        // Route::post('add',['as'=>'attendance.postAdd','uses'=>'Admin\AttendanceChildrenController@add']);
     });
 
     //---------------health----------------
@@ -126,6 +154,9 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('show/{id}','Admin\ObservationController@showChildrenInProgram');
         Route::get('view/{id}',['as'=>'admin.observations.view','uses'=>'Admin\ObservationController@view']);
 
+        //clip board
+        Route::get('clip_board/{id}/{name}','Admin\ObservationController@displayClipboard');
+        Route::get('delete_clipboard/{id}/{name}','Admin\ObservationController@deleteClipboard');
     });
 
     Route::group(['prefix' => 'observationtype'], function () {

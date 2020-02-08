@@ -21,7 +21,7 @@
                         <li class="active1 active-1" style="pointer-events:none;"><a href="">EDIT NOTICE</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target=".bd-example-modal-sm" style="display: flex; justify-content: flex-end">
+                <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target=".bd-example-modal-sm" style="display: flex; justify-content: flex-end; z-index: -1;">
                     <button class="notice" type="button" >
                         <span><a href="kids-now/notice-board/delete/{{$notice_board->id}}" style="color: inherit; " onclick="return deleteConfirm()" >DELETE</a></span>
                     </button>
@@ -137,7 +137,7 @@
                                         <a href="kids-now/notice-board/clip_board/{{$notice_board->id}}/{{$clipboard}}" target="_blank">{{Str::limit($clipboard,70)}}</a>
                                     </div>
                                     <div class="col-md-2">
-                                        @if($clipboard)<a href="kids-now/notice-board/delete_clipboard/{{$notice_board->id}}/{{$clipboard}}" style="color: inherit"><button type="button" class="btn btn-sm btn-danger">Delete</button></a>@endif
+                                        @if($clipboard)<a href="kids-now/notice-board/delete_clipboard/{{$notice_board->id}}/{{$clipboard}}" style="color: inherit"><button type="button" class="btn btn-sm btn-danger" onclick="return confirm('Are you want to delete this file ?')">Delete</button></a>@endif
                                     </div>
                                 </div>
                             @endforeach
@@ -245,9 +245,16 @@
     </script>
     <script>
 
-        $('#file').change(function() {
-            var filename = $('#file').val();
-            $('#show_clip_board').html(filename);
+        var input_file = $("#file");
+        input_file.on("change", function () {
+            var files = input_file.prop("files")
+            if ($('#file').val() != null){
+                $('#show_clip_board').html('');
+            }
+            var names = $.map(files, function (val) { return val.name; });
+            $.each(names, function (i, name) {
+                $('#show_clip_board').append(name+'<br>');
+            });
         });
 
         $('#file').hide();

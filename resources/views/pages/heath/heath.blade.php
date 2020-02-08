@@ -10,34 +10,40 @@
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
 				<div class="col-sm-6">
-				<ul class="ul-td">
-					<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
-					<li _ngcontent-c16="" class="active1" style="pointer-events:none" href="{{route('admin.health.getAdd')}}"><a _ngcontent-c16="">Health</a></li>
-				</ul>
+					<ul class="ul-td">
+						<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
+						<li _ngcontent-c16="" class="active1" style="pointer-events:none" href="{{route('admin.health.getAdd')}}"><a _ngcontent-c16="">Health</a></li>
+					</ul>
 				</div>
 				<div class="col-sm-6">
 					<a type="submit" class="btn btn-success" href="{{route('admin.health.list')}}" style="float: right" >Quản lí danh sách</a>
 				</div>
 			</div>
 		</div>
-        @if(Session::has('thongbao'))
-            <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao') }}</p>
-        @endif
-        @if(Session::has('thongbao1'))
-            <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao1') }}</p>
-        @endif
-        @if(Session::has('thongbao2'))
-            <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao2') }}</p>
-        @endif
-        @if(Session::has('thongbao3'))
-            <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao3') }}</p>
-        @endif
-        @if(Session::has('thongbao4'))
-            <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao4') }}</p>
-        @endif
-        @if(Session::has('thongbao5'))
-            <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao5') }}</p>
-        @endif
+
+		@if(session('notify'))
+			<div class="alert alert-success font-weight-bold">
+				{{session('notify')}}
+			</div>
+		@endif
+		@if(Session::has('thongbao'))
+			<p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao') }}</p>
+		@endif
+		@if(Session::has('thongbao1'))
+			<p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao1') }}</p>
+		@endif
+		@if(Session::has('thongbao2'))
+			<p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao2') }}</p>
+		@endif
+		@if(Session::has('thongbao3'))
+			<p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao3') }}</p>
+		@endif
+		@if(Session::has('thongbao4'))
+			<p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao4') }}</p>
+		@endif
+		@if(Session::has('thongbao5'))
+			<p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao5') }}</p>
+		@endif
 
 		<form style="width: auto;margin: 0;text-align: center" action="{{route('admin.health.getAdd')}}" method="post" id="addObservation" enctype="multipart/form-data">
 			@csrf
@@ -54,8 +60,8 @@
 						<div class="scrollmenu-div">
 							@foreach($programs as $program)
 								<div class="scrollmenu-button" style="text-align: center;">
-									<button type="button" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
-										<a style="color: #fff;" href="kids-now/health/show/{{$program->id}}">{{$program->program_name}}</a>
+									<button type="button" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;height: 34px;">
+										<a style="color: #fff;margin: 0;" href="kids-now/health/show/{{$program->id}}">{{$program->program_name}}</a>
 									</button>
 								</div>
 							@endforeach
@@ -104,12 +110,13 @@
 
 								<div class="col-md-3">
 									<div class="input-file-container">
-										<input class="input-file" type='file' onchange="readURL(this);" id="input-Sick" />
+										<input class="input-file" type='file' onchange="readURL(this);" id="uploadfile" name="image" accept="image/*" />
 										<label tabindex="0" for="my-file" class="input-file-trigger">
 											<i class="fa fa-paperclip"></i>
 										</label>
-										<div class="input-img" style="display: none">
-											<img class="blah"  name ="image" src="images/150.png" alt="your  image" />
+										<div class="input-img" >
+
+											<img class="blah"  id="demo_image"/>
 											<div class="top-right button-close button_close_show_img">
 												<button style="border-radius:50%;width:26px;height:26px;z-index:1;">
 													<i class="fa fa-times-circle"></i>
@@ -135,7 +142,7 @@
 											<i class="fa fa-paperclip"></i>
 										</label>
 										<div class="input-img"  style="display: none">
-											<img class="blah"  name ="image"src="images/150.png" alt="your  image" />
+											<img class="blah"  name ="image"alt="your  image" />
 											<div class="top-right button-close button_close_show_img">
 												<button style="border-radius:50%;width:26px;height:26px;z-index:1;">
 													<i class="fa fa-times-circle"></i>
@@ -210,7 +217,7 @@
 											<i class="fa fa-paperclip"></i>
 										</label>
 										<div class="input-img"style="display: none">
-											<img class="blah"  name ="image"src="images/150.png" alt="your  image" />
+											<img class="blah"  name ="image" alt="your  image" />
 											<div class="top-right button-close button_close_show_img">
 												<button style="border-radius:50%;width:26px;height:26px;z-index:1;">
 													<i class="fa fa-times-circle"></i>
@@ -236,7 +243,7 @@
 											<i class="fa fa-paperclip"></i>
 										</label>
 										<div class="input-img" style="display: none">
-											<img class="blah" name="image"src="images/150.png" alt="your  image" />
+											<img class="blah" name="image" alt="your  image" />
 											<div class="top-right button-close button_close_show_img">
 												<button style="border-radius:50%;width:26px;height:26px;z-index:1;">
 													<i class="fa fa-times-circle"></i>
@@ -262,7 +269,7 @@
 											<i class="fa fa-paperclip"></i>
 										</label>
 										<div class="input-img" style="display: none">
-											<img class="blah"  name ="image" src="images/150.png" alt="your  image" />
+											<img class="blah"  name ="image"  alt="your  image" />
 											<div class="top-right button-close button_close_show_img">
 												<button style="border-radius:50%;width:26px;height:26px;z-index:1;">
 													<i class="fa fa-times-circle"></i>
@@ -277,7 +284,7 @@
 					</div><br>
 				</div>
 			</div>
-		<button type="submit" class="btn btn-primary">Save</button>
+			<button type="submit" class="btn btn-primary">Save</button>
 		</form>
 		</div>
 	</section>
@@ -572,4 +579,26 @@
 				}]
 		});
 	</script>
+	<script>
+		// $("#uploadfile").hide();
+		// $("#demo_image").click(function () {
+		// 	$("#uploadfile").click();
+		// });
+	</script>
+	<script>
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+
+				reader.onload = function (e) {
+					$('#demo_image').attr('src', e.target.result);
+				}
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+		$("#uploadfile").change(function(){
+			readURL(this);
+		});
+	</script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 @endsection

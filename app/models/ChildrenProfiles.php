@@ -28,8 +28,18 @@ class ChildrenProfiles extends Model
     public function Observation(){
         return $this->hasMany('App\Models\ObservationModel','id_children','id');
     }
+    public function chil_atd(){
+        return $this->hasMany(Children_status::class,'id_children','id');
+    }
+    public function chil_progam()
+    {
+        return $this->belongsToMany(Programs::class, 'children_programs', 'id_children', 'id_program');
+    }
 
-
+    public function getFullNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
 
     protected $timestamp = false;
 

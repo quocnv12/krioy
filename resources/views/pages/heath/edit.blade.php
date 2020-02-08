@@ -47,7 +47,7 @@
             <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao5') }}</p>
         @endif
         <div class="mat-card">
-            <form method="post" action="" >
+            <form method="post" action="{{route('admin.health.postEdit',['id'=>$childrent->id])}}" enctype="multipart/form-data">
                 @csrf
                 <div class="mat-content">
                     <button class="accordion add-staff">K5 KHANH Profile</button>
@@ -55,7 +55,7 @@
                         <div class="col-md-2 textera-img">
                             <a href="#">
                                 <img src="images/{{$childrent->image}}" alt="" style="width: 100px; height: 100px">
-                                <span ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
+
                             </a>
                         </div>
                         <div class="col-md-10">
@@ -117,9 +117,8 @@
                                 <div class="form-group">
                                     <label>Ảnh sản phẩm</label>
 
-                                    <input id="img" type="file" name="img" value="{{ old('img') }}" class="hidden"
-                                           onchange="changeImg(this)" style="border-bottom: none;">
-                                    <img id="avatar" class="thumbnail" width="150px" height="150px" src="images/{{$health->image}}" >
+                                    <input type="file" id="uploadfile" name="image" accept="image/*">
+                                    {{--                                    <img id="avatar" class="thumbnail"  name="image"width="150px" height="150px" src="{{$health->image}}" >--}}
                                 </div>
                             </div>
                         </div>
@@ -193,25 +192,47 @@
             }
         });
     </script>
+    {{--    <script>--}}
+    {{--        function changeImg(input){--}}
+    {{--            //Nếu như tồn thuộc tính file, đồng nghĩa người dùng đã chọn file mới--}}
+    {{--            if(input.files && input.files[0]){--}}
+    {{--                var reader = new FileReader();--}}
+    {{--                //Sự kiện file đã được load vào website--}}
+    {{--                reader.onload = function(e){--}}
+    {{--                    //Thay đổi đường dẫn ảnh--}}
+    {{--                    $('#avatar').attr('src',e.target.result);--}}
+    {{--                }--}}
+    {{--                reader.readAsDataURL(input.files[0]);--}}
+    {{--            }--}}
+    {{--        }--}}
+    {{--        $(document).ready(function() {--}}
+    {{--            $('#avatar').click(function(){--}}
+    {{--                $('#img').click();--}}
+    {{--            });--}}
+    {{--        });--}}
+    {{--    </script>--}}
+
+
     <script>
-        function changeImg(input){
-            //Nếu như tồn thuộc tính file, đồng nghĩa người dùng đã chọn file mới
-            if(input.files && input.files[0]){
+        // $("#uploadfile").hide();
+        // $("#demo_image").click(function () {
+        // 	$("#uploadfile").click();
+        // });
+    </script>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
                 var reader = new FileReader();
-                //Sự kiện file đã được load vào website
-                reader.onload = function(e){
-                    //Thay đổi đường dẫn ảnh
-                    $('#avatar').attr('src',e.target.result);
+
+                reader.onload = function (e) {
+                    $('#demo_image').attr('src', e.target.result);
                 }
                 reader.readAsDataURL(input.files[0]);
             }
         }
-        $(document).ready(function() {
-            $('#avatar').click(function(){
-                $('#img').click();
-            });
+        $("#uploadfile").change(function(){
+            readURL(this);
         });
     </script>
-
-
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 @endsection
