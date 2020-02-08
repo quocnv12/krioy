@@ -1,0 +1,160 @@
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Kriyo Expenses</title>
+
+		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet" type="text/css" href="heath.css">
+		<link rel="stylesheet" type="text/css" href="staff_profile.css">
+
+		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
+   		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+    	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+
+    	<link rel="stylesheet" href="css/bootstrap.min.css">
+    
+	    <!-- Font Awesome -->
+	    <link rel="stylesheet" href="css/font-awesome.min.css">
+	</head>
+<body style="background-color: #fff !important;">
+	<section class="page-top container">
+		<div class="tieu-de add" style="margin-top: 10px;margin-bottom: 10px;">
+			<div class="row">
+				<div class="col-md-8">
+					<ul class="ul-td">
+						<li class="level1"><a  href="index.html">HOME</a></li>
+						<li class="active1" style="pointer-events:none"><a href="food.html">EXPENSES</a></li>
+					</ul>
+				</div>
+				<div class="col-md-4 expenses-down">
+					<button>DOWN LOAD 
+						<i class="fa fa-download"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="container">
+		<div class="add a1">
+			<div class="row">
+				<div class="col-sm-4 col-md-4 input_box">
+					<span>Search *</span>
+					<i class="fa fa-search" style="position: absolute;top: 30px;z-index: 5"></i>
+					<input type="text" name="first-name" placeholder=" Search *" style="padding-left: 30px;">
+				</div>
+				<div class="col-sm-4 col-md-4 input_box">
+					<span>Group by *</span>
+					<select>
+						<option>1</option>
+						<option>1</option>
+						<option>1</option>
+					</select>
+				</div>
+				<div class="col-sm-4 col-md-4 input_box">
+					<span>Date Range *</span>
+					<select>
+						<option>1</option>
+						<option>1</option>
+						<option>1</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="container expenses-table">
+		<table border="0" style="box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);">
+			<tbody>
+				<tr style="background-color: #5363d6;border-bottom: 1px solid rgba(0,0,0,.12);color: white;">
+					<th style="width: 20%;">Date</th>
+					<th style="width: 23%;">Expense</th>
+					<th style="width: 10%;">Amount</th>
+					<th style="width: 10%;">Payee</th>
+					<th style="width: 12%">Category</th>
+					<th style="width: 15%;">Account</th>
+					<th style="width: 12%;">Status</th>
+				</tr>
+				<tr style="background-color: #ff6600;text-align: left;color: white;font-size: 15px;">
+					<th>November 2019: INR 1000</th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+				<tr class="expenses-tr3 td2" style="font-size: 14px;" data-href="expenses-detail.html">
+					<th>22 Nov 2019</th>
+					<th>sample expense - Christmas Gifts</th>
+					<th>1000</th>
+					<th>Amazon</th>
+					<th>Supplies</th>
+					<th>vu minh hai Credit Card</th>
+					<th> Paid </th>
+				</tr>
+			</tbody>
+		</table>
+	</section>
+	<div class="icon-plus">
+		<a href="expenses-add.html">
+			<i class="fa fa-plus"></i>
+		</a>
+	</div>
+</body>
+	<script src="https://code.jquery.com/jquery.min.js"></script>
+    
+    <!-- Bootstrap JS form CDN -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    
+    <!-- jQuery sticky menu -->
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    
+    <!-- jQuery easing -->
+    <script src="js/jquery.easing.1.3.min.js"></script>
+    
+    <!-- Main Script -->
+    <script src="js/main.js"></script>
+    <script type="text/javascript">
+		$('.input_box input').focus(function(event) {
+	    	$(this).siblings('span').addClass('input_box_span_active');
+		});
+		$('.input_box input').blur(function(event) {
+	    	if ($(this).val()=='') {
+	      		$(this).siblings('span').removeClass('input_box_span_active');
+	    	}
+		});
+	</script>
+	<script type="text/javascript">
+		$('.input_box select').focus(function(event) {
+	    	$(this).siblings('span').addClass('input_box_span_active');
+		});
+		$('.input_box select').blur(function(event) {
+	    	if ($(this).val()=='') {
+	      		$(this).siblings('span').removeClass('input_box_span_active');
+	    	}
+		});
+	</script>
+	<script type="text/javascript">
+	    function show(a){
+	    var b=document.getElementById(a);
+	    var i;
+	    var c=document.getElementsByClassName('modal-span');
+	     for (i = 0; i < c.length; i++) {
+			c[i].style.display = "none";
+					 };
+	    b.style.display="inline-block";
+	    }
+	    function closeModalSpan(a){
+	    	document.getElementById(a).style.display="none";
+	    }
+	</script>
+	<script type="text/javascript">
+    	$(document).ready(function($) {
+		    $(".td2").click(function() {
+		        window.document.location = $(this).data("href");
+		    });
+		});
+    </script>
+</html>

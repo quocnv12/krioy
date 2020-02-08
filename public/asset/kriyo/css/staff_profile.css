@@ -285,24 +285,6 @@ select .mat-card .mat-content div > div.childClass:hover {
 .img-bd-do{
     border: 3px solid #ed5564;
 }
-.span-bg-md{
-    background: 
-}
-.span-bg-xam{
-    color: #fff;
-    background: #ccc;
-}
-.span-bg-xanh{
-    color: #fff;
-    background: #37bd9c;
-}
-.span-bg-do{
-    color: #fff;
-    background: #ed5564;
-}
-.span-bg-md{
-    color:#5363d6;
-}
 .span-clock p{
   margin: 0px;
   display: block;
