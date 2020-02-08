@@ -9,10 +9,18 @@
             <ul class="navbar-nav ml-auto">
                 <li>
                     <div class="dropdown-logo1">
-                        <button class="dropbtn-logo1"><img src="images/viet.png" style="width: 20px;height: 20px"></button>
+                        @if(app()->getLocale() == 'vi')
+                        <button class="dropbtn-logo1">
+                            <button class="dropbtn-logo1"><img src="images/viet.png" style="width: 20px;height: 20px"></button>
+                        </button>
+                        @else 
+                        <button class="dropbtn-logo1">
+                            <button class="dropbtn-logo1"><img src="images/usa.png" style="width: 20px;height: 20px"></button>
+                        </button>
+                        @endif
                         <div class="dropdown-content-logo1">
-                            <a href="#"><img src="images/viet.png"> VietNamese</a>
-                            <a href="#"><img src="images/usa.png"> English</a>
+                            <a href="locale/vi"><img src="images/viet.png"> VietNamese</a>
+                            <a href="locale/en"><img src="images/usa.png"> English</a>
                         </div>
                     </div>
                 </li>
