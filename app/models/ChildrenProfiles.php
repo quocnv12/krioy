@@ -29,7 +29,7 @@ class ChildrenProfiles extends Model
         return $this->hasMany('App\Models\ObservationModel','id_children','id');
     }
     public function chil_atd(){
-        return $this->hasMany(Attendance_children::class,'id_children','id');
+        return $this->hasMany(Children_status::class,'id_children','id');
     }
     public function chil_progam()
     {

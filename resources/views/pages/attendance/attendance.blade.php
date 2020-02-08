@@ -52,29 +52,56 @@
 		<section class="container attendance-layout">
 			<div class="row">
 				<div class="col-lg-8 col-md-8 col-sm-8">
+					
 					<div class="attendance-button">
 						<button class="btn tableStyle ng-star-inserted" style="color: rgb(75, 0, 130);">
 							<p>Total</p>
 							<!---->
-							<span class="ng-star-inserted">{{$count_chil}}</span>
+							<span class="ng-star-inserted">
+								@if(isset($children_profiles))
+									{{$count_active}}/{{$count_chil}}
+								@else
+									0/0
+								@endif
+							</span>
 							<!---->
 						</button>
 						<button class="btn tableStyle ng-star-inserted" style="color: rgb(55, 189, 156);">
 							<p>IN</p>
 							<!---->
-							<span class="ng-star-inserted">{{$count_in}}</span>
+							<span class="ng-star-inserted">
+								@if(isset($children_profiles))
+									{{$count_in}}
+								@else
+									0
+								@endif
+							
+							</span>
 							<!---->
 						</button>
 						<button class="btn tableStyle ng-star-inserted" style="color: rgb(169, 179, 189);">
 							<p>OUT</p>
 							<!---->
-							<span class="ng-star-inserted">{{$count_out}}</span>
+							<span class="ng-star-inserted">
+								@if(isset($children_profiles))
+									{{$count_out}}
+								@else
+									0
+								@endif
+							</span>
 							<!---->
 						</button>
 						<button class="btn tableStyle ng-star-inserted" style="color: rgb(237, 85, 100);">
 							<p>ABSENT</p>
 							<!---->
-							<span class="ng-star-inserted">{{$count_absent}}</span>
+							<span class="ng-star-inserted">
+								@if(isset($children_profiles))
+									{{$count_absent}}
+								@else
+									0
+								@endif
+								
+							</span>
 							<!---->
 						</button>
 						<!-- <button class="btn tableStyle ng-star-inserted" style="color: rgb(255, 194, 0);">
@@ -84,6 +111,7 @@
 							
 						</button> -->
 					</div>
+					
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-4">
 					<div class="select-all">
@@ -101,8 +129,9 @@
 				</div>
 			</div>
 		</section>
+		@if(isset($children_profiles))
 		<section class="container">
-			<form style="width: auto;margin: 0;text-align: center" method="post" action="{{route('attendance.postAdd')}}" id="addAttendance" enctype="multipart/form-data">
+			<form style="width: auto;margin: 0;text-align: center" method="post" action="{{route('attendance.postAdd',['id' => $id])}}" id="addAttendance" enctype="multipart/form-data">
 			@csrf
 				<div class="mat-card tab-content" style="min-height: 500px;">
 					<div class="mat-content" id="tab-main">
@@ -119,6 +148,12 @@
 	                                </div>
 	                            @endforeach
 	                            <input id="array_children_attendance" type="hidden" value="" name="children_attendance">
+	                        @else
+								<div style="margin: 50px;">
+									<span style="color: red; font-weight: bold">Hint :</span>
+									<span>Click on a program tab in horizontal scroll bar to show all children in that program</span>
+								</div>
+                            
 	                        @endif
 
 						</div>
@@ -137,17 +172,17 @@
 					<button  type="button" class="icon-plus-button groupStatus" style="background-color: #37bd9c;" data-toggle="modal" data-target=".bd-example-modal-sm" value="1" name='status' >IN</button><br>
 					<button  type="button" class="icon-plus-button groupStatus" style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm" value="2" name='status'>OUT</button><br>
 					<button  type="button" class="icon-plus-button groupStatus" style="background-color: #ed5564;" data-toggle="modal" data-target=".bd-example-modal-sm" value="3" name='status'>ABSENT</button><br>
-					<button  type="button" class="icon-plus-button groupStatus" style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm" value="4" name='status'>UNMARK</button><br>
+					<!-- <button  type="button" class="icon-plus-button groupStatus" style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm" value="4" name='status'>UNMARK</button><br> -->
 					<!-- <button class="icon-plus-button" style="background-color: #ffc200;" data-toggle="modal" data-target=".bd-example-modal-sm">LEAVE</button> -->
 					<input type="hidden" name="children_status" value="" id="children_status">
 				</div>
 				<div class="modal fade bd-example-modal-sm modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 					<div class="modal-dialog modal-sm" style="">
 						<div class="modal-content" style="font-size: 18px;">
-							<h3>Aler</h3>
+							<h3>Alert</h3>
 							<hr style="clear:both;margin-top:0px;margin-bottom:0px">
 							<div align="center">
-								<p style="margin: 0;font-size: 18px;">You are marking attendance with time selected as 10:53 am</p>
+								<p style="margin: 0;font-size: 18px;">You are marking attendance with time selected as {{$time}}</p>
 							</div>
 							<hr style="clear:both;margin-top:0px;margin-bottom:0px">
 							<div class="row" style="margin: 0;">
@@ -167,6 +202,8 @@
 				</div>
 			</form>
 		</section>
+		@else
+		@endif
 		
 
 		
@@ -212,7 +249,7 @@
                 array_children_attendance.push(attendance_push);
             }
             $('#array_children_attendance').attr('value', array_children_attendance);
-            // console.log(array_children_attendance)
+            console.log(array_children_attendance)
         })
 
         // select value children_status
