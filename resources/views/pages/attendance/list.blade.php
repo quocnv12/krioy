@@ -50,7 +50,8 @@
                                     <span style="font-weight: bold">Choose</span>&nbsp;&nbsp;:&nbsp;&nbsp;
                                     <select name="program" id="program">
                                         @foreach($programs as $item)
-                                            <option value="{{$item->id}}">{{$item->program_name}}</option>
+                                            <option value="{{$item->id}}" @if($item->id == $id_program) selected @endif >
+                                                {{$item->program_name}}</option>
                                         @endforeach
                                     </select>
                                     &nbsp;&nbsp;-&nbsp;&nbsp;
