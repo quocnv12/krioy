@@ -21,6 +21,9 @@
 
 //route fix
 Route::get('kids-now/children/add','Admin\ChildrenProfilesController@create');
+Route::get('kids-now/attendance/list', function(){
+    return view('pages.attendance.list');
+});
 
 
 Route::get('kids-now/children/add','Admin\ChildrenProfilesController@create');
@@ -87,7 +90,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('/{id}','Admin\AttendanceChildrenController@show')->name('attendance.show');
         // Route::get('add','Admin\AttendanceChildrenController@getAdd')->name('attendance.getAdd');
         Route::post('add/{id}','Admin\AttendanceChildrenController@postAdd')->name('attendance.postAdd');
-        // Route::post('add',['as'=>'attendance.postAdd','uses'=>'Admin\AttendanceChildrenController@add']);
+        Route::get('list','Admin\AttendanceChildrenController@list')->name('attendance.list');
     });
 
     //---------------health----------------
