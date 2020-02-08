@@ -60,8 +60,8 @@
 						<div class="scrollmenu-div">
 							@foreach($programs as $program)
 								<div class="scrollmenu-button" style="text-align: center;">
-									<button type="button" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
-										<a style="color: #fff;" href="kids-now/health/show/{{$program->id}}">{{$program->program_name}}</a>
+									<button type="button" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;height: 34px;">
+										<a style="color: #fff;margin: 0;" href="kids-now/health/show/{{$program->id}}">{{$program->program_name}}</a>
 									</button>
 								</div>
 							@endforeach

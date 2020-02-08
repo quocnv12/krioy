@@ -121,6 +121,9 @@ footer.site-footer div p a.termsHover:hover{
   font-size: 16px; 
   line-height: 25px;
   border-radius: 4px;
+  font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
 }
 
 .navbar-header a.logo {
@@ -185,10 +188,10 @@ footer.site-footer div p a.termsHover:hover{
 .navbar-brand img{
 	border-radius: 50%;
 	width: 60px;height: 60px;
-	margin: 10px 5px;
+	margin: 3px 0;
 }
 .navbar-brand p{
-	padding: 15px;
+	padding: 10px;
 	font-size: 30px;
 	font-weight: bold;
 	color: #fff !important;

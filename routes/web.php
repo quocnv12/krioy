@@ -18,7 +18,33 @@
 // 	})->name('home');
 // });
 
+// route update modun khanh'
+ Route::get('archives', function () {
+        return view('pages.archives.Archives');
+    });
+ Route::get('allergyinfo', function () {
+        return view('pages.allergyinfo.test');
+    });
+ Route::get('configurations', function () {
+        return view('pages.configurations.configurations');
+    });
+ Route::get('FAQs', function () {
+        return view('pages.FAQs.FAQs');
+    });
+ Route::get('favouriteschool', function () {
+        return view('pages.favouriteschool.favouriteschool');
+    });
+ Route::get('inviteparents', function () {
+        return view('pages.inviteparents.inviteparents');
+    });
+ Route::get('invitestaff', function () {
+        return view('pages.invitestaff.invitestaff');
+    });
+ Route::get('video-help', function () {
+        return view('pages.video-help.video-help');
+    });
 
+ 
 //route fix
 Route::get('kids-now/children/add','Admin\ChildrenProfilesController@create');
 
