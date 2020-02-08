@@ -5,23 +5,25 @@
                 <img src="images/logo-ngang.png" alt="" class="logo">
                <!--  <p style="margin: 20px 0;font-size: 30px;color: #ff4081;">Kids Now</p> -->
             </a>
-            <div class="dropdown-logo1">
-                @if(app()->getLocale() == 'vi')
-                <button class="dropbtn-logo1">
-                    <img src="images/viet.png" style="width: 35px;height: 25px">
-                </button>
-                @else 
-                <button class="dropbtn-logo1">
-                    <img src="images/usa.png" style="width: 35px;height: 25px">
-                </button>
-                @endif
-                <div class="dropdown-content-logo1">
-                    <a href="locale/vi"><img src="images/viet.png"> VietNamese</a>
-                    <a href="locale/en"><img src="images/usa.png"> English</a>
-                </div>
-            </div>
             <!-- Links -->
             <ul class="navbar-nav ml-auto">
+                <li>
+                    <div class="dropdown-logo1">
+                        @if(app()->getLocale() == 'vi')
+                        <button class="dropbtn-logo1">
+                            <button class="dropbtn-logo1"><img src="images/viet.png" style="width: 20px;height: 20px"></button>
+                        </button>
+                        @else 
+                        <button class="dropbtn-logo1">
+                            <button class="dropbtn-logo1"><img src="images/usa.png" style="width: 20px;height: 20px"></button>
+                        </button>
+                        @endif
+                        <div class="dropdown-content-logo1">
+                            <a href="locale/vi"><img src="images/viet.png"> VietNamese</a>
+                            <a href="locale/en"><img src="images/usa.png"> English</a>
+                        </div>
+                    </div>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">@lang('kidsnow.menu_profiles')</a>
                 </li>
@@ -41,7 +43,7 @@
                 @if (Auth::check())
                 <li class="nav-item">
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                    <img style="width: 30px; height: 30px;" src="images/{{ Auth::user()->image }}" alt="">
+                    <img style="width: 30px; height: 30px;border-radius: 50%;" src="images/staff/{{ Auth::user()->image }}" alt="">
                     </a>
                     <div class="dropdown-menu">
                     <a class="dropdown-item" href="#"><i class="fa fa-users" aria-hidden="true"></i> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </a>
@@ -59,13 +61,22 @@
     <div class="d-block d-md-none menu_mobile">
         <div id="menu_mobile">
             <div class="closebtn" onclick="closeNav()">×</div>
+            <a>
+                <div class="dropdown-logo1">
+                    <button class="dropbtn-logo1"><img src="images/viet.png" style="width: 20px;height: 20px"></button>
+                    <div class="dropdown-content-logo1">
+                        <a href="#" style="color: black;"><img src="images/viet.png"> VietNamese</a>
+                        <a href="#" style="color: black;"><img src="images/usa.png"> English</a>
+                    </div>
+                </div>
+            </a>
             <a href="#">@lang('kidsnow.menu_profiles')</a>
             <a href="#">INVOICES</a>
             <a href="#">Settings</a>
             <a href="#">Help</a>
             <a href="kids-now">My Kids Now</a>
         </div>
-
+       
         <nav class="navbar navbar-expand-sm bg-light">
             <button class="openbtn" onclick="openNav()">☰ Menu</button>
                         <!-- Links -->
@@ -74,10 +85,10 @@
                 @if (Auth::check())
                 <li class="nav-item">
                     <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                    <img style="width: 30px; height: 30px;" src="images/{{ Auth::user()->image }}" alt="">
+                    <img style="width: 30px; height: 30px;" src="images/staff/{{ Auth::user()->image }}" alt="">
                     </a>
                     <div class="dropdown-menu">
-
+               
                     <a class="dropdown-item" href="#"><i class="fa fa-users" aria-hidden="true"></i> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </a>
                         <a class="dropdown-item" href="#"><i class="fa fa-phone-square" aria-hidden="true"></i> {{ Auth::user()->phone }}</a>
                         {{--  <a class="dropdown-item" href="#"><i class="fa fa-bell" aria-hidden="true"></i> Notification Center</a>
