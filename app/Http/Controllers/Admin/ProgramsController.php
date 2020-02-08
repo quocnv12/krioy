@@ -287,7 +287,7 @@ class ProgramsController extends Controller
 
     public function searchStaff(Request $request)
     {
-        $staff_profiles = StaffProfiles::where(DB::raw("concat(first_name ,' ', last_name)"), 'like', '%' . $request->get('q') . '%')->get();
+        $staff_profiles = StaffProfiles::where(DB::raw("concat(first_name ,' ', last_name)"), 'like', '%' . $request->get('q2') . '%')->get();
 
         return response()->json($staff_profiles);
     }

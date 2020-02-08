@@ -200,7 +200,7 @@
 						<li class="modal-li" data-href="" id="profile">Profile</li>
 						<li class="modal-li" data-href="" id="health">Health</li>
 						<li class="modal-li" data-href="" id="attachments">Attachments</li>
-						<li class="modal-li" data-href="" id="authorised">Authoriesd Pickups</li>
+						<li class="modal-li" data-href="" id="authorised">Authorised Pickups</li>
 					</ul>
 				</div>
 			</div>

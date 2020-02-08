@@ -574,10 +574,7 @@ class ChildrenProfilesController extends Controller
 
     public function searchByName(Request $request)
     {
-        $children_profiles = ChildrenProfiles::where('first_name', 'like', '%' . $request->get('q') . '%')
-            ->orWhere('last_name', 'like', '%' . $request->get('q') . '%')
-            ->orderBy('last_name')
-            ->get();
+        $children_profiles = ChildrenProfiles::where(DB::raw("concat(first_name ,' ', last_name)"), 'like', '%' . $request->get('q') . '%')->get();
 
         if (!$children_profiles){
             return response()->json(['message'=>'Not found'], 404);

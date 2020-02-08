@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Response;
 
 class ProgramsController extends Controller
 {
@@ -20,7 +21,7 @@ class ProgramsController extends Controller
     {
         $programs = DB::table('programs')
             ->leftJoin('children_programs', 'programs.id', '=', 'children_programs.id_program')
-            ->select(['programs.program_name', 'programs.id'])
+            ->select(['programs.id','programs.program_name'])
             ->selectRaw('count(children_programs.id_children) AS total_children')
             ->groupBy(['programs.program_name', 'programs.id'])
             ->orderBy('programs.program_name')
@@ -28,7 +29,7 @@ class ProgramsController extends Controller
 
         if (!$programs){
             return response()->json([
-                'Something wrong'
+                'message'=>'Something wrong'
             ], 404);
         }else{
             return response()->json([
@@ -48,10 +49,12 @@ class ProgramsController extends Controller
     public function store(Request $request)
     {
         $rules = [
+                'program_name'  =>  'required',
                 'program_fee'   =>  'numeric|min:0'
             ];
 
          $validator = Validator::make($request->all(), $rules,[
+             'program_name.required' => 'Program name is required',
              'program_fee.numeric'   =>  'Program fee is invalid',
              'program_fee.min'       =>  'Program fee is invalid',
          ]);
@@ -116,7 +119,7 @@ class ProgramsController extends Controller
         $program = Programs::find($id);
 
         if (!$program){
-            return response()->json('Something wrong', 404);
+            return response()->json(['message'=>'Something wrong'], 404);
         }else {
             $array_schedule = explode(',', $program->schedule);  //string to array
 
@@ -146,7 +149,7 @@ class ProgramsController extends Controller
     {
         $program = Programs::find($id);
         if (! $program){
-            return response()->json('Something wrong', 404);
+            return response()->json(['message'=>'Something wrong'], 404);
         }else {
             $children_in_program = DB::table('children_profiles')
                 ->join('children_programs', 'children_profiles.id', '=', 'children_programs.id_children')
@@ -199,10 +202,10 @@ class ProgramsController extends Controller
             return response()->json($validator->errors(), 400);
         }
 
-        $programs = Programs::findOrFail($id);
+        $programs = Programs::find($id);
 
         if (! $programs){
-            return response()->json('Something wrong', 404);
+            return response()->json(['message'=>'Something wrong'], 404);
         }else {
             $programs->update($request->all());
 
@@ -287,10 +290,10 @@ class ProgramsController extends Controller
 
     public function destroy($id)
     {
-        $programs = Programs::findOrFail($id);
+        $programs = Programs::find($id);
 
         if (! $programs){
-            return response()->json('Something wrong', 404);
+            return response()->json(['message'=>'Something wrong'], 404);
         }else {
             $programs->delete();
 
@@ -310,20 +313,14 @@ class ProgramsController extends Controller
 
     public function searchChildren(Request $request)
     {
-        $children_profiles = ChildrenProfiles::where('first_name', 'like', '%' . $request->get('q') . '%')
-            ->orWhere('last_name', 'like', '%' . $request->get('q') . '%')
-            ->orderBy('last_name')
-            ->get();
+        $children_profiles = ChildrenProfiles::where(DB::raw("concat(first_name ,' ', last_name)"), 'like', '%' . $request->get('q') . '%')->get();
 
         return response()->json($children_profiles);
     }
 
     public function searchStaff(Request $request)
     {
-        $staff_profiles = StaffProfiles::where('first_name', 'like', '%' . $request->get('q2') . '%')
-            ->orWhere('last_name', 'like', '%' . $request->get('q2') . '%')
-            ->orderBy('last_name')
-            ->get();
+        $staff_profiles = StaffProfiles::where(DB::raw("concat(first_name ,' ', last_name)"), 'like', '%' . $request->get('q2') . '%')->get();
 
         return response()->json($staff_profiles);
     }
@@ -340,10 +337,13 @@ class ProgramsController extends Controller
     public function addSelectChild(Request $request)
     {
         if ($request->ajax()) {
-            $output = '';
+
             $children_profiles = ChildrenProfiles::find($request->id_children);
 
-            if ($children_profiles){
+            if (!$children_profiles){
+                return response()->json(['message'=>'Not Found'], 404);
+            }
+            else{
                 $output = '
                             <div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
 							    <div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
@@ -358,22 +358,25 @@ class ProgramsController extends Controller
                             
                             <script>
                                 $(\'.delete-child\').click(function() {
-                                  $(this).parent(\'div\').parent(\'div\').parent(\'div\').hide();
+                                  $(this).parent(\'div\').parent(\'div\').parent(\'div\').remove();
                                 })
                             </script>
                             ';
             }
-            return Response($output);
+
+            return response()->json(['html'=>$output], 200);
         }
     }
 
     public function addSelectStaff(Request $request)
     {
         if ($request->ajax()) {
-            $output = '';
             $staff_profiles = StaffProfiles::find($request->id_staff);
 
-            if ($staff_profiles) {
+            if (!$staff_profiles){
+                return response()->json(['message'=>'Not Found'], 404);
+            }
+            else{
                 $output = '
                                 <div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
                                     <div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
@@ -388,12 +391,13 @@ class ProgramsController extends Controller
                                 
                                 <script >
                                     $(\'.delete-staff\').click(function() {
-                                      $(this).parent(\'div\').parent(\'div\').parent(\'div\').hide();
+                                      $(this).parent(\'div\').parent(\'div\').parent(\'div\').remove();
                                     })
                                 </script>
                                 ';
             }
-            return Response($output);
+
+            return response()->json(['html'=>$output], 200);
         }
     }
 }
