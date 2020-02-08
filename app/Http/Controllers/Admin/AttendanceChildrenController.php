@@ -107,8 +107,12 @@ class AttendanceChildrenController extends Controller
     }
     public function list(Request $req){
         $data['programs']  = Programs::all();
+        $data['child_atd1'] = Children_status::where('id_program', '=', $req->program)->whereDay('created_at', '=', $req->day)->whereMonth('created_at', '=', $req->month)->whereYear('created_at', '=', $req->year)->first();
         if ($req->program || $req->day || $req->month || $req->year) {
             $data['child_atd'] = Children_status::where('id_program', '=', $req->program)->whereDay('created_at', '=', $req->day)->whereMonth('created_at', '=', $req->month)->whereYear('created_at', '=', $req->year)->get();
+            $data['id_program'] = $req->program;
+            
+            
             return view('pages.attendance.list', $data);
         }else {
             // $current_month = Carbon::now()->format('M');
