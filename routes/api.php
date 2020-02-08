@@ -129,6 +129,10 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
         Route::get('show/{id}','Api\ObservationController@showChildrenInProgram');
         Route::get('view/{id}',['as'=>'admin.observations.view','uses'=>'Api\ObservationController@view']);
 
+        //clip board
+        Route::get('clip_board/{id}/{name}','Api\ObservationController@displayClipboard');
+        Route::get('delete_clipboard/{id}/{name}','Api\ObservationController@deleteClipboard');
+
     });
     Route::group(['prefix' => 'observationtype'], function () {
 

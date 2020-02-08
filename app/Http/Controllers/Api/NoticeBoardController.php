@@ -32,7 +32,7 @@ class NoticeBoardController extends Controller
             $programs = Programs::all();
             $programs_choose = DB::table('programs')
                 ->join('programs_notice', 'programs.id', '=', 'programs_notice.id_programs')
-                ->select('id')
+                ->select('programs.*')
                 ->where('id_notice', '=', $id)
                 ->get();
             // array chua cac id program ma children dang hoc
@@ -43,7 +43,7 @@ class NoticeBoardController extends Controller
             return response()->json([
                 'notice_board' => $notice_board,
                 'programs' => $programs,
-                'array_programs_choose' => $array_programs_choose
+                'array_programs_choose' => $programs_choose
             ], 200);
         }
     }
@@ -120,6 +120,8 @@ class NoticeBoardController extends Controller
     {
         return response()->file(storage_path('app/public/clip_board/'.$name),[
             'Content-Disposition' => 'inline; filename="'. $name .'"']);
+
+
     }
 
     public function deleteClipboard($id,$name)
@@ -179,7 +181,7 @@ class NoticeBoardController extends Controller
 
             $programs_choose = DB::table('programs')
                 ->join('programs_notice', 'programs.id', '=', 'programs_notice.id_programs')
-                ->select('id')
+                ->select('programs.*')
                 ->where('id_notice', '=', $id)
                 ->get();
 
@@ -281,7 +283,7 @@ class NoticeBoardController extends Controller
 
     public function destroy($id)
     {
-        $notice_board = NoticeBoard::findOrFail($id);
+        $notice_board = NoticeBoard::find($id);
 
         if (!$notice_board){
             return response()->json(['message'=>'Something wrong'], 404);

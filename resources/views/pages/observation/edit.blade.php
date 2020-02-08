@@ -24,11 +24,6 @@
 
             </div>
         </div>
-        @if(session('notify'))
-            <div class="alert alert-success font-weight-bold">
-                {{session('notify')}}
-            </div>
-        @endif
         <form style="width: auto;margin: 0;text-align: center" action="{{route('admin.observations.postEdit',['id'=>$child_observation->id])}}" method="post" id="editObservation" enctype="multipart/form-data">
             @csrf
             <div class="row">

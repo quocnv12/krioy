@@ -28,11 +28,6 @@
 				{{--</div>--}}
 			</div>
 		</div>
-        @if(session('notify'))
-            <div class="alert alert-success">
-                {{session('notify')}}
-            </div>
-        @endif
         <form action="kids-now/notice-board/add" method="post" enctype="multipart/form-data" style="width: 100%">
             @csrf
             <div class="mat-card">
@@ -97,7 +92,8 @@
                                 <div class="zoom">
                                     <a _ngcontent-c9="" class="zoom-fab zoom-btn-large fa fa-paperclip" id="button_file" style="font-size: 30px;cursor: pointer"></a>
                                     {{--<a _ngcontent-c9="" class="zoom-fab zoom-btn-large fa fa-image" id="button_image" style="font-size: 30px;cursor: pointer"></a>--}}
-                                    <input type="file" id="file" name="clip_board[]" multiple="multiple" value="{{old('clip_board')}}">
+                                    <input type="file" id="file" name="clip_board[]" multiple="multiple" value="{{old('clip_board')}}" accept=
+                                    ".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf">
                                 </div>
                             </div>
                             <div class="col-md-12" style="color: blue; margin-top: 50px; display: flex; justify-content: flex-start; ">
