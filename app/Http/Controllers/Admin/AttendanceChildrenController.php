@@ -39,6 +39,7 @@ class AttendanceChildrenController extends Controller
         $data['count_absent'] = Children_status::where('status','3')->where('id_program',$id)->whereDay('updated_at',$dayupdate)->count();
         $data['count_active'] = Children_status::where('active','1')->where('id_program',$id)->whereDay('updated_at',$dayupdate)->count();
         
+        
 
         return view('pages.attendance.attendance',$data);
     }
