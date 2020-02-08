@@ -11,10 +11,6 @@
     <link rel="stylesheet" type="text/css" href="css/reset-browser.css">
     <link rel="stylesheet" type="text/css" href="libs/bootstrap-4.0.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="libs/fontawesome-free-5.10.1-web/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="libs/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
-    <link rel="stylesheet" type="text/css" href="libs/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.css">
-    <link rel="stylesheet" type="text/css" href="libs/slick-1.8.1/slick/slick.css">
-    <link rel="stylesheet" type="text/css" href="libs/slick-1.8.1/slick/slick-theme.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
   
     <link rel="stylesheet" href="css/animate.css">
@@ -29,8 +25,6 @@
     {{-- <link rel="stylesheet" href="asset/kriyo/css/bootstrap.min.css"> --}}
     <!-- Font Awesome -->
     <link rel="stylesheet" href="asset/kriyo/css/font-awesome.min.css">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="asset/kriyo/css/owl.carousel.css">
     <!-- Custom CSS -->
         <link rel="stylesheet" href="libs/slick-1.8.1/slick/slick.css">
         <link rel="stylesheet" href="libs/slick-1.8.1/slick/slick-theme.css">
@@ -62,7 +56,7 @@
     @endif
     @if(session('danger'))
         <div style="position: absolute;right: 0px;margin-top: 10px;top: 50px;font-style: italic;opacity: 1;font-size: 14px;animation-name: example;
-        animation-duration: 5s;" class="alert alert-danger">
+        animation-duration: 5s;animation-iteration-count: 2;animation-direction: alternate;" class="alert alert-danger">
             <strong>Danger ! </strong> {{ session('danger') }} 🎉
         </div>
     @endif

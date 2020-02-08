@@ -19,26 +19,19 @@ class ChildrenProfilesController extends Controller
     public function index()
     {
         $programs = Programs::all();
-        if (! $programs){
-            return response()->json(['message'=>['message'=>'Something wrong']], 404);
-        }else{
-            return response()->json([
-                'programs'=>$programs
-            ], 200);
-        }
+        return response()->json([
+            'programs'=>$programs
+        ], 200);
+
     }
 
 
     public function create()
     {
         $programs = Programs::all();
-        if (! $programs){
-            return response()->json(['message'=>['message'=>'Something wrong']], 404);
-        }else{
-            return response()->json([
-                'programs'=>$programs
-            ], 200);
-        }
+        return response()->json([
+            'programs'=>$programs
+        ], 200);
     }
 
     public function store(Request $request)

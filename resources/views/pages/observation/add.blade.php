@@ -21,11 +21,12 @@
 					<ul class="ul-td">
 						<li class="level1"><a href="kids-now">Home</a></li>
 						<li class="active1" style="" ><a href="kids-now/observations/list">OBSERVATIONS</a></li>
+						<li class="active1 active-1" style="pointer-events: none" ><a href="">ADD OBSERVATION</a></li>
 					</ul>
 					</div>
-					<div class="col-sm-6">
-						<a href="{{route('admin.observations.list')}}" class="btn btn-success" style="float: right">Children List</a>
-					</div>
+					{{--<div class="col-sm-6">--}}
+						{{--<a href="{{route('admin.observations.list')}}" class="btn btn-success" style="float: right">Children List</a>--}}
+					{{--</div>--}}
 				</div>
 			</div>
 			@if(session('notify'))
@@ -38,9 +39,11 @@
 			<div class="row">
 				<div class="mat-card" style="width: 100%">
 					<div class="mat-content">
-						<a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white; float: left" href="{{route('admin.observations.listobservationtype')}}" class="btn btn-defaul">ObservationType</a>
-						<div style="width: 280px; float: right">
-							Seminar:
+						<a style="min-width:110px;background:#eb87c1;color:white; float: left;font-weight: bold" href="{{route('admin.observations.listobservationtype')}}" class="btn btn-default">OBSERVATION TYPES</a>
+						<a style="min-width:110px;background:#eb87c1;color:white; float: right; border: none;font-weight: bold" href="{{route('admin.observations.list')}}" class="btn btn-success" >CHILDREN LIST</a>
+						<br>
+						<div class="col-md-12">
+							<span style="font-weight: bold">Seminar:</span>
 							<select name="month" id="month">
 								<option value="">Choose Month</option>
 								<option value="Jan" @if(now()->month == 1) selected @endif>January</option>
@@ -63,7 +66,7 @@
 								@endfor
 							</select>
 						</div>
-
+						<hr>
 						<button class="accordion accordion1 clearfix" type="button">
 							<p style="float: left;">Children *</p>
 								{{--<form class="typeahead" role="search" style="float: right; text-align: left">--}}
@@ -137,8 +140,19 @@
 							</div>
 							<div class="col-md-1">
 								<div class="zoom">
-									<a _ngcontent-c9="" class="zoom-fab zoom-btn-large fa fa-paperclip" id="zoomBtn" style="font-size: 30px;cursor: pointer"></a>
+									<a _ngcontent-c9="" class="zoom-fab zoom-btn-large fa fa-paperclip" id="button_file" style="font-size: 30px;cursor: pointer"></a>
+									{{--<a _ngcontent-c9="" class="zoom-fab zoom-btn-large fa fa-image" id="button_image" style="font-size: 30px;cursor: pointer"></a>--}}
+									<input type="file" id="file" name="clip_board[]" multiple="multiple" value="{{old('clip_board')}}" accept=
+									".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf">
 								</div>
+							</div>
+							<div class="col-md-12" style="color: blue; margin-top: 50px; display: flex; justify-content: flex-start; ">
+								<p id="show_clip_board" style="text-align: left"></p>
+								@if ($errors->has('clip_board'))
+									<div class="text text-danger">
+										{{ $errors->first('clip_board') }}
+									</div>
+								@endif
 							</div>
 						</div>
 						<div class="button" style="text-align: center;">
@@ -265,7 +279,30 @@
 	    	}
 		});
 
+		//begin clip-board
+		var input_file = $("#file");
+		input_file.on("change", function () {
+			var files = input_file.prop("files")
+			if ($('#file').val() != null){
+				$('#show_clip_board').html('');
+			}
+			var names = $.map(files, function (val) {
+				return val.name;
+			});
+			$.each(names, function (i, name) {
+				$('#show_clip_board').append(name+'<br>');
+			});
+		});
 
+		$('#file').hide();
+		$('#image').hide();
+		$('#button_file').click(function () {
+			$('#file').click();
+		})
+		$('#button_image').click(function () {
+			$('#image').click();
+		})
+		//finish clip-board
 	</script>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>

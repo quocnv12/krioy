@@ -9,10 +9,18 @@
             <ul class="navbar-nav ml-auto">
                 <li>
                     <div class="dropdown-logo1">
-                        <button class="dropbtn-logo1"><img src="images/viet.png" style="width: 20px;height: 20px"></button>
+                        @if(app()->getLocale() == 'vi')
+                        <button class="dropbtn-logo1">
+                            <button class="dropbtn-logo1"><img src="images/viet.png" style="width: 20px;height: 20px"></button>
+                        </button>
+                        @else 
+                        <button class="dropbtn-logo1">
+                            <button class="dropbtn-logo1"><img src="images/usa.png" style="width: 20px;height: 20px"></button>
+                        </button>
+                        @endif
                         <div class="dropdown-content-logo1">
-                            <a href="#"><img src="images/viet.png"> VietNamese</a>
-                            <a href="#"><img src="images/usa.png"> English</a>
+                            <a href="locale/vi"><img src="images/viet.png"> VietNamese</a>
+                            <a href="locale/en"><img src="images/usa.png"> English</a>
                         </div>
                     </div>
                 </li>
@@ -55,6 +63,15 @@
     <div class="d-block d-md-none menu_mobile">
         <div id="menu_mobile">
             <div class="closebtn" onclick="closeNav()">×</div>
+            <a>
+                <div class="dropdown-logo1">
+                    <button class="dropbtn-logo1"><img src="images/viet.png" style="width: 20px;height: 20px"></button>
+                    <div class="dropdown-content-logo1">
+                        <a href="#" style="color: black;"><img src="images/viet.png"> VietNamese</a>
+                        <a href="#" style="color: black;"><img src="images/usa.png"> English</a>
+                    </div>
+                </div>
+            </a>
             <a href="#">@lang('kidsnow.menu_profiles')</a>
             <a href="#">INVOICES</a>
             <a href="#">Settings</a>
@@ -63,7 +80,7 @@
         </div>
        
         <nav class="navbar navbar-expand-sm bg-light">
-            <button class="openbtn" onclick="openNav()">☰ Menu</button>
+            <button class="openbtn" onclick="openNav()">☰ KIDS NOW</button>
                         <!-- Links -->
             <ul class="navbar-nav ml-auto">
                 <!-- Dropdown -->

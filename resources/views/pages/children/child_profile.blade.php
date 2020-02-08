@@ -78,17 +78,21 @@
 				<div class="row ng-star-inserted" id="result">
 					<!---->
 					@if(isset($children_profiles))
-						@foreach($children_profiles as $children)
-							<div class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted" style="padding:10px;cursor:pointer;">
-								<div type="button" data-toggle="modal" data-target=".bd-example-modal-sm" style="height: 120px;text-align: center;-webkit-appearance: none;">
-									<img class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="{{$children->image}}" style="height: 80px;">
-									<!---->
-									<span class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;display: block;" >{{$children->first_name}} {{$children->last_name}}</span>
-									<!---->
-									<input type="hidden" value="{{$children->id}}" class="link_to_children">
+						@if(count($children_profiles) > 0)
+							@foreach($children_profiles as $children)
+								<div class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted" style="padding:10px;cursor:pointer;">
+									<div type="button" data-toggle="modal" data-target=".bd-example-modal-sm" style="height: 120px;text-align: center;-webkit-appearance: none;">
+										<img class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="{{$children->image}}" style="height: 80px;">
+										<!---->
+										<span class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;display: block;" >{{$children->first_name}} {{$children->last_name}}</span>
+										<!---->
+										<input type="hidden" value="{{$children->id}}" class="link_to_children">
+									</div>
 								</div>
-							</div>
-						@endforeach
+							@endforeach
+						@else
+							<div style="font-size: 25px; margin: 10px;">No children was founded</div>
+						@endif
 					@else
 						<div style="margin: 50px">
 							<p style="color: red; font-weight: bold">Hint :</p>
