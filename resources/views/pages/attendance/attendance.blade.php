@@ -150,7 +150,7 @@
 	                                    <div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;margin-bottom: 5px;">
 	                                        <img _ngcontent-c19="" class="img-circle img-bd-xanh" height="80" onerror="this.src='images/Child.png';" width="80" src="Child.png">
 	                                        <i _ngcontent-c9="" aria-hidden="true" class="fa fa-check" id="checked" style="display: block;top:10px"></i>
-	                                        <span class="limitText ng-star-inserted span-clock span-clock-md">
+	                                        <span class="limitText ng-star-inserted span-clock span-clock-xanh">
 	                                        	<p style="border-radius: 5px 5px 0 0;">{{$children->first_name}} {{$children->last_name}}</p>
 	                                        	<p style="border-radius: 0 0 5px 5px;">3:12 PM</p>
 	                                        </span>
