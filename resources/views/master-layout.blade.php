@@ -57,13 +57,14 @@
         <div style="position: absolute;right: 0px;margin-top: 10px;top: 50px;font-style: italic;opacity: 0.8;font-size: 14px;animation-name: example;
         animation-duration: 4s;animation-iteration-count: 2;animation-direction: alternate;" class="alert alert-danger">
             <strong>Danger ! </strong> {{ session('danger') }} 🎉
+        </div>
     @endif
-    @if(session('danger'))
+    {{-- @if(session('danger'))
         <div style="position: absolute;right: 0px;margin-top: 10px;top: 50px;font-style: italic;opacity: 1;font-size: 14px;animation-name: example;
         animation-duration: 5s;animation-iteration-count: 2;animation-direction: alternate;" class="alert alert-danger">
             <strong>@lang('kidsnow.error') </strong> {{ session('danger') }} 🎉
         </div>
-    @endif
+    @endif --}}
    
     @yield('content')
     @include('footer')
