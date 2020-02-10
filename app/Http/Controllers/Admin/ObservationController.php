@@ -17,17 +17,17 @@ class ObservationController extends Controller
 {
     public function getList(Request $request){
         if ($request->month || $request->year) {
-            $child_observations = ObservationModel::where('month', '=', $request->month)->where('year', '=', $request->year)->get();
+            $child_observations = ObservationModel::where('month', '=', $request->month)->where('year', '=', $request->year)->orderBy('created_at','DESC')->get();
             return view('pages.observation.list', compact('child_observations'));
         }else {
             $current_month = Carbon::now()->format('M');
-            $child_observations = ObservationModel::where('month', '=', $current_month)->where('year', '=', now()->year)->get();
+            $child_observations = ObservationModel::where('month', '=', $current_month)->where('year', '=', now()->year)->orderBy('created_at','DESC')->get();
             return view('pages.observation.list', compact('child_observations'));
         }
     }
 
     public function getChild(){
-        $observationtype = ChildrenProfiles::all();
+        $observationtype = ChildrenProfiles::orderBy('first_name')->get();
         return view('pages.observation.select_child', compact('observationtype'));
     }
     public  function getListObservation(){
@@ -36,8 +36,8 @@ class ObservationController extends Controller
     }
 
     public function getAdd(){
-        $observationtype = ObservationTypeModel::all();
-        $programs = Programs::all();
+        $observationtype = ObservationTypeModel::orderBy('name')->get();
+        $programs = Programs::orderBy('program_name')->get();
         return view('pages.observation.add', compact('observationtype','programs'));
     }
 
@@ -233,36 +233,36 @@ class ObservationController extends Controller
         return view('pages.observation.list', compact('child_observations'))->with('success','Deleted Observation');
     }
 
-    public function getSearch(Request $req){
-        $search = DB::table('observations')
-           ->join('children_profiles','children_profiles.id','=','observations.id_children')
-           ->join('observations_type','observations_type.id','=','observations.id_observations')
-           ->select('observations.*','children_profiles.*','observations_type.name')
-           ->where('first_name','like','%'.$req->key.'%')
-            ->orWhere('last_name','like','%'.$req->key.'%')
-           ->orWhere('birthday','like','%'.$req->key.'%')
-           ->orWhere('gender','like','%'.$req->key.'%')
-            ->orWhere('name','like','%'.$req->key.'%')->get();
-       return view('pages.observation.search',compact('search'));
-
-
-    }
-    public function postSearch(Request $req){
-        $search = DB::table('observations')
-            ->join('children_profiles','children_profiles.id','=','observations.id_children')
-            ->join('observations_type','observations_type.id','=','observations.id_observations')
-            ->select('observations.*','children_profiles.first_name','children_profiles.last_name','children_profiles.birthday','children_profiles.gender','observations_type.name')
-            ->where('first_name','like','%'.$req->key.'%')
-            ->orWhere('last_name','like','%'.$req->key.'%')
-            ->orWhere('birthday','like','%'.$req->key.'%')
-            ->orWhere('gender','like','%'.$req->key.'%')
-            ->orWhere('name','like','%'.$req->key.'%')->get();
-        return view('pages.observation.search',compact('search'));
-    }
+//    public function getSearch(Request $req){
+//        $search = DB::table('observations')
+//           ->join('children_profiles','children_profiles.id','=','observations.id_children')
+//           ->join('observations_type','observations_type.id','=','observations.id_observations')
+//           ->select('observations.*','children_profiles.*','observations_type.name')
+//           ->where('first_name','like','%'.$req->key.'%')
+//            ->orWhere('last_name','like','%'.$req->key.'%')
+//           ->orWhere('birthday','like','%'.$req->key.'%')
+//           ->orWhere('gender','like','%'.$req->key.'%')
+//            ->orWhere('name','like','%'.$req->key.'%')->get();
+//       return view('pages.observation.search',compact('search'));
+//
+//
+//    }
+//    public function postSearch(Request $req){
+//        $search = DB::table('observations')
+//            ->join('children_profiles','children_profiles.id','=','observations.id_children')
+//            ->join('observations_type','observations_type.id','=','observations.id_observations')
+//            ->select('observations.*','children_profiles.first_name','children_profiles.last_name','children_profiles.birthday','children_profiles.gender','observations_type.name')
+//            ->where('first_name','like','%'.$req->key.'%')
+//            ->orWhere('last_name','like','%'.$req->key.'%')
+//            ->orWhere('birthday','like','%'.$req->key.'%')
+//            ->orWhere('gender','like','%'.$req->key.'%')
+//            ->orWhere('name','like','%'.$req->key.'%')->get();
+//        return view('pages.observation.search',compact('search'));
+//    }
 
     public function searchByName(Request $request)
     {
-        $children_profiles = ChildrenProfiles::where(DB::raw("concat(first_name ,' ', last_name)"), 'like', '%' . $request->get('q') . '%')->get();
+        $children_profiles = ChildrenProfiles::where(DB::raw("concat(first_name ,' ', last_name)"), 'like', '%' . $request->get('q') . '%')->orderBy('first_name')->get();
 
         return response()->json($children_profiles);
     }
@@ -270,10 +270,11 @@ class ObservationController extends Controller
 
     public function showChildrenInProgram($id){
         $observationtype = ObservationTypeModel::all();
-        $programs = Programs::all();
+        $programs = Programs::orderBy('program_name')->get();
         $children_profiles = DB::table('children_profiles')
                             ->join('children_programs','children_profiles.id','=','children_programs.id_children')
                             ->where('children_programs.id_program','=',$id)
+                            ->orderBy('first_name')
                             ->get();
         return view('pages.observation.add',['children_profiles'=>$children_profiles,
                                                     'observationtype'=>$observationtype,
