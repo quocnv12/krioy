@@ -9,25 +9,28 @@
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
 				<ul class="ul-td" style="width: 100%">
-					<li class="level1"><a href="kids-now">HOME</a></li>
+					<li class="level1"><a href="kids-now">@lang('kidsnow.home')</a></li>
+					<li class="active1" ><a href="kids-now/program">@lang('kidsnow.programs')</a></li>
+					<li class="active1 active-1" style="pointer-events: none;"><a href="">@lang('kidsnow.view_program')</a></li>
+					{--<li class="level1"><a href="kids-now">HOME</a></li>
 					<li class="active1" ><a href="kids-now/program">PROGRAM</a></li>
-					<li class="active1 active-1" style="pointer-events: none;"><a href="">VIEW PROGRAM</a></li>
+					<li class="active1 active-1" style="pointer-events: none;"><a href="">VIEW PROGRAM</a></li>--}
 				</ul>
 			</div>
 		</div>
 		<div class="mat-card">
 			<div class="mat-content">
-				<button class="accordion add-staff">VIEW PROGRAM</button>
+				<button class="accordion add-staff">@lang('kidsnow.view_program')</button>
 				<div class="panel add">
 					<div class="row">
 						<div class="col-md-4 input_box">
-							<span class="input_box_span_active">Program Name *</span>
+							<span class="input_box_span_active">@lang('kidsnow.program_name') *</span>
 							<input type="text" name="text" placeholder="Program Name *" value="{{$program->program_name}}">
 						</div>
 						<div class="col-md-8">
 							<div class="row" style="margin: 10px 0;" >
 								<div class="col-md-2" style="font-size: 18px;color:#5363d6;top:10px">
-									Days:
+									@lang('kidsnow.days'):
 								</div>
 								<div class="col-md-10" style="margin: 10px 0;">
 									<div class="panel_new">
@@ -47,11 +50,11 @@
 						<div class="col-md-6">
 							<div class="row">
 								<div class="col-md-6 input_box">
-									<span class="input_box_span_active">Program Fee</span>
+									<span class="input_box_span_active">@lang('kidsnow.program_fee')</span>
 									<input type="text" name="text" placeholder="Program Fee " value="{{number_format(floatval($program->program_fee),2)}}">
 								</div>
 								<div class="col-md-6 input_box">
-									<span class="input_box_span_active">Period Fee</span>
+									<span class="input_box_span_active">@lang('kidsnow.period')</span>
 									<select>
 										<option @if($program->period_fee == '/week') selected="selected" @endif>/week</option>
 										<option @if($program->period_fee == '/month') selected="selected" @endif>/month</option>
@@ -65,17 +68,17 @@
 					<hr>
 					<div class="row">
 						<div class="col-md-7">
-							<p style="color:#5363d6;font-size: 18px;">Age Group</p>
+							<p style="color:#5363d6;font-size: 18px;">@lang('kidsnow.age_group')</p>
 						</div>
 						<div class="col-md-5">
-							<p style="color:#5363d6;font-size: 18px;">Timings</p>
+							<p style="color:#5363d6;font-size: 18px;">@lang('kidsnow.timings')</p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-7">
 							<div class="row">
-								<div class="col-md-6"><span style="font-size: 14px;">From:</span></div>
-								<div class="col-md-6"><span style="font-size: 14px;">To:</span></div>
+								<div class="col-md-6"><span style="font-size: 14px;">@lang('kidsnow.from')</span></div>
+								<div class="col-md-6"><span style="font-size: 14px;">@lang('kidsnow.to')</span></div>
 							</div>
 						</div>
 						<div class="col-md-5"></div>
@@ -84,25 +87,25 @@
 						<div class="col-md-7">
 							<div class="row">
 								<div class="col-md-3 input_box">
-									<span class="input_box_span_active">Year </span>
+									<span class="input_box_span_active">@lang('kidsnow.year') </span>
 									<select name="from_year">
 										<option value="">{{$program->from_year}}</option>
 									</select>
 								</div>
 								<div class="col-md-3 input_box">
-									<span class="input_box_span_active">Month </span>
+									<span class="input_box_span_active">@lang('kidsnow.month') </span>
 									<select name="from_month">
 										<option value="">{{$program->from_month}}</option>
 									</select>
 								</div>
 								<div class="col-md-3 input_box">
-									<span class="input_box_span_active">Year </span>
+									<span class="input_box_span_active">@lang('kidsnow.year') </span>
 									<select name="to_year">
 										<option value="">{{$program->to_year}}</option>
 									</select>
 								</div>
 								<div class="col-md-3 input_box">
-									<span class="input_box_span_active">Month </span>
+									<span class="input_box_span_active">@lang('kidsnow.month') </span>
 									<select name="to_month">
 										<option value="">{{$program->to_month}}</option>
 									</select>
@@ -155,7 +158,6 @@
 				</div>
 			</div>
 		</div>
-		
 		<div class="mat-card">
 			<div class="mat-content">
 				<button class="accordion">Children</button>

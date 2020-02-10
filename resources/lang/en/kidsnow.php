@@ -16,6 +16,7 @@ return [
     'cancel' => 'CANCEL', //@lang('kidsnow.cancel')
     'send' => 'SEND', //@lang('kidsnow.send')
     'save' => 'SAVE', //@lang('kidsnow.save')
+    'edit' => 'EDIT', //@lang('kidsnow.edit')
     'enter_details_here' => 'Enter details here *', //@lang('kidsnow.enter_details_here')
     // Attendance
     'attendance' => 'Attendance', //@lang('kidsnow.attendance')
@@ -140,7 +141,6 @@ return [
     'medicine' => 'Medicine',//@lang('kidsnow.medicine')
     'growth' => 'Growth',//@lang('kidsnow.growth')
     'incident' => 'Incident',//@lang('kidsnow.incident')
-    'blood_group' => 'Blood Group',//@lang('kidsnow.blood_group')
     'height' => 'Height',//@lang('kidsnow.height')
     'weight' => 'Weight',//@lang('kidsnow.weight')
     'head_circumfere' => 'Head Circumfere',//@lang('kidsnow.head_circumfere')
@@ -149,14 +149,12 @@ return [
     'frist_name' => 'FIRST NAME',//@lang('kidsnow.frist_name')
     'last_name' => 'LAST NAME',//@lang('kidsnow.last_name')
     'birthday' => 'BIRTHDAY',//@lang('kidsnow.birthday')
-    'gender' => 'GENDER',//@lang('kidsnow.gender')
         //END Health quản lý danh sách
     // END  Health
     //Observations
     'choose_month' => 'Choose Month',//@lang('kidsnow.choose_month')
     'children_name' => 'Children\'s Name',//@lang('kidsnow.children_name')
     'seminar' => 'SEMINAR',//@lang('kidsnow.seminar')
-    'birthday' => 'BIRTHDAY',//@lang('kidsnow.birthday')
     'observer' => 'OBSERVER',//@lang('kidsnow.observer')
     'time' => 'TIME',//@lang('kidsnow.time')
     'action' => 'ACTION',//@lang('kidsnow.action')
@@ -173,6 +171,7 @@ return [
     'search_children' => 'Search Children',//@lang('kidsnow.search_children')
     //END Children Profiles
     //Staff Profiles:
+    'staff_profiles' => 'STAFF PROFILES',//@lang('kidsnow.staff_profiles')
             //Staff List: http://kidsnow.web88.vn/kids-now/staff
             'name' => 'NAME',//@lang('kidsnow.name')
             'phone' => 'PHONE',//@lang('kidsnow.phone')
@@ -183,6 +182,7 @@ return [
             'image' => 'IMAGE',//@lang('kidsnow.image')
             'add' => 'ADD',//@lang('kidsnow.add')
             'edit_staff' => 'EDIT STAFF',//@lang('kidsnow.edit_staff')
+            'add_staff' => 'ADD STAFF',//@lang('kidsnow.edit_staff')
             // END Staff List
                 // Edit Staff Edit: http://kidsnow.web88.vn/kids-now/staff/edit/7
                 'first_name' => 'First name *',//@lang('kidsnow.first_name')
@@ -216,7 +216,6 @@ return [
         'month' => 'Month',//@lang('kidsnow.month')
         'year' => 'Year',//@lang('kidsnow.year')
         'staff' => 'Staff',//@lang('kidsnow.staff')
-        'children' => 'Children',//@lang('kidsnow.children')
     //END Program
     // 'diary' => 'Diary',//@lang('kidsnow.diary')
     'star' => 'Star',//@lang('kidsnow.star')
@@ -238,7 +237,6 @@ return [
     // Profiles
     'children_profiles' => 'Children Profiles',//@lang('kidsnow.children_profiles')
     'staff_profiles' => 'Staff Profiles',//@lang('kidsnow.staff_profiles')
-    'programs' => 'Programs',//@lang('kidsnow.programs')
     'school' => 'School',//@lang('kidsnow.school')
     'archives' => 'Archives',//@lang('kidsnow.archives')
     // Setup and Settings
@@ -281,9 +279,16 @@ return [
     'creative' => 'Creative',//@lang('kidsnow.creative')
     'brave' => 'Brave',//@lang('kidsnow.brave')
     'star_type' => 'Star Type*',//@lang('kidsnow.star_type')
-    'brave' => 'Brave',//@lang('kidsnow.brave')
-    'brave' => 'Brave',//@lang('kidsnow.brave')
-
+    'select' => 'SELECT_',//@lang('kidsnow.select')
+    'children' => 'CHILDREN',//@lang('kidsnow.children')
+    'stars' => 'STARS',//@lang('kidsnow.stars')
+    'home' => 'HOME',//@lang('kidsnow.home')
+    'action' => 'ACTION',//@lang('kidsnow.action')
+    'list' => 'List',//@lang('kidsnow.list')
+    'male' => 'Male',//@lang('kidsnow.male')
+    'female' => 'Female',//@lang('kidsnow.female')
+    'permissions' => 'Permissions',//@lang('kidsnow.permissions')
+    'list' => 'List',//@lang('kidsnow.list')
 
 
     'signup' => [
