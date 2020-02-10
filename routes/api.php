@@ -17,16 +17,26 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-Route::get('test','Api\TestApiController@GetTest');
 
+
+//-----Đăng nhập----
 Route::post('login', 'Api\LoginController@login');
 
+//-------------------Quên mật khẩu-----------------
+Route::post('forgot', 'Api\ForgotPassWordController@PostFormResetPassword');
+Route::post('password/reset', 'Api\ForgotPassWordController@PostResetPassword');
+
+//-----------------Tài khoản demo-------------------
+Route::post('account','Api\ForgotPassWordController@postDemoAccount');
+
+//-------------------Group Admin------------------
 Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
     Route::post('logout', 'Api\LoginController@logout');
 
+    //--đổi mật khẩu------
+    Route::post('update-password', 'Api\ForgotPassWordController@postUpdatePassword');
+
     //------------food----------------
-   
-    
     Route::group(['prefix' => 'food'], function () {
         Route::get('', 'Api\FoodController@index');
         Route::post('add', 'Api\FoodController@store');
@@ -42,10 +52,30 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
         Route::post('menu-meal-type/update/{id}', 'Api\FoodController@updateMealType');
         Route::get('menu-meal-type/delete/{id}', 'Api\FoodController@destroyMealType');
 
+         //quantity
+         Route::get('menu-quantity', 'Api\FoodController@indexQuantity');
+         Route::post('menu-quantity/add', 'Api\FoodController@storeQuantity');
+         Route::get('menu-quantity/show/{id}', 'Api\FoodController@showQuantity');
+         Route::post('menu-quantity/update/{id}', 'Api\FoodController@updateQuantity');
+         Route::get('menu-quantity/delete/{id}', 'Api\FoodController@destroyQuantity');
+
     });
    
     // Route::apiResource('food', 'api\FoodController@add');
     // Route::apiResource('food', 'api\FoodController');
+
+    Route::group(['prefix' => 'staff'], function () {
+        Route::get('','Api\Staff\StaffController@index');
+        Route::get('show/{id}','Api\Staff\StaffController@show');
+        Route::post('add','Api\Staff\StaffController@store');
+        Route::post('update/{id}','Api\Staff\StaffController@update');
+        Route::get('delete/{id}','Api\Staff\StaffController@destroy');
+       
+    });
+
+
+
+
 
     //---------------children----------------
     Route::group(['prefix' => 'children'], function () {
@@ -57,7 +87,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
         Route::get('edit/{id}', 'Api\ChildrenProfilesController@edit');
         Route::post('edit/{id}', 'Api\ChildrenProfilesController@update');
         Route::get('delete/{id}', 'Api\ChildrenProfilesController@destroy');
-
         Route::get('add_parent', 'Api\ChildrenProfilesController@addParent');
         Route::get('select_child', 'Api\ChildrenProfilesController@selectChild');
 

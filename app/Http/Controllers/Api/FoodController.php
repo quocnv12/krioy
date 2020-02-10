@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\models\food\{food,mealtype};
+use App\models\food\{food,mealtype,quantytifood};
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Validator;
@@ -163,7 +163,8 @@ class FoodController extends Controller
 
     public function indexMealType()
     {
-        $mealtype = mealtype::with(['mealtype_foods'])->get();
+        // $mealtype = mealtype::with(['mealtype_foods'])->get();
+        $mealtype = mealtype::all();
         return response()->json([
             'mealtype' => $mealtype
         ],200);
@@ -185,7 +186,7 @@ class FoodController extends Controller
         }
         $mealtype = mealtype::create($request->all());
         $mealtype->save();
-       return response()->json(['massage' => 'Add meal ype success !'], 201);
+       return response()->json(['massage' => 'Add meal type success !'], 201);
 
     }
 
@@ -198,14 +199,11 @@ class FoodController extends Controller
         {
             return response()->json(['massage' => 'Record not found!'] , 404);
         }
-        $mealtype = mealtype::find($id)->load(['mealtype_foods']);
+        $mealtype = mealtype::find($id);
+        // ->load(['mealtype_foods']);
         return response()->json(['mealtype' => $mealtype], 200);
 
     }
-
-
-
-
 
     //---edit meal type
     public function updateMealType(Request $request, $id)
@@ -246,5 +244,98 @@ class FoodController extends Controller
         
     }
 
+
+
+
+
+
+    //-------------------quantity food----------------------
+
+
+    public function indexQuantity()
+    {
+        $quantityfood = quantytifood::all();
+        return response()->json([
+            'quantityfood' => $quantityfood
+        ],200);
+    }
+
+    //--add quantity
+    public function storeQuantity(Request $request)
+    {
+        $rules =  
+            [
+                'name'  => 'required',
+            ];
+            $validator = Validator::make($request->all(), $rules,[
+                'name.required'  => 'Please enter name quantity !',
+            ]);
+        if($validator->fails())
+        {
+            return response()->json($validator->errors(), 400);
+        }
+        $quantity = quantytifood::create($request->all());
+        $quantity->save();
+       return response()->json(['massage' => 'Add quantity food success !'], 201);
+
+    }
+
+    //--show quantity
+    public function showQuantity($id)
+    {
+        //return food::with(['mealtypefood','quantityfood','food:id,food_name'])->get();
+        $quantityfood = quantytifood::find($id);
+        if(!$quantityfood)
+        {
+            return response()->json(['massage' => 'Record not found!'] , 404);
+        }
+        $quantityfood = quantytifood::find($id);
+        return response()->json(['quantity_food' => $quantityfood], 200);
+
+    }
+
+
+
+
+
+    //---edit quantity food
+    public function updateQuantity(Request $request, $id)
+    {
+        $quantityfood = quantytifood::find($id);
+        if(!$quantityfood)
+        {
+            return response()->json(['massage' => 'Record not found!'] , 404);
+        }
+        
+        $rules =  
+        [
+            'name'  => 'required|unique:quantity_food,name',
+          
+        ];
+        $validator = Validator::make($request->all(), $rules,[
+            'name.required'  => 'Please enter quantity food !',
+            'name.unique'    => 'Quantity food already exist !'
+        ]);
+        if($validator->fails())
+        {
+            return response()->json($validator->errors(), 400);
+        }
+        $quantityfood->update($request->all());
+        $quantityfood->save();
+        return response()->json(['massage' => 'Edit quantity food success !'], 201);
+    }
+
+    //----delete quantity food
+    public function destroyQuantity($id)
+    {
+        $quantity = quantytifood::find($id);
+        if(!$quantity)
+        {
+            return response()->json(['massage' => 'Record not found!'] , 404);
+        }
+        $quantity->delete($id);
+        return response()->json(['massage' => 'Delete quantity success !'], 200);
+        
+    }
 
 }
