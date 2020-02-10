@@ -125,12 +125,14 @@ class ProgramsController extends Controller
             ->join('children_programs','children_profiles.id','=','children_programs.id_children')
             ->select(['*'])
             ->where('children_programs.id_program','=',$id)
+            ->orderBy('children_profiles.first_name')
             ->get();
 
         $staff_profiles = DB::table('staff_profiles')
             ->join('staff_programs','staff_profiles.id','=','staff_programs.id_staff')
             ->select(['*'])
             ->where('staff_programs.id_program','=',$id)
+            ->orderBy('staff_profiles.first_name')
             ->get();
         return view('pages.program.view_program',['program'=>$program,
                                                         'array_schedule'=>$array_schedule,
@@ -146,12 +148,14 @@ class ProgramsController extends Controller
             ->join('children_programs', 'children_profiles.id', '=', 'children_programs.id_children')
             ->select('*')
             ->where('id_program', '=', $id)
+            ->orderBy('children_profiles.first_name')
             ->get();
 
         $staff_in_program = DB::table('staff_profiles')
             ->join('staff_programs', 'staff_profiles.id', '=', 'staff_programs.id_staff')
             ->select('*')
             ->where('id_program', '=', $id)
+            ->orderBy('staff_profiles.first_name')
             ->get();
 
         $array_children_old = [];
@@ -280,14 +284,14 @@ class ProgramsController extends Controller
 
     public function searchChildren(Request $request)
     {
-        $children_profiles = ChildrenProfiles::where(DB::raw("concat(first_name ,' ', last_name)"), 'like', '%' . $request->get('q') . '%')->get();
+        $children_profiles = ChildrenProfiles::where(DB::raw("concat(first_name ,' ', last_name)"), 'like', '%' . $request->get('q') . '%')->orderBy('first_name')->get();
 
         return response()->json($children_profiles);
     }
 
     public function searchStaff(Request $request)
     {
-        $staff_profiles = StaffProfiles::where(DB::raw("concat(first_name ,' ', last_name)"), 'like', '%' . $request->get('q2') . '%')->get();
+        $staff_profiles = StaffProfiles::where(DB::raw("concat(first_name ,' ', last_name)"), 'like', '%' . $request->get('q2') . '%')->orderBy('first_name')->get();
 
         return response()->json($staff_profiles);
     }
