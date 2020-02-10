@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-sm-6" style="display: flex; justify-content: flex-end">
                     <button class="notice" type="button" >
-                        <span><a href="kids-now/observations/delete/{{$child_observation->id}}" style="color: inherit; " onclick="return deleteConfirm()" >DELETE</a></span>
+                        <span><a href="kids-now/observations/delete/{{$child_observation->id}}" style="color: inherit; z-index: -1" onclick="return deleteConfirm()" >DELETE</a></span>
                     </button>
                 </div>
 

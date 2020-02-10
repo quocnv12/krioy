@@ -58,9 +58,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
         Route::post('edit/{id}', 'Api\ChildrenProfilesController@update');
         Route::get('delete/{id}', 'Api\ChildrenProfilesController@destroy');
 
-        Route::get('add_parent', 'Api\ChildrenProfilesController@addParent');
-        Route::get('select_child', 'Api\ChildrenProfilesController@selectChild');
-
         //search by typeahead
         Route::get('search/name', 'Api\ChildrenProfilesController@searchByName');
     });
@@ -70,9 +67,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
         Route::get('', 'Api\ProgramsController@index');
         Route::get('add', 'Api\ProgramsController@create');
         Route::post('add', 'Api\ProgramsController@store');
-
-        Route::get('select_staff','Api\ProgramsController@selectStaff');
-        Route::get('select_child','Api\ProgramsController@selectChild');
 
         Route::get('select_child/add','Api\ProgramsController@addSelectChild');   //ajax them children
         Route::get('select_staff/add','Api\ProgramsController@addSelectStaff');   //ajax them staff
