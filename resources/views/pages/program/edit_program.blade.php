@@ -42,11 +42,6 @@
                 </div>
 			</div>
 		</div>
-		@if(session('notify'))
-			<div class="alert alert-success">
-				{{session('notify')}}
-			</div>
-		@endif
 		<form action="kids-now/program/edit/{{$program->id}}" method="post" style="width: 100%" id="editProgram">
 			@csrf
 

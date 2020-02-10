@@ -13,13 +13,13 @@ class ChildrenProfilesController extends Controller
 {
     public function index()
     {
-        $programs = Programs::all();
+        $programs = Programs::orderBy('program_name')->get();
         return view('pages.children.child_profile', ['programs' => $programs]);
     }
 
     public function create()
     {
-        $programs = Programs::all();
+        $programs = Programs::orderBy('program_name')->get();
         return view('pages.children.create_child', ['programs' => $programs]);
     }
 
@@ -169,13 +169,14 @@ class ChildrenProfilesController extends Controller
 
     public function show($id)
     {
-        $programs = Programs::all();
+        $programs = Programs::orderBy('program_name')->get();
 
         if ($id == 0){
             $children_profiles = DB::table('children_profiles')
                 ->leftJoin('children_programs', 'children_profiles.id', '=', 'children_programs.id_children')
                 ->select(['children_profiles.*'])
                 ->where('children_programs.id_program', '=', null)
+                ->orderBy('children_profiles.first_name')
                 ->simplePaginate(18);
         }
         else{
@@ -184,6 +185,7 @@ class ChildrenProfilesController extends Controller
                 ->join('children_profiles', 'children_profiles.id', '=', 'children_programs.id_children')
                 ->select(['children_profiles.*'])
                 ->where('children_programs.id_program', '=', $id)
+                ->orderBy('children_profiles.first_name')
                 ->simplePaginate(18);
         }
 
@@ -192,7 +194,7 @@ class ChildrenProfilesController extends Controller
 
     public function view($id){
         $children_profiles = ChildrenProfiles::find($id);
-        $programs = Programs::all();
+        $programs = Programs::orderBy('program_name')->get();
         $programs_choose = DB::table('programs')
             ->join('children_programs', 'programs.id', '=', 'children_programs.id_program')
             ->select('id')
@@ -241,7 +243,7 @@ class ChildrenProfilesController extends Controller
     public function edit($id)
     {
         $children_profiles = ChildrenProfiles::find($id);
-        $programs = Programs::all();
+        $programs = Programs::orderBy('program_name')->get();
         $programs_choose = DB::table('programs')
             ->join('children_programs', 'programs.id', '=', 'children_programs.id_program')
             ->select('id')
@@ -526,14 +528,14 @@ class ChildrenProfilesController extends Controller
 
         $children_profiles->delete();
 
-        $programs = Programs::all();
+        $programs = Programs::orderBy('program_name')->get();
         return view('pages.children.child_profile',['programs'=>$programs])->with('success','Deleted Children\'s Profile: '.$children_profiles->first_name.' '.$children_profiles->last_name);
     }
 
 
     public function searchByName(Request $request)
     {
-        $children_profiles = ChildrenProfiles::where(DB::raw("concat(first_name ,' ', last_name)"), 'like', '%' . $request->get('q') . '%')->get();
+        $children_profiles = ChildrenProfiles::where(DB::raw("concat(first_name ,' ', last_name)"), 'like', '%' . $request->get('q') . '%')->orderBy('first_name')->get();
 
         return response()->json($children_profiles);
     }

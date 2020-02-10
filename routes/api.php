@@ -100,9 +100,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
         Route::get('add', 'Api\ProgramsController@create');
         Route::post('add', 'Api\ProgramsController@store');
 
-        Route::get('select_staff','Api\ProgramsController@selectStaff');
-        Route::get('select_child','Api\ProgramsController@selectChild');
-
         Route::get('select_child/add','Api\ProgramsController@addSelectChild');   //ajax them children
         Route::get('select_staff/add','Api\ProgramsController@addSelectStaff');   //ajax them staff
 
@@ -157,6 +154,10 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
 
         Route::get('show/{id}','Api\ObservationController@showChildrenInProgram');
         Route::get('view/{id}',['as'=>'admin.observations.view','uses'=>'Api\ObservationController@view']);
+
+        //clip board
+        Route::get('clip_board/{id}/{name}','Api\ObservationController@displayClipboard');
+        Route::get('delete_clipboard/{id}/{name}','Api\ObservationController@deleteClipboard');
 
     });
     Route::group(['prefix' => 'observationtype'], function () {

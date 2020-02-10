@@ -50,7 +50,8 @@
                                     <span style="font-weight: bold">Choose</span>&nbsp;&nbsp;:&nbsp;&nbsp;
                                     <select name="program" id="program">
                                         @foreach($programs as $item)
-                                            <option value="{{$item->id}}">{{$item->program_name}}</option>
+                                            <option value="{{$item->id}}" @if($item->id == $id_program) selected @endif >
+                                                {{$item->program_name}}</option>
                                         @endforeach
                                     </select>
                                     &nbsp;&nbsp;-&nbsp;&nbsp;
@@ -95,38 +96,38 @@
                                 <th style="width:10%">In</th>
                                 <th style="width:10%">Out</th>
                                 <th style="width:20%">Absent</th>
-                                <th style="width:10%">Total attendance/month</th>
                             </tr>
                             </thead>
                             <tbody>
-                                @foreach ($child_atd as $key=>$item)
-                                    <tr class="odd gradeX">
-                                        <td style="text-align:center;text-transform:capitalize">{{ $item->atd_chil->first_name}} {{ $item->atd_chil->last_name}}</td>
-                                        <td style="text-align:center;text-transform:capitalize">
-                                            @if($item->status == 3)
-                                                {{'null'}}
-                                            @else
-                                                {{$item->in}}
-                                            @endif
-                                        </td>
-                                        <td style="text-align:center;text-transform:capitalize">
-                                            @if($item->status == 3)
-                                                {{'null'}}
-                                            @else
-                                                {{$item->out}}
-                                            @endif
-                                        </td>
-                                        <td style="text-align:center;text-transform:capitalize">
-                                            @if($item->status == 3)
-                                                {{$item->absent}}
-                                            @else
-                                                {{'null'}}
-                                            @endif
-                                        </td>
-                                        <td style="text-align:center;text-transform:capitalize">2/2019</td>
-                                        
-                                    </tr>
-                                @endforeach
+                                @if(isset($child_atd))
+                                    @foreach ($child_atd as $key=>$item)
+                                        <tr class="odd gradeX">
+                                            <td style="text-align:center;text-transform:capitalize">{{ $item->atd_chil->first_name}} {{ $item->atd_chil->last_name}}</td>
+                                            <td style="text-align:center;text-transform:capitalize">
+                                                @if($item->status == 3)
+                                                    {{'null'}}
+                                                @else
+                                                    {{$item->in}}
+                                                @endif
+                                            </td>
+                                            <td style="text-align:center;text-transform:capitalize">
+                                                @if($item->status == 3)
+                                                    {{'null'}}
+                                                @else
+                                                    {{$item->out}}
+                                                @endif
+                                            </td>
+                                            <td style="text-align:center;text-transform:capitalize">
+                                                @if($item->status == 3)
+                                                    {{$item->absent}}
+                                                @else
+                                                    {{'null'}}
+                                                @endif
+                                            </td>
+                                            
+                                        </tr>
+                                    @endforeach
+                                @endif
                             </tbody>
                         </table>
                     </div>
@@ -135,11 +136,7 @@
         </div>
     </div>
 </section>
-<div class="icon-plus">
-    <a href="{{ route('admin.observations.getAdd') }}">
-        <i class="fa fa-plus"></i>
-    </a>
-</div>
+
 </body>
 @endsection
 @section('js')

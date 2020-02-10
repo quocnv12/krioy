@@ -39,6 +39,7 @@ class AttendanceChildrenController extends Controller
         $data['count_absent'] = Children_status::where('status','3')->where('id_program',$id)->whereDay('updated_at',$dayupdate)->count();
         $data['count_active'] = Children_status::where('active','1')->where('id_program',$id)->whereDay('updated_at',$dayupdate)->count();
         
+        
 
         return view('pages.attendance.attendance',$data);
     }
@@ -106,8 +107,12 @@ class AttendanceChildrenController extends Controller
     }
     public function list(Request $req){
         $data['programs']  = Programs::all();
+        $data['child_atd1'] = Children_status::where('id_program', '=', $req->program)->whereDay('created_at', '=', $req->day)->whereMonth('created_at', '=', $req->month)->whereYear('created_at', '=', $req->year)->first();
         if ($req->program || $req->day || $req->month || $req->year) {
             $data['child_atd'] = Children_status::where('id_program', '=', $req->program)->whereDay('created_at', '=', $req->day)->whereMonth('created_at', '=', $req->month)->whereYear('created_at', '=', $req->year)->get();
+            $data['id_program'] = $req->program;
+            
+            
             return view('pages.attendance.list', $data);
         }else {
             // $current_month = Carbon::now()->format('M');

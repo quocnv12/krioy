@@ -10,8 +10,8 @@
 			<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 				<div class="row">
 					<ul class="ul-td">
-						<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">Home</a></li>
-						<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">STARS</a></li>
+						<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="">@lang('kidsnow.home')</a></li>
+						<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="">@lang('kidsnow.stars')</a></li>
 					</ul>
 				</div>
 			</div>
@@ -19,9 +19,9 @@
 				<div class="mat-card">
 					<div class="mat-content">
 						<button class="accordion accordion1 clearfix">
-							<p style="float: left;">Children *</p>
+							<p style="float: left;">@lang('kidsnow.children') *</p>
 							<a href="Select-Child.html" style="float: right;text-align: right">
-								<p style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">SELECT</p>
+								<p style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">@lang('kidsnow.select')</p>
 							</a>
 						</button>
 						<div class="panel">
@@ -30,27 +30,27 @@
 					</div>
 					<hr>
 					<div class="mat-content">
-						<button class="accordion_new">Star Type*
+						<button class="accordion_new">@lang('kidsnow.star_type')
 							<i class="fa fa-chevron-circle-down"></i>
 						</button>
 						<div class="panel_new">
 							<div _ngcontent-c20="" class="row" style="">
 								<!---->
 								<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer;">
-									<button _ngcontent-c20="" class="btn progBtn limitText" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Brave</button>
+									<button _ngcontent-c20="" class="btn progBtn limitText" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">@lang('kidsnow.brave')</button>
 								</div>
 								<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer">
-									<button _ngcontent-c20="" class="btn progBtn limitText bgClass" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Creative</button>
+									<button _ngcontent-c20="" class="btn progBtn limitText bgClass" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">@lang('kidsnow.creative')</button>
 								</div>
 								<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer">
-									<button _ngcontent-c20="" class="btn progBtn limitText bgClass" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Friendly</button>
+									<button _ngcontent-c20="" class="btn progBtn limitText bgClass" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">@lang('kidsnow.friendly')</button>
 								</div>
-								<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer"><button _ngcontent-c20="" class="btn progBtn limitText bgClass" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Helping</button>
+								<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer"><button _ngcontent-c20="" class="btn progBtn limitText bgClass" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">@lang('kidsnow.menu_help')</button>
 								</div>
 								<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer">
-									<button _ngcontent-c20="" class="btn progBtn limitText" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Punctual</button>
+									<button _ngcontent-c20="" class="btn progBtn limitText" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">@lang('kidsnow.punctual')</button>
 								</div>
-								<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer"><button _ngcontent-c20="" class="btn progBtn limitText bgClass" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">Quick Learn</button>
+								<div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer"><button _ngcontent-c20="" class="btn progBtn limitText bgClass" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">@lang('kidsnow.quick_learn')</button>
 								</div>
 							</div>
 						</div>
@@ -58,8 +58,8 @@
 					<div class="comment">
 						<div class="row">
 							<div class="col-md-11 input_box">
-								<span>Enter deatail here *</span>
-								<input type="text" name="text" placeholder="Enter deatail here *">
+								<span>@lang('kidsnow.enter_details_here')</span>
+								<input type="text" name="text" placeholder="@lang('kidsnow.enter_details_here')">
 							</div>
 							<div class="col-md-1">
 								<div class="zoom">
@@ -69,10 +69,10 @@
 						</div>
 						<div class="button" style="text-align: center;">
 							<button>
-								<span>CANCEL</span>
+								<span>@lang('kidsnow.cancel')</span>
 							</button>
 							<button class="button2">
-								<span>SEND</span>
+								<span>@lang('kidsnow.send')</span>
 							</button>
 						</div>
 					</div>

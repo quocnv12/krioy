@@ -1,0 +1,320 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Kriyo Expenses Add</title>
+
+		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet" type="text/css" href="heath.css">
+		<link rel="stylesheet" type="text/css" href="staff_profile.css">
+
+		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
+   		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+    	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+
+    	<link rel="stylesheet" href="css/bootstrap.min.css">
+    
+	    <!-- Font Awesome -->
+	    <link rel="stylesheet" href="css/font-awesome.min.css">
+	</head>
+
+<body style="background: white !important;">
+	<section class="page-top container">
+		<div class="tieu-de add" style="margin-top: 10px;margin-bottom: 10px;">
+			<div class="row">
+				<div class="col-md-8">
+					<ul class="ul-td">
+						<li class="level1"><a  href="index.html">HOME</a></li>
+						<li class="active1"><a href="expenses.html">EXPENSES</a></li>
+						<li class="active-1" style="pointer-events:none;"><a>ADD EXPENSES</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="container">
+		<div class="mat-card" style="margin: 0;">
+			<div class="add a1">
+				<div class="row">
+					<div class="col-sm-8 col-md-8 expenses-detail">
+						<span>Expense Header *</span>
+						<input type="text" name="first-name" placeholder="Give a name to this expense?" >
+					</div>
+					<div class="col-sm-4 col-md-4 expenses-detail">
+						<span>Total Amount *</span>
+						<input type="text" name="text" placeholder="Expense Amount">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6 col-md-6 expenses-detail">
+						<span>Category *</span>
+						<input onclick="on()" type="text" name="first-name" value="" placeholder="What kind of expense?">
+							<div class="menu-option" id="overlay" onclick="off()">
+								<div class="menu-option-header">
+									<span>
+										<button data-toggle="modal" data-target="#myModal-1">+Add</button>
+										<p>Lorem ipsum dolor sit amet.</p>
+									</span>
+								</div>
+								<div class="menu-option-center">
+									<span>
+										 Payroll 1
+										<button data-toggle="modal" data-target="#myModal">
+											<i class="fa fa-edit"></i>
+										</button>
+									</span>
+								</div>
+								<div class="menu-option-center">
+									<span>
+										 Payroll 2
+										<button data-toggle="modal" data-target="#myModal">
+											<i class="fa fa-edit"></i>
+										</button>
+									</span>
+								</div>
+								<div class="menu-option-center">
+									<span>
+										 Payroll 3
+										<button data-toggle="modal" data-target="#myModal">
+											<i class="fa fa-edit"></i>
+										</button>
+									</span>
+								</div>
+							</div>
+						</input>
+					</div>
+					<div class="col-sm-6 col-md-6 expenses-detail">
+						<span>Payee *</span>
+						<input type="text" name="text" placeholder="Who did you pay?">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6 col-md-6 expenses-detail">
+						<span>Payment Account *</span>
+						<input type="text" name="first-name" placeholder="Who Paid for this?">
+					</div>
+					<div class="col-sm-6 col-md-6 expenses-detail">
+						<span>Payment Method *</span>
+						<input type="text" name="first-name" placeholder="How is it paid?">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4 col-md-4 expenses-detail">
+						<span>Payment Date *</span>
+						<input type="text" name="first-name" placeholder="Payment Date">
+					</div>
+					<div class="col-sm-4 col-md-4 expenses-detail">
+						<span>Payment Status *</span>
+						<input type="text" name="first-name" placeholder="a">
+					</div>
+					<div class="col-sm-4 col-md-4 expenses-detail">
+						<span>Reference Number *</span>
+						<input type="text" name="first-name" placeholder="a">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12 col-md-12 expenses-detail">
+						<span>Comment *</span>
+						<input type="text" name="first-name" placeholder="Expense Details">
+					</div>
+				</div>
+				<div class="row">
+					<p style="color: #5363d6;font-size: 20px; font-weight: bold;margin: 10px 30px;"><ins>Expense Split</ins></p>
+					<div class="mat-card" style="margin: 10px 20px;background-color: #f0f2ff;">
+						<div class="add a1">
+							<div class="row expenses-add-input_box">
+								<div class="col-sm-6 col-md-6 input_box">
+									<span>Expense Header *</span>
+									<input type="text" name="first-name" placeholder=" Expense Header *">
+								</div>
+								<div class="col-sm-2 col-md-2 input_box">
+									<span>Amount *</span>
+									<input type="text" name="text" placeholder="Amount *">
+								</div>
+								<div class="col-sm-2 col-md-2 input_box">
+									<span>Tax *</span>
+									<input type="text" name="text" placeholder="Tax *">
+								</div>
+								<div class="col-sm-2 col-md-2 expenses-detail">
+									<span>Item Total *</span>
+									<input type="text" name="text" placeholder="Item Total *" value="0" disabled="" style="margin-top: 5px !important;">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<p style="color: #5363d6;font-size: 20px; font-weight: bold;margin: 10px 30px;"><ins>Attachments</ins></p>
+					<div class="input-file-container" style="display: none;">  
+						<div class="input-img">
+							<img class="blah" src="images/150.png" alt="your  image" />
+							<div class="top-right button-close button_close_show_img">
+								<button style="border-radius:50%;width:26px;height:26px;z-index:1;">
+									<i class="fa fa-times-circle"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+					<input type="file" id="file" style="display:none;" />
+					<button style="float: right;margin: 10px 30px;background-color: #5363d6;color: white;border-radius: 5px;border: none;display: inline-block;padding: 6px 12px;margin-bottom: 0;" id="button" name="button" value="Upload" onclick="thisFileUpload();">
+						<span>
+							<i class="fa fa-plus"></i>
+							 Add Files 
+						</span>
+					</button>
+				</div>
+			</div>
+			<div class="button" style="text-align: center;">
+				<button class="button2">
+					<span>SAVE</span>
+				</button>
+			</div>
+		</div>	
+	</section>
+	
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog">
+	      <!-- Modal content-->
+	    	<div class="modal-content">
+		        <div class="modal-header" style="background-color:#FF4081;color:#fff;border-radius: 5px 5px 0px 0px">
+		        	<button type="button" class="close" data-dismiss="modal" style="font-size:30px;color:#fff;opacity:1">&times;</button>
+		        	<h4 class="modal-title" align="center" style="text-transform: none;font-size:18px;font-weight: 600;">Edit Payment Account</h4>
+		        </div>
+		        <div class="modal-body" style="border-radius: 0px 0px 5px 0px;margin-bottom: 5px;overflow:auto;">
+		        	<div class="row add">
+		          		<div class="col-md-6 input_box">
+		          			<span>Payment Account Name</span>
+		          			<input type="text" name="" placeholder="Payment Account Name">
+		          		</div>
+		          		<div class="col-md-6 input_box">
+		          			<span>Description</span>
+		          			<input type="text" name="" placeholder="Description">
+		          		</div>
+		        	</div>
+		        	<div style="margin: 10px 0;">
+		        		<button style="width: 76px;float:right;margin-left: 5px;background: #3f51b5;box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);color: white;border-radius: 5px;">Update</button>
+		        		<button style="width: 76px;float:right;margin-left: 5px;background: #ff4081;box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);color: white;border-radius: 5px;" data-toggle="modal" data-target=".bd-example-modal-sm">Delete</button>
+		        	</div>
+		        </div>
+	     	</div>
+	    </div>
+	</div>
+	<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-sm" style="top: 40%;">
+		    <div class="modal-content" style="font-size: 18px;">
+				<h3>Aler</h3>
+				<hr style="clear:both;margin-top:0px;margin-bottom:0px">
+				<div align="center">
+					<p style="margin: 0;font-size: 18px;">This Category would be deleted permanently</p>
+				</div>
+				<hr style="clear:both;margin-top:0px;margin-bottom:0px">
+				<div class="row" style="margin: 0;">
+					<div class="col-xs-6 col-md-6 mat-dialog-actions " style="border-right: 1px solid lightgrey;">
+						<button class="mat-button-class" style="color: #5363d6;border-left: 1px solid transparent; font-size: 16px;">
+							<span class="mat-button-wrapper">OK</span>
+						</button>
+					</div>
+					<div class="col-xs-6 col-md-6 mat-dialog-actions">
+						<button class="mat-button-class" style="color: red;font-size: 16px;">
+							<span class="mat-button-wrapper">CANCEL</span>
+						</button>
+					</div>
+				</div>
+		    </div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="myModal-1" role="dialog">
+		<div class="modal-dialog">
+	      <!-- Modal content-->
+	    	<div class="modal-content">
+		        <div class="modal-header" style="background-color:#FF4081;color:#fff;border-radius: 5px 5px 0px 0px">
+		        	<button type="button" class="close" data-dismiss="modal" style="font-size:30px;color:#fff;opacity:1">&times;</button>
+		        	<h4 class="modal-title" align="center" style="text-transform: none;font-size:18px;font-weight: 600;">ADD CATEGORY</h4>
+		        </div>
+		        <div class="modal-body" style="border-radius: 0px 0px 5px 0px;margin-bottom: 5px;overflow:auto;">
+		        	<div class="row add">
+		          		<div class="col-md-6 input_box">
+		          			<span>Category Name *</span>
+		          			<input type="text" name="" placeholder="Category Name">
+		          		</div>
+		          		<div class="col-md-6 input_box">
+		          			<span>Description *</span>
+		          			<input type="text" name="" placeholder="Description">
+		          		</div>
+		        	</div>
+		        	<div style="margin: 10px 0;">
+		        		<button style="width: 76px;float:right;margin-right: 10px;background: #ff4081;box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);color: white;border-radius: 5px;">Save</button>
+		        	</div>
+		        </div>
+	     	</div>
+	    </div>
+	</div>
+</body>
+<script src="https://code.jquery.com/jquery.min.js"></script>
+    
+    <!-- Bootstrap JS form CDN -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- jQuery easing -->
+    <script src="js/jquery.easing.1.3.min.js"></script>
+
+	<script type="text/javascript">
+		$('.expenses-detail input').focus(function(event) {
+	    	$(this).siblings('span').addClass('expenses-detail_span_active');
+		});
+		$('.expenses-detail input').blur(function(event) {
+	    	if ($(this).val()=='') {
+	      		$(this).siblings('span').removeClass('expenses-detail_span_active');
+	    	}
+		});
+	</script>
+	<script type="text/javascript">
+		$('.input_box input').focus(function(event) {
+	    	$(this).siblings('span').addClass('input_box_span_active');
+		});
+		$('.input_box input').blur(function(event) {
+	    	if ($(this).val()=='') {
+	      		$(this).siblings('span').removeClass('input_box_span_active');
+	    	}
+		});
+	</script>
+	<script type="text/javascript">
+		$('.input_box select').focus(function(event) {
+	    	$(this).siblings('span').addClass('input_box_span_active');
+		});
+		$('.input_box select').blur(function(event) {
+	    	if ($(this).val()=='') {
+	      		$(this).siblings('span').removeClass('input_box_span_active');
+	    	}
+		});
+	</script>
+	<script type="text/javascript">
+    	// click hiện img
+    	function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    var id_input = input.id;
+                    $('#'+id_input).siblings('.input-img').show();
+                    $('#'+id_input).siblings('.input-img').children('.blah').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        // button close
+        $('.button_close_show_img').click(function(event) {
+        	$(this).parent('.input-img').hide();
+        });
+    </script>  
+	<script>
+		function on() {
+		  document.getElementById("overlay").style.display = "block";
+		}
+
+		function off() {
+		  document.getElementById("overlay").style.display = "none";
+		}
+	</script>
+</html>

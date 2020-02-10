@@ -98,6 +98,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('delete/{id}','Admin\ChildrenProfilesController@destroy')->middleware(['can:edit-profile']);
         Route::get('add_parent','Admin\ChildrenProfilesController@addParent');
         Route::get('select_child','Admin\ChildrenProfilesController@selectChild');
+
         //search by typeahead
         Route::get('search/name', 'Admin\ChildrenProfilesController@searchByName');
     });
@@ -149,8 +150,8 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('delete/{id}',['as'=>'admin.observations.getDelete','uses'=>'Admin\ObservationController@getDelete'])->middleware(['can:edit-profile']);
         Route::get('edit/{id}',['as'=>'admin.observations.getEdit','uses'=>'Admin\ObservationController@getEdit'])->middleware(['can:edit-profile']);
         Route::post('edit/{id}',['as'=>'admin.observations.postEdit','uses'=>'Admin\ObservationController@postEdit']);
-        Route::get('search',['as'=>'admin.observations.search','uses'=>'Admin\ObservationController@getSearch']);
-        Route::post('search',['as'=>'admin.observations.search','uses'=>'Admin\ObservationController@postSearch']);
+//        Route::get('search',['as'=>'admin.observations.search','uses'=>'Admin\ObservationController@getSearch']);
+//        Route::post('search',['as'=>'admin.observations.search','uses'=>'Admin\ObservationController@postSearch']);
         Route::get('add',['as'=>'admin.observations.getAdd','uses'=>'Admin\ObservationController@getAdd']);
         Route::post('add',['as'=>'admin.observations.postAdd','uses'=>'Admin\ObservationController@postAdd']);
         Route::get('them_child',['as'=>'admin.observations.child','uses'=>'Admin\ObservationController@getChild']);
@@ -255,9 +256,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('', 'Admin\ProgramsController@index');
         Route::get('add', 'Admin\ProgramsController@create');
         Route::post('add', 'Admin\ProgramsController@store');
-
-        Route::get('select_staff','Admin\ProgramsController@selectStaff');
-        Route::get('select_child','Admin\ProgramsController@selectChild');
 
         Route::get('select_child/add','Admin\ProgramsController@addSelectChild');   //ajax them children
         Route::get('select_staff/add','Admin\ProgramsController@addSelectStaff');   //ajax them staff

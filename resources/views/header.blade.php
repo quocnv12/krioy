@@ -19,8 +19,8 @@
                         </button>
                         @endif
                         <div class="dropdown-content-logo1">
-                            <a href="locale/vi"><img src="images/viet.png"> VietNamese</a>
-                            <a href="locale/en"><img src="images/usa.png"> English</a>
+                            <a href="locale/vi"><img src="images/viet.png"> @lang('kidsnow.vietnamese')</a>
+                            <a href="locale/en"><img src="images/usa.png"> @lang('kidsnow.english')</a>
                         </div>
                     </div>
                 </li>
@@ -49,10 +49,10 @@
                     <div class="dropdown-menu">
                     <a class="dropdown-item" href="#"><i class="fa fa-users" aria-hidden="true"></i> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </a>
                         <a class="dropdown-item" href="#"><i class="fa fa-phone-square" aria-hidden="true"></i> {{ Auth::user()->phone }}</a>
-                        {{--  <a class="dropdown-item" href="#"><i class="fa fa-bell" aria-hidden="true"></i> Notification Center</a>
-                        <a class="dropdown-item" href="#"><i class="fa fa-retweet" aria-hidden="true"></i> Refresh Account</a>  --}}
-                        <a class="dropdown-item" href="kids-now/update-password"><i class="fa fa-key" aria-hidden="true"></i> Change Password </a>
-                        <a class="dropdown-item" href="kids-now/logout"><i class="fa fa-arrow-right" aria-hidden="true"></i> Logout</a>
+                        {{--  <a class="dropdown-item" href="#"><i class="fa fa-bell" aria-hidden="true"></i>@lang('kidsnow.notification_center')</a>
+                        <a class="dropdown-item" href="#"><i class="fa fa-retweet" aria-hidden="true"></i> @lang('kidsnow.refresh_account')</a>  --}}
+                        <a class="dropdown-item" href="kids-now/update-password"><i class="fa fa-key" aria-hidden="true"></i>@lang('kidsnow.menu_changepassword')</a>
+                        <a class="dropdown-item" href="kids-now/logout"><i class="fa fa-arrow-right" aria-hidden="true"></i>@lang('kidsnow.menu_logout')</a>
                 @endif
                     </div>
                 </li>
@@ -65,17 +65,25 @@
             <div class="closebtn" onclick="closeNav()">×</div>
             <a>
                 <div class="dropdown-logo1">
-                    <button class="dropbtn-logo1"><img src="images/viet.png" style="width: 20px;height: 20px"></button>
+                    @if(app()->getLocale() == 'vi')
+                    <button class="dropbtn-logo1">
+                        <button class="dropbtn-logo1"><img src="images/viet.png" style="width: 20px;height: 20px"></button>
+                    </button>
+                    @else 
+                    <button class="dropbtn-logo1">
+                        <button class="dropbtn-logo1"><img src="images/usa.png" style="width: 20px;height: 20px"></button>
+                    </button>
+                    @endif
                     <div class="dropdown-content-logo1">
-                        <a href="#" style="color: black;"><img src="images/viet.png"> VietNamese</a>
-                        <a href="#" style="color: black;"><img src="images/usa.png"> English</a>
+                        <a href="locale/vi"><img src="images/viet.png"> @lang('kidsnow.vietnamese')</a>
+                        <a href="locale/en"><img src="images/usa.png"> @lang('kidsnow.english')</a>
                     </div>
                 </div>
             </a>
             <a href="#">@lang('kidsnow.menu_profiles')</a>
-            <a href="#">INVOICES</a>
-            <a href="#">Settings</a>
-            <a href="#">Help</a>
+            <a href="#">@lang('kidsnow.menu_invoices')</a>
+            <a href="#">@lang('kidsnow.menu_settings')</a>
+            <a href="#">@lang('kidsnow.menu_help')</a>
             <a href="kids-now">My Kids Now</a>
         </div>
        
@@ -95,8 +103,8 @@
                         <a class="dropdown-item" href="#"><i class="fa fa-phone-square" aria-hidden="true"></i> {{ Auth::user()->phone }}</a>
                         {{--  <a class="dropdown-item" href="#"><i class="fa fa-bell" aria-hidden="true"></i> Notification Center</a>
                         <a class="dropdown-item" href="#"><i class="fa fa-retweet" aria-hidden="true"></i> Refresh Account</a>  --}}
-                        <a class="dropdown-item" href="kids-now/update-password"><i class="fa fa-key" aria-hidden="true"></i> Change Password </a>
-                        <a class="dropdown-item" href="kids-now/logout"><i class="fa fa-arrow-right" aria-hidden="true"></i> Logout</a>
+                        <a class="dropdown-item" href="kids-now/update-password"><i class="fa fa-key" aria-hidden="true"></i> @lang('kidsnow.menu_changepassword') </a>
+                        <a class="dropdown-item" href="kids-now/logout"><i class="fa fa-arrow-right" aria-hidden="true"></i> @lang('kidsnow.menu_logout')</a>
                 @endif
             </ul>
         </nav>

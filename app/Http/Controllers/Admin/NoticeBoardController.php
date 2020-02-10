@@ -16,13 +16,13 @@ class NoticeBoardController extends Controller
     public function index()
     {
         //
-        $programs = Programs::all();
+        $programs = Programs::orderBy('program_name')->get();
         return view('pages.notice.notice_board',['programs'=>$programs]);
     }
 
     public function detail($id){
         $notice_board = NoticeBoard::find($id);
-        $programs = Programs::all();
+        $programs = Programs::orderBy('program_name')->get();
         $programs_choose = DB::table('programs')
             ->join('programs_notice', 'programs.id', '=', 'programs_notice.id_programs')
             ->select('id')
@@ -40,7 +40,7 @@ class NoticeBoardController extends Controller
 
     public function create()
     {
-        $programs = Programs::all();
+        $programs = Programs::orderBy('program_name')->get();
         return view('pages.notice.add_notice',['programs'=>$programs]);
     }
 
@@ -143,7 +143,7 @@ class NoticeBoardController extends Controller
     {
         $notice_board = NoticeBoard::find($id);
 
-        $programs = Programs::all();
+        $programs = Programs::orderBy('program_name')->get();
 
         $programs_choose = DB::table('programs')
             ->join('programs_notice','programs.id','=','programs_notice.id_programs')

@@ -10,10 +10,9 @@ Staff Frofiles
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
             <div class="row">
                 <ul class="ul-td" style="width: 100%;">
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
-                    <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="kids-now/staff">STAFF
-                        PROFILES</a></li>
-                    <li _ngcontent-c16="" class="level1" style="pointer-events:none"><a _ngcontent-c16="" href="kids-now/staff/add">ADD</a></li>
+                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">@lang('kidsnow.home')</a></li>
+                    <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="kids-now/staff">@lang('kidsnow.staff_profiles')</a></li>
+                    <li _ngcontent-c16="" class="level1" style="pointer-events:none"><a _ngcontent-c16="" href="kids-now/staff/add">@lang('kidsnow.add')</a></li>
                 </ul>
             </div>
         </div>
@@ -21,7 +20,7 @@ Staff Frofiles
             @csrf
             <div class="mat-card">
                 <div class="mat-content">
-                    <button class="accordion add-staff">ADD STAFF *</button>
+                    <button class="accordion add-staff">@lang('kidsnow.edit_staff')F *</button>
                     <div class="row">
                         <div class="col-md-2 textera-img">
                             @if($errors->has('image'))
@@ -38,8 +37,8 @@ Staff Frofiles
                             <div class="add a1 ">
                                 <div class="row">
                                     <div class="col-md-6 input_box">
-                                        <span>First name *</span>
-                                    <input type="text" name="first_name" value="{{ old('first_name') }}" placeholder="First name *">
+                                        <span>@lang('kidsnow.first_name') *</span>
+                                    <input type="text" name="first_name" value="{{ old('first_name') }}" placeholder="@lang('kidsnow.first_name') *">
                                         @if($errors->has('first_name'))
                                         <p
                                             style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">
@@ -47,8 +46,8 @@ Staff Frofiles
                                         @endif
                                     </div>
                                     <div class="col-md-6 input_box">
-                                        <span>Last Name *</span>
-                                        <input type="text" name="last_name"  value="{{ old('last_name') }}" placeholder="Last Name *">
+                                        <span>@lang('kidsnow.last_name') *</span>
+                                        <input type="text" name="last_name"  value="{{ old('last_name') }}" placeholder="@lang('kidsnow.last_name') *">
                                         @if($errors->has('last_name'))
                                         <p
                                             style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">
@@ -58,8 +57,8 @@ Staff Frofiles
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 input_box">
-                                        <span>Phone Number *</span>
-                                        <input type="text" name="phone" value="{{ old('phone') }}" placeholder="Phone Number *">
+                                        <span>@lang('kidsnow.phone_number') *</span>
+                                        <input type="text" name="phone" value="{{ old('phone') }}" placeholder="@lang('kidsnow.phone_number') *">
                                         @if($errors->has('phone'))
                                         <p
                                             style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">
@@ -67,12 +66,12 @@ Staff Frofiles
                                         @endif
                                     </div>
                                     <div class="col-md-6 input_box">
-                                        <span>Gender *</span>
+                                        <span>@lang('kidsnow.gender') *</span>
                                       
                                         <select style="color: #614545;" name="gender">
-                                            <option disabled  selected hidden>Gender</option>
-                                            <option value="1">Male</option>
-                                            <option value="0">Female</option>
+                                            <option disabled  selected hidden>@lang('kidsnow.gender')</option>
+                                            <option value="1">@lang('kidsnow.male')</option>
+                                            <option value="0">@lang('kidsnow.female')</option>
                                         </select>
                                         @if($errors->has('gender'))
                                         <p
@@ -82,8 +81,8 @@ Staff Frofiles
                                     </div>
                                 </div>
                                 <div class="input_box" style="width: 100%;">
-                                    <span>Email Address *</span>
-                                    <input type="email" name="email" value="{{ old('email') }}" placeholder="Email Address *">
+                                    <span>@lang('kidsnow.email_address') *</span>
+                                    <input type="email" name="email" value="{{ old('email') }}" placeholder="@lang('kidsnow.email_address') *">
                                     @if($errors->has('email'))
                                     <p
                                         style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">
@@ -96,8 +95,8 @@ Staff Frofiles
                     <hr>
                     <div class="add">
                         <div class="input_box" style="width: 100%;">
-                            <span>Residential Address *</span>
-                            <input type="text" name="address" value="{{ old('address') }}" placeholder="Residential Address *">
+                            <span>@lang('kidsnow.residential_address') *</span>
+                            <input type="text" name="address" value="{{ old('address') }}" placeholder="@lang('kidsnow.residential_address') *">
                             @if($errors->has('address'))
                             <p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">*
                                 {{ $errors->first('address') }}</p>
@@ -107,8 +106,8 @@ Staff Frofiles
                     <div class="add">
                         <div class="row">
                             <div class="col-md-4 input_box">
-                                <span>Birthday *</span>
-                                <input style="color: #614545;" type="date" value="{{ old('date_birthday') }}" name="date_birthday" placeholder="Birthday">
+                                <span>@lang('kidsnow.birthday') *</span>
+                                <input style="color: #614545;" type="date" value="{{ old('date_birthday') }}" name="date_birthday" placeholder="@lang('kidsnow.birthday') *">
                                 @if($errors->has('date_birthday'))
                                 <p
                                     style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">
@@ -116,10 +115,10 @@ Staff Frofiles
                                 @endif
                             </div>
                             <div class="col-md-4 input_box">
-                                <span>Blood Group *</span>
+                                <span>@lang('kidsnow.Blood_group') *</span>
                               
                                 <select style="color: #614545;" name="blood_group">
-                                    <option value="0" disabled  selected hidden>Blood Group</option>
+                                    <option value="0" disabled  selected hidden>@lang('kidsnow.Blood_group')</option>
                                     <option value="A+">A+</option>
                                     <option value="A-">A-</option>
                                     <option value="B+">B+</option>
@@ -136,9 +135,9 @@ Staff Frofiles
                                 @endif
                             </div>
                             <div class="col-md-4 input_box">
-                                <span>Date of Joining *</span>
+                                <span>@lang('kidsnow.date_of_joining') *</span>
                                 <input style="color: #614545;" type="date" value="{{ old('date_of_joining') }}" name="date_of_joining"
-                                    placeholder="Date of Joining">
+                                    placeholder="@lang('kidsnow.date_of_joining')">
                                 @if($errors->has('date_of_joining'))
                                 <p
                                     style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">
@@ -152,7 +151,7 @@ Staff Frofiles
 
             <div class="mat-card">
                 <div class="mat-content">
-                    <button type="button" class="accordion">Programs</button>
+                    <button type="button" class="accordion">@lang('kidsnow.programs')</button>
                     <div class="panel">
                         <div _ngcontent-c20="" class="row" style="">
                             @foreach ($programs as $item)
@@ -175,11 +174,11 @@ Staff Frofiles
             <div class="mat-card">
                 <div class="mat-content">
                     <button type="button" type="button" class="accordion accordion1 clearfix">
-                        <p style="float: left;">Permissions *</p>
+                        <p style="float: left;">@lang('kidsnow.permissions') *</p>
                         {{-- <a href="select_child.blade.php" style="float: right;text-align: right">
                         <p
                             style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">
-                            SELECT</p>
+                            @lang('kidsnow.select')</p>
                     </a> --}}
                     </button>
                     <div class="panel">
@@ -203,10 +202,10 @@ Staff Frofiles
             <div class="comment">
                 <div class="button" style="text-align: center;">
                     <button>
-                        <span>CANCEL</span>
+                        <span>@lang('kidsnow.cancel')</span>
                     </button>
                     <button class="button2">
-                        <span>SAVE</span>
+                        <span>@lang('kidsnow.save')</span>
                     </button>
                 </div>
             </div>

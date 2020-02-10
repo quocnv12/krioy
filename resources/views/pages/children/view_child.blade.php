@@ -26,11 +26,6 @@
                 </div>
             </div>
         </div>
-        @if(session('notify'))
-            <div class="alert alert-success font-weight-bold">
-                {{session('notify')}}
-            </div>
-        @endif
             <div class="mat-card">
                 <div class="mat-content">
                     <button class="accordion add-staff" type="button">View Children</button>
@@ -205,7 +200,7 @@
                             <!---->
                             @foreach($programs as $program)
                                 <div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer">
-                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1 @if(in_array($program->id, $array_programs_choose)) tablinks1_active @endif" style="background-color: transparent; border:1px solid #5363d6;border-radius: 4px; pointer-events: none" type="button" data-toggle="tooltip" title="{{$program->program_name}}" value="{{$program->id}}">{{$program->program_name}}</button>
+                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1 @if(in_array($program->id, $array_programs_choose)) tablinks1_active @endif" style="background-color: transparent; border:1px solid #5363d6;border-radius: 4px; pointer-events: auto" type="button" data-toggle="tooltip" title="{{$program->program_name}}" value="{{$program->id}}">{{$program->program_name}}</button>
                                 </div>
                             @endforeach
                         </div>
@@ -224,7 +219,7 @@
                                 <div class="row">
                                     <div class="col-md-2 textera-img">
                                         <a style="cursor: pointer;">
-                                            <img src="{{$parent_profiles_1->image ? $parent_profiles_1->image : 'images/Staff.png'}}" alt="" id="demo_image_parent_1" style="height: 100px">
+                                            <img src="{{$parent_profiles_1->image ? $parent_profiles_1->image : 'images/Parent.png'}}" alt="" id="demo_image_parent_1" style="height: 100px">
                                             <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
                                             @if ($errors->has('image_parent_1'))
                                                 <div class="text text-danger">
@@ -324,7 +319,7 @@
                                 <div class="row">
                                     <div class="col-md-2 textera-img">
                                         <a style="cursor: pointer;">
-                                            <img src="images/Child.png" alt="" id="demo_image_parent_1" style="height: 100px">
+                                            <img src="images/Parent.png" alt="" id="demo_image_parent_1" style="height: 100px">
                                             <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
                                             @if ($errors->has('image_parent_1'))
                                                 <div class="text text-danger">
@@ -426,7 +421,7 @@
                                 <div class="row">
                                     <div class="col-md-2 textera-img">
                                         <a style="cursor: pointer;">
-                                            <img src="{{$parent_profiles_2->image ? $parent_profiles_2->image : 'images/Staff.png'}}" alt="" id="demo_image_parent_2" style="height: 100px">
+                                            <img src="{{$parent_profiles_2->image ? $parent_profiles_2->image : 'images/Parent.png'}}" alt="" id="demo_image_parent_2" style="height: 100px">
                                             <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
                                             @if ($errors->has('image_parent_2'))
                                                 <div class="text text-danger">
@@ -526,7 +521,7 @@
                                 <div class="row">
                                     <div class="col-md-2 textera-img">
                                         <a style="cursor: pointer;">
-                                            <img src="images/Child.png" alt="" id="demo_image_parent_2" style="height: 100px">
+                                            <img src="images/Parent.png" alt="" id="demo_image_parent_2" style="height: 100px">
                                             <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
                                             @if ($errors->has('image_parent_2'))
                                                 <div class="text text-danger">
