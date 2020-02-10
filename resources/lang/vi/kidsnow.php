@@ -217,7 +217,6 @@ return [
         'staff' => 'Staff',
         'children' => 'Children',
     //END Program
-    'diary' => 'Diary',
     'none' => 'None',
     'potty' => 'Potty',
     'observations' => 'Observations',
