@@ -315,14 +315,14 @@ class ProgramsController extends Controller
     {
         $children_profiles = ChildrenProfiles::where(DB::raw("concat(first_name ,' ', last_name)"), 'like', '%' . $request->get('q') . '%')->get();
 
-        return response()->json($children_profiles);
+        return response()->json(['children_profiles'=>$children_profiles], 200);
     }
 
     public function searchStaff(Request $request)
     {
         $staff_profiles = StaffProfiles::where(DB::raw("concat(first_name ,' ', last_name)"), 'like', '%' . $request->get('q2') . '%')->get();
 
-        return response()->json($staff_profiles);
+        return response()->json(['staff_profiles'=>$staff_profiles], 200);
     }
 
     public function searchProgram(Request $request)
@@ -331,7 +331,7 @@ class ProgramsController extends Controller
             ->orderBy('program_name')
             ->get();
 
-        return response()->json($programs);
+        return response()->json(['programs'=>$programs], 200);
     }
 
     public function addSelectChild(Request $request)

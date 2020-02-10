@@ -62,9 +62,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::post('edit/{id}','Admin\ChildrenProfilesController@update');
         Route::get('delete/{id}','Admin\ChildrenProfilesController@destroy')->middleware(['can:edit-profile']);
 
-        Route::get('add_parent','Admin\ChildrenProfilesController@addParent');
-        Route::get('select_child','Admin\ChildrenProfilesController@selectChild');
-
         //search by typeahead
         Route::get('search/name', 'Admin\ChildrenProfilesController@searchByName');
     });
@@ -222,9 +219,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('', 'Admin\ProgramsController@index');
         Route::get('add', 'Admin\ProgramsController@create');
         Route::post('add', 'Admin\ProgramsController@store');
-
-        Route::get('select_staff','Admin\ProgramsController@selectStaff');
-        Route::get('select_child','Admin\ProgramsController@selectChild');
 
         Route::get('select_child/add','Admin\ProgramsController@addSelectChild');   //ajax them children
         Route::get('select_staff/add','Admin\ProgramsController@addSelectStaff');   //ajax them staff

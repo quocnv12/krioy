@@ -2,16 +2,27 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\models\ObservationTypeModel;
-use Illuminate\Http\Request;
+use App\models\ChildrenProfiles;
+use App\models\ObservationModel;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
+use App\models\ObservationTypeModel;
+use App\models\Programs;
+use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+
 
 class ObservationController extends Controller
 {
     public function getList(Request $request){
         if ($request->month || $request->year) {
-            $child_observations = ObservationModel::where('month', '=', $request->month)->where('year', '=', $request->year)->get();
+            $child_observations = DB::table('observations')->join('children_profiles','children_profiles.id','=','observations.id_children')
+                ->select(['observations.*','observations.id_children'=>'children_profiles.*'])
+                ->where('observations.month', '=', $request->month)
+                ->where('observations.year', '=', $request->year)
+                ->get();
             if (! $child_observations){
                 return response()->json(['message'=>'Something wrong'], 404);
             }else{
