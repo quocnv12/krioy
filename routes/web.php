@@ -55,30 +55,36 @@ Route::get('kids-now/attendance/list', function(){
 Route::get('kids-now/children/add','Admin\ChildrenProfilesController@create');
 Route::get('kids-now/notice-board/add','Admin\NoticeBoardController@create');
 
+
 Route::get('','Admin\IndexController@getIndex');
+
 //------------tai khoan demo-------
 Route::get('account','Admin\IndexController@getDemoAccount');
 Route::post('account','Admin\IndexController@postDemoAccount');
 
 //---------xac nhan tai khoan------------
-Route::get('vrify','Admin\IndexController@verifyAccount')->name('user.verify.account');
+Route::get('verify','Admin\IndexController@verifyAccount')->name('user.verify.account');
 
 //---------------login----------------
 Route::get('login', 'Admin\LoginController@GetLogin')->name('login')->middleware('CheckLogOut');
 Route::post('login', 'Admin\LoginController@PostLogin');
 
+//--------quên mật khẩu--------------------
 Route::get('forgot', 'Auth\ForgotPasswordController@GetFormResetPassword')->name('get.reset.password');
 Route::post('forgot', 'Auth\ForgotPasswordController@PostFormResetPassword');
 Route::get('password/reset', 'Auth\ForgotPasswordController@ResetPassword')->name('link.reset.password');
 Route::post('password/reset', 'Auth\ForgotPasswordController@PostResetPassword');
 
+
+//-------------------------group admin--------------------------
 Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function () {
     Route::get('logout', 'Admin\LoginController@Logout');
+    
+    //--đổi mật khẩu------
     Route::get('update-password', 'Admin\LoginController@getUpdatePassword');
     Route::post('update-password', 'Admin\LoginController@postUpdatePassword');
-    Route::get('/', function () {
-        return view('pages.home');
-    });
+    //------trang chủ----------------
+    Route::get('/','Admin\IndexController@getHome');
    
     //---------------children----------------
     Route::group(['prefix' => 'children'], function () {
@@ -90,6 +96,8 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('edit/{id}','Admin\ChildrenProfilesController@edit')->middleware(['can:edit-profile']);
         Route::post('edit/{id}','Admin\ChildrenProfilesController@update');
         Route::get('delete/{id}','Admin\ChildrenProfilesController@destroy')->middleware(['can:edit-profile']);
+        Route::get('add_parent','Admin\ChildrenProfilesController@addParent');
+        Route::get('select_child','Admin\ChildrenProfilesController@selectChild');
 
         //search by typeahead
         Route::get('search/name', 'Admin\ChildrenProfilesController@searchByName');

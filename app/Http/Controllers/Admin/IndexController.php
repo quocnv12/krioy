@@ -12,6 +12,13 @@ use Carbon\Carbon;
 
 class IndexController extends Controller
 {
+    //-------------trang home
+    public function getHome()
+    {
+        return view('pages.home');
+    }
+
+    //--------------trang intro
     public function getIndex()
     {
         return view('pages.introduce.introduce-kid_now');
@@ -67,9 +74,6 @@ class IndexController extends Controller
         $staff->active=1;
         $staff->save();
 
-
-        $phone = $request->phone;
-        $password =$request->password;
         if(Auth::loginUsingId($staff->id))
         {
             return redirect('kids-now')->with('success','Verify success');
