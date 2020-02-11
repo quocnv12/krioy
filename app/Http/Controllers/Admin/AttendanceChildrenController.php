@@ -12,6 +12,7 @@ use App\models\Children_status;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
+
 class AttendanceChildrenController extends Controller
 {
     public function index(){
@@ -20,24 +21,32 @@ class AttendanceChildrenController extends Controller
     }
     public function show($id){
     	$data['programs'] = Programs::all();
-        $data['children_profiles'] = DB::table('programs')
-        
-            ->join('children_programs', 'programs.id', '=', 'children_programs.id_program')
-            ->join('children_profiles', 'children_profiles.id', '=', 'children_programs.id_children')
-            ->select(['children_profiles.*'])
+
+        // $data['children_profiles'] = DB::table('programs') 
+        //     ->join('children_programs', 'programs.id', '=', 'children_programs.id_program')
+        //     ->join('children_profiles', 'children_profiles.id', '=', 'children_programs.id_children')
+            
+        //     ->select(['children_profiles.*','children_programs.*'])
+        //     ->where('children_programs.id_program', '=', $id)
+        //     ->get();
+        $data['children_profiles'] = ChildrenProfiles::join('children_programs', 'children_profiles.id', '=', 'children_programs.id_children')
+            ->join('programs', 'programs.id', '=', 'children_programs.id_program')
+            ->select(['children_programs.*','children_profiles.*'])
             ->where('children_programs.id_program', '=', $id)
             ->get();
+
         $day = Carbon::now('Asia/Ho_Chi_Minh')->toTimeString();
-        $dayupdate =  date('d', strtotime($day));
+        $data['dayupdate'] =  date('d', strtotime($day));
         $data['time'] = date('H:s:i', strtotime($day));
 
 
+        $data['now'] = $id;
         $data['id'] = $id;
         $data['count_chil'] = $data['children_profiles']->count();
-        $data['count_in'] = Children_status::where('status','1')->where('id_program',$id)->whereDay('updated_at',$dayupdate)->count();
-        $data['count_out'] = Children_status::where('status','2')->where('id_program',$id)->whereDay('updated_at',$dayupdate)->count();
-        $data['count_absent'] = Children_status::where('status','3')->where('id_program',$id)->whereDay('updated_at',$dayupdate)->count();
-        $data['count_active'] = Children_status::where('active','1')->where('id_program',$id)->whereDay('updated_at',$dayupdate)->count();
+        $data['count_in'] = Children_status::where('status','1')->where('id_program',$id)->whereDay('updated_at',$data['dayupdate'])->count();
+        $data['count_out'] = Children_status::where('status','2')->where('id_program',$id)->whereDay('updated_at',$data['dayupdate'])->count();
+        $data['count_absent'] = Children_status::where('status','3')->where('id_program',$id)->whereDay('updated_at',$data['dayupdate'])->count();
+        $data['count_active'] = Children_status::where('active','1')->where('id_program',$id)->whereDay('updated_at',$data['dayupdate'])->count();
         
         
 
@@ -111,6 +120,8 @@ class AttendanceChildrenController extends Controller
         if ($req->program || $req->day || $req->month || $req->year) {
             $data['child_atd'] = Children_status::where('id_program', '=', $req->program)->whereDay('created_at', '=', $req->day)->whereMonth('created_at', '=', $req->month)->whereYear('created_at', '=', $req->year)->get();
             $data['id_program'] = $req->program;
+            $data['day'] = $req->day;
+            $data['month'] = $req->month;
             
             
             return view('pages.attendance.list', $data);
