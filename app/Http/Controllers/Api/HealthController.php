@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\StoreHeathRequests;
 use App\models\ChildrenProfiles;
@@ -26,10 +26,10 @@ class HealthController extends Controller
 
     public function getAdd(){
         $health = HealthModel::all();
-        $programs = Programs::all();
+//        $programs = Programs::all();
         return response()->json([
             'health'=>$health,
-            'programs'=>$programs
+//            'programs'=>$programs
         ]);
     }
     public function postAdd(Request $request)
@@ -58,7 +58,7 @@ class HealthController extends Controller
 
             $health = new HealthModel();
 
-            $health->id_children = $request->children_health;
+            $health->id_children = $request->id_children;
             $health->sick = $request->sick;
             $health->medicine = $request->medicine;
             $health->growth_height = $request->growth_height;

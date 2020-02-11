@@ -162,6 +162,7 @@ class ObservationController extends Controller
         return response()->json([
             'observationtype'=>$observationtype,
             'vendors'=>$vendors,
+            'child_observation'=>$child_observation,
             'children_profiles'=>$children_profiles,
             'array_observation_choose'=>$array_observation_choose,
         ], 200);
