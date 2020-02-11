@@ -18,38 +18,73 @@
 // 	})->name('home');
 // });
 
+// route update modun khanh'
+ Route::get('archives', function () {
+        return view('pages.archives.Archives');
+    });
+ Route::get('allergyinfo', function () {
+        return view('pages.allergyinfo.test');
+    });
+ Route::get('configurations', function () {
+        return view('pages.configurations.configurations');
+    });
+ Route::get('FAQs', function () {
+        return view('pages.FAQs.FAQs');
+    });
+ Route::get('favouriteschool', function () {
+        return view('pages.favouriteschool.favouriteschool');
+    });
+ Route::get('inviteparents', function () {
+        return view('pages.inviteparents.inviteparents');
+    });
+ Route::get('invitestaff', function () {
+        return view('pages.invitestaff.invitestaff');
+    });
+ Route::get('video-help', function () {
+        return view('pages.video-help.video-help');
+    });
 
+ 
 //route fix
 Route::get('kids-now/children/add','Admin\ChildrenProfilesController@create');
+Route::get('kids-now/attendance/list', function(){
+    return view('pages.attendance.list');
+});
 
 
 Route::get('kids-now/children/add','Admin\ChildrenProfilesController@create');
 Route::get('kids-now/notice-board/add','Admin\NoticeBoardController@create');
 
+
 Route::get('','Admin\IndexController@getIndex');
+
 //------------tai khoan demo-------
 Route::get('account','Admin\IndexController@getDemoAccount');
 Route::post('account','Admin\IndexController@postDemoAccount');
 
 //---------xac nhan tai khoan------------
-Route::get('vrify','Admin\IndexController@verifyAccount')->name('user.verify.account');
+Route::get('verify','Admin\IndexController@verifyAccount')->name('user.verify.account');
 
 //---------------login----------------
 Route::get('login', 'Admin\LoginController@GetLogin')->name('login')->middleware('CheckLogOut');
 Route::post('login', 'Admin\LoginController@PostLogin');
 
+//--------quên mật khẩu--------------------
 Route::get('forgot', 'Auth\ForgotPasswordController@GetFormResetPassword')->name('get.reset.password');
 Route::post('forgot', 'Auth\ForgotPasswordController@PostFormResetPassword');
 Route::get('password/reset', 'Auth\ForgotPasswordController@ResetPassword')->name('link.reset.password');
 Route::post('password/reset', 'Auth\ForgotPasswordController@PostResetPassword');
 
+
+//-------------------------group admin--------------------------
 Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function () {
     Route::get('logout', 'Admin\LoginController@Logout');
+    
+    //--đổi mật khẩu------
     Route::get('update-password', 'Admin\LoginController@getUpdatePassword');
     Route::post('update-password', 'Admin\LoginController@postUpdatePassword');
-    Route::get('/', function () {
-        return view('pages.home');
-    });
+    //------trang chủ----------------
+    Route::get('/','Admin\IndexController@getHome');
    
     //---------------children----------------
     Route::group(['prefix' => 'children'], function () {
@@ -61,7 +96,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('edit/{id}','Admin\ChildrenProfilesController@edit')->middleware(['can:edit-profile']);
         Route::post('edit/{id}','Admin\ChildrenProfilesController@update');
         Route::get('delete/{id}','Admin\ChildrenProfilesController@destroy')->middleware(['can:edit-profile']);
-
         Route::get('add_parent','Admin\ChildrenProfilesController@addParent');
         Route::get('select_child','Admin\ChildrenProfilesController@selectChild');
 
@@ -86,8 +120,8 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('/','Admin\AttendanceChildrenController@index')->name('attendance.index');
         Route::get('/{id}','Admin\AttendanceChildrenController@show')->name('attendance.show');
         // Route::get('add','Admin\AttendanceChildrenController@getAdd')->name('attendance.getAdd');
-        Route::post('add','Admin\AttendanceChildrenController@postAdd')->name('attendance.postAdd');
-        // Route::post('add',['as'=>'attendance.postAdd','uses'=>'Admin\AttendanceChildrenController@add']);
+        Route::post('add/{id}','Admin\AttendanceChildrenController@postAdd')->name('attendance.postAdd');
+        Route::get('list','Admin\AttendanceChildrenController@list')->name('attendance.list');
     });
 
     //---------------health----------------
@@ -116,8 +150,8 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('delete/{id}',['as'=>'admin.observations.getDelete','uses'=>'Admin\ObservationController@getDelete'])->middleware(['can:edit-profile']);
         Route::get('edit/{id}',['as'=>'admin.observations.getEdit','uses'=>'Admin\ObservationController@getEdit'])->middleware(['can:edit-profile']);
         Route::post('edit/{id}',['as'=>'admin.observations.postEdit','uses'=>'Admin\ObservationController@postEdit']);
-        Route::get('search',['as'=>'admin.observations.search','uses'=>'Admin\ObservationController@getSearch']);
-        Route::post('search',['as'=>'admin.observations.search','uses'=>'Admin\ObservationController@postSearch']);
+//        Route::get('search',['as'=>'admin.observations.search','uses'=>'Admin\ObservationController@getSearch']);
+//        Route::post('search',['as'=>'admin.observations.search','uses'=>'Admin\ObservationController@postSearch']);
         Route::get('add',['as'=>'admin.observations.getAdd','uses'=>'Admin\ObservationController@getAdd']);
         Route::post('add',['as'=>'admin.observations.postAdd','uses'=>'Admin\ObservationController@postAdd']);
         Route::get('them_child',['as'=>'admin.observations.child','uses'=>'Admin\ObservationController@getChild']);
@@ -128,6 +162,9 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('show/{id}','Admin\ObservationController@showChildrenInProgram');
         Route::get('view/{id}',['as'=>'admin.observations.view','uses'=>'Admin\ObservationController@view']);
 
+        //clip board
+        Route::get('clip_board/{id}/{name}','Admin\ObservationController@displayClipboard');
+        Route::get('delete_clipboard/{id}/{name}','Admin\ObservationController@deleteClipboard');
     });
 
     Route::group(['prefix' => 'observationtype'], function () {
@@ -219,9 +256,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('', 'Admin\ProgramsController@index');
         Route::get('add', 'Admin\ProgramsController@create');
         Route::post('add', 'Admin\ProgramsController@store');
-
-        Route::get('select_staff','Admin\ProgramsController@selectStaff');
-        Route::get('select_child','Admin\ProgramsController@selectChild');
 
         Route::get('select_child/add','Admin\ProgramsController@addSelectChild');   //ajax them children
         Route::get('select_staff/add','Admin\ProgramsController@addSelectStaff');   //ajax them staff

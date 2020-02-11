@@ -21,18 +21,13 @@
 						<li class="active1 active-1" style="pointer-events:none;"><a href="">ADD NOTICE</a></li>
 					</ul>
 				</div>
-				<div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target=".bd-example-modal-sm">
-					<button class="notice" type="button">
-						<span>DELETE</span>
-					</button>
-				</div>
+				{{--<div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target=".bd-example-modal-sm">--}}
+					{{--<button class="notice" type="button">--}}
+						{{--<span>DELETE</span>--}}
+					{{--</button>--}}
+				{{--</div>--}}
 			</div>
 		</div>
-        @if(session('notify'))
-            <div class="alert alert-success">
-                {{session('notify')}}
-            </div>
-        @endif
         <form action="kids-now/notice-board/add" method="post" enctype="multipart/form-data" style="width: 100%">
             @csrf
             <div class="mat-card">
@@ -97,7 +92,8 @@
                                 <div class="zoom">
                                     <a _ngcontent-c9="" class="zoom-fab zoom-btn-large fa fa-paperclip" id="button_file" style="font-size: 30px;cursor: pointer"></a>
                                     {{--<a _ngcontent-c9="" class="zoom-fab zoom-btn-large fa fa-image" id="button_image" style="font-size: 30px;cursor: pointer"></a>--}}
-                                    <input type="file" id="file" name="clip_board[]" multiple="multiple" value="{{old('clip_board')}}">
+                                    <input type="file" id="file" name="clip_board[]" multiple="multiple" value="{{old('clip_board')}}" accept=
+                                    ".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf">
                                 </div>
                             </div>
                             <div class="col-md-12" style="color: blue; margin-top: 50px; display: flex; justify-content: flex-start; ">
@@ -209,12 +205,24 @@
 		});
 </script>
 	<script>
-        $('#file').change(function() {
-            var filename = $('#file').val();
-            $('#show_clip_board').html(filename);
+        // $('#file').change(function() {
+        //     var filename = $('#file').val();
+        //     $('#show_clip_board').html(filename);
+        // });
+
+        var input_file = $("#file");
+        input_file.on("change", function () {
+            var files = input_file.prop("files")
+            if ($('#file').val() != null){
+                $('#show_clip_board').html('');
+            }
+            var names = $.map(files, function (val) {
+                return val.name;
+            });
+            $.each(names, function (i, name) {
+                $('#show_clip_board').append(name+'<br>');
+            });
         });
-
-
 
 		$('#file').hide();
 		$('#image').hide();

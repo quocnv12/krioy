@@ -57,7 +57,7 @@ class ForgotPasswordController extends Controller
         $checkEmail = StaffProfiles::where('email',$email)->first();
         if(!$checkEmail)
         {
-            return redirect()->back()->with('thongbao','Email không tồn tại !');
+            return redirect()->back()->with('danger','Email does not exist !');
         }
         $code = bcrypt(time().$email);
         $checkEmail->code =$code;
@@ -71,7 +71,7 @@ class ForgotPasswordController extends Controller
         Mail::send('pages.addmin-login.reset_password', $data, function($message) use ($email){
             $message->to($email, 'Reset Password')->subject('Reset Password Kids-now !');
         });
-        return redirect()->back()->with('thongbao','Send mail success !');
+        return redirect()->back()->with('success','Send mail success, pleasea check your email !');
     }
 
     public function ResetPassword(request $request)
@@ -83,7 +83,7 @@ class ForgotPasswordController extends Controller
             'email'=>$email])->first();
         if(!$checkEmail)
         {
-            return redirect()->back()->with('thongbao','Xin lỗi đường dẫn lấy lại link không đúng');
+            return redirect()->back()->with('danger','Sorry the link to get the link back is incorrect !');
         }
         return view('pages.addmin-login.reset');
     }
@@ -92,14 +92,14 @@ class ForgotPasswordController extends Controller
     {
         $this->validate($request,
         [
-            'password' =>'required|min:6',
+            'password' =>'required|min:8',
             'password_confirmation'=>'required|same:password'
         ],
         [
-            'password.required'=>'Mật khẩu không được đế trống !',
-            'password_confirmation.same' => 'Mật khẩu nhập chưa khớp !',
-            'password_confirmation.required' => 'Không được để trống trường này !',
-            'password.min' => 'Mật khẩu phải lớn hơn 6 kí tự !',
+            'password.required'=>'Pleasea enter password !',
+            'password_confirmation.same' => 'Password entered does not match !',
+            'password_confirmation.required' => 'Pleasea enter password comfirmation !',
+            'password.min' => 'Password must be greater than 8 characters !',
         ]);
         if($request->password)
         {
@@ -114,13 +114,13 @@ class ForgotPasswordController extends Controller
         if(!$checkEmail)
         {
             
-            return redirect()->back()->with('thongbao','Xin lỗi đường dẫn lấy lại link không đúng');
+            return redirect()->back()->with('danger','Sorry the link to get the link back is incorrect !');
         }
         $checkEmail->password=bcrypt($request->password);
 
         $checkEmail->save();
 
-        return redirect('login')->with('success','Lấy lại mật khẩu thành công !');
+        return redirect('login')->with('success','Password successfully recovered !');
 
     }
 

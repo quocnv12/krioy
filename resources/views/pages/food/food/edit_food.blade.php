@@ -18,6 +18,7 @@ Food
             </div>
         </div>
         <div>
+ 
             @if(Session::has('thongbao'))
                 <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao') }}</p>
             @endif

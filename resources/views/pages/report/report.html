@@ -1,0 +1,188 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Kriyo Report</title>
+
+		<link rel="stylesheet" href="index.css">
+		<link rel="stylesheet" type="text/css" href="heath.css">
+		<link rel="stylesheet" href="staff_profile.css">
+
+		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
+   		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+    	<link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+
+    	<link rel="stylesheet" href="css/bootstrap.min.css">
+    
+	    <!-- Font Awesome -->
+	    <link rel="stylesheet" href="css/font-awesome.min.css">
+	    
+	    <!-- Custom CSS -->
+	    <link rel="stylesheet" href="css/owl.carousel.css">
+	</head>
+<body id="report">
+	<section class="page-top container" style="margin-bottom: 40px;">
+		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
+			<div class="row">
+				<div class="col-md-6">
+					<ul class="ul-td">
+						<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="index.html">HOME</a></li>
+						<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="food.html">REPORT</a></li>
+					</ul>
+				</div>
+				<div class="col-md-6"></div>
+			</div>
+		</div>
+		<div class="add">
+			<div class="row" style="display: flex;">
+				<div class="col-md-10 input_box">
+					<span>Search for School *</span>
+					<input type="text" name="detail" placeholder="Search for School *">
+				</div>
+				<div class="col-md-2">
+					<button type="submit" style="background: #3f51b5;border: none;font-size: 20px;width: 40px;height: 40px;border-radius: 50%;"><i class="fa fa-search" style="color: #fff;"></i></button>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="container">
+		<div class="row">
+			<div class="col-md-6 col-sm-6 report" align="center">
+				<div class="report-p report-1">
+					<p>ENQUIRIES & ADMISSIONS</p>
+				</div>
+				<div class="report-boder report-boder-1" data-href="index.html">
+					<p style="margin-top: 10px;">
+						<b>
+							Total Enquiries: 
+							<span>0</span>
+						</b>
+					</p>
+					<p>
+						<b>
+							Total Admissions:  
+							<span>0</span>
+						</b>
+					</p>
+					<p>
+						<b>
+							Conversion Rate: 
+							<span>0</span>
+							<span>%</span>
+						</b>
+					</p>
+				</div>
+			</div>
+			<div class="col-md-6 col-sm-6 report" align="center">
+				<div class="report-p report-2">
+					<p>FEE PAYMENTS</p>
+				</div>
+				<div class="report-boder report-boder-2" data-href="#">
+					<p style="margin-top: 10px;">
+						<b>
+							Total Fee: 
+							<span>0</span>
+						</b>
+					</p>
+					<p>
+						<b>
+							Paid:  
+							<span>0</span>
+						</b>
+					</p>
+					<p>
+						<b>
+							Due: 
+							<span>0</span>
+							<span>%</span>
+						</b>
+					</p>
+				</div>
+			</div>
+			<div class="col-md-6 col-sm-6 report" align="center">
+				<div class="report-p report-3">
+					<p>CHILDREN ATTENDANCE</p>
+				</div>
+				<div class="report-boder report-boder-3" data-href="#">
+					<p style="margin-top: 10px;">
+						<b>
+							Total Children: 
+							<span>1</span>
+						</b>
+					</p>
+					<p>
+						<b>
+							Present:  
+							<span>0</span>
+						</b>
+					</p>
+					<p>
+						<b>
+							Leave & Absent: 
+							<span>0</span>
+							<span>%</span>
+						</b>
+					</p>
+				</div>
+			</div>
+			<div class="col-md-6 col-sm-6 report" align="center">
+				<div class="report-p report-4">
+					<p>STAFF ATTENDANCE</p>
+				</div>
+				<div class="report-boder report-boder-4" data-href="#">
+					<p style="margin-top: 10px;">
+						<b>
+							Total Staff: 
+							<span>0</span>
+						</b>
+					</p>
+					<p>
+						<b>
+							Present:  
+							<span>0</span>
+						</b>
+					</p>
+					<p>
+						<b>
+							Leave & Absent: 
+							<span>0</span>
+							<span>%</span>
+						</b>
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	</body>
+	<script src="https://code.jquery.com/jquery.min.js"></script>
+    
+    <!-- Bootstrap JS form CDN -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    
+    <!-- jQuery sticky menu -->
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    
+    <!-- jQuery easing -->
+    <script src="js/jquery.easing.1.3.min.js"></script>
+    
+    <!-- Main Script -->
+    <script src="js/main.js"></script>
+    <script type="text/javascript">
+		$('.input_box input').focus(function(event) {
+	    	$(this).siblings('span').addClass('input_box_span_active');
+		});
+		$('.input_box input').blur(function(event) {
+	    	if ($(this).val()=='') {
+	      		$(this).siblings('span').removeClass('input_box_span_active');
+	    	}
+		});
+	</script>
+	<script type="text/javascript">
+    	$(document).ready(function($) {
+		    $(".report-boder").click(function() {
+		        window.document.location = $(this).data("href");
+		    });
+		});
+    </script>
+</html>

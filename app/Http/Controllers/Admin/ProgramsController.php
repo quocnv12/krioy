@@ -40,7 +40,7 @@ class ProgramsController extends Controller
     {
         $this->validate($request,
             [
-                'program_fee'   =>  'numeric|min:0'
+                'program_fee'   =>  'numeric|min:0|nullable'
             ],
             [
                 'program_fee.numeric'   =>  'Program fee is invalid',
@@ -93,7 +93,7 @@ class ProgramsController extends Controller
             $staff_program->save();
         }
 
-        return redirect()->back()->with('notify', 'Added Successfully');
+        return redirect()->back()->with('success','Added Program');
 
     }
 
@@ -125,12 +125,14 @@ class ProgramsController extends Controller
             ->join('children_programs','children_profiles.id','=','children_programs.id_children')
             ->select(['*'])
             ->where('children_programs.id_program','=',$id)
+            ->orderBy('children_profiles.first_name')
             ->get();
 
         $staff_profiles = DB::table('staff_profiles')
             ->join('staff_programs','staff_profiles.id','=','staff_programs.id_staff')
             ->select(['*'])
             ->where('staff_programs.id_program','=',$id)
+            ->orderBy('staff_profiles.first_name')
             ->get();
         return view('pages.program.view_program',['program'=>$program,
                                                         'array_schedule'=>$array_schedule,
@@ -146,12 +148,14 @@ class ProgramsController extends Controller
             ->join('children_programs', 'children_profiles.id', '=', 'children_programs.id_children')
             ->select('*')
             ->where('id_program', '=', $id)
+            ->orderBy('children_profiles.first_name')
             ->get();
 
         $staff_in_program = DB::table('staff_profiles')
             ->join('staff_programs', 'staff_profiles.id', '=', 'staff_programs.id_staff')
             ->select('*')
             ->where('id_program', '=', $id)
+            ->orderBy('staff_profiles.first_name')
             ->get();
 
         $array_children_old = [];
@@ -259,7 +263,7 @@ class ProgramsController extends Controller
             }
         }
 
-        return redirect()->back()->with('notify', 'Updated Successfully');
+        return redirect()->back()->with('success','Update Program');
     }
 
     public function destroy($id)
@@ -275,25 +279,19 @@ class ProgramsController extends Controller
             ->orderBy('programs.program_name')
             ->simplePaginate(8);
 
-        return view('pages.program.program',['programs'=>$programs])->with('notify','Deleted Successfully');
+        return view('pages.program.program',['programs'=>$programs])->with('success','Deleted Program : '.$programs->program_name);
     }
 
     public function searchChildren(Request $request)
     {
-        $children_profiles = ChildrenProfiles::where('first_name', 'like', '%' . $request->get('q') . '%')
-            ->orWhere('last_name', 'like', '%' . $request->get('q') . '%')
-            ->orderBy('last_name')
-            ->get();
+        $children_profiles = ChildrenProfiles::where(DB::raw("concat(first_name ,' ', last_name)"), 'like', '%' . $request->get('q') . '%')->orderBy('first_name')->get();
 
         return response()->json($children_profiles);
     }
 
     public function searchStaff(Request $request)
     {
-        $staff_profiles = StaffProfiles::where('first_name', 'like', '%' . $request->get('q2') . '%')
-            ->orWhere('last_name', 'like', '%' . $request->get('q2') . '%')
-            ->orderBy('last_name')
-            ->get();
+        $staff_profiles = StaffProfiles::where(DB::raw("concat(first_name ,' ', last_name)"), 'like', '%' . $request->get('q2') . '%')->orderBy('first_name')->get();
 
         return response()->json($staff_profiles);
     }
@@ -315,20 +313,20 @@ class ProgramsController extends Controller
 
             if ($children_profiles){
                 $output = '
-                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
-							    <div class="child-class" style="height: 120px;text-align: center;">
-							        <div class="image">
-                                        <img class="img-circle" onerror="this.src=\'images/Child.png\';" style="height: 80px" width="80" src="' . $children_profiles->image . '">
+                            <div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
+							    <div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
+							        <div _ngcontent-c19="" class="image">
+                                        <img _ngcontent-c19="" class="img-circle" onerror="this.src=\'images/Child.png\';" style="height: 80px" width="80" src="' . $children_profiles->image . '">
                                         <input type="hidden" value="' . $children_profiles->id . '">
                                         <span class="delete-child" onclick="deleteChild(' . $children_profiles->id . ')" style="position: absolute; top: 0"><i class="fas fa-times-circle" style="color: red ; cursor: pointer"></i></span>
-                                        <span class="limitText ng-star-inserted">' . $children_profiles->first_name . ' ' . $children_profiles->last_name . '</span>
+                                        <span _ngcontent-c19="" class="limitText ng-star-inserted"><p style="color: red">' . $children_profiles->first_name . ' ' . $children_profiles->last_name . '</p></span>
                                     </div>
                                 </div>
                             </div>
                             
                             <script>
                                 $(\'.delete-child\').click(function() {
-                                  $(this).parent(\'div\').parent(\'div\').parent(\'div\').hide();
+                                  $(this).parent(\'div\').parent(\'div\').parent(\'div\').remove();
                                 })
                             </script>
                             ';
@@ -351,14 +349,14 @@ class ProgramsController extends Controller
                                             <img _ngcontent-c19="" class="img-circle" onerror="this.src=\'images/Staff.png\';" style="height: 80px" width="80" src="' . $staff_profiles->image . '">
                                             <input type="hidden" value="' . $staff_profiles->id . '">
                                             <span class="delete-staff" onclick="deleteStaff(' . $staff_profiles->id . ')" style="position: absolute; top: 0"><i class="fas fa-times-circle" style="color: red ; cursor: pointer"></i></span>
-                                            <span _ngcontent-c19="" class="limitText ng-star-inserted">' . $staff_profiles->first_name . ' ' . $staff_profiles->last_name . '</span>
+                                            <span _ngcontent-c19="" class="limitText ng-star-inserted"><p style="color: red">' . $staff_profiles->first_name . ' ' . $staff_profiles->last_name . '</p></span>
                                         </div>
                                     </div>
                                 </div>
                                 
                                 <script >
                                     $(\'.delete-staff\').click(function() {
-                                      $(this).parent(\'div\').parent(\'div\').parent(\'div\').hide();
+                                      $(this).parent(\'div\').parent(\'div\').parent(\'div\').remove();
                                     })
                                 </script>
                                 ';

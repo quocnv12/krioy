@@ -9,25 +9,28 @@
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
 				<ul class="ul-td" style="width: 100%">
-					<li class="level1"><a href="kids-now">HOME</a></li>
+					<li class="level1"><a href="kids-now">@lang('kidsnow.home')</a></li>
+					<li class="active1" ><a href="kids-now/program">@lang('kidsnow.programs')</a></li>
+					<li class="active1 active-1" style="pointer-events: none;"><a href="">@lang('kidsnow.view_program')</a></li>
+					{--<li class="level1"><a href="kids-now">HOME</a></li>
 					<li class="active1" ><a href="kids-now/program">PROGRAM</a></li>
-					<li class="active1 active-1" style="pointer-events: none;"><a href="">VIEW PROGRAM</a></li>
+					<li class="active1 active-1" style="pointer-events: none;"><a href="">VIEW PROGRAM</a></li>--}
 				</ul>
 			</div>
 		</div>
 		<div class="mat-card">
 			<div class="mat-content">
-				<button class="accordion add-staff">VIEW PROGRAM</button>
+				<button class="accordion add-staff">@lang('kidsnow.view_program')</button>
 				<div class="panel add">
 					<div class="row">
 						<div class="col-md-4 input_box">
-							<span class="input_box_span_active">Program Name *</span>
+							<span class="input_box_span_active">@lang('kidsnow.program_name') *</span>
 							<input type="text" name="text" placeholder="Program Name *" value="{{$program->program_name}}">
 						</div>
 						<div class="col-md-8">
 							<div class="row" style="margin: 10px 0;" >
 								<div class="col-md-2" style="font-size: 18px;color:#5363d6;top:10px">
-									Days:
+									@lang('kidsnow.days'):
 								</div>
 								<div class="col-md-10" style="margin: 10px 0;">
 									<div class="panel_new">
@@ -47,11 +50,11 @@
 						<div class="col-md-6">
 							<div class="row">
 								<div class="col-md-6 input_box">
-									<span class="input_box_span_active">Program Fee</span>
+									<span class="input_box_span_active">@lang('kidsnow.program_fee')</span>
 									<input type="text" name="text" placeholder="Program Fee " value="{{number_format(floatval($program->program_fee),2)}}">
 								</div>
 								<div class="col-md-6 input_box">
-									<span class="input_box_span_active">Period Fee</span>
+									<span class="input_box_span_active">@lang('kidsnow.period')</span>
 									<select>
 										<option @if($program->period_fee == '/week') selected="selected" @endif>/week</option>
 										<option @if($program->period_fee == '/month') selected="selected" @endif>/month</option>
@@ -65,17 +68,17 @@
 					<hr>
 					<div class="row">
 						<div class="col-md-7">
-							<p style="color:#5363d6;font-size: 18px;">Age Group</p>
+							<p style="color:#5363d6;font-size: 18px;">@lang('kidsnow.age_group')</p>
 						</div>
 						<div class="col-md-5">
-							<p style="color:#5363d6;font-size: 18px;">Timings</p>
+							<p style="color:#5363d6;font-size: 18px;">@lang('kidsnow.timings')</p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-7">
 							<div class="row">
-								<div class="col-md-6"><span style="font-size: 14px;">From:</span></div>
-								<div class="col-md-6"><span style="font-size: 14px;">To:</span></div>
+								<div class="col-md-6"><span style="font-size: 14px;">@lang('kidsnow.from')</span></div>
+								<div class="col-md-6"><span style="font-size: 14px;">@lang('kidsnow.to')</span></div>
 							</div>
 						</div>
 						<div class="col-md-5"></div>
@@ -84,25 +87,25 @@
 						<div class="col-md-7">
 							<div class="row">
 								<div class="col-md-3 input_box">
-									<span class="input_box_span_active">Year </span>
+									<span class="input_box_span_active">@lang('kidsnow.year') </span>
 									<select name="from_year">
 										<option value="">{{$program->from_year}}</option>
 									</select>
 								</div>
 								<div class="col-md-3 input_box">
-									<span class="input_box_span_active">Month </span>
+									<span class="input_box_span_active">@lang('kidsnow.month') </span>
 									<select name="from_month">
 										<option value="">{{$program->from_month}}</option>
 									</select>
 								</div>
 								<div class="col-md-3 input_box">
-									<span class="input_box_span_active">Year </span>
+									<span class="input_box_span_active">@lang('kidsnow.year') </span>
 									<select name="to_year">
 										<option value="">{{$program->to_year}}</option>
 									</select>
 								</div>
 								<div class="col-md-3 input_box">
-									<span class="input_box_span_active">Month </span>
+									<span class="input_box_span_active">@lang('kidsnow.month') </span>
 									<select name="to_month">
 										<option value="">{{$program->to_month}}</option>
 									</select>
@@ -130,32 +133,31 @@
 		<div class="mat-card">
 			<div class="mat-content">
 				<button class="accordion">Staff</button>
-				</button>
 				<div class="panel">
 					<div _ngcontent-c20="" class="row" style="">
 						<!---->
 						@if(count($staff_profiles) > 0)
 							@foreach($staff_profiles as $staff)
-							<div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1"  onclick="myFunction()">
-								<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
-									<div _ngcontent-c9="" class="image">
+							<div _ngcontent-c19="" class="div_box_staff col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1">
+								<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;cursor: pointer">
+									<div _ngcontent-c9="" class="image" data-toggle="modal" data-target=".bd-example-modal-sm">
 										<img _ngcontent-c19="" class="img-circle" onerror="this.src='images/Staff.png';" style="height: 80px" width="80" src="{{$staff->image}}">
 										<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked"></i>
 										<!---->
 										<span _ngcontent-c19="" class="limitText ng-star-inserted">{{$staff->first_name}} {{$staff->last_name}}</span>
+										<input type="hidden" value="{{$staff->id}}" class="link_to_children">
 									</div>
 									<!---->
 								</div>
 							</div>
 							@endforeach
 						@else
-							<p style="font-size: 18px; margin: 10px;">No staff was chosen</p>
+							<p style="font-size: 18px; margin: 10px;">No staff was founded</p>
 						@endif
 					</div>
 				</div>
 			</div>
 		</div>
-		
 		<div class="mat-card">
 			<div class="mat-content">
 				<button class="accordion">Children</button>
@@ -178,7 +180,7 @@
 							</div>
 							@endforeach
 						@else
-							<p style="font-size: 18px; margin: 10px;">No children was chosen</p>
+							<p style="font-size: 18px; margin: 10px;">No children was founded</p>
 						@endif
 					</div>
 				</div>
@@ -197,10 +199,10 @@
 				<div class="modal-content">
 					<ul style="margin-left: 0">
 						<li style="color: #5363d6!important">Go to</li>
-						<li class="modal-li" data-href="" id="profile_children">Profile</li>
-						<li class="modal-li" data-href="" id="invoices_children">Invoices</li>
-						<li class="modal-li" data-href="" id="attachments_children">Attachments</li>
-						<li class="modal-li" data-href="" id="authorised_pickups_children">Authoriesd Pickups</li>
+						<li class="modal-li" data-href="" id="profile">Profile</li>
+						<li class="modal-li" data-href="" id="health">Health</li>
+						<li class="modal-li" data-href="" id="attachments">Attachments</li>
+						<li class="modal-li" data-href="" id="authorised">Authorised Pickups</li>
 					</ul>
 				</div>
 			</div>
@@ -280,10 +282,18 @@
 
 			$('div.div_box_children').click(function () {
 				var id_children = $(this).children('div').children('div').children('input').val();
-				$('li#profile_children').attr('data-href','/kids-now/children/edit/'+id_children);
-				$('li#invoices_children').attr('data-href','/kids-now/children/edit/'+id_children);
-				$('li#attachments_children').attr('data-href','/kids-now/children/edit/'+id_children);
-				$('li#authoriesd_pickups_children').attr('data-href','/kids-now/children/edit/'+id_children);
+				$('li#profile').attr('data-href','/kids-now/children/view/'+id_children);
+				$('li#health').attr('data-href','/kids-now/health/edit/'+id_children);
+				$('li#attachments').attr('data-href','/kids-now/children/edit/'+id_children);
+				$('li#authoriesd').attr('data-href','/kids-now/children/edit/'+id_children);
+			});
+
+			$('div.div_box_staff').click(function () {
+				var id_staff = $(this).children('div').children('div').children('input').val();
+				$('li#profile').attr('data-href','/kids-now/staff/edit/'+id_staff);
+				$('li#health').attr('data-href','/kids-now/health/edit/'+id_children);
+				$('li#attachments').attr('data-href','/kids-now/children/edit/'+id_children);
+				$('li#authoriesd').attr('data-href','/kids-now/children/edit/'+id_children);
 			});
 
 			$(".modal-li").click(function() {

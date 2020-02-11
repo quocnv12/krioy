@@ -6,10 +6,19 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\models\staff\StaffProfiles;
 use Mail;
+use Auth;
 use Carbon\Carbon;
+
 
 class IndexController extends Controller
 {
+    //-------------trang home
+    public function getHome()
+    {
+        return view('pages.home');
+    }
+
+    //--------------trang intro
     public function getIndex()
     {
         return view('pages.introduce.introduce-kid_now');
@@ -26,6 +35,7 @@ class IndexController extends Controller
         $staff->first_name = $request->first_name;
         $staff->email = $request->email;
         $staff->phone = $request->phone;
+        $staff->image = 'no-img.png';
         $staff->password = bcrypt($request->password);
         $staff->active =0;
         $staff->level =0;
@@ -38,13 +48,15 @@ class IndexController extends Controller
         $staff->time_active =Carbon::now();
         $staff->save();
         $data=[
-            'route' => $url
+            'route' => $url,
+            'phone' =>$request->phone,
+            'password' =>$request->password
         ] ;
 
         Mail::send('pages.introduce.verify', $data, function($message) use ($email){
             $message->to($email, 'Verify Account')->subject('Link Verify Account !');
         });
-        return redirect('/')->with('thongbao','Registration successful please login email to confirm your account !');
+        return redirect()->back()->with('success','Registration successful please login email to confirm your account !');
     }
 
     //xac nhan tai khoan
@@ -57,11 +69,15 @@ class IndexController extends Controller
             'id'=>$id])->first();
             if(!$staff)
             {
-                return redirect()->back()->with('thongbao','Link verify false !');
+                return redirect()->back()->with('danger','Link verify false !');
             }
         $staff->active=1;
         $staff->save();
-        return redirect('/')->with('thongbao','Verify account success !');
+
+        if(Auth::loginUsingId($staff->id))
+        {
+            return redirect('kids-now')->with('success','Verify success');
+        }
     }
 
 }

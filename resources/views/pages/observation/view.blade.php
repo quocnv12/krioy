@@ -20,11 +20,6 @@
                 </div>
             </div>
         </div>
-        @if(session('notify'))
-            <div class="alert alert-success font-weight-bold">
-                {{session('notify')}}
-            </div>
-        @endif
         <form style="width: auto;margin: 0;text-align: center" action="" method=""  id="editObservation" enctype="multipart/form-data">
             @csrf
             <div class="row">
@@ -131,7 +126,7 @@
                             <div _ngcontent-c20="" class="row" style="">
                                 @foreach($observationtype  as $observation)
                                     <div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer;">
-                                        <button disabled type="button" _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1 @if(in_array($observation->id, $array_observation_choose)) tablinks1_active @endif" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" data-toggle="tooltip" title="{{$observation->name}}" value="{{$observation->id}}">{{$observation->name}} </button>
+                                        <button type="button" _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1 @if(in_array($observation->id, $array_observation_choose)) tablinks1_active @endif" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px; pointer-events: none" data-toggle="tooltip" title="{{$observation->name}}" value="{{$observation->id}}">{{$observation->name}} </button>
                                     </div>
                                 @endforeach
                                     <input id="array_observation_new" type="hidden" value="" name="observation_new">
@@ -143,7 +138,7 @@
                         <div class="row">
                             <div class="col-md-11 input_box">
                                 <span>Enter Details here *</span>
-                                <input type="text" name="detailObservation" placeholder="Enter Details here *">
+                                <input disabled="" type="text" name="detailObservation" placeholder="Enter Details here *">
                             </div>
                             <div class="col-md-1">
                                 <div class="zoom">

@@ -21,23 +21,25 @@ class FoodController extends Controller
 
     public function PostFood(request $request) 
     {
+       // dd($request->all());
         if($request->programs==null)
         {
-            return redirect()->back()->with('thongbao1','Pleasea choose program !')->withInput();
+            return redirect()->back()->with('danger','Pleasea choose program !')->withInput();
         }
         elseif ($request->mealtype==null) {
-            return redirect()->back()->with('thongbao2','Pleasea choose meal type !')->withInput();
+            return redirect()->back()->with('danger','Pleasea choose meal type !')->withInput();
         }
         elseif($request->qtyfood==null)
         {
-            return redirect()->back()->with('thongbao3','Pleasea choose quantity !')->withInput();
+            return redirect()->back()->with('danger','Pleasea choose quantity !')->withInput();
         }
         elseif($request->food_name==null)
         {
-            return redirect()->back()->with('thongbao4','Pleasea choose food name !')->withInput();
+            return redirect()->back()->with('danger','Pleasea choose food name !')->withInput();
         }
         else 
         {
+            
             $foods =new food;
             $foods->meal_type = $request->mealtype;
             $foods->quantity = $request->qtyfood;
@@ -50,7 +52,7 @@ class FoodController extends Controller
                 $mang[]=$item;
             }
            $foods->food()->Attach($mang);
-           return redirect()->back()->with('thongbao','Send food success !')->withInput();
+           return redirect()->back()->with('success','Send food success')->withInput();
         }
      
         
@@ -81,18 +83,18 @@ class FoodController extends Controller
         // dd($request->all());
         if($request->programs==null)
         {
-            return redirect()->back()->with('thongbao1','Pleasea choose program !')->withInput();
+            return redirect()->back()->with('danger','Pleasea choose program !')->withInput();
         }
         elseif ($request->mealtype==null) {
-            return redirect()->back()->with('thongbao2','Pleasea choose meal type !')->withInput();
+            return redirect()->back()->with('danger','Pleasea choose meal type !')->withInput();
         }
         elseif($request->qtyfood==null)
         {
-            return redirect()->back()->with('thongbao3','Pleasea choose quantity !')->withInput();
+            return redirect()->back()->with('danger','Pleasea choose quantity !')->withInput();
         }
         elseif($request->food_name==null)
         {
-            return redirect()->back()->with('thongbao4','Pleasea choose food name !')->withInput();
+            return redirect()->back()->with('danger','Pleasea choose food name !')->withInput();
         }
         else 
         {
@@ -108,7 +110,7 @@ class FoodController extends Controller
                 $mang[]=$item;
             }
            $foods->food()->Sync($mang);
-           return redirect('kids-now/food/list')->with('thongbao','Edit food success !')->withInput();
+           return redirect('kids-now/food/list')->with('success','Edit food success')->withInput();
         }
     }
 
@@ -117,7 +119,7 @@ class FoodController extends Controller
     public function DeleteFood($id) 
     {
        food::destroy($id);
-       return redirect('kids-now/food/list')->with('thongbao','Delete food success !');
+       return redirect('kids-now/food/list')->with('success','Delete food success');
     }
 
 
@@ -163,7 +165,7 @@ class FoodController extends Controller
         $meal = new mealtype;
         $meal->name = $request->name;
         $meal->save();
-        return redirect('kids-now/food/menu-meal-type')->with('thongbao','Add meal type '.$request->name.'success !')->withInput();
+        return redirect('kids-now/food/menu-meal-type')->with('success','Add meal type '.$request->name.'success')->withInput();
 
 
     }
@@ -186,7 +188,7 @@ class FoodController extends Controller
         $meal=mealtype::find($id);
         $meal->name = $request->name;
         $meal->save();
-        return redirect('kids-now/food/menu-meal-type')->with('thongbao','Edit meal type '.$request->name.' success !')->withInput();
+        return redirect('kids-now/food/menu-meal-type')->with('success','Edit meal type '.$request->name.' success')->withInput();
     }
 
 
@@ -194,7 +196,7 @@ class FoodController extends Controller
     public function DeleteMenuMealType($id) 
     {
         mealtype::destroy($id);
-        return redirect('kids-now/food/menu-meal-type')->with('delete','Delete success !');
+        return redirect('kids-now/food/menu-meal-type')->with('success','Delete success');
     }
 
 
@@ -232,7 +234,7 @@ class FoodController extends Controller
         $qtyfood = new quantytifood;
         $qtyfood->name = $request->name;
         $qtyfood->save();
-        return redirect('kids-now/food/menu-quantity')->with('thongbao','Add quantity '.$request->name.' success !')->withInput();
+        return redirect('kids-now/food/menu-quantity')->with('success','Add quantity '.$request->name.' success')->withInput();
     }
 
 
@@ -257,7 +259,7 @@ class FoodController extends Controller
         $qtyfood=quantytifood::find($id_qty);
         $qtyfood->name = $request->name;
         $qtyfood->save();
-        return redirect('kids-now/food/menu-quantity')->with('thongbao','Edit quantity '.$request->name.' success !')->withInput();
+        return redirect('kids-now/food/menu-quantity')->with('success','Edit quantity '.$request->name.' success')->withInput();
     }
 
 
@@ -265,7 +267,7 @@ class FoodController extends Controller
     public function DeleteMenuQuantity($id_qty)
     {
         quantytifood::destroy($id_qty);
-        return redirect('kids-now/food/menu-quantity')->with('delete','Delete success !');
+        return redirect('kids-now/food/menu-quantity')->with('success','Delete success');
     }
 
 
@@ -309,7 +311,7 @@ class FoodController extends Controller
         $foodname=new itemfood;
         $foodname->food_name = $request->food_name;
         $foodname->save();
-        return redirect('kids-now/food/menu-food-name')->with('thongbao','Add food name '.$request->food_name.' success !')->withInput();
+        return redirect('kids-now/food/menu-food-name')->with('success','Add food name '.$request->food_name.' success')->withInput();
     }
 
     //sửa
@@ -334,13 +336,13 @@ class FoodController extends Controller
         $food=itemfood::find($id_food_name);
         $food->food_name = $request->food_name;
         $food->save();
-        return redirect('kids-now/food/menu-food-name')->with('thongbao','Edit food name '.$request->food_name.' success !');
+        return redirect('kids-now/food/menu-food-name')->with('success','Edit food name '.$request->food_name.' success');
     }
     // xoa
     public function DeleteFoodName($id_food_name) 
     {
         itemfood::destroy($id_food_name);
-        return redirect('kids-now/food/menu-food-name')->with('delete','Delete success !');
+        return redirect('kids-now/food/menu-food-name')->with('success','Delete success');
     }
 
 

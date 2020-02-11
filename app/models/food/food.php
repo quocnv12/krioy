@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class food extends Model
 {
     protected $table = 'food';
+ 
    public function food()
    {
        return $this->belongsToMany('App\models\food\itemfood', 'food_food_items', 'id_food', 'id_food_items');
@@ -23,4 +24,10 @@ class food extends Model
    {
        return $this->belongsTo('App\models\Programs', 'id_program', 'id');
    }
+   protected $fillable = [
+    'meal_type',
+    'quantity',
+    'id_program',
+    ];
+
 }

@@ -42,11 +42,6 @@
                 </div>
 			</div>
 		</div>
-		@if(session('notify'))
-			<div class="alert alert-success">
-				{{session('notify')}}
-			</div>
-		@endif
 		<form action="kids-now/program/edit/{{$program->id}}" method="post" style="width: 100%" id="editProgram">
 			@csrf
 
@@ -276,7 +271,7 @@
                                             {{--<button class="btn btn-sm btn-danger" type="button" onclick="deleteStaff({{$staff->id}})">X</button>--}}
 											<span class="delete-staff" onclick="deleteStaff({{$staff->id}})" style="position: absolute; top: 0"><i class="fas fa-times-circle" style="color: red ; cursor: pointer"></i></span>
 											<br>
-                                            <span class="limitText ng-star-inserted"><a target="_blank" href="">{{$staff->first_name}} {{$staff->last_name}}</a></span>
+                                            <span class="limitText ng-star-inserted"><a target="_blank" href="kids-now/staff/edit/{{$staff->id}}" style="margin: 0">{{$staff->first_name}} {{$staff->last_name}}</a></span>
                                         </div>
                                     </div>
                                 </div>

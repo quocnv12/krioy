@@ -25,33 +25,33 @@ class StaffController extends Controller
     {
         // dd($request->all());
        $this->validate($request,[
-             'image' =>'required|image',
-             'first_name' =>'required',
-             'last_name' =>'required',
-             'phone'    =>'required|unique:staff_profiles,phone',
-             'gender'    =>'required',
-             'email'    =>'required|email|unique:staff_profiles,email',
-             'address'    =>'required',
-             'date_birthday'    =>'required|date',
-             'blood_group'    =>'required',
-             'date_of_joining'    =>'required|date',
+            'image'               =>'required|image',
+            'first_name'         =>'required',
+            'last_name'          =>'required',
+            'phone'              =>'required|unique:staff_profiles,phone',
+            'gender'             =>'required',
+            'email'              =>'required|email|unique:staff_profiles,email',
+            'address'            =>'required',
+            'date_birthday'      =>'required|date',
+            'blood_group'        =>'required',
+            'date_of_joining'    =>'required|date',
        ],[
-            'image.required'  => 'Please chosse image !',
-            'image.image'  => 'Image is in wrong format !',
-            'first_name.required'  => 'Please enter first_name !',
-            'last_name.required'  => 'Please enter last_name !',
-            'phone.required'  => 'Please enter number phone !',
-            'phone.unique'  => 'Number phone already exist !',
-            'email.required'  => 'Please enter email !',
-            'email.email'  => 'Email is in wrong format !',
-            'email.unique'  => 'Email already exist !',
-            'address.required'  => 'Please enter address !',
-            'date_birthday.required'  => 'Please enter date_birthday !',
-            'date_birthday.date'  => 'Date_birthday is in wrong format !',
-            'blood_group.required'  => 'Please choose blood_group !',
+            'image.required'            => 'Please chosse image !',
+            'image.image'               => 'Image is in wrong format !',
+            'first_name.required'       => 'Please enter first_name !',
+            'last_name.required'        => 'Please enter last_name !',
+            'phone.required'            => 'Please enter number phone !',
+            'phone.unique'              => 'Number phone already exist !',
+            'email.required'            => 'Please enter email !',
+            'email.email'               => 'Email is in wrong format !',
+            'email.unique'              => 'Email already exist !',
+            'address.required'          => 'Please enter address !',
+            'date_birthday.required'    => 'Please enter date_birthday !',
+            'date_birthday.date'        => 'Date_birthday is in wrong format !',
+            'blood_group.required'      => 'Please choose blood_group !',
             'date_of_joining.required'  => 'Please choose date_of_joining !',
-            'date_of_joining.date'  => 'Date_of_joining is in wrong format !',
-            'gender.required'  => 'Please choose gender !',
+            'date_of_joining.date'      => 'Date_of_joining is in wrong format !',
+            'gender.required'           => 'Please choose gender !',
             
        ]);
 
@@ -94,7 +94,7 @@ class StaffController extends Controller
         }
         $staff->pesmissionstaff()->Attach($mangs);
 
-        return redirect('kids-now/staff')->with('thongbao','Add staff success !')->withInput();
+        return redirect('kids-now/staff')->with('success','Add staff success !')->withInput();
 
     }
 
@@ -114,33 +114,34 @@ class StaffController extends Controller
     public  function PostEditStaff(request $request ,$id) 
     {
         $this->validate($request,[
-            'image' =>'required|image',
-            'first_name' =>'required',
-            'last_name' =>'required',
-            'phone'    =>'required|unique:staff_profiles,phone,'.$id,
-            'gender'    =>'required',
-            'email'    =>'required|email|unique:staff_profiles,email,'.$id,
-            'address'    =>'required',
-            'date_birthday'    =>'required|date',
-            'blood_group'    =>'required',
+            'image'              =>'required|image',
+            'first_name'         =>'required',
+            'last_name'          =>'required',
+            'phone'              =>'required|unique:staff_profiles,phone,'.$id,
+            'gender'             =>'required',
+            'email'              =>'required|email|unique:staff_profiles,email,'.$id,
+            'address'            =>'required',
+            'date_birthday'      =>'required|date',
+            'blood_group'        =>'required',
             'date_of_joining'    =>'required|date',
+          
       ],[
-           'image.required'  => 'Please chosse image !',
-           'image.image'  => 'Image is in wrong format !',
-           'first_name.required'  => 'Please enter first_name !',
-           'last_name.required'  => 'Please enter last_name !',
-           'phone.required'  => 'Please enter number phone !',
-           'phone.unique'  => 'Number phone already exist !',
-           'email.required'  => 'Please enter email !',
-           'email.email'  => 'Email is in wrong format !',
-           'email.unique'  => 'Email already exist !',
-           'address.required'  => 'Please enter address !',
-           'date_birthday.required'  => 'Please enter date_birthday !',
-           'date_birthday.date'  => 'Date_birthday is in wrong format !',
-           'blood_group.required'  => 'Please choose blood_group !',
-           'date_of_joining.required'  => 'Please choose date_of_joining !',
-           'date_of_joining.date'  => 'Date_of_joining is in wrong format !',
-           'gender.required'  => 'Please choose gender !',
+        'image.required'            => 'Please chosse image !',
+        'image.image'               => 'Image is in wrong format !',
+        'first_name.required'       => 'Please enter first_name !',
+        'last_name.required'        => 'Please enter last_name !',
+        'phone.required'            => 'Please enter number phone !',
+        'phone.unique'              => 'Number phone already exist !',
+        'email.required'            => 'Please enter email !',
+        'email.email'               => 'Email is in wrong format !',
+        'email.unique'              => 'Email already exist !',
+        'address.required'          => 'Please enter address !',
+        'date_birthday.required'    => 'Please enter date_birthday !',
+        'date_birthday.date'        => 'Date_birthday is in wrong format !',
+        'blood_group.required'      => 'Please choose blood_group !',
+        'date_of_joining.required'  => 'Please choose date_of_joining !',
+        'date_of_joining.date'      => 'Date_of_joining is in wrong format !',
+        'gender.required'           => 'Please choose gender !',
            
       ]);
 
@@ -189,7 +190,7 @@ class StaffController extends Controller
        }
        $staff->pesmissionstaff()->Sync($mangs);
 
-       return redirect('kids-now/staff')->with('thongbao','Edit staff success !')->withInput();
+       return redirect('kids-now/staff')->with('success','Edit staff success !')->withInput();
        
     }
 
@@ -202,7 +203,7 @@ class StaffController extends Controller
     public  function DeleteStaff($id) 
     {
         StaffProfiles::destroy($id);
-        return redirect('kids-now/staff')->with('delete','Delete staff success !');
+        return redirect('kids-now/staff')->with('success','Delete staff success !');
     }
 
 

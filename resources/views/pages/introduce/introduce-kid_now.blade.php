@@ -28,8 +28,7 @@
 				<div class="container-fluid">
 				    <div class="navbar-header">
 				    	<a class="navbar-brand" href="#" style="display: flex;">
-				    		<img src="images/logo.png" alt="">
-				    		<p>Kids Now</p>
+				    		<img src="images/logo-ngang.png" style="border-radius: 0;width: auto;margin: -7px 0;" alt="">
 				    	</a>
 				    	<div class="topnav" id="myTopnav">
 						    <a href="#">HOME</a>
@@ -49,16 +48,7 @@
 			<div class="textMsg" align="center">
 				<div class="textMsg-children">
 					<span style="opacity: 1;position: relative;z-index: 2;cursor: pointer;">
-						@if (session('thongbao'))
-							<div  style="width:300px" class="alert alert-success" role="alert">
-								<strong>{{ session('thongbao') }}</strong>
-							</div>
-						@endif
-						@if (session('thongbao1'))
-							<div  class="alert alert-danger" role="alert">
-								<strong>{{ session('thongbao1') }}</strong>
-							</div>
-						@endif
+					
 						<h2>One Stop Destination for Preschool &amp; Daycare Management</h2>
 						<p data-toggle="modal" data-target=".bd-example-modal-sm">
 							<img src="images/Playbutton.png" alt="">

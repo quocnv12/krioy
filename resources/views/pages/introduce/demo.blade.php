@@ -16,12 +16,7 @@
 						<p>Kids Now Account Demo</p>
 					</div>
 					<div class="login-input">
-					@if (session('thongbao'))
-					<p style="font-size: 14px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;width:80%;margin-top:20px;margin-bottom:0px;">* {{ session('thongbao') }}</p>
-					@endif
-					@if (session('success'))
-					<p style="font-size: 14px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;width:80%;margin-top:20px;margin-bottom:0px;">* {{ session('success') }}</p>
-					@endif
+				
 						<p style="margin-top:10px;color:red" id="expired"></p>
 						<div class="add">
 							<div class="row">

@@ -31,12 +31,6 @@ Thực đơn
                 </ul>
             </div>
         </div>
-        @if (session('thongbao'))
-        <p style="font-size: 12px;margin-left:11px;font-weight: 100;color:#0D1CE9;font-style: italic;line-height: 25px;margin-top:10px;">{{ session('thongbao') }} </p>
-        @endif
-        @if (session('delete'))
-        <p style="font-size: 12px;margin-left:11px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:10px;">{{ session('delete') }} </p>
-        @endif 
         <div class="mat-card">
             <div class="row-fluid">
                 <div class="span12">

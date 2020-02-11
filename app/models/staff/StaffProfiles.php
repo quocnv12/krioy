@@ -16,4 +16,19 @@ class StaffProfiles extends Model
     {
         return $this->belongsToMany('App\models\staff\role', 'staff_roles', 'id_staff', 'id_role');
     }
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'phone',
+        'password',
+        'image',
+        'gender',
+        'email',
+        'address',
+        'birthday',
+        'blood_group',
+        'date_of_joining',
+        'level',
+
+        ];
 }
