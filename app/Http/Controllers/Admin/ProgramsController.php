@@ -187,7 +187,7 @@ class ProgramsController extends Controller
     {
         $this->validate($request,
             [
-                'program_fee'   =>  'numeric|min:0'
+                'program_fee'   =>  'numeric|min:0|nullable'
             ],
             [
                 'program_fee.numeric'   =>  'Program fee is invalid',

@@ -209,8 +209,8 @@
 						<div class="row" style="">
 							<!---->
 							@foreach($programs as $program)
-								<div align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2" style="padding:10px 0;cursor:pointer;width: 50%;">
-									<button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" type="button" data-toggle="tooltip" title="{{$program->program_name}}" value="{{$program->id}}">{{$program->program_name}}</button>
+								<div align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-3" style="padding:10px;cursor:pointer;">
+									<button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px;width: 100%" type="button" data-toggle="tooltip" title="{{$program->program_name}}" value="{{$program->id}}">{{$program->program_name}}</button>
 								</div>
 							@endforeach
 							<input id="array_program" type="hidden" value="" name="programs">

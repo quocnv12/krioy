@@ -114,12 +114,12 @@
 						<div class="col-md-5">
 							<div class="row">
 								<div class="col-md-6 input_box">
-									<span class="input_box_span_active">HH:MM </span>
-									<input type="time" name="time" value="{{$program->start_time}}">
+									<span class="input_box_span_active">Start Time </span>
+									<input type="text" class="timepicker" name="time" value="{{$program->start_time}}">
 								</div>
 								<div class="col-md-6 input_box">
-									<span class="input_box_span_active">HH:MM </span>
-									<input type="time" name="time" value="{{$program->finish_time}}">
+									<span class="input_box_span_active">Finish Time </span>
+									<input type="text" class="timepicker" name="time" value="{{$program->finish_time}}">
 								</div>
 							</div>
 						</div>
