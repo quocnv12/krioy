@@ -29,7 +29,7 @@ class ChildrenProfilesController extends Controller
             [
                 'first_name'        => 'required',
                 'last_name'         => 'required',
-                'birthday'          => 'required',
+                'birthday'          => 'required|before:today|after:01-01-2000',
                 'gender'            => 'required',
                 'date_of_joining'   => 'required',
                 'unique_id'         => 'required|unique:children_profiles,unique_id',
@@ -194,6 +194,9 @@ class ChildrenProfilesController extends Controller
 
     public function view($id){
         $children_profiles = ChildrenProfiles::find($id);
+        if (!$children_profiles){
+            return view('pages.not-found.notfound');
+        }
         $programs = Programs::orderBy('program_name')->get();
         $programs_choose = DB::table('programs')
             ->join('children_programs', 'programs.id', '=', 'children_programs.id_program')
@@ -243,6 +246,9 @@ class ChildrenProfilesController extends Controller
     public function edit($id)
     {
         $children_profiles = ChildrenProfiles::find($id);
+        if (!$children_profiles){
+            return view('pages.not-found.notfound');
+        }
         $programs = Programs::orderBy('program_name')->get();
         $programs_choose = DB::table('programs')
             ->join('children_programs', 'programs.id', '=', 'children_programs.id_program')
@@ -294,8 +300,9 @@ class ChildrenProfilesController extends Controller
             [
                 'first_name'        => 'required',
                 'last_name'         => 'required',
-                'birthday'          => 'required',
+                'birthday'          => 'required|before:today|after:01-01-2000',
                 'gender'            => 'required',
+                'date_of_joining'   => 'required',
                 'unique_id'         => 'required|unique:children_profiles,unique_id,' . $id . '',
                 'address'           => 'nullable',
                 'allergies'         => 'nullable',
@@ -328,6 +335,7 @@ class ChildrenProfilesController extends Controller
                 'gender.required'               => 'Please choose gender',
                 'image.image'                   => 'Image is invalid',
                 'birthday.required'             => 'Please input birthday',
+                'date_of_joining.required'      => 'Please input date of joining',
                 'phone_parent_1.numeric'        => 'Number is invalid',
                 'phone_parent_2.numeric'        => 'Number is invalid',
                 'phone_parent_1.digits_between' => 'The length is between 9 -12 digits',
@@ -339,6 +347,8 @@ class ChildrenProfilesController extends Controller
                 'image_parent_1.image'          => 'Image is invalid',
                 'image_parent_2.image'          => 'Image is invalid',
             ]);
+
+
 
         $children_profiles = ChildrenProfiles::findOrFail($id);
         $children_profiles->update($request->all());
@@ -356,7 +366,7 @@ class ChildrenProfilesController extends Controller
         }
         $children_profiles->save();
 
-        if ($request->programs_new) {
+        if ($request->programs_new != null) {
             //array chua cac id program ma children dang hoc
             $array_programs_old = [];
             $programs_old = explode(',', $request->programs_old);    //string to array
@@ -384,6 +394,18 @@ class ChildrenProfilesController extends Controller
                 $children_programs = ChildrenProgram::where([['id_children', '=', $id], ['id_program', '=', $program_id]]);
                 $children_programs->delete();
             }
+        }else{
+            //array chua cac id program ma children dang hoc
+            $array_programs_old = [];
+            $programs_old = explode(',', $request->programs_old);    //string to array
+            foreach ($programs_old as $item) {
+                array_push($array_programs_old, $item);
+            }
+
+            foreach ($array_programs_old as $program_id) {
+                $children_programs = ChildrenProgram::where([['id_children', '=', $id], ['id_program', '=', $program_id]]);
+                $children_programs->delete();
+            }
         }
 
         // edit parent
@@ -393,8 +415,12 @@ class ChildrenProfilesController extends Controller
             ->where('id_children', '=', $id)
             ->get();
 
+
         // co 1 parent
         if (count($parent_profiles_all) == 1) {
+            if ($request->first_name_parent_1 == null || $request->last_name_parent_1 == null){
+                return redirect()->back()->with('notify_p1','Parent\'s name is required');
+            }
             $parent_1 = ParentProfiles::find($request->id_parent_profiles_1);
             $parent_1->first_name = $request->first_name_parent_1;
             $parent_1->last_name = $request->last_name_parent_1;
@@ -449,6 +475,12 @@ class ChildrenProfilesController extends Controller
 
             }
         }else if(count($parent_profiles_all) == 2){  //co 2 parent
+            if ($request->first_name_parent_1 == null || $request->last_name_parent_1 == null){
+                return redirect()->back()->with('notify_p1','Parent\'s name is required');
+            }
+            if ($request->first_name_parent_2 == null || $request->last_name_parent_2 == null){
+                return redirect()->back()->with('notify_p2','Parent\'s name is required');
+            }
             $parent_1 = ParentProfiles::find($request->id_parent_profiles_1);
             $parent_1->first_name = $request->first_name_parent_1;
             $parent_1->last_name = $request->last_name_parent_1;
@@ -496,6 +528,68 @@ class ChildrenProfilesController extends Controller
             }
 
             DB::table('children_parent')->where([['id_parent','=',$request->id_parent_profiles_2],['id_children','=',$id]])->update(['relationship'=>$request->relationship_2]);
+        }else{
+            //no parent => add parent
+
+            //parent 1
+            if ($request->first_name_parent_1 && $request->last_name_parent_1) {
+                //tao record ben bang parent_profiles
+                $parent_1 = new ParentProfiles();
+                $parent_1->first_name = $request->first_name_parent_1;
+                $parent_1->last_name = $request->last_name_parent_1;
+                $parent_1->phone = $request->phone_parent_1;
+                $parent_1->email = $request->email_parent_1;
+                $parent_1->note = $request->note_parent_1;
+                $parent_1->gender = $request->gender_parent_1;
+                $parent_1->save();
+
+                if ($request->hasFile('image_parent_1')) {
+                    $file = $request->image_parent_1;
+                    $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
+                    $file->move(public_path('images/parent/'), $filename);
+                    $parent_1->image = 'images/parent/' . $filename;
+                    $parent_1->save();
+                }
+
+                //id parent vua tao moi xong
+                $parent_1_id = $parent_1->id;
+                //tao record ben bang children_parent
+                $children_parent = new ChildrenParent();
+                $children_parent->id_children = $id;
+                $children_parent->id_parent = $parent_1_id;
+                $children_parent->relationship = $request->relationship_1;
+                $children_parent->save();
+            }
+
+            //parent_2
+            if ($request->first_name_parent_2 && $request->last_name_parent_2) {
+                //tao record ben bang parent_profiles
+                $parent_2 = new ParentProfiles();
+                $parent_2->first_name = $request->first_name_parent_2;
+                $parent_2->last_name = $request->last_name_parent_2;
+                $parent_2->phone = $request->phone_parent_2;
+                $parent_2->email = $request->email_parent_2;
+                $parent_2->note = $request->note_parent_2;
+                $parent_2->gender = $request->gender_parent_2;
+                $parent_2->save();
+
+                if ($request->hasFile('image_parent_2')) {
+                    $file = $request->image_parent_2;
+                    $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
+                    $file->move(public_path('images/parent/'), $filename);
+                    $parent_2->image = 'images/parent/' . $filename;
+                    $parent_2->save();
+                }
+
+                //id parent vua tao moi xong
+                $parent_2_id = $parent_2->id;
+                //tao record ben bang children_parent
+                $children_parent = new ChildrenParent();
+                $children_parent->id_children = $id;
+                $children_parent->id_parent = $parent_2_id;
+                $children_parent->relationship = $request->relationship_2;
+                $children_parent->save();
+            }
         }
 
         return redirect()->back()->with('success','Updated Children\'s Profile');
@@ -503,8 +597,10 @@ class ChildrenProfilesController extends Controller
 
     public function destroy($id)
     {
-        $children_profiles = ChildrenProfiles::findOrFail($id);
-
+        $children_profiles = ChildrenProfiles::find($id);
+        if (!$children_profiles){
+            return view('pages.not-found.notfound');
+        }
         if(isset($children_profiles->image)){
             $old_image = $children_profiles->image;
             unlink($old_image);

@@ -12,9 +12,7 @@
 					<li class="level1"><a href="kids-now">@lang('kidsnow.home')</a></li>
 					<li class="active1" ><a href="kids-now/program">@lang('kidsnow.programs')</a></li>
 					<li class="active1 active-1" style="pointer-events: none;"><a href="">@lang('kidsnow.view_program')</a></li>
-					{--<li class="level1"><a href="kids-now">HOME</a></li>
-					<li class="active1" ><a href="kids-now/program">PROGRAM</a></li>
-					<li class="active1 active-1" style="pointer-events: none;"><a href="">VIEW PROGRAM</a></li>--}
+
 				</ul>
 			</div>
 		</div>
