@@ -25,6 +25,9 @@
     {{-- <link rel="stylesheet" href="asset/kriyo/css/bootstrap.min.css"> --}}
     <!-- Font Awesome -->
     <link rel="stylesheet" href="asset/kriyo/css/font-awesome.min.css">
+    {{--TimePicker--}}
+    <link href="asset/timepicker/mdtimepicker.css" rel="stylesheet">
+
     <!-- Custom CSS -->
         <link rel="stylesheet" href="libs/slick-1.8.1/slick/slick.css">
         <link rel="stylesheet" href="libs/slick-1.8.1/slick/slick-theme.css">
@@ -92,5 +95,31 @@
         </script>
     @endif
     @yield('js')
+    {{--TimePicker--}}
+    <script src="asset/timepicker/mdtimepicker.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.timepicker').mdtimepicker();
+        });
 
+        $('.timepicker').mdtimepicker({
+
+            // format of the time value (data-time attribute)
+            timeFormat: 'hh:mm:ss.000',
+
+            // format of the input value
+            format: 'h:mm tt',
+
+            // theme of the timepicker
+            // 'red', 'purple', 'indigo', 'teal', 'green'
+            theme: 'blue',
+
+            // determines if input is readonly
+            readOnly: true,
+
+            // determines if display value has zero padding for hour value less than 10 (i.e. 05:30 PM); 24-hour format has padding by default
+            hourPadding: false
+
+        });
+    </script>
 </html>

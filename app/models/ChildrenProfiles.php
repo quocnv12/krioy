@@ -3,6 +3,7 @@
 namespace App\models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class ChildrenProfiles extends Model
 {
@@ -39,6 +40,16 @@ class ChildrenProfiles extends Model
     public function getFullNameAttribute()
     {
         return "{$this->first_name} {$this->last_name}";
+    }
+
+    public static function getIdObservation($id){
+        $object =  ObservationModel::where('id_children','=',$id)->orderBy('created_at','DESC')->first();
+        return $object['id'];
+    }
+
+    public static function getIdHealth($id){
+        $object =  HealthModel::where('id_children','=',$id)->orderBy('created_at','DESC')->first();
+        return $object['id'];
     }
 
     protected $timestamp = false;
