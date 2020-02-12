@@ -38,11 +38,6 @@
 				</div>
 			</div>
 		</div>
-			@if(session('notify'))
-				<div class="alert alert-success">
-					{{session('notify')}}
-				</div>
-			@endif
 	</section>
 	<section style="background-color:#f9f9f9">
 		<div class="container">

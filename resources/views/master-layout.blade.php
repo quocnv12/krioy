@@ -35,10 +35,9 @@
         }
         @keyframes example {
             0%   {right:0px; top:50px;}
-            /* 25%  {right:0px; top:50px;} */
-            50%  {right:120px; top:50px;}
-            /* 75%  {right:60px; top:50px;} */
-            75% {right:0px; top:50px}
+            10%  {right:120px; top:50px;}
+            90%  {right:120px; top:50px;}
+            100% {right:0px; top:50px}
 }
     </style>
     <!-- JS libs --> 
@@ -49,17 +48,23 @@
 <body>
     @include('header')
     @if(session('success'))
-        <div style="position: absolute;right: 0px;margin-top: 10px;top: 50px;font-style: italic;opacity: 1;font-size: 14px;animation-name: example;
-        animation-duration: 5s;animation-iteration-count: 2;animation-direction: alternate; " class="alert alert-success">
+        <div style="position: absolute;right: 0px;margin-top: 10px;top: 50px;font-style: italic;opacity: 0.8;font-size: 14px;animation-name: example;
+        animation-duration: 4s;animation-iteration-count: 2;animation-direction: alternate; " class="alert alert-success">
             <strong>Succes ! </strong> {{ session('success') }} 🎉
         </div>
     @endif
     @if(session('danger'))
-        <div style="position: absolute;right: 0px;margin-top: 10px;top: 50px;font-style: italic;opacity: 1;font-size: 14px;animation-name: example;
-        animation-duration: 5s;animation-iteration-count: 2;animation-direction: alternate;" class="alert alert-danger">
+        <div style="position: absolute;right: 0px;margin-top: 10px;top: 50px;font-style: italic;opacity: 0.8;font-size: 14px;animation-name: example;
+        animation-duration: 4s;animation-iteration-count: 2;animation-direction: alternate;" class="alert alert-danger">
             <strong>Danger ! </strong> {{ session('danger') }} 🎉
         </div>
     @endif
+    {{-- @if(session('danger'))
+        <div style="position: absolute;right: 0px;margin-top: 10px;top: 50px;font-style: italic;opacity: 1;font-size: 14px;animation-name: example;
+        animation-duration: 5s;animation-iteration-count: 2;animation-direction: alternate;" class="alert alert-danger">
+            <strong>@lang('kidsnow.error') </strong> {{ session('danger') }} 🎉
+        </div>
+    @endif --}}
    
     @yield('content')
     @include('footer')
@@ -73,7 +78,7 @@
     <script src="js/home.js"></script>
     <script src="asset/kriyo/js/toastr.min.js"></script>
     <script>
-        $('div.alert').delay(3000).slideUp();
+        $('div.alert').delay(4000).slideUp();
     </script>
     @if(session('error'))
         <script type="text/javascript">

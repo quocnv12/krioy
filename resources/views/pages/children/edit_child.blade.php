@@ -31,12 +31,6 @@
                 </div>
             </div>
         </div>
-        @if(session('notify'))
-            <div class="alert alert-success font-weight-bold">
-                {{session('notify')}}
-            </div>
-
-        @endif
         <form style="width: auto;
     margin: 0 0;
     text-align: center;" action="kids-now/children/edit/{{$children_profiles->id}}" method="post" name="form" enctype="multipart/form-data">
@@ -238,7 +232,7 @@
                                 <div class="col-md-2 textera-img">
                                     <a style="cursor: pointer;">
                                         <input type="file" id="uploadfile_parent_1" name="image_parent_1" accept="image/*">
-                                        <img src="{{$parent_profiles_1->image ? $parent_profiles_1->image : 'images/Staff.png'}}" alt="" id="demo_image_parent_1" style="height: 100px">
+                                        <img src="{{$parent_profiles_1->image ? $parent_profiles_1->image : 'images/Parent.png'}}" alt="" id="demo_image_parent_1" style="height: 100px">
                                         <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
                                         @if ($errors->has('image_parent_1'))
                                             <div class="text text-danger">
@@ -258,6 +252,11 @@
                                                         {{ $errors->first('first_name_parent_1') }}
                                                     </div>
                                                 @endif
+                                                @if(session('notify_p1'))
+                                                    <p class="text text-danger">
+                                                        {{session('notify_p1')}}
+                                                    </p>
+                                                @endif
                                             </div>
                                             <div class="col-md-6 input_box">
                                                 <span class="input_box_span_active">Last Name *</span>
@@ -266,6 +265,11 @@
                                                     <div class="text text-danger">
                                                         {{ $errors->first('last_name_parent_1') }}
                                                     </div>
+                                                @endif
+                                                @if(session('notify_p1'))
+                                                    <p class="text text-danger">
+                                                        {{session('notify_p1')}}
+                                                    </p>
                                                 @endif
                                             </div>
                                         </div>
@@ -338,8 +342,8 @@
                                 <div class="row">
                                     <div class="col-md-2 textera-img">
                                         <a style="cursor: pointer;">
-                                            <input class="parent_2" type="file" id="uploadfile_parent_1" name="image_parent_1" accept="image/*">
-                                            <img src="images/Child.png" alt="" id="demo_image_parent_1" style="height: 100px">
+                                            <input class="parent_1" type="file" id="uploadfile_parent_1" name="image_parent_1" accept="image/*">
+                                            <img src="images/Parent.png" alt="" id="demo_image_parent_1" style="height: 100px">
                                             <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
                                             @if ($errors->has('image_parent_1'))
                                                 <div class="text text-danger">
@@ -359,6 +363,11 @@
                                                             {{ $errors->first('first_name_parent_1') }}
                                                         </div>
                                                     @endif
+                                                    @if(session('notify_p1'))
+                                                        <p class="text text-danger">
+                                                            {{session('notify_p1')}}
+                                                        </p>
+                                                    @endif
                                                 </div>
                                                 <div class="col-md-6 input_box">
                                                     <span>Last Name *</span>
@@ -367,6 +376,11 @@
                                                         <div class="text text-danger">
                                                             {{ $errors->first('last_name_parent_1') }}
                                                         </div>
+                                                    @endif
+                                                    @if(session('notify_p1'))
+                                                        <p class="text text-danger">
+                                                            {{session('notify_p1')}}
+                                                        </p>
                                                     @endif
                                                 </div>
                                             </div>
@@ -442,7 +456,7 @@
                                 <div class="col-md-2 textera-img">
                                     <a style="cursor: pointer;">
                                         <input type="file" id="uploadfile_parent_2" name="image_parent_2" accept="image/*">
-                                        <img src="{{$parent_profiles_2->image ? $parent_profiles_2->image : 'images/Staff.png'}}" alt="" id="demo_image_parent_2" style="height: 100px">
+                                        <img src="{{$parent_profiles_2->image ? $parent_profiles_2->image : 'images/Parent.png'}}" alt="" id="demo_image_parent_2" style="height: 100px">
                                         <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
                                         @if ($errors->has('image_parent_2'))
                                             <div class="text text-danger">
@@ -462,6 +476,11 @@
                                                         {{ $errors->first('first_name_parent_2') }}
                                                     </div>
                                                 @endif
+                                                @if(session('notify_p2'))
+                                                    <p class="text text-danger">
+                                                        {{session('notify_p2')}}
+                                                    </p>
+                                                @endif
                                             </div>
                                             <div class="col-md-6 input_box">
                                                 <span class="input_box_span_active">Last Name *</span>
@@ -470,6 +489,11 @@
                                                     <div class="text text-danger">
                                                         {{ $errors->first('last_name_parent_2') }}
                                                     </div>
+                                                @endif
+                                                @if(session('notify_p2'))
+                                                    <p class="text text-danger">
+                                                        {{session('notify_p2')}}
+                                                    </p>
                                                 @endif
                                             </div>
                                         </div>
@@ -543,7 +567,7 @@
                                     <div class="col-md-2 textera-img">
                                         <a style="cursor: pointer;">
                                             <input class="parent_2" type="file" id="uploadfile_parent_2" name="image_parent_2" accept="image/*">
-                                            <img src="images/Staff.png" alt="" id="demo_image_parent_2" style="height: 100px">
+                                            <img src="images/Parent.png" alt="" id="demo_image_parent_2" style="height: 100px">
                                             <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
                                             @if ($errors->has('image_parent_2'))
                                                 <div class="text text-danger">
@@ -563,6 +587,11 @@
                                                             {{ $errors->first('first_name_parent_2') }}
                                                         </div>
                                                     @endif
+                                                    @if(session('notify_p2'))
+                                                        <p class="text text-danger">
+                                                            {{session('notify_p2')}}
+                                                        </p>
+                                                    @endif
                                                 </div>
                                                 <div class="col-md-6 input_box">
                                                     <span>Last Name *</span>
@@ -571,6 +600,11 @@
                                                         <div class="text text-danger">
                                                             {{ $errors->first('last_name_parent_2') }}
                                                         </div>
+                                                    @endif
+                                                    @if(session('notify_p2'))
+                                                        <p class="text text-danger">
+                                                            {{session('notify_p2')}}
+                                                        </p>
                                                     @endif
                                                 </div>
                                             </div>
@@ -807,24 +841,33 @@
     <script>
         $(document).ready(function () {
             $('.accordion').click()
-            $('.parent_1').attr('disabled', true);
+
+            disableParent1();
             $('#first_name_parent_1').focusout() && $('#last_name_parent_1').focusout(function () {
-                if ($('#first_name_parent_1').val() == '' && $('#last_name_parent_1').val() == ''){
-                    $('.parent_1').attr('disabled', true);
-                }else {
-                    $('.parent_1').attr('disabled', false);
-                }
+                disableParent1();
             })
 
-            $('.parent_2').attr('disabled', true);
+            disableParent2();
             $('#first_name_parent_2').focusout() && $('#last_name_parent_2').focusout(function () {
-                if ($('#first_name_parent_2').val() == '' && $('#last_name_parent_2').val() == ''){
-                    $('.parent_2').attr('disabled', true);
-                }else {
-                    $('.parent_2').attr('disabled', false);
-                }
+                disableParent2()
             })
         })
+
+        function disableParent1() {
+            if ($('#first_name_parent_1').val() == '' && $('#last_name_parent_1').val() == ''){
+                $('.parent_1').attr('disabled', true);
+            }else {
+                $('.parent_1').attr('disabled', false);
+            }
+        }
+
+        function disableParent2() {
+            if ($('#first_name_parent_2').val() == '' && $('#last_name_parent_2').val() == ''){
+                $('.parent_2').attr('disabled', true);
+            }else {
+                $('.parent_2').attr('disabled', false);
+            }
+        }
     </script>
 @endsection
 

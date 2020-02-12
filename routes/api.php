@@ -17,12 +17,22 @@ use Illuminate\Http\Request;
 //     return $request->user();
 // });
 
-Route::get('test','Api\TestApiController@GetTest');
 
+
+//-----Đăng nhập----
 Route::post('login', 'Api\LoginController@login');
 
+//-------------------Quên mật khẩu-----------------
+Route::post('forgot', 'Api\ForgotPassWordController@PostFormResetPassword');
+Route::post('password/reset', 'Api\ForgotPassWordController@PostResetPassword');
+
+//-----------------Tài khoản demo-------------------
+Route::post('account','Api\ForgotPassWordController@postDemoAccount');
+
+//-------------------Group Admin------------------
 Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
     Route::post('logout', 'Api\LoginController@logout');
+
 
     //---------------AttendanceChildren----------------
     Route::group(['prefix' => 'attendance'], function (){
@@ -32,9 +42,11 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
         Route::get('list','Api\AttendanceChildrenController@list')->name('attendance.list');
     });
 
+    //--đổi mật khẩu------
+    Route::post('update-password', 'Api\ForgotPassWordController@postUpdatePassword');
+
+
     //------------food----------------
-   
-    
     Route::group(['prefix' => 'food'], function () {
         Route::get('', 'Api\FoodController@index');
         Route::post('add', 'Api\FoodController@store');
@@ -50,10 +62,30 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
         Route::post('menu-meal-type/update/{id}', 'Api\FoodController@updateMealType');
         Route::get('menu-meal-type/delete/{id}', 'Api\FoodController@destroyMealType');
 
+         //quantity
+         Route::get('menu-quantity', 'Api\FoodController@indexQuantity');
+         Route::post('menu-quantity/add', 'Api\FoodController@storeQuantity');
+         Route::get('menu-quantity/show/{id}', 'Api\FoodController@showQuantity');
+         Route::post('menu-quantity/update/{id}', 'Api\FoodController@updateQuantity');
+         Route::get('menu-quantity/delete/{id}', 'Api\FoodController@destroyQuantity');
+
     });
    
     // Route::apiResource('food', 'api\FoodController@add');
     // Route::apiResource('food', 'api\FoodController');
+
+    Route::group(['prefix' => 'staff'], function () {
+        Route::get('','Api\Staff\StaffController@index');
+        Route::get('show/{id}','Api\Staff\StaffController@show');
+        Route::post('add','Api\Staff\StaffController@store');
+        Route::post('update/{id}','Api\Staff\StaffController@update');
+        Route::get('delete/{id}','Api\Staff\StaffController@destroy');
+       
+    });
+
+
+
+
 
     //---------------children----------------
     Route::group(['prefix' => 'children'], function () {
@@ -65,7 +97,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
         Route::get('edit/{id}', 'Api\ChildrenProfilesController@edit');
         Route::post('edit/{id}', 'Api\ChildrenProfilesController@update');
         Route::get('delete/{id}', 'Api\ChildrenProfilesController@destroy');
-
         Route::get('add_parent', 'Api\ChildrenProfilesController@addParent');
         Route::get('select_child', 'Api\ChildrenProfilesController@selectChild');
 
@@ -78,9 +109,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
         Route::get('', 'Api\ProgramsController@index');
         Route::get('add', 'Api\ProgramsController@create');
         Route::post('add', 'Api\ProgramsController@store');
-
-        Route::get('select_staff','Api\ProgramsController@selectStaff');
-        Route::get('select_child','Api\ProgramsController@selectChild');
 
         Route::get('select_child/add','Api\ProgramsController@addSelectChild');   //ajax them children
         Route::get('select_staff/add','Api\ProgramsController@addSelectStaff');   //ajax them staff
@@ -137,8 +165,16 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
         Route::get('show/{id}','Api\ObservationController@showChildrenInProgram');
         Route::get('view/{id}',['as'=>'admin.observations.view','uses'=>'Api\ObservationController@view']);
 
-    });
+        //clip board
+        Route::get('clip_board/{id}/{name}','Api\ObservationController@displayClipboard');
+        Route::get('delete_clipboard/{id}/{name}','Api\ObservationController@deleteClipboard');
 
+    });
+<<<<<<< HEAD
+
+=======
+    //---------------observationtype----------------
+>>>>>>> ba01781b0cc2f44e5b67b53c363e3a37d6c87dc4
     Route::group(['prefix' => 'observationtype'], function () {
 
         Route::get('xoa/{id}',['as'=>'admin.observationtype.getDelete','uses'=>'Api\ObservationTypeController@getDelete']);
@@ -147,6 +183,24 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
         Route::get('them',['as'=>'admin.observationtype.add','uses'=>'Api\ObservationTypeController@getAdd']);
         Route::post('them',['as'=>'admin.observationtype.add','uses'=>'Api\ObservationTypeController@postAdd']);
 
+
+    });
+    //---------------health----------------
+    Route::group(['prefix' => 'health'], function () {
+
+        Route::get('danhsach', ['as'=>'admin.health.list','uses'=>'Api\HealthController@getList']);
+        Route::get('them',['as'=>'admin.health.getAdd','uses'=>'Api\HealthController@getAdd']);
+        Route::post('them',['as'=>'admin.health.getAdd','uses'=>'Api\HealthController@postAdd']);
+        Route::get('xoa/{id}',['as'=>'admin.health.getDelete','uses'=>'Api\HealthController@getDelete'])->middleware(['can:edit-profile']);
+        Route::get('sua/{id}',['as'=>'admin.health.getEdit','uses'=>'Api\HealthController@getEdit'])->middleware(['can:edit-profile']);
+        Route::post('sua/{id}',['as'=>'admin.health.postEdit','uses'=>'Api\HealthController@postEdit']);
+        Route::get('search',['as'=>'admin.health.search','uses'=>'Api\HealthController@getSearch']);
+        Route::post('search',['as'=>'admin.health.search','uses'=>'Api\HealthController@postSearch']);
+        Route::get('them_child',['as'=>'admin.health.child','uses'=>'Api\HealthController@getChild']);
+        Route::post('them_child',['as'=>'admin.health.child','uses'=>'Api\HealthController@postChild']);
+        Route::get('search/children', 'Api\HealthController@searchByName');
+        Route::get('select_child/add','Api\HealthController@addSelectChild');
+        Route::get('show/{id}','Api\HealthController@showChildrenInProgram');
 
     });
 });

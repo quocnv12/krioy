@@ -25,8 +25,8 @@
 			<div class="row">
 				<div class="col-md-12">
 				<ul style="width: 100%;" class="ul-td">
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
-                    <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="kids-now/staff">Staff</a></li>
+                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">@lang('kidsnow.home')</a></li>
+                    <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="kids-now/staff">@lang('kidsnow.staff')</a></li>
                    
 				</ul>
 			</div>
@@ -45,7 +45,7 @@
 				<div class="span12">
 				  <div class="grid simple ">
 					<div class="grid-title">
-					  <h4>List <span class="semi-bold">Staff</span></h4>
+					  <h4>@lang('kidsnow.list') <span class="semi-bold">@lang('kidsnow.staff')</span></h4>
 					  <div class="tools">
 					  </div>
 					</div>
@@ -54,14 +54,14 @@
 						<thead>
 						  <tr>
 							<th style="text-align:left;">ID</th>
-							<th style="text-align:left;">Name</th>
-							<th style="text-align:left;">Phone</th>
-							<th style="text-align:lef">Email</th>
-							<th style="text-align:left;">Gender</th>
-							<th style="text-align:left;">Address</th>
-							<th style="text-align:left;">Program</th>
-							<th style="text-align:left;">Date Of Joining</th>
-							<th style="text-align:left;">Image</th>
+							<th style="text-align:left;">@lang('kidsnow.name')</th>
+							<th style="text-align:left;">@lang('kidsnow.phone')</th>
+							<th style="text-align:left">@lang('kidsnow.email')</th>
+							<th style="text-align:left;">@lang('kidsnow.gender')</th>
+							<th style="text-align:left;">@lang('kidsnow.address')</th>
+							<th style="text-align:left;">@lang('kidsnow.program')</th>
+							<th style="text-align:left;">@lang('kidsnow.date_of_joining')</th>
+							<th style="text-align:left;">@lang('kidsnow.image')</th>
 							<th style="text-align:center;width:9%">Thao Tác</th>
 						  </tr>
 						</thead>

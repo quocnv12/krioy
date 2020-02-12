@@ -36,17 +36,17 @@ class AttendanceChildrenController extends Controller
             ->get();
 
         $day = Carbon::now('Asia/Ho_Chi_Minh')->toTimeString();
-        $data['dayupdate'] =  date('d', strtotime($day));
+        $data['dayupdate'] =  date('Y-m-d', strtotime($day));
         $data['time'] = date('H:s:i', strtotime($day));
 
 
         $data['now'] = $id;
         $data['id'] = $id;
         $data['count_chil'] = $data['children_profiles']->count();
-        $data['count_in'] = Children_status::where('status','1')->where('id_program',$id)->whereDay('updated_at',$data['dayupdate'])->count();
-        $data['count_out'] = Children_status::where('status','2')->where('id_program',$id)->whereDay('updated_at',$data['dayupdate'])->count();
-        $data['count_absent'] = Children_status::where('status','3')->where('id_program',$id)->whereDay('updated_at',$data['dayupdate'])->count();
-        $data['count_active'] = Children_status::where('active','1')->where('id_program',$id)->whereDay('updated_at',$data['dayupdate'])->count();
+        $data['count_in'] = Children_status::where('status','1')->where('id_program',$id)->whereDate('updated_at',$data['dayupdate'])->count();
+        $data['count_out'] = Children_status::where('status','2')->where('id_program',$id)->whereDate('updated_at',$data['dayupdate'])->count();
+        $data['count_absent'] = Children_status::where('status','3')->where('id_program',$id)->whereDate('updated_at',$data['dayupdate'])->count();
+        $data['count_active'] = Children_status::where('active','1')->where('id_program',$id)->whereDate('updated_at',$data['dayupdate'])->count();
         
         
 
@@ -59,7 +59,7 @@ class AttendanceChildrenController extends Controller
                 
         $day = Carbon::now('Asia/Ho_Chi_Minh')->toTimeString();
         $monthupdate =  date('m', strtotime($day));
-        $dayupdate =  date('d', strtotime($day));
+        $dayupdate =  date('Y-m-d', strtotime($day));
         $yearupdate =  date('Y', strtotime($day));
         $timestatus =  date('d-m-Y H:i:s', strtotime($day));
 
@@ -74,7 +74,7 @@ class AttendanceChildrenController extends Controller
                 $check_attendance_month = Children_status::where('id_children',$id_children)->whereMonth('created_at',$monthupdate)->first();
                 $check_attendance_year = Children_status::where('id_children',$id_children)->whereYear('updated_at',$yearupdate)->first();
 
-                $check_attendance_day = Children_status::where('id_children',$id_children)->whereDay('updated_at',$dayupdate)->first();
+                $check_attendance_day = Children_status::where('id_children',$id_children)->whereDate('updated_at',$dayupdate)->first();
 
                 if(empty($check_attendance_day)){
                     $chil_status = new Children_status;
@@ -92,7 +92,7 @@ class AttendanceChildrenController extends Controller
                     $chil_status->save();
                     
                 }else{
-                    $chil_status = Children_status::where('id_children',$id_children)->whereDay('updated_at',$dayupdate)->first();
+                    $chil_status = Children_status::where('id_children',$id_children)->whereDate('updated_at',$dayupdate)->first();
                     if($req->children_status == 1) {
                         $chil_status->in = $timestatus;
                         $chil_status->absent = null;

@@ -35,11 +35,6 @@
 				</ul>
 			</div>
 		</div>
-		@if(session('notify'))
-			<div class="alert alert-success">
-				{{session('notify')}}
-			</div>
-		@endif
 		<form action="kids-now/program/add" method="post" style="width: 100%" id="addProgram">
 			@csrf
 
@@ -367,7 +362,7 @@
                         $('#children_list').append(data);
                         array_children.push(id);
                     }else {
-                        alert('children exists')
+                        alert('The children has existed')
                     }
                 }
             });
@@ -393,7 +388,7 @@
                         $('#staff_list').append(data);
                         array_staff.push(id)
                     }else {
-                        alert('staff exists')
+                        alert('The staff has existed')
                     }
                 }
             });
