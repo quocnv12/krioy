@@ -119,6 +119,9 @@ class ProgramsController extends Controller
 //        return response()->json(['programs'=>$program, 'children'=>$children, 'staff'=>$staff],200);
 
         $program = Programs::find($id);
+        if (!$program){
+            return view('pages.not-found.notfound');
+        }
         $array_schedule = explode(',',$program->schedule);  //string to array
 
         $children_profiles = DB::table('children_profiles')
@@ -144,6 +147,9 @@ class ProgramsController extends Controller
     public function edit($id)
     {
         $program = Programs::find($id);
+        if (!$program){
+            return view('pages.not-found.notfound');
+        }
         $children_in_program = DB::table('children_profiles')
             ->join('children_programs', 'children_profiles.id', '=', 'children_programs.id_children')
             ->select('*')
@@ -268,7 +274,10 @@ class ProgramsController extends Controller
 
     public function destroy($id)
     {
-        $programs = Programs::findOrFail($id);
+        $programs = Programs::find($id);
+        if (!$programs){
+            return view('pages.not-found.notfound');
+        }
         $programs->delete();
 
         $programs = DB::table('programs')

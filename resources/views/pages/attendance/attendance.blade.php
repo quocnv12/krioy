@@ -80,6 +80,7 @@
 								<!---->
 								<span class="ng-star-inserted">
 									0
+								</span>
 								<!---->
 							</button>
 							<button class="btn tableStyle ng-star-inserted" style="color: rgb(237, 85, 100);">
@@ -120,7 +121,7 @@
 								<!---->
 								<span class="ng-star-inserted">
 									{{$count_out}}
-							
+								</span>
 								<!---->
 							</button>
 							<button class="btn tableStyle ng-star-inserted" style="color: rgb(237, 85, 100);">
@@ -134,9 +135,9 @@
 							</button>
 							<!-- <button class="btn tableStyle ng-star-inserted" style="color: rgb(255, 194, 0);">
 								<p>LEAVE</p>
-								
+
 								<span class="ng-star-inserted">0/1</span>
-								
+
 							</button> -->
 						</div>
 					@endif
@@ -175,12 +176,12 @@
 	       
 	                                <div _ngcontent-c19="" class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted" style="padding:10px;cursor:pointer;">
 	                                    <div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;margin-bottom: 5px;">
-	                                        <img _ngcontent-c19="" class="img-circle @foreach ($children->chil_atd as $value) @if($value->updated_at->format('d') == now()->day && $value->status == 1) img-bd-xanh @elseif($value->updated_at->format('d') == now()->day && $value->status == 2) img-bd-xam @elseif($value->updated_at->format('d') == now()->day && $value->status == 3) img-bd-do @else img-bd-md @endif @endforeach" height="80" onerror="this.src='images/Child.png';" width="80" src="Child.png">
+	                                        <img _ngcontent-c19="" class="img-circle @foreach ($children->chil_atd as $value) @if($value->updated_at->format('Y-m-d') == $dayupdate && $value->status == 1) img-bd-xanh @elseif($value->updated_at->format('Y-m-d') == $dayupdate && $value->status == 2) img-bd-xam @elseif($value->updated_at->format('Y-m-d') == $dayupdate && $value->status == 3) img-bd-do @else img-bd-md @endif @endforeach" height="80" onerror="this.src='images/Child.png';" width="80" src="Child.png">
 	                                        <i _ngcontent-c9="" aria-hidden="true" class="fa fa-check" id="checked" style="display: block;top:10px"></i>
-	                                        <span class="limitText ng-star-inserted span-clock @foreach ($children->chil_atd as $value) @if($value->updated_at->format('d') == now()->day && $value->status == 1) span-clock-xanh @elseif($value->updated_at->format('d') == now()->day && $value->status == 2) span-clock-xam @elseif($value->updated_at->format('d') == now()->day && $value->status == 3) span-clock-do @else span-clock-md @endif @endforeach">
+	                                        <span class="limitText ng-star-inserted span-clock @foreach ($children->chil_atd as $value) @if($value->updated_at->format('Y-m-d') == $dayupdate && $value->status == 1) span-clock-xanh @elseif($value->updated_at->format('Y-m-d') == $dayupdate && $value->status == 2) span-clock-xam @elseif($value->updated_at->format('Y-m-d') == $dayupdate && $value->status == 3) span-clock-do @else span-clock-md @endif @endforeach">
 	                                        	<p style="border-radius: 5px 5px 0 0;">{{$children->first_name}} {{$children->last_name}}</p>
 	                                        	@foreach ($children->chil_atd as $value)
-			                            			@if($value->updated_at->format('d') == now()->day && $value->status =! null)
+			                            			@if($value->updated_at->format('Y-m-d') == $dayupdate && $value->status =! null)
 			                            				<p style="border-radius: 0 0 5px 5px;">3:12 PM</p>
 			                            			@endif
 			                            		@endforeach
@@ -214,6 +215,7 @@
 						<li style="background-color: #ffc200;" data-toggle="modal" data-target=".bd-example-modal-sm">LEAVE</li>
 					</ul>
 				</div> -->
+
 				<div class="icon-plus-1" >
 					<button  type="button" class="icon-plus-button groupStatus" style="background-color: #37bd9c;" data-toggle="modal" data-target=".bd-example-modal-sm" value="1" name='status' >IN</button><br>
 					<button  type="button" class="icon-plus-button groupStatus" style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm" value="2" name='status'>OUT</button><br>

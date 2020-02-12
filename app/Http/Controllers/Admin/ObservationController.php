@@ -183,6 +183,9 @@ class ObservationController extends Controller
         $vendors = ObservationTypeModel::all();
         $observationtype = ObservationTypeModel::all();
         $child_observation  = ObservationModel::find($id);
+        if (! $child_observation){
+            return view('pages.not-found.notfound');
+        }
         $children_profiles = ChildrenProfiles::where('id','=',$child_observation->id_children)->first();
         $array_observation_choose = explode(',',$child_observation->id_observations);
 
@@ -215,8 +218,10 @@ class ObservationController extends Controller
     }
 
     public function getDelete($id){
-        $observation = ObservationModel::findOrFail($id);
-
+        $observation = ObservationModel::find($id);
+        if (!$observation){
+            return view('pages.not-found.notfound');
+        }
         if ($observation->clip_board){
             $old_array = explode('/*endfile*/',$observation->clip_board);
             foreach ($old_array as $key=>$value){
@@ -285,6 +290,9 @@ class ObservationController extends Controller
         $vendors = ObservationTypeModel::all();
         $observationtype = ObservationTypeModel::all();
         $child_observation = ObservationModel::find($id);
+        if (!$child_observation){
+            return view('pages.not-found.notfound');
+        }
         $children_profiles = ChildrenProfiles::where('id','=',$child_observation->id_children)->first();
         $array_observation_choose = explode(',',$child_observation->id_observations);
 
