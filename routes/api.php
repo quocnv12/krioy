@@ -24,6 +24,14 @@ Route::post('login', 'Api\LoginController@login');
 Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
     Route::post('logout', 'Api\LoginController@logout');
 
+    //---------------AttendanceChildren----------------
+    Route::group(['prefix' => 'attendance'], function (){
+        Route::get('/','Api\AttendanceChildrenController@index')->name('attendance.index');
+        Route::get('/{id}','Api\AttendanceChildrenController@show')->name('attendance.show');
+        Route::post('add/{id}','Api\AttendanceChildrenController@postAdd')->name('attendance.postAdd');
+        Route::get('list','Api\AttendanceChildrenController@list')->name('attendance.list');
+    });
+
     //------------food----------------
    
     
@@ -130,6 +138,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
         Route::get('view/{id}',['as'=>'admin.observations.view','uses'=>'Api\ObservationController@view']);
 
     });
+
     Route::group(['prefix' => 'observationtype'], function () {
 
         Route::get('xoa/{id}',['as'=>'admin.observationtype.getDelete','uses'=>'Api\ObservationTypeController@getDelete']);

@@ -110,7 +110,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('delete/{id}','Admin\Staff\StaffController@DeleteStaff')->middleware(['can:edit-profile']);
     });
 
-    //---------------attendance----------------
+    //---------------AttendanceChildren----------------
     Route::group(['prefix' => 'attendance'], function () {
         Route::get('/','Admin\AttendanceChildrenController@index')->name('attendance.index');
         Route::get('/{id}','Admin\AttendanceChildrenController@show')->name('attendance.show');
