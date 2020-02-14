@@ -51,8 +51,8 @@ class IndexController extends Controller
         $staff->save();
         $data=[
             'route' => $url,
-            'phone' =>$request->phone,
-            'password' =>$request->password
+            'name' =>$request->first_name,
+            
         ] ;
 
         Mail::send('pages.introduce.verify', $data, function($message) use ($email){

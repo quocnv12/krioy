@@ -19,6 +19,9 @@
 // });
 
 // route update modun khanh'
+// Route::get('test', function () {
+//     return view('pages.staff.email');
+// });
  Route::get('archives', function () {
         return view('pages.archives.Archives');
     });
