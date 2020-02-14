@@ -14,7 +14,7 @@
 }
 </style>
 @section('content')
-	<body onload="time()">
+	<body>
 		<section class="page-top container">
 			<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 				<div class="row">
@@ -43,9 +43,10 @@
 					<div class="scrollmenu-div">
 				@foreach($programs as $program)
 				<div class="scrollmenu-button" style="text-align: center;">
-					<!---->
+					 {{-- <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href="kids-now/attendance/{{$program->id}}" class="btn btn-defaul">{{$program->program_name}}</a> --}}
+					
 					<button type="submit" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
-						<a style="color: #fff;" href="kids-now/attendance/{{$program->id}}">{{$program->program_name}}</a>
+						<a style="color: #fff;margin: 0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 150px;display: block;" title="{{$program->program_name}}" href="kids-now/attendance/{{$program->id}}">{{$program->program_name}}</a>
 					</button>
 				</div>
 				@endforeach
@@ -172,8 +173,6 @@
 							<!-- mau xam: span-bg-xam;màu xanh: span-bg-xanh; màu đỏ: span-bg-do -->
 							@if(isset($children_profiles))
 	                            @foreach($children_profiles as $children)
-	                            
-	       
 	                                <div _ngcontent-c19="" class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted" style="padding:10px;cursor:pointer;">
 	                                    <div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;margin-bottom: 5px;">
 	                                        <img _ngcontent-c19="" class="img-circle @foreach ($children->chil_atd as $value) @if($value->updated_at->format('Y-m-d') == $dayupdate && $value->status == 1) img-bd-xanh @elseif($value->updated_at->format('Y-m-d') == $dayupdate && $value->status == 2) img-bd-xam @elseif($value->updated_at->format('Y-m-d') == $dayupdate && $value->status == 3) img-bd-do @else img-bd-md @endif @endforeach" height="80" onerror="this.src='images/Child.png';" width="80" src="Child.png">
@@ -251,6 +250,18 @@
 			</form>
 		</section>
 		@else
+		<section class="container">
+			<div class="mat-card tab-content" style="min-height: 500px;">
+				<div class="mat-content" id="tab-main">
+					<div _ngcontent-c19="" class="row ng-star-inserted">
+						<div style="margin: 50px;">
+								<span style="color: red; font-weight: bold">Hint :</span>
+								<span>Click on a program tab in horizontal scroll bar to show all children in that program</span>
+							</div>
+					</div>
+				</div>
+			</div>
+		</section>	
 		@endif
 		
 
@@ -358,7 +369,7 @@
 	<script type="text/javascript">
 		$('.scrollmenu-div').slick({
 			infinite: true,
-			slidesToShow: 7,
+			slidesToShow: 5,
 			slidesToScroll: 1,
 			autoplay: false,
 			autoplaySpeed: 2000,

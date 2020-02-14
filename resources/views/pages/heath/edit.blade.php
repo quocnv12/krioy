@@ -12,12 +12,13 @@
             <div class="row">
                 <div class="col-sm-6">
                     <ul class="ul-td">
-                        <li class="level1"><a href="kids-now">Home</a></li>
-                        <li class="active1" style="" ><a href="kids-now/health/list">Health</a></li>
+                        <li class="level1"><a href="kids-now">HOME</a></li>
+                        <li class="active1" style="" ><a href="kids-now/health/list">HEALTH</a></li>
+                        <li class="active1 active-1" style="pointer-events: none"><a href="">EDIT HEALTH</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-6">
-                    <a href="{{route('admin.health.list')}}" class="btn btn-success" style="float: right">Health List</a>
+                    <a href="{{route('admin.health.list')}}" class="btn btn-success" style="min-width:110px;background:#eb87c1;color:white; float: right; border: none;font-weight: bold">HEALTH LIST</a>
                 </div>
             </div>
         </div>
@@ -47,15 +48,14 @@
             <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao5') }}</p>
         @endif
         <div class="mat-card">
-            <form method="post" action="{{route('admin.health.postEdit',['id'=>$childrent->id])}}" enctype="multipart/form-data">
+            <form method="post" action="{{route('admin.health.postEdit',['id'=>$children->id])}}" enctype="multipart/form-data">
                 @csrf
                 <div class="mat-content">
                     <button class="accordion add-staff">K5 KHANH Profile</button>
                     <div class="row">
                         <div class="col-md-2 textera-img">
                             <a href="#">
-                                <img src="images/{{$childrent->image}}" alt="" style="width: 100px; height: 100px">
-
+                                <img src="{{$children->image ? 'images/'.$children->image : 'images/Child.png'}}" alt="" style="width: 100px; height: 100px">
                             </a>
                         </div>
                         <div class="col-md-10">
@@ -63,21 +63,21 @@
                                 <div class="row">
                                     <div class="col-md-6 input_box">
                                         <span>First Name *</span>
-                                        <input type="text" value="{{$childrent->first_name}}" name="first_name" placeholder="First Name *">
+                                        <input type="text" value="{{$children->first_name}}" name="first_name" placeholder="First Name *">
                                     </div>
                                     <div class="col-md-6 input_box">
                                         <span>Last Name *</span>
-                                        <input type="text" value="{{$childrent->last_name}}"name="last_name" placeholder="Last Name *">
+                                        <input type="text" value="{{$children->last_name}}" name="last_name" placeholder="Last Name *">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 input_box">
                                         <span>Birthday</span>
-                                        <input type="date" value="{{$childrent->birthday}}"name="birthday" placeholder="Phone Number *">
+                                        <input type="date" value="{{$children->birthday}}" name="birthday" placeholder="Phone Number *">
                                     </div>
                                     <div class="col-md-6 input_box">
                                         <span >Sick</span>
-                                        <input type="text" name="sick"  value="{{$health->sick}}" placeholder="Nhập sick">
+                                        <input type="text" name="sick"  value="{{$health->sick}}" placeholder="Sickness">
                                     </div>
                                 </div>
                             </div>
@@ -101,15 +101,15 @@
                         <div class="add a1">
                             <div class="row">
                                 <div class="col-md-4 input_box">
-                                    <span>medicine</span>
+                                    <span>Medicine</span>
                                     <input type="text" name="medicine"  value="{{$health->medicine}}"placeholder="Nhập medicine nếu có">
                                 </div>
                                 <div class="col-md-4 input_box">
-                                    <span>incident</span>
+                                    <span>Incident</span>
                                     <input type="text" name="incident" value="{{$health->incident}}" placeholder="Nhập incident nếu có">
                                 </div>
                                 <div class="col-md-4 input_box">
-                                    <span>incident</span>
+                                    <span>Blood Group</span>
                                     <input type="text" name="blood_group" value="{{$health->blood_group}}" placeholder="Nhập blood_group nếu có">
                                 </div>
                             </div>

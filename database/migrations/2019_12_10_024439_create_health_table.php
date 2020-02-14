@@ -23,7 +23,7 @@ class CreateHealthTable extends Migration
             $table->float('growth_weight')->nullable();
             $table->text('medicine')->nullable();
             $table->text('incident')->nullable();
-            $table->string('blood_group');
+            $table->string('blood_group')->nullable();
             $table->string('image')->nullable();
             $table->string('file_pdf')->nullable();
             $table->timestamps();

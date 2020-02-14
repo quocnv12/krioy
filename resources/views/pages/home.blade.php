@@ -72,9 +72,9 @@
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="{{route('admin.observations.list')}}">
-                        <img src="images/Observation-01.png" alt="//@lang('kidsnow.observations')">
+                        <img src="images/Observation-01.png" alt="@lang('kidsnow.observations')">
                         <div class="title">
-                            <p>//@lang('kidsnow.observations')</p>
+                            <p>@lang('kidsnow.observations')</p>
                         </div>
                     </a>
                 </div>

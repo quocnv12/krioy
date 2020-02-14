@@ -61,7 +61,7 @@
 							@foreach($programs as $program)
 								<div class="scrollmenu-button" style="text-align: center;">
 									<button type="button" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;height: 34px;">
-										<a style="color: #fff;margin: 0;" href="kids-now/health/show/{{$program->id}}">{{$program->program_name}}</a>
+										<a style="color: #fff;margin: 0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 150px;display: block;" title="{{$program->program_name}}" href="kids-now/health/show/{{$program->id}}">{{$program->program_name}}</a>
 									</button>
 								</div>
 							@endforeach
@@ -88,6 +88,10 @@
 							</div>
 							<input type="hidden" name="array_all_children" value="">
 						</div>
+						<div style="margin: 50px">
+							<span style="color: red; font-weight: bold">Hint :</span>
+							<span>Click on a program tab in horizontal scroll bar to show all children in that program</span>
+						</div>
 					</div>
 					<hr>
 					<div id="clock" name="time"></div>
@@ -95,10 +99,10 @@
 						<p>Select Health Update Type*</p>
 						<div class="tab">
 							<button  type="button" class="tablinks" onclick="openCity(event, 'Sick')">Sick</button>
-							<button type="button"class="tablinks" onclick="openCity(event, 'Medicine')">Medicine</button>
-							<button type="button"class="tablinks" onclick="openCity(event, 'Growth')">Growth</button>
-							<button type="button"class="tablinks" onclick="openCity(event, 'Incident')">Incident</button>
-							<button type="button"class="tablinks" onclick="openCity(event, 'Blood_group')">Blood_group</button>
+							<button type="button" class="tablinks" onclick="openCity(event, 'Medicine')">Medicine</button>
+							<button type="button" class="tablinks" onclick="openCity(event, 'Growth')">Growth</button>
+							<button type="button" class="tablinks" onclick="openCity(event, 'Incident')">Incident</button>
+							<button type="button" class="tablinks" onclick="openCity(event, 'Blood_group')">Blood_group</button>
 						</div>
 
 						<div id="Sick" class="tabcontent">
@@ -216,7 +220,7 @@
 										<label tabindex="0" for="my-file" class="input-file-trigger">
 											<i class="fa fa-paperclip"></i>
 										</label>
-										<div class="input-img"style="display: none">
+										<div class="input-img" style="display: none">
 											<img class="blah"  name ="image" alt="your  image" />
 											<div class="top-right button-close button_close_show_img">
 												<button style="border-radius:50%;width:26px;height:26px;z-index:1;">
