@@ -29,11 +29,16 @@ class AttendanceChildrenController extends Controller
         //     ->select(['children_profiles.*','children_programs.*'])
         //     ->where('children_programs.id_program', '=', $id)
         //     ->get();
+
         $data['children_profiles'] = ChildrenProfiles::join('children_programs', 'children_profiles.id', '=', 'children_programs.id_children')
             ->join('programs', 'programs.id', '=', 'children_programs.id_program')
             ->select(['children_programs.*','children_profiles.*'])
             ->where('children_programs.id_program', '=', $id)
             ->get();
+        //Eloquent
+//            $program = Programs::find($id);
+//                $data['children_profiles'] = $program->program_chil;
+
 
         $day = Carbon::now('Asia/Ho_Chi_Minh')->toTimeString();
         $data['dayupdate'] =  date('Y-m-d', strtotime($day));
@@ -116,7 +121,8 @@ class AttendanceChildrenController extends Controller
     }
     public function list(Request $req){
         $data['programs']  = Programs::all();
-        $data['child_atd1'] = Children_status::where('id_program', '=', $req->program)->whereDay('created_at', '=', $req->day)->whereMonth('created_at', '=', $req->month)->whereYear('created_at', '=', $req->year)->first();
+//        $data['child_atd1'] = Children_status::where('id_program', '=', $req->program)->whereDay('created_at', '=', $req->day)->whereMonth('created_at', '=', $req->month)->whereYear('created_at', '=', $req->year)->first();
+
         if ($req->program || $req->day || $req->month || $req->year) {
             $data['child_atd'] = Children_status::where('id_program', '=', $req->program)->whereDay('created_at', '=', $req->day)->whereMonth('created_at', '=', $req->month)->whereYear('created_at', '=', $req->year)->get();
             $data['id_program'] = $req->program;
