@@ -19,6 +19,7 @@ class HealthController extends Controller
     public function getList(){
 
         $health = HealthModel :: all();
+        $programs = Programs::all();
         return view('pages.heath.list', compact('health','programs'));
     }
 
@@ -80,8 +81,8 @@ class HealthController extends Controller
     public function getEdit($id){
         $health = HealthModel::find($id);
 
-        $childrent = DB::table('children_profiles')->where('id',$id)->first();
-        return view('pages.heath.edit', compact('health','childrent'));
+        $children = DB::table('children_profiles')->where('id',$id)->first();
+        return view('pages.heath.edit', compact('health','children'));
     }
     public function postEdit(Request $request, $id)
     {

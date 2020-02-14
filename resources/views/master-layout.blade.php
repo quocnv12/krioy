@@ -41,6 +41,8 @@
             10%  {right:120px; top:50px;}
             90%  {right:120px; top:50px;}
             100% {right:0px; top:50px}
+        }
+
 }
     </style>
     <!-- JS libs --> 

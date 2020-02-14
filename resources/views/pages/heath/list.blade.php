@@ -27,7 +27,7 @@
                 <div class="col-md-12">
                     <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
                     <li _ngcontent-c16="" class="active-1"><a _ngcontent-c16="" href="{{route('admin.health.getAdd')}}">Health</a></li>
-                    <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="">Health</a></li>
+                    <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="">List Health</a></li>
                 </div>
             </ul>
         </div>
@@ -54,29 +54,22 @@
                             <table class="table table-striped" id="example">
                                 <thead>
                                 <tr>
-                                    <th style="text-align:left;">STT</th>
-                                    <th style="text-align:left;width:18%">First name</th>
-                                    <th style="text-align:left;width:20%">Last name</th>
-                                    <th style="text-align:left;width:18%">Birthday</th>
-                                    <th style="text-align:left;width:18%">Gender</th>
-                                    <th style="text-align:center;width:12%">Sick</th>
-                                    <th style="text-align:center;width:12%">Medicine</th>
-                                    <th style="text-align:center;width:12%">Growth</th>
-                                    <th style="text-align:center;width:12%">Incident</th>
-                                    <th style="text-align:center;width:12%">Blood</th>
-                                    <th style="text-align:center;width:12%">Images</th>
-                                    <th>Time</th>
-                                    <th style="text-align:center;width:12%">Chỉnh sửa</th>
+                                    <th style="text-align:left;width: 5%">STT</th>
+                                    <th style="width:35%">Name</th>
+                                    <th style="width:15%">Birthday</th>
+                                    <th style="width:5%">Gender</th>
+                                    <th style="width:10%">Images</th>
+                                    <th style="width:10%">Time</th>
+                                    <th style="text-align:center;width:20%">Chỉnh sửa</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($health as $key=> $value)
                                     <tr>
-                                        <th style="text-align:left;width:5%">{{$key+1}}</th>
-                                        <th  style="text-align:left;width:10%">{{$value->ChildrenProfiles-> first_name }}</th>
-                                        <th style="text-align:left;width:10%">{{$value->ChildrenProfiles->last_name}}</th>
-                                        <th style="text-align:left;width:18%">{{$value->ChildrenProfiles->birthday}}</th>
-                                        <th style="text-align:left;width:5%">
+                                        <th style="width:5%">{{$key+1}}</th>
+                                        <th style="width:35%">{{$value->ChildrenProfiles-> first_name }} {{$value->ChildrenProfiles->last_name}}</th><
+                                        <th style="width:20%">{{$value->ChildrenProfiles->birthday}}</th>
+                                        <th style="width:10%">
                                             @if($value->ChildrenProfiles->gender==1)
                                                 {{"Nam"}}
                                             @else
@@ -84,20 +77,12 @@
                                             @endif
 
                                         </th>
-                                        <th style="text-align: center">{{$value->sick}}</th>
-                                        <th style="text-align:left;width:10%">{{$value->medicine}}</th>
-                                        <th style="text-align:left;width:30%">
-                                            <p >Growth_height</p>: {{$value->growth_height}}<p/>
-                                            <p>Growth_weight</p>: {{$value->growth_weight}}<p/>
-                                        </th>
-                                        <th style="text-align:left;width:18%">{{$value->incident}}</th>
-                                        <th style="text-align:left;width:18%">{{$value->blood_group}}</th>
-                                        <th style="text-align:left;width:18%"><img src="{{$value->image}}" width="30" height="30"></th>
+                                        <th style="text-align:center;width:10%"><img src="{{$value->image}}" width="30" height="30"></th>
                                         <th>{{$value->created_at}}</th>
 
-                                        <th style="text-align:left;">
+                                        <th style="width: 20%">
                                             <a href="{!! URL::route('admin.health.getEdit',$value->id ) !!}" title="Edit Health" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
-                                            <a onclick="return confirm('Delete Health ? Do you want continue !')"" title="Delete Health " href="{{ route('admin.health.getDelete', $value->id) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                            <a onclick="return confirm('Delete Health ? Do you want continue !')" title="Delete Health " href="{{ route('admin.health.getDelete', $value->id) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
                                         </th>
                                     </tr>
                                 @endforeach
