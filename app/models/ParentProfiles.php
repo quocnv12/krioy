@@ -17,5 +17,10 @@ class ParentProfiles extends Model
         'phone'
     ];
 
+    public function children_parent()
+    {
+        return $this->belongsToMany('App\models\ParentProfiles','children_parent', 'id_children','id_parent' );
+    }
+
     public $timestamps = false;
 }

@@ -53,7 +53,7 @@
     @if(session('success'))
         <div style="position: absolute;right: 0px;margin-top: 10px;top: 50px;font-style: italic;opacity: 0.8;font-size: 14px;animation-name: example;
         animation-duration: 4s;animation-iteration-count: 2;animation-direction: alternate; " class="alert alert-success">
-            <strong>Succes ! </strong> {{ session('success') }} 🎉
+            <strong>Success ! </strong> {{ session('success') }} 🎉
         </div>
     @endif
     @if(session('danger'))
@@ -81,7 +81,7 @@
     <script src="js/home.js"></script>
     <script src="asset/kriyo/js/toastr.min.js"></script>
     <script>
-        $('div.alert').delay(4000).slideUp();
+        $('div.alert').delay(7000).slideUp();
     </script>
     @if(session('error'))
         <script type="text/javascript">
@@ -121,5 +121,11 @@
             hourPadding: false
 
         });
+    </script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
     </script>
 </html>

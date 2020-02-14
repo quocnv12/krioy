@@ -55,13 +55,12 @@ class NoticeBoardController extends Controller
                 'title'     =>  'required',
                 'important' =>  'nullable',
                 'archive'   =>  'nullable',
-                'content'   =>  'required',
+                'content'   =>  'nullable',
                 'writer'    =>  'nullable',
                 'programs'  =>  'required'
             ],
             [
                 'title.required'        =>  'Please input title',
-                'content.required'      =>  'Please input content',
                 'programs.required'     =>  'Please choose programs',
             ]);
 
@@ -174,7 +173,7 @@ class NoticeBoardController extends Controller
                 'title'     =>  'required',
                 'important' =>  'nullable',
                 'archive'   =>  'nullable',
-                'content'   =>  'required',
+                'content'   =>  'nullable',
                 'writer'    =>  'nullable',
             ],
             [

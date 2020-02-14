@@ -103,7 +103,7 @@
                         </div>
 					</div>
 					@if ($errors->has('children_observations'))
-						<div class="text text-danger">
+						<div class="alert alert-danger">
 							{{ $errors->first('children_observations') }}
 						</div>
 					@endif
@@ -123,7 +123,7 @@
 						</div>
 					</div>
 					@if ($errors->has('observations'))
-						<div class="text text-danger">
+						<div class="alert alert-danger">
 							{{ $errors->first('observations') }}
 						</div>
 					@endif
@@ -151,7 +151,7 @@
 							</div>
 						</div>
 						<div class="button" style="text-align: center;">
-							<button type="reset">
+							<button type="reset" onclick="goBack()">
 								<span>CANCEL</span>
 							</button>
 							<button class="button2" id="submit_button" type="submit">

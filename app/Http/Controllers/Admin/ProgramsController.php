@@ -40,9 +40,11 @@ class ProgramsController extends Controller
     {
         $this->validate($request,
             [
+                'program_name'  =>  'nullable|unique:programs,program_name',
                 'program_fee'   =>  'numeric|min:0|nullable'
             ],
             [
+                'program_name.unique'   =>  'Program name has existed',
                 'program_fee.numeric'   =>  'Program fee is invalid',
                 'program_fee.min'       =>  'Program fee is invalid',
             ]);
@@ -187,9 +189,11 @@ class ProgramsController extends Controller
     {
         $this->validate($request,
             [
+                'program_name'  =>  'nullable|unique:programs,program_name,'.$id.' ',
                 'program_fee'   =>  'numeric|min:0|nullable'
             ],
             [
+                'program_name.unique'   =>  'Program name has existed',
                 'program_fee.numeric'   =>  'Program fee is invalid',
                 'program_fee.min'       =>  'Program fee is invalid',
             ]);

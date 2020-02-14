@@ -7,6 +7,7 @@ use App\models\ParentProfiles;
 use App\models\Programs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 class ChildrenProfilesController extends Controller
@@ -52,19 +53,19 @@ class ChildrenProfilesController extends Controller
                 'first_name_parent_2'   => 'nullable',
                 'last_name_parent_2'    => 'nullable',
                 'phone_parent_2'        => 'numeric|nullable|digits_between:9,12',
-                'email_parent_2'        => 'email|nullable|unique:parent_profiles,email',
+                'email_parent_2'        => 'email|nullable1|unique:parent_profiles,email',
                 'gender_parent_2'       => 'nullable',
                 'note_parent_2'         => 'nullable',
                 'relationship_2'        => 'nullable',
                 'image_parent_2'        => 'image|nullable',
             ],
             [
-                'first_name.required'           => 'Please input first name',
-                'last_name.required'            => 'Please input last name',
-                'gender.required'               => 'Please choose gender',
+                'first_name.required'           => 'First Name is required',
+                'last_name.required'            => 'Last Name is required',
+                'gender.required'               => 'Gender is required',
                 'image.image'                   => 'Image is invalid',
-                'birthday.required'             => 'Please input birthday',
-                'date_of_joining.required'      => 'Please input date of joining',
+                'birthday.required'             => 'Birthday is required',
+                'date_of_joining.required'      => 'Date of Joining is required',
                 'phone_parent_1.numeric'        => 'Number is invalid',
                 'phone_parent_2.numeric'        => 'Number is invalid',
                 'phone_parent_1.digits_between' => 'The length is between 9 -12 digits',
@@ -74,7 +75,7 @@ class ChildrenProfilesController extends Controller
                 'email_parent_1.unique'         => 'The email has already been taken',
                 'email_parent_2.unique'         => 'The email has already been taken',
                 'unique_id.unique'              => 'ID is exist',
-                'unique_id.required'            => 'Please input unique ID',
+                'unique_id.required'            => 'Unique ID is required',
                 'image_parent_1.image'          => 'Image is invalid',
                 'image_parent_2.image'          => 'Image is invalid',
             ]);
@@ -296,6 +297,22 @@ class ChildrenProfilesController extends Controller
 
     public function update(Request $request, $id)
     {
+        $children_profiles = ChildrenProfiles::find($id);
+
+        $collection = $children_profiles->parent_children;
+
+        if (count($collection) == 2){
+            $id_parent_first = $collection[0]->id;
+            $id_parent_second = $collection[1]->id;
+        }
+        elseif (count($collection) == 1){
+            $id_parent_first = $collection[0]->id;
+            $id_parent_second = null;
+        }else{
+            $id_parent_first = null;
+            $id_parent_second = null;
+        }
+
         $this->validate($request,
             [
                 'first_name'        => 'required',
@@ -314,7 +331,7 @@ class ChildrenProfilesController extends Controller
                 'first_name_parent_1'   => 'nullable',
                 'last_name_parent_1'    => 'nullable',
                 'phone_parent_1'        => 'numeric|nullable|digits_between:9,12',
-                'email_parent_1'        => 'email|nullable',
+                'email_parent_1'        => 'email|nullable|unique:parent_profiles,email,'.$id_parent_first.'',
                 'gender_parent_1'       => 'nullable',
                 'note_parent_1'         => 'nullable',
                 'relationship_1'        => 'nullable',
@@ -323,19 +340,19 @@ class ChildrenProfilesController extends Controller
                 'first_name_parent_2'   => 'nullable',
                 'last_name_parent_2'    => 'nullable',
                 'phone_parent_2'        => 'numeric|nullable|digits_between:9,12',
-                'email_parent_2'        => 'email|nullable',
+                'email_parent_2'        => 'email|nullable|unique:parent_profiles,email,'.$id_parent_second.'',
                 'gender_parent_2'       => 'nullable',
                 'note_parent_2'         => 'nullable',
                 'relationship_2'        => 'nullable',
                 'image_parent_2'        => 'image|nullable',
             ],
             [
-                'first_name.required'           => 'Please input first name',
-                'last_name.required'            => 'Please input last name',
-                'gender.required'               => 'Please choose gender',
+                'first_name.required'           => 'First Name is required',
+                'last_name.required'            => 'Last Name is required',
+                'gender.required'               => 'Gender is required',
                 'image.image'                   => 'Image is invalid',
-                'birthday.required'             => 'Please input birthday',
-                'date_of_joining.required'      => 'Please input date of joining',
+                'birthday.required'             => 'Birthday is required',
+                'date_of_joining.required'      => 'Date of Joining is required',
                 'phone_parent_1.numeric'        => 'Number is invalid',
                 'phone_parent_2.numeric'        => 'Number is invalid',
                 'phone_parent_1.digits_between' => 'The length is between 9 -12 digits',
@@ -343,14 +360,13 @@ class ChildrenProfilesController extends Controller
                 'email_parent_1.email'          => 'Email is invalid',
                 'email_parent_2.email'          => 'Email is invalid',
                 'unique_id.unique'              => 'ID is exist',
-                'unique_id.required'            => 'Please input unique ID',
+                'unique_id.required'            => 'Unique ID is required',
                 'image_parent_1.image'          => 'Image is invalid',
                 'image_parent_2.image'          => 'Image is invalid',
             ]);
 
 
 
-        $children_profiles = ChildrenProfiles::findOrFail($id);
         $children_profiles->update($request->all());
         if ($request->hasFile('image')) {
             // xoa anh cu

@@ -21,7 +21,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'laura',
                 'gender'        =>  1,
                 'email'         =>  'laura@gmail.com',
-                'note'          =>  'son of the bitch',
+                'note'          =>  '',
                 'phone'         =>  '4815617651',
                 'image'         =>  ''
             ],
@@ -31,7 +31,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'see',
                 'gender'        =>  0,
                 'email'         =>  'see@gmail.com',
-                'note'          =>  'son of the bitch',
+                'note'          =>  '',
                 'phone'         =>  '645343',
                 'image'         =>  ''
             ],
@@ -41,7 +41,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'shen',
                 'gender'        =>  1,
                 'email'         =>  'shen@gmail.com',
-                'note'          =>  'son of the bitch',
+                'note'          =>  '',
                 'phone'         =>  '324324325',
                 'image'         =>  ''
             ],
@@ -51,7 +51,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'dawn',
                 'gender'        =>  1,
                 'email'         =>  'dawn@gmail.com',
-                'note'          =>  'son of the bitch',
+                'note'          =>  '',
                 'phone'         =>  '343535435',
                 'image'         =>  ''
             ],
@@ -61,7 +61,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'chen',
                 'gender'        =>  1,
                 'email'         =>  'chen@gmail.com',
-                'note'          =>  'son of the bitch',
+                'note'          =>  '',
                 'phone'         =>  '3542353',
                 'image'         =>  ''
             ],
@@ -71,7 +71,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  'son of the bitch',
+                'note'          =>  '',
                 'phone'         =>  '98867543',
                 'image'         =>  ''
             ],

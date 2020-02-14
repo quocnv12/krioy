@@ -106,7 +106,7 @@
                             </div>
                         </div>
                         <div class="button" style="text-align: center;">
-                            <button type="reset">
+                            <button type="reset" onclick="goBack()">
                                 <span>CANCEL</span>
                             </button>
                             <button class="button2" type="submit" id="btn">
@@ -192,6 +192,13 @@
 
         $('#btn').click(function(event) {
             $('#array_program').attr('value', array);
+        });
+
+        var mybutton_counter=0;
+        $('#btn').on('click', function(e){
+            if (mybutton_counter>0){return false;} //you can set the number to any
+            //your call
+            mybutton_counter++; //incremental
         });
     </script>
     <script type="text/javascript">

@@ -304,7 +304,7 @@
 									</div>
 									<div class="input_box" style="width: 100%;">
 										<span>E-Mail Address </span>
-										<input class="parent_1" name="email_parent_1" placeholder="E-Mail Address " value="{{old('email_parent_1')}}">
+										<input class="parent_1" id="email_parent_1" name="email_parent_1" placeholder="E-Mail Address " value="{{old('email_parent_1')}}">
 										@if ($errors->has('email_parent_1'))
 											<div class="text text-danger">
 												{{ $errors->first('email_parent_1') }}
@@ -406,7 +406,7 @@
 									</div>
 									<div class="input_box" style="width: 100%;">
 										<span>E-Mail Address </span>
-										<input class="parent_2" name="email_parent_2" placeholder="E-Mail Address " value="{{old('email_parent_2')}}">
+										<input class="parent_2" id="email_parent_2" name="email_parent_2" placeholder="E-Mail Address " value="{{old('email_parent_2')}}">
 										@if ($errors->has('email_parent_2'))
 											<div class="text text-danger">
 												{{ $errors->first('email_parent_2') }}
@@ -431,7 +431,7 @@
 		</div>
 			<div class="comment">
 				<div class="button" style="text-align: center;">
-					<button type="reset">
+					<button type="reset" onclick="goBack()">
 						<span>CANCEL</span>
 					</button>
 					<button class="button2" type="submit" id="submit_button">
@@ -489,6 +489,7 @@
     			array.push(program_push);
     		}
 		});
+
 
 		$('#submit_button').click(function(event) {
 			$('#array_program').attr('value', array);
@@ -605,6 +606,8 @@
 			$('#first_name_parent_2').focusout() && $('#last_name_parent_2').focusout(function () {
 				disableParent2()
 			})
+
+
 		})
 
 		function disableParent1() {

@@ -146,13 +146,13 @@
 					},
 					templates: {
 						empty: [
-							'<div class="list-group search-results-dropdown" style="width: 500px;"><div class="list-group-item">Nothing found.</div></div>'
+							'<div class="list-group search-results-dropdown" style="width: 400px;"><div class="list-group-item">Nothing found.</div></div>'
 						],
 						header: [
 
 						],
 						suggestion: function (data) {
-							return '<a href="kids-now/notice-board/detail/' + data.id + '" class="list-group-item" style="width: 500px;"> ' + data.title +  '</a>';
+							return '<a href="kids-now/notice-board/detail/' + data.id + '" class="list-group-item" style="width: 400px;color: inherit"> ' + data.title +  '</a>';
 						}
 					}
 				},

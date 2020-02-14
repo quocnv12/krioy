@@ -21,8 +21,8 @@
                         <li class="active1 active-1" style="pointer-events:none;"><a href="">EDIT NOTICE</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target=".bd-example-modal-sm" style="display: flex; justify-content: flex-end; z-index: -1;">
-                    <button class="notice" type="button" >
+                <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target=".bd-example-modal-sm" style="display: flex; justify-content: flex-end;">
+                    <button class="notice" type="button" style="cursor: pointer">
                         <span><a href="kids-now/notice-board/delete/{{$notice_board->id}}" style="color: inherit; " onclick="return deleteConfirm()" >DELETE</a></span>
                     </button>
                 </div>
@@ -140,7 +140,7 @@
                                 <br>
                         </div>
                         <div class="button" style="text-align: center; margin-top: 100px">
-                            <button type="reset">
+                            <button type="reset" onclick="goBack()">
                                 <span>CANCEL</span>
                             </button>
                             <button class="button2" type="submit" id="btn">
