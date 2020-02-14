@@ -294,7 +294,7 @@ select .mat-card .mat-content div > div.childClass:hover {
   text-align: center;
 }
 .span-clock-md p{
-color: #5363d6;background: #fff;
+color:#000;background: #fff;
 }
 .span-clock-xam p{
     background: #ccc;
