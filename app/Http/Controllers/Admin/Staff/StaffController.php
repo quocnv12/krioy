@@ -5,9 +5,11 @@ use App\models\staff\{StaffProfiles,role};
 use App\models\Programs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Mail;
 
 class StaffController extends Controller
 {
+   
     // danh sach
     public  function GetListStaff() 
     {
@@ -33,7 +35,7 @@ class StaffController extends Controller
             'email'              =>'required|email|unique:staff_profiles,email',
             'address'            =>'required',
             'date_birthday'      =>'required|date',
-            'blood_group'        =>'required',
+           // 'blood_group'        =>'required',
             'date_of_joining'    =>'required|date',
        ],[
             'image.required'            => 'Please chosse image !',
@@ -48,7 +50,7 @@ class StaffController extends Controller
             'address.required'          => 'Please enter address !',
             'date_birthday.required'    => 'Please enter date_birthday !',
             'date_birthday.date'        => 'Date_birthday is in wrong format !',
-            'blood_group.required'      => 'Please choose blood_group !',
+           // 'blood_group.required'      => 'Please choose blood_group !',
             'date_of_joining.required'  => 'Please choose date_of_joining !',
             'date_of_joining.date'      => 'Date_of_joining is in wrong format !',
             'gender.required'           => 'Please choose gender !',
@@ -65,7 +67,8 @@ class StaffController extends Controller
        $staff->birthday = $request->date_birthday;
        $staff->date_of_joining = $request->date_of_joining;
        $staff->blood_group = $request->blood_group;
-
+       $password = str_random(9);
+       $staff->password = bcrypt($password);
        if($request->hasFile('image'))
        {
            $file=$request->image;
@@ -87,6 +90,7 @@ class StaffController extends Controller
         }
 
         $staffpermission = explode(',',$request->id_permissions);
+        // dd($staffpermission);
         $mangs=array();
         foreach ($staffpermission as $item)
         {
@@ -94,7 +98,23 @@ class StaffController extends Controller
         }
         $staff->pesmissionstaff()->Attach($mangs);
 
-        return redirect('kids-now/staff')->with('success','Add staff success !')->withInput();
+        //gửi mail thông báo  
+        $email=$staff->email;
+        //$url = route('link.reset.password',['email'=>$email]);
+        $data=[
+           // 'route' => $url,
+           'first_name' => $request->first_name,
+           'last_name'  => $request->last_name,
+            'password' =>$password,
+            'email' => $email,
+        ] ;
+
+        Mail::send('pages.staff.email', $data, function($message) use ($email){
+            $message->to($email, 'Welcome to Kids-now')->subject('Welcome to Kids-now !');
+        });
+
+
+        return redirect('kids-now/staff')->with('success','Add staff success, Please check your email for your password !')->withInput();
 
     }
 
@@ -114,7 +134,7 @@ class StaffController extends Controller
     public  function PostEditStaff(request $request ,$id) 
     {
         $this->validate($request,[
-            'image'              =>'required|image',
+         
             'first_name'         =>'required',
             'last_name'          =>'required',
             'phone'              =>'required|unique:staff_profiles,phone,'.$id,
@@ -122,12 +142,12 @@ class StaffController extends Controller
             'email'              =>'required|email|unique:staff_profiles,email,'.$id,
             'address'            =>'required',
             'date_birthday'      =>'required|date',
-            'blood_group'        =>'required',
+           // 'blood_group'        =>'required',
             'date_of_joining'    =>'required|date',
           
       ],[
-        'image.required'            => 'Please chosse image !',
-        'image.image'               => 'Image is in wrong format !',
+       
+        
         'first_name.required'       => 'Please enter first_name !',
         'last_name.required'        => 'Please enter last_name !',
         'phone.required'            => 'Please enter number phone !',
@@ -138,7 +158,7 @@ class StaffController extends Controller
         'address.required'          => 'Please enter address !',
         'date_birthday.required'    => 'Please enter date_birthday !',
         'date_birthday.date'        => 'Date_birthday is in wrong format !',
-        'blood_group.required'      => 'Please choose blood_group !',
+       // 'blood_group.required'      => 'Please choose blood_group !',
         'date_of_joining.required'  => 'Please choose date_of_joining !',
         'date_of_joining.date'      => 'Date_of_joining is in wrong format !',
         'gender.required'           => 'Please choose gender !',

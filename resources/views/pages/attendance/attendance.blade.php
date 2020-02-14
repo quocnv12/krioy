@@ -43,7 +43,11 @@
 					<div class="scrollmenu-div">
 				@foreach($programs as $program)
 				<div class="scrollmenu-button" style="text-align: center;">
-					 <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href="kids-now/attendance/{{$program->id}}" class="btn btn-defaul">{{$program->program_name}}</a>
+					 {{-- <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href="kids-now/attendance/{{$program->id}}" class="btn btn-defaul">{{$program->program_name}}</a> --}}
+					
+					<button type="submit" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
+						<a style="color: #fff;margin: 0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 150px;display: block;" title="{{$program->program_name}}" href="kids-now/attendance/{{$program->id}}">{{$program->program_name}}</a>
+					</button>
 				</div>
 				@endforeach
 			</div>
@@ -365,7 +369,7 @@
 	<script type="text/javascript">
 		$('.scrollmenu-div').slick({
 			infinite: true,
-			slidesToShow: 7,
+			slidesToShow: 5,
 			slidesToScroll: 1,
 			autoplay: false,
 			autoplaySpeed: 2000,

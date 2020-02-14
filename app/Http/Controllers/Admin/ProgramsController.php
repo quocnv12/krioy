@@ -41,12 +41,14 @@ class ProgramsController extends Controller
         $this->validate($request,
             [
                 'program_name'  =>  'nullable|unique:programs,program_name',
-                'program_fee'   =>  'numeric|min:0|nullable'
+                'program_fee'   =>  'numeric|min:0|nullable',
+                'to_year'       =>  'gte:from_year'
             ],
             [
                 'program_name.unique'   =>  'Program name has existed',
                 'program_fee.numeric'   =>  'Program fee is invalid',
                 'program_fee.min'       =>  'Program fee is invalid',
+                'to_year.gte'           =>  'This year must be greater'
             ]);
 
         $programs = Programs::create($request->all());
@@ -190,15 +192,17 @@ class ProgramsController extends Controller
         $this->validate($request,
             [
                 'program_name'  =>  'nullable|unique:programs,program_name,'.$id.' ',
-                'program_fee'   =>  'numeric|min:0|nullable'
+                'program_fee'   =>  'numeric|min:0|nullable',
+                'to_year'       =>  'gte:from_year'
             ],
             [
-                'program_name.unique'   =>  'Program name has existed',
+                'program_name.unique'   =>  'Program name has already been taken',
                 'program_fee.numeric'   =>  'Program fee is invalid',
                 'program_fee.min'       =>  'Program fee is invalid',
+                'to_year.gte'           =>  'This year must be greater'
             ]);
 
-        $programs = Programs::findOrFail($id);
+        $programs = Programs::find($id);
         $programs->update($request->all());
 
         $all_schedule = $request->schedule_new;
@@ -278,11 +282,11 @@ class ProgramsController extends Controller
 
     public function destroy($id)
     {
-        $programs = Programs::find($id);
-        if (!$programs){
+        $program = Programs::find($id);
+        if (!$program){
             return view('pages.not-found.notfound');
         }
-        $programs->delete();
+        $program->delete();
 
         $programs = DB::table('programs')
             ->leftJoin('children_programs', 'programs.id', '=', 'children_programs.id_program')
@@ -292,7 +296,7 @@ class ProgramsController extends Controller
             ->orderBy('programs.program_name')
             ->simplePaginate(8);
 
-        return view('pages.program.program',['programs'=>$programs])->with('success','Deleted Program : '.$programs->program_name);
+        return view('pages.program.program',['programs'=>$programs])->with('success','Deleted Program');
     }
 
     public function searchChildren(Request $request)

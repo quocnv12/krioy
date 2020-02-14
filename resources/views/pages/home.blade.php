@@ -17,6 +17,7 @@
             <div class="cap-main">
                 <h3><strong>Talent Wins</strong></h3>
                 <div class="hr"></div>
+        {{--  @can('principal')  --}}
             </div>
             <div class="row line">
                 <div class="col-xs-6 col-sm-6 col-md-2dot4 item">
@@ -35,6 +36,7 @@
                         </div>
                     </a>
                 </div>
+               
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="kids-now/food">
                         <img src="images/Food-01.png" alt="@lang('kidsnow.food')">
@@ -43,6 +45,7 @@
                         </div>
                     </a>
                 </div>
+               {{--  @endcan  --}}
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
                         <img src="images/Star-01.png" alt="@lang('kidsnow.star')">
@@ -69,12 +72,13 @@
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="{{route('admin.observations.list')}}">
-                        <img src="images/Observation-01.png" alt="//@lang('kidsnow.observations')">
+                        <img src="images/Observation-01.png" alt="@lang('kidsnow.observations')">
                         <div class="title">
-                            <p>//@lang('kidsnow.observations')</p>
+                            <p>@lang('kidsnow.observations')</p>
                         </div>
                     </a>
                 </div>
+                {{--  @can('food')  --}}
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
                         <img src="images/Photots-01.png" alt="@lang('kidsnow.photos')">
@@ -83,6 +87,7 @@
                         </div>
                     </a>
                 </div>
+                {{--  @endcan  --}}
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
                         <img src="images/Play and Learn-01.png" alt="@lang('kidsnow.play_and_learn')">
@@ -320,6 +325,14 @@
                         </div>
                     </a>
                 </div>
+                <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
+                    <a href="kids-now/role">
+                        <img src="images/staff.png" alt="@lang('kidsnow.configuratios')">
+                        <div class="title">
+                            <p>Permission</p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -407,6 +420,7 @@
                     </a>
                 </div>
                 <div class="col-md-3"></div>
+                {{--  @endcan  --}}
             </div>
         </div>
     </div>

@@ -277,7 +277,7 @@
                                             <div class="col-md-6 input_box">
                                                 <span class="input_box_span_active">Gender </span>
                                                 <select name="gender_parent_1">
-                                                    <option>Gender</option>
+                                                    <option value="">Gender</option>
                                                     <option value="1" @if($parent_profiles_1->gender == 1) selected="selected" @endif>Nam</option>
                                                     <option value="2" @if($parent_profiles_1->gender == 2) selected="selected" @endif>Nữ</option>
                                                 </select>
@@ -388,7 +388,7 @@
                                                 <div class="col-md-6 input_box">
                                                     <span>GENDER *</span>
                                                     <select class="parent_1" name="gender_parent_1">
-                                                        <option value="">Gender</option>
+                                                        <option selected value="">Gender</option>
                                                         <option value="1" @if(old('gender_parent_1') == 1) selected="selected" @endif>Nam</option>
                                                         <option value="2" @if(old('gender_parent_1') == 2) selected="selected" @endif>Nữ</option>
                                                     </select>
@@ -501,7 +501,7 @@
                                             <div class="col-md-6 input_box">
                                                 <span class="input_box_span_active">Gender </span>
                                                 <select name="gender_parent_2">
-                                                    <option>Gender</option>
+                                                    <option value="">Gender</option>
                                                     <option value="1" @if($parent_profiles_2->gender == 1) selected="selected" @endif>Nam</option>
                                                     <option value="2" @if($parent_profiles_2->gender == 2) selected="selected" @endif>Nữ</option>
                                                 </select>
@@ -612,7 +612,7 @@
                                                 <div class="col-md-6 input_box">
                                                     <span>GENDER *</span>
                                                     <select class="parent_2" name="gender_parent_2">
-                                                        <option value="">Gender</option>
+                                                        <option selected value="">Gender</option>
                                                         <option value="1" @if(old('gender_parent_2') == 1) selected="selected" @endif>Nam</option>
                                                         <option value="2" @if(old('gender_parent_2') == 2) selected="selected" @endif>Nữ</option>
                                                     </select>

@@ -64,7 +64,7 @@
 				<div class="scrollmenu-button" style="text-align: center;">
 					<!---->
 					<button type="submit" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
-						<a style="color: #fff;" href="kids-now/children/{{$program->id}}">{{$program->program_name}}</a>
+						<a style="color: #fff ;margin: 0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 150px;display: block;" title="{{$program->program_name}}" href="kids-now/children/{{$program->id}}">{{$program->program_name}}</a>
 					</button>
 				</div>
 				@endforeach
@@ -213,7 +213,7 @@
 	<script type="text/javascript">
 		$('.scrollmenu-div').slick({
 			infinite: true,
-			slidesToShow: 7,
+			slidesToShow: 6,
 			slidesToScroll: 1,
 			autoplay: false,
 			autoplaySpeed: 2000,
