@@ -21,8 +21,8 @@
                         <li class="active1 active-1" style="pointer-events:none;"><a href="">EDIT NOTICE</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target=".bd-example-modal-sm" style="display: flex; justify-content: flex-end; z-index: -1;">
-                    <button class="notice" type="button" >
+                <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target=".bd-example-modal-sm" style="display: flex; justify-content: flex-end;">
+                    <button class="notice" type="button" style="cursor: pointer">
                         <span><a href="kids-now/notice-board/delete/{{$notice_board->id}}" style="color: inherit; " onclick="return deleteConfirm()" >DELETE</a></span>
                     </button>
                 </div>
@@ -38,8 +38,8 @@
                             <!---->
                             <!---->
                             @foreach($programs as $program)
-                                <div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer">
-                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1 @if(in_array($program->id, $array_programs_choose)) tablinks1_active @endif" style="background-color: transparent; border:1px solid #5363d6;border-radius: 4px" type="button" data-toggle="tooltip" title="{{$program->program_name}}" value="{{$program->id}}">{{$program->program_name}}</button>
+                                <div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-3 ng-star-inserted" style="padding:10px;cursor:pointer">
+                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1 @if(in_array($program->id, $array_programs_choose)) tablinks1_active @endif" style="background-color: transparent; border:1px solid #5363d6;border-radius: 4px; width: 100%" type="button" data-toggle="tooltip" title="{{$program->program_name}}" value="{{$program->id}}">{{$program->program_name}}</button>
                                 </div>
                             @endforeach
                             <input id="array_programs_new" type="hidden" value="" name="programs_new">
@@ -140,7 +140,7 @@
                                 <br>
                         </div>
                         <div class="button" style="text-align: center; margin-top: 100px">
-                            <button type="reset">
+                            <button type="reset" onclick="goBack()">
                                 <span>CANCEL</span>
                             </button>
                             <button class="button2" type="submit" id="btn">

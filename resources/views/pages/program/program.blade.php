@@ -88,7 +88,7 @@
 
 			$(".search-input").typeahead({
 				hint: true,
-				highlight: true,
+				highlight: false,
 				minLength: 1
 			}, [
 				{

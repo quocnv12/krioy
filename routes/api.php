@@ -35,15 +35,9 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
 
 
     //---------------AttendanceChildren----------------
-    // Route::group(['prefix' => 'attendance'], function (){
-    //     Route::get('/','Api\AttendanceChildrenController@index')->name('attendance.index');
-    //     Route::get('/{id}','Api\AttendanceChildrenController@show')->name('attendance.show');
-    //     Route::post('add/{id}','Api\AttendanceChildrenController@postAdd')->name('attendance.postAdd');
-    //     Route::get('list','Api\AttendanceChildrenController@listtt')->name('attendance.list');
-    // });
     Route::group(['prefix' => 'attendance'], function (){
-        Route::get('list','Api\AttendanceChildrenController@list')->name('attendance.list');
         Route::get('/','Api\AttendanceChildrenController@index')->name('attendance.index');
+        Route::get('list','Api\AttendanceChildrenController@list')->name('attendance.list');
         Route::get('/{id}','Api\AttendanceChildrenController@show')->name('attendance.show');
         Route::post('add/{id}','Api\AttendanceChildrenController@postAdd')->name('attendance.postAdd');
        

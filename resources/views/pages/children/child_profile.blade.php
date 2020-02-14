@@ -79,15 +79,17 @@
 					<!---->
 					@if(isset($children_profiles))
 						@if(count($children_profiles) > 0)
-							@foreach($children_profiles as $children)
-								<div class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted" style="padding:10px;cursor:pointer;">
-									<div type="button" data-toggle="modal" data-target=".bd-example-modal-sm" style="height: 120px;text-align: center;-webkit-appearance: none;">
-										<img class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="{{$children->image}}" style="height: 80px;">
+							@foreach($children_profiles as $key => $children)
+								<div _ngcontent-c19="" class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted" style="padding:10px;cursor:pointer;">
+									<div _ngcontent-c19="" type="button" data-toggle="modal" data-target=".bd-example-modal-sm" style="height: 120px;text-align: center;-webkit-appearance: none;">
+										<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="{{$children->image}}" style="height: 80px;">
 										<!---->
-										<span class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;display: block;" >{{$children->first_name}} {{$children->last_name}}</span>
+										<span _ngcontent-c19="" class="limitText ng-star-inserted" style="color:#5363d6;;margin-top: 10px;display: block;font-weight: bold" >{{$children->first_name}} {{$children->last_name}}</span>
 										<!---->
 										<input type="hidden" value="{{$children->id}}" class="link_to_children">
 									</div>
+									<input type="hidden" value="{{\App\models\ChildrenProfiles::getIdHealth($children->id)}}">
+									<input type="hidden" value="{{\App\models\ChildrenProfiles::getIdObservation($children->id)}}">
 								</div>
 							@endforeach
 						@else
@@ -119,7 +121,7 @@
 						<li style="color: #5363d6!important">Go to</li>
 						<li class="modal-li" data-href="" id="profile_children">Profile</li>
 						<li class="modal-li" data-href="" id="health_children">Health</li>
-						<li class="modal-li" data-href="" id="attachments_children" style="pointer-events: none">Attachments</li>
+						<li class="modal-li" data-href="" id="observations_children">Observations</li>
 						<li class="modal-li" data-href="" id="authorised_pickups_children" style="pointer-events: none">Authorised Pickups</li>
 					</ul>
 				</div>
@@ -149,8 +151,17 @@
     	$(document).ready(function($) {
 			$('div.div_box_children').click(function () {
 				var id_children = $(this).children('div').children('input').val();
+
+				var array = $(this).children('input').map(function() {
+					return $(this).attr('value');
+				}).toArray();
+
+				var id_children_health = array[0];
+				var id_children_observation = array[1];
+
 				$('li#profile_children').attr('data-href','kids-now/children/view/'+id_children);
-				$('li#health_children').attr('data-href','kids-now/health/sua/'+id_children);
+				$('li#health_children').attr('data-href','kids-now/health/sua/'+id_children_health);
+				$('li#observations_children').attr('data-href','kids-now/observations/edit/'+id_children_observation);
 			});
 
 			$(".modal-li").click(function() {
@@ -175,7 +186,7 @@
 
 			$(".search-input").typeahead({
 				hint: true,
-				highlight: true,
+				highlight: false,
 				minLength: 1
 			}, [
 				{
@@ -192,7 +203,7 @@
 
 						],
 						suggestion: function (data) {
-							return '<a href="kids-now/children/view/' + data.id + '" class="list-group-item" style="width: 400px; color: inherit"><span style=""> ' + data.first_name +' '+ data.last_name + ' </span><span style="float: right"> ' + data.birthday + ' </span></a>';
+							return '<a href="kids-now/children/view/' + data.id + '" class="list-group-item" style="font-weight: bold;width: 400px; color: inherit"><span style=""> ' + data.first_name +' '+ data.last_name + ' </span><span style="float: right"> ' + data.birthday + ' </span></a>';
 						}
 					}
 				},

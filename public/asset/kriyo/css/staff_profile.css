@@ -258,7 +258,7 @@ div.scrollmenu[_ngcontent-c10]{
     display: block;
     width: 100%;
     overflow: hidden;
-    white-space: nowrap;
+    white-space: pre-wrap;
     text-overflow: ellipsis;
     text-align: center;
 }

@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-sm-6" style="display: flex; justify-content: flex-end">
                     <button class="notice" type="button" >
-                        <span><a href="kids-now/observations/delete/{{$child_observation->id}}" style="color: inherit; z-index: -1" onclick="return deleteConfirm()" >DELETE</a></span>
+                        <span><a href="kids-now/observations/delete/{{$child_observation->id}}" style="color: inherit;" onclick="return deleteConfirm()" >DELETE</a></span>
                     </button>
                 </div>
 
@@ -184,7 +184,7 @@
                             <br>
                         </div>
                         <div class="button" style="text-align: center;">
-                            <button type="reset">
+                            <button type="reset" onclick="goBack()">
                                 <span>CANCEL</span>
                             </button>
                             <button class="button2" id="submit_button" type="submit">
@@ -308,6 +308,7 @@
                 $(this).siblings('span').removeClass('input_box_span_active');
             }
         });
+
 
         //begin clip-board
         var input_file = $("#file");
