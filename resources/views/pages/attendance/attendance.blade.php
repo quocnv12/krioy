@@ -35,26 +35,23 @@
 				</div>
 			</div>
 		</section>
-		
-		<section style="background-color:#f9f9f9">
-			<div class="row" style="padding: 10px">
-				<div class="col-lg-2 col-md-2 col-sm-12"></div>
-				<div class="col-lg-8 col-md-8 col-sm-12" style="padding-left:0px;padding-right:0px">
+		<section class="container">
+			<div class="mat-card tab-content>
+				<div class="mat-content" id="tab-main">
 					<div class="scrollmenu-div">
-				@foreach($programs as $program)
-				<div class="scrollmenu-button" style="text-align: center;">
-					 {{-- <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white" href="kids-now/attendance/{{$program->id}}" class="btn btn-defaul">{{$program->program_name}}</a> --}}
+						@foreach($programs as $program)
+							<div class="scrollmenu-button" style="text-align: center;">
+								<button class="limitText" type="button" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
+									<a style="color: #fff ;margin: 0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 150px;display: block;" href="kids-now/attendance/{{$program->id}}" title="{{$program->program_name}}">{{$program->program_name}}</a>
+								</button>
+							</div>
+						@endforeach
+					</div>
 					
-					<button type="submit" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
-						<a style="color: #fff;margin: 0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 150px;display: block;" title="{{$program->program_name}}" href="kids-now/attendance/{{$program->id}}">{{$program->program_name}}</a>
-					</button>
 				</div>
-				@endforeach
-			</div>
-				</div>
-				<div class="col-lg-2 col-md-2 col-sm-12"></div>
 			</div>
 		</section>
+		
 		<section class="container attendance-layout">
 			<div class="row">
 				<div class="col-lg-8 col-md-8 col-sm-8">
@@ -145,7 +142,7 @@
 					
 					
 				</div>
-				<div class="col-lg-4 col-md-4 col-sm-4">
+				{{-- <div class="col-lg-4 col-md-4 col-sm-4">
 					<div class="select-all">
 						<div class="all-1" >
 							<a href="#" class="all-2">
@@ -158,7 +155,7 @@
 							</a>
 						</div>
 					</div>
-				</div>
+				</div> --}}
 			</div>
 		</section>
 		@if(isset($children_profiles))
@@ -181,11 +178,9 @@
 	                                        	<p style="border-radius: 5px 5px 0 0;">{{$children->first_name}} {{$children->last_name}}</p>
 	                                        	@foreach ($children->chil_atd as $value)
 			                            			@if($value->updated_at->format('Y-m-d') == $dayupdate && $value->status =! null)
-			                            				<p style="border-radius: 0 0 5px 5px;">3:12 PM</p>
+			                            				<p style="border-radius: 0 0 5px 5px;">{{ $value->updated_at->format('H:i') }}</p>
 			                            			@endif
 			                            		@endforeach
-
-	                                        	<!-- <p style="border-radius: 0 0 5px 5px;">3:12 PM</p> -->
 	                                        </span>
 	                                        <!-- <span class="span-clock span-clock-xanh" style="border-radius: 0 0 5px 5px;"><p>3:12 PM</p></span> -->
 	                                        <input type="hidden" value="{{$children->id}}">
@@ -239,7 +234,7 @@
 									</button>
 								</div>
 								<div class="col-xs-6 col-md-6 mat-dialog-actions">
-									<button class="mat-button-class" style="color: red;font-size: 16px;">
+									<button class="mat-button-class" style="color: red;font-size: 16px;" data-dismiss="modal">
 										<span class="mat-button-wrapper">CANCEL</span>
 									</button>
 								</div>
