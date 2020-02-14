@@ -116,14 +116,14 @@
                                             <td style="text-align:center;text-transform:capitalize">{{ $item->atd_chil->first_name}} {{ $item->atd_chil->last_name}}</td>
                                             <td style="text-align:center;text-transform:capitalize">
                                                 @if($item->status == 3)
-                                                    {{'null'}}
+                                                    {{'...'}}
                                                 @else
                                                     {{$item->in}}
                                                 @endif
                                             </td>
                                             <td style="text-align:center;text-transform:capitalize">
                                                 @if($item->status == 3)
-                                                    {{'null'}}
+                                                    {{'...'}}
                                                 @else
                                                     {{$item->out}}
                                                 @endif
@@ -132,7 +132,7 @@
                                                 @if($item->status == 3)
                                                     {{$item->absent}}
                                                 @else
-                                                    {{'null'}}
+                                                    {{'...'}}
                                                 @endif
                                             </td>
                                             

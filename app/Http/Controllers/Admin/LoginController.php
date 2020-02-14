@@ -26,17 +26,17 @@ class LoginController extends Controller
     {
        //dd($request->all());
        
-       if($this->hasTooManyLoginAttempts($request))
-        {
-            $this->fireLockoutEvent($request);
-            return redirect()->back()->with([
-                "expired" => $this->decayMinutes * 60
-            ]);
-        }
-        else
-        {
-           $this->incrementLoginAttempts($request);
-            $phone = $request->phone;
+       // if($this->hasTooManyLoginAttempts($request))
+       //  {
+       //      $this->fireLockoutEvent($request);
+       //      return redirect()->back()->with([
+       //          "expired" => $this->decayMinutes * 60
+       //      ]);
+       //  }
+       //  else
+       //  {
+          // $this->incrementLoginAttempts($request);
+            $phone = $request->phone;   
             $password = $request->password;
             if(Auth::attempt(['phone' => $phone, 'password' => $password],$request->remember))
             {
@@ -53,7 +53,7 @@ class LoginController extends Controller
             {
                 return  redirect()->back()->with("danger","Phone or password false !")->withInput();
             }
-        }
+        // }
     }
 
     public function Logout()

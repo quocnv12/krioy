@@ -35,11 +35,18 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
 
 
     //---------------AttendanceChildren----------------
+    // Route::group(['prefix' => 'attendance'], function (){
+    //     Route::get('/','Api\AttendanceChildrenController@index')->name('attendance.index');
+    //     Route::get('/{id}','Api\AttendanceChildrenController@show')->name('attendance.show');
+    //     Route::post('add/{id}','Api\AttendanceChildrenController@postAdd')->name('attendance.postAdd');
+    //     Route::get('list','Api\AttendanceChildrenController@listtt')->name('attendance.list');
+    // });
     Route::group(['prefix' => 'attendance'], function (){
+        Route::get('list','Api\AttendanceChildrenController@list')->name('attendance.list');
         Route::get('/','Api\AttendanceChildrenController@index')->name('attendance.index');
         Route::get('/{id}','Api\AttendanceChildrenController@show')->name('attendance.show');
         Route::post('add/{id}','Api\AttendanceChildrenController@postAdd')->name('attendance.postAdd');
-        Route::get('list','Api\AttendanceChildrenController@list')->name('attendance.list');
+       
     });
 
     //--đổi mật khẩu------
@@ -170,11 +177,9 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
         Route::get('delete_clipboard/{id}/{name}','Api\ObservationController@deleteClipboard');
 
     });
-<<<<<<< HEAD
 
-=======
     //---------------observationtype----------------
->>>>>>> ba01781b0cc2f44e5b67b53c363e3a37d6c87dc4
+
     Route::group(['prefix' => 'observationtype'], function () {
 
         Route::get('xoa/{id}',['as'=>'admin.observationtype.getDelete','uses'=>'Api\ObservationTypeController@getDelete']);

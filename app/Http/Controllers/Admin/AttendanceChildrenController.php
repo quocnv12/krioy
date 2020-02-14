@@ -115,6 +115,7 @@ class AttendanceChildrenController extends Controller
         
     }
     public function list(Request $req){
+        dd($req->all());
         $data['programs']  = Programs::all();
         $data['child_atd1'] = Children_status::where('id_program', '=', $req->program)->whereDay('created_at', '=', $req->day)->whereMonth('created_at', '=', $req->month)->whereYear('created_at', '=', $req->year)->first();
         if ($req->program || $req->day || $req->month || $req->year) {
