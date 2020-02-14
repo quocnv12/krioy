@@ -282,7 +282,7 @@
 		<div class="comment">
 			<p id="error_total" style="text-align: center; color: red"></p>
 			<div class="button" style="text-align: center;">
-				<button type="reset">
+				<button type="reset" onclick="goBack()">
 					<span>CANCEL</span>
 				</button>
 				<button class="button2" type="submit" id="submit_button">

@@ -16,7 +16,7 @@
                     </ul>
                 </div>
                 <div class="col-sm-6">
-                    <a href="{{route('admin.observations.list')}}" class="btn btn-success" style="float: right">Children List</a>
+                    <a href="{{route('admin.observations.list')}}" class="btn btn-success" style="min-width:110px;background:#eb87c1;color:white; float: right; border: none;font-weight: bold">CHILDREN LIST</a>
                 </div>
             </div>
         </div>
