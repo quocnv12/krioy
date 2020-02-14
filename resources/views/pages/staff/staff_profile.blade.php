@@ -53,7 +53,7 @@
 					  <table class="table table-striped" id="example">
 						<thead>
 						  <tr>
-							<th style="text-align:left;">ID</th>
+							{{-- <th style="text-align:left;">ID</th> --}}
 							<th style="text-align:left;">@lang('kidsnow.name')</th>
 							<th style="text-align:left;">@lang('kidsnow.phone')</th>
 							<th style="text-align:left">@lang('kidsnow.email')</th>
@@ -68,33 +68,35 @@
 						<tbody>
 							@foreach ($staff as $item)
 							<tr class="odd gradeX">
-								<td style="font-size:12px">{{ $item->id }}</td>
+								{{-- <td style="font-size:12px">{{ $item->id }}</td> --}}
 								<td style="font-size:12px">{{ $item->first_name }} {{ $item->last_name }}</td>
 								<td style="font-size:12px">{{ $item->phone }}</td>
 								<td style="font-size:11px;font-weight: bold;">{{ $item->email }}</td>
 								<td style="font-size:12px">
 									@if ($item->gender==1)
 										{{ 'Nam' }}
-									@else
+									@elseif($item->gender==0)
 										{{ 'Nữ' }}
+									@else 
+										{{ 'Chưa nhập' }}
 									@endif
 								</td>
 								
-								<td style="font-size:12px">{{ $item->address }}</td>
+								<td style="font-size:12px">{{ $item->address==Null ? 'Chưa nhập' : $item->address }}</td>
 								<td style="font-size:12px"> 
 									
-									@php
-										$resultstr = array();
-									@endphp
-									@foreach ($item->programstaff as $value)
-									@php
-										$resultstr[] = $value->program_name
-									@endphp
-									@endforeach
-									{{  implode(",",$resultstr) }}
-								
+										@php
+											$resultstr = array();
+										@endphp
+										@foreach ($item->programstaff as $value)
+											@php
+												$resultstr[] = $value->program_name
+											@endphp
+										@endforeach
+										{{  implode(",",$resultstr) }}
+									
 								</td>
-								<td style="font-size:12px">{{ Carbon\Carbon::parse($item->date_of_joining)->format('d-m-Y') }}</td>
+								<td style="font-size:12px">{{ $item->date_of_joining==Null ? 'Chưa nhập' : Carbon\Carbon::parse($item->date_of_joining)->format('d-m-Y') }}</td>
 								<td ><img style="width:30px;height:30px;border-radius:50%" src="images/staff/{{ $item->image }}"></td>
 								<td style="text-align:center;width:12px">
 									<a  href="kids-now/staff/edit/{{ $item->id }}" title="Edit Staff" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>

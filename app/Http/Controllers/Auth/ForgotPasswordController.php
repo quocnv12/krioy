@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
-use App\models\Staff\StaffProfiles;
+use App\models\staff\StaffProfiles;
 use Illuminate\Http\Request;
 use Mail;
 use Carbon\Carbon;

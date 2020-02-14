@@ -187,7 +187,7 @@ return [
                 'first_name' => 'First name *',
                 'last_name' => 'Last Name *',
                 'phone_number' => 'Phone Number *',
-                'gender' => 'Gender *',
+                'gender' => 'Gender',
                 'email_address' => 'Email Address *',
                 'email_already_exist' => '* Email already exist !',
                 'please_choose_image' => '* Please choose image !',
@@ -195,7 +195,7 @@ return [
                 'please_enter_address' => '* Please enter address !',
                 'Blood_group' => 'Blood Group *',
                 'please_choose_blood_group' => '* Please choose blood_group !',
-                'date_of_joining' => 'Date of Joining *',
+                'date_of_joining' => 'Date of Joining',
                 // END Edit Staff
 
     //END Staff Profiles

@@ -60,7 +60,7 @@
 					<div style="margin-top:10px" class="row">
 						<div class="col-md-6" >
 						
-							<input type="checkbox"  name="remember"> Remember me
+							<input type="checkbox"  name="remember" {{ old('remember') ? 'checked' : '' }}> Remember me
 						
 						</div>
 						<a href="forgot">Forgot password?</a>
