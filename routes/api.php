@@ -40,7 +40,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
         Route::get('list','Api\AttendanceChildrenController@list')->name('attendance.list');
         Route::get('/{id}','Api\AttendanceChildrenController@show')->name('attendance.show');
         Route::post('add/{id}','Api\AttendanceChildrenController@postAdd')->name('attendance.postAdd');
-
+       
     });
 
     //--đổi mật khẩu------
