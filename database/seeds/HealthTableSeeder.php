@@ -25,8 +25,8 @@ class HealthTableSeeder extends Seeder
                 'medicine'      =>  'none',
                 'incident'      =>  'none',
                 'blood_group'   =>  'A',
-                'image'         =>  'images/health/Child.png',
-                'file_pdf'      =>  'file pdf',
+                'image'         =>  '',
+                'file_pdf'      =>  '',
             ],
             [
                 'id'            =>  2,
@@ -38,8 +38,8 @@ class HealthTableSeeder extends Seeder
                 'medicine'      =>  'none',
                 'incident'      =>  'none',
                 'blood_group'   =>  'A',
-                'image'         =>  'images/health/Child.png',
-                'file_pdf'      =>  'file pdf',
+                'image'         =>  '',
+                'file_pdf'      =>  '',
             ],
             [
                 'id'            =>  3,
@@ -51,8 +51,8 @@ class HealthTableSeeder extends Seeder
                 'medicine'      =>  'none',
                 'incident'      =>  'none',
                 'blood_group'   =>  'A',
-                'image'         =>  'images/health/Child.png',
-                'file_pdf'      =>  'file pdf',
+                'image'         =>  '',
+                'file_pdf'      =>  '',
             ],
             [
                 'id'            =>  4,
@@ -64,8 +64,8 @@ class HealthTableSeeder extends Seeder
                 'medicine'      =>  'none',
                 'incident'      =>  'none',
                 'blood_group'   =>  'A',
-                'image'         =>  'images/health/Child.png',
-                'file_pdf'      =>  'file pdf',
+                'image'         =>  '',
+                'file_pdf'      =>  '',
             ],
             [
                 'id'            =>  5,
@@ -77,8 +77,8 @@ class HealthTableSeeder extends Seeder
                 'medicine'      =>  'none',
                 'incident'      =>  'none',
                 'blood_group'   =>  'A',
-                'image'         =>  'images/health/Child.png',
-                'file_pdf'      =>  'file pdf',
+                'image'         =>  '',
+                'file_pdf'      =>  '',
             ],
         ]);
     }
