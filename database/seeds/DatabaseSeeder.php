@@ -39,6 +39,6 @@ class DatabaseSeeder extends Seeder
         $this->call(Food_Fooditem::class);
         $this->call(Permission::class);
         $this->call(PermissionRole::class);
-        //$this->call(ChildrenStatusTable::class);
+        $this->call(ChildrenStatusTable::class);
     }
 }
