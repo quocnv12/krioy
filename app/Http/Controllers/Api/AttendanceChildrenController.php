@@ -105,14 +105,14 @@ class AttendanceChildrenController extends Controller
     }
     public function list(Request $req){
         
-        $data['child_atd1'] = Children_status::where('id_program', '=', $req->program)->whereDay('created_at', '=', $req->day)->whereMonth('created_at', '=', $req->month)->whereYear('created_at', '=', $req->year)->first();
+//        $data['child_atd1'] = Children_status::where('id_program', '=', $req->program)->whereDay('created_at', '=', $req->day)->whereMonth('created_at', '=', $req->month)->whereYear('created_at', '=', $req->year)->first();
         if ($req->program || $req->day || $req->month || $req->year) {
         	$data['programs']  = Programs::all();
             $data['child_atd'] = Children_status::where('id_program', '=', $req->program)->whereDay('created_at', '=', $req->day)->whereMonth('created_at', '=', $req->month)->whereYear('created_at', '=', $req->year)->get();
             $data['id_program'] = $req->program;
             $data['day'] = $req->day;
             $data['month'] = $req->month;
-            
+
             return response()->json($data,200);
         }else {
             return response()->json(['message'=>'Please chosen class and datetime!'],404);

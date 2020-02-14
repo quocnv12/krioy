@@ -58,6 +58,7 @@ class ChildrenProfiles extends Model
         return $object['id'];
     }
 
+
     protected $timestamp = false;
 
 }
