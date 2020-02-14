@@ -125,6 +125,7 @@
 					<div class="col-md-6 input_box">
 						<span>Status</span>
 						<select name="status">
+							<option value="">Status</option>
 							<option @if(old('status') == 1) selected='selected' @endif value="1">Open</option>
 							<option @if(old('status') == 0) selected='selected' @endif value="1">Close</option>
 						</select>

@@ -137,6 +137,7 @@
 						<div class="col-md-6 input_box">
 							<span class="input_box_span_active">Status</span>
 							<select name="status">
+								<option value="" selected>Status</option>
 								<option @if($program->status == 1) selected='selected' @endif value="1">Open</option>
 								<option @if($program->status == 0) selected='selected' @endif value="1">Close</option>
 							</select>

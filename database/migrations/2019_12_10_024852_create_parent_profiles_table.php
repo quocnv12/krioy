@@ -17,10 +17,10 @@ class CreateParentProfilesTable extends Migration
             $table->bigIncrements('id');
             $table->string('first_name');
             $table->string('last_name');
-            $table->tinyInteger('gender');
-            $table->string('email');
+            $table->tinyInteger('gender')->nullable();
+            $table->string('email')->nullable();
             $table->text('note')->nullable();
-            $table->string('phone');
+            $table->string('phone')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });

@@ -366,7 +366,7 @@
 										<div class="col-md-6 input_box">
 											<span>GENDER *</span>
 											<select class="parent_2" name="gender_parent_2">
-												<option>Gender</option>
+												<option selected value="">Gender</option>
 												<option value="1" @if(old('gender_parent_2') == 1) selected="selected" @endif>Nam</option>
 												<option value="2" @if(old('gender_parent_2') == 2) selected="selected" @endif>Nữ</option>
 											</select>
