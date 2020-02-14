@@ -37,8 +37,8 @@
                         <div _ngcontent-c20="" class="row">
                             <!---->
                             @foreach($programs as $program)
-                                <div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-6 col-md-2 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer;width: 50%;">
-                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" type="button" data-toggle="tooltip" title="{{$program->program_name}}" value="{{$program->id}}">{{$program->program_name}}</button>
+                                <div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-6 col-md-2 col-lg-3 ng-star-inserted" style="padding:10px;cursor:pointer;width: 50%;">
+                                    <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px; width: 100%" type="button" data-toggle="tooltip" title="{{$program->program_name}}" value="{{$program->id}}">{{$program->program_name}}</button>
                                 </div>
                             @endforeach
                             <input id="array_program" type="hidden" value="" name="programs">
@@ -106,7 +106,7 @@
                             </div>
                         </div>
                         <div class="button" style="text-align: center;">
-                            <button type="reset">
+                            <button type="reset" onclick="goBack()">
                                 <span>CANCEL</span>
                             </button>
                             <button class="button2" type="submit" id="btn">
@@ -192,6 +192,13 @@
 
         $('#btn').click(function(event) {
             $('#array_program').attr('value', array);
+        });
+
+        var mybutton_counter=0;
+        $('#btn').on('click', function(e){
+            if (mybutton_counter>0){return false;} //you can set the number to any
+            //your call
+            mybutton_counter++; //incremental
         });
     </script>
     <script type="text/javascript">

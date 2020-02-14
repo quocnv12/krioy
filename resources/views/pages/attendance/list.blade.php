@@ -49,32 +49,43 @@
                                 <div class="col-md-6" style="display: flex; justify-content: flex-end; align-items: center">
                                     <span style="font-weight: bold">Choose</span>&nbsp;&nbsp;:&nbsp;&nbsp;
                                     <select name="program" id="program">
+                                    @if(empty($id_program))
+                                        @foreach($programs as $item)
+                                            <option value="{{$item->id}}" >
+                                                {{$item->program_name}}</option>
+                                        @endforeach
+                                    @else
                                         @foreach($programs as $item)
                                             <option value="{{$item->id}}" @if($item->id == $id_program) selected @endif >
                                                 {{$item->program_name}}</option>
                                         @endforeach
+                                    @endif
                                     </select>
                                     &nbsp;&nbsp;-&nbsp;&nbsp;
                                     <select name="day" id="day">
+                                    @if(empty($day))
                                         @for($i = 01; $i <= 31; $i++)
                                             <option value="{{$i}}" @if(now()->day == $i) selected @endif >{{$i}}</option>
                                         @endfor
+                                    @else
+                                        @for($i = 01; $i <= 31; $i++)
+                                            <option value="{{$i}}" @if($i == $day) selected @endif >{{$i}}</option>
+                                        @endfor
+                                    @endif
                                     </select>
                                     &nbsp;&nbsp;-&nbsp;&nbsp;
                                     <select name="month" id="month" >
-                                        <option value="">Choose Month</option>
-                                        <option value="01">January</option>
-                                        <option value="02">February</option>
-                                        <option value="03">March</option>
-                                        <option value="04">April</option>
-                                        <option value="05">May</option>
-                                        <option value="06">June</option>
-                                        <option value="07">July</option>
-                                        <option value="08">August</option>
-                                        <option value="09">September</option>
-                                        <option value="10">October</option>
-                                        <option value="11">November</option>
-                                        <option value="12">December</option>
+                                    @if(empty($month))
+                                        @for($i = 01; $i <= 12; $i++)
+                                            <option value="{{$i}}" @if(now()->month == $i) selected @endif >{{$i}}</option>
+                                        @endfor
+                                    @else
+                                        @for($i = 01; $i <= 12; $i++)
+                                            <option value="{{$i}}" @if($i == $month) selected @endif >{{$i}}</option>
+                                        @endfor
+                                    @endif
+
+                                        
                                     </select>
                                     &nbsp;&nbsp;-&nbsp;&nbsp;
                                     <select name="year" id="year">
@@ -105,14 +116,14 @@
                                             <td style="text-align:center;text-transform:capitalize">{{ $item->atd_chil->first_name}} {{ $item->atd_chil->last_name}}</td>
                                             <td style="text-align:center;text-transform:capitalize">
                                                 @if($item->status == 3)
-                                                    {{'null'}}
+                                                    {{'...'}}
                                                 @else
                                                     {{$item->in}}
                                                 @endif
                                             </td>
                                             <td style="text-align:center;text-transform:capitalize">
                                                 @if($item->status == 3)
-                                                    {{'null'}}
+                                                    {{'...'}}
                                                 @else
                                                     {{$item->out}}
                                                 @endif
@@ -121,7 +132,7 @@
                                                 @if($item->status == 3)
                                                     {{$item->absent}}
                                                 @else
-                                                    {{'null'}}
+                                                    {{'...'}}
                                                 @endif
                                             </td>
                                             

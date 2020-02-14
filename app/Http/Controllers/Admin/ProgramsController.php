@@ -40,11 +40,15 @@ class ProgramsController extends Controller
     {
         $this->validate($request,
             [
-                'program_fee'   =>  'numeric|min:0|nullable'
+                'program_name'  =>  'nullable|unique:programs,program_name',
+                'program_fee'   =>  'numeric|min:0|nullable',
+                'to_year'       =>  'gte:from_year'
             ],
             [
+                'program_name.unique'   =>  'Program name has existed',
                 'program_fee.numeric'   =>  'Program fee is invalid',
                 'program_fee.min'       =>  'Program fee is invalid',
+                'to_year.gte'           =>  'This year must be greater'
             ]);
 
         $programs = Programs::create($request->all());
@@ -119,6 +123,9 @@ class ProgramsController extends Controller
 //        return response()->json(['programs'=>$program, 'children'=>$children, 'staff'=>$staff],200);
 
         $program = Programs::find($id);
+        if (!$program){
+            return view('pages.not-found.notfound');
+        }
         $array_schedule = explode(',',$program->schedule);  //string to array
 
         $children_profiles = DB::table('children_profiles')
@@ -144,6 +151,9 @@ class ProgramsController extends Controller
     public function edit($id)
     {
         $program = Programs::find($id);
+        if (!$program){
+            return view('pages.not-found.notfound');
+        }
         $children_in_program = DB::table('children_profiles')
             ->join('children_programs', 'children_profiles.id', '=', 'children_programs.id_children')
             ->select('*')
@@ -181,14 +191,18 @@ class ProgramsController extends Controller
     {
         $this->validate($request,
             [
-                'program_fee'   =>  'numeric|min:0'
+                'program_name'  =>  'nullable|unique:programs,program_name,'.$id.' ',
+                'program_fee'   =>  'numeric|min:0|nullable',
+                'to_year'       =>  'gte:from_year'
             ],
             [
+                'program_name.unique'   =>  'Program name has already been taken',
                 'program_fee.numeric'   =>  'Program fee is invalid',
                 'program_fee.min'       =>  'Program fee is invalid',
+                'to_year.gte'           =>  'This year must be greater'
             ]);
 
-        $programs = Programs::findOrFail($id);
+        $programs = Programs::find($id);
         $programs->update($request->all());
 
         $all_schedule = $request->schedule_new;
@@ -268,8 +282,11 @@ class ProgramsController extends Controller
 
     public function destroy($id)
     {
-        $programs = Programs::findOrFail($id);
-        $programs->delete();
+        $program = Programs::find($id);
+        if (!$program){
+            return view('pages.not-found.notfound');
+        }
+        $program->delete();
 
         $programs = DB::table('programs')
             ->leftJoin('children_programs', 'programs.id', '=', 'children_programs.id_program')
@@ -279,7 +296,7 @@ class ProgramsController extends Controller
             ->orderBy('programs.program_name')
             ->simplePaginate(8);
 
-        return view('pages.program.program',['programs'=>$programs])->with('success','Deleted Program : '.$programs->program_name);
+        return view('pages.program.program',['programs'=>$programs])->with('success','Deleted Program');
     }
 
     public function searchChildren(Request $request)

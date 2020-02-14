@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,52 +12,36 @@ use App\models\Children_status;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
-
 class AttendanceChildrenController extends Controller
 {
     public function index(){
     	$data['programs']  = Programs::all();
-        return view('pages.attendance.attendance',$data);
+    	return response()->json($data, 200);
+
     }
     public function show($id){
     	$data['programs'] = Programs::all();
-
-        // $data['children_profiles'] = DB::table('programs') 
-        //     ->join('children_programs', 'programs.id', '=', 'children_programs.id_program')
-        //     ->join('children_profiles', 'children_profiles.id', '=', 'children_programs.id_children')
-            
-        //     ->select(['children_profiles.*','children_programs.*'])
-        //     ->where('children_programs.id_program', '=', $id)
-        //     ->get();
-
-        $data['children_profiles'] = ChildrenProfiles::join('children_programs', 'children_profiles.id', '=', 'children_programs.id_children')
+    	$data['children_profiles'] = ChildrenProfiles::join('children_programs', 'children_profiles.id', '=', 'children_programs.id_children')
             ->join('programs', 'programs.id', '=', 'children_programs.id_program')
             ->select(['children_programs.*','children_profiles.*'])
             ->where('children_programs.id_program', '=', $id)
             ->get();
-        //Eloquent
-//            $program = Programs::find($id);
-//                $data['children_profiles'] = $program->program_chil;
-
 
         $day = Carbon::now('Asia/Ho_Chi_Minh')->toTimeString();
-        $data['dayupdate'] =  date('Y-m-d', strtotime($day));
+        $data['dayupdate'] =  date('d', strtotime($day));
         $data['time'] = date('H:s:i', strtotime($day));
-
 
         $data['now'] = $id;
         $data['id'] = $id;
         $data['count_chil'] = $data['children_profiles']->count();
-        $data['count_in'] = Children_status::where('status','1')->where('id_program',$id)->whereDate('updated_at',$data['dayupdate'])->count();
-        $data['count_out'] = Children_status::where('status','2')->where('id_program',$id)->whereDate('updated_at',$data['dayupdate'])->count();
-        $data['count_absent'] = Children_status::where('status','3')->where('id_program',$id)->whereDate('updated_at',$data['dayupdate'])->count();
-        $data['count_active'] = Children_status::where('active','1')->where('id_program',$id)->whereDate('updated_at',$data['dayupdate'])->count();
+        $data['count_in'] = Children_status::where('status','1')->where('id_program',$id)->whereDay('updated_at',$data['dayupdate'])->count();
+        $data['count_out'] = Children_status::where('status','2')->where('id_program',$id)->whereDay('updated_at',$data['dayupdate'])->count();
+        $data['count_absent'] = Children_status::where('status','3')->where('id_program',$id)->whereDay('updated_at',$data['dayupdate'])->count();
+        $data['count_active'] = Children_status::where('active','1')->where('id_program',$id)->whereDay('updated_at',$data['dayupdate'])->count();
         
-        
+        return response()->json($data, 200);
 
-        return view('pages.attendance.attendance',$data);
     }
-   
     public function postAdd(Request $req,$id){
         
         $children_attendance = explode(',', $req->children_attendance);
@@ -70,7 +54,7 @@ class AttendanceChildrenController extends Controller
 
         
         if($req->children_attendance==null){
-            return redirect()->back()->with('danger','Please choose children !')->withInput();
+        	return response()->json(['message'=>'You have not chosen children !'], 404);
         }else{
             foreach ($children_attendance as $id_children) {
 
@@ -115,28 +99,24 @@ class AttendanceChildrenController extends Controller
                 }
                 
             }
-            return redirect()->back()->with('success','Attendance success !')->withInput();
+            return response()->json(['message'=>'Attendance success !'],201);
         }
         
     }
     public function list(Request $req){
-        $data['programs']  = Programs::all();
+        
 //        $data['child_atd1'] = Children_status::where('id_program', '=', $req->program)->whereDay('created_at', '=', $req->day)->whereMonth('created_at', '=', $req->month)->whereYear('created_at', '=', $req->year)->first();
-
         if ($req->program || $req->day || $req->month || $req->year) {
+        	$data['programs']  = Programs::all();
             $data['child_atd'] = Children_status::where('id_program', '=', $req->program)->whereDay('created_at', '=', $req->day)->whereMonth('created_at', '=', $req->month)->whereYear('created_at', '=', $req->year)->get();
             $data['id_program'] = $req->program;
             $data['day'] = $req->day;
             $data['month'] = $req->month;
-            
-            
-            return view('pages.attendance.list', $data);
+
+            return response()->json($data,200);
         }else {
-            // $current_month = Carbon::now()->format('M');
-            // $data['child_atd'] = Children_status::where('created_at', '=', $current_month)->where('created_at', '=', now()->year)->get();
-            return view('pages.attendance.list', $data);
+            return response()->json(['message'=>'Please chosen class and datetime!'],404);
         }
+       
     }
-
-
 }

@@ -12,9 +12,7 @@
 					<li class="level1"><a href="kids-now">@lang('kidsnow.home')</a></li>
 					<li class="active1" ><a href="kids-now/program">@lang('kidsnow.programs')</a></li>
 					<li class="active1 active-1" style="pointer-events: none;"><a href="">@lang('kidsnow.view_program')</a></li>
-					{--<li class="level1"><a href="kids-now">HOME</a></li>
-					<li class="active1" ><a href="kids-now/program">PROGRAM</a></li>
-					<li class="active1 active-1" style="pointer-events: none;"><a href="">VIEW PROGRAM</a></li>--}
+
 				</ul>
 			</div>
 		</div>
@@ -49,21 +47,69 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="row">
-								<div class="col-md-6 input_box">
+								{{--<div class="col-md-6 input_box">--}}
+									{{--<span class="input_box_span_active">@lang('kidsnow.program_fee')</span>--}}
+									{{--<input type="text" name="text" placeholder="Program Fee " value="{{number_format(floatval($program->program_fee),2)}}">--}}
+								{{--</div>--}}
+								{{--<div class="col-md-6 input_box">--}}
+									{{--<span class="input_box_span_active">@lang('kidsnow.period')</span>--}}
+									{{--<select>--}}
+										{{--<option @if($program->period_fee == '/week') selected="selected" @endif>/week</option>--}}
+										{{--<option @if($program->period_fee == '/month') selected="selected" @endif>/month</option>--}}
+										{{--<option @if($program->period_fee == '/year') selected="selected" @endif>/year</option>--}}
+									{{--</select>--}}
+								{{--</div>--}}
+								<div class="col-md-5 input_box">
 									<span class="input_box_span_active">@lang('kidsnow.program_fee')</span>
-									<input type="text" name="text" placeholder="Program Fee " value="{{number_format(floatval($program->program_fee),2)}}">
+									<input type="text" name="program_fee" id="program_fee" placeholder="Program Fee" value="{{($program->program_fee)}}">
+									@if ($errors->has('program_fee'))
+										<div class="text text-danger">
+											{{ $errors->first('program_fee') }}
+										</div>
+									@endif
 								</div>
-								<div class="col-md-6 input_box">
-									<span class="input_box_span_active">@lang('kidsnow.period')</span>
-									<select>
-										<option @if($program->period_fee == '/week') selected="selected" @endif>/week</option>
-										<option @if($program->period_fee == '/month') selected="selected" @endif>/month</option>
-										<option @if($program->period_fee == '/year') selected="selected" @endif>/year</option>
+								<div class="col-md-3 input_box">
+									<span>Currency</span>
+									<select name="currency">
+										<option value="" selected>Currency</option>
+										<option @if(old('currency') == "VND") selected='selected' @endif value="VND">/VND</option>
+										<option @if(old('currency') == "USD") selected='selected' @endif value="USD">/USD</option>
+										<option @if(old('currency') == "EUR") selected='selected' @endif value="EUR">/EUR</option>
 									</select>
+									@if ($errors->has('period_fee'))
+										<div class="text text-danger">
+											{{ $errors->first('period_fee') }}
+										</div>
+									@endif
+								</div>
+								<div class="col-md-4 input_box">
+									<span class="input_box_span_active">@lang('kidsnow.period')</span>
+									<select name="period_fee">
+										<option value="" selected>Period Fee</option>
+										<option @if($program->period_fee == "/week") selected='selected' @endif value="/week">/week</option>
+										<option @if($program->period_fee == "/month") selected='selected' @endif value="/month">/month</option>
+										<option @if($program->period_fee == "/year") selected='selected' @endif value="/year">/year</option>
+									</select>
+									@if ($errors->has('period_fee'))
+										<div class="text text-danger">
+											{{ $errors->first('period_fee') }}
+										</div>
+									@endif
 								</div>
 							</div>
 						</div>
-						<div class="col-md-6"></div>
+						<div class="col-md-6 input_box">
+							<span class="input_box_span_active">Status</span>
+							<select name="status">
+								<option @if($program->status == 1) selected='selected' @endif value="1">Open</option>
+								<option @if($program->status == 0) selected='selected' @endif value="1">Close</option>
+							</select>
+							@if ($errors->has('status'))
+								<div class="text text-danger">
+									{{ $errors->first('status') }}
+								</div>
+							@endif
+						</div>
 					</div>
 					<hr>
 					<div class="row">
@@ -116,12 +162,12 @@
 						<div class="col-md-5">
 							<div class="row">
 								<div class="col-md-6 input_box">
-									<span class="input_box_span_active">HH:MM </span>
-									<input type="time" name="time" value="{{$program->start_time}}">
+									<span class="input_box_span_active">Start Time </span>
+									<input type="text" class="timepicker" name="time" value="{{$program->start_time}}">
 								</div>
 								<div class="col-md-6 input_box">
-									<span class="input_box_span_active">HH:MM </span>
-									<input type="time" name="time" value="{{$program->finish_time}}">
+									<span class="input_box_span_active">Finish Time </span>
+									<input type="text" class="timepicker" name="time" value="{{$program->finish_time}}">
 								</div>
 							</div>
 						</div>
@@ -139,8 +185,8 @@
 						@if(count($staff_profiles) > 0)
 							@foreach($staff_profiles as $staff)
 							<div _ngcontent-c19="" class="div_box_staff col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1">
-								<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;cursor: pointer">
-									<div _ngcontent-c9="" class="image" data-toggle="modal" data-target=".bd-example-modal-sm">
+								<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
+									<div _ngcontent-c9="" class="image" >
 										<img _ngcontent-c19="" class="img-circle" onerror="this.src='images/Staff.png';" style="height: 80px" width="80" src="{{$staff->image}}">
 										<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked"></i>
 										<!---->
@@ -167,8 +213,8 @@
 						@if(count($staff_profiles) > 0)
 							@foreach($children_profiles as $children)
 							<div _ngcontent-c19="" class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1">
-								<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center; cursor: pointer">
-									<div _ngcontent-c9="" class="image" data-toggle="modal" data-target=".bd-example-modal-sm">
+								<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
+									<div _ngcontent-c9="" class="image" >
 										<img _ngcontent-c19="" class="img-circle" onerror="this.src='images/Child.png';" style="height: 80px" width="80" src="{{$children->image}}">
 										<i _ngcontent-c9="" aria-hidden="true" class="fa fa-check checked" id="checked"></i>
 										<!---->

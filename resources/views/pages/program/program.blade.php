@@ -88,7 +88,7 @@
 
 			$(".search-input").typeahead({
 				hint: true,
-				highlight: true,
+				highlight: false,
 				minLength: 1
 			}, [
 				{
@@ -105,7 +105,7 @@
 
 						],
 						suggestion: function (data) {
-							return '<a href="kids-now/program/view/' + data.id + '" class="list-group-item" style="width: 500px; color: inherit"> ' + data.program_name +  '</a>';
+							return '<a href="kids-now/program/view/' + data.id + '" class="list-group-item" style="width: 500px; color: inherit; font-weight: bold"> ' + data.program_name +  '</a>';
 						}
 					}
 				},

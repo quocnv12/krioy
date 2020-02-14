@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\StoreHeathRequests;
 use App\models\ChildrenProfiles;
+use App\models\ChildrenProgram;
 use App\models\HealthModel;
 use App\models\ObservationTypeModel;
 use App\models\Programs;
@@ -18,8 +19,7 @@ class HealthController extends Controller
     public function getList(){
 
         $health = HealthModel :: all();
-
-        return view('pages.heath.list', compact('health'));
+        return view('pages.heath.list', compact('health','programs'));
     }
 
     public function getAdd(){
@@ -60,6 +60,8 @@ class HealthController extends Controller
             $health->growth_weight = $request->growth_weight;
             $health->incident = $request->incident;
             $health->blood_group = $request->blood_group;
+
+
 
             if ($request->hasFile('image')) {
                 $file = $request->image;

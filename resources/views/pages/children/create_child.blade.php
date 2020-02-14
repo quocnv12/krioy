@@ -209,8 +209,8 @@
 						<div class="row" style="">
 							<!---->
 							@foreach($programs as $program)
-								<div align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2" style="padding:10px 0;cursor:pointer;width: 50%;">
-									<button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" type="button" data-toggle="tooltip" title="{{$program->program_name}}" value="{{$program->id}}">{{$program->program_name}}</button>
+								<div align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-3" style="padding:10px;cursor:pointer;">
+									<button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px;width: 100%" type="button" data-toggle="tooltip" title="{{$program->program_name}}" value="{{$program->id}}">{{$program->program_name}}</button>
 								</div>
 							@endforeach
 							<input id="array_program" type="hidden" value="" name="programs">
@@ -304,7 +304,7 @@
 									</div>
 									<div class="input_box" style="width: 100%;">
 										<span>E-Mail Address </span>
-										<input class="parent_1" name="email_parent_1" placeholder="E-Mail Address " value="{{old('email_parent_1')}}">
+										<input class="parent_1" id="email_parent_1" name="email_parent_1" placeholder="E-Mail Address " value="{{old('email_parent_1')}}">
 										@if ($errors->has('email_parent_1'))
 											<div class="text text-danger">
 												{{ $errors->first('email_parent_1') }}
@@ -366,7 +366,7 @@
 										<div class="col-md-6 input_box">
 											<span>GENDER *</span>
 											<select class="parent_2" name="gender_parent_2">
-												<option>Gender</option>
+												<option selected value="">Gender</option>
 												<option value="1" @if(old('gender_parent_2') == 1) selected="selected" @endif>Nam</option>
 												<option value="2" @if(old('gender_parent_2') == 2) selected="selected" @endif>Nữ</option>
 											</select>
@@ -406,7 +406,7 @@
 									</div>
 									<div class="input_box" style="width: 100%;">
 										<span>E-Mail Address </span>
-										<input class="parent_2" name="email_parent_2" placeholder="E-Mail Address " value="{{old('email_parent_2')}}">
+										<input class="parent_2" id="email_parent_2" name="email_parent_2" placeholder="E-Mail Address " value="{{old('email_parent_2')}}">
 										@if ($errors->has('email_parent_2'))
 											<div class="text text-danger">
 												{{ $errors->first('email_parent_2') }}
@@ -431,7 +431,7 @@
 		</div>
 			<div class="comment">
 				<div class="button" style="text-align: center;">
-					<button type="reset">
+					<button type="reset" onclick="goBack()">
 						<span>CANCEL</span>
 					</button>
 					<button class="button2" type="submit" id="submit_button">
@@ -489,6 +489,7 @@
     			array.push(program_push);
     		}
 		});
+
 
 		$('#submit_button').click(function(event) {
 			$('#array_program').attr('value', array);
@@ -605,6 +606,8 @@
 			$('#first_name_parent_2').focusout() && $('#last_name_parent_2').focusout(function () {
 				disableParent2()
 			})
+
+
 		})
 
 		function disableParent1() {

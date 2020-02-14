@@ -22,6 +22,9 @@ class NoticeBoardController extends Controller
 
     public function detail($id){
         $notice_board = NoticeBoard::find($id);
+        if (!$notice_board){
+            return view('pages.not-found.notfound');
+        }
         $programs = Programs::orderBy('program_name')->get();
         $programs_choose = DB::table('programs')
             ->join('programs_notice', 'programs.id', '=', 'programs_notice.id_programs')
@@ -52,13 +55,12 @@ class NoticeBoardController extends Controller
                 'title'     =>  'required',
                 'important' =>  'nullable',
                 'archive'   =>  'nullable',
-                'content'   =>  'required',
+                'content'   =>  'nullable',
                 'writer'    =>  'nullable',
                 'programs'  =>  'required'
             ],
             [
                 'title.required'        =>  'Please input title',
-                'content.required'      =>  'Please input content',
                 'programs.required'     =>  'Please choose programs',
             ]);
 
@@ -142,7 +144,9 @@ class NoticeBoardController extends Controller
     public function edit($id)
     {
         $notice_board = NoticeBoard::find($id);
-
+        if (!$notice_board){
+            return view('pages.not-found.notfound');
+        }
         $programs = Programs::orderBy('program_name')->get();
 
         $programs_choose = DB::table('programs')
@@ -169,7 +173,7 @@ class NoticeBoardController extends Controller
                 'title'     =>  'required',
                 'important' =>  'nullable',
                 'archive'   =>  'nullable',
-                'content'   =>  'required',
+                'content'   =>  'nullable',
                 'writer'    =>  'nullable',
             ],
             [
@@ -235,8 +239,10 @@ class NoticeBoardController extends Controller
 
     public function destroy($id)
     {
-        $notice_board = NoticeBoard::findOrFail($id);
-
+        $notice_board = NoticeBoard::find($id);
+        if (!$notice_board){
+            return view('pages.not-found.notfound');
+        }
         if ($notice_board->clip_board){
             $old_array = explode('/*endfile*/',$notice_board->clip_board);
             foreach ($old_array as $key=>$value){

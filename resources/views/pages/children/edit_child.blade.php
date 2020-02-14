@@ -24,7 +24,7 @@
                         <li class="active1 active-1" style="pointer-events: none"><a href="">EDIT CHILDREN</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target="" style="display: flex; justify-content: flex-end; z-index: -1;">
+                <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target="" style="display: flex; justify-content: flex-end; ">
                     <button class="notice" type="button" >
                         <span><a href="kids-now/children/delete/{{$children_profiles->id}}" style="color: inherit; " onclick="return deleteConfirm()">DELETE</a></span>
                     </button>
@@ -209,8 +209,8 @@
                         <div _ngcontent-c20="" class="row" style="">
                             <!---->
                                 @foreach($programs as $program)
-                                    <div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted" style="padding:10px;cursor:pointer">
-                                        <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1 @if(in_array($program->id, $array_programs_choose)) tablinks1_active @endif" style="background-color: transparent; border:1px solid #5363d6;border-radius: 4px" type="button" data-toggle="tooltip" title="{{$program->program_name}}" value="{{$program->id}}">{{$program->program_name}}</button>
+                                    <div _ngcontent-c20="" align="center" class="col-xs-6 col-sm-4 col-md-3 col-lg-3 ng-star-inserted" style="padding:10px;cursor:pointer">
+                                        <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1 @if(in_array($program->id, $array_programs_choose)) tablinks1_active @endif" style="background-color: transparent; border:1px solid #5363d6;border-radius: 4px;width: 100%" type="button" data-toggle="tooltip" title="{{$program->program_name}}" value="{{$program->id}}">{{$program->program_name}}</button>
                                     </div>
                                 @endforeach
                             <input id="array_programs_new" type="hidden" value="" name="programs_new">
@@ -252,6 +252,11 @@
                                                         {{ $errors->first('first_name_parent_1') }}
                                                     </div>
                                                 @endif
+                                                @if(session('notify_p1'))
+                                                    <p class="text text-danger">
+                                                        {{session('notify_p1')}}
+                                                    </p>
+                                                @endif
                                             </div>
                                             <div class="col-md-6 input_box">
                                                 <span class="input_box_span_active">Last Name *</span>
@@ -261,13 +266,18 @@
                                                         {{ $errors->first('last_name_parent_1') }}
                                                     </div>
                                                 @endif
+                                                @if(session('notify_p1'))
+                                                    <p class="text text-danger">
+                                                        {{session('notify_p1')}}
+                                                    </p>
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6 input_box">
                                                 <span class="input_box_span_active">Gender </span>
                                                 <select name="gender_parent_1">
-                                                    <option>Gender</option>
+                                                    <option value="">Gender</option>
                                                     <option value="1" @if($parent_profiles_1->gender == 1) selected="selected" @endif>Nam</option>
                                                     <option value="2" @if($parent_profiles_1->gender == 2) selected="selected" @endif>Nữ</option>
                                                 </select>
@@ -332,7 +342,7 @@
                                 <div class="row">
                                     <div class="col-md-2 textera-img">
                                         <a style="cursor: pointer;">
-                                            <input class="parent_2" type="file" id="uploadfile_parent_1" name="image_parent_1" accept="image/*">
+                                            <input class="parent_1" type="file" id="uploadfile_parent_1" name="image_parent_1" accept="image/*">
                                             <img src="images/Parent.png" alt="" id="demo_image_parent_1" style="height: 100px">
                                             <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
                                             @if ($errors->has('image_parent_1'))
@@ -353,6 +363,11 @@
                                                             {{ $errors->first('first_name_parent_1') }}
                                                         </div>
                                                     @endif
+                                                    @if(session('notify_p1'))
+                                                        <p class="text text-danger">
+                                                            {{session('notify_p1')}}
+                                                        </p>
+                                                    @endif
                                                 </div>
                                                 <div class="col-md-6 input_box">
                                                     <span>Last Name *</span>
@@ -362,13 +377,18 @@
                                                             {{ $errors->first('last_name_parent_1') }}
                                                         </div>
                                                     @endif
+                                                    @if(session('notify_p1'))
+                                                        <p class="text text-danger">
+                                                            {{session('notify_p1')}}
+                                                        </p>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6 input_box">
                                                     <span>GENDER *</span>
                                                     <select class="parent_1" name="gender_parent_1">
-                                                        <option value="">Gender</option>
+                                                        <option selected value="">Gender</option>
                                                         <option value="1" @if(old('gender_parent_1') == 1) selected="selected" @endif>Nam</option>
                                                         <option value="2" @if(old('gender_parent_1') == 2) selected="selected" @endif>Nữ</option>
                                                     </select>
@@ -456,6 +476,11 @@
                                                         {{ $errors->first('first_name_parent_2') }}
                                                     </div>
                                                 @endif
+                                                @if(session('notify_p2'))
+                                                    <p class="text text-danger">
+                                                        {{session('notify_p2')}}
+                                                    </p>
+                                                @endif
                                             </div>
                                             <div class="col-md-6 input_box">
                                                 <span class="input_box_span_active">Last Name *</span>
@@ -465,13 +490,18 @@
                                                         {{ $errors->first('last_name_parent_2') }}
                                                     </div>
                                                 @endif
+                                                @if(session('notify_p2'))
+                                                    <p class="text text-danger">
+                                                        {{session('notify_p2')}}
+                                                    </p>
+                                                @endif
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6 input_box">
                                                 <span class="input_box_span_active">Gender </span>
                                                 <select name="gender_parent_2">
-                                                    <option>Gender</option>
+                                                    <option value="">Gender</option>
                                                     <option value="1" @if($parent_profiles_2->gender == 1) selected="selected" @endif>Nam</option>
                                                     <option value="2" @if($parent_profiles_2->gender == 2) selected="selected" @endif>Nữ</option>
                                                 </select>
@@ -557,6 +587,11 @@
                                                             {{ $errors->first('first_name_parent_2') }}
                                                         </div>
                                                     @endif
+                                                    @if(session('notify_p2'))
+                                                        <p class="text text-danger">
+                                                            {{session('notify_p2')}}
+                                                        </p>
+                                                    @endif
                                                 </div>
                                                 <div class="col-md-6 input_box">
                                                     <span>Last Name *</span>
@@ -566,13 +601,18 @@
                                                             {{ $errors->first('last_name_parent_2') }}
                                                         </div>
                                                     @endif
+                                                    @if(session('notify_p2'))
+                                                        <p class="text text-danger">
+                                                            {{session('notify_p2')}}
+                                                        </p>
+                                                    @endif
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6 input_box">
                                                     <span>GENDER *</span>
                                                     <select class="parent_2" name="gender_parent_2">
-                                                        <option value="">Gender</option>
+                                                        <option selected value="">Gender</option>
                                                         <option value="1" @if(old('gender_parent_2') == 1) selected="selected" @endif>Nam</option>
                                                         <option value="2" @if(old('gender_parent_2') == 2) selected="selected" @endif>Nữ</option>
                                                     </select>
@@ -641,7 +681,7 @@
 
             <div class="comment">
                 <div class="button" style="text-align: center;">
-                    <button type="reset">
+                    <button type="reset" onclick="goBack()">
                         <span>CANCEL</span>
                     </button>
                     <button class="button2" type="submit" id="submit_button">
@@ -801,24 +841,33 @@
     <script>
         $(document).ready(function () {
             $('.accordion').click()
-            $('.parent_1').attr('disabled', true);
+
+            disableParent1();
             $('#first_name_parent_1').focusout() && $('#last_name_parent_1').focusout(function () {
-                if ($('#first_name_parent_1').val() == '' && $('#last_name_parent_1').val() == ''){
-                    $('.parent_1').attr('disabled', true);
-                }else {
-                    $('.parent_1').attr('disabled', false);
-                }
+                disableParent1();
             })
 
-            $('.parent_2').attr('disabled', true);
+            disableParent2();
             $('#first_name_parent_2').focusout() && $('#last_name_parent_2').focusout(function () {
-                if ($('#first_name_parent_2').val() == '' && $('#last_name_parent_2').val() == ''){
-                    $('.parent_2').attr('disabled', true);
-                }else {
-                    $('.parent_2').attr('disabled', false);
-                }
+                disableParent2()
             })
         })
+
+        function disableParent1() {
+            if ($('#first_name_parent_1').val() == '' && $('#last_name_parent_1').val() == ''){
+                $('.parent_1').attr('disabled', true);
+            }else {
+                $('.parent_1').attr('disabled', false);
+            }
+        }
+
+        function disableParent2() {
+            if ($('#first_name_parent_2').val() == '' && $('#last_name_parent_2').val() == ''){
+                $('.parent_2').attr('disabled', true);
+            }else {
+                $('.parent_2').attr('disabled', false);
+            }
+        }
     </script>
 @endsection
 

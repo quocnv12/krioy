@@ -20,8 +20,8 @@ class CreateProgramsTable extends Migration
             $table->tinyInteger('to_month')->nullable();
             $table->year('from_year')->nullable();
             $table->year('to_year')->nullable();
-            $table->time('start_time')->nullable();
-            $table->time('finish_time')->nullable();
+            $table->string('start_time')->nullable();
+            $table->string('finish_time')->nullable();
             $table->string('schedule')->nullable();
             $table->double('program_fee',20)->nullable();
             $table->string('currency')->nullable();

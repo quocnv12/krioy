@@ -33,8 +33,19 @@ Route::post('account','Api\ForgotPassWordController@postDemoAccount');
 Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
     Route::post('logout', 'Api\LoginController@logout');
 
+
+    //---------------AttendanceChildren----------------
+    Route::group(['prefix' => 'attendance'], function (){
+        Route::get('/','Api\AttendanceChildrenController@index')->name('attendance.index');
+        Route::get('list','Api\AttendanceChildrenController@list')->name('attendance.list');
+        Route::get('/{id}','Api\AttendanceChildrenController@show')->name('attendance.show');
+        Route::post('add/{id}','Api\AttendanceChildrenController@postAdd')->name('attendance.postAdd');
+       
+    });
+
     //--đổi mật khẩu------
     Route::post('update-password', 'Api\ForgotPassWordController@postUpdatePassword');
+
 
     //------------food----------------
     Route::group(['prefix' => 'food'], function () {
@@ -160,6 +171,9 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
         Route::get('delete_clipboard/{id}/{name}','Api\ObservationController@deleteClipboard');
 
     });
+
+    //---------------observationtype----------------
+
     Route::group(['prefix' => 'observationtype'], function () {
 
         Route::get('xoa/{id}',['as'=>'admin.observationtype.getDelete','uses'=>'Api\ObservationTypeController@getDelete']);
@@ -168,6 +182,24 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
         Route::get('them',['as'=>'admin.observationtype.add','uses'=>'Api\ObservationTypeController@getAdd']);
         Route::post('them',['as'=>'admin.observationtype.add','uses'=>'Api\ObservationTypeController@postAdd']);
 
+
+    });
+    //---------------health----------------
+    Route::group(['prefix' => 'health'], function () {
+
+        Route::get('danhsach', ['as'=>'admin.health.list','uses'=>'Api\HealthController@getList']);
+        Route::get('them',['as'=>'admin.health.getAdd','uses'=>'Api\HealthController@getAdd']);
+        Route::post('them',['as'=>'admin.health.getAdd','uses'=>'Api\HealthController@postAdd']);
+        Route::get('xoa/{id}',['as'=>'admin.health.getDelete','uses'=>'Api\HealthController@getDelete'])->middleware(['can:edit-profile']);
+        Route::get('sua/{id}',['as'=>'admin.health.getEdit','uses'=>'Api\HealthController@getEdit'])->middleware(['can:edit-profile']);
+        Route::post('sua/{id}',['as'=>'admin.health.postEdit','uses'=>'Api\HealthController@postEdit']);
+        Route::get('search',['as'=>'admin.health.search','uses'=>'Api\HealthController@getSearch']);
+        Route::post('search',['as'=>'admin.health.search','uses'=>'Api\HealthController@postSearch']);
+        Route::get('them_child',['as'=>'admin.health.child','uses'=>'Api\HealthController@getChild']);
+        Route::post('them_child',['as'=>'admin.health.child','uses'=>'Api\HealthController@postChild']);
+        Route::get('search/children', 'Api\HealthController@searchByName');
+        Route::get('select_child/add','Api\HealthController@addSelectChild');
+        Route::get('show/{id}','Api\HealthController@showChildrenInProgram');
 
     });
 });

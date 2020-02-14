@@ -18,7 +18,7 @@ class CreateNoticeBoardTable extends Migration
             $table->string('title');
             $table->integer('important')->nullable();
             $table->integer('archive')->nullable()->default(0);
-            $table->text('content');
+            $table->text('content')->nullable();
             $table->string('writer')->nullable();
             $table->text('clip_board')->nullable();
             $table->timestamps();

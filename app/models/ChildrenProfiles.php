@@ -3,6 +3,7 @@
 namespace App\models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class ChildrenProfiles extends Model
 {
@@ -31,6 +32,12 @@ class ChildrenProfiles extends Model
     public function chil_atd(){
         return $this->hasMany(Children_status::class,'id_children','id');
     }
+
+    public function parent_children()
+    {
+        return $this->belongsToMany('App\models\ParentProfiles','children_parent','id_children', 'id_parent' );
+    }
+
     public function chil_progam()
     {
         return $this->belongsToMany(Programs::class, 'children_programs', 'id_children', 'id_program');
@@ -40,6 +47,17 @@ class ChildrenProfiles extends Model
     {
         return "{$this->first_name} {$this->last_name}";
     }
+
+    public static function getIdObservation($id){
+        $object =  ObservationModel::where('id_children','=',$id)->orderBy('created_at','DESC')->first();
+        return $object['id'];
+    }
+
+    public static function getIdHealth($id){
+        $object =  HealthModel::where('id_children','=',$id)->orderBy('created_at','DESC')->first();
+        return $object['id'];
+    }
+
 
     protected $timestamp = false;
 

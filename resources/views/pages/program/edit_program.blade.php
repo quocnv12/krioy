@@ -35,7 +35,7 @@
                         <li class="active1 active-1" ><a href="">EDIT PROGRAM</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target="" style="display: flex; justify-content: flex-end">
+                <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target="" style="display: flex; justify-content: flex-end;">
                     <button class="notice" type="button">
                         <span><a href="kids-now/program/delete/{{$program->id}}" style="color: inherit" onclick="return deleteConfirm()">DELETE</a></span>
                     </button>
@@ -137,6 +137,7 @@
 						<div class="col-md-6 input_box">
 							<span class="input_box_span_active">Status</span>
 							<select name="status">
+								<option value="" selected>Status</option>
 								<option @if($program->status == 1) selected='selected' @endif value="1">Open</option>
 								<option @if($program->status == 0) selected='selected' @endif value="1">Close</option>
 							</select>
@@ -230,8 +231,8 @@
 						<div class="col-md-5">
 							<div class="row">
 								<div class="col-md-6 input_box">
-									<span class="input_box_span_active">HH:MM </span>
-									<input type="time" name="start_time" value="{{$program->start_time}}">
+									<span class="input_box_span_active">Start Time </span>
+									<input type="text" class="timepicker" name="start_time" value="{{$program->start_time}}">
 									@if ($errors->has('start_time'))
 										<div class="text text-danger">
 											{{ $errors->first('start_time') }}
@@ -239,8 +240,8 @@
 									@endif
 								</div>
 								<div class="col-md-6 input_box">
-									<span class="input_box_span_active">HH:MM </span>
-									<input type="time" name="finish_time" value="{{$program->finish_time}}">
+									<span class="input_box_span_active">Finish Time </span>
+									<input type="text" class="timepicker" name="finish_time" value="{{$program->finish_time}}">
 									@if ($errors->has('finish_time'))
 										<div class="text text-danger">
 											{{ $errors->first('finish_time') }}
@@ -263,15 +264,14 @@
 					<div class="panel">
 						<div _ngcontent-c20="" class="row" style="" id="staff_list">
                             @foreach($staff_in_program as $staff)
-                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
-                                    <div class="child-class" style="height: 120px;text-align: center;">
-                                        <div class="image">
-                                            <img class="img-circle" height="80" onerror="this.src='images/Staff.png';" style="height: 80px" width="80" src="{{$staff->image}}">
+                                <div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
+                                    <div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
+                                        <div _ngcontent-c19="" class="image">
+                                            <img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Staff.png';" style="height: 80px" width="80" src="{{$staff->image}}">
                                             <input type="hidden" value="{{$staff->id}}">
-                                            {{--<button class="btn btn-sm btn-danger" type="button" onclick="deleteStaff({{$staff->id}})">X</button>--}}
 											<span class="delete-staff" onclick="deleteStaff({{$staff->id}})" style="position: absolute; top: 0"><i class="fas fa-times-circle" style="color: red ; cursor: pointer"></i></span>
 											<br>
-                                            <span class="limitText ng-star-inserted"><a target="_blank" href="kids-now/staff/edit/{{$staff->id}}" style="margin: 0">{{$staff->first_name}} {{$staff->last_name}}</a></span>
+                                            <span _ngcontent-c19="" class="limitText ng-star-inserted"><a target="_blank" href="kids-now/staff/edit/{{$staff->id}}" style="margin: 0">{{$staff->first_name}} {{$staff->last_name}}</a></span>
                                         </div>
                                     </div>
                                 </div>
@@ -301,15 +301,15 @@
 					<div class="panel">
 						<div _ngcontent-c20="" class="row" id="children_list">
 							@foreach($children_in_program as $children)
-								<div class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
-									<div class="child-class" style="height: 120px;text-align: center;">
-										<div class="image">
-											<img class="img-circle" height="80" onerror="this.src='images/Child.png';" style="height: 80px" width="80" src="{{$children->image}}">
+								<div _ngcontent-c19="" class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
+									<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
+										<div _ngcontent-c19="" class="image">
+											<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Child.png';" style="height: 80px" width="80" src="{{$children->image}}">
 											<input type="hidden" value="{{$children->id}}">
 											{{--<button class="btn btn-sm btn-danger" type="button" onclick="deleteChild({{$children->id}})">X</button>--}}
 											<span class="delete-child" onclick="deleteChild({{$children->id}})" style="position: absolute; top: 0"><i class="fas fa-times-circle" style="color: red ; cursor: pointer"></i></span>
 											<br>
-											<span class="limitText ng-star-inserted"><a target="_blank" href="kids-now/children/edit/{{$children->id}}" style="margin: 0">{{$children->first_name}} {{$children->last_name}}</a></span>
+											<span _ngcontent-c19="" class="limitText ng-star-inserted"><a target="_blank" href="kids-now/children/edit/{{$children->id}}" style="margin: 0">{{$children->first_name}} {{$children->last_name}}</a></span>
 										</div>
 									</div>
 								</div>
@@ -469,10 +469,6 @@
 			}
 		});
 
-		function goBack() {
-			window.history.back();
-		}
-
     </script>
 	<script >
 		$('.delete-child').click(function() {
@@ -532,7 +528,7 @@
 
 			$(".search-input").typeahead({
 				hint: true,
-				highlight: true,
+				highlight: false,
 				minLength: 1
 			}, [
 				{
@@ -549,7 +545,7 @@
 
 						],
 						suggestion: function (data) {
-							return '<a onclick="getIdChildren('+data.id+')" class="list-group-item" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949; width: 500px; "> ' + data.first_name +' '+ data.last_name + '<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
+							return '<a onclick="getIdChildren('+data.id+')" class="list-group-item" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949; width: 500px; "> ' + data.first_name +' '+ data.last_name +' &nbsp('+ data.birthday +')<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
 						}
 					}
 				},
@@ -566,7 +562,7 @@
 
 			$(".search-input2").typeahead({
 				hint: true,
-				highlight: true,
+				highlight: false,
 				minLength: 1
 			}, [
 				{

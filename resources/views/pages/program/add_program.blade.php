@@ -125,6 +125,7 @@
 					<div class="col-md-6 input_box">
 						<span>Status</span>
 						<select name="status">
+							<option value="">Status</option>
 							<option @if(old('status') == 1) selected='selected' @endif value="1">Open</option>
 							<option @if(old('status') == 0) selected='selected' @endif value="1">Close</option>
 						</select>
@@ -218,8 +219,8 @@
 					<div class="col-md-5">
 						<div class="row">
 							<div class="col-md-6 input_box">
-								<span>HH:MM </span>
-								<input type="time" name="start_time" value="{{old('start_time')}}">
+								<span class="input_box_span_active">Start Time </span>
+								<input type="text" class="timepicker" name="start_time" value="{{old('start_time')}}">
                                 @if ($errors->has('start_time'))
                                     <div class="text text-danger">
                                         {{ $errors->first('start_time') }}
@@ -227,8 +228,8 @@
                                 @endif
 							</div>
 							<div class="col-md-6 input_box">
-								<span>HH:MM </span>
-								<input type="time" name="finish_time" value="{{old('finish_time')}}">
+								<span class="input_box_span_active">Finish Time </span>
+								<input type="text" class="timepicker" name="finish_time" value="{{old('finish_time')}}">
                                 @if ($errors->has('finish_time'))
                                     <div class="text text-danger">
                                         {{ $errors->first('finish_time') }}
@@ -282,7 +283,7 @@
 		<div class="comment">
 			<p id="error_total" style="text-align: center; color: red"></p>
 			<div class="button" style="text-align: center;">
-				<button type="reset">
+				<button type="reset" onclick="goBack()">
 					<span>CANCEL</span>
 				</button>
 				<button class="button2" type="submit" id="submit_button">
@@ -310,6 +311,7 @@
     
     <!-- Main Script -->
     <script src="js/main.js"></script>
+
     <script>
 		var acc = document.getElementsByClassName("accordion");
 		var i;
@@ -476,7 +478,7 @@
 
 			$(".search-input").typeahead({
 				hint: true,
-				highlight: true,
+				highlight: false,
 				minLength: 1
 			}, [
 				{
@@ -493,7 +495,7 @@
 
 						],
 						suggestion: function (data) {
-							return '<a onclick="getIdChildren('+data.id+')" class="list-group-item" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;padding: 10px; margin: 0;color: #424949;width: 500px;"> ' + data.first_name +' '+ data.last_name + ' ('+ data.birthday +')<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
+							return '<a onclick="getIdChildren('+data.id+')" class="list-group-item" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;width: 500px;"> ' + data.first_name +' '+ data.last_name + ' &nbsp('+ data.birthday +')<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
 						}
 					}
 				},
@@ -510,7 +512,7 @@
 
 			$(".search-input2").typeahead({
 				hint: true,
-				highlight: true,
+				highlight: false,
 				minLength: 1
 			}, [
 				{
@@ -527,7 +529,7 @@
 
 						],
 						suggestion: function (data) {
-							return '<a onclick="getIdStaff('+data.id+')" class="list-group-item" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;padding: 10px; margin: 0;color: #424949;width: 500px;"> ' + data.first_name +' '+ data.last_name + '<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
+							return '<a onclick="getIdStaff('+data.id+')" class="list-group-item" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;width: 500px;"> ' + data.first_name +' '+ data.last_name + '<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
 						}
 					}
 				},
