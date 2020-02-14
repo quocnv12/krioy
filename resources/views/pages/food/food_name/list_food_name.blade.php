@@ -50,16 +50,17 @@ Thực đơn
                       <table class="table table-striped" id="example">
                         <thead>
                           <tr>
-                            <th>ID</th>
-                            <th style="width:80%">Food Name</th>
-                            <th>Thao Tác</th>
+                            <th style="width:20%">Food Name</th>
+                                <th style="width:60%"></th>
+                                <th>Thao Tác</th>
                           </tr>
                         </thead>
                         <tbody>
-                            @foreach ($foodnames as $item)
+                            @foreach ($foodnames as $key => $item)
                             <tr class="odd gradeX">
-                                <td style="text-align:center">{{ $item->id }}</td>
+                              
                                 <td style="text-align:center;text-transform:capitalize">{{ $item->food_name}}</td>
+                                <td></td>
                                 <td style="text-align:center">
                                 <a href="{{ route('menu-food-name-edit',['id'=>$item->id]) }}" title="Edit Food Name" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
                                     <a onclick="return confirm('Delete food name ? Do you want continue !')" title="Delete Food Name" href="{{ route('menu-food-name-del',['id'=>$item->id]) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>

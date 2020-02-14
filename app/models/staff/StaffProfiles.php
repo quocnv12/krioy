@@ -8,6 +8,7 @@ class StaffProfiles extends Model
 {
     protected $table = 'staff_profiles';
 
+   
     public function programstaff()
     {
         return $this->belongsToMany('App\models\Programs', 'staff_programs', 'id_staff', 'id_program');

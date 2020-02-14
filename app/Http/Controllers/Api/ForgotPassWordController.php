@@ -48,6 +48,12 @@ class ForgotPassWordController extends Controller
     }
 
 
+
+
+
+
+
+    
     //---------------------Quên mật khẩu--------------------------
     public function PostFormResetPassword(request $request)
     {
@@ -64,7 +70,7 @@ class ForgotPassWordController extends Controller
         {
             return response()->json($validator->errors(), 400);
         }
-        $email=$request->emailreset;
+        $email=$request->email;
         $checkEmail = StaffProfiles::where('email',$email)->first();
         if(!$checkEmail)
         {
@@ -83,20 +89,6 @@ class ForgotPassWordController extends Controller
             $message->to($email, 'Reset Password')->subject('Reset Password Kids-now !');
         });
         return response()->json(['massage' => 'Send mail success, please check your email'], 200);
-    }
-
-    public function ResetPassword(request $request)
-    {
-        $code = $request->code;
-        $email = $request->email;
-        $checkEmail=StaffProfiles::where([
-            'code'=>$code,
-            'email'=>$email])->first();
-        if(!$checkEmail)
-        {
-            return response()->json(['massage' => 'Sorry the link to get the link back is incorrect !'], 200);
-        }
-        // //return view('pages.addmin-login.reset');
     }
 
     function PostResetPassword(request $request)
@@ -134,6 +126,18 @@ class ForgotPassWordController extends Controller
         return response()->json(['massage' => 'Password successfully recovered !'], 200);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
     //-------------------------Tài khoản dem0--------------------------
     public function postDemoAccount(request $request)
     {
@@ -163,7 +167,6 @@ class ForgotPassWordController extends Controller
         $staff->first_name = $request->first_name;
         $staff->email = $request->email;
         $staff->phone = $request->phone;
-        $staff->image = 'no-img.png';
         $staff->password = bcrypt($request->password);
         $staff->active =0;
         $staff->level =0;

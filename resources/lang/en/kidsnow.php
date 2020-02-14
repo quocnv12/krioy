@@ -188,7 +188,7 @@ return [
                 'first_name' => 'First name *',//@lang('kidsnow.first_name')
                 'last_name' => 'Last Name *',//@lang('kidsnow.last_name')
                 'phone_number' => 'Phone Number *',//@lang('kidsnow.phone_number')
-                'gender' => 'Gender *',//@lang('kidsnow.gender')
+                'gender' => 'Gender',//@lang('kidsnow.gender')
                 'email_address' => 'Email Address *',//@lang('kidsnow.email_address')
                 'email_already_exist' => '* Email already exist !',//@lang('kidsnow.email_already_exist')
                 'please_choose_image' => '* Please choose image !',//@lang('kidsnow.please_choose_image')
@@ -196,7 +196,7 @@ return [
                 'please_enter_address' => '* Please enter address !',//@lang('kidsnow.please_enter_address')
                 'Blood_group' => 'Blood Group *',//@lang('kidsnow.Blood_group')
                 'please_choose_blood_group' => '* Please choose blood_group !',//@lang('kidsnow.please_choose_blood_group')
-                'date_of_joining' => 'Date of Joining *',//@lang('kidsnow.date_of_joining')
+                'date_of_joining' => 'Date of Joining',//@lang('kidsnow.date_of_joining')
                 // END Edit Staff
 
     //END Staff Profiles

@@ -87,7 +87,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
     Route::get('/','Admin\IndexController@getHome');
    
     //---------------children----------------
-    Route::group(['prefix' => 'children'], function () {
+    Route::group(['prefix' => 'children','middleware' => 'checkacl:Children profiles'], function () {
         Route::get('/', 'Admin\ChildrenProfilesController@index');
         Route::get('/{id}', 'Admin\ChildrenProfilesController@show');
         Route::get('add', 'Admin\ChildrenProfilesController@create');
@@ -106,7 +106,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
     
     //---------------staff----------------
-    Route::group(['prefix' => 'staff'], function () {
+    Route::group(['prefix' => 'staff','middleware' => 'checkacl:Staff profiles'], function () {
         Route::get('','Admin\Staff\StaffController@GetListStaff');
         Route::get('add','Admin\Staff\StaffController@GetAddStaff');
         Route::post('add','Admin\Staff\StaffController@PostAddStaff');
@@ -116,7 +116,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
     });
 
     //---------------attendance----------------
-    Route::group(['prefix' => 'attendance'], function () {
+    Route::group(['prefix' => 'attendance','middleware' => 'checkacl:Attendance'], function () {
         Route::get('/','Admin\AttendanceChildrenController@index')->name('attendance.index');
         Route::get('/{id}','Admin\AttendanceChildrenController@show')->name('attendance.show');
         // Route::get('add','Admin\AttendanceChildrenController@getAdd')->name('attendance.getAdd');
@@ -125,7 +125,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
     });
 
     //---------------health----------------
-    Route::group(['prefix' => 'health'], function () {
+    Route::group(['prefix' => 'health','middleware' => 'checkacl:Health'], function () {
 
         Route::get('danhsach', ['as'=>'admin.health.list','uses'=>'Admin\HealthController@getList']);
         Route::get('them',['as'=>'admin.health.getAdd','uses'=>'Admin\HealthController@getAdd']);
@@ -144,7 +144,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
     });
 
     //---------------observation----------------
-    Route::group(['prefix' => 'observations'], function () {
+    Route::group(['prefix' => 'observations','middleware' => 'checkacl:Observations'], function () {
         Route::get('list', ['as'=>'admin.observations.list','uses'=>'Admin\ObservationController@getList']);
         Route::get('danhsachobservationtype', ['as'=>'admin.observations.listobservationtype','uses'=>'Admin\ObservationController@getListObservation']);
         Route::get('delete/{id}',['as'=>'admin.observations.getDelete','uses'=>'Admin\ObservationController@getDelete'])->middleware(['can:edit-profile']);
@@ -177,10 +177,8 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
 
     });
-   
-
     //---------------food----------------
-    Route::group(['prefix' => 'food'], function () {
+    Route::group(['prefix' => 'food','middleware' => 'checkacl:Food'], function () {
 
        
         Route::get('','Admin\FoodController@GetFood');
@@ -190,8 +188,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::post('edit/{id}','Admin\FoodController@PostEdit');
         Route::get('delete/{id}','Admin\FoodController@DeleteFood')->middleware(['can:edit-profile']);
 
-  
-
         //loại bữa ăn
         Route::get('menu-meal-type','Admin\FoodController@GetListMenuMealType');
         Route::get('menu-meal-type/add','Admin\FoodController@GetAddMenuMealType')->name('menu-meal-type-add');
@@ -200,10 +196,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::post('menu-meal-type/edit/{id}','Admin\FoodController@PostEditMenuMealType');
         Route::get('menu-meal-type/delete/{id}','Admin\FoodController@DeleteMenuMealType')->name('menu-meal-type-del')->middleware(['can:edit-profile']);
 
-
-
-
-
         //số lượng
         Route::get('menu-quantity','Admin\FoodController@GetListMenuQuantity');
         Route::get('menu-quantity/add','Admin\FoodController@GetAddMenuQuantity')->name('menu-quantity-add');
@@ -211,8 +203,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('menu-quantity/edit/{id_qty}','Admin\FoodController@GetEditMenuQuantity')->name('menu-quantity-edit')->middleware(['can:edit-profile']);
         Route::post('menu-quantity/edit/{id_qty}','Admin\FoodController@PostEditMenuQuantity');
         Route::get('menu-quantity/delete/{id_qty}','Admin\FoodController@DeleteMenuQuantity')->name('menu-quantity-del')->middleware(['can:edit-profile']);
-
-
 
         //tên món ăn
         Route::get('menu-food-name','Admin\FoodController@GetListMenuFoodName');
@@ -226,7 +216,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
 
     //---------------notice board----------------
-    Route::group(['prefix' => 'notice-board'], function () {
+    Route::group(['prefix' => 'notice-board','middleware' => 'checkacl:Noticeboard'], function () {
         Route::get('', 'Admin\NoticeBoardController@index');
         Route::get('/{id}', 'Admin\NoticeBoardController@show');
 
@@ -252,7 +242,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
 
     //---------------program----------------
-    Route::group(['prefix' => 'program'], function () {
+    Route::group(['prefix' => 'program','middleware' => 'checkacl:Programs'], function () {
         Route::get('', 'Admin\ProgramsController@index');
         Route::get('add', 'Admin\ProgramsController@create');
         Route::post('add', 'Admin\ProgramsController@store');
@@ -269,6 +259,22 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('search/staff','Admin\ProgramsController@searchStaff');
         Route::get('search/program','Admin\ProgramsController@searchProgram');
     });
+
+
+    //--------------------------------Phân Quyền-------------------------------
+    Route::group(['prefix' => 'role','middleware' => 'checkacl:Role'], function () {
+        Route::get('', 'Admin\PermissionControler@listRole');
+        Route::get('add', 'Admin\PermissionControler@getAddRole');
+        Route::post('add', 'Admin\PermissionControler@postAddRole');
+        Route::get('edit/{id}', 'Admin\PermissionControler@getEditRole')->middleware(['can:edit-profile']);
+        Route::post('edit/{id}', 'Admin\PermissionControler@postEditRole');
+        Route::get('delete/{id}', 'Admin\PermissionControler@deleteRole')->middleware(['can:edit-profile']);
+    
+    });
+
+
+
+
 });
 
 

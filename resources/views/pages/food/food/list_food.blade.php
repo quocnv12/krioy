@@ -67,7 +67,7 @@
 					  <table class="table table-striped" id="example">
 						<thead>
 						  <tr>
-							<th style="text-align:left;">ID</th>
+							{{-- <th style="text-align:left;">ID</th> --}}
 							<th style="text-align:left;width:18%">Meal Type</th>
 							<th style="text-align:left;width:20%">Food Name</th>
 							<th style="text-align:left;width:18%">Quantity</th>
@@ -78,7 +78,7 @@
 						<tbody>
 							@foreach ($foods as $item)
 							<tr class="odd gradeX">
-								<td>{{ $item->id }}</td>
+								{{-- <td>{{ $item->id }}</td> --}}
 								<td style="text-transform:capitalize">{{ $item->mealtypefood->name }}</td>
 								<td style="text-transform:capitalize">
 									@php

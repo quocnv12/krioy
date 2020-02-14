@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\models\staff\role;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -29,5 +30,23 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('edit-profile',function($users){
             return $users->level != 0;
         });
+
+        // if (! $this->app->runningInConsole()) {
+        //     // foreach (role::all() as $permission) {
+        //     //     Gate::define($permission->name, function($user) use ($permission){
+        //     //         foreach ($user->pesmissionstaff as $value) 
+        //     //         {  
+        //     //             return $value->name == $permission->name;
+        //     //         }
+        //     //     });
+        //     // 
+        // }
+
+        // Gate::define('principal', function($user){
+        //     return true;
+        // });
+        //  Gate::define('principal', function($user){
+        //     return true;
+        // });
     }
 }

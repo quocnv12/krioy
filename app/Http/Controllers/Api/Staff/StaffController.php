@@ -74,6 +74,41 @@ class StaffController extends Controller
            $staff->image=$file_name ;
        }
         $staff->save();
+
+        if($request->id_program != Null)
+        {
+            $staffprogram = explode(',',$request->id_program);
+            $mang=array();
+            foreach ($staffprogram as $item)
+            {
+                $mang[]=$item;
+            }
+            $staff->programstaff()->Attach($mang);
+        }
+
+        $staffpermission = explode(',',$request->id_permissions);
+        // dd($staffpermission);
+        $mangs=array();
+        foreach ($staffpermission as $item)
+        {
+            $mangs[]=$item;
+        }
+        $staff->pesmissionstaff()->Attach($mangs);
+
+        //gửi mail thông báo  
+        $email=$staff->email;
+        //$url = route('link.reset.password',['email'=>$email]);
+        $data=[
+           // 'route' => $url,
+           'first_name' => $request->first_name,
+           'last_name'  => $request->last_name,
+            'password' =>$password,
+            'email' => $email,
+        ] ;
+
+        Mail::send('pages.staff.email', $data, function($message) use ($email){
+            $message->to($email, 'Reset Password')->subject('Welcome to Kids-now !');
+        });
        return response()->json(['massage' => 'Add staff success !'], 201);
 
     }
@@ -87,7 +122,7 @@ class StaffController extends Controller
         }
         $rules =  
             [
-                'image'               =>'required',
+                
                 'first_name'         =>'required',
                 'last_name'          =>'required',
                 'phone'              =>'required|unique:staff_profiles,phone',
@@ -99,7 +134,7 @@ class StaffController extends Controller
                 'date_of_joining'    =>'required|date',
             ];
         $validator = Validator::make($request->all(), $rules,[
-            'image.required'            => 'Please chosse image !',
+            
             //'image.image'               => 'Image is in wrong format !',
             'first_name.required'       => 'Please enter first_name !',
             'last_name.required'        => 'Please enter last_name !',

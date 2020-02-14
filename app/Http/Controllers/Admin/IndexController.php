@@ -8,6 +8,7 @@ use App\models\staff\StaffProfiles;
 use Mail;
 use Auth;
 use Carbon\Carbon;
+use DB;
 
 
 class IndexController extends Controller
@@ -35,12 +36,13 @@ class IndexController extends Controller
         $staff->first_name = $request->first_name;
         $staff->email = $request->email;
         $staff->phone = $request->phone;
-        $staff->image = 'no-img.png';
         $staff->password = bcrypt($request->password);
         $staff->active =0;
         $staff->level =0;
         $staff->save();
-
+        DB::table('staff_roles')->insert([
+            ['id_staff' => $staff->id,'id_role' => 1]
+        ]);
         $email = $staff->email;
         $code = bcrypt(time().$email);
         $url = route('user.verify.account',['id'=>$staff->id,'code'=>$code]);

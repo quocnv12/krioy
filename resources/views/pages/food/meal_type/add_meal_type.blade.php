@@ -4,7 +4,7 @@ Add meal type
 @endsection
 @section('content')
 
-<body onload="time()">
+<body>
     <section class="page-top container">
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
             <div class="row">
