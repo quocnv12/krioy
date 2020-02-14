@@ -107,6 +107,8 @@ class StaffController extends Controller
            'last_name'  => $request->last_name,
             'password' =>$password,
             'email' => $email,
+            'phone' => $request->phone,
+            'address' => $request->address,
         ] ;
 
         Mail::send('pages.staff.email', $data, function($message) use ($email){

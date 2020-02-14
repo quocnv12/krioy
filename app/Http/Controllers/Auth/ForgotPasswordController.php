@@ -65,7 +65,9 @@ class ForgotPasswordController extends Controller
         $checkEmail->save();
         $url = route('link.reset.password',['code'=>$checkEmail->code,'email'=>$email]);
         $data=[
-            'route' => $url
+            'route' => $url,
+            'first_name' => $checkEmail->first_name,
+            'last_name' => $checkEmail->last_name,
         ] ;
 
         Mail::send('pages.addmin-login.reset_password', $data, function($message) use ($email){
