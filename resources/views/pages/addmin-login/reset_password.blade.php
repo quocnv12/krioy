@@ -29,8 +29,7 @@
 				            	<tbody>
 					            	<tr>
 					                	<td style="text-align:center;vertical-align:middle;padding:15px 25px 15px">
-					                		<img src="images/logo-ngang.png" style="width: 60%;height: auto;" >
-
+					                		<img src="https://kidsnow.edu.vn/images/logo-ngang.png" style="width: 60%;height: auto;" >
 					                	</td>
 					            	</tr>
 				            	</tbody>
