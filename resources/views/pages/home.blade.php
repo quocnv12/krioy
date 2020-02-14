@@ -71,7 +71,7 @@
                     <a href="{{route('admin.observations.list')}}">
                         <img src="images/Observation-01.png" alt="@lang('kidsnow.observations')">
                         <div class="title">
-                            <p>//@lang('kidsnow.observations')</p>
+                            <p>@lang('kidsnow.observations')</p>
                         </div>
                     </a>
                 </div>
