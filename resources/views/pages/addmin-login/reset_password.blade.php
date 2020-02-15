@@ -107,7 +107,7 @@
 		            <table style="width:100%">
 		              <tbody>
 		              <tr>
-		                <td style="text-align:center;vertical-align:middle;padding:15px 25px 15px"><a href="kidsnow.edu.vn" style="font-size:14px;text-decoration:none;color:#fff;font-weight:bold;vertical-align:text-top" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.khutro.com&amp;source=gmail&amp;ust=1581741216316000&amp;usg=AFQjCNFmeP66p-Huv_KIYnExYXALGjidaw">kidsnow.edu.vn</a></td>
+		                <td style="text-align:center;vertical-align:middle;padding:15px 25px 15px"><a href="http://kidsnow.edu.vn" style="font-size:14px;text-decoration:none;color:#fff;font-weight:bold;vertical-align:text-top" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.khutro.com&amp;source=gmail&amp;ust=1581741216316000&amp;usg=AFQjCNFmeP66p-Huv_KIYnExYXALGjidaw">kidsnow.edu.vn</a></td>
 		              </tr>
 		              </tbody>
 		            </table>
