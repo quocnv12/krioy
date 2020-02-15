@@ -245,18 +245,18 @@
 			</form>
 		</section>
 		@else
-		<section class="container">
-			<div class="mat-card tab-content" style="min-height: 500px;">
-				<div class="mat-content" id="tab-main">
-					<div _ngcontent-c19="" class="row ng-star-inserted">
-						<div style="margin: 50px;">
-								<span style="color: red; font-weight: bold">Hint :</span>
-								<span>Click on a program tab in horizontal scroll bar to show all children in that program</span>
-							</div>
+			<section class="container">
+				<div class="mat-card tab-content" style="min-height: 500px;">
+					<div class="mat-content" id="tab-main">
+						<div _ngcontent-c19="" class="row ng-star-inserted">
+							<div style="margin: 50px;">
+									<span style="color: red; font-weight: bold">Hint :</span>
+									<span>Click on a program tab in horizontal scroll bar to show all children in that program</span>
+								</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</section>	
+			</section>	
 		@endif
 		
 

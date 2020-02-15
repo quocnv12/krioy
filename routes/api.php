@@ -21,6 +21,7 @@ use Illuminate\Http\Request;
 
 //-----Đăng nhập----
 Route::post('login', 'Api\LoginController@login');
+Route::get('token/refresh', 'Api\LoginController@refresh');
 
 //-------------------Quên mật khẩu-----------------
 Route::post('forgot', 'Api\ForgotPassWordController@PostFormResetPassword');

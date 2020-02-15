@@ -25,16 +25,16 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">@lang('kidsnow.menu_profiles')</a>
+                    <a class="nav-link" href="kids-now">@lang('kidsnow.menu_profiles')</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">@lang('kidsnow.menu_invoices')</a>
+                    <a class="nav-link" href="kids-now">@lang('kidsnow.menu_invoices')</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">@lang('kidsnow.menu_settings')</a>
+                    <a class="nav-link" href="kids-now">@lang('kidsnow.menu_settings')</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">@lang('kidsnow.menu_help')</a>
+                    <a class="nav-link" href="kids-now">@lang('kidsnow.menu_help')</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="kids-now">Kids-now</a>
@@ -43,12 +43,12 @@
                 <!-- Dropdown -->
                 @if (Auth::check())
                 <li class="nav-item">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    <a class="nav-link dropdown-toggle" href="kids-now" id="navbardrop" data-toggle="dropdown">
                     <img style="width: 30px; height: 30px;border-radius: 50%;" src="images/staff/{{ Auth::user()->image }}" alt="">
                     </a>
                     <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#"><i class="fa fa-users" aria-hidden="true"></i> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </a>
-                        <a class="dropdown-item" href="#"><i class="fa fa-phone-square" aria-hidden="true"></i> {{ Auth::user()->phone }}</a>
+                    <a class="dropdown-item" href="kids-now"><i class="fa fa-users" aria-hidden="true"></i> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </a>
+                        <a class="dropdown-item" href="kids-now"><i class="fa fa-phone-square" aria-hidden="true"></i> {{ Auth::user()->phone }}</a>
                         {{--  <a class="dropdown-item" href="#"><i class="fa fa-bell" aria-hidden="true"></i>@lang('kidsnow.notification_center')</a>
                         <a class="dropdown-item" href="#"><i class="fa fa-retweet" aria-hidden="true"></i> @lang('kidsnow.refresh_account')</a>  --}}
                         <a class="dropdown-item" href="kids-now/update-password"><i class="fa fa-key" aria-hidden="true"></i>@lang('kidsnow.menu_changepassword')</a>
@@ -76,14 +76,14 @@
                     @endif
                     <div class="dropdown-content-logo1">
                         <a href="locale/vi"><img src="images/viet.png"> @lang('kidsnow.vietnamese')</a>
-                        <a href="locale/en"><img src="images/usa.png"> @lang('kidsnow.english')</a>
+                        <a href="locale/en"><img src="images/usa.png"> @lang('Hello World')</a>
                     </div>
                 </div>
             </a>
-            <a href="#">@lang('kidsnow.menu_profiles')</a>
-            <a href="#">@lang('kidsnow.menu_invoices')</a>
-            <a href="#">@lang('kidsnow.menu_settings')</a>
-            <a href="#">@lang('kidsnow.menu_help')</a>
+            <a href="kids-now">@lang('kidsnow.menu_profiles')</a>
+            <a href="kids-now">@lang('kidsnow.menu_invoices')</a>
+            <a href="kids-now">@lang('kidsnow.menu_settings')</a>
+            <a href="kids-now">@lang('kidsnow.menu_help')</a>
             <a href="kids-now">My Kids Now</a>
         </div>
        
@@ -94,13 +94,13 @@
                 <!-- Dropdown -->
                 @if (Auth::check())
                 <li class="nav-item">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    <a class="nav-link dropdown-toggle" href="kids-now" id="navbardrop" data-toggle="dropdown">
                     <img style="width: 30px; height: 30px;" src="images/staff/{{ Auth::user()->image }}" alt="">
                     </a>
                     <div class="dropdown-menu">
                
-                    <a class="dropdown-item" href="#"><i class="fa fa-users" aria-hidden="true"></i> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </a>
-                        <a class="dropdown-item" href="#"><i class="fa fa-phone-square" aria-hidden="true"></i> {{ Auth::user()->phone }}</a>
+                    <a class="dropdown-item" href="kids-now"><i class="fa fa-users" aria-hidden="true"></i> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </a>
+                        <a class="dropdown-item" href="kids-now"><i class="fa fa-phone-square" aria-hidden="true"></i> {{ Auth::user()->phone }}</a>
                         {{--  <a class="dropdown-item" href="#"><i class="fa fa-bell" aria-hidden="true"></i> Notification Center</a>
                         <a class="dropdown-item" href="#"><i class="fa fa-retweet" aria-hidden="true"></i> Refresh Account</a>  --}}
                         <a class="dropdown-item" href="kids-now/update-password"><i class="fa fa-key" aria-hidden="true"></i> @lang('kidsnow.menu_changepassword') </a>
