@@ -119,12 +119,19 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
     });
 
     //---------------attendance----------------
+    // Route::group(['prefix' => 'attendance','middleware' => 'checkacl:Attendance'], function () {
+    //     Route::get('/','Admin\AttendanceChildrenController@index')->name('attendance.index');
+    //     Route::get('/{id}','Admin\AttendanceChildrenController@show')->name('attendance.show');
+    //     // Route::get('add','Admin\AttendanceChildrenController@getAdd')->name('attendance.getAdd');
+    //     Route::post('add/{id}','Admin\AttendanceChildrenController@postAdd')->name('attendance.postAdd');
+    //     Route::get('list','Admin\AttendanceChildrenController@list')->name('attendance.list');
+    // });
+
     Route::group(['prefix' => 'attendance','middleware' => 'checkacl:Attendance'], function () {
-        Route::get('/','Admin\AttendanceChildrenController@index')->name('attendance.index');
-        Route::get('/{id}','Admin\AttendanceChildrenController@show')->name('attendance.show');
-        // Route::get('add','Admin\AttendanceChildrenController@getAdd')->name('attendance.getAdd');
-        Route::post('add/{id}','Admin\AttendanceChildrenController@postAdd')->name('attendance.postAdd');
-        Route::get('list','Admin\AttendanceChildrenController@list')->name('attendance.list');
+        Route::get('/','Admin\AttendanceChildController@index')->name('attendance.index');
+        Route::get('/{id}','Admin\AttendanceChildController@show')->name('attendance.show');
+        Route::post('add/{id}','Admin\AttendanceChildController@postAdd')->name('attendance.postAdd');
+        Route::get('list','Admin\AttendanceChildController@list')->name('attendance.list');
     });
 
     //---------------health----------------
