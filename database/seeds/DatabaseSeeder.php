@@ -23,8 +23,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ObservationsTypeTableSeeder::class);
         $this->call(ObservationsTableSeeder::class);
         $this->call(StaffProgramsTableSeeder::class);
-        $this->call(AttendanceChildrenTableSeeder::class);
-        $this->call(AttendanceStaffTableSeeder::class);
+        // $this->call(AttendanceChildrenTableSeeder::class);
+        // $this->call(AttendanceStaffTableSeeder::class);
         $this->call(FoodItemsTableSeeder::class);
        
        // $this->call(ChildrenFoodTableSeeder::class);
