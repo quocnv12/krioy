@@ -9,26 +9,26 @@
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
 				<ul class="ul-td" style="width: 100%">
-					<li class="level1"><a href="kids-now">@lang('kidsnow.home')</a></li>
-					<li class="active1" ><a href="kids-now/program">@lang('kidsnow.programs')</a></li>
-					<li class="active1 active-1" style="pointer-events: none;"><a href="">@lang('kidsnow.view_program')</a></li>
+					<li class="level1"><a href="kids-now">HOME</a></li>
+					<li class="active1" ><a href="kids-now/program">PROGRAM</a></li>
+					<li class="active1 active-1" style="pointer-events: none;"><a href="">VIEW PROGRAM</a></li>
 
 				</ul>
 			</div>
 		</div>
 		<div class="mat-card">
 			<div class="mat-content">
-				<button class="accordion add-staff">@lang('kidsnow.view_program')</button>
+				<button class="accordion add-staff">@lang('kidsnow.program.view_program')</button>
 				<div class="panel add">
 					<div class="row">
 						<div class="col-md-4 input_box">
-							<span class="input_box_span_active">@lang('kidsnow.program_name') *</span>
+							<span class="input_box_span_active">@lang('kidsnow.program.program_name') *</span>
 							<input type="text" name="text" placeholder="Program Name *" value="{{$program->program_name}}">
 						</div>
 						<div class="col-md-8">
 							<div class="row" style="margin: 10px 0;" >
 								<div class="col-md-2" style="font-size: 18px;color:#5363d6;top:10px">
-									@lang('kidsnow.days'):
+									@lang('kidsnow.program.days'):
 								</div>
 								<div class="col-md-10" style="margin: 10px 0;">
 									<div class="panel_new">
@@ -48,11 +48,11 @@
 						<div class="col-md-6">
 							<div class="row">
 								{{--<div class="col-md-6 input_box">--}}
-									{{--<span class="input_box_span_active">@lang('kidsnow.program_fee')</span>--}}
+									{{--<span class="input_box_span_active">@lang('kidsnow.program.program_fee')</span>--}}
 									{{--<input type="text" name="text" placeholder="Program Fee " value="{{number_format(floatval($program->program_fee),2)}}">--}}
 								{{--</div>--}}
 								{{--<div class="col-md-6 input_box">--}}
-									{{--<span class="input_box_span_active">@lang('kidsnow.period')</span>--}}
+									{{--<span class="input_box_span_active">@lang('kidsnow.program.period')</span>--}}
 									{{--<select>--}}
 										{{--<option @if($program->period_fee == '/week') selected="selected" @endif>/week</option>--}}
 										{{--<option @if($program->period_fee == '/month') selected="selected" @endif>/month</option>--}}
@@ -60,8 +60,8 @@
 									{{--</select>--}}
 								{{--</div>--}}
 								<div class="col-md-5 input_box">
-									<span class="input_box_span_active">@lang('kidsnow.program_fee')</span>
-									<input type="text" name="program_fee" id="program_fee" placeholder="Program Fee" value="{{($program->program_fee)}}">
+									<span class="input_box_span_active">@lang('kidsnow.program.program_fee')</span>
+									<input type="text" name="program_fee" id="program_fee" placeholder="@lang('kidsnow.program.program_fee')" value="{{($program->program_fee)}}">
 									@if ($errors->has('program_fee'))
 										<div class="text text-danger">
 											{{ $errors->first('program_fee') }}
@@ -69,9 +69,9 @@
 									@endif
 								</div>
 								<div class="col-md-3 input_box">
-									<span>Currency</span>
+									<span>@lang('kidsnow.program.currency')</span>
 									<select name="currency">
-										<option value="" selected>Currency</option>
+										<option value="" selected>@lang('kidsnow.program.currency')</option>
 										<option @if(old('currency') == "VND") selected='selected' @endif value="VND">/VND</option>
 										<option @if(old('currency') == "USD") selected='selected' @endif value="USD">/USD</option>
 										<option @if(old('currency') == "EUR") selected='selected' @endif value="EUR">/EUR</option>
@@ -83,12 +83,12 @@
 									@endif
 								</div>
 								<div class="col-md-4 input_box">
-									<span class="input_box_span_active">@lang('kidsnow.period')</span>
+									<span class="input_box_span_active">@lang('kidsnow.program.period')</span>
 									<select name="period_fee">
 										<option value="" selected>Period Fee</option>
-										<option @if($program->period_fee == "/week") selected='selected' @endif value="/week">/week</option>
-										<option @if($program->period_fee == "/month") selected='selected' @endif value="/month">/month</option>
-										<option @if($program->period_fee == "/year") selected='selected' @endif value="/year">/year</option>
+										<option @if($program->period_fee == "/week") selected='selected' @endif value="/week">@lang('kidsnow.program.week')</option>
+										<option @if($program->period_fee == "/month") selected='selected' @endif value="/month">@lang('kidsnow.program.month')</option>
+										<option @if($program->period_fee == "/year") selected='selected' @endif value="/year">@lang('kidsnow.program.year')</option>
 									</select>
 									@if ($errors->has('period_fee'))
 										<div class="text text-danger">
@@ -99,10 +99,10 @@
 							</div>
 						</div>
 						<div class="col-md-6 input_box">
-							<span class="input_box_span_active">Status</span>
+							<span class="input_box_span_active">@lang('kidsnow.program.status')</span>
 							<select name="status">
-								<option @if($program->status == 1) selected='selected' @endif value="1">Open</option>
-								<option @if($program->status == 0) selected='selected' @endif value="1">Close</option>
+								<option @if($program->status == 1) selected='selected' @endif value="1">@lang('kidsnow.program.open')</option>
+								<option @if($program->status == 0) selected='selected' @endif value="1">@lang('kidsnow.program.close')</option>
 							</select>
 							@if ($errors->has('status'))
 								<div class="text text-danger">
@@ -114,17 +114,17 @@
 					<hr>
 					<div class="row">
 						<div class="col-md-7">
-							<p style="color:#5363d6;font-size: 18px;">@lang('kidsnow.age_group')</p>
+							<p style="color:#5363d6;font-size: 18px;">@lang('kidsnow.program.age_group')</p>
 						</div>
 						<div class="col-md-5">
-							<p style="color:#5363d6;font-size: 18px;">@lang('kidsnow.timings')</p>
+							<p style="color:#5363d6;font-size: 18px;">@lang('kidsnow.program.timings')</p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-7">
 							<div class="row">
-								<div class="col-md-6"><span style="font-size: 14px;">@lang('kidsnow.from')</span></div>
-								<div class="col-md-6"><span style="font-size: 14px;">@lang('kidsnow.to')</span></div>
+								<div class="col-md-6"><span style="font-size: 14px;">@lang('kidsnow.program.from')</span></div>
+								<div class="col-md-6"><span style="font-size: 14px;">@lang('kidsnow.program.to')</span></div>
 							</div>
 						</div>
 						<div class="col-md-5"></div>
@@ -133,25 +133,25 @@
 						<div class="col-md-7">
 							<div class="row">
 								<div class="col-md-3 input_box">
-									<span class="input_box_span_active">@lang('kidsnow.year') </span>
+									<span class="input_box_span_active">@lang('kidsnow.program.from_year') </span>
 									<select name="from_year">
 										<option value="">{{$program->from_year}}</option>
 									</select>
 								</div>
 								<div class="col-md-3 input_box">
-									<span class="input_box_span_active">@lang('kidsnow.month') </span>
+									<span class="input_box_span_active">@lang('kidsnow.program.from_month') </span>
 									<select name="from_month">
 										<option value="">{{$program->from_month}}</option>
 									</select>
 								</div>
 								<div class="col-md-3 input_box">
-									<span class="input_box_span_active">@lang('kidsnow.year') </span>
+									<span class="input_box_span_active">@lang('kidsnow.program.to_year') </span>
 									<select name="to_year">
 										<option value="">{{$program->to_year}}</option>
 									</select>
 								</div>
 								<div class="col-md-3 input_box">
-									<span class="input_box_span_active">@lang('kidsnow.month') </span>
+									<span class="input_box_span_active">@lang('kidsnow.program.to_month') </span>
 									<select name="to_month">
 										<option value="">{{$program->to_month}}</option>
 									</select>
@@ -162,11 +162,11 @@
 						<div class="col-md-5">
 							<div class="row">
 								<div class="col-md-6 input_box">
-									<span class="input_box_span_active">Start Time </span>
+									<span class="input_box_span_active">@lang('kidsnow.program.start_time')</span>
 									<input type="text" class="timepicker" name="time" value="{{$program->start_time}}">
 								</div>
 								<div class="col-md-6 input_box">
-									<span class="input_box_span_active">Finish Time </span>
+									<span class="input_box_span_active">@lang('kidsnow.program.finish_time') </span>
 									<input type="text" class="timepicker" name="time" value="{{$program->finish_time}}">
 								</div>
 							</div>
@@ -178,7 +178,7 @@
 		
 		<div class="mat-card">
 			<div class="mat-content">
-				<button class="accordion">Staff</button>
+				<button class="accordion">@lang('kidsnow.program.staff')</button>
 				<div class="panel">
 					<div _ngcontent-c20="" class="row" style="">
 						<!---->
@@ -198,7 +198,7 @@
 							</div>
 							@endforeach
 						@else
-							<p style="font-size: 18px; margin: 10px;">No staff was founded</p>
+							<p style="font-size: 18px; margin: 10px;">@lang('kidsnow.program.no_staff')</p>
 						@endif
 					</div>
 				</div>
@@ -206,7 +206,7 @@
 		</div>
 		<div class="mat-card">
 			<div class="mat-content">
-				<button class="accordion">Children</button>
+				<button class="accordion">@lang('kidsnow.program.children')</button>
 				<div class="panel">
 					<div _ngcontent-c20="" class="row" style="">
 						<!---->
@@ -226,7 +226,7 @@
 							</div>
 							@endforeach
 						@else
-							<p style="font-size: 18px; margin: 10px;">No children was founded</p>
+							<p style="font-size: 18px; margin: 10px;">@lang('kidsnow.program.no_children')</p>
 						@endif
 					</div>
 				</div>

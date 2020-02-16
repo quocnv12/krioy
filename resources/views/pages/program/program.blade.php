@@ -16,7 +16,7 @@
 				</div>
 				<div class="col-md-6">
 					<form class="typeahead" role="search" style="text-align: left">
-						<input type="search" name="q" class="form-control search-input" placeholder="Search Program..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 500px;">
+						<input type="search" name="q" class="form-control search-input" placeholder="@lang('kidsnow.program.search')" autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 500px;">
 					</form>
 				</div>
 			</div>
@@ -25,7 +25,7 @@
 	<section class="container">
 		<div class="program">
 			<div class="program-label" align="center">
-				<p>Programs</p>
+				<p>@lang('kidsnow.program.programs')</p>
 			</div>
 			<div class="program-content">
 				<div class="row">

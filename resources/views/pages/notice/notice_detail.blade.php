@@ -18,7 +18,7 @@
 		
 		<div class="mat-card">
 			<div class="mat-content">
-				<button class="accordion">Programs</button>
+				<button class="accordion">@lang('kidsnow.notice.programs')</button>
 				<div class="panel">
 					<div _ngcontent-c20="" class="row" style="" data-toggle="modal" data-target=".bd-example-modal-sm">
 						@foreach($programs as $program)
@@ -36,7 +36,7 @@
 					<div class="col-md-6">
 						<div class="row">
 							<div class="col-xs-9 col-md-9">
-								<p>Mark as Important</p>
+								<p>@lang('kidsnow.notice.mark')</p>
 							</div>
 							<div class="col-xs-3 col-md-3" data-toggle="modal" data-target=".bd-example-modal-sm">
 								<label class="label-checkbox">
@@ -49,7 +49,7 @@
 					<div class="col-md-6">
 						<div class="row">
 							<div class="col-xs-9 col-md-9">
-								<p>Archive</p>
+								<p>@lang('kidsnow.notice.archive')</p>
 							</div>
 							<div class="col-xs-3 col-md-3" data-toggle="modal" data-target=".bd-example-modal-sm">
 								<label class="label-checkbox">

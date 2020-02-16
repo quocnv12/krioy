@@ -37,7 +37,7 @@
             @csrf
             <div class="mat-card">
                 <div class="mat-content">
-                    <button class="accordion add-staff" type="button">Edit Children</button>
+                    <button class="accordion add-staff" type="button">@lang('kidsnow.children.edit_children')</button>
                     <div class="row">
                         <div class="col-md-2 textera-img">
                             <a style="cursor: pointer;">
@@ -55,8 +55,8 @@
                             <div class="add a1 ">
                                 <div class="row">
                                     <div class="col-md-6 input_box">
-                                        <span class="input_box_span_active">First Name *</span>
-                                        <input type="text" name="first_name" placeholder="First Name *" value="{{$children_profiles->first_name}}">
+                                        <span class="input_box_span_active">@lang('kidsnow.children.first_name') *</span>
+                                        <input type="text" name="first_name" placeholder="@lang('kidsnow.children.first_name') *" value="{{$children_profiles->first_name}}">
                                         @if ($errors->has('first_name'))
                                             <div class="text text-danger">
                                                 {{ $errors->first('first_name') }}
@@ -64,8 +64,8 @@
                                         @endif
                                     </div>
                                     <div class="col-md-6 input_box">
-                                        <span class="input_box_span_active">Last Name *</span>
-                                        <input type="text" name="last_name" placeholder="Last Name *" value="{{$children_profiles->last_name}}">
+                                        <span class="input_box_span_active">@lang('kidsnow.children.last_name') *</span>
+                                        <input type="text" name="last_name" placeholder="@lang('kidsnow.children.last_name') *" value="{{$children_profiles->last_name}}">
                                         @if ($errors->has('last_name'))
                                             <div class="text text-danger">
                                                 {{ $errors->first('last_name') }}
@@ -80,8 +80,8 @@
                     <div class="add" style="width: 100%; margin: 15px 0">
                         <div class="row">
                             <div class="col-md-3 input_box">
-                                <span class="input_box_span_active">Birthday *</span>
-                                <input type="date" name="birthday" placeholder="Birthday" value="{{$children_profiles->birthday}}">
+                                <span class="input_box_span_active">@lang('kidsnow.children.birthday') *</span>
+                                <input type="date" name="birthday" placeholder="@lang('kidsnow.children.birthday')" value="{{$children_profiles->birthday}}">
                                 @if ($errors->has('birthday'))
                                     <div class="text text-danger">
                                         {{ $errors->first('birthday') }}
@@ -89,9 +89,9 @@
                                 @endif
                             </div>
                             <div class="col-md-3 input_box">
-                                <span class="input_box_span_active">Blood Group </span>
+                                <span class="input_box_span_active">@lang('kidsnow.children.blood_group') </span>
                                 <select name="blood_group">
-                                    <option value="">Blood Group</option>
+                                    <option value="">@lang('kidsnow.children.blood_group')</option>
                                     <option value="A+" @if($children_profiles->blood_group == "A+") selected="selected" @endif>A+</option>
                                     <option value="A-" @if($children_profiles->blood_group == "A-") selected="selected" @endif>A-</option>
                                     <option value="B+" @if($children_profiles->blood_group == "B+") selected="selected" @endif>B+</option>
@@ -108,9 +108,9 @@
                                 @endif
                             </div>
                             <div class="col-md-3 input_box">
-                                <span class="input_box_span_active">Gender *</span>
+                                <span class="input_box_span_active">@lang('kidsnow.children.gender') *</span>
                                 <select name="gender">
-                                    <option selected value="">Gender *</option>
+                                    <option selected value="">@lang('kidsnow.children.gender') *</option>
                                     <option value="1" @if($children_profiles->gender == 1) selected="selected" @endif>Nam</option>
                                     <option value="2" @if($children_profiles->gender == 2) selected="selected" @endif>Nữ</option>
                                 </select>
@@ -121,8 +121,8 @@
                                 @endif
                             </div>
                             <div class="col-md-3 input_box">
-                                <span class="input_box_span_active">Date of Joining *</span>
-                                <input type="date" name="date_of_joining" placeholder="Date of Joining" value="{{$children_profiles->date_of_joining}}">
+                                <span class="input_box_span_active">@lang('kidsnow.children.date_of_joining') *</span>
+                                <input type="date" name="date_of_joining" placeholder="@lang('kidsnow.children.date_of_joining')" value="{{$children_profiles->date_of_joining}}">
                                 @if ($errors->has('date_of_joining'))
                                     <div class="text text-danger">
                                         {{ $errors->first('date_of_joining') }}
@@ -134,8 +134,8 @@
                     <div class="add">
                         <div class="row">
                             <div class="col-md-6 input_box" style="width: 100%;">
-                                <span class="input_box_span_active">Unique ID *</span>
-                                <input type="text" name="unique_id" placeholder="Unique ID *" value="{{$children_profiles->unique_id}}">
+                                <span class="input_box_span_active">@lang('kidsnow.children.unique_id') *</span>
+                                <input type="text" name="unique_id" placeholder="@lang('kidsnow.children.unique_id') *" value="{{$children_profiles->unique_id}}">
                                 @if ($errors->has('unique_id'))
                                     <div class="text text-danger">
                                         {{ $errors->first('unique_id') }}
@@ -143,9 +143,9 @@
                                 @endif
                             </div>
                             <div class="col-md-3 input_box">
-                                <span class="input_box_span_active">Status</span>
+                                <span class="input_box_span_active">@lang('kidsnow.children.status')</span>
                                 <select name="status">
-                                    <option value="">Status</option>
+                                    <option value="">@lang('kidsnow.children.status')</option>
                                     <option value="1" @if($children_profiles->status == 1) selected="selected" @endif>IN</option>
                                     <option value="2" @if($children_profiles->status == 2) selected="selected" @endif>OUT</option>
                                     <option value="3" @if($children_profiles->status == 3) selected="selected" @endif>ABSENT</option>
@@ -158,9 +158,9 @@
                                 @endif
                             </div>
                             <div class="col-md-3 input_box">
-                                <span class="input_box_span_active">Exist</span>
+                                <span class="input_box_span_active">@lang('kidsnow.children.exist')</span>
                                 <select name="exist">
-                                    <option value="">Exist</option>
+                                    <option value="">@lang('kidsnow.children.exist')</option>
                                     <option value="1" @if($children_profiles->exist == 1) selected="selected" @endif>Yes</option>
                                     <option value="0" @if($children_profiles->exist == 1) selected="selected" @endif>No</option>
                                 </select>
@@ -172,8 +172,8 @@
                             </div>
                         </div>
                         <div class="input_box" style="width: 100%;">
-                            <span class="input_box_span_active">Residential Address </span>
-                            <input type="text" name="address" placeholder="Residential Address" value="{{$children_profiles->address}}">
+                            <span class="input_box_span_active">@lang('kidsnow.children.residential_address') </span>
+                            <input type="text" name="address" placeholder="@lang('kidsnow.children.residential_address')" value="{{$children_profiles->address}}">
                             @if ($errors->has('address'))
                                 <div class="text text-danger">
                                     {{ $errors->first('address') }}
@@ -181,8 +181,8 @@
                             @endif
                         </div>
                         <div class="input_box" style="width: 100%;">
-                            <span class="input_box_span_active">Allergies (if any) </span>
-                            <input type="text" name="allergies" placeholder="Allergies (if any)" value="{{$children_profiles->allergies}}">
+                            <span class="input_box_span_active">@lang('kidsnow.children.allergies') </span>
+                            <input type="text" name="allergies" placeholder="@lang('kidsnow.children.allergies')" value="{{$children_profiles->allergies}}">
                             @if ($errors->has('allergies'))
                                 <div class="text text-danger">
                                     {{ $errors->first('allergies') }}
@@ -190,8 +190,8 @@
                             @endif
                         </div>
                         <div class="input_box" style="width: 100%;">
-                            <span class="input_box_span_active">Additional Notes </span>
-                            <input type="text" name="additional_note" placeholder="Additional Notes" value="{{$children_profiles->additional_note}}">
+                            <span class="input_box_span_active">@lang('kidsnow.children.additional_notes') </span>
+                            <input type="text" name="additional_note" placeholder="@lang('kidsnow.children.additional_notes')" value="{{$children_profiles->additional_note}}">
                             @if ($errors->has('additional_note'))
                                 <div class="text text-danger">
                                     {{ $errors->first('additional_note') }}
@@ -204,7 +204,7 @@
 
             <div class="mat-card">
                 <div class="mat-content">
-                    <button class="accordion" type="button">Programs</button>
+                    <button class="accordion" type="button">@lang('kidsnow.children.programs')</button>
                     <div class="panel">
                         <div _ngcontent-c20="" class="row" style="">
                             <!---->
@@ -223,7 +223,7 @@
 
                 <div class="mat-card" style="background-color: #f9f9f9;">
                 <div class="mat-content">
-                    <button class="accordion" type="button">Parents *</button>
+                    <button class="accordion" type="button">@lang('kidsnow.children.parents') *</button>
                     <div class="panel" style="background-color: #f9f9f9;margin-bottom: 0;margin: 0 -10px;">
                         @if(isset($parent_profiles_1))
                             <div class="panel-1">
@@ -245,8 +245,8 @@
                                     <div class="add a1 ">
                                         <div class="row">
                                             <div class="col-md-6 input_box">
-                                                <span class="input_box_span_active">First Name *</span>
-                                                <input id="first_name_parent_1" type="text" name="first_name_parent_1" placeholder="First Name *" value="{{$parent_profiles_1->first_name}}">
+                                                <span class="input_box_span_active">@lang('kidsnow.children.first_name') *</span>
+                                                <input id="first_name_parent_1" type="text" name="first_name_parent_1" placeholder="@lang('kidsnow.children.first_name') *" value="{{$parent_profiles_1->first_name}}">
                                                 @if ($errors->has('first_name_parent_1'))
                                                     <div class="text text-danger">
                                                         {{ $errors->first('first_name_parent_1') }}
@@ -259,8 +259,8 @@
                                                 @endif
                                             </div>
                                             <div class="col-md-6 input_box">
-                                                <span class="input_box_span_active">Last Name *</span>
-                                                <input id="last_name_parent_1" type="text" name="last_name_parent_1" placeholder="Last Name *" value="{{$parent_profiles_1->last_name}}">
+                                                <span class="input_box_span_active">@lang('kidsnow.children.last_name') *</span>
+                                                <input id="last_name_parent_1" type="text" name="last_name_parent_1" placeholder="@lang('kidsnow.children.last_name') *" value="{{$parent_profiles_1->last_name}}">
                                                 @if ($errors->has('last_name_parent_1'))
                                                     <div class="text text-danger">
                                                         {{ $errors->first('last_name_parent_1') }}
@@ -275,9 +275,9 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6 input_box">
-                                                <span class="input_box_span_active">Gender </span>
+                                                <span class="input_box_span_active">@lang('kidsnow.children.gender') </span>
                                                 <select name="gender_parent_1">
-                                                    <option value="">Gender</option>
+                                                    <option value="">@lang('kidsnow.children.gender')</option>
                                                     <option value="1" @if($parent_profiles_1->gender == 1) selected="selected" @endif>Nam</option>
                                                     <option value="2" @if($parent_profiles_1->gender == 2) selected="selected" @endif>Nữ</option>
                                                 </select>
@@ -288,9 +288,9 @@
                                                 @endif
                                             </div>
                                             <div class="col-md-6 input_box">
-                                                <span class="input_box_span_active">Relationship </span>
+                                                <span class="input_box_span_active">@lang('kidsnow.children.relationship') </span>
                                                 <select name="relationship_1">
-                                                    <option>Relationship</option>
+                                                    <option>@lang('kidsnow.children.relationship')</option>
                                                     <option value="mother" @if($parent_profiles_1->relationship == "mother") selected="selected" @endif>Mother</option>
                                                     <option value="father" @if($parent_profiles_1->relationship == "father") selected="selected" @endif>Father</option>
                                                     <option value="grandfather" @if($parent_profiles_1->relationship == "grandfather") selected="selected" @endif>Grandfather</option>
@@ -307,8 +307,8 @@
                                             </div>
                                         </div>
                                         <div class="input_box" style="width: 100%;">
-                                            <span class="input_box_span_active">Phone Number *</span>
-                                            <input type="text" name="phone_parent_1" placeholder="Phone Number *" value="{{$parent_profiles_1->phone}}">
+                                            <span class="input_box_span_active">@lang('kidsnow.children.phone') *</span>
+                                            <input type="text" name="phone_parent_1" placeholder="@lang('kidsnow.children.phone') *" value="{{$parent_profiles_1->phone}}">
                                             @if ($errors->has('phone_parent_1'))
                                                 <div class="text text-danger">
                                                     {{ $errors->first('phone_parent_1') }}
@@ -316,8 +316,8 @@
                                             @endif
                                         </div>
                                         <div class="input_box" style="width: 100%;">
-                                            <span class="input_box_span_active">E-Mail Address </span>
-                                            <input name="email_parent_1" placeholder="E-Mail Address " value="{{$parent_profiles_1->email}}">
+                                            <span class="input_box_span_active">@lang('kidsnow.children.email') </span>
+                                            <input name="email_parent_1" placeholder="@lang('kidsnow.children.email') " value="{{$parent_profiles_1->email}}">
                                             @if ($errors->has('email_parent_1'))
                                                 <div class="text text-danger">
                                                     {{ $errors->first('email_parent_1') }}
@@ -325,8 +325,8 @@
                                             @endif
                                         </div>
                                         <div class="input_box" style="width: 100%;">
-                                            <span class="input_box_span_active">Note </span>
-                                            <input type="text" name="note_parent_1" placeholder="Note" value="{{$parent_profiles_1->note}}">
+                                            <span class="input_box_span_active">@lang('kidsnow.children.email') </span>
+                                            <input type="text" name="note_parent_1" placeholder="@lang('kidsnow.children.email')" value="{{$parent_profiles_1->note}}">
                                             @if ($errors->has('note_parent_1'))
                                                 <div class="text text-danger">
                                                     {{ $errors->first('note_parent_1') }}
@@ -356,8 +356,8 @@
                                         <div class="add a1 ">
                                             <div class="row">
                                                 <div class="col-md-6 input_box">
-                                                    <span>First Name *</span>
-                                                    <input id="first_name_parent_1" type="text" name="first_name_parent_1" placeholder="First Name *" value="{{old('first_name_parent_1')}}">
+                                                    <span>@lang('kidsnow.children.first_name') *</span>
+                                                    <input id="first_name_parent_1" type="text" name="first_name_parent_1" placeholder="@lang('kidsnow.children.first_name') *" value="{{old('first_name_parent_1')}}">
                                                     @if ($errors->has('first_name_parent_1'))
                                                         <div class="text text-danger">
                                                             {{ $errors->first('first_name_parent_1') }}
@@ -370,8 +370,8 @@
                                                     @endif
                                                 </div>
                                                 <div class="col-md-6 input_box">
-                                                    <span>Last Name *</span>
-                                                    <input id="last_name_parent_1" type="text" name="last_name_parent_1" placeholder="Last Name *" value="{{old('last_name_parent_1')}}">
+                                                    <span>@lang('kidsnow.children.last_name') *</span>
+                                                    <input id="last_name_parent_1" type="text" name="last_name_parent_1" placeholder="@lang('kidsnow.children.last_name') *" value="{{old('last_name_parent_1')}}">
                                                     @if ($errors->has('last_name_parent_1'))
                                                         <div class="text text-danger">
                                                             {{ $errors->first('last_name_parent_1') }}
@@ -386,9 +386,9 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6 input_box">
-                                                    <span>GENDER *</span>
+                                                    <span>@lang('kidsnow.children.gender') *</span>
                                                     <select class="parent_1" name="gender_parent_1">
-                                                        <option selected value="">Gender</option>
+                                                        <option selected value="">@lang('kidsnow.children.gender')</option>
                                                         <option value="1" @if(old('gender_parent_1') == 1) selected="selected" @endif>Nam</option>
                                                         <option value="2" @if(old('gender_parent_1') == 2) selected="selected" @endif>Nữ</option>
                                                     </select>
@@ -399,9 +399,9 @@
                                                     @endif
                                                 </div>
                                                 <div class="col-md-6 input_box">
-                                                    <span>RELATION *</span>
+                                                    <span>@lang('kidsnow.children.relationship') *</span>
                                                     <select class="parent_1" name="relationship_1">
-                                                        <option value="">Relationship</option>
+                                                        <option value="">@lang('kidsnow.children.relationship')</option>
                                                         <option value="mother" @if(old('relationship_1') == "mother") selected="selected" @endif>Mother</option>
                                                         <option value="father" @if(old('relationship_1') == "father") selected="selected" @endif>Father</option>
                                                         <option value="grandfather" @if(old('relationship_1') == "grandfather") selected="selected" @endif>Grandfather</option>
@@ -418,8 +418,8 @@
                                                 </div>
                                             </div>
                                             <div class="input_box" style="width: 100%;">
-                                                <span>Phone Number *</span>
-                                                <input class="parent_1" type="text" name="phone_parent_1" placeholder="Phone Number *" value="{{old('phone_parent_1')}}">
+                                                <span>@lang('kidsnow.children.phone') *</span>
+                                                <input class="parent_1" type="text" name="phone_parent_1" placeholder="@lang('kidsnow.children.phone') *" value="{{old('phone_parent_1')}}">
                                                 @if ($errors->has('phone_parent_1'))
                                                     <div class="text text-danger">
                                                         {{ $errors->first('phone_parent_1') }}
@@ -427,8 +427,8 @@
                                                 @endif
                                             </div>
                                             <div class="input_box" style="width: 100%;">
-                                                <span>E-Mail Address </span>
-                                                <input class="parent_1" name="email_parent_1" placeholder="E-Mail Address " value="{{old('email_parent_1')}}">
+                                                <span>@lang('kidsnow.children.email') </span>
+                                                <input class="parent_1" name="email_parent_1" placeholder="@lang('kidsnow.children.email') " value="{{old('email_parent_1')}}">
                                                 @if ($errors->has('email_parent_1'))
                                                     <div class="text text-danger">
                                                         {{ $errors->first('email_parent_1') }}
@@ -436,8 +436,8 @@
                                                 @endif
                                             </div>
                                             <div class="input_box" style="width: 100%;">
-                                                <span>Note *</span>
-                                                <input class="parent_1" type="text" name="note_parent_1" placeholder="Note" value="{{old('note_parent_1')}}">
+                                                <span>@lang('kidsnow.children.note') </span>
+                                                <input class="parent_1" type="text" name="note_parent_1" placeholder="@lang('kidsnow.children.note')" value="{{old('note_parent_1')}}">
                                                 @if ($errors->has('note_parent_1'))
                                                     <div class="text text-danger">
                                                         {{ $errors->first('note_parent_1') }}
@@ -469,8 +469,8 @@
                                     <div class="add a1 ">
                                         <div class="row">
                                             <div class="col-md-6 input_box">
-                                                <span class="input_box_span_active">First Name *</span>
-                                                <input id="first_name_parent_2" type="text" name="first_name_parent_2" placeholder="First Name *" value="{{$parent_profiles_2->first_name}}">
+                                                <span class="input_box_span_active">@lang('kidsnow.children.first_name') *</span>
+                                                <input id="first_name_parent_2" type="text" name="first_name_parent_2" placeholder="@lang('kidsnow.children.first_name') *" value="{{$parent_profiles_2->first_name}}">
                                                 @if ($errors->has('first_name_parent_2'))
                                                     <div class="text text-danger">
                                                         {{ $errors->first('first_name_parent_2') }}
@@ -483,8 +483,8 @@
                                                 @endif
                                             </div>
                                             <div class="col-md-6 input_box">
-                                                <span class="input_box_span_active">Last Name *</span>
-                                                <input id="last_name_parent_2" type="text" name="last_name_parent_2" placeholder="Last Name *" value="{{$parent_profiles_2->last_name}}">
+                                                <span class="input_box_span_active">@lang('kidsnow.children.last_name') *</span>
+                                                <input id="last_name_parent_2" type="text" name="last_name_parent_2" placeholder="@lang('kidsnow.children.last_name') *" value="{{$parent_profiles_2->last_name}}">
                                                 @if ($errors->has('last_name_parent_2'))
                                                     <div class="text text-danger">
                                                         {{ $errors->first('last_name_parent_2') }}
@@ -499,9 +499,9 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6 input_box">
-                                                <span class="input_box_span_active">Gender </span>
+                                                <span class="input_box_span_active">@lang('kidsnow.children.gender') </span>
                                                 <select name="gender_parent_2">
-                                                    <option value="">Gender</option>
+                                                    <option value="">@lang('kidsnow.children.gender')</option>
                                                     <option value="1" @if($parent_profiles_2->gender == 1) selected="selected" @endif>Nam</option>
                                                     <option value="2" @if($parent_profiles_2->gender == 2) selected="selected" @endif>Nữ</option>
                                                 </select>
@@ -512,9 +512,9 @@
                                                 @endif
                                             </div>
                                             <div class="col-md-6 input_box">
-                                                <span class="input_box_span_active">Relationship </span>
+                                                <span class="input_box_span_active">@lang('kidsnow.children.relationship') </span>
                                                 <select name="relationship_2">
-                                                    <option>Relationship</option>
+                                                    <option>@lang('kidsnow.children.relationship')</option>
                                                     <option value="mother" @if($parent_profiles_2->relationship == "mother") selected="selected" @endif>Mother</option>
                                                     <option value="father" @if($parent_profiles_2->relationship == "father") selected="selected" @endif>Father</option>
                                                     <option value="grandfather" @if($parent_profiles_2->relationship == "grandfather") selected="selected" @endif>Grandfather</option>
@@ -531,8 +531,8 @@
                                             </div>
                                         </div>
                                         <div class="input_box" style="width: 100%;">
-                                            <span class="input_box_span_active">Phone Number *</span>
-                                            <input type="text" name="phone_parent_2" placeholder="Phone Number *" value="{{$parent_profiles_2->phone}}">
+                                            <span class="input_box_span_active">@lang('kidsnow.children.phone') *</span>
+                                            <input type="text" name="phone_parent_2" placeholder="@lang('kidsnow.children.phone') *" value="{{$parent_profiles_2->phone}}">
                                             @if ($errors->has('phone_parent_2'))
                                                 <div class="text text-danger">
                                                     {{ $errors->first('phone_parent_2') }}
@@ -540,8 +540,8 @@
                                             @endif
                                         </div>
                                         <div class="input_box" style="width: 100%;">
-                                            <span class="input_box_span_active">E-Mail Address </span>
-                                            <input name="email_parent_2" placeholder="E-Mail Address " value="{{$parent_profiles_2->email}}">
+                                            <span class="input_box_span_active">@lang('kidsnow.children.email') </span>
+                                            <input name="email_parent_2" placeholder="@lang('kidsnow.children.email') " value="{{$parent_profiles_2->email}}">
                                             @if ($errors->has('email_parent_2'))
                                                 <div class="text text-danger">
                                                     {{ $errors->first('email_parent_2') }}
@@ -549,8 +549,8 @@
                                             @endif
                                         </div>
                                         <div class="input_box" style="width: 100%;">
-                                            <span class="input_box_span_active">Note </span>
-                                            <input type="text" name="note_parent_2" placeholder="Note" value="{{$parent_profiles_2->note}}">
+                                            <span class="input_box_span_active">@lang('kidsnow.children.note') </span>
+                                            <input type="text" name="note_parent_2" placeholder="@lang('kidsnow.children.note')" value="{{$parent_profiles_2->note}}">
                                             @if ($errors->has('note_parent_2'))
                                                 <div class="text text-danger">
                                                     {{ $errors->first('note_parent_2') }}
@@ -580,8 +580,8 @@
                                         <div class="add a1 ">
                                             <div class="row">
                                                 <div class="col-md-6 input_box">
-                                                    <span>First Name *</span>
-                                                    <input id="first_name_parent_2" type="text" name="first_name_parent_2" placeholder="First Name *" value="{{old('first_name_parent_2')}}">
+                                                    <span>@lang('kidsnow.children.first_name') *</span>
+                                                    <input id="first_name_parent_2" type="text" name="first_name_parent_2" placeholder="@lang('kidsnow.children.first_name') *" value="{{old('first_name_parent_2')}}">
                                                     @if ($errors->has('first_name_parent_2'))
                                                         <div class="text text-danger">
                                                             {{ $errors->first('first_name_parent_2') }}
@@ -594,8 +594,8 @@
                                                     @endif
                                                 </div>
                                                 <div class="col-md-6 input_box">
-                                                    <span>Last Name *</span>
-                                                    <input id="last_name_parent_2" type="text" name="last_name_parent_2" placeholder="Last Name *" value="{{old('last_name_parent_2')}}">
+                                                    <span>@lang('kidsnow.children.last_name') *</span>
+                                                    <input id="last_name_parent_2" type="text" name="last_name_parent_2" placeholder="@lang('kidsnow.children.last_name') *" value="{{old('last_name_parent_2')}}">
                                                     @if ($errors->has('last_name_parent_2'))
                                                         <div class="text text-danger">
                                                             {{ $errors->first('last_name_parent_2') }}
@@ -610,9 +610,9 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-6 input_box">
-                                                    <span>GENDER *</span>
+                                                    <span>@lang('kidsnow.children.gender') *</span>
                                                     <select class="parent_2" name="gender_parent_2">
-                                                        <option selected value="">Gender</option>
+                                                        <option selected value="">@lang('kidsnow.children.gender')</option>
                                                         <option value="1" @if(old('gender_parent_2') == 1) selected="selected" @endif>Nam</option>
                                                         <option value="2" @if(old('gender_parent_2') == 2) selected="selected" @endif>Nữ</option>
                                                     </select>
@@ -623,9 +623,9 @@
                                                     @endif
                                                 </div>
                                                 <div class="col-md-6 input_box">
-                                                    <span>RELATION *</span>
+                                                    <span>@lang('kidsnow.children.relationship') *</span>
                                                     <select class="parent_2" name="relationship_2">
-                                                        <option value="">Relationship</option>
+                                                        <option value="">@lang('kidsnow.children.relationship')</option>
                                                         <option value="mother" @if(old('relationship_2') == "mother") selected="selected" @endif>Mother</option>
                                                         <option value="father" @if(old('relationship_2') == "father") selected="selected" @endif>Father</option>
                                                         <option value="grandfather" @if(old('relationship_2') == "grandfather") selected="selected" @endif>Grandfather</option>
@@ -642,8 +642,8 @@
                                                 </div>
                                             </div>
                                             <div class="input_box" style="width: 100%;">
-                                                <span>Phone Number *</span>
-                                                <input class="parent_2" type="text" name="phone_parent_2" placeholder="Phone Number *" value="{{old('phone_parent_2')}}">
+                                                <span>@lang('kidsnow.children.phone') *</span>
+                                                <input class="parent_2" type="text" name="phone_parent_2" placeholder="@lang('kidsnow.children.phone') *" value="{{old('phone_parent_2')}}">
                                                 @if ($errors->has('phone_parent_2'))
                                                     <div class="text text-danger">
                                                         {{ $errors->first('phone_parent_2') }}
@@ -651,8 +651,8 @@
                                                 @endif
                                             </div>
                                             <div class="input_box" style="width: 100%;">
-                                                <span>E-Mail Address </span>
-                                                <input class="parent_2" name="email_parent_2" placeholder="E-Mail Address " value="{{old('email_parent_2')}}">
+                                                <span>@lang('kidsnow.children.email') </span>
+                                                <input class="parent_2" name="email_parent_2" placeholder="@lang('kidsnow.children.email') " value="{{old('email_parent_2')}}">
                                                 @if ($errors->has('email_parent_2'))
                                                     <div class="text text-danger">
                                                         {{ $errors->first('email_parent_2') }}
@@ -660,8 +660,8 @@
                                                 @endif
                                             </div>
                                             <div class="input_box" style="width: 100%;">
-                                                <span>Note *</span>
-                                                <input class="parent_2" type="text" name="note_parent_2" placeholder="Note" value="{{old('note_parent_2')}}">
+                                                <span>@lang('kidsnow.children.note') </span>
+                                                <input class="parent_2" type="text" name="note_parent_2" placeholder="@lang('kidsnow.children.note')" value="{{old('note_parent_2')}}">
                                                 @if ($errors->has('note_parent_2'))
                                                     <div class="text text-danger">
                                                         {{ $errors->first('note_parent_2') }}

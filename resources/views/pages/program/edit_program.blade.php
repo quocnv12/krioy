@@ -53,12 +53,12 @@
 
 
 			<div class="mat-card">
-				<button class="accordion add-staff" type="button">Add Program</button>
+				<button class="accordion add-staff" type="button">@lang('kidsnow.program.edit_program')</button>
 				<div class="panel add">
 					<div class="row">
 						<div class="col-md-4 input_box">
-							<span class="input_box_span_active">Program Name *</span>
-							<input type="text" name="program_name" id="program_name" placeholder="Program Name *" value="{{$program->program_name}}">
+							<span class="input_box_span_active">@lang('kidsnow.program.program_name') *</span>
+							<input type="text" name="program_name" id="program_name" placeholder="@lang('kidsnow.program.program_name') *" value="{{$program->program_name}}">
 							<p id="error_program_name" style="text-align: left; color: red"></p>
 							@if ($errors->has('program_name'))
 								<div class="text text-danger">
@@ -69,7 +69,7 @@
 						<div class="col-md-8">
 							<div class="row" style="margin: 10px 0;">
 								<div class="col-md-2" style="font-size: 18px;color:#5363d6;top:10px">
-									Days:
+									@lang('kidsnow.program.days'):
 								</div>
 								<div class="col-md-10" style="margin: 10px 0;">
 									<div class="panel_new">
@@ -96,8 +96,8 @@
 						<div class="col-md-6">
 							<div class="row">
 								<div class="col-md-5 input_box">
-									<span class="input_box_span_active">Program Fee</span>
-									<input type="text" name="program_fee" id="program_fee" placeholder="Program Fee" value="{{($program->program_fee)}}">
+									<span class="input_box_span_active">@lang('kidsnow.program.program_fee')</span>
+									<input type="text" name="program_fee" id="program_fee" placeholder="@lang('kidsnow.program.program_fee')" value="{{($program->program_fee)}}">
 									@if ($errors->has('program_fee'))
 										<div class="text text-danger">
 											{{ $errors->first('program_fee') }}
@@ -105,9 +105,9 @@
 									@endif
 								</div>
 								<div class="col-md-3 input_box">
-									<span>Currency</span>
+									<span class="input_box_span_active">@lang('kidsnow.program.currency')</span>
 									<select name="currency">
-										<option value="" selected>Currency</option>
+										<option value="" selected>@lang('kidsnow.program.currency')</option>
 										<option @if(old('currency') == "VND") selected='selected' @endif value="VND">/VND</option>
 										<option @if(old('currency') == "USD") selected='selected' @endif value="USD">/USD</option>
 										<option @if(old('currency') == "EUR") selected='selected' @endif value="EUR">/EUR</option>
@@ -119,12 +119,12 @@
 									@endif
 								</div>
 								<div class="col-md-4 input_box">
-									<span class="input_box_span_active">Period Fee</span>
+									<span class="input_box_span_active">@lang('kidsnow.program.period')</span>
 									<select name="period_fee">
-										<option value="" selected>Period Fee</option>
-										<option @if($program->period_fee == "/week") selected='selected' @endif value="/week">/week</option>
-										<option @if($program->period_fee == "/month") selected='selected' @endif value="/month">/month</option>
-										<option @if($program->period_fee == "/year") selected='selected' @endif value="/year">/year</option>
+										<option value="" selected>@lang('kidsnow.program.period')</option>
+										<option @if($program->period_fee == "/week") selected='selected' @endif value="/week">@lang('kidsnow.program.week')</option>
+										<option @if($program->period_fee == "/month") selected='selected' @endif value="/month">@lang('kidsnow.program.month')</option>
+										<option @if($program->period_fee == "/year") selected='selected' @endif value="/year">@lang('kidsnow.program.year')</option>
 									</select>
 									@if ($errors->has('period_fee'))
 										<div class="text text-danger">
@@ -135,11 +135,11 @@
 							</div>
 						</div>
 						<div class="col-md-6 input_box">
-							<span class="input_box_span_active">Status</span>
+							<span class="input_box_span_active">@lang('kidsnow.program.status')</span>
 							<select name="status">
-								<option value="" selected>Status</option>
-								<option @if($program->status == 1) selected='selected' @endif value="1">Open</option>
-								<option @if($program->status == 0) selected='selected' @endif value="1">Close</option>
+								<option value="" selected>@lang('kidsnow.program.status')</option>
+								<option @if($program->status == 1) selected='selected' @endif value="1">@lang('kidsnow.program.open')</option>
+								<option @if($program->status == 0) selected='selected' @endif value="1">@lang('kidsnow.program.close')</option>
 							</select>
 							@if ($errors->has('status'))
 								<div class="text text-danger">
@@ -151,17 +151,17 @@
 					<hr>
 					<div class="row">
 						<div class="col-md-7">
-							<p style="color:#5363d6;font-size: 18px;">Age Group</p>
+							<p style="color:#5363d6;font-size: 18px;">@lang('kidsnow.program.age_group')</p>
 						</div>
 						<div class="col-md-5">
-							<p style="color:#5363d6;font-size: 18px;">Timings</p>
+							<p style="color:#5363d6;font-size: 18px;">@lang('kidsnow.program.timings')</p>
 						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-7">
 							<div class="row">
-								<div class="col-md-6"><span style="font-size: 14px;">From:</span></div>
-								<div class="col-md-6"><span style="font-size: 14px;">To:</span></div>
+								<div class="col-md-6"><span style="font-size: 14px;">@lang('kidsnow.program.from')</span></div>
+								<div class="col-md-6"><span style="font-size: 14px;">@lang('kidsnow.program.to')</span></div>
 							</div>
 						</div>
 						<div class="col-md-5"></div>
@@ -170,10 +170,10 @@
 						<div class="col-md-7">
 							<div class="row">
 								<div class="col-md-3 input_box">
-									<span class="input_box_span_active">Year </span>
+									<span class="input_box_span_active">@lang('kidsnow.program.from_year') </span>
 									<select name="from_year">
-										<option value="" selected >Year</option>
-										@for($i = 2000; $i <= 3000; $i ++)
+										<option value="" selected >@lang('kidsnow.program.from_year')</option>
+										@for($i = 2020; $i <= 2050; $i ++)
 											<option @if($program->from_year == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
 										@endfor
 									</select>
@@ -184,9 +184,9 @@
 									@endif
 								</div>
 								<div class="col-md-3 input_box">
-									<span class="input_box_span_active">Month </span>
+									<span class="input_box_span_active">@lang('kidsnow.program.from_month') </span>
 									<select name="from_month">
-										<option value="" selected >Month</option>
+										<option value="" selected >@lang('kidsnow.program.from_month')</option>
 										@for($i = 1; $i <= 12; $i ++)
 											<option @if($program->from_month == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
 										@endfor
@@ -198,10 +198,10 @@
 									@endif
 								</div>
 								<div class="col-md-3 input_box">
-									<span class="input_box_span_active">Year </span>
+									<span class="input_box_span_active">@lang('kidsnow.program.to_year') </span>
 									<select name="to_year">
-										<option value="" selected >Year</option>
-										@for($i = 2000; $i <= 3000; $i ++)
+										<option value="" selected >@lang('kidsnow.program.to_year')</option>
+										@for($i = 2020; $i <= 2050; $i ++)
 											<option @if($program->to_year == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
 										@endfor
 									</select>
@@ -212,9 +212,9 @@
 									@endif
 								</div>
 								<div class="col-md-3 input_box">
-									<span class="input_box_span_active">Month </span>
+									<span class="input_box_span_active">@lang('kidsnow.program.to_month') </span>
 									<select name="to_month">
-										<option value="" selected >Month</option>
+										<option value="" selected >@lang('kidsnow.program.to_month')</option>
 										@for($i = 1; $i <= 12; $i ++)
 											<option @if($program->to_month == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
 										@endfor
@@ -231,7 +231,7 @@
 						<div class="col-md-5">
 							<div class="row">
 								<div class="col-md-6 input_box">
-									<span class="input_box_span_active">Start Time </span>
+									<span class="input_box_span_active">@lang('kidsnow.program.start_time') </span>
 									<input type="text" class="timepicker" name="start_time" value="{{$program->start_time}}">
 									@if ($errors->has('start_time'))
 										<div class="text text-danger">
@@ -240,7 +240,7 @@
 									@endif
 								</div>
 								<div class="col-md-6 input_box">
-									<span class="input_box_span_active">Finish Time </span>
+									<span class="input_box_span_active">@lang('kidsnow.program.finish_time') </span>
 									<input type="text" class="timepicker" name="finish_time" value="{{$program->finish_time}}">
 									@if ($errors->has('finish_time'))
 										<div class="text text-danger">
@@ -256,9 +256,9 @@
 			<div class="mat-card">
 				<div class="mat-content">
 					<button class="accordion accordion1 clearfix" type="button">
-						<p style="float: left;">Staff </p>
+						<p style="float: left;">@lang('kidsnow.program.staff') </p>
 							<form class="typeahead" role="search" style="float: right">
-								<input type="search" name="q2" class="form-control search-input2 search-custom" placeholder="Search Staff..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">
+								<input type="search" name="q2" class="form-control search-input2 search-custom" placeholder="@lang('kidsnow.program.search_staff')" autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">
 							</form>
 					</button>
 					<div class="panel">
@@ -293,9 +293,9 @@
 			<div class="mat-card">
 				<div class="mat-content">
 					<button class="accordion accordion1 clearfix" type="button">
-						<p style="float: left;">Children </p>
+						<p style="float: left;">@lang('kidsnow.program.children') </p>
 							<form class="typeahead" role="search" style="float: right;text-align: left;">
-								<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">
+								<input type="search" name="q" class="form-control search-input search-custom" placeholder="@lang('kidsnow.program.search_children')" autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">
 							</form>
 					</button>
 					<div class="panel">
@@ -316,8 +316,8 @@
 							@endforeach
                                 @if(count($children_in_program) == 0)
                                     <div style="margin: 10px" id="hint_children">
-                                        <span style="color: red; font-weight: bold">Hint :</span>
-                                        <span>Use the search bar to add specific children in this program</span>
+                                        <span style="color: red; font-weight: bold">@lang('kidsnow.program.hint') :</span>
+                                        <span>@lang('kidsnow.program.hint_content')</span>
                                     </div>
                             @endif
 							<!---->

@@ -39,7 +39,7 @@
 						{{--<span _ngcontent-c10="" class="badge" style="background-color: red;color:#fff;vertical-align: top;display: inline;line-height:0px">1</span>--}}
 					{{--</a>--}}
 					<form class="typeahead" role="search" style="float: right;" >
-						<input  type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 300px;">
+						<input  type="search" name="q" class="form-control search-input search-custom" placeholder="@lang('kidsnow.children.search_bar')" autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 300px;">
 					</form>
 				</div>
 			</div>
@@ -57,7 +57,7 @@
 				<div class="scrollmenu-button" style="text-align: center;">
 					<!---->
 					<button type="submit" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
-						<a style="color: #fff;" href="kids-now/children/0">Untagged</a>
+						<a style="color: #fff;" href="kids-now/children/0">@lang('kidsnow.children.untagged')</a>
 					</button>
 				</div>
 				@foreach($programs as $program)
@@ -97,8 +97,8 @@
 						@endif
 					@else
 						<div style="margin: 50px">
-							<p style="color: red; font-weight: bold">Hint :</p>
-							<p>Click on a program tab in horizontal scroll bar to show all children in that program / Or use the search bar to go to specific children's profile</p>
+							<p style="color: red; font-weight: bold">@lang('kidsnow.children.hint') :</p>
+							<p>@lang('kidsnow.children.hint_content')</p>
 						</div>
 					@endif
 				</div>
@@ -118,10 +118,10 @@
 			<div class="modal-dialog modal-sm">
 				<div class="modal-content">
 					<ul style="margin-left: 0">
-						<li style="color: #5363d6!important">Go to</li>
-						<li class="modal-li" data-href="" id="profile_children">Profile</li>
-						<li class="modal-li" data-href="" id="health_children">Health</li>
-						<li class="modal-li" data-href="" id="observations_children">Observations</li>
+						<li style="color: #5363d6!important">@lang('kidsnow.children.go_to')</li>
+						<li class="modal-li" data-href="" id="profile_children">@lang('kidsnow.children.profile')</li>
+						<li class="modal-li" data-href="" id="health_children">@lang('kidsnow.children.health')</li>
+						<li class="modal-li" data-href="" id="observations_children">@lang('kidsnow.children.observations')</li>
 						<li class="modal-li" data-href="" id="authorised_pickups_children" style="pointer-events: none">Authorised Pickups</li>
 					</ul>
 				</div>

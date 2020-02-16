@@ -36,7 +36,7 @@
                     <div class="grid-title">
                         <div class="row">
                             <div class="col-md-6">
-                                <h4>Observations</h4>
+                                <h4>@lang('kidsnow.observations.observations')</h4>
                             </div>
                             {{-- <div style="text-align:right;padding-right:22px" class="col-md-6">
                                 <a style="margin:0px;" href="{{ route('menu-food-name-add') }}" class="btn btn-success btn-cons"" title="Add Food Name"><i style="" class="fa fa-plus-circle"></i> Add</a>
@@ -44,21 +44,21 @@
                             <form action="kids-now/observations/list" method="get" style="display: contents">
 
                                 <div class="col-md-6" style="display: flex; justify-content: flex-end; align-items: center">
-                                    <span style="font-weight: bold">Seminar</span>&nbsp;&nbsp;:&nbsp;&nbsp;
+                                    <span style="font-weight: bold">@lang('kidsnow.observations.seminar')</span>&nbsp;&nbsp;:&nbsp;&nbsp;
                                     <select name="month" id="month" >
-                                        <option value="">Choose Month</option>
-                                        <option value="Jan">January</option>
-                                        <option value="Feb">February</option>
-                                        <option value="Mar">March</option>
-                                        <option value="Apr">April</option>
-                                        <option value="May">May</option>
-                                        <option value="Jun">June</option>
-                                        <option value="Jul">July</option>
-                                        <option value="Aug">August</option>
-                                        <option value="Sep">September</option>
-                                        <option value="Oct">October</option>
-                                        <option value="Nov">November</option>
-                                        <option value="Dec">December</option>
+                                        <option value="">@lang('kidsnow.observations.choose_month')</option>
+                                        <option value="Jan">@lang('kidsnow.january')</option>
+                                        <option value="Feb">@lang('kidsnow.february')</option>
+                                        <option value="Mar">@lang('kidsnow.march')</option>
+                                        <option value="Apr">@lang('kidsnow.april')</option>
+                                        <option value="May">@lang('kidsnow.may')</option>
+                                        <option value="Jun">@lang('kidsnow.june')</option>
+                                        <option value="Jul">@lang('kidsnow.july')</option>
+                                        <option value="Aug">@lang('kidsnow.august')</option>
+                                        <option value="Sep">@lang('kidsnow.september')</option>
+                                        <option value="Oct">@lang('kidsnow.october')</option>
+                                        <option value="Nov">@lang('kidsnow.november')</option>
+                                        <option value="Dec">@lang('kidsnow.december')</option>
                                     </select>
                                     &nbsp;&nbsp;-&nbsp;&nbsp;
                                     <select name="year" id="year">
@@ -67,7 +67,7 @@
                                         @endfor
                                     </select>
                                     &nbsp;&nbsp;
-                                    <button class="btn btn-info btn-sm" type="submit">GO</button>
+                                    <button class="btn btn-info btn-sm" type="submit">@lang('kidsnow.observations.go')</button>
                                 </div>
                             </form>
                         </div>
@@ -76,12 +76,12 @@
                         <table class="table table-striped" id="example">
                             <thead>
                             <tr>
-                                <th style="width:30%">Children's Name</th>
-                                <th style="width:10%">Birthday</th>
-                                <th style="width:10%">Gender</th>
-                                <th style="width:20%">Observer</th>
-                                <th style="width:10%">Time</th>
-                                <th>Action</th>
+                                <th style="width:30%">@lang('kidsnow.observations.children_name')</th>
+                                <th style="width:10%">@lang('kidsnow.observations.birthday')</th>
+                                <th style="width:10%">@lang('kidsnow.observations.gender')</th>
+                                <th style="width:20%">@lang('kidsnow.observations.observer')</th>
+                                <th style="width:10%">@lang('kidsnow.observations.time')</th>
+                                <th>@lang('kidsnow.observations.action')</th>
                             </tr>
                             </thead>
                             <tbody>
