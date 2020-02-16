@@ -29,17 +29,17 @@
             <div class="row">
                 <div class="mat-card" style="width: 100%">
                     <div class="mat-content">
-                        <a style="min-width:110px;background:#eb87c1;color:white; float: left;font-weight: bold" href="{{route('admin.observations.listobservationtype')}}" class="btn btn-default">OBSERVATION TYPES</a>
-                        <a style="min-width:110px;background:#eb87c1;color:white; float: right; border: none;font-weight: bold" href="{{route('admin.observations.list')}}" class="btn btn-success" >CHILDREN LIST</a>
+                        <a style="min-width:110px;background:#eb87c1;color:white; float: left;font-weight: bold" href="{{route('admin.observations.listobservationtype')}}" class="btn btn-default">@lang('kidsnow.observations.types')</a>
+                        <a style="min-width:110px;background:#eb87c1;color:white; float: right; border: none;font-weight: bold" href="{{route('admin.observations.list')}}" class="btn btn-success" >@lang('kidsnow.observations.list')</a>
 
                         <div style="font-weight: bold; font-size: 20px">
-                            Seminar: {{$child_observation->month}} - {{$child_observation->year}}
+                            @lang('kidsnow.observations.seminar'): {{$child_observation->month}} - {{$child_observation->year}}
                         </div>
                         <div style="font-weight: bold; font-size: 16px; color: red">
-                            Observer : {{$child_observation->observer}}
+                            @lang('kidsnow.observations.observer') : {{$child_observation->observer}}
                         </div>
                         <button class="accordion accordion1 clearfix" type="button">
-                            <p style="float: left;">Children *</p>
+                            <p style="float: left;">@lang('kidsnow.observations.children') *</p>
                         </button>
                     </div>
                     <div class="mat-content">
@@ -59,8 +59,8 @@
                                 <div class="add a1 ">
                                     <div class="row">
                                         <div class="col-md-6 input_box">
-                                            <span class="input_box_span_active">First Name *</span>
-                                            <input type="text" name="first_name" placeholder="First Name *" value="{{$children_profiles->first_name}}" readonly>
+                                            <span class="input_box_span_active">@lang('kidsnow.observations.first_name') *</span>
+                                            <input type="text" name="first_name" placeholder="@lang('kidsnow.observations.first_name') *" value="{{$children_profiles->first_name}}" readonly>
                                             @if ($errors->has('first_name'))
                                                 <div class="text text-danger">
                                                     {{ $errors->first('first_name') }}
@@ -68,8 +68,8 @@
                                             @endif
                                         </div>
                                         <div class="col-md-6 input_box">
-                                            <span class="input_box_span_active">Last Name *</span>
-                                            <input type="text" name="last_name" placeholder="Last Name *" value="{{$children_profiles->last_name}}" readonly>
+                                            <span class="input_box_span_active">@lang('kidsnow.observations.last_name') *</span>
+                                            <input type="text" name="last_name" placeholder="@lang('kidsnow.observations.last_name') *" value="{{$children_profiles->last_name}}" readonly>
                                             @if ($errors->has('last_name'))
                                                 <div class="text text-danger">
                                                     {{ $errors->first('last_name') }}
@@ -84,8 +84,8 @@
                         <div class="add" style="width: 100%; margin: 15px 0">
                             <div class="row">
                                 <div class="col-md-3 input_box">
-                                    <span class="input_box_span_active">Birthday </span>
-                                    <input type="date" name="birthday" placeholder="Birthday" value="{{$children_profiles->birthday}}" readonly>
+                                    <span class="input_box_span_active">@lang('kidsnow.observations.birthday') </span>
+                                    <input type="date" name="birthday" placeholder="@lang('kidsnow.observations.birthday')" value="{{$children_profiles->birthday}}" readonly>
                                     @if ($errors->has('birthday'))
                                         <div class="text text-danger">
                                             {{ $errors->first('birthday') }}
@@ -93,8 +93,8 @@
                                     @endif
                                 </div>
                                 <div class="col-md-3 input_box">
-                                    <span class="input_box_span_active">Unique ID </span>
-                                    <input type="text" name="unique_id" placeholder="Unique ID *" value="{{$children_profiles->unique_id}}" readonly>
+                                    <span class="input_box_span_active">@lang('kidsnow.observations.unique_id') </span>
+                                    <input type="text" name="unique_id" placeholder="@lang('kidsnow.observations.unique_id') *" value="{{$children_profiles->unique_id}}" readonly>
                                     @if ($errors->has('unique_id'))
                                         <div class="text text-danger">
                                             {{ $errors->first('unique_id') }}
@@ -102,9 +102,9 @@
                                     @endif
                                 </div>
                                 <div class="col-md-3 input_box">
-                                    <span class="input_box_span_active">Gender</span>
+                                    <span class="input_box_span_active">@lang('kidsnow.observations.gender')</span>
                                     <select name="gender" disabled>
-                                        <option selected>Gender</option>
+                                        <option selected>@lang('kidsnow.observations.gender')</option>
                                         <option value="1" @if($children_profiles->gender == 1) selected="selected" @endif>Nam</option>
                                         <option value="2" @if($children_profiles->gender == 2) selected="selected" @endif>Nữ</option>
                                     </select>
@@ -115,8 +115,8 @@
                                     @endif
                                 </div>
                                 <div class="col-md-3 input_box">
-                                    <span class="input_box_span_active">Date of Joining </span>
-                                    <input type="date" name="date_of_joining" placeholder="Date of Joining" value="{{$children_profiles->date_of_joining}}" readonly>
+                                    <span class="input_box_span_active">@lang('kidsnow.observations.date_of_joining') </span>
+                                    <input type="date" name="date_of_joining" placeholder="@lang('kidsnow.observations.date_of_joining')" value="{{$children_profiles->date_of_joining}}" readonly>
                                     @if ($errors->has('date_of_joining'))
                                         <div class="text text-danger">
                                             {{ $errors->first('date_of_joining') }}
@@ -128,7 +128,7 @@
                     </div>
                     <hr>
                     <div class="mat-content">
-                        <button class="accordion" type="button">Observation Type</button>
+                        <button class="accordion" type="button">@lang('kidsnow.observations.observation_types')</button>
                         <div class="panel">
                             <div _ngcontent-c20="" class="row" style="">
                                 @foreach($observationtype  as $observation)
@@ -144,8 +144,8 @@
                     <div class="comment">
                         <div class="row">
                             <div class="col-md-11 input_box">
-                                <span>Enter Details here *</span>
-                                <input type="text" name="detailObservation" placeholder="Enter Details here *">
+                                <span>@lang('kidsnow.observations.detail')</span>
+                                <input type="text" name="detailObservation" placeholder="@lang('kidsnow.observations.detail')">
                             </div>
                             <div class="col-md-1">
                                 <div class="zoom">

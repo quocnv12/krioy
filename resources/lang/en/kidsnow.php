@@ -1,8 +1,85 @@
 <?php
 
 return [
+
+    //BEGIN ICON INDEX
+
+    'attendance'=>'Attendance',
+    'food' => 'Food', //@lang('kidsnow.food')
+    'diary' => 'Diary',//@lang('kidsnow.diary')
+    'star' => 'Star',//@lang('kidsnow.star')
+    'potty' => 'Potty',//@lang('kidsnow.potty')
+    'observations' => 'Observations',//@lang('kidsnow.observations')
+    'photos' => 'Photos',//@lang('kidsnow.photos')
+    'play_and_learn' => 'Play and Learn',//@lang('kidsnow.play_and_learn')
+    'sleep' => 'Sleep',//@lang('kidsnow.sleep')
+    'health' => 'Health', //@lang('kidsnow.health')
+    'notice_board' => 'Notice Board',//@lang('kidsnow.notice_board')
+    'calendar' => 'Calendar',//@lang('kidsnow.calendar')
+    'parent_notes' => 'Parent Notes',//@lang('kidsnow.parent_notes')
+    'route_tracker' => 'Route Tracker',//@lang('kidsnow.route_tracker')
+    'reports' => 'Reports',//@lang('kidsnow.reports')
+    'daily_reports' => 'Daily Reports',//@lang('kidsnow.daily_reports')
+    'history' => 'History',//@lang('kidsnow.history')
+    'enquiries' => 'Enquiries',//@lang('kidsnow.enquiries')
+    'invoices' => 'Invoices',//@lang('kidsnow.invoices')
+    'expenses' => 'Expenses',//@lang('kidsnow.expenses')
+    // Profiles
+    'profiles'  =>  'Profiles',//@lang('kidsnow/profiles')
+    'children_profiles' => 'Children Profiles',//@lang('kidsnow.children_profiles')
+    'staff_profiles' => 'Staff Profiles',//@lang('kidsnow.staff_profiles')
+    'school' => 'School',//@lang('kidsnow.school')
+    'archives' => 'Archives',//@lang('kidsnow.archives')
+    'programs' => 'Programs',//@lang('kidsnow.archives')
+    // Setup and Settings
+    'setup_and_settings' => 'Setup and Settings',//@lang('kidsnow.setup_and_settings')
+    'room_ratio' => 'Room Ratio',//@lang('kidsnow.room_ratio')
+    'favourite' => 'Favourite',//@lang('kidsnow.favourite')
+    'tags' => 'Tags',//@lang('kidsnow.tags')
+    'transport_setup' => 'Transport Setup',//@lang('kidsnow.transaport_setup')
+    'qr_download' => 'QR Download',//@lang('kidsnow.qr_download')
+    'allergies_info' => 'Allergies Info',//@lang('kidsnow.allergies_info')
+    'invite_parents' => 'Invite Parents',//@lang('kidsnow.invite_parents')
+    'invite_staff' => 'Invite Staff',//@lang('kidsnow.invite_staff')
+    'cctv_access' => 'CCTV Access',//@lang('kidsnow.cctv_access')
+    'configurations' => 'Configurations',//@lang('kidsnow.configuratios')
+    'permission' => 'Permission',//@lang('kidsnow.configuratios')
+    // Application
+    'application' => 'Application',//@lang('kidsnow.application')
+    'shop' => 'Shop',//@lang('kidsnow.shop')
+    'game' => 'Game',//@lang('kidsnow.game')
+    'ebook_blog' => 'Ebook/Blog',//@lang('kidsnow.ebook_blog')
+    'courses' => 'Courses',//@lang('kidsnow.courses')
+    'video' => 'Video',//@lang('kidsnow.video')
+    'audio_book' => 'Audio Book',//@lang('kidsnow.audio_book')
+    // Help
+    'help'=>'Help',
+    'faqs' => 'FAQs',//@lang('kidsnow.faqs')
+    'help_videos' => 'Help Videos',//@lang('kidsnow.help_videos')
+
+    //FINISH ICON INDEX
+
+
+
+    // Begin Notifications
+
+    'success' => 'Success', //@lang('kidsnow.success')
+    'failure' => 'There was an error', //@lang('kidsnow.failure')
+    'error' => 'Error', //@lang('kidsnow.error')
+    'updated' => 'Update successful', //@lang('kidsnow.updated')
+    'login_success' => 'Logged in successfully', //@lang('kidsnow.login_success')
+    'invalid_account' => 'Account does not exist', //@lang('kidsnow.invalid_account')
+    'account_deactive' => 'Your account has not been verified', //@lang('kidsnow.account_deactive')
+    'invalid_password' => 'Incorrect password :(', //@lang('kidsnow.invalid_password')
+
+    //finish notification
+
+
+
+    //Behin header
+
     'menu_profiles' => 'Profiles', //@lang('kidsnow.menu_profiles')
-    'menu_invoices' => 'INVOICES', //@lang('kidsnow.menu_invoices')
+    'menu_invoices' => 'Invoices', //@lang('kidsnow.menu_invoices')
     'menu_settings' => 'Settings', //@lang('kidsnow.menu_settings')
     'menu_help' => 'Help', //@lang('kidsnow.menu_help')
     'vietnamese' => 'VietNamese', //@lang('kidsnow.vietnamese')
@@ -18,8 +95,10 @@ return [
     'save' => 'SAVE', //@lang('kidsnow.save')
     'edit' => 'EDIT', //@lang('kidsnow.edit')
     'enter_details_here' => 'Enter details here *', //@lang('kidsnow.enter_details_here')
+
+    //Finish header
+
     // Attendance
-    'attendance' => 'Attendance', //@lang('kidsnow.attendance')
     'total' => 'Total', //@lang('kidsnow.total')
     'in' => 'IN', //@lang('kidsnow.in')
     'out' => 'OUT', //@lang('kidsnow.out')
@@ -32,7 +111,7 @@ return [
     // END Attendance
 
     // Food
-    'food' => 'Food', //@lang('kidsnow.food')
+
     'meal_type' => 'Meal Type', //@lang('kidsnow.meal_type')
     'quantity' => 'Quantity', //@lang('kidsnow.quantity')
     'food_name' => 'Food Name',//@lang('kidsnow.food_name')
@@ -68,7 +147,6 @@ return [
     'bus_tracking_content' => 'School bus/van tracking with customized view for School, Parents and Driver',//@lang('kidsnow.bus_tracking_content')
     'fee_management' => 'FEE MANAGEMENT',//@lang('kidsnow.fee_management')
     'fee_management_content' => 'Billing, Payments and Receipts digitised and in one place!',//@lang('kidsnow.fee_management_content')
-    'diary' => 'DIARY',//@lang('kidsnow.diary')
     'diary_content' => 'In one go, you can write the Diary for all the selected students',
     'analytical_reports' => 'ANALYTICAL REPORTS',
     'analytical_reports_content' => 'Get useful insights about your school through easy to read reports',
@@ -128,14 +206,17 @@ return [
     'our_happy_customers' => 'Our Happy Customers',
     'and_many_more' => 'And many more',
     'about_us' => 'About Us',
-    'abour_us_content' => 'Kids Now ipsum dolor sit amet, consectetur adipisicing elit. Delectus possimus aut eaque adipisci, accusamus illum exercitationem labore sequi tenetur vitae, est ipsum. Cupiditate quas laboriosam, autem cumque sint quia cum odit eligendi dolore, consequatur nobis rem ipsa dolorem non, eum eius earum quo voluptate repellendus vitae maxime. Beatae natus atque praesentium soluta ut voluptate, cupiditate ipsum tempora iste distinctio, sit corrupti inventore ea suscipit, odit modi illo omnis animi quae.',
+    'about_us_content' => 'Kids Now ipsum dolor sit amet, consectetur adipisicing elit. Delectus possimus aut eaque adipisci, accusamus illum exercitationem labore sequi tenetur vitae, est ipsum. Cupiditate quas laboriosam, autem cumque sint quia cum odit eligendi dolore, consequatur nobis rem ipsa dolorem non, eum eius earum quo voluptate repellendus vitae maxime. Beatae natus atque praesentium soluta ut voluptate, cupiditate ipsum tempora iste distinctio, sit corrupti inventore ea suscipit, odit modi illo omnis animi quae.',
     'our_team' => 'Our Team',
     'get_in_touch' => 'Get in Touch',
     'privacy_police_terms' => 'Privacy Policy & Terms and Conditions',
     'a_product_of' => 'a product of',
     //END Home
+
+
+
     //Health
-    'health' => 'Health', //@lang('kidsnow.health')
+
     'select_health_update_type' => 'Select Health Update Type*',//@lang('kidsnow.select_health_update_type')
     'sick' => 'Sick',//@lang('kidsnow.sick')
     'medicine' => 'Medicine',//@lang('kidsnow.medicine')
@@ -146,32 +227,118 @@ return [
     'head_circumfere' => 'Head Circumfere',//@lang('kidsnow.head_circumfere')
         //Health quản lý danh sách
     'stt' => 'STT',//@lang('kidsnow.stt')
-    'frist_name' => 'FIRST NAME',//@lang('kidsnow.frist_name')
+    'first_name' => 'FIRST NAME',//@lang('kidsnow.first_name')
     'last_name' => 'LAST NAME',//@lang('kidsnow.last_name')
     'birthday' => 'BIRTHDAY',//@lang('kidsnow.birthday')
         //END Health quản lý danh sách
     // END  Health
+
+
+
     //Observations
-    'choose_month' => 'Choose Month',//@lang('kidsnow.choose_month')
-    'children_name' => 'Children\'s Name',//@lang('kidsnow.children_name')
-    'seminar' => 'SEMINAR',//@lang('kidsnow.seminar')
-    'observer' => 'OBSERVER',//@lang('kidsnow.observer')
-    'time' => 'TIME',//@lang('kidsnow.time')
-    'action' => 'ACTION',//@lang('kidsnow.action')
-    'showing_0_to_0' => 'Showing 0 to 0 of 0 entries',//@lang('kidsnow.showing_0_to_0')
-    'no_data' => 'No data available in table',//@lang('kidsnow.no_data')
-    'go' => 'GO',//@lang('kidsnow.go')
+
+        //kids-now/observations/list
+        'observations.observations' =>'Observations',
+        'observations.seminar'  =>'Seminar',
+        'observations.choose_month' => 'Choose Month',//@lang('kidsnow.choose_month')
+        'observations.children_name' => 'Children\'s Name',//@lang('kidsnow.children_name')
+        'observations.observer' => 'OBSERVER',//@lang('kidsnow.observer')
+        'observations.time' => 'TIME',//@lang('kidsnow.time')
+        'observations.action' => 'ACTION',//@lang('kidsnow.action')
+        'observations.go' => 'GO',//@lang('kidsnow.go')
+        'january'=>'January',
+        'february'=>'February',
+        'march'=>'March',
+        'april'=>'April',
+        'may'=>'May',
+        'june'=>'June',
+        'july'=>'July',
+        'august'=>'August',
+        'september'=>'September',
+        'october'=>'October',
+        'november'=>'November',
+        'december'=>'December',
+
+        //kids-now/observations/add
+        'observations.types'=>'OBSERVATION TYPES',
+        'observations.list' =>'CHILDREN LIST',
+        'observations.children'=>'Childrens',
+        'observations.observation_types'=>'Observation Types',
+        'observations.detail'=>'Enter Details here',
+        'observations.no_found'=>'No Children was founded',
+        'observations.hint'=>'Hint',
+        'observations.hint_content'=>'Click on a program tab in horizontal scroll bar to show all children in that program',
+
+        //kids-now/observations/edit
+        'observation.first_name'=>'First Name',
+        'observation.last_name'=>'Last Name',
+        'observation.birthday'=>'Birthday',
+        'observation.unique_id'=>'Unique ID',
+        'observation.gender'=>'Gender',
+        'observation.date_of_joining'=>'Date of Joining',
+
     //END Observations
-    //Notice board: http://kidsnow.web88.vn/kids-now/notice-board
-    'search_notice' => 'Search Notice',//@lang('kidsnow.search_notice')
-    'hint' => 'Hint',//@lang('kidsnow.hint')
-    'note_hint' => 'Click on a program tab in horizontal scroll bar to show all notice in that program / Or use the search bar to go to specific notice',//@lang('kidsnow.note_hint')
+
+
+
+    //Notice board:
+
+        // kids-now.notice-board
+        'notice.search' => 'Search Notice',//@lang('kidsnow.search_notice')
+        'notice.hint' => 'Hint',//@lang('kidsnow.hint')
+        'notice.hint_content' => 'Click on a program tab in horizontal scroll bar to show all notice in that program / Or use the search bar to go to specific notice',//@lang('kidsnow.note_hint')
+
+        //kids-now/notice-board/add | kids-now/notice-board/edit | kids-now/notice-board/detail
+        'notice.programs'   =>  'Programs',
+        'notice.title'=>'Title of Notice',
+        'notice.detail'=>'Enter Details here',
+        'notice.mark'=>'Mark as Important',
+        'notice.archive'=>'Archive',
     //END Notice board
-    //Children Profiles: http://kidsnow.web88.vn/kids-now/children
-    'search_children' => 'Search Children',//@lang('kidsnow.search_children')
+
+
+    //Children Profiles
+
+        // kids-now/children
+        'children.search_bar' => 'Search Children...',//@lang('kidsnow.search_children')
+        'children.untagged'  =>  'Untagged',//@lang('kidsnow.children.untagged')
+        'children.hint' =>  'Hint',//@lang('kidsnow.children.hint')
+        'children.hint_content' =>  'Click on a program tab in horizontal scroll bar to show all children in that program / Or use the search bar to go to specific children\'s profile',//@lang('kidsnow.children.hint_content')
+        'children.no_found' =>'No Children was founded',
+        'children.go_to'=>'Go To',
+        'children.profile'=>'Profile',
+        'children.health'=>'Health',
+        'children.observations'=>'Observations',
+
+
+        // kids-now/children/add | kids-now/children/edit | kids-now/children/view
+        'children.view_children'=>'View Children',
+        'children.add_children' =>'Add Children',
+        'children.edit_children' =>'Edit Children',
+        'children.first_name'=>'First Name',
+        'children.last_name'=>'Last Name',
+        'children.birthday'=>'Birthday',
+        'children.blood_group'=>'Blood Group',
+        'children.gender'=>'Gender',
+        'children.date_of_joining' =>'Date of Joining',
+        'children.unique_id'    =>  'Unique ID',
+        'children.status'   =>  'Status',
+        'children.exist'   =>  'Exist',
+        'children.residential_address'=>'Residential Address',
+        'children.allergies'    =>'Allergies (if any)',
+        'children.additional_notes' =>'Additional Notes',
+        'children.programs'  =>'Programs',
+        'children.parents'  =>  'Parents',
+        'children.relationship' =>'Relationship',
+        'children.phone'    =>  'Phone Number',
+        'children.email'    =>  'Email Address',
+        'children.note' =>  'Note',
+
     //END Children Profiles
+
+
     //Staff Profiles:
-    'staff_profiles' => 'STAFF PROFILES',//@lang('kidsnow.staff_profiles')
+
             //Staff List: http://kidsnow.web88.vn/kids-now/staff
             'name' => 'NAME',//@lang('kidsnow.name')
             'phone' => 'PHONE',//@lang('kidsnow.phone')
@@ -200,95 +367,48 @@ return [
                 // END Edit Staff
 
     //END Staff Profiles
-    //Program: http://kidsnow.web88.vn/kids-now/program
-    'search_program' => 'SEARCH PROGRAM', //@lang('kidsnow.search_program')
-    'programs' => 'Programs',//@lang('kidsnow.programs')
-        //View Program: http://kidsnow.web88.vn/kids-now/program/view/1
-        'view_program' => 'VIEW PROGRAM',//@lang('kidsnow.view_program')
-        'program_name' => 'Program Name *',//@lang('kidsnow.program_name')
-        'days' => 'Days',//@lang('kidsnow.days')
-        'program_fee' => 'Program Fee',//@lang('kidsnow.program_fee')
-        'period' => 'Period Fee', //@lang('kidsnow.period')
-        'age_group' => 'Age Group',//@lang('kidsnow.age_group')
-        'from' => 'From:',//@lang('kidsnow.from')
-        'to' => 'To:',//@lang('kidsnow.to')
-        'timings' => 'Timings',//@lang('kidsnow.timings')
-        'month' => 'Month',//@lang('kidsnow.month')
-        'year' => 'Year',//@lang('kidsnow.year')
-        'staff' => 'Staff',//@lang('kidsnow.staff')
-    //END Program
-    // 'diary' => 'Diary',//@lang('kidsnow.diary')
-    'star' => 'Star',//@lang('kidsnow.star')
-    'potty' => 'Potty',//@lang('kidsnow.potty')
-    'observations' => 'Observations',//@lang('kidsnow.observations')
-    'photos' => 'Photos',//@lang('kidsnow.photos')
-    'play_and_learn' => 'Play and Learn',//@lang('kidsnow.play_and_learn')
-    'sleep' => 'Sleep',//@lang('kidsnow.sleep')
-    'notice_board' => 'Notice Board',//@lang('kidsnow.notice_board')
-    'calendar' => 'Calendar',//@lang('kidsnow.calendar')
-    'parent_notes' => 'Parent Notes',//@lang('kidsnow.parent_notes')
-    'route_tracker' => 'Route Tracker',//@lang('kidsnow.route_tracker')
-    'reports' => 'Reports',//@lang('kidsnow.reports')
-    'daily_reports' => 'Daily Reports',//@lang('kidsnow.daily_reports')
-    'history' => 'History',//@lang('kidsnow.history')
-    'enquiries' => 'Enquiries',//@lang('kidsnow.enquiries')
-    'invoices' => 'Invoices',//@lang('kidsnow.invoices')
-    'expenses' => 'Expenses',//@lang('kidsnow.expenses')
-    // Profiles
-    'children_profiles' => 'Children Profiles',//@lang('kidsnow.children_profiles')
-    'staff_profiles' => 'Staff Profiles',//@lang('kidsnow.staff_profiles')
-    'school' => 'School',//@lang('kidsnow.school')
-    'archives' => 'Archives',//@lang('kidsnow.archives')
-    // Setup and Settings
-    'setup_and_settings' => 'Setup and Settings',//@lang('kidsnow.setup_and_settings')
-    'room_ratio' => 'Room Ratio',//@lang('kidsnow.room_ratio')
-    'favourite' => 'Favourite',//@lang('kidsnow.favourite')
-    'tags' => 'Tags',//@lang('kidsnow.tags')
-    'transaport_setup' => 'Transaport Setup',//@lang('kidsnow.transaport_setup')
-    'qr_download' => 'QR Download',//@lang('kidsnow.qr_download')
-    'allergies_info' => 'Allergies Info',//@lang('kidsnow.allergies_info')
-    'invite_parents' => 'Invite Parents',//@lang('kidsnow.invite_parents')
-    'invite_staff' => 'Invite Staff',//@lang('kidsnow.invite_staff')
-    'cctv_access' => 'CCTV Access',//@lang('kidsnow.cctv_access')
-    'configuratios' => 'Configuratios',//@lang('kidsnow.configuratios')
-    // Application
-    'application' => 'Application',//@lang('kidsnow.application')
-    'shop' => 'Shop',//@lang('kidsnow.shop')
-    'game' => 'Game',//@lang('kidsnow.game')
-    'ebook_blog' => 'Ebook/Blog',//@lang('kidsnow.ebook_blog')
-    'courses' => 'Courses',//@lang('kidsnow.courses')
-    'video' => 'Video',//@lang('kidsnow.video')
-    'audio_book' => 'Audio Book',//@lang('kidsnow.audio_book')
-    // Help
-    'faqs' => 'FAQs',//@lang('kidsnow.faqs')
-    'help_videos' => 'Help Videos',//@lang('kidsnow.help_videos')
-    // Notifications
-    'success' => 'Success', //@lang('kidsnow.success')
-    'failure' => 'There was an error', //@lang('kidsnow.failure')
-    'error' => 'Error', //@lang('kidsnow.error')
-    'updated' => 'Update successful', //@lang('kidsnow.updated')
-    'login_success' => 'Logged in successfully', //@lang('kidsnow.login_success')
-    'invalid_account' => 'Account does not exist', //@lang('kidsnow.invalid_account')
-    'account_deactive' => 'Your account has not been verified', //@lang('kidsnow.account_deactive')
-    'invalid_password' => 'Incorrect password :(', //@lang('kidsnow.invalid_password')
 
-    //page star
-    'quick_learn' => 'Quick Learn', //@lang('kidsnow.quick_learn')
-    'punctual' => 'Punctual', //@lang('kidsnow.punctual')
-    'friendly' => 'Friendly',//@lang('kidsnow.friendly')
-    'creative' => 'Creative',//@lang('kidsnow.creative')
-    'brave' => 'Brave',//@lang('kidsnow.brave')
-    'star_type' => 'Star Type*',//@lang('kidsnow.star_type')
-    'select' => 'SELECT_',//@lang('kidsnow.select')
-    'children' => 'CHILDREN',//@lang('kidsnow.children')
-    'stars' => 'STARS',//@lang('kidsnow.stars')
-    'home' => 'HOME',//@lang('kidsnow.home')
-    'action' => 'ACTION',//@lang('kidsnow.action')
-    'list' => 'List',//@lang('kidsnow.list')
-    'male' => 'Male',//@lang('kidsnow.male')
-    'female' => 'Female',//@lang('kidsnow.female')
-    'permissions' => 'Permissions',//@lang('kidsnow.permissions')
-    'list' => 'List',//@lang('kidsnow.list')
+
+    //Program:
+
+        // kids-now/program
+        'program.search' => 'Search Program...', //@lang('kidsnow.search_program')
+        'program.programs' => 'Programs',//@lang('kidsnow.programs')
+
+        //kids-now/program/add | kids-now/program/edit | kids-now/program/view
+        'program.view_program'=>'View Program',
+        'program.add_program'=>'Add Program',
+        'program.edit_program'=>'Edit Program',
+        'program.program_name' => 'Program Name *',//@lang('kidsnow.program_name')
+        'program.days' => 'Days',//@lang('kidsnow.days')
+        'program.program_fee' => 'Program Fee',//@lang('kidsnow.program_fee')
+        'program.currency'  =>'Currency',
+        'program.period' => 'Period Fee', //@lang('kidsnow.period')
+        'program.week'  =>  '/week',
+        'program.month'  =>  '/month',
+        'program.year'  =>  '/year',
+        'program.status'    =>'Status',
+        'program.open'=>'Open',
+        'program.close'=>'Close',
+        'program.age_group' => 'Age Group',//@lang('kidsnow.age_group')
+        'program.from' => 'From:',//@lang('kidsnow.from')
+        'program.to' => 'To:',//@lang('kidsnow.to')
+        'program.from_year'=>'Year',
+        'program.from_month'=>'Month',
+        'program.to_year'=>'Year',
+        'program.to_month'=>'Month',
+        'program.timings' => 'Timings',//@lang('kidsnow.timings')
+        'program.start_time'    =>  'Start Time',
+        'program.finish_time'    =>  'Finish Time',
+        'program.hint'  =>'Hint',
+        'program.hint_content'  =>'Use the search bar to add Staff / Children to the program',
+        'program.staff' => 'Staff',//@lang('kidsnow.staff')
+        'program.children' => 'Children',//@lang('kidsnow.staff')
+        'program.search_staff'  =>'Search Staff...',
+        'program.search_children'  =>'Search Children...',
+        'program.no_staff'=>'No Staff was founded',
+        'program.no_children'=>'No Children was founded',
+    //END Program
 
 
     'signup' => [

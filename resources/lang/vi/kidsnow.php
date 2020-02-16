@@ -17,8 +17,66 @@ return [
     'send' => 'GỬI',
     'save' => 'LƯU',
     'enter_details_here' => 'Nhập chi tiết tại đây *',
+
+
+    //BEGIN ICON INDEX
+    'attendance'=>'Điểm Danh',
+    'food' => 'Thực Đơn',
+    'diary' => 'Nhật Ký',//@lang('kidsnow.diary')
+    'star' => 'Danh Hiệu',//@lang('kidsnow.star')
+    'potty' => 'Vệ Sinh',//@lang('kidsnow.potty')
+    'observations' => 'Đánh Giá',//@lang('kidsnow.observations')
+    'photos' => 'Album Ảnh',//@lang('kidsnow.photos')
+    'play_and_learn' => 'Chơi và Học',//@lang('kidsnow.play_and_learn')
+    'sleep' => 'Giấc Ngủ',//@lang('kidsnow.sleep')
+    'health' => 'Sức Khỏe',
+    'notice_board' => 'Thông Báo',//@lang('kidsnow.notice_board')
+    'calendar' => 'Lịch',//@lang('kidsnow.calendar')
+    'parent_notes' => 'Ghi Chú Phụ huynh',//@lang('kidsnow.parent_notes')
+    'route_tracker' => 'Tìm Đường Đi',//@lang('kidsnow.route_tracker')
+    'reports' => 'Báo Cáo',//@lang('kidsnow.reports')
+    'daily_reports' => 'Báo Cáo Hàng Ngày',//@lang('kidsnow.daily_reports')
+    'history' => 'Lịch Sử',//@lang('kidsnow.history')
+    'enquiries' => 'Thống Kê',//@lang('kidsnow.enquiries')
+    'invoices' => 'Hóa Đơn',//@lang('kidsnow.invoices')
+    'expenses' => 'Học Phí',//@lang('kidsnow.expenses')
+    // Profiles
+    'profiles'  =>  'Thông Tin Chi Tiết',//@lang('kidsnow/profiles')
+    'children_profiles' => 'Trẻ',//@lang('kidsnow.children_profiles')
+    'staff_profiles' => 'Nhân Viên',//@lang('kidsnow.staff_profiles')
+    'school' => 'Trường học',//@lang('kidsnow.school')
+    'archives' => 'Thành Tựu',//@lang('kidsnow.archives')
+    'programs' => 'Chương Trình Học',//@lang('kidsnow.archives')
+    // Setup and Settings
+    'setup_and_settings' => 'Cài Đặt và Thiết Lập',//@lang('kidsnow.setup_and_settings')
+    'room_ratio' => 'Thông Tin Lớp Học',//@lang('kidsnow.room_ratio')
+    'favourite' => 'Yêu Thích',//@lang('kidsnow.favourite')
+    'tags' => 'Thẻ',//@lang('kidsnow.tags')
+    'transport_setup' => 'Thiết Lập Di Chuyển',//@lang('kidsnow.transaport_setup')
+    'qr_download' => 'Tải Về QR',//@lang('kidsnow.qr_download')
+    'allergies_info' => 'Thông Tin Dị Ứng',//@lang('kidsnow.allergies_info')
+    'invite_parents' => 'Mời Phụ Huynh',//@lang('kidsnow.invite_parents')
+    'invite_staff' => 'Mời Nhân Viên',//@lang('kidsnow.invite_staff')
+    'cctv_access' => 'Truy Cập CCTV',//@lang('kidsnow.cctv_access')
+    'configurations' => 'Cấu Hình',//@lang('kidsnow.configuratios')
+    'permission' => 'Phân Quyền',//@lang('kidsnow.configuratios')
+
+    // Application
+    'application' => 'Ứng Dụng',//@lang('kidsnow.application')
+    'shop' => 'Của Hàng',//@lang('kidsnow.shop')
+    'game' => 'Trò Chơi',//@lang('kidsnow.game')
+    'ebook_blog' => 'Sách Điện Tử/ Blog',//@lang('kidsnow.ebook_blog')
+    'courses' => 'Khóa Học',//@lang('kidsnow.courses')
+    'video' => 'Video',//@lang('kidsnow.video')
+    'audio_book' => 'Sách Audio',//@lang('kidsnow.audio_book')
+    // Help
+    'faqs' => 'Câu hỏi Thường Gặp',//@lang('kidsnow.faqs')
+    'help_videos' => 'Video Hướng Dẫn',//@lang('kidsnow.help_videos')
+
+    //FINISH ICON INDEX
+
+
     // Attendance
-    'attendance' => 'Điểm danh',
     'total' => 'TỔNG SỐ',
     'in' => 'TRONG LỚP',
     'out' => 'RA NGOÀI',
@@ -31,7 +89,6 @@ return [
     // END Attendance
 
     // Food
-    'food' => 'Thực đơn',
     'meal_type' => 'Loại bữa ăn',
     'quantity' => 'Số lượng',
     'food_name' => 'Tên món ăn',
@@ -66,7 +123,6 @@ return [
     'bus_tracking_content' => 'Theo dõi xe buýt / xe buýt của trường với chế độ xem tùy chỉnh cho Trường học, Phụ huynh và Tài xế',
     'fee_management' => 'QUẢN LÝ PHÍ',
     'fee_management_content' => 'Hóa đơn, Thanh toán và Biên lai được số hóa và ở một nơi!',
-    'diary' => 'NHẬT KÝ',
     'diary_content' => 'Trong một lần, bạn có thể viết Nhật ký cho tất cả các sinh viên đã chọn',
     'analytical_reports' => 'BÁO CÁO PHÂN TÍCH',
     'analytical_reports_content' => 'Nhận thông tin chi tiết hữu ích về trường học của bạn thông qua các báo cáo dễ đọc',
@@ -133,8 +189,10 @@ return [
     'privacy_police_terms' => 'Chính sách bảo mật & Điều khoản và điều kiện',
     'a_product_of' => 'một sản phẩm của',
     //END Home
+
+
     //Health
-    'health' => 'Sức khỏe',
+
     'select_health_update_type' => 'Chọn Loại Cập nhật Sức khỏe *',
     'sick' => 'Ốm',
     'medicine' => 'Dược phẩm',
@@ -168,9 +226,46 @@ return [
     'hint' => 'Hint',
     'note_hint' => 'Click on a program tab in horizontal scroll bar to show all notice in that program / Or use the search bar to go to specific notice',
     //END Notice board
-    //Children Profiles: http://kidsnow.web88.vn/kids-now/children
-    'search_children' => 'Search Children',
+
+
+    //Children Profiles
+
+        // kids-now/children
+        'children.search_bar' => 'Tìm Kiếm Trẻ...',//@lang('kidsnow.search_children')
+        'children.untagged'  =>  'Chưa xếp lớp',//@lang('kidsnow.children.untagged')
+        'children.hint' =>  'Gợi ý',//@lang('kidsnow.children.hint')
+        'children.hint_content' =>  'Nhấn vào tên chương trình học trên thanh trượt menu để hiển thị trẻ trong chương trình học đó / Hoặc sử dụng thanh tìm kiếm để xem hồ sơ của trẻ cụ thể',//@lang('kidsnow.children.hint_content')
+        'children.no_found' =>'Không tìm thấy trẻ nào trong chương trình học này',
+        'children.go_to'=>'Đi Tới',
+        'children.profile'=>'Hồ Sơ Cá Nhân',
+        'children.health'=>'Sức Khỏe',
+        'children.observations'=>'Đánh giá',
+
+        // kids-now/children/add | kids-now/children/edit | kids-now/children/view
+        'chidlren.view_children'=>'Xem hồ sơ',
+        'children.add_children' =>'Thêm Hồ Sơ',
+        'children.edit_children' =>'Sửa Hồ Sơ',
+        'children.first_name'=>'Họ',
+        'children.last_name'=>'Tên',
+        'children.birthday'=>'Ngày Sinh',
+        'children.blood_group'=>'Nhóm Máu',
+        'children.gender'=>'Giới Tính',
+        'children.date_of_joining' =>'Ngày Tham Gia',
+        'children.unique_id'    =>  'Mã trẻ ID',
+        'children.status'   =>  'Trạng Thái',
+        'children.exist'   =>  'Tồn Tại',
+        'children.residential_address'=>'Địa Chỉ Thường Trú',
+        'children.allergies'    =>'Dị Ứng (nếu có)',
+        'children.additional_notes' =>'Ghi Chú Thêm',
+        'children.programs'  =>'Chương Trình Học',
+        'children.parents'  =>  'Phụ Huynh',
+        'children.relationship' =>'Mối Quan Hệ',
+        'children.phone'    =>  'Số Điện Thoại',
+        'children.email'    =>  'Email',
+        'children.note' =>  'Ghi Chú',
+
     //END Children Profiles
+
     //Staff Profiles:
             //Staff List: http://kidsnow.web88.vn/kids-now/staff
             'name' => 'NAME',
@@ -199,68 +294,114 @@ return [
                 // END Edit Staff
 
     //END Staff Profiles
-    //Program: http://kidsnow.web88.vn/kids-now/program
-    'search_program' => 'SEARCH PROGRAM',
-    'programs' => 'Programs',
-        //View Program: http://kidsnow.web88.vn/kids-now/program/view/1
-        'view_program' => 'VIEW PROGRAM',
-        'program_name' => 'Program Name *',
-        'days' => 'Days',
-        'program_fee' => 'Program Fee',
-        'period' => 'Period Fee',
-        'age_group' => 'Age Group',
-        'from' => 'From:',
-        'to' => 'To:',
-        'timings' => 'Timings',
-        'month' => 'Month',
-        'year' => 'Year',
-        'staff' => 'Staff',
-        'children' => 'Children',
+
+
+    //Program:
+
+        // kids-now/program
+        'program.search' => 'Tìm Kiếm Chương Trình...', //@lang('kidsnow.search_program')
+        'program.programs' => 'Chương Trình Học',//@lang('kidsnow.programs')
+
+        //kids-now/program/add | kids-now/program/edit | kids-now/program/view
+        'program.view_program'=>'Xem Chương Trình Học',
+        'program.add_program'=>'Thêm Chương Trình Học',
+        'program.edit_program'=>'Sửa Chương Trình Học',
+        'program.program_name' => 'Tên Chương Trình',//@lang('kidsnow.program_name')
+        'program.days' => 'Ngày Học',//@lang('kidsnow.days')
+        'program.program_fee' => 'Học Phí',//@lang('kidsnow.program_fee')
+        'program.currency'  =>'Đơn Vị Tính',
+        'program.period' => 'Khoảng Thời Gian', //@lang('kidsnow.period')
+        'program.week'  =>  '/tuần',
+        'program.month'  =>  '/tháng',
+        'program.year'  =>  '/năm',
+        'program.status'    =>'Trạng Thái',
+        'program.open'=>'Mở',
+        'program.close'=>'Đóng',
+        'program.age_group' => 'Nhóm Tuổi',//@lang('kidsnow.age_group')
+        'program.from' => 'Từ:',//@lang('kidsnow.from')
+        'program.to' => 'Đến:',//@lang('kidsnow.to')
+        'program.from_year'=>'Năm',
+        'program.from_month'=>'Tháng',
+        'program.to_year'=>'Năm',
+        'program.to_month'=>'Tháng',
+        'program.timings' => 'Thời Gian Học',//@lang('kidsnow.timings')
+        'program.start_time'    =>  'Bắt Đầu Lúc',
+        'program.finish_time'    =>  'Kết Thúc Lúc',
+        'program.hint'  =>'Gợi Ý',
+        'program.hint_content'  =>'Sử dụng thanh tìm kiếm để thêm nhân viên hoặc trẻ vào chương trình học',
+        'program.staff' => 'Nhân Viên',//@lang('kidsnow.staff')
+        'program.children' => 'Trẻ',//@lang('kidsnow.staff')
+        'program.search_staff'  =>'Tìm Kiếm Nhân Viên ...',
+        'program.search_children'  =>'Tìm Kiếm Trẻ ...',
+        'program.no_staff'=>'Không tìm thấy nhân viên',
+        'program.no_children'=>'Không tìm thấy trẻ',
     //END Program
-    'none' => 'None',
-    'potty' => 'Potty',
-    'observations' => 'Observations',
-    'photos' => 'Photos',
-    'play_and_learn' => 'Play and Learn',
-    'sleep' => 'Sleep',
-    'notice_board' => 'Notice Board',
-    'calendar' => 'Calendar',
-    'parent_notes' => 'Parent Notes',
-    'route_tracker' => 'Route Tracker',
-    'reports' => 'Reports',
-    'daily_reports' => 'Daily Reports',
-    'history' => 'History',
-    'enquiries' => 'Enquiries',
-    'invoices' => 'Invoices',
-    'expenses' => 'Expenses',
-    // Profiles
-    'children_profiles' => 'Children Profiles',
-    'staff_profiles' => 'Staff Profiles',
-    'programs' => 'Programs',
-    'school' => 'School',
-    'archives' => 'Archives',
-    // Setup and Settings
-    'setup_and_settings' => 'Setup and Settings',
-    'room_ratio' => 'Room Ratio',
-    'favourite' => 'Favourite',
-    'tags' => 'Tags',
-    'transaport_setup' => 'Transaport Setup',
-    'qr_download' => 'QR Download',
-    'allergies_info' => 'Allergies Info',
-    'invite_parents' => 'Invite Parents',
-    'invite_staff' => 'Invite Staff',
-    'cctv_access' => 'CCTV Access',
-    'configuratios' => 'Configuratios',
-    // Application
-    'shop' => 'Shop',
-    'game' => 'Game',
-    'ebook_blog' => 'Ebook/Blog',
-    'courses' => 'Courses',
-    'video' => 'Video',
-    'audio_book' => 'Audio Book',
-    // Help
-    'faqs' => 'FAQs',
-    'help_videos' => 'Help Videos',
+
+    //Notice board:
+
+        // kids-now.notice-board
+        'notice.search' => 'Tìm Kiếm Thông Báo...',//@lang('kidsnow.search_notice')
+        'notice.hint' => 'Gợi Ý',//@lang('kidsnow.hint')
+        'notice.hint_content' => 'Nhấn vào tên chương trình học trên thanh trượt menu để hiển thị thông báo trong chương trình học đó / Hoặc sử dụng thanh tìm kiếm để xem 1 thông báo cụ thể',//@lang('kidsnow.note_hint')
+
+        //kids-now/notice-board/add | kids-now/notice-board/edit | kids-now/notice-board/detail
+        'notice.programs'   =>  'Chương Trình Học',
+        'notice.title'=>'Tiêu Đề Thông Báo',
+        'notice.detail'=>'Nội Dung Thông Báo',
+        'notice.mark'=>'Đánh Dấu Thông Báo Quan Trọng',
+        'notice.archive'=>'Đã Hoàn Thành',
+    //END Notice board
+
+
+    //Observations
+
+        //kids-now/observations/list
+        'observations.observations' =>'Đánh Giá',
+        'observations.seminar'  =>'Học Kỳ',
+        'observations.choose_month' => 'Chọn Tháng',//@lang('kidsnow.choose_month')
+        'observations.children_name' => 'Họ Tên',//@lang('kidsnow.children_name')
+        'observations.observer' => 'Người Đánh Giá',//@lang('kidsnow.observer')
+        'observations.time' => 'Thời Gian',//@lang('kidsnow.time')
+        'observations.action' => 'Hành Động',//@lang('kidsnow.action')
+        'observations.go' => 'Tìm',//@lang('kidsnow.go')
+        'january'=>'Tháng 1',
+        'february'=>'Tháng 2',
+        'march'=>'Tháng 3',
+        'april'=>'Tháng 4',
+        'may'=>'Tháng 5',
+        'june'=>'Tháng 6',
+        'july'=>'Tháng 7',
+        'august'=>'Tháng 8',
+        'september'=>'Tháng 9',
+        'october'=>'Tháng 10',
+        'november'=>'Tháng 11',
+        'december'=>'Tháng 12',
+
+        //kids-now/observations/add
+        'observations.types'=>'Tùy Chỉnh Đánh Giá',
+        'observations.list' =>'Danh Sách Trẻ',
+        'observations.children'=>'Trẻ',
+        'observations.observation_types'=>'Loại Đánh Giá',
+        'observations.detail'=>'Nội Dung Đánh Giá',
+        'observations.no_found'=>'Không Tìm Thấy Trẻ',
+        'observations.hint'=>'Gợi Ý',
+        'observations.hint_content'=>'Nhấn vào tên chương trình trên thanh trượt menu để hiển thị toàn bộ trẻ trong chương trình đấy',
+
+        //kids-now/observations/edit
+        'observations.first_name'=>'Họ',
+        'observations.last_name'=>'Tên',
+        'observations.birthday'=>'Ngày Sinh',
+        'observations.unique_id'=>'Mã trẻ ID',
+        'observations.gender'=>'Giới Tính',
+        'observations.date_of_joining'=>'Ngày Tham Gia',
+
+    //END Observations
+
+
+
+
+
+
     // Notifications
     'success' => 'Success',
     'failure' => 'There was an error',

@@ -157,7 +157,7 @@
                     <a href="#">
                         <img src="images/History.png" alt="@lang('kidsnow.history')">
                         <div class="title">
-                            <p>@lang('kidsnow.history')y</p>
+                            <p>@lang('kidsnow.history')</p>
                         </div>
                     </a>
                 </div>
@@ -271,9 +271,9 @@
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/Trasnsport setup.png" alt="@lang('kidsnow.transaport_setup')">
+                        <img src="images/Trasnsport setup.png" alt="@lang('kidsnow.transport_setup')">
                         <div class="title">
-                            <p>@lang('kidsnow.transaport_setup')</p>
+                            <p>@lang('kidsnow.transport_setup')</p>
                         </div>
                     </a>
                 </div>
@@ -319,17 +319,17 @@
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/settings.png" alt="@lang('kidsnow.configuratios')">
+                        <img src="images/settings.png" alt="@lang('kidsnow.configurations')">
                         <div class="title">
-                            <p>@lang('kidsnow.configuratios')</p>
+                            <p>@lang('kidsnow.configurations')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="kids-now/role">
-                        <img src="images/staff.png" alt="@lang('kidsnow.configuratios')">
+                        <img src="images/staff.png" alt="@lang('kidsnow.permission')">
                         <div class="title">
-                            <p>Permission</p>
+                            <p>@lang('kidsnow.permission')</p>
                         </div>
                     </a>
                 </div>
@@ -397,7 +397,7 @@
     <div class="product4">
         <div class="container">
             <div class="cap-main">
-                <h3><strong>@lang('kidsnow.menu_help')</strong></h3>
+                <h3><strong>@lang('kidsnow.help')</strong></h3>
                 <div class="hr"></div>
             </div>
             <div class="row line">
