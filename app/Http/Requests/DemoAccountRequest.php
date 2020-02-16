@@ -26,7 +26,7 @@ class DemoAccountRequest extends FormRequest
         return [
             'first_name' =>'required',
             'email' =>'required|email|unique:staff_profiles,email',
-            'phone'=>'required|numeric|min:10',
+            'phone'=>'required|numeric|min:10|unique:staff_profiles,phone',
             'password'=>'required|min:8'
         ];
     }
@@ -40,6 +40,7 @@ class DemoAccountRequest extends FormRequest
             'phone.required'=>'Please enter phone !',
             'phone.numeric'=>'Phone numbers must be numeric !',
             'phone.min'=>'Phone must be greater than 10 characters !',
+            'phone.unique'=>'Phone already exist !',
             'password.required'=>'Please enter password !',
             'password.min'=>'Password must be greater than 8 characters !'
         ];

@@ -34,8 +34,12 @@
 						    <a href="#">HOME</a>
 						    <a href="#">KIDS NOW APP</a>
 						    <a href="#">PRICING</a>
-						    <a href="#">ABOUT US</a>
-						    <a href="login">LOGIN</a>
+							<a href="#">ABOUT US</a>
+							@if(Auth::check())
+								<a href="login" style="background-color: #ddd;">My Kids-now</a>
+							@else
+								<a href="login">LOGIN</a>
+							@endif
 						    <a href="javascript:void(0);"  class="icon" onclick="myFunction()" id="icon-close">
 							    <i class="fa fa-bars" style="display: inline-block;"></i>
 							    <i class="fa fa-times-circle" aria-hidden="true" style="display: none"></i>

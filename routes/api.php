@@ -21,6 +21,7 @@ use Illuminate\Http\Request;
 
 //-----Đăng nhập----
 Route::post('login', 'Api\LoginController@login');
+Route::get('token/refresh', 'Api\LoginController@refresh');
 
 //-------------------Quên mật khẩu-----------------
 Route::post('forgot', 'Api\ForgotPassWordController@PostFormResetPassword');
@@ -40,6 +41,13 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
         Route::get('list','Api\AttendanceChildrenController@list')->name('attendance.list');
         Route::get('/{id}','Api\AttendanceChildrenController@show')->name('attendance.show');
         Route::post('add/{id}','Api\AttendanceChildrenController@postAdd')->name('attendance.postAdd');
+       
+    });
+    //Permission
+    Route::group(['prefix' => 'permission'], function (){
+        Route::get('','Api\PermissionController@index');
+        Route::get('show/{id}','Api\PermissionController@show');
+        Route::post('add','Api\PermissionController@store');
        
     });
 

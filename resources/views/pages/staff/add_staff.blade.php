@@ -4,8 +4,8 @@ Staff Frofiles
 @endsection
 
 @section('content')
-
 <body>
+   
     <section class="page-top container">
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
             <div class="row">
@@ -29,9 +29,9 @@ Staff Frofiles
                             @endif
                             <input id="img" type="file" name="image" style="display:none" value=""
                                 class="form-control hidden" onchange="changeImg(this)">
-                            <img id="avatar" class="thumbnail"
-                                style="border: 1px solid white;border-radius: 50%;width:150px;height:150px;    margin-top: 35px;"
-                                src="images/Staff.png">
+                            <img title="Click here to select image"  id="avatar" class="thumbnail"
+                                style="border-radius: 50%; height: 170px; background: #e6e5e5; margin-top: 32px;"
+                                src="images/import-img.png">
                         </div>
                         <div class="col-md-10">
                             <div class="add a1 ">

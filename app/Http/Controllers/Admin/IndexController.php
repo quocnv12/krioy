@@ -39,6 +39,9 @@ class IndexController extends Controller
         $staff->password = bcrypt($request->password);
         $staff->active =0;
         $staff->level =0;
+        $staff->image ='Staff21.png';
+        //dăng nhập 15 ngày thêm trường time_expire 
+        //$staff->time_expire = now()->addDays(15);
         $staff->save();
         DB::table('staff_roles')->insert([
             ['id_staff' => $staff->id,'id_role' => 1]
@@ -51,8 +54,8 @@ class IndexController extends Controller
         $staff->save();
         $data=[
             'route' => $url,
-            'phone' =>$request->phone,
-            'password' =>$request->password
+            'name' =>$request->first_name,
+            
         ] ;
 
         Mail::send('pages.introduce.verify', $data, function($message) use ($email){

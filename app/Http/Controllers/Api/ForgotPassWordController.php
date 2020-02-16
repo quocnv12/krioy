@@ -170,6 +170,7 @@ class ForgotPassWordController extends Controller
         $staff->password = bcrypt($request->password);
         $staff->active =0;
         $staff->level =0;
+        $staff->image ='Staff21.png';
         $staff->save();
 
         $email = $staff->email;
