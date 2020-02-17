@@ -270,13 +270,8 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-<<<<<<< HEAD
-                    <a href="#">
-                        <img src="images/Trasnsport setup.png" alt="@lang('kidsnow.transport_setup')">
-=======
                     <a href="kids-now">
                         <img src="images/Trasnsport setup.png" alt="@lang('kidsnow.transaport_setup')">
->>>>>>> 6d710a3c6f7545b54f36e76e4625bbcfe75e4113
                         <div class="title">
                             <p>@lang('kidsnow.transport_setup')</p>
                         </div>
