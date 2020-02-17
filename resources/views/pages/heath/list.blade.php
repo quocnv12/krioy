@@ -46,7 +46,9 @@
                             <div class="col-md-6">
                                 <h4>List    <span class="semi-bold">Health</span></h4>
                             </div>
-
+                            <div class="col-md-6">
+                                <a class="btn btn-success" style="float: right" href="kids-now/health/excel/0">Export Excel</a>
+                            </div>
                         </div>
                     </div>
                     <div class="grid-body" style="padding: 0;">
@@ -56,11 +58,10 @@
                                 <tr>
                                     <th style="text-align:left;width: 5%">STT</th>
                                     <th style="width:35%">Name</th>
-                                    <th style="width:15%">Birthday</th>
+                                    <th style="width:20%">Birthday</th>
                                     <th style="width:5%">Gender</th>
-                                    <th style="width:10%">Images</th>
                                     <th style="width:10%">Time</th>
-                                    <th style="text-align:center;width:20%">Chỉnh sửa</th>
+                                    <th style="text-align:center;width:25%">Chỉnh sửa</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -69,7 +70,7 @@
                                         <th style="width:5%">{{$key+1}}</th>
                                         <th style="width:35%">{{$value->ChildrenProfiles-> first_name }} {{$value->ChildrenProfiles->last_name}}</th><
                                         <th style="width:20%">{{$value->ChildrenProfiles->birthday}}</th>
-                                        <th style="width:10%">
+                                        <th style="width:5%">
                                             @if($value->ChildrenProfiles->gender==1)
                                                 {{"Nam"}}
                                             @else
@@ -77,11 +78,11 @@
                                             @endif
 
                                         </th>
-                                        <th style="text-align:center;width:10%"><img src="{{$value->image}}" width="30" height="30"></th>
-                                        <th>{{$value->created_at}}</th>
+                                        <th style="width: 10%">{{$value->created_at}}</th>
 
-                                        <th style="width: 20%">
-                                            <a href="{!! URL::route('admin.health.getEdit',$value->id ) !!}" title="Edit Health" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                        <th style="width: 25%">
+                                            <a href="{!! URL::route('admin.health.view',$value->id ) !!}" title="View Health" class="btn btn-sm btn-outline-primary"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                            <a href="{!! URL::route('admin.health.getEdit',$value->id ) !!}" title="Edit Health" class="btn btn-sm btn-outline-warning"><i class="fa fa-edit" aria-hidden="true"></i></a>
                                             <a onclick="return confirm('Delete Health ? Do you want continue !')" title="Delete Health " href="{{ route('admin.health.getDelete', $value->id) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
                                         </th>
                                     </tr>

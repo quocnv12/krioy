@@ -38,7 +38,7 @@
                 <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target="" style="display: flex; justify-content: flex-end;">
                     <button class="notice" type="button">
                         <span><a href="kids-now/program/delete/{{$program->id}}" style="color: inherit" onclick="return deleteConfirm()">DELETE</a></span>
-                    </button>
+					</button>
                 </div>
 			</div>
 		</div>
@@ -51,9 +51,10 @@
 			<input type="hidden" name="array_staff_new" id="array_staff_new" value="">
 			<input id="array_staff_old" type="hidden" name="array_staff_old" value="{{implode(',',$array_staff_old)}}">
 
-
 			<div class="mat-card">
 				<button class="accordion add-staff" type="button">@lang('kidsnow.program.edit_program')</button>
+				<a class="btn btn-success" style="float: right" href="kids-now/program/excel/{{$program->id}}">Export Excel</a>
+
 				<div class="panel add">
 					<div class="row">
 						<div class="col-md-4 input_box">

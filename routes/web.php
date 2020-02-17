@@ -145,12 +145,15 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::post('sua/{id}',['as'=>'admin.health.postEdit','uses'=>'Admin\HealthController@postEdit']);
         Route::get('search',['as'=>'admin.health.search','uses'=>'Admin\HealthController@getSearch']);
         Route::post('search',['as'=>'admin.health.search','uses'=>'Admin\HealthController@postSearch']);
-        Route::get('them_child',['as'=>'admin.health.child','uses'=>'Admin\HealthController@getChild']);
-        Route::post('them_child',['as'=>'admin.health.child','uses'=>'Admin\HealthController@postChild']);
-        Route::get('search/children', 'Admin\HealthController@searchByName');
-        Route::get('select_child/add','Admin\HealthController@addSelectChild');
         Route::get('show/{id}','Admin\HealthController@showChildrenInProgram');
+        Route::get('view/{id}',['as'=>'admin.health.view' ,'uses'=>'Admin\HealthController@view']);
 
+        //export files
+        Route::get('excel/{id}','Admin\HealthController@excel')->name('admin.health.export');
+
+        //clip board
+        Route::get('clip_board/{id}/{name}','Admin\HealthController@displayClipboard');
+        Route::get('delete_clipboard/{id}/{name}','Admin\HealthController@deleteClipboard');
     });
 
     //---------------observation----------------
@@ -268,6 +271,9 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('search/children','Admin\ProgramsController@searchChildren');
         Route::get('search/staff','Admin\ProgramsController@searchStaff');
         Route::get('search/program','Admin\ProgramsController@searchProgram');
+
+        //export files
+        Route::get('excel/{id}','Admin\ProgramsController@excel');
     });
 
 

@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-    Edit Health
+    View Health
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
                     <ul class="ul-td">
                         <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
                         <li _ngcontent-c16="" class="active1" style="pointer-events:none" href="{{route('admin.health.getAdd')}}"><a _ngcontent-c16="">Health</a></li>
-                        <li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none" href="{{route('admin.health.getAdd')}}"><a _ngcontent-c16="">Edit Health</a></li>
+                        <li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none" href="{{route('admin.health.getAdd')}}"><a _ngcontent-c16="">View Health</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-6">
@@ -28,7 +28,6 @@
                 {{ $errors->first('children_health') }}
             </div>
         @endif
-
         <form style="width: auto;margin: 0;text-align: center" action="{{route('admin.health.postEdit',['id'=>$health->id])}}" method="post" id="addObservation" enctype="multipart/form-data">
             @csrf
             <div class="row">
@@ -138,7 +137,7 @@
                             <div class="row">
                                 <div class="col-md-11 input_box">
                                     <span class="input_box_span_active">Enter sick details here *</span>
-                                    <input type="text" name="sick" placeholder="Enter sick details here " value="{{$health->sick}}">
+                                    <input type="text" readonly name="sick" placeholder="Enter sick details here " value="{{$health->sick}}">
                                 </div>
                             </div>
                         </div>
@@ -146,7 +145,7 @@
                             <div class="row">
                                 <div class="col-md-11 input_box">
                                     <span class="input_box_span_active">Enter medicine details here *</span>
-                                    <input type="text" name="medicine" placeholder="Enter medicine details here " value="{{$health->medicine}}">
+                                    <input type="text" readonly name="medicine" placeholder="Enter medicine details here " value="{{$health->medicine}}">
                                 </div>
                             </div>
 
@@ -155,7 +154,7 @@
                             <div class="row growth">
                                 <div class="col-md-4 growth_input input_box">
                                     <span>Height</span>
-                                    <input type="text" name="growth_height" placeholder="Height" value="{{$health->growth_height}}">
+                                    <input type="text" readonly name="growth_height" placeholder="Height" value="{{$health->growth_height}}">
 
                                     <label class="label">
                                         <div class="label-text">cm</div>
@@ -171,7 +170,7 @@
                                 </div>
                                 <div class="col-md-4 growth_input input_box">
                                     <span>Weight</span>
-                                    <input type="text" name="growth_weight" placeholder="Weight" value="{{$health->growth_weight}}">
+                                    <input type="text" readonly name="growth_weight" placeholder="Weight" value="{{$health->growth_weight}}">
 
                                     <label class="label">
                                         <div class="label-text">kg</div>
@@ -187,7 +186,7 @@
                                 </div>
                                 <div class="col-md-4 growth_input input_box">
                                     <span>Head Circumference</span>
-                                    <input type="text" name="" placeholder="Head Circumference" value="{{$health->growth_circumference}}">
+                                    <input type="text" readonly name="" placeholder="Head Circumference" value="{{$health->growth_circumference}}">
                                     <label class="label">
                                         <div class="label-text">cm</div>
                                         <div class="toggle">
@@ -204,7 +203,7 @@
                             <div class="row">
                                 <div class="col-md-11 input_box">
                                     <span class="input_box_span_active">Enter growth details here *</span>
-                                    <input type="text" name="growth" placeholder="Enter growth details here " value="{{$health->growth}}">
+                                    <input type="text" readonly name="growth" placeholder="Enter growth details here " value="{{$health->growth}}">
 
                                 </div>
                             </div>
@@ -214,7 +213,7 @@
                             <div class="row">
                                 <div class="col-md-11 input_box">
                                     <span class="input_box_span_active">Enter incident details here *</span>
-                                    <input type="text" name="incident" placeholder="Enter incident details here " value="{{$health->incident}}">
+                                    <input type="text" readonly name="incident" placeholder="Enter incident details here " value="{{$health->incident}}">
 
                                 </div>
                             </div>
@@ -223,28 +222,13 @@
                             <div class="row">
                                 <div class="col-md-11 input_box">
                                     <span class="input_box_span_active">Enter blood group details here *</span>
-                                    <input type="text" name="blood_group" placeholder="Enter blood group details here " value="{{$health->blood_group}}">
+                                    <input type="text" readonly name="blood_group" placeholder="Enter blood group details here " value="{{$health->blood_group}}">
 
                                 </div>
                             </div>
                         </div>
-                        <div class="input-file-container" style="float: right">
-                            <input type="file" id="file" name="clip_board[]" multiple="multiple" value="{{old('clip_board')}}" accept=
-                            ".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf">
-                            <label tabindex="0" for="my-file" id="button_file" class="input-file-trigger">
-                                <i class="fa fa-paperclip"></i>
-                            </label>
-                        </div>
                     </div><br>
-                    <div class="col-md-12" style="color: red;padding: 0; margin-top: 50px; display: flex; justify-content: flex-start; text-align: left ">
-                        <p id="show_clip_board"></p>
 
-                        @if ($errors->has('clip_board'))
-                            <div class="text text-danger">
-                                {{ $errors->first('clip_board') }}
-                            </div>
-                        @endif
-                    </div>
                     <hr>
                     <div class="">
                         @if(session('notify_clipboard'))
@@ -257,28 +241,25 @@
                                 <div class="col-md-9" style="text-align: left; float: left">
                                     <a href="kids-now/health/clip_board/{{$health->id}}/{{$clipboard}}" target="_blank">{{Str::limit($clipboard,70)}}</a>
                                 </div>
-                                <div class="col-md-2">
-                                    @if($clipboard)<a href="kids-now/health/delete_clipboard/{{$health->id}}/{{$clipboard}}" style="color: inherit"><button type="button" class="btn btn-sm btn-danger" onclick="return confirm('Are you want to delete this file ?')">Delete</button></a>@endif
-                                </div>
                             </div>
                         @endforeach
                         <br>
                     </div>
-                    <a class="btn btn-success" style="float: right" href="{{route('admin.health.export',['id'=>$health->id])}}">Export Excel</a>
-
                 </div>
             </div>
             <div class="button" style="text-align: center;">
-                <button type="reset" onclick="goBack()">
-                    <span>CANCEL</span>
-                </button>
-                <button class="button2" id="submit_button" type="submit">
-                    <span>SAVE</span>
+                <button class="button2" onclick="goBack()">
+                    <span>GO BACK</span>
                 </button>
             </div>
         </form>
         </div>
     </section>
+    <div class="icon-plus">
+        <a href="{{ route('admin.health.getEdit',['id'=>$health->id]) }}">
+            <i class="fa fa-edit"></i>
+        </a>
+    </div>
     </body>
 @endsection
 
