@@ -22,8 +22,8 @@ class LoginController extends Controller
         $input = $request->only(['phone', 'password']);
         $token = null;
             $rule = [
-                'phone' => 'required|numeric|min:10',
-                'password' => 'required|min:8'
+                'phone' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10',
+                'password' => 'required|min:8|max30'
             ];
             $vadidate = Validator::make($input, $rule);
             if($vadidate->fails())
@@ -34,7 +34,7 @@ class LoginController extends Controller
             {
                 try {
                     if (!$token = JWTAuth::attempt($input, $request->remember)) {
-                     return response()->json(['invalid_email_or_password'], 422);
+                     return response()->json(['invalid_phone_or_password'], 422);
                     }
                  } catch (JWTAuthException $e) {
                      return response()->json(['failed_to_create_token'], 500);

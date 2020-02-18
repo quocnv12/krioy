@@ -18,13 +18,14 @@ class ForgotPassWordController extends Controller
         $rules =  
             [
                 'password_old'=>'required',
-                'password'=>'required|min:8',
+                'password'=>'required|min:8|max:30',
                 'password_confirmation'=>'required|same:password'
             ];
         $validator = Validator::make($request->all(), $rules,[
                 'password_old.required'=>'Please enter password old !',
                 'password.required'=>'Please enter password new !',
-                'password.min'=>'Password must be greater than 8 characters !',
+                'password.min'=>'Password from 8 to 30 characters !',
+                'password.max'=>'Password from 8 to 30 characters !',
                 'password_confirmation.required'=>'Please enter confirm password new !',
                 'password_confirmation.same'=>'Password entered does not match !'
         ]);
@@ -95,14 +96,15 @@ class ForgotPassWordController extends Controller
     {
         $rules =  
         [
-            'password' =>'required|min:8',
+            'password' =>'required|min:8|max:30',
             'password_confirmation'=>'required|same:password'
         ];
         $validator = Validator::make($request->all(), $rules,[
             'password.required'=>'Pleasea enter password !',
             'password_confirmation.same' => 'Password entered does not match !',
             'password_confirmation.required' => 'Pleasea enter password comfirmation !',
-            'password.min' => 'Password must be greater than 8 characters !',
+            'password.min'=>'Password from 8 to 30 characters !',
+            'password.max'=>'Password from 8 to 30 characters !'
         ]);
         if($request->password)
         {
@@ -145,7 +147,7 @@ class ForgotPassWordController extends Controller
         [
             'first_name' =>'required',
             'email' =>'required|email|unique:staff_profiles,email',
-            'phone'=>'required|numeric|min:10',
+            'phone'=>'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:staff_profiles,phone',
             'password'=>'required|min:8'
         ];
         $validator = Validator::make($request->all(), $rules,[
@@ -154,8 +156,10 @@ class ForgotPassWordController extends Controller
             'email.email'=>'Malformed email !',
             'email.unique'  => 'Email already exist !',
             'phone.required'=>'Please enter phone !',
-            'phone.numeric'=>'Phone numbers must be numeric !',
-            'phone.min'=>'Phone must be greater than 10 characters !',
+            'phone.regex'=>'Phone numbers start with 0 !',
+            'phone.not_regex'=>'Phone numbers must be numeric !',
+            'phone.size'=>'Phone number includes 10 numbers !',
+            'phone.unique'=>'Phone already exist !',
             'password.required'=>'Please enter password !',
             'password.min'=>'Password must be greater than 8 characters !'
         ]);

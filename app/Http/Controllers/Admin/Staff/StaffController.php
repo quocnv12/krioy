@@ -6,7 +6,7 @@ use App\models\Programs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Mail;
-
+use DB;
 class StaffController extends Controller
 {
    
@@ -30,7 +30,7 @@ class StaffController extends Controller
             'image'               =>'required|image',
             'first_name'         =>'required',
             'last_name'          =>'required',
-            'phone'              =>'required|unique:staff_profiles,phone',
+            'phone'              =>'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:staff_profiles,phone',
             'gender'             =>'required',
             'email'              =>'required|email|unique:staff_profiles,email',
             'address'            =>'required',
@@ -43,6 +43,9 @@ class StaffController extends Controller
             'first_name.required'       => 'Please enter first_name !',
             'last_name.required'        => 'Please enter last_name !',
             'phone.required'            => 'Please enter number phone !',
+            'phone.regex'               => 'Phone numbers start with 0 !',
+            'phone.not_regex'           => 'Phone numbers must be numeric !',
+            'phone.size'                => 'Phone number includes 10 numbers !',
             'phone.unique'              => 'Number phone already exist !',
             'email.required'            => 'Please enter email !',
             'email.email'               => 'Email is in wrong format !',
@@ -129,6 +132,10 @@ class StaffController extends Controller
         $data['staff']=StaffProfiles::find($id);
         $data['roles']=role::all();
         $data['programs']=Programs::all();
+        $data['programStaff'] = DB::table('staff_programs')->where('id_staff',$id)->pluck('id_program');
+        $data['programStaffs'] = DB::table('staff_programs')->where('id_staff',$id)->pluck('id_program')->toArray();
+        $data['roleStaff'] = DB::table('staff_roles')->where('id_staff',$id)->pluck('id_role');
+        $data['roleStaffs'] = DB::table('staff_roles')->where('id_staff',$id)->pluck('id_role')->toArray();
         return view('pages.staff.edit_staff',$data);
     }
 
@@ -139,7 +146,7 @@ class StaffController extends Controller
          
             'first_name'         =>'required',
             'last_name'          =>'required',
-            'phone'              =>'required|unique:staff_profiles,phone,'.$id,
+            'phone'              =>'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:staff_profiles,phone,'.$id,
             'gender'             =>'required',
             'email'              =>'required|email|unique:staff_profiles,email,'.$id,
             'address'            =>'required',
@@ -153,6 +160,9 @@ class StaffController extends Controller
         'first_name.required'       => 'Please enter first_name !',
         'last_name.required'        => 'Please enter last_name !',
         'phone.required'            => 'Please enter number phone !',
+        'phone.regex'               => 'Phone numbers start with 0 !',
+        'phone.not_regex'           => 'Phone numbers must be numeric !',
+        'phone.size'                => 'Phone number includes 10 numbers !',
         'phone.unique'              => 'Number phone already exist !',
         'email.required'            => 'Please enter email !',
         'email.email'               => 'Email is in wrong format !',
