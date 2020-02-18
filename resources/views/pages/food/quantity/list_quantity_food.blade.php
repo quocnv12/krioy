@@ -52,21 +52,20 @@ List quantity food
                       <table class="table table-striped" id="example">
                         <thead>
                           <tr>
-                            <th style="width:20%">Quantity</th>
-                            <th style="width:60%"></th>
-                            <th>Thao Tác</th>
+                            <th style="width:10%"></th>
+                            <th style="text-align:left">Quantity</th>
+                            <th style="width:25%;text-align:center">Thao Tác</th>
                           </tr>
                         </thead>
                         <tbody>
                             @foreach ($qtyfood as $item)
                             <tr class="odd gradeX">
-                                {{-- <td style="text-align:center">{{ $item->id }}</td> --}}
-                                <td style="text-align:center;text-transform:capitalize">{{ $item->name}}</td>
-                                <td></td>
-                                <td style="text-align:center">
+                              <td style="text-align:center"></td>
+                              <td style="text-transform:capitalize">{{ $item->name}}</td>
+                              <td style="text-align:center">
                                 <a href="{{ route('menu-quantity-edit',['id_qty'=>$item->id]) }}" title="Edit Quantity Food" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
                                 <a onclick="return confirm('Delete meal type ? Do you want continue !')"" title="Delete Quantity Food" href="{{ route('menu-quantity-del',['id_qty'=>$item->id]) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
-                                </td>
+                              </td>
                             </tr>
                           @endforeach
                         </tbody>

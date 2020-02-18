@@ -35,12 +35,12 @@ class StaffController extends Controller
             'image'               =>'required|image',
              'first_name'         =>'required',
              'last_name'          =>'required',
-             'phone'              =>'required|unique:staff_profiles,phone',
+             'phone'              =>'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:staff_profiles,phone',
              'gender'             =>'required',
              'email'              =>'required|email|unique:staff_profiles,email',
              'address'            =>'required',
              'date_birthday'      =>'required|date',
-             'blood_group'        =>'required',
+            //  'blood_group'        =>'required',
              'date_of_joining'    =>'required|date',
         ];
         $validator = Validator::make($request->all(), $rules,[
@@ -49,6 +49,9 @@ class StaffController extends Controller
             'first_name.required'       => 'Please enter first_name !',
             'last_name.required'        => 'Please enter last_name !',
             'phone.required'            => 'Please enter number phone !',
+            'phone.regex'               => 'Phone numbers start with 0 !',
+            'phone.not_regex'           => 'Phone numbers must be numeric !',
+            'phone.size'                => 'Phone number includes 10 numbers !',
             'phone.unique'              => 'Number phone already exist !',
             'email.required'            => 'Please enter email !',
             'email.email'               => 'Email is in wrong format !',
@@ -56,7 +59,7 @@ class StaffController extends Controller
             'address.required'          => 'Please enter address !',
             'date_birthday.required'    => 'Please enter date_birthday !',
             'date_birthday.date'        => 'Date_birthday is in wrong format !',
-            'blood_group.required'      => 'Please choose blood_group !',
+            // 'blood_group.required'      => 'Please choose blood_group !',
             'date_of_joining.required'  => 'Please choose date_of_joining !',
             'date_of_joining.date'      => 'Date_of_joining is in wrong format !',
             'gender.required'           => 'Please choose gender !',
@@ -125,12 +128,12 @@ class StaffController extends Controller
                 
                 'first_name'         =>'required',
                 'last_name'          =>'required',
-                'phone'              =>'required|unique:staff_profiles,phone',
+                'phone'              =>'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:staff_profiles,phone',
                 'gender'             =>'required',
                 'email'              =>'required|email|unique:staff_profiles,email',
                 'address'            =>'required',
                 'date_birthday'      =>'required|date',
-                'blood_group'        =>'required',
+                
                 'date_of_joining'    =>'required|date',
             ];
         $validator = Validator::make($request->all(), $rules,[
@@ -139,6 +142,9 @@ class StaffController extends Controller
             'first_name.required'       => 'Please enter first_name !',
             'last_name.required'        => 'Please enter last_name !',
             'phone.required'            => 'Please enter number phone !',
+            'phone.regex'               => 'Phone numbers start with 0 !',
+            'phone.not_regex'           => 'Phone numbers must be numeric !',
+            'phone.size'                => 'Phone number includes 10 numbers !',
             'phone.unique'              => 'Number phone already exist !',
             'email.required'            => 'Please enter email !',
             'email.email'               => 'Email is in wrong format !',
@@ -146,7 +152,7 @@ class StaffController extends Controller
             'address.required'          => 'Please enter address !',
             'date_birthday.required'    => 'Please enter date_birthday !',
             'date_birthday.date'        => 'Date_birthday is in wrong format !',
-            'blood_group.required'      => 'Please choose blood_group !',
+           
             'date_of_joining.required'  => 'Please choose date_of_joining !',
             'date_of_joining.date'      => 'Date_of_joining is in wrong format !',
             'gender.required'           => 'Please choose gender !',
