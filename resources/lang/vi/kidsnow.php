@@ -51,7 +51,7 @@ return [
     'setup_and_settings' => 'Cài Đặt và Thiết Lập',//@lang('kidsnow.setup_and_settings')
     'room_ratio' => 'Thông Tin Lớp Học',//@lang('kidsnow.room_ratio')
     'favourite' => 'Yêu Thích',//@lang('kidsnow.favourite')
-    'tags' => 'Thẻ',//@lang('kidsnow.tags')
+    'tags' => 'Thẻ Tag',//@lang('kidsnow.tags')
     'transport_setup' => 'Thiết Lập Di Chuyển',//@lang('kidsnow.transaport_setup')
     'qr_download' => 'Tải Về QR',//@lang('kidsnow.qr_download')
     'allergies_info' => 'Thông Tin Dị Ứng',//@lang('kidsnow.allergies_info')

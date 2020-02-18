@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProgramsController extends Controller
 {
@@ -380,6 +381,40 @@ class ProgramsController extends Controller
             }
             return Response($output);
         }
+    }
+
+    public function excel($id)
+    {
+        $program = Programs::find($id);
+
+        $children_data = DB::table('children_profiles')
+            ->join('children_programs', 'children_profiles.id', '=', 'children_programs.id_children')
+            ->select('*')
+            ->where('id_program', '=', $id)
+            ->orderBy('children_profiles.first_name')
+            ->get();
+
+        $children_array[] = array('ID','Children Name', 'Gender', 'Birthday','Address');
+        $i = 1;
+        foreach($children_data as $children)
+        {
+            $children_array[] = array(
+                'ID' =>  $i,
+                'Children Name'  => $children->first_name.' '.$children->last_name,
+                'Gender'   => $children->gender == 1 ? 'Male' : 'Female',
+                'Birthday'    => date('d-m-Y',strtotime($children->birthday)),
+                'Address'   =>  $children->address
+            );
+            $i++;
+        }
+
+        Excel::create($program->program_name, function($excel) use ($children_array){
+            $excel->setTitle('Children Data');
+
+            $excel->sheet('Children Data', function($sheet) use ($children_array){
+                $sheet->fromArray($children_array, null, 'A1', false, false);
+            });
+        })->download('xlsx');
     }
 }
 
