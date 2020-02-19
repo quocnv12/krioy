@@ -25,9 +25,8 @@
         <div class="row">
             <ul class="ul-td" style="width:100%">
                 <div class="col-md-12">
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
-                    <li _ngcontent-c16="" class="active-1"><a _ngcontent-c16="" href="{{route('admin.health.getAdd')}}">Health</a></li>
-                    <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="">List Health</a></li>
+                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="{{route('admin.home')}}">Home</a></li>
+                    <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="{{route('admin.health.getAdd')}}">HEALTH</a></li>
                 </div>
             </ul>
         </div>
@@ -43,11 +42,8 @@
                 <div class="grid simple ">
                     <div class="grid-title">
                         <div class="row">
-                            <div class="col-md-6">
-                                <h4>List    <span class="semi-bold">Health</span></h4>
-                            </div>
-                            <div class="col-md-6">
-                                <a class="btn btn-success" style="float: right" href="kids-now/health/excel/0">Export Excel</a>
+                            <div class="col-md-6" >
+                                <h4>@lang('kidsnow.health.list')</h4>
                             </div>
                         </div>
                     </div>
@@ -56,20 +52,21 @@
                             <table class="table table-striped" id="example">
                                 <thead>
                                 <tr>
-                                    <th style="text-align:left;width: 5%">STT</th>
-                                    <th style="width:35%">Name</th>
-                                    <th style="width:20%">Birthday</th>
-                                    <th style="width:5%">Gender</th>
-                                    <th style="width:10%">Time</th>
-                                    <th style="text-align:center;width:25%">Chỉnh sửa</th>
+                                    <th style="text-align:left;width: 5%">#</th>
+                                    <th style="width:30%">@lang('kidsnow.health.list.name')</th>
+                                    <th style="width:15%">@lang('kidsnow.health.list.birthday')</th>
+                                    <th style="width:5%">@lang('kidsnow.health.list.gender')</th>
+                                    <th style="width:10%">@lang('kidsnow.health.list.date')</th>
+                                    <th style="width:10%">@lang('kidsnow.health.list.time')</th>
+                                    <th style="text-align:center;width:25%">@lang('kidsnow.health.list.action')</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($health as $key=> $value)
+                                @foreach($health as $value)
                                     <tr>
-                                        <th style="width:5%">{{$key+1}}</th>
+                                        <th style="width:5%">{{$value->id}}</th>
                                         <th style="width:35%">{{$value->ChildrenProfiles-> first_name }} {{$value->ChildrenProfiles->last_name}}</th><
-                                        <th style="width:20%">{{$value->ChildrenProfiles->birthday}}</th>
+                                        <th style="width:20%">{{date('d-m-Y',strtotime($value->ChildrenProfiles->birthday))}}</th>
                                         <th style="width:5%">
                                             @if($value->ChildrenProfiles->gender==1)
                                                 {{"Nam"}}
@@ -78,8 +75,8 @@
                                             @endif
 
                                         </th>
-                                        <th style="width: 10%">{{$value->created_at}}</th>
-
+                                        <th style="width: 10%">{{date('d-m-Y',strtotime($value->created_at))}}</th>
+                                        <th style="width: 10%">{{\Carbon\Carbon::parse($value->created_at)->format('H:i:s')}}</th>
                                         <th style="width: 25%">
                                             <a href="{!! URL::route('admin.health.view',$value->id ) !!}" title="View Health" class="btn btn-sm btn-outline-primary"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                             <a href="{!! URL::route('admin.health.getEdit',$value->id ) !!}" title="Edit Health" class="btn btn-sm btn-outline-warning"><i class="fa fa-edit" aria-hidden="true"></i></a>
@@ -96,6 +93,11 @@
         </div>
     </div>
 </section>
+<div class="icon-plus" title="add">
+    <a href="{{route('admin.health.getAdd')}}">
+        <i class="fa fa-plus"></i>
+    </a>
+</div>
 </body>
 @endsection
 @section('js')

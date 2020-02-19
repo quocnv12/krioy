@@ -7,6 +7,7 @@ use App\models\ProgramNotice;
 use App\models\Programs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -66,7 +67,7 @@ class NoticeBoardController extends Controller
 
         $notice_board = NoticeBoard::create($request->all());
         $request->important ? $notice_board->important = 1 : $notice_board->important = 0;
-
+        $notice_board->writer = Auth::user()->first_name.' '.Auth::user()->last_name;
         if ($request->hasFile('clip_board')){
             $array_file = [];
             foreach ($request->file('clip_board') as $file_name){
@@ -185,6 +186,7 @@ class NoticeBoardController extends Controller
         $notice_board->update($request->all());
         $request->important ? $notice_board->important = 1 : $notice_board->important = 0;
         $request->archive ? $notice_board->archive = 1 : $notice_board->archive = 0;
+        $notice_board->writer = Auth::user()->first_name.' '.Auth::user()->last_name;
 
         if ($request->programs_new){
             //array chua cac id program ma children dang hoc

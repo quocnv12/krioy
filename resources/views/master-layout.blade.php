@@ -43,7 +43,7 @@
             100% {right:0px; top:50px}
         }
 
-}
+
     </style>
     <!-- JS libs --> 
     <script type="text/javascript" src="libs/jquery-3.4.1.min.js"></script>

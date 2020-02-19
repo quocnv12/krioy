@@ -16,19 +16,19 @@
             <div class="row">
                 <div class="col-lg-10 col-md-10 col-sm-10">
                     <ul class="ul-td">
-                        <li class="level1"><a href="kids-now">HOME</a></li>
-                        <li class="active1"><a href="kids-now/notice-board">NOTICE BOARD</a></li>
+                        <li class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
+                        <li class="active1"><a href="{{route('admin.notice-board.index')}}">NOTICE BOARD</a></li>
                         <li class="active1 active-1" style="pointer-events:none;"><a href="">EDIT NOTICE</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target=".bd-example-modal-sm" style="display: flex; justify-content: flex-end;">
                     <button class="notice" type="button" style="cursor: pointer">
-                        <span><a href="kids-now/notice-board/delete/{{$notice_board->id}}" style="color: inherit; " onclick="return deleteConfirm()" >DELETE</a></span>
+                        <span><a href="{{route('admin.notice-board.destroy',['id'=>$notice_board->id])}}" style="color: inherit; " onclick="return deleteConfirm()" >DELETE</a></span>
                     </button>
                 </div>
             </div>
         </div>
-        <form action="kids-now/notice-board/edit/{{$notice_board->id}}" method="post" enctype="multipart/form-data" style="width: 100%">
+        <form action="{{route('admin.notice-board.update',['id'=>$notice_board->id])}}" method="post" enctype="multipart/form-data" style="width: 100%">
             @csrf
             <div class="mat-card">
                 <div class="mat-content">
@@ -54,7 +54,7 @@
                     <div class="add">
                         <div class="input_box" style="width: 100%;">
                             <span class="input_box_span_active">@lang('kidsnow.notice.title') *</span>
-                            <input type="text" name="title" placeholder="@lang('kidsnow.notice.title') *" value="{{$notice_board->title}}">
+                            <input type="text" name="title" placeholder="@lang('kidsnow.notice.title') *" value="{{old('title') ?? $notice_board->title}}">
                             @if ($errors->has('title'))
                                 <div class="text text-danger">
                                     {{ $errors->first('title') }}
@@ -72,7 +72,7 @@
                                 </div>
                                 <div class="col-xs-3 col-md-3">
                                     <label class="label-checkbox">
-                                        <input type="checkbox" name="important" @if($notice_board->important == 1) checked @endif>
+                                        <input type="checkbox" name="important" @if(old('important') ?? $notice_board->important == 1) checked @endif>
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
@@ -85,7 +85,7 @@
                                 </div>
                                 <div class="col-xs-3 col-md-3">
                                     <label class="label-checkbox">
-                                        <input type="checkbox" name="archive"  @if($notice_board->archive == 1) checked @endif>
+                                        <input type="checkbox" name="archive"  @if(old('archive') ?? $notice_board->archive == 1) checked @endif>
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
@@ -96,7 +96,7 @@
                         <div class="row">
                             <div class="col-md-11 input_box">
                                 <span class="input_box_span_active">@lang('kidsnow.notice.detail') </span>
-                                <input type="text" name="content" placeholder="@lang('kidsnow.notice.detail') " value="{{$notice_board->content}}">
+                                <input type="text" name="content" placeholder="@lang('kidsnow.notice.detail') " value="{{old('content') ?? $notice_board->content}}">
                                 @if ($errors->has('content'))
                                     <div class="text text-danger">
                                         {{ $errors->first('content') }}
@@ -130,10 +130,10 @@
                             @foreach(explode('/*endfile*/',$notice_board->clip_board) as $clipboard)
                                 <div class="row" style="margin-top: 5px">
                                     <div class="col-md-10" style="text-align: left">
-                                        <a href="kids-now/notice-board/clip_board/{{$notice_board->id}}/{{$clipboard}}" target="_blank">{{Str::limit($clipboard,70)}}</a>
+                                        <a href="{{route('admin.notice-board.displayClipboard',['id'=>$notice_board->id, 'name'=>$clipboard])}}" target="_blank">{{Str::limit($clipboard,70)}}</a>
                                     </div>
                                     <div class="col-md-2">
-                                        @if($clipboard)<a href="kids-now/notice-board/delete_clipboard/{{$notice_board->id}}/{{$clipboard}}" style="color: inherit"><button type="button" class="btn btn-sm btn-danger" onclick="return confirm('Are you want to delete this file ?')">Delete</button></a>@endif
+                                        @if($clipboard)<a href="{{route('admin.notice-board.deleteClipboard',['id'=>$notice_board->id, 'name'=>$clipboard])}}" style="color: inherit"><button type="button" class="btn btn-sm btn-danger" onclick="return confirm('Are you want to delete this file ?')">Delete</button></a>@endif
                                     </div>
                                 </div>
                             @endforeach

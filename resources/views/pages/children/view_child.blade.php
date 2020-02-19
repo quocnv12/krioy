@@ -19,8 +19,8 @@
             <div class="row">
                 <div class="col-lg-10 col-md-10 col-sm-10">
                     <ul class="ul-td">
-                        <li  class="level1"><a href="kids-now">HOME</a></li>
-                        <li  class="active1" ><a href="kids-now/children">CHILDREN</a></li>
+                        <li  class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
+                        <li  class="active1" ><a href="{{route('admin.children.index')}}">CHILDREN</a></li>
                         <li class="active1 active-1" style="pointer-events: none"><a href="">VIEW CHILDREN</a></li>
                     </ul>
                 </div>
@@ -621,7 +621,7 @@
                 </div>
             </div>
         <div class="icon-plus" title="edit">
-            <a href="kids-now/children/edit/{{$children_profiles->id}}">
+            <a href="{{route('admin.children.edit',['id'=>$children_profiles->id])}}">
                 <i class="fa fa-edit"></i>
             </a>
         </div>

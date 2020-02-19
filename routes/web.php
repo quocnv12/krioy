@@ -49,17 +49,13 @@
 
  
 //route fix
-Route::get('kids-now/children/add','Admin\ChildrenProfilesController@create');
+
 Route::get('kids-now/attendance/list', function(){
     return view('pages.attendance.list');
 });
 
 
-Route::get('kids-now/children/add','Admin\ChildrenProfilesController@create');
-Route::get('kids-now/notice-board/add','Admin\NoticeBoardController@create');
-
-
-Route::get('','Admin\IndexController@getIndex');
+Route::get('/','Admin\IndexController@getIndex');
 
 //------------tai khoan demo-------
 Route::get('account','Admin\IndexController@getDemoAccount');
@@ -82,23 +78,23 @@ Route::post('password/reset', 'Auth\ForgotPasswordController@PostResetPassword')
 //-------------------------group admin--------------------------
 Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function () {
     Route::get('logout', 'Admin\LoginController@Logout');
-    
+
     //--đổi mật khẩu------
     Route::get('update-password', 'Admin\LoginController@getUpdatePassword');
     Route::post('update-password', 'Admin\LoginController@postUpdatePassword');
     //------trang chủ----------------
-    Route::get('/','Admin\IndexController@getHome');
-   
+    Route::get('/','Admin\IndexController@getHome')->name('admin.home');
+
     //---------------children----------------
     Route::group(['prefix' => 'children','middleware' => 'checkacl:Children profiles'], function () {
-        Route::get('/', 'Admin\ChildrenProfilesController@index');
-        Route::get('/{id}', 'Admin\ChildrenProfilesController@show');
-        Route::get('add', 'Admin\ChildrenProfilesController@create');
-        Route::post('add', 'Admin\ChildrenProfilesController@store');
-        Route::get('view/{id}','Admin\ChildrenProfilesController@view');
-        Route::get('edit/{id}','Admin\ChildrenProfilesController@edit')->middleware(['can:edit-profile']);
-        Route::post('edit/{id}','Admin\ChildrenProfilesController@update');
-        Route::get('delete/{id}','Admin\ChildrenProfilesController@destroy')->middleware(['can:edit-profile']);
+        Route::get('/', 'Admin\ChildrenProfilesController@index')->name('admin.children.index');
+        Route::get('add', 'Admin\ChildrenProfilesController@create')->name('admin.children.create');
+        Route::post('add', 'Admin\ChildrenProfilesController@store')->name('admin.children.store');
+        Route::get('/{id}', 'Admin\ChildrenProfilesController@show')->name('admin.children.show');
+        Route::get('view/{id}','Admin\ChildrenProfilesController@view')->name('admin.children.view');
+        Route::get('edit/{id}','Admin\ChildrenProfilesController@edit')->name('admin.children.edit')->middleware(['can:edit-profile']);
+        Route::post('edit/{id}','Admin\ChildrenProfilesController@update')->name('admin.children.update');
+        Route::get('delete/{id}','Admin\ChildrenProfilesController@destroy')->name('admin.children.destroy')->middleware(['can:edit-profile']);
         Route::get('add_parent','Admin\ChildrenProfilesController@addParent');
         Route::get('select_child','Admin\ChildrenProfilesController@selectChild');
 
@@ -137,12 +133,12 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
     //---------------health----------------
     Route::group(['prefix' => 'health','middleware' => 'checkacl:Health'], function () {
 
-        Route::get('danhsach', ['as'=>'admin.health.list','uses'=>'Admin\HealthController@getList']);
-        Route::get('them',['as'=>'admin.health.getAdd','uses'=>'Admin\HealthController@getAdd']);
-        Route::post('them',['as'=>'admin.health.getAdd','uses'=>'Admin\HealthController@postAdd']);
-        Route::get('xoa/{id}',['as'=>'admin.health.getDelete','uses'=>'Admin\HealthController@getDelete'])->middleware(['can:edit-profile']);
-        Route::get('sua/{id}',['as'=>'admin.health.getEdit','uses'=>'Admin\HealthController@getEdit'])->middleware(['can:edit-profile']);
-        Route::post('sua/{id}',['as'=>'admin.health.postEdit','uses'=>'Admin\HealthController@postEdit']);
+        Route::get('/', ['as'=>'admin.health.list','uses'=>'Admin\HealthController@getList']);
+        Route::get('add',['as'=>'admin.health.getAdd','uses'=>'Admin\HealthController@getAdd']);
+        Route::post('add',['as'=>'admin.health.getAdd','uses'=>'Admin\HealthController@postAdd']);
+        Route::get('delete/{id}',['as'=>'admin.health.getDelete','uses'=>'Admin\HealthController@getDelete'])->middleware(['can:edit-profile']);
+        Route::get('edit/{id}',['as'=>'admin.health.getEdit','uses'=>'Admin\HealthController@getEdit'])->middleware(['can:edit-profile']);
+        Route::post('edit/{id}',['as'=>'admin.health.postEdit','uses'=>'Admin\HealthController@postEdit']);
         Route::get('search',['as'=>'admin.health.search','uses'=>'Admin\HealthController@getSearch']);
         Route::post('search',['as'=>'admin.health.search','uses'=>'Admin\HealthController@postSearch']);
         Route::get('show/{id}','Admin\HealthController@showChildrenInProgram');
@@ -230,25 +226,26 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
     //---------------notice board----------------
     Route::group(['prefix' => 'notice-board','middleware' => 'checkacl:Noticeboard'], function () {
-        Route::get('', 'Admin\NoticeBoardController@index');
-        Route::get('/{id}', 'Admin\NoticeBoardController@show');
+        Route::get('', 'Admin\NoticeBoardController@index')->name('admin.notice-board.index');
 
-        Route::get('add', 'Admin\NoticeBoardController@create');
-        Route::post('add', 'Admin\NoticeBoardController@store');
+        Route::get('add', 'Admin\NoticeBoardController@create')->name('admin.notice-board.create');
+        Route::post('add', 'Admin\NoticeBoardController@store')->name('admin.notice-board.store');
 
-        Route::get('detail/{id}','Admin\NoticeBoardController@detail');
+        Route::get('/{id}', 'Admin\NoticeBoardController@show')->name('admin.notice-board.show');
 
-        Route::get('edit/{id}', 'Admin\NoticeBoardController@edit')->middleware(['can:edit-profile']);
-        Route::post('edit/{id}', 'Admin\NoticeBoardController@update');
+        Route::get('detail/{id}','Admin\NoticeBoardController@detail')->name('admin.notice-board.detail');
 
-        Route::get('delete/{id}','Admin\NoticeBoardController@destroy')->middleware(['can:edit-profile']);
+        Route::get('edit/{id}', 'Admin\NoticeBoardController@edit')->name('admin.notice-board.edit')->middleware(['can:edit-profile']);
+        Route::post('edit/{id}', 'Admin\NoticeBoardController@update')->name('admin.notice-board.update');
+
+        Route::get('delete/{id}','Admin\NoticeBoardController@destroy')->name('admin.notice-board.destroy')->middleware(['can:edit-profile']);
 
         //search by typeahead
         Route::get('search/name', 'Admin\NoticeBoardController@searchByTitle');
 
         //clip board
-        Route::get('clip_board/{id}/{name}','Admin\NoticeBoardController@displayClipboard');
-        Route::get('delete_clipboard/{id}/{name}','Admin\NoticeBoardController@deleteClipboard');
+        Route::get('clip_board/{id}/{name}','Admin\NoticeBoardController@displayClipboard')->name('admin.notice-board.displayClipboard');
+        Route::get('delete_clipboard/{id}/{name}','Admin\NoticeBoardController@deleteClipboard')->name('admin.notice-board.deleteClipboard');
     });
 
 
@@ -256,24 +253,24 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
     //---------------program----------------
     Route::group(['prefix' => 'program','middleware' => 'checkacl:Programs'], function () {
-        Route::get('', 'Admin\ProgramsController@index');
-        Route::get('add', 'Admin\ProgramsController@create');
-        Route::post('add', 'Admin\ProgramsController@store');
+        Route::get('', 'Admin\ProgramsController@index')->name('admin.program.index');
+        Route::get('add', 'Admin\ProgramsController@create')->name('admin.program.create');
+        Route::post('add', 'Admin\ProgramsController@store')->name('admin.program.store');
 
         Route::get('select_child/add','Admin\ProgramsController@addSelectChild');   //ajax them children
         Route::get('select_staff/add','Admin\ProgramsController@addSelectStaff');   //ajax them staff
 
-        Route::get('edit/{id}', 'Admin\ProgramsController@edit')->middleware(['can:edit-profile']);
-        Route::post('edit/{id}', 'Admin\ProgramsController@update');
-        Route::get('view/{id}', 'Admin\ProgramsController@show');
-        Route::get('delete/{id}','Admin\ProgramsController@destroy')->middleware(['can:edit-profile']);
+        Route::get('edit/{id}', 'Admin\ProgramsController@edit')->name('admin.program.edit')->middleware(['can:edit-profile']);
+        Route::post('edit/{id}', 'Admin\ProgramsController@update')->name('admin.program.update');
+        Route::get('view/{id}', 'Admin\ProgramsController@show')->name('admin.program.show');
+        Route::get('delete/{id}','Admin\ProgramsController@destroy')->name('admin.program.destroy')->middleware(['can:edit-profile']);
 
         Route::get('search/children','Admin\ProgramsController@searchChildren');
         Route::get('search/staff','Admin\ProgramsController@searchStaff');
         Route::get('search/program','Admin\ProgramsController@searchProgram');
 
         //export files
-        Route::get('excel/{id}','Admin\ProgramsController@excel');
+        Route::get('excel/{id}','Admin\ProgramsController@excel')->name('admin.program.excel');
     });
 
 
@@ -287,10 +284,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('delete/{id}', 'Admin\PermissionControler@deleteRole')->middleware(['can:edit-profile']);
     
     });
-
-
-
-
 });
 
 
@@ -298,3 +291,4 @@ Route::get('locale/{locale}', function($locale){
     Session::put('locale', $locale);
     return redirect()->back();
 });
+

@@ -19,13 +19,13 @@
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
 				<ul class="ul-td" style="width: 100%;">
-					<li class="level1"><a href="kids-now">HOME</a></li>
-					<li class="active1" ><a href="kids-now/children">CHILDREN PROFILES</a></li>
+					<li class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
+					<li class="active1" ><a href="{{route('admin.children.index')}}">CHILDREN PROFILES</a></li>
 					<li class="active1 active-1" style="pointer-events:none;"><a href="">ADD CHILD</a></li>
 				</ul>
 			</div>
 		</div>
-		<form style="width: auto;margin: 0;text-align: center" action="kids-now/children/add" method="post" name="form" enctype="multipart/form-data">
+		<form style="width: auto;margin: 0;text-align: center" action="{{route('admin.children.store')}}" method="post" name="form" enctype="multipart/form-data">
 			@csrf
 
 		<div class="mat-card">

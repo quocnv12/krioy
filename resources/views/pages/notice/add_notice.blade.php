@@ -16,8 +16,8 @@
 			<div class="row">
 				<div class="col-lg-10 col-md-10 col-sm-10">
 					<ul class="ul-td">
-						<li class="level1"><a href="kids-now">HOME</a></li>
-						<li class="active1"><a href="kids-now/notice-board">NOTICE BOARD</a></li>
+						<li class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
+						<li class="active1"><a href="{{route('admin.notice-board.index')}}">NOTICE BOARD</a></li>
 						<li class="active1 active-1" style="pointer-events:none;"><a href="">ADD NOTICE</a></li>
 					</ul>
 				</div>
@@ -28,7 +28,7 @@
 				{{--</div>--}}
 			</div>
 		</div>
-        <form action="kids-now/notice-board/add" method="post" enctype="multipart/form-data" style="width: 100%">
+        <form action="{{route('admin.notice-board.store')}}" method="post" enctype="multipart/form-data" style="width: 100%">
             @csrf
             <div class="mat-card">
                 <div class="mat-content">

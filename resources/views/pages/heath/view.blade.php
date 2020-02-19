@@ -17,7 +17,7 @@
                     </ul>
                 </div>
                 <div class="col-sm-6">
-                    <a type="submit" class="btn btn-success" href="{{route('admin.health.list')}}" style="border: none;min-width: 110px;background: #eb87c1;color: white;float: right;font-weight: bold;" >HEALTH LIST</a>
+                    <a type="submit" class="btn btn-success" href="{{route('admin.health.list')}}" style="border: none;min-width: 110px;background: #eb87c1;color: white;float: right;font-weight: bold;" >@lang('kidsnow.health.list')</a>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                 <div class="mat-card" style="width: 100%">
                     <div class="mat-content">
                         <button class="accordion accordion1 clearfix" type="button">
-                            <p style="float: left;">Children *</p>
+                            <p style="float: left;">@lang('kidsnow.health.children') *</p>
                             {{--<form class="typeahead" role="search" style="float: right; text-align: left">--}}
                             {{--<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">--}}
                             {{--</form>--}}
@@ -55,8 +55,8 @@
                                 <div class="add a1 ">
                                     <div class="row">
                                         <div class="col-md-6 input_box">
-                                            <span class="input_box_span_active">First Name *</span>
-                                            <input type="text" name="first_name" placeholder="First Name *" value="{{$children_profiles->first_name}}" readonly>
+                                            <span class="input_box_span_active">@lang('kidsnow.health.first_name') *</span>
+                                            <input type="text" name="first_name" placeholder="@lang('kidsnow.health.first_name') *" value="{{$children_profiles->first_name}}" readonly>
                                             @if ($errors->has('first_name'))
                                                 <div class="text text-danger">
                                                     {{ $errors->first('first_name') }}
@@ -64,8 +64,8 @@
                                             @endif
                                         </div>
                                         <div class="col-md-6 input_box">
-                                            <span class="input_box_span_active">Last Name *</span>
-                                            <input type="text" name="last_name" placeholder="Last Name *" value="{{$children_profiles->last_name}}" readonly>
+                                            <span class="input_box_span_active">@lang('kidsnow.health.last_name') *</span>
+                                            <input type="text" name="last_name" placeholder="@lang('kidsnow.health.last_name') *" value="{{$children_profiles->last_name}}" readonly>
                                             @if ($errors->has('last_name'))
                                                 <div class="text text-danger">
                                                     {{ $errors->first('last_name') }}
@@ -79,8 +79,8 @@
                         <div class="add" style="width: 100%; margin: 15px 0">
                             <div class="row">
                                 <div class="col-md-3 input_box">
-                                    <span class="input_box_span_active">Birthday </span>
-                                    <input type="date" name="birthday" placeholder="Birthday" value="{{$children_profiles->birthday}}" readonly>
+                                    <span class="input_box_span_active">@lang('kidsnow.health.birthday') </span>
+                                    <input type="date" name="birthday" placeholder="@lang('kidsnow.health.birthday')" value="{{$children_profiles->birthday}}" readonly>
                                     @if ($errors->has('birthday'))
                                         <div class="text text-danger">
                                             {{ $errors->first('birthday') }}
@@ -88,8 +88,8 @@
                                     @endif
                                 </div>
                                 <div class="col-md-3 input_box">
-                                    <span class="input_box_span_active">Unique ID </span>
-                                    <input type="text" name="unique_id" placeholder="Unique ID *" value="{{$children_profiles->unique_id}}" readonly>
+                                    <span class="input_box_span_active">@lang('kidsnow.health.unique_id') </span>
+                                    <input type="text" name="unique_id" placeholder="@lang('kidsnow.health.unique_id') *" value="{{$children_profiles->unique_id}}" readonly>
                                     @if ($errors->has('unique_id'))
                                         <div class="text text-danger">
                                             {{ $errors->first('unique_id') }}
@@ -97,9 +97,9 @@
                                     @endif
                                 </div>
                                 <div class="col-md-3 input_box">
-                                    <span class="input_box_span_active">Gender</span>
+                                    <span class="input_box_span_active">@lang('kidsnow.health.gender')</span>
                                     <select name="gender" disabled>
-                                        <option selected>Gender</option>
+                                        <option selected>@lang('kidsnow.health.gender')</option>
                                         <option value="1" @if($children_profiles->gender == 1) selected="selected" @endif>Nam</option>
                                         <option value="2" @if($children_profiles->gender == 2) selected="selected" @endif>Nữ</option>
                                     </select>
@@ -110,8 +110,8 @@
                                     @endif
                                 </div>
                                 <div class="col-md-3 input_box">
-                                    <span class="input_box_span_active">Date of joining </span>
-                                    <input type="date" name="date_of_joining" placeholder="Date of joining" value="{{$children_profiles->date_of_joining}}" readonly>
+                                    <span class="input_box_span_active">@lang('kidsnow.health.date_of_joining') </span>
+                                    <input type="date" name="date_of_joining" placeholder="@lang('kidsnow.health.date_of_joining')" value="{{$children_profiles->date_of_joining}}" readonly>
                                     @if ($errors->has('date_of_joining'))
                                         <div class="text text-danger">
                                             {{ $errors->first('date_of_joining') }}
@@ -124,28 +124,28 @@
                     <hr>
 
                     <div class="update">
-                        <p>Select Health Update Type*</p>
+                        <p>@lang('kidsnow.health.select_health_update_type') *</p>
                         <div class="tab">
-                            <button type="button" class="tablinks" onclick="openCity(event, 'Sick')">Sick</button>
-                            <button type="button" class="tablinks" onclick="openCity(event, 'Medicine')">Medicine</button>
-                            <button type="button" class="tablinks" onclick="openCity(event, 'Growth')">Growth</button>
-                            <button type="button" class="tablinks" onclick="openCity(event, 'Incident')">Incident</button>
-                            <button type="button" class="tablinks" onclick="openCity(event, 'Blood_group')">Blood Group</button>
+                            <button type="button" class="tablinks" onclick="openCity(event, 'Sick')">@lang('kidsnow.health.sick')</button>
+                            <button type="button" class="tablinks" onclick="openCity(event, 'Medicine')">@lang('kidsnow.health.medicine')</button>
+                            <button type="button" class="tablinks" onclick="openCity(event, 'Growth')">@lang('kidsnow.health.growth')</button>
+                            <button type="button" class="tablinks" onclick="openCity(event, 'Incident')">@lang('kidsnow.health.incident')</button>
+                            <button type="button" class="tablinks" onclick="openCity(event, 'Blood_group')">@lang('kidsnow.health.blood_group')</button>
                         </div>
 
                         <div id="Sick" class="tabcontent ">
                             <div class="row">
                                 <div class="col-md-11 input_box">
-                                    <span class="input_box_span_active">Enter sick details here *</span>
-                                    <input type="text" readonly name="sick" placeholder="Enter sick details here " value="{{$health->sick}}">
+                                    <span class="input_box_span_active">@lang('kidsnow.health.sick_content') *</span>
+                                    <input type="text" readonly name="sick" placeholder="@lang('kidsnow.health.sick_content') " value="{{$health->sick}}">
                                 </div>
                             </div>
                         </div>
                         <div id="Medicine" class="tabcontent">
                             <div class="row">
                                 <div class="col-md-11 input_box">
-                                    <span class="input_box_span_active">Enter medicine details here *</span>
-                                    <input type="text" readonly name="medicine" placeholder="Enter medicine details here " value="{{$health->medicine}}">
+                                    <span class="input_box_span_active">@lang('kidsnow.health.medicine') *</span>
+                                    <input type="text" readonly name="medicine" placeholder="@lang('kidsnow.health.medicine_content') " value="{{$health->medicine}}">
                                 </div>
                             </div>
 
@@ -153,8 +153,8 @@
                         <div id="Growth" class="tabcontent">
                             <div class="row growth">
                                 <div class="col-md-4 growth_input input_box">
-                                    <span>Height</span>
-                                    <input type="text" readonly name="growth_height" placeholder="Height" value="{{$health->growth_height}}">
+                                    <span class="input_box_span_active">@lang('kidsnow.health.growth_height')</span>
+                                    <input type="text" readonly name="growth_height" placeholder="@lang('kidsnow.health.growth_height')" value="{{$health->growth_height}}">
 
                                     <label class="label">
                                         <div class="label-text">cm</div>
@@ -169,8 +169,8 @@
                                     </label>
                                 </div>
                                 <div class="col-md-4 growth_input input_box">
-                                    <span>Weight</span>
-                                    <input type="text" readonly name="growth_weight" placeholder="Weight" value="{{$health->growth_weight}}">
+                                    <span class="input_box_span_active">@lang('kidsnow.health.growth_weight')</span>
+                                    <input type="text" readonly name="growth_weight" placeholder="@lang('kidsnow.health.growth_weight')" value="{{$health->growth_weight}}">
 
                                     <label class="label">
                                         <div class="label-text">kg</div>
@@ -185,8 +185,8 @@
                                     </label>
                                 </div>
                                 <div class="col-md-4 growth_input input_box">
-                                    <span>Head Circumference</span>
-                                    <input type="text" readonly name="" placeholder="Head Circumference" value="{{$health->growth_circumference}}">
+                                    <span class="input_box_span_active">@lang('kidsnow.health.growth_head_circumference')</span>
+                                    <input type="text" readonly name="" placeholder="@lang('kidsnow.health.growth_head_circumference')" value="{{$health->growth_circumference}}">
                                     <label class="label">
                                         <div class="label-text">cm</div>
                                         <div class="toggle">
@@ -202,8 +202,8 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-11 input_box">
-                                    <span class="input_box_span_active">Enter growth details here *</span>
-                                    <input type="text" readonly name="growth" placeholder="Enter growth details here " value="{{$health->growth}}">
+                                    <span class="input_box_span_active">@lang('kidsnow.health.growth_content') *</span>
+                                    <input type="text" readonly name="growth" placeholder="@lang('kidsnow.health.growth_content')" value="{{$health->growth}}">
 
                                 </div>
                             </div>
@@ -212,8 +212,8 @@
                         <div id="Incident" class="tabcontent">
                             <div class="row">
                                 <div class="col-md-11 input_box">
-                                    <span class="input_box_span_active">Enter incident details here *</span>
-                                    <input type="text" readonly name="incident" placeholder="Enter incident details here " value="{{$health->incident}}">
+                                    <span class="input_box_span_active">@lang('kidsnow.health.incident_content') *</span>
+                                    <input type="text" readonly name="incident" placeholder="@lang('kidsnow.health.incident_content') " value="{{$health->incident}}">
 
                                 </div>
                             </div>
@@ -221,8 +221,8 @@
                         <div id="Blood_group" class="tabcontent">
                             <div class="row">
                                 <div class="col-md-11 input_box">
-                                    <span class="input_box_span_active">Enter blood group details here *</span>
-                                    <input type="text" readonly name="blood_group" placeholder="Enter blood group details here " value="{{$health->blood_group}}">
+                                    <span class="input_box_span_active">@lang('kidsnow.health.blood_group_content') *</span>
+                                    <input type="text" readonly name="blood_group" placeholder="@lang('kidsnow.health.blood_group_content') " value="{{$health->blood_group}}">
 
                                 </div>
                             </div>
@@ -231,11 +231,6 @@
 
                     <hr>
                     <div class="">
-                        @if(session('notify_clipboard'))
-                            <div class="alert alert-success">
-                                {{session('notify_clipboard')}}
-                            </div>
-                        @endif
                         @foreach(explode('/*endfile*/',$health->clip_board) as $clipboard)
                             <div class="row" style="margin-top: 5px;">
                                 <div class="col-md-9" style="text-align: left; float: left">
