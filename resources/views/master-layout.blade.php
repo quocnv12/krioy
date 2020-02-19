@@ -12,9 +12,13 @@
     <link rel="stylesheet" type="text/css" href="libs/bootstrap-4.0.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="libs/fontawesome-free-5.10.1-web/css/all.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
-  
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+    <script src="{{ asset('asset/js/notify.js') }}"></script>
+    
     <link rel="stylesheet" href="css/animate.css">
-    <!-- CSS libs -->
+   
     <link rel="stylesheet" href="scss/home.css">
     {{--css component--}}
     <link rel="stylesheet" href="asset/kriyo/css/index.css">
@@ -36,13 +40,13 @@
         .line .item a{
             text-align: center;
         }
+
         @keyframes example {
             0%   {right:0px; top:50px;}
             10%  {right:120px; top:50px;}
             90%  {right:120px; top:50px;}
             100% {right:0px; top:50px}
         }
-
 
     </style>
     <!-- JS libs --> 
@@ -52,24 +56,17 @@
 </head>
 <body>
     @include('header')
-    @if(session('success'))
-        <div style="position: absolute;right: 0px;margin-top: 10px;top: 50px;font-style: italic;opacity: 0.8;font-size: 14px;animation-name: example;
-        animation-duration: 4s;animation-iteration-count: 2;animation-direction: alternate; " class="alert alert-success">
-            <strong>Success ! </strong> {{ session('success') }} 🎉
-        </div>
-    @endif
-    @if(session('danger'))
-        <div style="position: absolute;right: 0px;margin-top: 10px;top: 50px;font-style: italic;opacity: 0.8;font-size: 14px;animation-name: example;
-        animation-duration: 4s;animation-iteration-count: 2;animation-direction: alternate;" class="alert alert-danger">
-            <strong>Danger ! </strong> {{ session('danger') }} 🎉
-        </div>
-    @endif
-    {{-- @if(session('danger'))
-        <div style="position: absolute;right: 0px;margin-top: 10px;top: 50px;font-style: italic;opacity: 1;font-size: 14px;animation-name: example;
-        animation-duration: 5s;animation-iteration-count: 2;animation-direction: alternate;" class="alert alert-danger">
-            <strong>@lang('kidsnow.error') </strong> {{ session('danger') }} 🎉
-        </div>
-    @endif --}}
+        @if (session('success'))
+            <script>
+                notify("<div style='font-size:15px'><i style='line-height: 20px;' class='fa fa-thumbs-up'><i/> {{ session('success') }} </div>",'success');
+            </script>
+        @endif
+
+        @if (session('danger'))
+            <script>
+                 notify("<div style='font-size:15px'><i style='line-height: 20px;' class='fa ffa fa-exclamation-circle'><i/> {{ session('danger') }} </div>",'error');
+            </script>
+        @endif
    
     @yield('content')
     @include('footer')
@@ -82,9 +79,6 @@
     <script>new WOW().init();</script>
     <script src="js/home.js"></script>
     <script src="asset/kriyo/js/toastr.min.js"></script>
-    <script>
-        $('div.alert').delay(7000).slideUp();
-    </script>
     @if(session('error'))
         <script type="text/javascript">
             toastr.error('{{ session('error') }}', 'Thông báo', {timeOut: 5000});

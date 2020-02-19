@@ -24,18 +24,20 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'phone'=>'required|numeric|min:10',
-            'password'=>'required|min:8'
+            'phone'=>'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10',
+            'password'=>'required|min:8|max:30'
         ];
     }
     public function messages()
     {
         return [
             'phone.required'=>'Please enter phone !',
-            'phone.numeric'=>'Phone numbers must be numeric !',
-            'phone.min'=>'Phone must be greater than 10 characters !',
+            'phone.regex'=>'Phone numbers start with 0 !',
+            'phone.not_regex'=>'Phone numbers must be numeric !',
+            'phone.size'=>'Phone number includes 10 numbers !',
             'password.required'=>'Please enter password !',
-            'password.min'=>'Password must be greater than 8 characters !'
+            'password.min'=>'Password from 8 to 30 characters !',
+            'password.max'=>'Password from 8 to 30 characters !'
         ];
     }
 }

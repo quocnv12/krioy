@@ -51,18 +51,16 @@ List meal type
                           <table class="table table-striped" id="example">
                             <thead>
                               <tr>
-                                {{-- <th>ID</th> --}}
-                                <th style="width:20%">Meal Type</th>
-                                <th style="width:60%"></th>
-                                <th>Thao Tác</th>
+                                <th style="width:10%"></th>
+                                <th style="text-align:left">Meal Type</th>
+                                <th style="width:25%;text-align:center">Thao Tác</th>
                               </tr>
                             </thead>
                             <tbody>
-                                @foreach ($mealtypes as $item)
+                                @foreach ($mealtypes as $key => $item)
                                 <tr class="odd gradeX">
-                                    {{-- <td style="text-align:center">{{ $item->id }}</td> --}}
-                                    <td style="text-align:center;text-transform:capitalize">{{ $item->name}}</td>
-                                    <td></td>
+                                    <td style="text-align:center"></td>
+                                    <td style="text-transform:capitalize">{{ $item->name}}</td>
                                     <td style="text-align:center">
                                     <a href="kids-now/food/menu-meal-type/edit/{{ $item->id }}" title="Edit Meal Type" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
                                         <a onclick="return confirm('Delete meal type ? Do you want continue !')"" title="Delete Meal Type" href="kids-now/food/menu-meal-type/delete/{{ $item->id }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>

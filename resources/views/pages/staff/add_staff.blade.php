@@ -201,12 +201,8 @@ Staff Frofiles
             </div>
             <div class="comment">
                 <div class="button" style="text-align: center;">
-                    <button>
-                        <span>@lang('kidsnow.cancel')</span>
-                    </button>
-                    <button class="button2">
-                        <span>@lang('kidsnow.save')</span>
-                    </button>
+                <a href="kids-now/staff"><button type="button"><span>@lang('kidsnow.cancel')</span></button></a> 
+                    <button class="button2"><span>@lang('kidsnow.save')</span></button>
                 </div>
             </div>
         </form>

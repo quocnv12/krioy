@@ -36,7 +36,7 @@ Food
             @endif
         </div>
         <div class="row">
-            <form method="post"  enctype="multipart/form-data" >
+            <form style="width: 100%;" method="post"  enctype="multipart/form-data" >
                 @csrf
             <div class="mat-card" style="">
                 <div class="mat-content">
@@ -94,13 +94,13 @@ Food
                             <div _ngcontent-c20="" align="center"
                                 class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
                                 style="padding:10px;cursor:pointer;">
-                                <button   title="{{ $item->food_name }}" _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
+                                <button   title="{{ $item->food_name }}" _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1 {{ $foodItemName->contains($item->id) ? 'tablinks1_active' :'' }}"
                                     value="{{ $item->id }}" type="button"
                                     style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px;">{{ $item->food_name }}
                                 </button>
                             </div>
                             @endforeach
-                        <input id="array_programss" type="hidden" value="" name="food_name">
+                        <input id="array_programss" type="hidden" value="{{ implode(',',$foodItemNames) }}" name="food_name">
                         
                         </div>
                     </div>
@@ -159,9 +159,9 @@ Food
 
 </script>
 <script type="text/javascript">
-    var array = [];
+    var array = $('#array_programss').val().split(',');
     $('.tablinks1').click(function (event) {
-        if ($(this).prop('class') == 'btn progBtn limitText bgClass tablinks1 tablinks1_active') {
+        if ($(this).hasClass('tablinks1_active')) { 
             $(this).removeClass('tablinks1_active');
             var program_pop = $(this).val();
             array.splice(array.indexOf(program_pop),1);

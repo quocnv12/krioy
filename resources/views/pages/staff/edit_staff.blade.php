@@ -16,11 +16,11 @@ Staff Frofiles
                 </ul>
             </div>
         </div>
-        <form method="POST" enctype="multipart/form-data">
+        <form style="width: 100%;" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mat-card">
                 <div class="mat-content">
-                    <button class="accordion add-staff">@lang('kidsnow.edit_staff') *</button>
+                    <button type="button" class="accordion add-staff">@lang('kidsnow.edit_staff') *</button>
                     <div class="row">
                         <div class="col-md-2 textera-img">
                             @if($errors->has('image'))
@@ -157,14 +157,14 @@ Staff Frofiles
                             <div _ngcontent-c20="" align="center"
                                 class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
                                 style="padding:10px;cursor:pointer;">
-                                <button _ngcontent-c20="" type="button" class="btn progBtn limitText bgClass tablinks1"
-                        title="{{ $item->program_name }}" value="{{ $item->id }}"
+                                <button _ngcontent-c20="" type="button" class="btn progBtn limitText bgClass tablinks1 {{ $programStaff->contains($item->id) ? 'tablinks1_active' :'' }}"
+                                    title="{{ $item->program_name }}" value="{{ $item->id }}"
                                     style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">{{ $item->program_name }}
                                 </button>
                                 
                             </div>
                             @endforeach
-                            <input id="array_programs" type="hidden" value="" name="id_program">
+                        <input id="array_programs" type="hidden" value="{{ implode(',',$programStaffs) }}" name="id_program">
                         </div>
                     </div>
                 </div>
@@ -186,13 +186,13 @@ Staff Frofiles
                             <div _ngcontent-c20="" align="center"
                                 class="col-xs-3 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
                                 style="padding:10px;cursor:pointer">
-                                <button _ngcontent-c20="" type="button" class="btn progBtn limitText bgClass tablinks"
+                                <button _ngcontent-c20="" type="button" class="btn progBtn limitText bgClass tablinks {{ $roleStaff->contains($item->id) ? 'tablinks_active' :'' }}"
                                     title="{{ $item->name }}" value="{{ $item->id }}"
                                     style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">{{ $item->name }}
                                 </button>
                             </div>
                             @endforeach
-                            <input id="array_permissions" type="hidden" value="" name="id_permissions">
+                            <input id="array_permissions" type="hidden" value="{{ implode(',',$roleStaffs) }}" name="id_permissions">
                         </div>
                     </div>
                 </div>
@@ -200,12 +200,8 @@ Staff Frofiles
             </div>
             <div class="comment">
                 <div class="button" style="text-align: center;">
-                    <button>
-                        <span>@lang('kidsnow.cancel')</span>
-                    </button>
-                    <button class="button2">
-                        <span>@lang('kidsnow.save')</span>
-                    </button>
+                   <a href="kids-now"> <button type="button"><span>@lang('kidsnow.cancel')</span></button></a>
+                    <button class="button2"><span>@lang('kidsnow.save')</span></button>
                 </div>
             </div>
         </form>
@@ -248,9 +244,9 @@ Staff Frofiles
 
 
 <script type="text/javascript">
-   var array = [];
+   var array = $('#array_programs').val().split(',');
     $('.tablinks1').click(function (event) {
-        if ($(this).prop('class') == 'btn progBtn limitText bgClass tablinks1 tablinks1_active') {
+        if  ($(this).hasClass('tablinks1_active')) {
             $(this).removeClass('tablinks1_active');
             var program_pop = $(this).val();
             array.splice(array.indexOf(program_pop),1);
@@ -265,9 +261,9 @@ Staff Frofiles
 </script>
 
 <script type="text/javascript">
-    var arrays = [];
+    var arrays = $('#array_permissions').val().split(',');
      $('.tablinks').click(function (event) {
-         if ($(this).prop('class') == 'btn progBtn limitText bgClass tablinks tablinks_active') {
+         if ($(this).hasClass('tablinks_active')) {
              $(this).removeClass('tablinks_active');
              var program_pop = $(this).val();
              arrays.splice(arrays.indexOf(program_pop),1);
