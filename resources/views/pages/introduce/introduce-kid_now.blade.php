@@ -1,4 +1,5 @@
-<html>
+
+<html lang="{{app()->getLocale()}}">
 	<head>
 		<meta charset="utf-8">
 		<title>Kids Now Introduce</title>
@@ -29,12 +30,31 @@
 				    <div class="navbar-header">
 				    	<a class="navbar-brand" href="#" style="display: flex;">
 				    		<img src="images/logo-ngang.png" style="border-radius: 0;width: auto;margin: -7px 0;" alt="">
+							<ul>
+								<li>
+									<div class="dropdown-logo1">
+										@if(app()->getLocale() == 'vi')
+											<button class="dropbtn-logo1">
+												<button class="dropbtn-logo1"><img src="images/viet.png" style="width: 40px;height: 40px"></button>
+											</button>
+										@else
+											<button class="dropbtn-logo1">
+												<button class="dropbtn-logo1"><img src="images/usa.png" style="width: 40px;height: 40px"></button>
+											</button>
+										@endif
+										<div class="dropdown-content-logo1">
+											<a href="locale/vi"><img src="images/viet.png"> @lang('kidsnow.vietnamese')</a>
+											<a href="locale/en"><img src="images/usa.png"> @lang('kidsnow.english')</a>
+										</div>
+									</div>
+								</li>
+							</ul>
 				    	</a>
 				    	<div class="topnav" id="myTopnav">
-						    <a href="#">HOME</a>
-						    <a href="#">KIDS NOW APP</a>
-						    <a href="#">PRICING</a>
-							<a href="#">ABOUT US</a>
+						    <a href="#">{{__('kidsnow.home')}}</a>
+						    <a href="#">@lang('kidsnow.kids_now_app')</a>
+						    <a href="#">@lang('kidsnow.pricing')</a>
+							<a href="#">@lang('kidsnow.about_us_top')</a>
 							@if(Auth::check())
 								<a href="login" style="background-color: #ddd;">My Kids-now</a>
 							@else
@@ -48,22 +68,22 @@
 				    </div>
 				</div>
 			</nav>
-			
+
 			<div class="textMsg" align="center">
 				<div class="textMsg-children">
 					<span style="opacity: 1;position: relative;z-index: 2;cursor: pointer;">
-					
-						<h2>One Stop Destination for Preschool &amp; Daycare Management</h2>
+
+						<h2>@lang('kidsnow.banner')</h2>
 						<p data-toggle="modal" data-target=".bd-example-modal-sm">
 							<img src="images/Playbutton.png" alt="">
 						</p>
 					</span>
 					<div class="introduce-button" align="center">
 						<button class="btt-1">
-							<a style="color:white" href="login">	<span>SIGNUP</span></a>
+							<a style="color:white" href="login">	<span>@lang('kidsnow.sign_up')</span></a>
 						</button>
 						<button class="btt-2" data-toggle="modal" data-target=".bd-example-modal-sm1">
-							<SPAN>GET A FREE TRIAL</SPAN>
+							<SPAN>@lang('kidsnow.get_a_free_trial')</SPAN>
 						</button>
 					</div>
 					<span class="slider">
@@ -81,75 +101,75 @@
 	<section class="introduce-school">
 		<div class="container">
 			<div class="schoolTiltle">
-				<h2>KIDS NOW APP</h2>
-				<div class="hr"></div>	
+				<h2>@lang('kidsnow.kids_now_app')</h2>
+				<div class="hr"></div>
 			</div>
 			<div class="row">
 				<div class="col-md-3"></div>
 				<div class="col-md-6 featured-item">
 					<img src="images/One Touch Updates.png" alt="">
-					<h3>One Click Updates</h3>
-					<p>Send updates in One-Click for multiple children at the same time</p>
+					<h3>@lang('kidsnow.one_click_updates')</h3>
+					<p>@lang('kidsnow.one_click_updates_content')</p>
 				</div>
 				<div class="col-md-3"></div>
 			</div>
 			<div class="row">
 				<div class="col-sm-6 col-md-6 featured-item">
 					<img src="images/Admissions management.png" alt="">
-					<h3>Admissions Management</h3>
-					<p>Manage all the Admissions right from Enquiries to Exits</p>
+					<h3>@lang('kidsnow.admissions_management')</h3>
+					<p>@lang('kidsnow.admissions_management_content')</p>
 				</div>
 				<div class="col-sm-6 col-md-6 featured-item">
 					<img src="images/Bustracking.png" alt="">
-					<h3>Bus Tracking </h3>
-					<p>School bus/van tracking with customized view for School, Parents and Driver</p>
-				</div>				
+					<h3>@lang('kidsnow.bus_tracking')</h3>
+					<p>@lang('kidsnow.bus_tracking_content')</p>
+				</div>
 			</div>
 			<div class="row">
 				<div class="col-sm-4 col-md-4 featured-item">
 					<img src="images/Billing and Payment.png" alt="">
-					<h3>Fee Management</h3>
-					<p>Billing, Payments and Receipts digitised and in one place!</p>
+					<h3>@lang('kidsnow.fee_management')</h3>
+					<p>@lang('kidsnow.fee_management_content')</p>
 					<img src="images/Report-01.png" alt="">
-					<h3>Analytical Reports</h3>
-					<p>Get useful insights about your school through easy to read reports</p>
+					<h3>@lang('kidsnow.analytical_reports')</h3>
+					<p>@lang('kidsnow.analytical_reports_content')</p>
 				</div>
-				<div class="col-sm-4 col-md-4">
-					<img class="features-block__image" src="images/kidsnow.png" alt="">
+				<div class="col-sm-4 col-md-4" style="display: flex; justify-content: center">
+					<img class="features-block@langimage" src="images/kidsnow.png" alt="" style="height: 500px">
 				</div>
 				<div class="col-sm-4 col-md-4 featured-item">
 					<img src="images/Diary.png" alt="">
-					<h3>Diary</h3>
-					<p>In one go, you can write the Diary for all the selected students</p>
+					<h3>@lang('kidsnow.diary_introduce')</h3>
+					<p>@lang('kidsnow.diary_introduce_content')</p>
 					<img src="images/Staff-01.png" alt="">
-					<h3>Customised Staff Permissions </h3>
-					<p>Give access to a Program or a Feature whenever needed</p>
-				</div>				
+					<h3>@lang('kidsnow.customised_staff_permissions') </h3>
+					<p>@lang('kidsnow.customised_staff_permissions_content')</p>
+				</div>
 			</div>
 			<div class="row">
 				<div class="col-sm-6 col-md-6 featured-item">
 					<img src="images/Announcement.png" alt="">
-					<h3>Communication Channel</h3>
-					<p>Messages from all the parents are sorted class wise for you to reply</p>
+					<h3>@lang('kidsnow.communication_channel')</h3>
+					<p>@lang('kidsnow.communication_channel_content')</p>
 				</div>
 				<div class="col-sm-6 col-md-6 featured-item">
 					<img src="images/Notice Board.png" alt="">
-					<h3>Digital Notice Board</h3>
-					<p>Digital version of your Notice Board - parents can view it anytime,anywhere</p>
-				</div>				
+					<h3>@lang('kidsnow.digital_notice_board')</h3>
+					<p>@lang('kidsnow.digital_notice_board_content')</p>
+				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-3"></div>
 				<div class="col-md-6 featured-item">
 					<img src="images/School Icon.png" alt="">
-					<h3>Multi-Branch Management</h3>
-					<p>Manage all your branches from anywhere and you can switch between them in the same app</p>
+					<h3>@lang('kidsnow.multi_branch_management')</h3>
+					<p>@lang('kidsnow.multi_branch_management_content')</p>
 				</div>
 				<div class="col-md-3"></div>
 			</div>
 			<div align="center">
-				<a class="image-block__cta" style="color: #FF4081;"> Download for 
-					<strong>FREE</strong>
+				<a class="image-block@langcta" style="color: #FF4081;">
+					<strong>@lang('kidsnow.download_for_free')</strong>
 				</a>
 				<span style="text-align: center;width: 320px;margin: 10px 5px;" class="slider">
 					<a href="#">
@@ -165,61 +185,61 @@
 	<section class="introduce-parent">
 		<div class="container">
 			<div class="schoolTiltle">
-				<h2>KIDS NOW PARENT APP</h2>
-				<div class="hr"></div>	
+				<h2>@lang('kidsnow.kid_now_parent_app')</h2>
+				<div class="hr"></div>
 			</div>
 			<div class="row">
 				<div class="col-sm-6 col-md-6 featured-item">
 					<img src="images/Check in and Check out-01.png" alt="">
-					<h3>Attendance</h3>
-					<p>Parents can be assured of the Child's presence at the School</p>
+					<h3>@lang('kidsnow.attendance')</h3>
+					<p>@lang('kidsnow.attendance_content')</p>
 				</div>
 				<div class="col-sm-6 col-md-6 featured-item">
 					<img src="images/Multiple Children-01.png" alt="">
-					<h3>Multiple Children Management</h3>
-					<p>Parents can view the updates of all their children in the same app</p>
-				</div>				
+					<h3>@lang('kidsnow.multiple_children_management')</h3>
+					<p>@lang('kidsnow.multiple_children_management_content')</p>
+				</div>
 			</div>
 			<div class="row">
 				<div class="col-sm-4 col-md-4 featured-item">
 					<img src="images/Instant Updates.png" alt="">
-					<h3>Instant Updates</h3>
-					<p>Parents will receive live notifications on their mobile for all the updates from school!</p>
+					<h3>@lang('kidsnow.instant_updates')</h3>
+					<p>@lang('kidsnow.instant_updates_content')</p>
 					<img src="images/Photots-01.png" alt="">
-					<h3>Photos/Videos</h3>
-					<p>Cherish and Share lovely moments of children at the School</p>
+					<h3>@lang('kidsnow.photos_videos')</h3>
+					<p>@lang('kidsnow.photos_videos_content')</p>
 				</div>
-				<div class="col-sm-4 col-md-4">
-					<img class="features-block__image" src="images/parentscreen.png" alt="">
+				<div class="col-sm-4 col-md-4" style="display: flex; justify-content: center">
+					<img class="features-block@langimage" src="images/parentscreen.png" alt="">
 				</div>
 				<div class="col-sm-4 col-md-4 featured-item">
 					<img src="images/Food-01.png" alt="">
-					<h3>Food</h3>
-					<p>Keep an eye on how well the child is eating while at the School</p>
+					<h3>@lang('kidsnow.food')</h3>
+					<p>@lang('kidsnow.food_content')</p>
 					<img src="images/Health-01.png" alt="">
-					<h3>Health Updates</h3>
-					<p>Updates on sickness, medication and growth of the child</p>
-				</div>				
+					<h3>@lang('kidsnow.health_updates')</h3>
+					<p>@lang('kidsnow.health_updates_content')</p>
+				</div>
 			</div>
 			<div class="row">
 				<div class="col-sm-6 col-md-6 featured-item">
 					<img src="images/Play and Learn-01.png" alt="">
-					<h3>Learning & Development</h3>
-					<p>Track Child's learning progress and make timely interventions</p>
+					<h3>@lang('kidsnow.learning_development')</h3>
+					<p>@lang('kidsnow.learning_development_content')</p>
 				</div>
 				<div class="col-sm-6 col-md-6 featured-item">
 					<img src="images/Staff-01.png" alt="">
-					<h3>Communicate with Teachers</h3>
-					<p>No need to switch to another app to communicate with Teachers</p>
-				</div>				
+					<h3>@lang('kidsnow.communicate_with_teachers')</h3>
+					<p>@lang('kidsnow.communicate_with_teachers_content')</p>
+				</div>
 			</div>
 		</div>
 	</section>
 	<section class="introduce-customers">
 		<div class="container">
 			<div class="schoolTiltle" style="padding: 20px 0;">
-				<h2>Our Customers Speak</h2>
-				<div class="hr"></div>	
+				<h2>@lang('kidsnow.our_customers_speak')</h2>
+				<div class="hr"></div>
 			</div>
 			<div class="row introduce-customers-1 ">
 				<div class="col-md-4">
@@ -232,7 +252,7 @@
 		                    	<p class="item-a">Nguyen Van Khanh</p>
 		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
 		                    </div>
-		                </div>                 
+		                </div>
 		            </div>
 		        </div>
 		        <div class="col-md-4">
@@ -245,7 +265,7 @@
 		                    	<p class="item-a">Nguyen Thu Ha</p>
 		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
 		                    </div>
-		                </div>                 
+		                </div>
 		            </div>
 		        </div>
 		        <div class="col-md-4">
@@ -258,7 +278,7 @@
 		                    	<p class="item-a">Nguyen Khanh Linh</p>
 		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
 		                    </div>
-		                </div>                 
+		                </div>
 		            </div>
 		        </div>
 		        <div class="col-md-4">
@@ -271,7 +291,7 @@
 		                    	<p class="item-a">Tran Trong Hieu</p>
 		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
 		                    </div>
-		                </div>                 
+		                </div>
 		            </div>
 		        </div>
 	        </div>
@@ -280,8 +300,8 @@
 	<section class="introduce-packages">
 		<div class="container">
 			<div class="schoolTiltle" style="">
-				<h2>Packages & Pricing</h2>
-				<div class="hr"></div>	
+				<h2>@lang('kidsnow.packages_pricing')</h2>
+				<div class="hr"></div>
 			</div>
 			<div class="row">
 				<div class="col-md-1"></div>
@@ -290,17 +310,17 @@
 						<div class="col-xs-12 col-md-4 col-lg-4">
 							<div class="packages-priceFree">
 								<div class="priceFree">
-									<div class="priceImg" style="">Free
+									<div class="priceImg" style="">@lang('kidsnow.free')
 										<br>
 										<span>$0</span>
 									</div>
 									<ul style="">
-										<li class="featuresList">Children Attendance</li>
-										<li class="featuresList">Digital Diary</li>
-										<li class="featuresList">Daily Report</li>
-										<li class="featuresList">Programs</li>
-										<li class="featuresList">Children Profiles</li>
-										<li class="featuresList">Staff Profiles</li>
+										<li class="featuresList">@lang('kidsnow.free_content_first')</li>
+										<li class="featuresList">@lang('kidsnow.free_content_second')</li>
+										<li class="featuresList">@lang('kidsnow.free_content_third')</li>
+										<li class="featuresList">@lang('kidsnow.free_content_fourth')</li>
+										<li class="featuresList">@lang('kidsnow.free_content_fifth')</li>
+										<li class="featuresList">@lang('kidsnow.free_content_sixth')</li>
 									</ul>
 								</div>
 							</div>
@@ -308,26 +328,26 @@
 						<div class="col-xs-12 col-md-4 col-lg-4 ">
 							<div class="packages-priceLite">
 								<div class="priceLite">
-									<div class="priceImg" style=""> LITE
+									<div class="priceImg" style=""> @lang('kidsnow.lite')
 										<br>
 										<strike style="color: black">$10</strike>
 										<br>
 										<span>$5</span>
 									</div>
 									<div class="freeFeature">
-										<p class="freeFeature-p" style="background-color: #A290C4;">FREE Features</p>
+										<p class="freeFeature-p" style="background-color: #A290C4;">@lang('kidsnow.free_features')</p>
 										<p class="freeFeature-i">
 											<i class="fa fa-plus"></i>
 										</p>
 									</div>
 									<ul style="">
-										<li class="featuresList">Photos</li>
-										<li class="featuresList">Notice Board</li>
-										<li class="featuresList">Calendar</li>
-										<li class="featuresList">Parent Communication</li>
-										<li class="featuresList">School Profile</li>
-										<li class="featuresList">Multi-branch Management</li>
-										<li class="featuresList">Parent Access Status</li>
+										<li class="featuresList">@lang('kidsnow.lite_content_first')</li>
+										<li class="featuresList">@lang('kidsnow.lite_content_second')</li>
+										<li class="featuresList">@lang('kidsnow.lite_content_third')</li>
+										<li class="featuresList">@lang('kidsnow.lite_content_fourth')</li>
+										<li class="featuresList">@lang('kidsnow.lite_content_fifth')</li>
+										<li class="featuresList">@lang('kidsnow.lite_content_sixth')</li>
+										<li class="featuresList">@lang('kidsnow.lite_content_seventh')</li>
 									</ul>
 								</div>
 							</div>
@@ -335,31 +355,31 @@
 						<div class="col-xs-12 col-md-4 col-lg-4 ">
 							<div class="packages-pricePro">
 								<div class="pricePro">
-									<div class="priceImg" style=""> PRO
+									<div class="priceImg" style=""> @lang('kidsnow.pro')
 										<br>
-										<strike style="color: black">$10</strike>
+										<strike style="color: black">$30</strike>
 										<br>
-										<span>$5</span>
+										<span>$20</span>
 									</div>
 									<div class="freeFeature">
-										<p class="freeFeature-p" style="background-color: #E78AB9;">FREE Features</p>
+										<p class="freeFeature-p" style="background-color: #E78AB9;">@lang('kidsnow.free_features')</p>
 										<p class="freeFeature-i">
 											<i class="fa fa-plus"></i>
 										</p>
 									</div>
 									<ul style="">
-										<li class="featuresList">Enquiry Management</li>
-										<li class="featuresList">Fee Management</li>
-										<li class="featuresList">Analytical Reports</li>
-										<li class="featuresList">Custom Staff Permissions</li>
-										<li class="featuresList">Staff Attendance</li>
-										<li class="featuresList">Daycare Needs</li>
-										<li class="featuresList">Health & Observations</li>
-										<li class="featuresList">Play & Learn</li>
-										<li class="featuresList">Custom Settings</li>
-										<li class="featuresList">School History</li>
-										<li class="featuresList">QR Check-In</li>
-										<li class="featuresList">Videos</li>
+										<li class="featuresList">@lang('kidsnow.pro_content_first')</li>
+										<li class="featuresList">@lang('kidsnow.pro_content_second')</li>
+										<li class="featuresList">@lang('kidsnow.pro_content_third')</li>
+										<li class="featuresList">@lang('kidsnow.pro_content_fourth')</li>
+										<li class="featuresList">@lang('kidsnow.pro_content_fifth')</li>
+										<li class="featuresList">@lang('kidsnow.pro_content_sixth')</li>
+										<li class="featuresList">@lang('kidsnow.pro_content_seventh')</li>
+										<li class="featuresList">@lang('kidsnow.pro_content_eighth')</li>
+										<li class="featuresList">@lang('kidsnow.pro_content_ninth')</li>
+										<li class="featuresList">@lang('kidsnow.pro_content_tenth')</li>
+										<li class="featuresList">@lang('kidsnow.pro_content_eleventh')</li>
+										<li class="featuresList">@lang('kidsnow.pro_content_twelfth')</li>
 									</ul>
 								</div>
 							</div>
@@ -371,18 +391,18 @@
 			<div class="row">
 				<div class="col-md-1"></div>
 				<div class="col-md-10">
-					<p style="font-size: 14px;margin: 10px 0;">* Price is per Child per Year</p>
+					<p style="font-size: 14px;margin: 10px 0;">* @lang('kidsnow.price_is_per_child')</p>
 				</div>
 			</div>
 		</div>
 	</section>
 	<section class="happy-customers">
 		<div class="schoolTiltle" style="">
-			<h2>Our Happy Customers</h2>
-			<div class="hr"></div>	
+			<h2>@lang('kidsnow.our_happy_customers')</h2>
+			<div class="hr"></div>
 		</div>
 		<div class="container">
-			<div class="row"> 
+			<div class="row">
 				<div class="col-xs-6 col-sm-3 col-md-3 banner-img">
 					<img src="images/sun.png" alt="">
 				</div>
@@ -441,7 +461,7 @@
 					<img src="images/Pumpkin's.png" alt="">
 				</div>
 				<div class="col-xs-6 col-sm-4  col-md-4">
-					<p>And many more...</p>
+					<p>@lang('kidsnow.and_many_more')</p>
 				</div>
 			</div>
 		</div>
@@ -449,17 +469,17 @@
 	<section class="container">
 		<div class="about-as">
 			<div class="schoolTiltle">
-				<h2>About Us</h2>
-				<div class="hr"></div>	
+				<h2>@lang('kidsnow.about_us')</h2>
+				<div class="hr"></div>
 			</div>
-			<p>Kids Now ipsum dolor sit amet, consectetur adipisicing elit. Delectus possimus aut eaque adipisci, accusamus illum exercitationem labore sequi tenetur vitae, est ipsum. Cupiditate quas laboriosam, autem cumque sint quia cum odit eligendi dolore, consequatur nobis rem ipsa dolorem non, eum eius earum quo voluptate repellendus vitae maxime. Beatae natus atque praesentium soluta ut voluptate, cupiditate ipsum tempora iste distinctio, sit corrupti inventore ea suscipit, odit modi illo omnis animi quae.</p>
+			<p>@lang('kidsnow.about_us_content')</p>
 		</div>
 	</section>
 	<section class="container">
 		<div class="our-team" style="margin: 20px 0;">
 			<div class="schoolTiltle">
-				<h2>Our Team</h2>
-				<div class="hr"></div>	
+				<h2>@lang('kidsnow.our_team')</h2>
+				<div class="hr"></div>
 			</div>
 			<div class="row our-team">
 				<div class="col-sm-4 col-md-4">
@@ -483,16 +503,16 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<section class="container">
 		<div class="get-in-touch" style="margin: 20px 0;">
 			<div class="schoolTiltle">
-				<h2>Get in Touch</h2>
-				<div class="hr"></div>	
+				<h2>@lang('kidsnow.get_in_touch')</h2>
+				<div class="hr"></div>
 			</div>
 			<div style="text-align: center;">
 				<img src="images/email.png" alt="" width="40px">
-				<span style="margin-left:10px;"> hello@kidsnow.com</span>
+				<span style="margin-left:10px;"> hello@kidsnow.edu.com</span>
 			</div>
 		</div>
 	</section>
@@ -511,13 +531,13 @@
 			 	</a>
 			</div>
 			<div class="row">
-				<p> 2019 © 
-					<b>Kids Now</b>, a product of <b><a href="http://www.web88.vn/">Web88</a></b>
+				<p> 2019 ©
+					<b>Kids Now</b>, @lang('kidsnow.a_product_of') <b><a href="http://www.web88.vn/">Web88</a></b>
 				</p>
 				<p>
-					<a href="https://lssplprod.s3.amazonaws.com/Help/Kriyo-schoolApp-Privacy-Policies.html" class="termsHover"> Privacy Policy</a>
+					<a href="https://lssplprod.s3.amazonaws.com/Help/Kriyo-schoolApp-Privacy-Policies.html" class="termsHover"> @lang('kidsnow.privacy')</a>
 					<span>&</span>
-					<a href="https://lssplprod.s3.amazonaws.com/Help/Kriyo-schoolApp-Privacy-Policies.html" class="termsHover"> Terms and Conditions</a>
+					<a href="https://lssplprod.s3.amazonaws.com/Help/Kriyo-schoolApp-Privacy-Policies.html" class="termsHover"> @lang('kidsnow.terms_and_conditions')</a>
 				</p>
 			</div>
 		</div>
@@ -526,7 +546,7 @@
 	<div class="modal fade bd-example-modal-sm modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-sm" style="width: 560px;">
 		   <iframe width="560" height="315" src="https://www.youtube.com/embed/SrEPQMRfzoc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		</div>			
+		</div>
 	</div>
 	<div class="modal fade bd-example-modal-sm1 modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-sm">
@@ -544,21 +564,21 @@
 		   			<span>School Owner/Admin</span>
 		   		</button>
 		   </div>
-		</div>			
+		</div>
 	</div>
 </body>
 	<script src="https://code.jquery.com/jquery.min.js"></script>
-    
+
     <!-- Bootstrap JS form CDN -->
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    
+
     <!-- jQuery sticky menu -->
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/jquery.sticky.js"></script>
-    
+
     <!-- jQuery easing -->
     <script src="js/jquery.easing.1.3.min.js"></script>
-    
+
     <!-- Main Script -->
     <script src="js/main.js"></script>
 	<script src="libs/slick-1.8.1/slick/slick.js"></script>
@@ -613,3 +633,4 @@
 			}
 		}
 	</script>
+

@@ -9,8 +9,8 @@
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
 				<ul class="ul-td" style="width: 100%">
-					<li class="level1"><a href="kids-now">HOME</a></li>
-					<li class="active1" ><a href="kids-now/program">PROGRAM</a></li>
+					<li class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
+					<li class="active1" ><a href="{{route('admin.program.index')}}">PROGRAM</a></li>
 					<li class="active1 active-1" style="pointer-events: none;"><a href="">VIEW PROGRAM</a></li>
 
 				</ul>
@@ -235,7 +235,7 @@
 
 
 		<div class="icon-plus" title="edit">
-			<a href="kids-now/program/edit/{{$program->id}}">
+			<a href="{{route('admin.program.edit',['id'=>$program->id])}}">
 				<i class="fa fa-edit"></i>
 			</a>
 		</div>

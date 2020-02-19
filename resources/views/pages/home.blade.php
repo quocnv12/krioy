@@ -63,7 +63,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="{{route('admin.health.getAdd')}}">
+                    <a href="{{route('admin.health.list')}}">
                         <img src="images/Health-01.png" alt="@lang('kidsnow.health')">
                         <div class="title">
                             <p>@lang('kidsnow.health')</p>

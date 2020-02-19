@@ -19,14 +19,16 @@ class HealthController extends Controller
 {
     public function getList(){
 
-        $health = HealthModel :: all();
+        $health = HealthModel::orderBy('created_at','DESC')->get();
         $programs = Programs::all();
         return view('pages.heath.list', compact('health','programs'));
     }
 
     public function view($id){
         $health = HealthModel::find($id);
-
+        if ($id == 0){
+            return view('pages.not-found.notfound');
+        }
         $children_profiles = ChildrenProfiles::where('id',$health->id_children)->first();
         return view('pages.heath.view', compact('health','children_profiles'));
     }
@@ -86,8 +88,11 @@ class HealthController extends Controller
 
     public function getEdit($id){
         $health = HealthModel::find($id);
-
+        if (! $id){
+            return view('pages.not-found.notfound');
+        }
         $children_profiles = ChildrenProfiles::where('id',$health->id_children)->first();
+
         return view('pages.heath.edit', compact('health','children_profiles'));
     }
     public function postEdit(Request $request, $id)
@@ -262,7 +267,7 @@ class HealthController extends Controller
             $excel->sheet('Children Data', function($sheet) use ($health_array){
                 $sheet->fromArray($health_array, null, 'A1', false, false);
             });
-        })->download('pdf');
+        })->download('xlsx');
     }
 
 

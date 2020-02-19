@@ -290,7 +290,7 @@ class ObservationController extends Controller
         $vendors = ObservationTypeModel::all();
         $observationtype = ObservationTypeModel::all();
         $child_observation = ObservationModel::find($id);
-        if (!$child_observation){
+        if (!$child_observation || $id == 0){
             return view('pages.not-found.notfound');
         }
         $children_profiles = ChildrenProfiles::where('id','=',$child_observation->id_children)->first();
