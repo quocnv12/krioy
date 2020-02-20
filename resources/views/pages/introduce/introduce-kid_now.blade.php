@@ -30,8 +30,8 @@
 				    <div class="navbar-header">
 				    	<a class="navbar-brand" href="#" style="display: flex;">
 				    		<img src="images/logo-ngang.png" style="border-radius: 0;width: auto;margin: -7px 0;" alt="">
-							<ul>
-								<li>
+							<ul style="list-style: none">
+								<li >
 									<div class="dropdown-logo1">
 										@if(app()->getLocale() == 'vi')
 											<button class="dropbtn-logo1">
@@ -51,6 +51,7 @@
 							</ul>
 				    	</a>
 				    	<div class="topnav" id="myTopnav">
+
 						    <a href="#">{{__('kidsnow.home')}}</a>
 						    <a href="#">@lang('kidsnow.kids_now_app')</a>
 						    <a href="#">@lang('kidsnow.pricing')</a>

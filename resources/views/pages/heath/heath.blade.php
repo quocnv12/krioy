@@ -72,7 +72,7 @@
 					<hr>
 
 					<div class="update">
-						<p>@lang('kidsnow.health.select_health_update_type') *</p>
+						<p style="font-weight: bold; color: red">@lang('kidsnow.health.select_health_update_type') *</p>
 						<div class="tab">
 							<button type="button" class="tablinks" onclick="openCity(event, 'Sick')">@lang('kidsnow.health.sick')</button>
 							<button type="button" class="tablinks" onclick="openCity(event, 'Medicine')">@lang('kidsnow.health.medicine')</button>

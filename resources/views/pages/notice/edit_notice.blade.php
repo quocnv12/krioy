@@ -45,9 +45,9 @@
                             <input id="array_programs_new" type="hidden" value="" name="programs_new">
                             <input id="array_programs_old" type="hidden" name="programs_old" value="{{implode(',',$array_programs_choose)}}">
                         </div>
-                        @if ($errors->has('programs'))
+                        @if ($errors->has('programs_old'))
                             <div class="text text-danger">
-                                {{ $errors->first('programs') }}
+                                {{ $errors->first('programs_old') }}
                             </div>
                         @endif
                     </div>
@@ -95,9 +95,10 @@
                     <div class="comment">
                         <div class="row">
                             <div class="col-md-11 input_box">
-                                <span class="input_box_span_active">@lang('kidsnow.notice.detail') </span>
-                                <input type="text" name="content" placeholder="@lang('kidsnow.notice.detail') " value="{{old('content') ?? $notice_board->content}}">
-                                @if ($errors->has('content'))
+                                <span>@lang('kidsnow.notice.detail') </span>
+                                <textarea name="content" id="" cols="30" rows="20">{{old('content') ?? $notice_board->content}}</textarea>
+
+                            @if ($errors->has('content'))
                                     <div class="text text-danger">
                                         {{ $errors->first('content') }}
                                     </div>

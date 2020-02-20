@@ -91,6 +91,17 @@
         </script>
     @endif
     @yield('js')
+    {{--Tiny MCE--}}
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>tinymce.init({
+        selector:'textarea',
+        plugins: "link table contextmenu ",
+        link_context_toolbar: true,
+        link_assume_external_targets: true,
+        link_title: false,
+    });
+    </script>
+
     {{--TimePicker--}}
     <script src="asset/timepicker/mdtimepicker.js"></script>
     <script>

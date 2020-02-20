@@ -63,9 +63,11 @@
 				<div class="notice-footer" style="color: grey;font-size: 14px;margin-bottom: 370px;">
 					<div class=" row">
 						<div class="col-md-11" style="margin-top: 20px">
-							<p>{{ $notice_board->content }}</p>
+							<textarea cols="30" rows="20">{{ $notice_board->content }}</textarea>
 						</div>
 						<div class="">
+							<br>
+							<br>
 							@foreach(explode('/*endfile*/',$notice_board->clip_board) as $clipboard)
 								<a href="{{route('admin.notice-board.displayClipboard',['id'=>$notice_board->id, 'name'=>$clipboard])}}" target="_blank">{{$clipboard}}</a>
 								<br>

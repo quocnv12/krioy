@@ -81,7 +81,7 @@
                         <div class="row">
                             <div class="col-md-11 input_box">
                                 <span>@lang('kidsnow.notice.detail') </span>
-                                <input type="text" name="content" placeholder="@lang('kidsnow.notice.detail') " value="{{old('content')}}">
+                                <textarea name="content" cols="30" rows="20">{{old('content')}}</textarea>
                                 @if ($errors->has('content'))
                                     <div class="text text-danger">
                                         {{ $errors->first('content') }}
