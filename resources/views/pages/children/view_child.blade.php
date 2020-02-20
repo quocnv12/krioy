@@ -213,413 +213,67 @@
                 <div class="mat-content">
                     <button class="accordion" type="button">@lang('kidsnow.children.parents') *</button>
                     <div class="panel" style="background-color: #f9f9f9;margin-bottom: 0;margin: 0 -10px;">
-                        @if(isset($parent_profiles_1))
-                            <div class="panel-1">
-                                <input type="hidden" name="id_parent_profiles_1" value="{{$parent_profiles_1->id}}">
-                                <div class="row">
-                                    <div class="col-md-2 textera-img">
-                                        <a style="cursor: pointer;">
-                                            <img src="{{$parent_profiles_1->image ? $parent_profiles_1->image : 'images/Parent.png'}}" alt="" id="demo_image_parent_1" style="height: 100px">
-                                            <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
-                                            @if ($errors->has('image_parent_1'))
-                                                <div class="text text-danger">
-                                                    {{ $errors->first('image_parent_1') }}
-                                                </div>
-                                            @endif
-                                        </a>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <div class="add a1 ">
-                                            <div class="row">
-                                                <div class="col-md-6 input_box">
-                                                    <span class="input_box_span_active">@lang('kidsnow.children.first_name') *</span>
-                                                    <input id="first_name_parent_1" readonly type="text" name="first_name_parent_1" placeholder="@lang('kidsnow.children.first_name') *" value="{{$parent_profiles_1->first_name}}">
-                                                    @if ($errors->has('first_name_parent_1'))
-                                                        <div class="text text-danger">
-                                                            {{ $errors->first('first_name_parent_1') }}
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                                <div class="col-md-6 input_box">
-                                                    <span class="input_box_span_active">@lang('kidsnow.children.last_name') *</span>
-                                                    <input id="last_name_parent_1" readonly type="text" name="last_name_parent_1" placeholder="@lang('kidsnow.children.last_name') *" value="{{$parent_profiles_1->last_name}}">
-                                                    @if ($errors->has('last_name_parent_1'))
-                                                        <div class="text text-danger">
-                                                            {{ $errors->first('last_name_parent_1') }}
-                                                        </div>
-                                                    @endif
-                                                </div>
+                        <div class="panel-1">
+                            <input type="hidden" name="id_parent_profiles_1" value="{{$parent_profiles->id}}">
+                            <div class="row">
+                                <div class="col-md-2 textera-img">
+                                    <a style="cursor: pointer;">
+                                        <img src="{{$parent_profiles->image ? $parent_profiles->image : 'images/Parent.png'}}" alt="" id="demo_image_parent_1" style="height: 100px">
+                                        <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
+                                    </a>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="add a1 ">
+                                        <div class="row">
+                                            <div class="col-md-6 input_box">
+                                                <span class="input_box_span_active">@lang('kidsnow.children.first_name') *</span>
+                                                <input id="first_name_parent" readonly type="text" name="first_name_parent" placeholder="@lang('kidsnow.children.first_name') *" value="{{$parent_profiles->first_name}}">
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-6 input_box">
-                                                    <span class="input_box_span_active">@lang('kidsnow.children.gender') </span>
-                                                    <select name="gender_parent_1" disabled>
-                                                        <option>@lang('kidsnow.children.gender')</option>
-                                                        <option value="1" @if($parent_profiles_1->gender == 1) selected="selected" @endif>Nam</option>
-                                                        <option value="2" @if($parent_profiles_1->gender == 2) selected="selected" @endif>Nữ</option>
-                                                    </select>
-                                                    @if ($errors->has('gender_parent_1'))
-                                                        <div class="text text-danger">
-                                                            {{ $errors->first('gender_parent_1') }}
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                                <div class="col-md-6 input_box">
-                                                    <span class="input_box_span_active">@lang('kidsnow.children.relationship') </span>
-                                                    <select name="relationship_1" disabled>
-                                                        <option>@lang('kidsnow.children.relationship')</option>
-                                                        <option value="mother" @if($parent_profiles_1->relationship == "mother") selected="selected" @endif>Mother</option>
-                                                        <option value="father" @if($parent_profiles_1->relationship == "father") selected="selected" @endif>Father</option>
-                                                        <option value="grandfather" @if($parent_profiles_1->relationship == "grandfather") selected="selected" @endif>Grandfather</option>
-                                                        <option value="grandmother" @if($parent_profiles_1->relationship == "grandmother") selected="selected" @endif>Grandmother</option>
-                                                        <option value="uncle" @if($parent_profiles_1->relationship == "uncle") selected="selected" @endif>Uncle</option>
-                                                        <option value="aunt" @if($parent_profiles_1->relationship == "aunt") selected="selected" @endif>Aunt</option>
-                                                        <option value="guardian" @if($parent_profiles_1->relationship == "guardian") selected="selected" @endif>Guardian</option>
-                                                    </select>
-                                                    @if ($errors->has('relationship_1'))
-                                                        <div class="text text-danger">
-                                                            {{ $errors->first('relationship_1') }}
-                                                        </div>
-                                                    @endif
-                                                </div>
+                                            <div class="col-md-6 input_box">
+                                                <span class="input_box_span_active">@lang('kidsnow.children.last_name') *</span>
+                                                <input id="last_name_parent" readonly type="text" name="last_name_parent" placeholder="@lang('kidsnow.children.last_name') *" value="{{$parent_profiles->last_name}}">
                                             </div>
-                                            <div class="input_box" style="width: 100%;">
-                                                <span class="input_box_span_active">@lang('kidsnow.children.phone') *</span>
-                                                <input type="text" readonly name="phone_parent_1" placeholder="@lang('kidsnow.children.phone') *" value="{{$parent_profiles_1->phone}}">
-                                                @if ($errors->has('phone_parent_1'))
-                                                    <div class="text text-danger">
-                                                        {{ $errors->first('phone_parent_1') }}
-                                                    </div>
-                                                @endif
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 input_box">
+                                                <span class="input_box_span_active">@lang('kidsnow.children.gender') </span>
+                                                <select name="gender_parent" disabled>
+                                                    <option>@lang('kidsnow.children.gender')</option>
+                                                    <option value="1" @if($parent_profiles->gender == 1) selected="selected" @endif>Nam</option>
+                                                    <option value="2" @if($parent_profiles->gender == 2) selected="selected" @endif>Nữ</option>
+                                                </select>
                                             </div>
-                                            <div class="input_box" style="width: 100%;">
-                                                <span class="input_box_span_active">@lang('kidsnow.children.email') </span>
-                                                <input name="email_parent_1" readonly placeholder="@lang('kidsnow.children.email') " value="{{$parent_profiles_1->email}}">
-                                                @if ($errors->has('email_parent_1'))
-                                                    <div class="text text-danger">
-                                                        {{ $errors->first('email_parent_1') }}
-                                                    </div>
-                                                @endif
-                                            </div>
-                                            <div class="input_box" style="width: 100%;">
-                                                <span class="input_box_span_active">@lang('kidsnow.children.email') </span>
-                                                <input type="text" readonly name="note_parent_1" placeholder="@lang('kidsnow.children.note')" value="{{$parent_profiles_1->note}}">
-                                                @if ($errors->has('note_parent_1'))
-                                                    <div class="text text-danger">
-                                                        {{ $errors->first('note_parent_1') }}
-                                                    </div>
-                                                @endif
-                                            </div>
+                                        </div>
+                                        <div class="input_box" style="width: 100%;">
+                                            <span class="input_box_span_active">Main Phone Number *</span>
+                                            <input type="text" readonly name="main_phone_parent" placeholder="Main Phone Number *" value="{{$parent_profiles->main_phone}}">
+                                        </div>
+                                        <div class="input_box" style="width: 100%;">
+                                            <span class="input_box_span_active">Extra Phone Number *</span>
+                                            <input type="text" readonly name="extra_phone_parent" placeholder="Extra Phone Number *" value="{{$parent_profiles->extra_phone}}">
+                                        </div>
+                                        <div class="input_box" style="width: 100%;">
+                                            <span class="input_box_span_active">@lang('kidsnow.children.email') </span>
+                                            <input name="email_parent" readonly placeholder="@lang('kidsnow.children.email') " value="{{$parent_profiles->email}}">
+                                        </div>
+                                        <div class="input_box" style="width: 100%;">
+                                            <span class="input_box_span_active">@lang('kidsnow.children.email') </span>
+                                            <input type="text" readonly name="note_parent" placeholder="@lang('kidsnow.children.note')" value="{{$parent_profiles->note}}">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        @else
-                            <div class="panel-1">
-                                <div class="row">
-                                    <div class="col-md-2 textera-img">
-                                        <a style="cursor: pointer;">
-                                            <img src="images/Parent.png" alt="" id="demo_image_parent_1" style="height: 100px">
-                                            <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
-                                            @if ($errors->has('image_parent_1'))
-                                                <div class="text text-danger">
-                                                    {{ $errors->first('image_parent_1') }}
-                                                </div>
-                                            @endif
-                                        </a>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <div class="add a1 ">
-                                            <div class="row">
-                                                <div class="col-md-6 input_box">
-                                                    <span>@lang('kidsnow.children.first_name') *</span>
-                                                    <input id="first_name_parent_1" readonly type="text" name="first_name_parent_1" placeholder="@lang('kidsnow.children.first_name') *" value="{{old('first_name_parent_1')}}">
-                                                    @if ($errors->has('first_name_parent_1'))
-                                                        <div class="text text-danger">
-                                                            {{ $errors->first('first_name_parent_1') }}
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                                <div class="col-md-6 input_box">
-                                                    <span>@lang('kidsnow.children.last_name') *</span>
-                                                    <input id="last_name_parent_1" readonly type="text" name="last_name_parent_1" placeholder="@lang('kidsnow.children.last_name') *" value="{{old('last_name_parent_1')}}">
-                                                    @if ($errors->has('last_name_parent_1'))
-                                                        <div class="text text-danger">
-                                                            {{ $errors->first('last_name_parent_1') }}
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6 input_box">
-                                                    <span>@lang('kidsnow.children.gender') *</span>
-                                                    <select class="parent_1" name="gender_parent_1" disabled>
-                                                        <option value="">@lang('kidsnow.children.gender')</option>
-                                                        <option value="1" @if(old('gender_parent_1') == 1) selected="selected" @endif>Nam</option>
-                                                        <option value="2" @if(old('gender_parent_1') == 2) selected="selected" @endif>Nữ</option>
-                                                    </select>
-                                                    @if ($errors->has('gender_parent_1'))
-                                                        <div class="text text-danger">
-                                                            {{ $errors->first('gender_parent_1') }}
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                                <div class="col-md-6 input_box">
-                                                    <span>@lang('kidsnow.children.relationship') *</span>
-                                                    <select class="parent_1" name="relationship_1" disabled>
-                                                        <option value="">@lang('kidsnow.children.relationship')</option>
-                                                        <option value="mother" @if(old('relationship_1') == "mother") selected="selected" @endif>Mother</option>
-                                                        <option value="father" @if(old('relationship_1') == "father") selected="selected" @endif>Father</option>
-                                                        <option value="grandfather" @if(old('relationship_1') == "grandfather") selected="selected" @endif>Grandfather</option>
-                                                        <option value="grandmother" @if(old('relationship_1') == "grandmother") selected="selected" @endif>Grandmother</option>
-                                                        <option value="uncle" @if(old('relationship_1') == "uncle") selected="selected" @endif>Uncle</option>
-                                                        <option value="aunt" @if(old('relationship_1') == "aunt") selected="selected" @endif>Aunt</option>
-                                                        <option value="guardian" @if(old('relationship_1') == "guardian") selected="selected" @endif>Guardian</option>
-                                                    </select>
-                                                    @if ($errors->has('relationship_1'))
-                                                        <div class="text text-danger">
-                                                            {{ $errors->first('relationship_1') }}
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                            <div class="input_box" style="width: 100%;">
-                                                <span>@lang('kidsnow.children.phone') *</span>
-                                                <input class="parent_1" readonly type="text" name="phone_parent_1" placeholder="@lang('kidsnow.children.phone') *" value="{{old('phone_parent_1')}}">
-                                                @if ($errors->has('phone_parent_1'))
-                                                    <div class="text text-danger">
-                                                        {{ $errors->first('phone_parent_1') }}
-                                                    </div>
-                                                @endif
-                                            </div>
-                                            <div class="input_box" style="width: 100%;">
-                                                <span>@lang('kidsnow.children.email') </span>
-                                                <input class="parent_1" readonly name="email_parent_1" placeholder="@lang('kidsnow.children.email') " value="{{old('email_parent_1')}}">
-                                                @if ($errors->has('email_parent_1'))
-                                                    <div class="text text-danger">
-                                                        {{ $errors->first('email_parent_1') }}
-                                                    </div>
-                                                @endif
-                                            </div>
-                                            <div class="input_box" style="width: 100%;">
-                                                <span>@lang('kidsnow.children.note') </span>
-                                                <input class="parent_1" readonly type="text" name="note_parent_1" placeholder="@lang('kidsnow.children.first_name')" value="{{old('note_parent_1')}}">
-                                                @if ($errors->has('note_parent_1'))
-                                                    <div class="text text-danger">
-                                                        {{ $errors->first('note_parent_1') }}
-                                                    </div>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
-                        @if(isset($parent_profiles_2))
-                            <div class="panel-1">
-                                <input type="hidden" name="id_parent_profiles_2" value="{{$parent_profiles_2->id}}">
-                                <div class="row">
-                                    <div class="col-md-2 textera-img">
-                                        <a style="cursor: pointer;">
-                                            <img src="{{$parent_profiles_2->image ? $parent_profiles_2->image : 'images/Parent.png'}}" alt="" id="demo_image_parent_2" style="height: 100px">
-                                            <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
-                                            @if ($errors->has('image_parent_2'))
-                                                <div class="text text-danger">
-                                                    {{ $errors->first('image_parent_2') }}
-                                                </div>
-                                            @endif
-                                        </a>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <div class="add a1 ">
-                                            <div class="row">
-                                                <div class="col-md-6 input_box">
-                                                    <span class="input_box_span_active">@lang('kidsnow.children.first_name') *</span>
-                                                    <input id="first_name_parent_2" readonly type="text" name="first_name_parent_2" placeholder="@lang('kidsnow.children.first_name') *" value="{{$parent_profiles_2->first_name}}">
-                                                    @if ($errors->has('first_name_parent_2'))
-                                                        <div class="text text-danger">
-                                                            {{ $errors->first('first_name_parent_2') }}
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                                <div class="col-md-6 input_box">
-                                                    <span class="input_box_span_active">@lang('kidsnow.children.last_name') *</span>
-                                                    <input id="last_name_parent_2" readonly type="text" name="last_name_parent_2" placeholder="@lang('kidsnow.children.last_name') *" value="{{$parent_profiles_2->last_name}}">
-                                                    @if ($errors->has('last_name_parent_2'))
-                                                        <div class="text text-danger">
-                                                            {{ $errors->first('last_name_parent_2') }}
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6 input_box">
-                                                    <span class="input_box_span_active">@lang('kidsnow.children.gender') </span>
-                                                    <select name="gender_parent_2" disabled>
-                                                        <option>@lang('kidsnow.children.gender')</option>
-                                                        <option value="1" @if($parent_profiles_2->gender == 1) selected="selected" @endif>Nam</option>
-                                                        <option value="2" @if($parent_profiles_2->gender == 2) selected="selected" @endif>Nữ</option>
-                                                    </select>
-                                                    @if ($errors->has('gender_parent_2'))
-                                                        <div class="text text-danger">
-                                                            {{ $errors->first('gender_parent_2') }}
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                                <div class="col-md-6 input_box">
-                                                    <span class="input_box_span_active">@lang('kidsnow.children.relationship') </span>
-                                                    <select name="relationship_2" disabled>
-                                                        <option>@lang('kidsnow.children.relationship')</option>
-                                                        <option value="mother" @if($parent_profiles_2->relationship == "mother") selected="selected" @endif>Mother</option>
-                                                        <option value="father" @if($parent_profiles_2->relationship == "father") selected="selected" @endif>Father</option>
-                                                        <option value="grandfather" @if($parent_profiles_2->relationship == "grandfather") selected="selected" @endif>Grandfather</option>
-                                                        <option value="grandmother" @if($parent_profiles_2->relationship == "grandmother") selected="selected" @endif>Grandmother</option>
-                                                        <option value="uncle" @if($parent_profiles_2->relationship == "uncle") selected="selected" @endif>Uncle</option>
-                                                        <option value="aunt" @if($parent_profiles_2->relationship == "aunt") selected="selected" @endif>Aunt</option>
-                                                        <option value="guardian" @if($parent_profiles_2->relationship == "guardian") selected="selected" @endif>Guardian</option>
-                                                    </select>
-                                                    @if ($errors->has('relationship_2'))
-                                                        <div class="text text-danger">
-                                                            {{ $errors->first('relationship_2') }}
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                            <div class="input_box" style="width: 100%;">
-                                                <span class="input_box_span_active">@lang('kidsnow.children.phone') *</span>
-                                                <input type="text" readonly name="phone_parent_2" placeholder="@lang('kidsnow.children.phone') *" value="{{$parent_profiles_2->phone}}">
-                                                @if ($errors->has('phone_parent_2'))
-                                                    <div class="text text-danger">
-                                                        {{ $errors->first('phone_parent_2') }}
-                                                    </div>
-                                                @endif
-                                            </div>
-                                            <div class="input_box" style="width: 100%;">
-                                                <span class="input_box_span_active">@lang('kidsnow.children.email') </span>
-                                                <input name="email_parent_2" readonly placeholder="@lang('kidsnow.children.email') " value="{{$parent_profiles_2->email}}">
-                                                @if ($errors->has('email_parent_2'))
-                                                    <div class="text text-danger">
-                                                        {{ $errors->first('email_parent_2') }}
-                                                    </div>
-                                                @endif
-                                            </div>
-                                            <div class="input_box" style="width: 100%;">
-                                                <span class="input_box_span_active">@lang('kidsnow.children.note') </span>
-                                                <input type="text" readonly name="note_parent_2" placeholder="@lang('kidsnow.children.note')" value="{{$parent_profiles_2->note}}">
-                                                @if ($errors->has('note_parent_2'))
-                                                    <div class="text text-danger">
-                                                        {{ $errors->first('note_parent_2') }}
-                                                    </div>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @else
-                            <div class="panel-1">
-                                <div class="row">
-                                    <div class="col-md-2 textera-img">
-                                        <a style="cursor: pointer;">
-                                            <img src="images/Parent.png" alt="" id="demo_image_parent_2" style="height: 100px">
-                                            <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
-                                            @if ($errors->has('image_parent_2'))
-                                                <div class="text text-danger">
-                                                    {{ $errors->first('image_parent_2') }}
-                                                </div>
-                                            @endif
-                                        </a>
-                                    </div>
-                                    <div class="col-md-10">
-                                        <div class="add a1 ">
-                                            <div class="row">
-                                                <div class="col-md-6 input_box">
-                                                    <span>@lang('kidsnow.children.first_name') *</span>
-                                                    <input id="first_name_parent_2" readonly type="text" name="first_name_parent_2" placeholder="@lang('kidsnow.children.first_name') *" value="{{old('first_name_parent_2')}}">
-                                                    @if ($errors->has('first_name_parent_2'))
-                                                        <div class="text text-danger">
-                                                            {{ $errors->first('first_name_parent_2') }}
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                                <div class="col-md-6 input_box">
-                                                    <span>@lang('kidsnow.children.last_name') *</span>
-                                                    <input id="last_name_parent_2" readonly type="text" name="last_name_parent_2" placeholder="@lang('kidsnow.children.last_name') *" value="{{old('last_name_parent_2')}}">
-                                                    @if ($errors->has('last_name_parent_2'))
-                                                        <div class="text text-danger">
-                                                            {{ $errors->first('last_name_parent_2') }}
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-6 input_box">
-                                                    <span>@lang('kidsnow.children.gender') *</span>
-                                                    <select class="parent_2" name="gender_parent_2" disabled>
-                                                        <option value="">@lang('kidsnow.children.gender')</option>
-                                                        <option value="1" @if(old('gender_parent_2') == 1) selected="selected" @endif>Nam</option>
-                                                        <option value="2" @if(old('gender_parent_2') == 2) selected="selected" @endif>Nữ</option>
-                                                    </select>
-                                                    @if ($errors->has('gender_parent_2'))
-                                                        <div class="text text-danger">
-                                                            {{ $errors->first('gender_parent_2') }}
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                                <div class="col-md-6 input_box">
-                                                    <span>@lang('kidsnow.children.relationship') *</span>
-                                                    <select class="parent_2" name="relationship_2" disabled>
-                                                        <option value="">@lang('kidsnow.children.relationship')</option>
-                                                        <option value="mother" @if(old('relationship_2') == "mother") selected="selected" @endif>Mother</option>
-                                                        <option value="father" @if(old('relationship_2') == "father") selected="selected" @endif>Father</option>
-                                                        <option value="grandfather" @if(old('relationship_2') == "grandfather") selected="selected" @endif>Grandfather</option>
-                                                        <option value="grandmother" @if(old('relationship_2') == "grandmother") selected="selected" @endif>Grandmother</option>
-                                                        <option value="uncle" @if(old('relationship_2') == "uncle") selected="selected" @endif>Uncle</option>
-                                                        <option value="aunt" @if(old('relationship_2') == "aunt") selected="selected" @endif>Aunt</option>
-                                                        <option value="guardian" @if(old('relationship_2') == "guardian") selected="selected" @endif>Guardian</option>
-                                                    </select>
-                                                    @if ($errors->has('relationship_2'))
-                                                        <div class="text text-danger">
-                                                            {{ $errors->first('relationship_2') }}
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                            <div class="input_box" style="width: 100%;">
-                                                <span>@lang('kidsnow.children.phone') *</span>
-                                                <input class="parent_2" readonly type="text" name="phone_parent_2" placeholder="@lang('kidsnow.children.phone') *" value="{{old('phone_parent_2')}}">
-                                                @if ($errors->has('phone_parent_2'))
-                                                    <div class="text text-danger">
-                                                        {{ $errors->first('phone_parent_2') }}
-                                                    </div>
-                                                @endif
-                                            </div>
-                                            <div class="input_box" style="width: 100%;">
-                                                <span>@lang('kidsnow.children.email') </span>
-                                                <input class="parent_2" readonly name="email_parent_2" placeholder="@lang('kidsnow.children.email') " value="{{old('email_parent_2')}}">
-                                                @if ($errors->has('email_parent_2'))
-                                                    <div class="text text-danger">
-                                                        {{ $errors->first('email_parent_2') }}
-                                                    </div>
-                                                @endif
-                                            </div>
-                                            <div class="input_box" style="width: 100%;">
-                                                <span>@lang('kidsnow.children.note') </span>
-                                                <input class="parent_2" readonly type="text" name="note_parent_2" placeholder="@lang('kidsnow.children.note')" value="{{old('note_parent_2')}}">
-                                                @if ($errors->has('note_parent_2'))
-                                                    <div class="text text-danger">
-                                                        {{ $errors->first('note_parent_2') }}
-                                                    </div>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
+                        </div>
                     </div>
                 </div>
             </div>
+        <div class="comment">
+            <div class="button" style="text-align: center;">
+                <button class="button2" onclick="goBack()">
+                    <span>GO BACK</span>
+                </button>
+            </div>
+        </div>
         <div class="icon-plus" title="edit">
             <a href="{{route('admin.children.edit',['id'=>$children_profiles->id])}}">
                 <i class="fa fa-edit"></i>

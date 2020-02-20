@@ -276,7 +276,8 @@ return [
         'children.programs'  =>'Chương Trình Học',
         'children.parents'  =>  'Phụ Huynh',
         'children.relationship' =>'Mối Quan Hệ',
-        'children.phone'    =>  'Số Điện Thoại',
+        'children.main_phone'    =>  'Số Điện Thoại Chính',
+        'children.extra_phone'    =>  'Số Điện Thoại Dự Phòng',
         'children.email'    =>  'Email',
         'children.note' =>  'Ghi Chú',
 

@@ -61,8 +61,8 @@ class NoticeBoardController extends Controller
                 'programs'  =>  'required'
             ],
             [
-                'title.required'        =>  'Please input title',
-                'programs.required'     =>  'Please choose programs',
+                'title.required'        =>  'Title is required',
+                'programs.required'     =>  'Please choose at least 1 program',
             ]);
 
         $notice_board = NoticeBoard::create($request->all());
@@ -178,11 +178,10 @@ class NoticeBoardController extends Controller
                 'writer'    =>  'nullable',
             ],
             [
-                'title.required'        =>  'Please input title',
-                'content.required'      =>  'Please input content',
+                'title.required'        =>  'Title is required',
             ]);
 
-        $notice_board = NoticeBoard::findOrFail($id);
+        $notice_board = NoticeBoard::find($id);
         $notice_board->update($request->all());
         $request->important ? $notice_board->important = 1 : $notice_board->important = 0;
         $request->archive ? $notice_board->archive = 1 : $notice_board->archive = 0;

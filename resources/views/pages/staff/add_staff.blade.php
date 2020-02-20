@@ -162,7 +162,7 @@ Staff Frofiles
                         title="{{ $item->program_name }}" value="{{ $item->id }}"
                                     style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">{{ $item->program_name }}
                                 </button>
-                                
+
                             </div>
                             @endforeach
                             <input id="array_programs" type="hidden" value="" name="id_program">

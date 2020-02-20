@@ -21,7 +21,7 @@ class CreateHealthTable extends Migration
             $table->text('sick')->nullable();
             $table->float('growth_height')->nullable();
             $table->float('growth_weight')->nullable();
-            $table->float('growth_circumference')->nullable();
+            $table->float('growth_head_circumference')->nullable();
             $table->text('growth')->nullable();
             $table->text('medicine')->nullable();
             $table->text('incident')->nullable();

@@ -88,8 +88,8 @@
 										<!---->
 										<input type="hidden" value="{{$children->id}}" class="link_to_children">
 									</div>
-									<input type="hidden" value="{{\App\models\ChildrenProfiles::getIdHealth($children->id)}}">
-									<input type="hidden" value="{{\App\models\ChildrenProfiles::getIdObservation($children->id)}}">
+									{{--<input type="hidden" value="{{\App\models\ChildrenProfiles::getIdHealth($children->id)}}">--}}
+									{{--<input type="hidden" value="{{\App\models\ChildrenProfiles::getIdObservation($children->id)}}">--}}
 								</div>
 							@endforeach
 						@else

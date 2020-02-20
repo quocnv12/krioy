@@ -45,12 +45,20 @@ class ChildrenProfiles extends Model
 
     public static function getIdObservation($id){
         $object =  ObservationModel::find($id)->where('id_children','=',$id)->orderBy('created_at','DESC')->first();
+        if (!$object)
+        {
+            return null;
+        }
         return $object['id'];
     }
 
     public static function getIdHealth($id){
         
         $object =  HealthModel::where('id_children','=',$id)->orderBy('created_at','DESC')->first();
+        if (!$object)
+        {
+            return null;
+        }
         return $object['id'];
     }
 

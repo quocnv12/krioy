@@ -304,12 +304,12 @@ return [
         'observations.hint_content'=>'Click on a program tab in horizontal scroll bar to show all children in that program',
 
         //kids-now/observations/edit
-        'observation.first_name'=>'First Name',
-        'observation.last_name'=>'Last Name',
-        'observation.birthday'=>'Birthday',
-        'observation.unique_id'=>'Unique ID',
-        'observation.gender'=>'Gender',
-        'observation.date_of_joining'=>'Date of Joining',
+        'observations.first_name'=>'First Name',
+        'observations.last_name'=>'Last Name',
+        'observations.birthday'=>'Birthday',
+        'observations.unique_id'=>'Unique ID',
+        'observations.gender'=>'Gender',
+        'observations.date_of_joining'=>'Date of Joining',
 
     //END Observations
 
@@ -318,7 +318,7 @@ return [
     //Notice board:
 
         // kids-now.notice-board
-        'notice.search' => 'Search Notice',//@lang('kidsnow.search_notice')
+        'notice.search' => 'Search Notice...',//@lang('kidsnow.search_notice')
         'notice.hint' => 'Hint',//@lang('kidsnow.hint')
         'notice.hint_content' => 'Click on a program tab in horizontal scroll bar to show all notice in that program / Or use the search bar to go to specific notice',//@lang('kidsnow.note_hint')
 
@@ -364,7 +364,8 @@ return [
         'children.programs'  =>'Programs',
         'children.parents'  =>  'Parents',
         'children.relationship' =>'Relationship',
-        'children.phone'    =>  'Phone Number',
+        'children.main_phone'    =>  'Main Phone Number',
+        'children.extra_phone'    =>  'Extra Phone Number',
         'children.email'    =>  'Email Address',
         'children.note' =>  'Note',
 
