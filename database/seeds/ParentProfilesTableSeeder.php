@@ -22,7 +22,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'gender'        =>  1,
                 'email'         =>  'laura@gmail.com',
                 'note'          =>  '',
-                'phone'         =>  '4815617651',
+                'phone'         =>  '0971123123',
                 'image'         =>  ''
             ],
             [
@@ -32,7 +32,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'gender'        =>  0,
                 'email'         =>  'see@gmail.com',
                 'note'          =>  '',
-                'phone'         =>  '645343',
+                'phone'         =>  '0987123123',
                 'image'         =>  ''
             ],
             [
@@ -42,7 +42,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'gender'        =>  1,
                 'email'         =>  'shen@gmail.com',
                 'note'          =>  '',
-                'phone'         =>  '324324325',
+                'phone'         =>  '0345678123',
                 'image'         =>  ''
             ],
             [
@@ -52,7 +52,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'gender'        =>  1,
                 'email'         =>  'dawn@gmail.com',
                 'note'          =>  '',
-                'phone'         =>  '343535435',
+                'phone'         =>  '0981234234',
                 'image'         =>  ''
             ],
             [
@@ -62,7 +62,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'gender'        =>  1,
                 'email'         =>  'chen@gmail.com',
                 'note'          =>  '',
-                'phone'         =>  '3542353',
+                'phone'         =>  '0989222888',
                 'image'         =>  ''
             ],
             [
@@ -72,7 +72,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
                 'note'          =>  '',
-                'phone'         =>  '98867543',
+                'phone'         =>  '0981234567',
                 'image'         =>  ''
             ],
         ]);

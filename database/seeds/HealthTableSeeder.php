@@ -26,7 +26,7 @@ class HealthTableSeeder extends Seeder
                 'incident'      =>  '',
                 'blood_group'   =>  '',
                 'clip_board'         =>  '',
-                'growth_circumference'      =>  '',
+                'growth_head_circumference'      =>  1,
             ],
             [
                 'id'            =>  2,
@@ -39,7 +39,7 @@ class HealthTableSeeder extends Seeder
                 'incident'      =>  '',
                 'blood_group'   =>  '',
                 'clip_board'         =>  '',
-                'growth_circumference'      =>  '',
+                'growth_head_circumference'      =>  1,
             ],
             [
                 'id'            =>  3,
@@ -52,7 +52,7 @@ class HealthTableSeeder extends Seeder
                 'incident'      =>  '',
                 'blood_group'   =>  '',
                 'clip_board'         =>  '',
-                'growth_circumference'      =>  '',
+                'growth_head_circumference'      => 1 ,
             ],
             [
                 'id'            =>  4,
@@ -65,7 +65,7 @@ class HealthTableSeeder extends Seeder
                 'incident'      =>  '',
                 'blood_group'   =>  '',
                 'clip_board'         =>  '',
-                'growth_circumference'      =>  '',
+                'growth_head_circumference'      =>  1,
             ],
             [
                 'id'            =>  5,
@@ -78,7 +78,7 @@ class HealthTableSeeder extends Seeder
                 'incident'      =>  '',
                 'blood_group'   =>  '',
                 'clip_board'         =>  '',
-                'growth_circumference'      =>  '',
+                'growth_head_circumference'      =>  1,
             ],
         ]);
     }
