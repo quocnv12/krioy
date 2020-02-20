@@ -43,19 +43,22 @@ class ChildrenProfiles extends Model
         return $this->belongsToMany(Programs::class, 'children_programs', 'id_children', 'id_program');
     }
 
-    public function getFullNameAttribute()
-    {
-        return "{$this->first_name} {$this->last_name}";
-    }
-
     public static function getIdObservation($id){
         $object =  ObservationModel::find($id)->where('id_children','=',$id)->orderBy('created_at','DESC')->first();
+        if (!$object)
+        {
+            return null;
+        }
         return $object['id'];
     }
 
     public static function getIdHealth($id){
         
         $object =  HealthModel::where('id_children','=',$id)->orderBy('created_at','DESC')->first();
+        if (!$object)
+        {
+            return null;
+        }
         return $object['id'];
     }
 

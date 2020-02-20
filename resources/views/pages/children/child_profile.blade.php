@@ -28,8 +28,8 @@
 			<div class="row">
 				<div class="col-md-6">
 					<ul class="ul-td">
-						<li class="level1"><a href="kids-now">HOME</a></li>
-						<li class="active1" ><a href="kids-now/children">CHILDREN PROFILES</a></li>
+						<li class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
+						<li class="active1" ><a href="{{route('admin.children.index')}}">CHILDREN PROFILES</a></li>
 					</ul>
 				</div>
 				<div class="col-md-6">
@@ -57,14 +57,14 @@
 				<div class="scrollmenu-button" style="text-align: center;">
 					<!---->
 					<button type="submit" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
-						<a style="color: #fff;" href="kids-now/children/0">@lang('kidsnow.children.untagged')</a>
+						<a style="color: #fff;" href="{{route('admin.children.show',['id'=> 0])}}">@lang('kidsnow.children.untagged')</a>
 					</button>
 				</div>
 				@foreach($programs as $program)
 				<div class="scrollmenu-button" style="text-align: center;">
 					<!---->
 					<button type="submit" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
-						<a style="color: #fff ;margin: 0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 150px;display: block;" title="{{$program->program_name}}" href="kids-now/children/{{$program->id}}">{{$program->program_name}}</a>
+						<a style="color: #fff ;margin: 0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 150px;display: block;" title="{{$program->program_name}}" href="{{route('admin.children.show',['id'=> $program->id])}}">{{$program->program_name}}</a>
 					</button>
 				</div>
 				@endforeach
@@ -88,8 +88,8 @@
 										<!---->
 										<input type="hidden" value="{{$children->id}}" class="link_to_children">
 									</div>
-									<input type="hidden" value="{{\App\models\ChildrenProfiles::getIdHealth($children->id)}}">
-									<input type="hidden" value="{{\App\models\ChildrenProfiles::getIdObservation($children->id)}}">
+									{{--<input type="hidden" value="{{\App\models\ChildrenProfiles::getIdHealth($children->id)}}">--}}
+									{{--<input type="hidden" value="{{\App\models\ChildrenProfiles::getIdObservation($children->id)}}">--}}
 								</div>
 							@endforeach
 						@else
@@ -110,7 +110,7 @@
 			</div>
 		@endif
 		<div class="icon-plus" title="add">
-			<a href="kids-now/children/add">
+			<a href="{{route('admin.children.create')}}">
 				<i class="fa fa-plus"></i>
 			</a>
 		</div>
@@ -156,12 +156,13 @@
 					return $(this).attr('value');
 				}).toArray();
 
-				var id_children_health = array[0];
-				var id_children_observation = array[1];
+				var id_children_health = array[0] ? array[0] : 0;
+				var id_children_observation = array[1] ? array[1] : 0;
 
+				console.log(id_children_health)
 				$('li#profile_children').attr('data-href','kids-now/children/view/'+id_children);
-				$('li#health_children').attr('data-href','kids-now/health/sua/'+id_children_health);
-				$('li#observations_children').attr('data-href','kids-now/observations/edit/'+id_children_observation);
+				$('li#health_children').attr('data-href','kids-now/health/view/'+id_children_health);
+				$('li#observations_children').attr('data-href','kids-now/observations/view/'+id_children_observation);
 			});
 
 			$(".modal-li").click(function() {

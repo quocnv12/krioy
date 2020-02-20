@@ -40,6 +40,14 @@
         .line .item a{
             text-align: center;
         }
+
+        @keyframes example {
+            0%   {right:0px; top:50px;}
+            10%  {right:120px; top:50px;}
+            90%  {right:120px; top:50px;}
+            100% {right:0px; top:50px}
+        }
+
     </style>
     <!-- JS libs --> 
     <script type="text/javascript" src="libs/jquery-3.4.1.min.js"></script>
@@ -83,6 +91,17 @@
         </script>
     @endif
     @yield('js')
+    {{--Tiny MCE--}}
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>tinymce.init({
+        selector:'textarea',
+        plugins: "link table contextmenu ",
+        link_context_toolbar: true,
+        link_assume_external_targets: true,
+        link_title: false,
+    });
+    </script>
+
     {{--TimePicker--}}
     <script src="asset/timepicker/mdtimepicker.js"></script>
     <script>

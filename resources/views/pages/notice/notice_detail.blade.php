@@ -9,8 +9,8 @@
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
 				<ul class="ul-td" style="width: 100%">
-					<li  class="level1"><a href="kids-now">HOME</a></li>
-					<li  class="active1"><a href="kids-now/notice-board">NOTICE BOARD</a></li>
+					<li  class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
+					<li  class="active1"><a href="{{route('admin.notice-board.index')}}">NOTICE BOARD</a></li>
 					<li  class="active1 active-1" style="pointer-events:none;"><a href="">NOTICE DETAIL</a></li>
 				</ul>
 			</div>
@@ -63,11 +63,13 @@
 				<div class="notice-footer" style="color: grey;font-size: 14px;margin-bottom: 370px;">
 					<div class=" row">
 						<div class="col-md-11" style="margin-top: 20px">
-							<p>{{ $notice_board->content }}</p>
+							<textarea cols="30" rows="20">{{ $notice_board->content }}</textarea>
 						</div>
 						<div class="">
+							<br>
+							<br>
 							@foreach(explode('/*endfile*/',$notice_board->clip_board) as $clipboard)
-								<a href="kids-now/notice-board/clip_board/{{$notice_board->id}}/{{$clipboard}}" target="_blank">{{$clipboard}}</a>
+								<a href="{{route('admin.notice-board.displayClipboard',['id'=>$notice_board->id, 'name'=>$clipboard])}}" target="_blank">{{$clipboard}}</a>
 								<br>
 							@endforeach
 						</div>
@@ -81,7 +83,7 @@
 		</div>
 
 		<div class="icon-plus" title="edit">
-			<a href="kids-now/notice-board/edit/{{$notice_board->id}}">
+			<a href="{{route('admin.notice-board.edit',['id'=>$notice_board->id])}}">
 				<i class="fa fa-edit"></i>
 			</a>
 		</div>

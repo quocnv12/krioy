@@ -136,7 +136,12 @@ return [
     'select_quantity' => 'Select Quantity *',//@lang('kidsnow.select_quantity')
     // END Food
 
-    //Home
+    //Introduce
+    'home'  =>  'HOME',
+    'pricing'=>'PRICING',
+    'about_us_top'=>'ABOUT US',
+    'banner'    =>  'One Stop Destination for Preschool & Daycare Management',
+    'sign_up'    =>  'SIGNUP',
     'get_a_free_trial' => 'GET A FREE TRIAL',//@lang('kidsnow.get_a_free_trial')
     'kids_now_app' => 'KIDS NOW APP',//@lang('kidsnow.kids_now_app')
     'one_click_updates' => "ONE CLICK UPDATES",//@lang('kidsnow.one_click_updates')
@@ -147,7 +152,8 @@ return [
     'bus_tracking_content' => 'School bus/van tracking with customized view for School, Parents and Driver',//@lang('kidsnow.bus_tracking_content')
     'fee_management' => 'FEE MANAGEMENT',//@lang('kidsnow.fee_management')
     'fee_management_content' => 'Billing, Payments and Receipts digitised and in one place!',//@lang('kidsnow.fee_management_content')
-    'diary_content' => 'In one go, you can write the Diary for all the selected students',
+    'diary_introduce'=>'DIARY',
+    'diary_introduce_content' => 'In one go, you can write the Diary for all the selected students',
     'analytical_reports' => 'ANALYTICAL REPORTS',
     'analytical_reports_content' => 'Get useful insights about your school through easy to read reports',
     'customised_staff_permissions' => 'CUSTOMISED STAFF PERMISSIONS',
@@ -185,6 +191,7 @@ return [
     'free_content_sixth' => 'Staff Profiles',
     'lite' => 'LITE',
     'free_features' => 'FREE Features',
+    'lite_content_first' => 'Photos',
     'lite_content_second' => 'Notice Board',
     'lite_content_third' => 'Calendar',
     'lite_content_fourth' => 'Parent Communication',
@@ -193,44 +200,71 @@ return [
     'lite_content_seventh' => 'Parent Access Status',
     'pro' => 'PRO',
     'pro_content_first' => 'Enquiry Management',
-    'pro_content_second' => 'Analytical Reports',
-    'pro_content_third' => 'Custom Staff Permissions',
-    'pro_content_fourth' => 'Staff Attendance',
-    'pro_content_fifth' => 'Daycare Needs',
-    'pro_content_sixth' => 'Health & Observations',
-    'pro_content_seventh' => 'Play & Learn',
-    'pro_content_eighth' => 'Custom Settings',
-    'pro_content_nineth' => 'School History',
-    'pro_content_tenth' => 'QR Check-In',
+    'pro_content_second' => 'Fee Management',
+    'pro_content_third' => 'Analytical Reports',
+    'pro_content_fourth' => 'Custom Staff Permissions',
+    'pro_content_fifth' => 'Staff Attendance',
+    'pro_content_sixth' => 'Daycare Needs',
+    'pro_content_seventh' => 'Health & Observations',
+    'pro_content_eighth' => 'Play & Learn',
+    'pro_content_ninth' => 'Custom Settings',
+    'pro_content_tenth' => 'School History',
+    'pro_content_eleventh' => 'QR Check-In',
+    'pro_content_twelfth' => 'Videos',
     'price_is_per_child' => '* Price is per Child per Year',
     'our_happy_customers' => 'Our Happy Customers',
-    'and_many_more' => 'And many more',
+    'and_many_more' => 'And many more...',
     'about_us' => 'About Us',
     'about_us_content' => 'Kids Now ipsum dolor sit amet, consectetur adipisicing elit. Delectus possimus aut eaque adipisci, accusamus illum exercitationem labore sequi tenetur vitae, est ipsum. Cupiditate quas laboriosam, autem cumque sint quia cum odit eligendi dolore, consequatur nobis rem ipsa dolorem non, eum eius earum quo voluptate repellendus vitae maxime. Beatae natus atque praesentium soluta ut voluptate, cupiditate ipsum tempora iste distinctio, sit corrupti inventore ea suscipit, odit modi illo omnis animi quae.',
     'our_team' => 'Our Team',
     'get_in_touch' => 'Get in Touch',
-    'privacy_police_terms' => 'Privacy Policy & Terms and Conditions',
+    'privacy' => 'Privacy Policy',
+    'terms_and_conditions' => 'Terms and Conditions',
     'a_product_of' => 'a product of',
-    //END Home
+    //END Introduce
 
 
 
     //Health
 
-    'select_health_update_type' => 'Select Health Update Type*',//@lang('kidsnow.select_health_update_type')
-    'sick' => 'Sick',//@lang('kidsnow.sick')
-    'medicine' => 'Medicine',//@lang('kidsnow.medicine')
-    'growth' => 'Growth',//@lang('kidsnow.growth')
-    'incident' => 'Incident',//@lang('kidsnow.incident')
-    'height' => 'Height',//@lang('kidsnow.height')
-    'weight' => 'Weight',//@lang('kidsnow.weight')
-    'head_circumfere' => 'Head Circumfere',//@lang('kidsnow.head_circumfere')
-        //Health quản lý danh sách
-    'stt' => 'STT',//@lang('kidsnow.stt')
-    'first_name' => 'FIRST NAME',//@lang('kidsnow.first_name')
-    'last_name' => 'LAST NAME',//@lang('kidsnow.last_name')
-    'birthday' => 'BIRTHDAY',//@lang('kidsnow.birthday')
-        //END Health quản lý danh sách
+        //kids-now/health
+        'health.list'=>'HEALTH LIST',
+        'health.list.name'=>'NAME',
+        'health.list.birthday'=>'BIRTHDAY',
+        'health.list.gender'=>'GENDER',
+        'health.list.date'=>'DATE',
+        'health.list.time'=>'TIME',
+        'health.list.action'=>'ACTION',
+
+        //kids-now/health/add
+        'health.hint'=>'Hint',
+        'health.hint_content'=>'Click on a program tab in horizontal scroll bar to show all children in that program',
+        'health.children'   =>  'Children',
+
+        'health.select_health_update_type' => 'Select Health Update Type',
+        'health.sick' => 'Sick',
+        'health.sick_content' => 'Enter Sick details here',
+        'health.medicine' => 'Medicine',
+        'health.medicine_content' => 'Enter Medicine details here',
+        'health.growth' => 'Growth',
+        'health.growth_content' => 'Enter Growth details here',
+        'health.incident' => 'Incident',
+        'health.incident_content' => 'Enter Incident details here',
+        'health.growth_height' => 'Height',
+        'health.growth_weight' => 'Weight',
+        'health.head_circumference' => 'Head Circumference',
+        'health.blood_group' => 'Blood Group',
+        'health.blood_group_content' => 'Enter Blood Group details here',
+
+        //kids-now/health/edit
+        'health.first_name' =>  'First Name',
+        'health.last_name' =>  'Last Name',
+        'health.birthday' =>  'Birthday',
+        'health.unique_id' =>  'Unique ID',
+        'health.gender' =>  'Gender',
+        'health.date_of_joining' =>  'Date of Joining',
+        'health.excel'  =>  'Export Excel',
+
     // END  Health
 
 
@@ -270,12 +304,12 @@ return [
         'observations.hint_content'=>'Click on a program tab in horizontal scroll bar to show all children in that program',
 
         //kids-now/observations/edit
-        'observation.first_name'=>'First Name',
-        'observation.last_name'=>'Last Name',
-        'observation.birthday'=>'Birthday',
-        'observation.unique_id'=>'Unique ID',
-        'observation.gender'=>'Gender',
-        'observation.date_of_joining'=>'Date of Joining',
+        'observations.first_name'=>'First Name',
+        'observations.last_name'=>'Last Name',
+        'observations.birthday'=>'Birthday',
+        'observations.unique_id'=>'Unique ID',
+        'observations.gender'=>'Gender',
+        'observations.date_of_joining'=>'Date of Joining',
 
     //END Observations
 
@@ -284,7 +318,7 @@ return [
     //Notice board:
 
         // kids-now.notice-board
-        'notice.search' => 'Search Notice',//@lang('kidsnow.search_notice')
+        'notice.search' => 'Search Notice...',//@lang('kidsnow.search_notice')
         'notice.hint' => 'Hint',//@lang('kidsnow.hint')
         'notice.hint_content' => 'Click on a program tab in horizontal scroll bar to show all notice in that program / Or use the search bar to go to specific notice',//@lang('kidsnow.note_hint')
 
@@ -330,7 +364,8 @@ return [
         'children.programs'  =>'Programs',
         'children.parents'  =>  'Parents',
         'children.relationship' =>'Relationship',
-        'children.phone'    =>  'Phone Number',
+        'children.main_phone'    =>  'Main Phone Number',
+        'children.extra_phone'    =>  'Extra Phone Number',
         'children.email'    =>  'Email Address',
         'children.note' =>  'Note',
 

@@ -11,13 +11,13 @@
 			<div class="row">
 				<div class="col-sm-6">
 					<ul class="ul-td">
-						<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
-						<li _ngcontent-c16="" class="active1" style="" ><a href="{{route('admin.health.list')}}" _ngcontent-c16="">Health</a></li>
-						<li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none" href=""><a _ngcontent-c16="">Add Health</a></li>
+						<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="{{route('admin.home')}}">HOME</a></li>
+						<li _ngcontent-c16="" class="active1" style="" ><a href="{{route('admin.health.list')}}" _ngcontent-c16="">HEALTH</a></li>
+						<li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none" href=""><a _ngcontent-c16="">ADD HEALTH</a></li>
 					</ul>
 				</div>
 				<div class="col-sm-6">
-					<a type="submit" class="btn btn-success" href="{{route('admin.health.list')}}" style="border: none;min-width: 110px;background: #eb87c1;color: white;float: right;font-weight: bold;" >HEALTH LIST</a>
+					<a type="submit" class="btn btn-success" href="{{route('admin.health.list')}}" style="border: none;min-width: 110px;background: #eb87c1;color: white;float: right;font-weight: bold;" >@lang('kidsnow.health.list')</a>
 				</div>
 			</div>
 		</div>
@@ -33,12 +33,12 @@
 			<div class="row">
 				<div class="mat-card" style="width: 100%">
 					<div style="margin: 10px">
-						<span style="color: red; font-weight: bold">Hint :</span>
-						<span>Click on a program tab in horizontal scroll bar to show all children in that program</span>
+						<span style="color: red; font-weight: bold">@lang('kidsnow.health.hint') :</span>
+						<span>@lang('kidsnow.health.hint_content')</span>
 					</div>
 					<div class="mat-content">
 						<button class="accordion accordion1 clearfix" type="button">
-							<p style="float: left;">Children *</p>
+							<p style="float: left;">@lang('kidsnow.health.children') *</p>
 							{{--<form class="typeahead" role="search" style="float: right; text-align: left">--}}
 							{{--<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">--}}
 							{{--</form>--}}
@@ -72,28 +72,28 @@
 					<hr>
 
 					<div class="update">
-						<p>Select Health Update Type*</p>
+						<p style="font-weight: bold; color: red">@lang('kidsnow.health.select_health_update_type') *</p>
 						<div class="tab">
-							<button type="button" class="tablinks" onclick="openCity(event, 'Sick')">Sick</button>
-							<button type="button" class="tablinks" onclick="openCity(event, 'Medicine')">Medicine</button>
-							<button type="button" class="tablinks" onclick="openCity(event, 'Growth')">Growth</button>
-							<button type="button" class="tablinks" onclick="openCity(event, 'Incident')">Incident</button>
-							<button type="button" class="tablinks" onclick="openCity(event, 'Blood_group')">Blood Group</button>
+							<button type="button" class="tablinks" onclick="openCity(event, 'Sick')">@lang('kidsnow.health.sick')</button>
+							<button type="button" class="tablinks" onclick="openCity(event, 'Medicine')">@lang('kidsnow.health.medicine')</button>
+							<button type="button" class="tablinks" onclick="openCity(event, 'Growth')">@lang('kidsnow.health.growth')</button>
+							<button type="button" class="tablinks" onclick="openCity(event, 'Incident')">@lang('kidsnow.health.incident')</button>
+							<button type="button" class="tablinks" onclick="openCity(event, 'Blood_group')">@lang('kidsnow.health.blood_group')</button>
 						</div>
 
 						<div id="Sick" class="tabcontent ">
 							<div class="row">
 								<div class="col-md-11 input_box">
-									<span>Enter details here *</span>
-									<input type="text" name="sick" placeholder="Enter sick details here ">
+									<span>@lang('kidsnow.health.sick_content') *</span>
+									<input type="text" name="sick" placeholder="@lang('kidsnow.health.sick_content') ">
 								</div>
 							</div>
 						</div>
 						<div id="Medicine" class="tabcontent">
 							<div class="row">
 								<div class="col-md-11 input_box">
-									<span>Enter details here *</span>
-									<input type="text" name="medicine" placeholder="Enter medicine details here ">
+									<span>@lang('kidsnow.health.medicine_content') *</span>
+									<input type="text" name="medicine" placeholder="@lang('kidsnow.health.medicine_content') ">
 								</div>
 							</div>
 
@@ -101,8 +101,8 @@
 						<div id="Growth" class="tabcontent">
 							<div class="row growth">
 								<div class="col-md-4 growth_input input_box">
-									<span>Height</span>
-									<input type="text" name="growth_height" placeholder="Height">
+									<span>@lang('kidsnow.health.growth_height')</span>
+									<input type="text" name="growth_height" placeholder="@lang('kidsnow.health.growth_height')">
 
 									<label class="label">
 										<div class="label-text">cm</div>
@@ -117,8 +117,8 @@
 									</label>
 								</div>
 								<div class="col-md-4 growth_input input_box">
-									<span>Weight</span>
-									<input type="text" name="growth_weight" placeholder="Weight">
+									<span>@lang('kidsnow.health.growth_weight')</span>
+									<input type="text" name="growth_weight" placeholder="@lang('kidsnow.health.growth_weight')">
 
 									<label class="label">
 										<div class="label-text">kg</div>
@@ -133,8 +133,8 @@
 									</label>
 								</div>
 								<div class="col-md-4 growth_input input_box">
-									<span>Head Circumference</span>
-									<input type="text" name="" placeholder="Head Circumference">
+									<span>@lang('kidsnow.health.growth_head_circumference')</span>
+									<input type="text" name="growth_circumference" placeholder="@lang('kidsnow.health.growth_head_circumference')">
 									<label class="label">
 										<div class="label-text">cm</div>
 										<div class="toggle">
@@ -150,8 +150,8 @@
 							</div>
 							<div class="row">
 								<div class="col-md-11 input_box">
-									<span>Enter details here *</span>
-									<input type="text" name="growth" placeholder="Enter growth details here ">
+									<span>@lang('kidsnow.health.growth_content') *</span>
+									<input type="text" name="growth" placeholder="@lang('kidsnow.health.growth_content') ">
 
 								</div>
 							</div>
@@ -160,8 +160,8 @@
 						<div id="Incident" class="tabcontent">
 							<div class="row">
 								<div class="col-md-11 input_box">
-									<span>Enter details here *</span>
-									<input type="text" name="incident" placeholder="Enter incident details here ">
+									<span>@lang('kidsnow.health.incident_content') *</span>
+									<input type="text" name="incident" placeholder="@lang('kidsnow.health.incident_content') ">
 
 								</div>
 							</div>
@@ -169,8 +169,8 @@
 						<div id="Blood_group" class="tabcontent">
 							<div class="row">
 								<div class="col-md-11 input_box">
-									<span>Enter details here *</span>
-									<input type="text" name="blood_group" placeholder="Enter blood group details here ">
+									<span>@lang('kidsnow.health.blood_group_content') *</span>
+									<input type="text" name="blood_group" placeholder="@lang('kidsnow.health.blood_group_content') ">
 
 								</div>
 							</div>

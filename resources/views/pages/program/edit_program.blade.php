@@ -30,19 +30,19 @@
 			<div class="row">
                 <div class="col-lg-10 col-md-10 col-sm-10">
                     <ul class="ul-td">
-                        <li class="level1"><a href="kids-now">HOME</a></li>
-                        <li class="active1" ><a href="kids-now/program">PROGRAM</a></li>
+                        <li class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
+                        <li class="active1" ><a href="{{route('admin.program.index')}}">PROGRAM</a></li>
                         <li class="active1 active-1" ><a href="">EDIT PROGRAM</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target="" style="display: flex; justify-content: flex-end;">
                     <button class="notice" type="button">
-                        <span><a href="kids-now/program/delete/{{$program->id}}" style="color: inherit" onclick="return deleteConfirm()">DELETE</a></span>
+                        <span><a href="{{route('admin.program.destroy',['id'=>$program->id])}}" style="color: inherit" onclick="return deleteConfirm()">DELETE</a></span>
 					</button>
                 </div>
 			</div>
 		</div>
-		<form action="kids-now/program/edit/{{$program->id}}" method="post" style="width: 100%" id="editProgram">
+		<form action="{{route('admin.program.update',['id'=>$program->id])}}" method="post" style="width: 100%" id="editProgram">
 			@csrf
 
 			<input type="hidden" name="array_children_new" id="array_children_new" value="">
@@ -53,7 +53,7 @@
 
 			<div class="mat-card">
 				<button class="accordion add-staff" type="button">@lang('kidsnow.program.edit_program')</button>
-				<a class="btn btn-success" style="float: right" href="kids-now/program/excel/{{$program->id}}">Export Excel</a>
+				<a class="btn btn-success" style="float: right" href="{{route('admin.program.excel',['id'=>$program->id])}}">Export Excel</a>
 
 				<div class="panel add">
 					<div class="row">

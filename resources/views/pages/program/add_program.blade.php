@@ -29,13 +29,13 @@
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
 				<ul class="ul-td" style="width: 100%">
-					<li class="level1"><a href="kids-now">HOME</a></li>
-					<li class="active1" ><a href="kids-now/program">PROGRAM</a></li>
+					<li class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
+					<li class="active1" ><a href="{{route('admin.program.index')}}">PROGRAM</a></li>
 					<li class="active1 active-1" style="pointer-events:none;"><a href="">ADD PROGRAM</a></li>
 				</ul>
 			</div>
 		</div>
-		<form action="kids-now/program/add" method="post" style="width: 100%" id="addProgram">
+		<form action="{{route('admin.program.store')}}" method="post" style="width: 100%" id="addProgram">
 			@csrf
 
             <input type="hidden" name="array_all_children" id="array_all_children" value="">
