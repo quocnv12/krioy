@@ -52,7 +52,7 @@ class HealthTableSeeder extends Seeder
                 'incident'      =>  '',
                 'blood_group'   =>  '',
                 'clip_board'         =>  '',
-                'growth_head_circumference'      =>  1,
+                'growth_head_circumference'      => 1 ,
             ],
             [
                 'id'            =>  4,

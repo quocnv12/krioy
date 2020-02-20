@@ -22,8 +22,8 @@ class ParentProfilesTableSeeder extends Seeder
                 'gender'        =>  1,
                 'email'         =>  'laura@gmail.com',
                 'note'          =>  '',
-                'main_phone'         =>  '4815617651',
-                'extra_phone'         =>  '4815617651',
+                'main_phone'         =>  '0971123123',
+                'extra_phone'         =>  '0971123124',
                 'image'         =>  ''
             ],
             [
@@ -33,8 +33,8 @@ class ParentProfilesTableSeeder extends Seeder
                 'gender'        =>  0,
                 'email'         =>  'see@gmail.com',
                 'note'          =>  '',
-                'main_phone'         =>  '645343',
-                'extra_phone'         =>  '4815617651',
+                'main_phone'         =>  '0971123125',
+                'extra_phone'         =>  '0971123125',
                 'image'         =>  ''
             ],
             [
@@ -44,8 +44,9 @@ class ParentProfilesTableSeeder extends Seeder
                 'gender'        =>  1,
                 'email'         =>  'shen@gmail.com',
                 'note'          =>  '',
-                'main_phone'         =>  '324324325',
-                'extra_phone'         =>  '4815617651',
+                'phone'         =>  '0345678123',
+                'main_phone'         =>  '0345678123',
+                'extra_phone'         =>  '0345778123',
                 'image'         =>  ''
             ],
             [
@@ -55,8 +56,9 @@ class ParentProfilesTableSeeder extends Seeder
                 'gender'        =>  1,
                 'email'         =>  'dawn@gmail.com',
                 'note'          =>  '',
-                'main_phone'         =>  '343535435',
-                'extra_phone'         =>  '4815617651',
+                'phone'         =>  '0981234234',
+                'main_phone'         =>  '0981234234',
+                'extra_phone'         =>  '0981534234',
                 'image'         =>  ''
             ],
             [
@@ -66,8 +68,9 @@ class ParentProfilesTableSeeder extends Seeder
                 'gender'        =>  1,
                 'email'         =>  'chen@gmail.com',
                 'note'          =>  '',
-                'main_phone'         =>  '3542353',
-                'extra_phone'         =>  '4815617651',
+            
+                'main_phone'         =>  '0989222888',
+                'extra_phone'         =>  '0989122888',
                 'image'         =>  ''
             ],
             [
@@ -77,8 +80,8 @@ class ParentProfilesTableSeeder extends Seeder
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
                 'note'          =>  '',
-                'main_phone'         =>  '98867543',
-                'extra_phone'         =>  '4815617651',
+                'main_phone'         =>  '0981234567',
+                'extra_phone'         =>  '0981934567',
                 'image'         =>  ''
             ],
             [
@@ -88,8 +91,8 @@ class ParentProfilesTableSeeder extends Seeder
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
                 'note'          =>  '',
-                'main_phone'         =>  '98867543',
-                'extra_phone'         =>  '4815617651',
+                'main_phone'         =>  '0981259567',
+                'extra_phone'         =>  '0981234568',
                 'image'         =>  ''
             ],
             [

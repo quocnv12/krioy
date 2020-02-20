@@ -58,13 +58,13 @@
     @include('header')
         @if (session('success'))
             <script>
-                notify("<div style='font-size:15px'><i style='line-height: 20px;' class='fa fa-thumbs-up'><i/> {{ session('success') }} </div>",'success');
+                notify("<div style='font-size:15px'><i style='line-height: 20px'; class='fa fa-thumbs-up'><i/> {{ session('success') }} </div>",'success');
             </script>
         @endif
 
         @if (session('danger'))
             <script>
-                 notify("<div style='font-size:15px'><i style='line-height: 20px;' class='fa ffa fa-exclamation-circle'><i/> {{ session('danger') }} </div>",'error');
+                notify("<div style='font-size:15px'><i style='line-height: 20px;' class='fa ffa fa-exclamation-circle'><i/> {{ session('danger') }} </div>",'error');
             </script>
         @endif
    

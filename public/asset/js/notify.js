@@ -5,6 +5,12 @@ function notify(text,type)
         type,
         theme:"bootstrap-v4",
         timeout:5000,
-        progressBar:true
+        progressBar:true,
+        animation: {
+            open: 'animated bounceInRight', // Animate.css class names
+            close: 'animated bounceOutRight' // Animate.css class names
+        }
     }).show();
+    
 }
+

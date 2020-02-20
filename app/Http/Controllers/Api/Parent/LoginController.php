@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Parent;
+
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use Illuminate\Http\Request;
@@ -10,14 +11,24 @@ use Illuminate\Http\Response;
 use JWTAuthException;
 use Hash;
 
-
 class LoginController extends Controller
 {
+     /**
+     * Create a new AuthController instance.
+     *
+     * @return void
+     */
     public function __construct()
     {
-        $this->middleware('auth:api')->except(['login']);
+        //\$this->middleware('auth:api', ['except' => ['login']]);
     }
-    public function login(request $request)
+
+    /**
+     * Get a JWT via given credentials.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function loginParent(Request $request)
     {
         $input = $request->only(['phone', 'password']);
         $token = null;
@@ -46,12 +57,28 @@ class LoginController extends Controller
 
     }
 
-
-    public function logout(request $request)
+    /**
+     * Get the authenticated User.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function me()
     {
-        $this->guard()->logout();
+        return response()->json(auth()->user());
+    }
+
+    /**
+     * Log the user out (Invalidate the token).
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function logout()
+    {
+        auth()->logout();
+
         return response()->json(['message' => 'Successfully logged out']);
     }
+
     /**
      * Refresh a token.
      *
@@ -59,8 +86,9 @@ class LoginController extends Controller
      */
     public function refresh()
     {
-        // return response(JWTAuth::getToken(), 200);
-        return $this->respondWithToken(auth()->refresh());
+        $token = $auth->parseToken()->refresh();
+         return $this->response->success($token);
+        // return $this->respondWithToken(auth()->refresh());
     }
 
     /**
@@ -75,53 +103,7 @@ class LoginController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => $this->guard()->factory()->getTTL() * 60
+            'expires_in' => auth()->factory()->getTTL() * 60
         ]);
     }
-
-    /**
-     * Get the guard to be used during authentication.
-     *
-     * @return \Illuminate\Contracts\Auth\Guard
-     */
-    public function guard()
-    {
-        return Auth::guard('api');
-    }
-
-
-
-    // public function login1(request $request)
-    // {
-    //     $input = $request->only(['phone', 'password']);
-    //         $rule = [
-    //             'phone' => 'required|numeric|min:10',
-    //             'password' => 'required|min:8'
-    //         ];
-    //         $vadidate = Validator::make($input, $rule);
-    //         if($vadidate->fails())
-    //         {   
-    //             return response()->json($vadidate->errors()->toArray(), 201);
-    //         }
-    //         else
-    //         {
-    //             try {
-    //                 if (!$token = auth::attempt($input, $request->remember)) {
-    //                  return response()->json(['invalid_email_or_password'], 422);
-    //                 }
-    //                 else
-    //                 {
-    //                     return response()->json(['failed_to_create_token'], 500);
-    //                 }
-                
-    //             return response()->json([
-    //                 'token' => Auth::user()->api_token,
-    //             ], 200);
-    //         }
-
-    // }
-
-
-
-    
 }
