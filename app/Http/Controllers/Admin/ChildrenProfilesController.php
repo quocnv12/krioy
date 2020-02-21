@@ -11,6 +11,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Mail;
 class ChildrenProfilesController extends Controller
 {
     public function index()
@@ -133,6 +134,9 @@ class ChildrenProfilesController extends Controller
             $parent_profiles->email = $request->email_parent;
             $parent_profiles->note = $request->note_parent;
             $parent_profiles->gender = $request->gender_parent;
+            $password = str_random(9);
+            $parent_profiles->password = bcrypt($password);
+            
             $parent_profiles->save();
 
             if ($request->hasFile('image_parent')) {
@@ -152,6 +156,8 @@ class ChildrenProfilesController extends Controller
             $parent_profiles->email = $request->email_parent;
             $parent_profiles->note = $request->note_parent;
             $parent_profiles->gender = $request->gender_parent;
+            $password = str_random(9);
+            $parent_profiles->password = bcrypt($password);
 
             if ($request->hasFile('image_parent')) {
                 // xoa anh cu
@@ -203,19 +209,20 @@ class ChildrenProfilesController extends Controller
         $children_parent->save();
 
          //gửi mail thông báo  tới parent 
-         $email=$staff->email;
+         $email=$parent_profiles->email;
+
          //$url = route('link.reset.password',['email'=>$email]);
          $data=[
             // 'route' => $url,
-            'first_name' => $request->first_name,
-            'last_name'  => $request->last_name,
+            'first_name' => $parent_profiles->first_name,
+            'last_name'  => $parent_profiles->last_name,
              'password' =>$password,
              'email' => $email,
-             'phone' => $request->phone,
-             'address' => $request->address,
+             'phone' => $parent_profiles->phone,
+            //  'address' => $parent_profiles->address,
          ] ;
  
-         Mail::send('pages.staff.email', $data, function($message) use ($email){
+         Mail::send('pages.children.email', $data, function($message) use ($email){
              $message->to($email, 'Welcome to Kids-now')->subject('Welcome to Kids-now !');
          });
         return redirect()->back()->with('success','Added Children\'s Profile');
