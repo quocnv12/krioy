@@ -14,4 +14,9 @@ class NoticeBoard extends Model
         'content',
         'writer'
     ];
+
+    public function notice_programs()
+    {
+        return $this->belongsToMany(Programs::class, 'programs_notice', 'id_notice', 'id_programs');
+    }
 }
