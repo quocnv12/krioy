@@ -19,7 +19,7 @@ class ParentProfiles extends Model
 
     public function children_parent()
     {
-        return $this->belongsToMany('App\models\ParentProfiles','children_parent', 'id_children','id_parent' );
+        return $this->belongsToMany('App\models\ChildrenProfiles','children_parent', 'id_children','id_parent' );
     }
 
     public function getFullName()

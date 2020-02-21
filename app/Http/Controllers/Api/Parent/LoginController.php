@@ -30,10 +30,10 @@ class LoginController extends Controller
      */
     public function loginParent(Request $request)
     {
-        $input = $request->only(['phone', 'password']);
+        $input = $request->only(['main_phone', 'password']);
         $token = null;
             $rule = [
-                'phone' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10',
+                'main_phone' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10',
                 'password' => 'required|min:8|max:30'
             ];
             $vadidate = Validator::make($input, $rule);
