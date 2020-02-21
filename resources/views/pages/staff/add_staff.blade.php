@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-Staff Frofiles
+@lang('kidsnow.staff')
 @endsection
 
 @section('content')

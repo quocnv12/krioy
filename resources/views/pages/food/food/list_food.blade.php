@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-	List Food
+@lang('kidsnow.foods')
 @endsection
 @section('css')
 

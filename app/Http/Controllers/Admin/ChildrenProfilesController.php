@@ -202,8 +202,26 @@ class ChildrenProfilesController extends Controller
         $children_parent->id_parent = $parent_id;
         $children_parent->save();
 
+         //gửi mail thông báo  tới parent 
+         $email=$staff->email;
+         //$url = route('link.reset.password',['email'=>$email]);
+         $data=[
+            // 'route' => $url,
+            'first_name' => $request->first_name,
+            'last_name'  => $request->last_name,
+             'password' =>$password,
+             'email' => $email,
+             'phone' => $request->phone,
+             'address' => $request->address,
+         ] ;
+ 
+         Mail::send('pages.staff.email', $data, function($message) use ($email){
+             $message->to($email, 'Welcome to Kids-now')->subject('Welcome to Kids-now !');
+         });
         return redirect()->back()->with('success','Added Children\'s Profile');
     }
+
+
 
     public function show($id)
     {

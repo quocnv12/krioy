@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-Add meal type
+@lang('kidsnow.meal_type')
 @endsection
 @section('content')
 
