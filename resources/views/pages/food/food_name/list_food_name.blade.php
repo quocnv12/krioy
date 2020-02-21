@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-Thực đơn
+@lang('kidsnow.food_name')
 @endsection
 @section('content')
 

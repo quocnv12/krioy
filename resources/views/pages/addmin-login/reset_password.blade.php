@@ -1,7 +1,3 @@
-{{-- <h4>Thank you for using kids-now software. Click <a href="{{ $route }}"> here </a>to retrieve the password !</h4> --}}
-{{-- 
-<h2>Welcome {{ $first_name }} {{ $last_name }} to Kids-now </h2>
-<h4>Your Password is : {{ $password }} </h4> --}}
 <html>
 	<head>
 		<meta charset="utf-8">

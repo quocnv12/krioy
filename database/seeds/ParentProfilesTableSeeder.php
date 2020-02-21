@@ -25,7 +25,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '0971123123',
                 'extra_phone'         =>  '0971123124',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  2,
@@ -37,20 +37,20 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '0971123125',
                 'extra_phone'         =>  '0971123127',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
 
             ],
             [
                 'id'            =>  3,
-                'first_name'    =>  'thomas',
-                'last_name'     =>  'see',
-                'gender'        =>  0,
-                'email'         =>  'see@gmail.com',
-                'note'          =>  'hi',
-                'main_phone'         =>  '0971123125',
-                'extra_phone'         =>  '0971123127',
-                'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                'first_name'    =>  'tim',
+                'last_name'     =>  'shen',
+                'gender'        =>  1,
+                'email'         =>  'shen@gmail.com',
+                'note'          =>  '',
+                'main_phone'         =>  '0345678123',
+                'extra_phone'         =>  '0345778123',
+                'image'         =>  ''
+                
 
             ],
             [
@@ -63,7 +63,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '0981234234',
                 'extra_phone'         =>  '0981534234',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  5,
@@ -76,7 +76,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '0989222888',
                 'extra_phone'         =>  '0989122888',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
 
             ],
             [
@@ -89,7 +89,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '0981234567',
                 'extra_phone'         =>  '0981934567',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
 
             ],
             [
@@ -102,7 +102,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '0981259567',
                 'extra_phone'         =>  '0981234568',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
 
             ],
             [
@@ -115,7 +115,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
 
             ],
             [
@@ -128,7 +128,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
 
             ],
             [
@@ -141,7 +141,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
 
             ],
             [
@@ -154,7 +154,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '4815617651',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
 
             ],
             [
@@ -167,7 +167,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '645343',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
 
             ],
             [
@@ -180,7 +180,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '324324325',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
 
             ],
             [
@@ -193,7 +193,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '343535435',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
 
             ],
             [
@@ -206,7 +206,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '3542353',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
 
             ],
             [
@@ -219,7 +219,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
 
             ],
             [
@@ -232,7 +232,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
 
             ],
             [
@@ -245,7 +245,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
 
             ],
             [
@@ -258,7 +258,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
 
             ],
             [
@@ -271,7 +271,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
 
             ],
             [
@@ -284,7 +284,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '4815617651',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
 
             ],
             [
@@ -297,7 +297,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '645343',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  23,
@@ -309,7 +309,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '324324325',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  24,
@@ -321,7 +321,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '343535435',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  25,
@@ -333,7 +333,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '3542353',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  26,
@@ -345,7 +345,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  27,
@@ -357,7 +357,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  28,
@@ -369,7 +369,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  29,
@@ -381,7 +381,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  30,
@@ -393,7 +393,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  31,
@@ -405,7 +405,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '4815617651',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  32,
@@ -417,7 +417,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '645343',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  33,
@@ -429,7 +429,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '324324325',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  34,
@@ -441,7 +441,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '343535435',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  35,
@@ -453,7 +453,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '3542353',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  36,
@@ -465,7 +465,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  37,
@@ -477,7 +477,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  38,
@@ -489,7 +489,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  39,
@@ -501,7 +501,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  40,
@@ -513,7 +513,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  41,
@@ -525,7 +525,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '4815617651',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  42,
@@ -537,7 +537,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '645343',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  43,
@@ -549,7 +549,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '324324325',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  44,
@@ -561,7 +561,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '343535435',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  45,
@@ -573,7 +573,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '3542353',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  46,
@@ -585,7 +585,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  47,
@@ -597,7 +597,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  48,
@@ -609,7 +609,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  49,
@@ -621,7 +621,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
             [
                 'id'            =>  50,
@@ -633,7 +633,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
                 'image'         =>  '',
-                'password'  =>  bcrypt('123456789')
+                
             ],
         ]);
     }

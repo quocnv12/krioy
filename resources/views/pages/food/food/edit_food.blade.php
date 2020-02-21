@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-Food
+@lang('kidsnow.foods')
 @endsection
 @section('content')
 

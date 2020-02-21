@@ -231,10 +231,18 @@ Route::group(['prefix' => 'parent','middleware' => 'jwt.admin'], function () {
     Route::get('refresh', 'Api\Parent\LoginController@refresh');
     // Route::post('me', 'Api\Parent\LoginController@me');
     // Route::get('food', 'Api\Parent\FoodController@getme');
+
     Route::get('/','Api\Parent\ParentProfilesController@index');    //show thong tin parent va tat ca children cua parent do
     Route::get('children/{id}','Api\Parent\ParentProfilesController@show'); //show thong tin 1 children
     Route::get('program/{id}','Api\Parent\ParentProfilesController@showProgramDetail'); //show thong tin program
     Route::post('edit/{id}','Api\Parent\ParentProfilesController@update');  //update parent va children
+
+
+    //-------------đổi mật khâu------
+    Route::post('update-password', 'Api\Parent\ForgotPasswordController@postUpdatePassword');
+
+
+
 
     
 });

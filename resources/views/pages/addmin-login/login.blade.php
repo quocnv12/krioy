@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-	Login
+	@lang('kidsnow.button_login')
 @endsection
 @section('css')
 
