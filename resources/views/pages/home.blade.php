@@ -41,7 +41,7 @@
                     <a href="kids-now/food">
                         <img src="images/Food-01.png" alt="@lang('kidsnow.food')">
                         <div class="title">
-                            <p>@lang('kidsnow.food')</p>
+                            <p>@lang('kidsnow.foods')</p>
                         </div>
                     </a>
                 </div>

@@ -29,7 +29,7 @@
 					@csrf
 				<div class="login" align="center">
 					<div class="login-label">
-						<p>Forgot Password</p>
+						<p>@lang('kidsnow.forgot_password_login')</p>
 					</div>
 					<div class="login-input">
 					@if (session('thongbao'))
@@ -37,8 +37,8 @@
 					@endif
 						<div class="add">
 							<div class="input_box" style="width: 100%;">
-						        <span>Passsword </span>
-								<input type="password" name="password"  placeholder="Password">
+						        <span>@lang('kidsnow.password_login') </span>
+								<input type="password" name="password"  placeholder="@lang('kidsnow.password_login')">
 								@if ($errors->has('password'))
 								<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;width:80%;margin-top:10px;margin-bottom:0px">* {{ $errors->first('password') }}</p>
 								@endif
@@ -46,7 +46,7 @@
 						</div>
 						<div class="add">
 							<div class="input_box" style="width: 100%;">
-								<span>Comfirm password</span>
+								<span>@lang('kidsnow.confirm_password_reset')</span>
 								<input type="password" name="password_confirmation"  placeholder="Comfirm PassWord">
 								@if ($errors->has('password_confirmation'))
 								<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;;width:80%;margin-top:10px;margin-bottom:0px">* {{ $errors->first('password_confirmation') }}</p>
@@ -56,11 +56,11 @@
 					</div>
 					<div class="login-button" align="center">
 						<button type="submit">
-							<span>OK</span>
+							<span>@lang('kidsnow.save')</span>
 						</button>
 				
 						<a href="../login"><button type="button">
-							<span>Cancel</span>
+							<span>@lang('kidsnow.cancel')</span>
 						</button></a>	
 				
 					</form>

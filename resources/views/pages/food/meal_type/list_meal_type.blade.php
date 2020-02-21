@@ -25,9 +25,9 @@ List meal type
             <div class="row">
                 <ul class="ul-td" style="width:100%">
                 <div class="col-md-12">
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
-                    <li _ngcontent-c16="" class="active-1"><a _ngcontent-c16="" href="kids-now/food">Food</a></li>
-                    <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="kids-now/food/menu-meal-type">Meal Type</a></li>
+                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">@lang('kidsnow.home')</a></li>
+                    <li _ngcontent-c16="" class="active-1"><a _ngcontent-c16="" href="kids-now/food">@lang('kidsnow.food')</a></li>
+                    <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="kids-now/food/menu-meal-type">@lang('kidsnow.meal_type')</a></li>
                 </div>
                 </ul>
             </div>
@@ -39,7 +39,7 @@ List meal type
                         <div class="grid-title">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h4>Meal <span class="semi-bold">Type</span></h4>
+                                    <h4>@lang('kidsnow.meal_type')</span></h4>
                                 </div>
                                 {{-- <div style="text-align:right;padding-right:22px" class="col-md-6">
                                     <a style="margin:0px;" href="{{ route('menu-meal-type-add') }}" class="btn btn-success btn-cons"" title="Add Meal Type"><i style="" class="fa fa-plus-circle"></i> Add</a>
@@ -52,8 +52,8 @@ List meal type
                             <thead>
                               <tr>
                                 <th style="width:10%"></th>
-                                <th style="text-align:left">Meal Type</th>
-                                <th style="width:25%;text-align:center">Thao Tác</th>
+                                <th style="text-align:left">@lang('kidsnow.meal_type')</th>
+                                <th style="width:25%;text-align:center">@lang('kidsnow.action')</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -62,8 +62,8 @@ List meal type
                                     <td style="text-align:center"></td>
                                     <td style="text-transform:capitalize">{{ $item->name}}</td>
                                     <td style="text-align:center">
-                                    <a href="kids-now/food/menu-meal-type/edit/{{ $item->id }}" title="Edit Meal Type" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
-                                        <a onclick="return confirm('Delete meal type ? Do you want continue !')"" title="Delete Meal Type" href="kids-now/food/menu-meal-type/delete/{{ $item->id }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                    <a href="kids-now/food/menu-meal-type/edit/{{ $item->id }}" title="@lang('kidsnow.title_meal_type_edit')" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                        <a onclick="return confirm('Delete meal type ? Do you want continue !')"" title="@lang('kidsnow.title_meal_type_delete')" href="kids-now/food/menu-meal-type/delete/{{ $item->id }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
                               @endforeach

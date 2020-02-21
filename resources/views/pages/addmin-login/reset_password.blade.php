@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Welcome to Kids-now</title>
+		<title>@lang('kidsnow.title_email')</title>
 		{{-- <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
    		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
@@ -50,25 +50,11 @@
 		                        <table style="width:100%">
 		                          <tbody><tr>
 		                            <td style="padding:25px 25px 25px">
-		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:22px;font-weight:700;margin:0 0 40px 0">Welcome <b>{{ $first_name }} {{ $last_name }}</b> !</p>
-		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:22px">Thank you for registering to use our software.</p>
+		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:22px;font-weight:700;margin:0 0 40px 0">@lang('kidsnow.Welcome_email_staff') <b>{{ $first_name }} {{ $last_name }}</b> !</p>
+		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:22px">@lang('kidsnow.title_welcome_email_staff') </p>
 
-		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:18px">Click <a href="{{ $route }}"> here </a>to retrieve the password !</p>
-		                              
-                                      
-		                              {{-- <p style="text-align:justify;color:#010101;font-size:16px;line-height:22px">QUY TRÌNH TRIỂN KHAI GIẢI PHÁP KHUTRO: </p>
-		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:18px"> <b>- Bước 1:</b> Gọi điện xác nhận thông tin</p>
-		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:18px"> <b>- Bước 2:</b> Khảo sát nhu cầu</p>
-		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:18px"> <b>- Bước 3:</b> Giới thiệu giải pháp</p>
-		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:18px"> <b>- Bước 4:</b> Demo &amp; Dùng thử</p>
-		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:18px"> <b>- Bước 5:</b> Ký hợp đồng &amp; Triển khai</p> --}}
-
-		                              {{-- <p style="text-align:center;color:red;font-size:16px;line-height:22px">Lưu ý: Thời hạn dùng thử là <b>15 NGÀY</b> tính từ ngày kích hoạt.</p>
-		                              <p style="text-align:center;color:red;font-size:16px;line-height:22px"><b>BẠN DÙNG THỬ, CHÚNG TÔI PHỤC VỤ THẬT</b></p> --}}
-
-		                              {{-- <p style="text-align:justify;color:#010101;font-size:16px;line-height:22px">Khi Quý khách có bất cứ thắc mắc gì, đừng ngần ngại gọi cho chúng tôi để có được sự hỗ trợ tốt nhất.</p>
-		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:22px">Chuyên viên <b>CSKH,</b> <br>Bộ phận chăm sóc khách hàng của KHUTRO</p>
-		                              <p style="text-align:justify;color:#010101;font-size:15px;line-height:22px">Email: <a href="mailto:cskh.khutro@bloomgoo.vn" style="font-weight:bold;color:red;text-decoration:none" target="_blank">cskh.khutro@bloomgoo.vn</a> - SĐT: <a href="tel:0968031388" style="font-weight:bold;color:red;text-decoration:none" target="_blank">096.803.1388</a></p> --}}
+		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:18px">Click <a href="{{ $route }}"> @lang('kidsnow.here_email_reset_password') </a>@lang('kidsnow.reset_password_email') !</p>
+		                            
 		                            </td>
 		                          </tr>
 		                          </tbody></table>

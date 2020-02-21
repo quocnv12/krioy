@@ -20,7 +20,7 @@ Staff Frofiles
             @csrf
             <div class="mat-card">
                 <div class="mat-content">
-                    <button type="button" class="accordion add-staff">@lang('kidsnow.edit_staff') *</button>
+                    <button type="button" class="accordion add-staff">@lang('kidsnow.edit_staff')</button>
                     <div class="row">
                         <div class="col-md-2 textera-img">
                             @if($errors->has('image'))
@@ -67,9 +67,9 @@ Staff Frofiles
                                         @endif
                                     </div>
                                     <div class="col-md-6 input_box">
-                                        <span>Gender *</span>
+                                        <span>@lang('kidsnow.gender') *</span>
                                         <select style="color: #614545;" name="gender">
-											<option disabled  selected hidden>Gender</option>
+											<option disabled  selected hidden>@lang('kidsnow.gender')</option>
                                             <option {{ $staff->gender==1 ? 'selected' : ''  }}  value="1">Male</option>
                                             <option {{ $staff->gender==0 ? 'selected' : ''  }} value="0">Female</option>
                                         </select>
@@ -173,7 +173,7 @@ Staff Frofiles
             <div class="mat-card">
                 <div class="mat-content">
                     <button type="button" type="button" class="accordion accordion1 clearfix">
-                        <p style="float: left;">@lang('kidsnow.permissions') *</p>
+                        <p style="float: left;">@lang('kidsnow.permissions')</p>
                         {{-- <a href="select_child.blade.php" style="float: right;text-align: right">
                         <p
                             style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">
@@ -200,7 +200,7 @@ Staff Frofiles
             </div>
             <div class="comment">
                 <div class="button" style="text-align: center;">
-                   <a href="kids-now"> <button type="button"><span>@lang('kidsnow.cancel')</span></button></a>
+                   <a href="kids-now/staff"> <button type="button"><span>@lang('kidsnow.cancel')</span></button></a>
                     <button class="button2"><span>@lang('kidsnow.save')</span></button>
                 </div>
             </div>

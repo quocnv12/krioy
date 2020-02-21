@@ -44,4 +44,27 @@ class PermissionController extends Controller
         return response()->json(['massage' => 'Add permission success !'], 201);
     }
 
+    public function update(Request $request,$id)
+    {
+        $permission = role::find($id);
+        if(!$permission)
+        {
+            return response()->json(['massage' => 'Record not found !'] , 404);
+        }
+        $rules =  
+            [
+                'name'  => 'required',
+            ];
+        $validator = Validator::make($request->all(), $rules,[
+            'name.required'  => 'Please enter permission !',
+        ]);
+        if($validator->fails())
+            {
+                return response()->json($validator->errors(), 400);
+            }
+        $permission->update($request->all());
+        $permission->save();
+        return response()->json(['massage' => 'Edit permission success !'], 201);
+    }
+
 }

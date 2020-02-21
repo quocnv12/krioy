@@ -48,6 +48,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
         Route::get('','Api\PermissionController@index');
         Route::get('show/{id}','Api\PermissionController@show');
         Route::post('add','Api\PermissionController@store');
+        Route::post('edit/{id}','Api\PermissionController@update');
        
     });
 
@@ -78,6 +79,12 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
          Route::post('menu-quantity/update/{id}', 'Api\FoodController@updateQuantity');
          Route::get('menu-quantity/delete/{id}', 'Api\FoodController@destroyQuantity');
 
+         //food name
+         Route::get('menu-food-name', 'Api\FoodController@indexFoodName');
+         Route::post('menu-food-name/add', 'Api\FoodController@storeFoodName');
+         Route::get('menu-food-name/show/{id}', 'Api\FoodController@showFoodName');
+         Route::post('menu-food-name/update/{id}', 'Api\FoodController@updateFoodName');
+         Route::get('menu-food-name/delete/{id}', 'Api\FoodController@destroyFoodName');
     });
    
     // Route::apiResource('food', 'api\FoodController@add');
@@ -218,10 +225,10 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
 //---------------------------------api parent----------------------
 Route::post('parent/login', 'Api\Parent\LoginController@loginParent')->middleware('assign.guard:admin');
 
-Route::group(['prefix' => 'parent','middleware' => ['assign.guard:admin','jwt.admin']], function () {
+Route::group(['prefix' => 'parent','middleware' => 'jwt.admin'], function () {
     
     Route::post('logout', 'Api\Parent\LoginController@logout');
-    Route::post('refresh', 'Api\Parent\LoginController@refresh');
+    Route::get('refresh', 'Api\Parent\LoginController@refresh');
     // Route::post('me', 'Api\Parent\LoginController@me');
     // Route::get('food', 'Api\Parent\FoodController@getme');
 

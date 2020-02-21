@@ -49,7 +49,8 @@ class LoginController extends Controller
 
     public function logout(request $request)
     {
-        $this->guard()->logout();
+        $this->guard('api')->logout();
+        
         return response()->json(['message' => 'Successfully logged out']);
     }
     /**
@@ -60,7 +61,11 @@ class LoginController extends Controller
     public function refresh()
     {
         // return response(JWTAuth::getToken(), 200);
-        return $this->respondWithToken(auth()->refresh());
+       // return $this->respondWithToken(auth()->refresh());
+       $token = auth::guard('api')->refresh();
+       return response()->json(
+           ['token' => $token]
+          );
     }
 
     /**

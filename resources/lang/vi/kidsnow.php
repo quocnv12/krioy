@@ -285,29 +285,51 @@ return [
 
     //Staff Profiles:
             //Staff List: http://kidsnow.web88.vn/kids-now/staff
-            'name' => 'NAME',
-            'phone' => 'PHONE',
-            'email' => 'EMAIL',
-            'address' => 'ADDRESS',
-            'program' => 'PROGRAM',
-            'date_of_joining' => 'DATE OF JOINING',
-            'image' => 'IMAGE',
-            'add' => 'ADD',
-            'edit_staff' => 'EDIT STAFF',
+            'name' => 'Họ và Tên',
+            'phone' => 'Số Điện Thoại',
+            'email' => 'Email',
+            'address' => 'Địa Chỉ',
+            'program' => 'Chương Trình Học',
+            'image' => 'Ảnh Đại Diện',
+            'add' => 'Thêm',
+            'edit' =>'Sửa',
+            'staff'=>'nhân viên',
+            'list' => 'Danh sách',
+            'edit_staff' => 'Sửa Nhân Viên',
+
             // END Staff List
-                // Edit Staff Edit: http://kidsnow.web88.vn/kids-now/staff/edit/7
-                'first_name' => 'First name *',
-                'last_name' => 'Last Name *',
-                'phone_number' => 'Phone Number *',
-                'gender' => 'Gender',
-                'email_address' => 'Email Address *',
-                'email_already_exist' => '* Email already exist !',
-                'please_choose_image' => '* Please choose image !',
-                'residential_address' => 'Residential Address',
-                'please_enter_address' => '* Please enter address !',
-                'Blood_group' => 'Blood Group *',
-                'please_choose_blood_group' => '* Please choose blood_group !',
-                'date_of_joining' => 'Date of Joining',
+
+            //Staff add
+            'add_staff' => 'Thêm Nhân Viên',//@lang('kidsnow.edit_staff')
+            'male' => 'Nam',
+            'female' => 'Nữ',
+            'permissions' =>'Phân Quyền',
+            'title_edit_staff'=>'Sửa nhân viên',
+            'title_delete_staff'=>'Xóa nhân viên',
+            'action' => 'Thao Tác',
+            //end staff add
+            'title_email'=>'Chào mừng bạn đến với Kids-now',
+            'Welcome_email_staff' =>'Xin Chào',
+            'title_welcome_email_staff'=>'Cảm ơn bạn đã đăng ký để sử dụng phần mềm của chúng tôi. Thông tin đăng ký như sau : ',
+            'full_name_email_staff' =>'Họ Tên', 
+            'phone_email_staff' =>'Số Điện Thoại',
+            'address_email_staff' =>'Địa Chỉ',
+            'password_email_staff' =>'Mật Khẩu',
+
+            'first_name' => 'Họ',
+            'last_name' => 'Tên',
+            'phone_number' => 'Số Điện Thoại',
+            'gender' => 'Giới Tính',
+            'email_address' => 'Email',
+            'email_already_exist' => '* Email already exist !',
+            'please_choose_image' => '* Please choose image !',
+            'residential_address' => 'Địa Chỉ',
+            'please_enter_address' => '* Please enter address !',
+            'Blood_group' => 'Nhóm Máu',
+            'birthday' =>'Ngày Sinh',
+            'date_of_joining'=>'Ngày Vào Làm',
+            'please_choose_blood_group' => '* Please choose blood_group !',
+             
                 // END Edit Staff
 
     //END Staff Profiles
@@ -441,5 +463,48 @@ return [
     'forgot_index' => [
         'message_success' => 'Change password successfully !'
     ],
+
+
+    //---------------------------food-------------------------
+    'food' => 'thực đơn',
+    'meal_type' => 'Loại Bữa Ăn',
+    'quantity' => 'Số Lượng',
+    'food_name' => 'Tên Món Ăn',
+    'food_list' => 'Danh sách thực đơn',
+    'program_food' => 'Lớp',
+    'select_meal_type' => 'Chọn loại bữa ăn',
+    'select_quantity' => 'Chọn số lượng bữa ăn',
+    'select_food_name' => 'Tên món ăn',
+    'title_food_edit' => 'Sửa thực đơn',
+    'title_food_delete' => 'Xóa thực đơn',
+    'title_food_name_edit' => 'Sửa tên món ăn',
+    'title_food_name_delete' => 'Xóa tên món ăn',
+    'title_meal_type_edit' => 'Sửa loại bữa ăn',
+    'title_meal_type_delete' => 'Xóa loại bữa ăn',
+    'title_quantity_edit' => 'Sửa số lượng',
+    'title_quantity_delete' => 'Xóa số lượng',
+
+    //-----------------login------------------------
+    'title_login' =>'Đăng nhập Kids-now',
+    'phone_login' =>'Số điện thoại',
+    'password_login' =>'Mật khẩu',
+    'remember_login' =>'Ghi nhớ tài khoản',
+    'forgot_password_login' =>'Quên mật khẩu',
+    'button_login' =>'Đăng nhập',
+
+    //----------------forgot password--------
+
+   
+    'reset_password_email' => 'để lấy lại mật khẩu',
+    'here_email_reset_password' =>'đây',
+    'confirm_password_reset'=>'Nhập lại mật khẩu',
+
+    //--------------Account Demo----------
+   'kidsnow_account_demon' =>'Đăng Kí Tài Khoản Kids-now', 
+   'register_account_demo' =>'Đăng Kí',
+   'first_name_account_demo' => 'Họ tên',
+   'verify_account_demo' => 'để kích hoạt tài khoản',
+   'foods' => 'Thực Đơn',   
+
     
 ];
