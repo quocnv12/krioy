@@ -294,18 +294,18 @@
 												{{ $errors->first('main_phone_parent') }}
 											</div>
 										@endif
-										@if ($errors->unique('main_phone_parent'))
-											<div class="text text-primary" id="parent_exist">
-												We found a parent profile that has the same phone number as yours. Is that you ?
+										@if ($errors->has('main_phone_parent') and $errors->first('main_phone_parent') == 'Phone Number has been taken')
+											<div class="text text-black" id="parent_exist" style="background-color: thistle; padding: 10px; border-radius: 20px">
+												<p style="font-weight: bold">@lang('kidsnow.children.found_parent_exist')</p>
 												<div class="row">
 													<div class="col-md-5">
-														<img style="border-radius: 15px; width: 60px; height: 60px; float: right" src="{{\App\models\ParentProfiles::where('main_phone','=',old('main_phone_parent'))->first()['image']}}" alt="">
+														<img style="border-radius: 15px; width: 60px; height: 60px; float: right" src="{{\App\models\ParentProfiles::where('main_phone','=',old('main_phone_parent'))->first()['image'] ? \App\models\ParentProfiles::where('main_phone','=',old('main_phone_parent'))->first()['image'] : 'images/Staff.png'}}" alt="">
 													</div>
 													<div class="col-md-7">
 														<div style="float: left">
-															<p style="float: left">Full Name : {{\App\models\ParentProfiles::where('main_phone','=',old('main_phone_parent'))->first()['first_name']}}</p>
+															<p style="float: left">@lang('kidsnow.children.fullname') : {{\App\models\ParentProfiles::where('main_phone','=',old('main_phone_parent'))->first()['first_name']}} {{\App\models\ParentProfiles::where('main_phone','=',old('main_phone_parent'))->first()['last_name']}}</p>
 															<br>
-															<p style="float: left">Email : {{\App\models\ParentProfiles::where('main_phone','=',old('main_phone_parent'))->first()['email']}}</p>
+															<p style="float: left">@lang('kidsnow.children.email') : {{\App\models\ParentProfiles::where('main_phone','=',old('main_phone_parent'))->first()['email']}}</p>
 														</div>
 													</div>
 												</div>
