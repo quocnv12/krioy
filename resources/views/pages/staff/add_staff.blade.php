@@ -67,7 +67,7 @@
                                     </div>
                                     <div class="col-md-6 input_box">
                                         <span>@lang('kidsnow.gender') *</span>
-                                      
+
                                         <select style="color: #614545;" name="gender">
                                             <option disabled  selected hidden>@lang('kidsnow.gender') *</option>
                                             <option value="1">@lang('kidsnow.male')</option>
@@ -156,11 +156,11 @@
                         <div _ngcontent-c20="" class="row" style="">
                             @foreach ($programs as $item)
                             <div _ngcontent-c20="" align="center"
-                                class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
+                                class="col-xs-6 col-sm-4 col-md-3 col-lg-3 ng-star-inserted"
                                 style="padding:10px;cursor:pointer;">
                                 <button _ngcontent-c20="" type="button" class="btn progBtn limitText bgClass tablinks1"
                         title="{{ $item->program_name }}" value="{{ $item->id }}"
-                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">{{ $item->program_name }}
+                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px; width: 100%">{{ $item->program_name }}
                                 </button>
 
                             </div>
@@ -185,11 +185,11 @@
                         <div _ngcontent-c20="" class="row">
                             @foreach ($roles as $item)
                             <div _ngcontent-c20="" align="center"
-                                class="col-xs-3 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
+                                class="col-xs-3 col-sm-4 col-md-3 col-lg-3 ng-star-inserted"
                                 style="padding:10px;cursor:pointer">
                                 <button _ngcontent-c20="" type="button" class="btn progBtn limitText bgClass tablinks"
                                     title="{{ $item->name }}" value="{{ $item->id }}"
-                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">{{ $item->name }}
+                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px; width: 100%">{{ $item->name }}
                                 </button>
                             </div>
                             @endforeach
@@ -318,6 +318,8 @@
         $('#avatar').click(function () {
             $('#img').click();
         });
+
+        $('.accordion').click()
     });
 
 </script>

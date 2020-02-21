@@ -134,5 +134,8 @@
             window.history.back();
         }
 
+        setTimeout(function () {
+            $(".text-danger").slideUp(500);
+        }, 20000);
     </script>
 </html>

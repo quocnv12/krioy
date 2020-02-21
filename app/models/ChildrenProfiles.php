@@ -38,7 +38,7 @@ class ChildrenProfiles extends Model
         return $this->belongsToMany('App\models\ParentProfiles','children_parent','id_children', 'id_parent' );
     }
 
-    public function chil_progam()
+    public function chil_program()
     {
         return $this->belongsToMany(Programs::class, 'children_programs', 'id_children', 'id_program');
     }

@@ -9,6 +9,7 @@ use App\models\Programs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class ParentProfilesController extends Controller
@@ -173,7 +174,7 @@ class ParentProfilesController extends Controller
     {
         $parent_profiles = ParentProfiles::find(Auth::user()->id);
         $children_profiles = ChildrenProfiles::find($id);
-        $programs = $children_profiles->chil_progam;
+        $programs = $children_profiles->chil_program;
 
         return response()->json([
             'children_profiles'=>$children_profiles,    //thong tin tre
@@ -195,8 +196,26 @@ class ParentProfilesController extends Controller
         ],200);
     }
 
-    public function showNoticeBoard($id)
+    public function showAllNoticeBoard($id) //$id = id cua children
     {
+        $children = ChildrenProfiles::find($id);
+        $programs = $children->chil_program;    //program ma children dang hoc
+        $notice_board = []; // mang array chua notice cua program ma children dang hoc
+        foreach ($programs as $item){
+            array_push($notice_board,$item->program_notice);
+        }
 
+        return response()->json([
+            'notice_board'=>$notice_board
+        ], 200);
+    }
+
+    public function showOneNoticeBoard($id)
+    {
+        $notice_board = NoticeBoard::find($id);
+
+        return response()->json([
+            'notice_board'=>$notice_board
+        ], 200);
     }
 }
