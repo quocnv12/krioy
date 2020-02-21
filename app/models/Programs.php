@@ -2,6 +2,7 @@
 
 namespace App\models;
 
+use App\models\staff\StaffProfiles;
 use Illuminate\Database\Eloquent\Model;
 
 class Programs extends Model
@@ -28,5 +29,15 @@ class Programs extends Model
     public function program_chil()
     {
         return $this->belongsToMany(ChildrenProfiles::class, 'children_programs', 'id_program', 'id_children');
+    }
+
+    public function program_staff()
+    {
+        return $this->belongsToMany(StaffProfiles::class, 'staff_programs', 'id_program', 'id_staff');
+    }
+
+    public function program_notice()
+    {
+        return $this->belongsToMany(NoticeBoard::class, 'programs_notice', 'id_programs', 'id_notice');
     }
 }
