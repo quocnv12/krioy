@@ -390,7 +390,7 @@ return [
             'action' => 'Action',
             'title_email' =>'Welcome to Kids-now',
             'Welcome_email_staff' => 'Welcome',
-            'title_welcome_email_staff' =>'Thank you for registering to use our software. Registered information is as follows :',
+            'title_welcome_email_staff' =>'Thank you for registering to use our software Kids-now. Registered information is as follows :',
             'full_name_email_staff' =>'Full Name', 
             'phone_email_staff' =>'Phone',
             'address_email_staff'=>'Address',
@@ -519,6 +519,7 @@ return [
       'register_account_demo' =>'Register',
       'first_name_account_demo' => 'Name',
       'verify_account_demo' =>'to verify your account',
+      'welcome_demo_account' => 'Thank you for signing up to use our account',
       'foods' =>'Food',
 
  //------changer password-----------
@@ -527,5 +528,6 @@ return [
    'changer_password_new' => 'Password New',
    'confirm_changer_password' => 'Comfirm Password',
    'reset_password' => 'Reset Password',
+   'forgrt_password_send_mail' =>'Thank you for using Kids-now software !'
 
 ];

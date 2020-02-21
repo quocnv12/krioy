@@ -71,9 +71,16 @@ Route::post('login', 'Admin\LoginController@PostLogin');
 //--------quên mật khẩu--------------------
 Route::get('forgot', 'Auth\ForgotPasswordController@GetFormResetPassword')->name('get.reset.password');
 Route::post('forgot', 'Auth\ForgotPasswordController@PostFormResetPassword');
+
 Route::get('password/reset', 'Auth\ForgotPasswordController@ResetPassword')->name('link.reset.password');
 Route::post('password/reset', 'Auth\ForgotPasswordController@PostResetPassword');
 
+
+Route::get('passwords/reset', 'Api\ForgotPasswordController@ResetPassword')->name('link.reset.password.api');
+Route::post('passwords/reset', 'Api\ForgotPasswordController@PostResetPassword');
+
+Route::get('parent/password/reset', 'Api\Parent\ForgotPasswordController@ResetPasswordParent')->name('link.reset.password.parent');
+Route::post('parent/password/reset', 'Api\Parent\ForgotPasswordController@PostResetPasswordParent');
 
 //-------------------------group admin--------------------------
 Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function () {

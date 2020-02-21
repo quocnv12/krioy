@@ -24,6 +24,8 @@ class CreateParentProfilesTable extends Migration
             $table->string('main_phone');
             $table->string('extra_phone')->nullable();
             $table->string('image')->nullable();
+            $table->string('code')->nullable();
+            $table->string('time_code')->nullable();
             $table->timestamps();
         });
     }

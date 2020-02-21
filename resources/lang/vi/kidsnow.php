@@ -310,7 +310,7 @@ return [
             //end staff add
             'title_email'=>'Chào mừng bạn đến với Kids-now',
             'Welcome_email_staff' =>'Xin Chào',
-            'title_welcome_email_staff'=>'Cảm ơn bạn đã đăng ký để sử dụng phần mềm của chúng tôi. Thông tin đăng ký như sau : ',
+            'title_welcome_email_staff'=>'Cảm ơn bạn đã đăng ký để sử dụng phần mềm Kids-now. Thông tin đăng ký như sau : ',
             'full_name_email_staff' =>'Họ Tên', 
             'phone_email_staff' =>'Số Điện Thoại',
             'address_email_staff' =>'Địa Chỉ',
@@ -496,7 +496,7 @@ return [
 
    
     'reset_password_email' => 'để lấy lại mật khẩu',
-    'here_email_reset_password' =>'đây',
+    'here_email_reset_password' =>'Vào đây',
     'confirm_password_reset'=>'Nhập lại mật khẩu',
 
     //--------------Account Demo----------
@@ -504,6 +504,7 @@ return [
    'register_account_demo' =>'Đăng Kí',
    'first_name_account_demo' => 'Họ tên',
    'verify_account_demo' => 'để kích hoạt tài khoản',
+   'welcome_demo_account' => 'Cảm ơn bạn đã đăng ký để sử dụng tài khoản Kids-now',
    'foods' => 'Thực Đơn',   
 
    //------changer password-----------
@@ -512,6 +513,7 @@ return [
    'changer_password_new' => 'Mật Khẩu Mới',
    'confirm_changer_password' => 'Nhập Lại Mật Khẩu',
    'reset_password' => 'Quên mật khẩu',
+   'forgrt_password_send_mail' =>'Cảm ơn bạn đã sử dụng phần mềm Kids-now !'
 
     
 ];

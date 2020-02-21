@@ -218,7 +218,7 @@ class ChildrenProfilesController extends Controller
             'last_name'  => $parent_profiles->last_name,
              'password' =>$password,
              'email' => $email,
-             'phone' => $parent_profiles->phone,
+             'phone' => $parent_profiles->main_phone,
             //  'address' => $parent_profiles->address,
          ] ;
  
