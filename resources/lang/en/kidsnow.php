@@ -364,7 +364,7 @@ return [
         'children.programs'  =>'Programs',
         'children.parents'  =>  'Parents',
         'children.relationship' =>'Relationship',
-        'children.main_phone'    =>  'Main Phone Number',
+        'children.main_phone'    =>  'Main Phone Number (use for Login)',
         'children.extra_phone'    =>  'Extra Phone Number',
         'children.email'    =>  'Email Address',
         'children.note' =>  'Note',

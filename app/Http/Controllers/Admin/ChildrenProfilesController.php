@@ -123,6 +123,51 @@ class ChildrenProfilesController extends Controller
                 ]);
         }
 
+        //neu khong trung parent
+        if ($request->parent_exist == '0' || $request->parent_exist == null) {
+            $parent_profiles = new ParentProfiles();
+            $parent_profiles->first_name = $request->first_name_parent;
+            $parent_profiles->last_name = $request->last_name_parent;
+            $parent_profiles->main_phone = $request->main_phone_parent;
+            $parent_profiles->extra_phone = $request->extra_phone_parent;
+            $parent_profiles->email = $request->email_parent;
+            $parent_profiles->note = $request->note_parent;
+            $parent_profiles->gender = $request->gender_parent;
+            $parent_profiles->save();
+
+            if ($request->hasFile('image_parent')) {
+                $file = $request->image_parent;
+                $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path('images/parent/'), $filename);
+                $parent_profiles->image = 'images/parent/' . $filename;
+                $parent_profiles->save();
+            }
+        }
+        else{           //neu trung phu huynh
+            $parent_profiles = ParentProfiles::find($request->id_parent_exist);
+            $parent_profiles->first_name = $request->first_name_parent;
+            $parent_profiles->last_name = $request->last_name_parent;
+            $parent_profiles->main_phone = $request->main_phone_parent;
+            $parent_profiles->extra_phone = $request->extra_phone_parent;
+            $parent_profiles->email = $request->email_parent;
+            $parent_profiles->note = $request->note_parent;
+            $parent_profiles->gender = $request->gender_parent;
+
+            if ($request->hasFile('image_parent')) {
+                // xoa anh cu
+                if ($parent_profiles->image) {
+                    $old_image = $parent_profiles->image;
+                    unlink($old_image);
+                }
+                $file = $request->image_parent;
+                $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path('images/parent/'), $filename);
+                $parent_profiles->image = 'images/parent/' . $filename;
+                $parent_profiles->save();
+            }
+            $parent_profiles->save();
+        }
+
         $children_profiles = ChildrenProfiles::create($request->all());
         //xu ly avatar
         if ($request->hasFile('image')) {
@@ -149,66 +194,13 @@ class ChildrenProfilesController extends Controller
             $children_program->save();
         }
 
-        //neu khong trung parent
-        if ($request->parent_exist == '0' || $request->parent_exist == null) {
-            $parent_profiles = new ParentProfiles();
-            $parent_profiles->first_name = $request->first_name_parent;
-            $parent_profiles->last_name = $request->last_name_parent;
-            $parent_profiles->main_phone = $request->main_phone_parent;
-            $parent_profiles->extra_phone = $request->extra_phone_parent;
-            $parent_profiles->email = $request->email_parent;
-            $parent_profiles->note = $request->note_parent;
-            $parent_profiles->gender = $request->gender_parent;
-            $parent_profiles->save();
-
-            if ($request->hasFile('image_parent')) {
-                $file = $request->image_parent;
-                $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
-                $file->move(public_path('images/parent/'), $filename);
-                $parent_profiles->image = 'images/parent/' . $filename;
-                $parent_profiles->save();
-            }
-
-            //id parent vua tao moi xong
-            $parent_id = $parent_profiles->id;
-            //tao record ben bang children_parent
-            $children_parent = new ChildrenParent();
-            $children_parent->id_children = $children_id;
-            $children_parent->id_parent = $parent_id;
-            $children_parent->save();
-        }
-        else{           //neu trung phu huynh
-            $parent_profiles = ParentProfiles::find($request->id_parent_exist);
-            $parent_profiles->first_name = $request->first_name_parent;
-            $parent_profiles->last_name = $request->last_name_parent;
-            $parent_profiles->main_phone = $request->main_phone_parent;
-            $parent_profiles->extra_phone = $request->extra_phone_parent;
-            $parent_profiles->email = $request->email_parent;
-            $parent_profiles->note = $request->note_parent;
-            $parent_profiles->gender = $request->gender_parent;
-
-            if ($request->hasFile('image_parent')) {
-                // xoa anh cu
-                if ($parent_profiles->image) {
-                    $old_image = $parent_profiles->image;
-                    unlink($old_image);
-                }
-                $file = $request->image_parent;
-                $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
-                $file->move(public_path('images/parent/'), $filename);
-                $parent_profiles->image = 'images/parent/' . $filename;
-                $parent_profiles->save();
-            }
-            $parent_profiles->save();
-
-            //id parent vua tao moi xong
-            $parent_id = $parent_profiles->id;
-            //tao record ben bang children_parent
-            $children_parent = new ChildrenParent();
-            $children_parent->id_children = $children_id;
-            $children_parent->id_parent = $parent_id;
-            $children_parent->save();
-        }
+        //id parent vua tao moi xong
+        $parent_id = $parent_profiles->id;
+        //tao record ben bang children_parent
+        $children_parent = new ChildrenParent();
+        $children_parent->id_children = $children_id;
+        $children_parent->id_parent = $parent_id;
+        $children_parent->save();
 
         return redirect()->back()->with('success','Added Children\'s Profile');
     }

@@ -21,10 +21,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'laura',
                 'gender'        =>  1,
                 'email'         =>  'laura@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '0971123123',
                 'extra_phone'         =>  '0971123124',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  2,
@@ -32,22 +33,25 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'see',
                 'gender'        =>  0,
                 'email'         =>  'see@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '0971123125',
-                'extra_phone'         =>  '0971123125',
-                'image'         =>  ''
+                'extra_phone'         =>  '0971123127',
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
+
             ],
             [
                 'id'            =>  3,
-                'first_name'    =>  'tim',
-                'last_name'     =>  'shen',
-                'gender'        =>  1,
-                'email'         =>  'shen@gmail.com',
-                'note'          =>  '',
-                'phone'         =>  '0345678123',
-                'main_phone'         =>  '0345678123',
-                'extra_phone'         =>  '0345778123',
-                'image'         =>  ''
+                'first_name'    =>  'thomas',
+                'last_name'     =>  'see',
+                'gender'        =>  0,
+                'email'         =>  'see@gmail.com',
+                'note'          =>  'hi',
+                'main_phone'         =>  '0971123125',
+                'extra_phone'         =>  '0971123127',
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
+
             ],
             [
                 'id'            =>  4,
@@ -55,11 +59,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'dawn',
                 'gender'        =>  1,
                 'email'         =>  'dawn@gmail.com',
-                'note'          =>  '',
-                'phone'         =>  '0981234234',
+                'note'          =>  'hi',
                 'main_phone'         =>  '0981234234',
                 'extra_phone'         =>  '0981534234',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  5,
@@ -67,11 +71,13 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'chen',
                 'gender'        =>  1,
                 'email'         =>  'chen@gmail.com',
-                'note'          =>  '',
-            
+                'note'          =>  'hi',
+
                 'main_phone'         =>  '0989222888',
                 'extra_phone'         =>  '0989122888',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
+
             ],
             [
                 'id'            =>  6,
@@ -79,10 +85,12 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '0981234567',
                 'extra_phone'         =>  '0981934567',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
+
             ],
             [
                 'id'            =>  7,
@@ -90,10 +98,12 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '0981259567',
                 'extra_phone'         =>  '0981234568',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
+
             ],
             [
                 'id'            =>  8,
@@ -101,10 +111,12 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
+
             ],
             [
                 'id'            =>  9,
@@ -112,10 +124,12 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
+
             ],
             [
                 'id'            =>  10,
@@ -123,10 +137,12 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
+
             ],
             [
                 'id'            =>  11,
@@ -134,10 +150,12 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'laura',
                 'gender'        =>  1,
                 'email'         =>  'laura@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '4815617651',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
+
             ],
             [
                 'id'            =>  12,
@@ -145,10 +163,12 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'see',
                 'gender'        =>  0,
                 'email'         =>  'see@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '645343',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
+
             ],
             [
                 'id'            =>  13,
@@ -156,10 +176,12 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'shen',
                 'gender'        =>  1,
                 'email'         =>  'shen@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '324324325',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
+
             ],
             [
                 'id'            =>  14,
@@ -167,10 +189,12 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'dawn',
                 'gender'        =>  1,
                 'email'         =>  'dawn@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '343535435',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
+
             ],
             [
                 'id'            =>  15,
@@ -178,10 +202,12 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'chen',
                 'gender'        =>  1,
                 'email'         =>  'chen@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '3542353',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
+
             ],
             [
                 'id'            =>  16,
@@ -189,10 +215,12 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
+
             ],
             [
                 'id'            =>  17,
@@ -200,10 +228,12 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
+
             ],
             [
                 'id'            =>  18,
@@ -211,10 +241,12 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
+
             ],
             [
                 'id'            =>  19,
@@ -222,10 +254,12 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
+
             ],
             [
                 'id'            =>  20,
@@ -233,10 +267,12 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
+
             ],
             [
                 'id'            =>  21,
@@ -244,10 +280,12 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'laura',
                 'gender'        =>  1,
                 'email'         =>  'laura@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '4815617651',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
+
             ],
             [
                 'id'            =>  22,
@@ -255,10 +293,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'see',
                 'gender'        =>  0,
                 'email'         =>  'see@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '645343',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  23,
@@ -266,10 +305,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'shen',
                 'gender'        =>  1,
                 'email'         =>  'shen@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '324324325',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  24,
@@ -277,10 +317,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'dawn',
                 'gender'        =>  1,
                 'email'         =>  'dawn@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '343535435',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  25,
@@ -288,10 +329,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'chen',
                 'gender'        =>  1,
                 'email'         =>  'chen@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '3542353',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  26,
@@ -299,10 +341,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  27,
@@ -310,10 +353,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  28,
@@ -321,10 +365,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  29,
@@ -332,10 +377,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  30,
@@ -343,10 +389,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  31,
@@ -354,10 +401,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'laura',
                 'gender'        =>  1,
                 'email'         =>  'laura@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '4815617651',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  32,
@@ -365,10 +413,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'see',
                 'gender'        =>  0,
                 'email'         =>  'see@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '645343',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  33,
@@ -376,10 +425,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'shen',
                 'gender'        =>  1,
                 'email'         =>  'shen@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '324324325',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  34,
@@ -387,10 +437,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'dawn',
                 'gender'        =>  1,
                 'email'         =>  'dawn@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '343535435',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  35,
@@ -398,10 +449,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'chen',
                 'gender'        =>  1,
                 'email'         =>  'chen@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '3542353',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  36,
@@ -409,10 +461,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  37,
@@ -420,10 +473,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  38,
@@ -431,10 +485,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  39,
@@ -442,10 +497,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  40,
@@ -453,10 +509,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  41,
@@ -464,10 +521,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'laura',
                 'gender'        =>  1,
                 'email'         =>  'laura@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '4815617651',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  42,
@@ -475,10 +533,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'see',
                 'gender'        =>  0,
                 'email'         =>  'see@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '645343',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  43,
@@ -486,10 +545,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'shen',
                 'gender'        =>  1,
                 'email'         =>  'shen@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '324324325',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  44,
@@ -497,10 +557,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'dawn',
                 'gender'        =>  1,
                 'email'         =>  'dawn@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '343535435',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  45,
@@ -508,10 +569,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'chen',
                 'gender'        =>  1,
                 'email'         =>  'chen@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '3542353',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  46,
@@ -519,10 +581,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  47,
@@ -530,10 +593,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  48,
@@ -541,10 +605,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  49,
@@ -552,10 +617,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
             [
                 'id'            =>  50,
@@ -563,10 +629,11 @@ class ParentProfilesTableSeeder extends Seeder
                 'last_name'     =>  'example',
                 'gender'        =>  1,
                 'email'         =>  'example@gmail.com',
-                'note'          =>  '',
+                'note'          =>  'hi',
                 'main_phone'         =>  '98867543',
                 'extra_phone'         =>  '4815617651',
-                'image'         =>  ''
+                'image'         =>  '',
+                'password'  =>  bcrypt('123456789')
             ],
         ]);
     }
