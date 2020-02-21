@@ -241,6 +241,14 @@
 							<div class="col-md-10">
 								<div class="add a1 ">
 									<div class="row">
+										<input type="hidden" name="id_parent_exist" id="id_parent_exist" value="{{\App\models\ParentProfiles::where('main_phone','=',old('main_phone_parent'))->first()['id']}}">
+										<input type="hidden" id="first_name_parent_exist" value="{{\App\models\ParentProfiles::where('main_phone','=',old('main_phone_parent'))->first()['first_name']}}">
+										<input type="hidden" id="last_name_parent_exist" value="{{\App\models\ParentProfiles::where('main_phone','=',old('main_phone_parent'))->first()['last_name']}}">
+										<input type="hidden" id="gender_parent_exist" value="{{\App\models\ParentProfiles::where('main_phone','=',old('main_phone_parent'))->first()['gender']}}">
+										<input type="hidden" id="main_phone_parent_exist" value="{{\App\models\ParentProfiles::where('main_phone','=',old('main_phone_parent'))->first()['main_phone']}}">
+										<input type="hidden" id="extra_phone_parent_exist" value="{{\App\models\ParentProfiles::where('main_phone','=',old('main_phone_parent'))->first()['extra_phone']}}">
+										<input type="hidden" id="email_parent_exist" value="{{\App\models\ParentProfiles::where('main_phone','=',old('main_phone_parent'))->first()['email']}}">
+										<input type="hidden" id="note_parent_exist" value="{{\App\models\ParentProfiles::where('main_phone','=',old('main_phone_parent'))->first()['note']}}">
 										<div class="col-md-6 input_box">
 											<span>@lang('kidsnow.children.first_name') *</span>
 											<input id="first_name_parent" type="text" name="first_name_parent" placeholder="@lang('kidsnow.children.first_name') *" value="{{old('first_name_parent')}}">
@@ -263,7 +271,7 @@
 									<div class="row">
 										<div class="col-md-6 input_box">
 											<span>@lang('kidsnow.children.gender') *</span>
-											<select class="parent" name="gender_parent">
+											<select id="gender_parent" class="parent" name="gender_parent">
 												<option>@lang('kidsnow.children.gender')</option>
 												<option value="1" @if(old('gender_parent') == 1) selected="selected" @endif>Nam</option>
 												<option value="2" @if(old('gender_parent') == 2) selected="selected" @endif>Nữ</option>
@@ -280,16 +288,35 @@
 									</div>
 									<div class="input_box" style="width: 100%;">
 										<span>@lang('kidsnow.children.main_phone') *</span>
-										<input class="parent" type="text" name="main_phone_parent" placeholder="@lang('kidsnow.children.main_phone') *" value="{{old('main_phone_parent')}}">
+										<input class="parent" id="main_phone_parent" type="text" name="main_phone_parent" placeholder="@lang('kidsnow.children.main_phone') *" value="{{old('main_phone_parent')}}">
 										@if ($errors->has('main_phone_parent'))
 											<div class="text text-danger">
 												{{ $errors->first('main_phone_parent') }}
 											</div>
 										@endif
+										@if ($errors->unique('main_phone_parent'))
+											<div class="text text-primary" id="parent_exist">
+												We found a parent profile that has the same phone number as yours. Is that you ?
+												<div class="row">
+													<div class="col-md-5">
+														<img style="border-radius: 15px; width: 60px; height: 60px; float: right" src="{{\App\models\ParentProfiles::where('main_phone','=',old('main_phone_parent'))->first()['image']}}" alt="">
+													</div>
+													<div class="col-md-7">
+														<div style="float: left">
+															<p style="float: left">Full Name : {{\App\models\ParentProfiles::where('main_phone','=',old('main_phone_parent'))->first()['first_name']}}</p>
+															<br>
+															<p style="float: left">Email : {{\App\models\ParentProfiles::where('main_phone','=',old('main_phone_parent'))->first()['email']}}</p>
+														</div>
+													</div>
+												</div>
+												<button type="button" class="btn btn-success" id="confirm_parent_yes">Yes</button>
+												<button type="button" class="btn btn-danger" id="confirm_parent_no">No</button>
+											</div>
+										@endif
 									</div>
 									<div class="input_box" style="width: 100%;">
 										<span>@lang('kidsnow.children.extra_phone') *</span>
-										<input class="parent" type="text" name="extra_phone_parent" placeholder="@lang('kidsnow.children.extra_phone') *" value="{{old('extra_phone_parent')}}">
+										<input class="parent" id="extra_phone_parent" type="text" name="extra_phone_parent" placeholder="@lang('kidsnow.children.extra_phone') *" value="{{old('extra_phone_parent')}}">
 										@if ($errors->has('extra_phone_parent'))
 											<div class="text text-danger">
 												{{ $errors->first('extra_phone_parent') }}
@@ -307,7 +334,7 @@
 									</div>
 									<div class="input_box" style="width: 100%;">
 										<span>@lang('kidsnow.children.note') *</span>
-										<input class="parent" type="text" name="note_parent" placeholder="@lang('kidsnow.children.note')" value="{{old('note_parent')}}">
+										<input class="parent" id="note_parent" type="text" name="note_parent" placeholder="@lang('kidsnow.children.note')" value="{{old('note_parent')}}">
 										@if ($errors->has('note_parent'))
 											<div class="text text-danger">
 												{{ $errors->first('note_parent') }}
@@ -331,7 +358,7 @@
 					</button>
 				</div>
 			</div>
-
+			<input type="hidden" id="parent_exist" name="parent_exist" value="">
 		</form>
 	</section>
 
@@ -407,6 +434,29 @@
 			}
 		});
 	</script>
+
+	{{--begin xu ly trung parent profile--}}
+	<script>
+		$('#confirm_parent_no').click(function () {
+			$('#parent_exist').remove()
+			$('#parent_exist').val(0)
+			console.log($('#parent_exist').val())
+		});
+
+		$('#confirm_parent_yes').click(function () {
+			$('#parent_exist').remove()
+			$('#first_name_parent').val($('#first_name_parent_exist').val());
+			$('#last_name_parent').val($('#last_name_parent_exist').val());
+			$('#gender_parent').val( $('#gender_parent_exist').val());
+			$('#main_phone_parent').val($('#main_phone_parent_exist').val());
+			$('#extra_phone_parent').val($('#extra_phone_parent_exist').val());
+			$('#email_parent').val($('#email_parent_exist').val());
+			$('#note_parent').val($('#note_parent_exist').val());
+			$('#parent_exist').val(1)
+			console.log($('#parent_exist').val())
+		});
+	</script>
+	{{--finish xu ly trung parent profile--}}
 
 	{{-- begin xu ly anh--}}
 	<script>

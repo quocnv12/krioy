@@ -22,5 +22,10 @@ class ParentProfiles extends Model
         return $this->belongsToMany('App\models\ParentProfiles','children_parent', 'id_children','id_parent' );
     }
 
+    public function getFullName()
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
+
     public $timestamps = false;
 }

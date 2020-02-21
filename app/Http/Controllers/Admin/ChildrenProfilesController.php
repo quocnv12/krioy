@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 class ChildrenProfilesController extends Controller
 {
@@ -26,54 +27,102 @@ class ChildrenProfilesController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request,
-            [
-                'first_name'        => 'required',
-                'last_name'         => 'required',
-                'birthday'          => 'required|before:today|after:01-01-2000',
-                'gender'            => 'required',
-                'date_of_joining'   => 'required',
-                'unique_id'         => 'required|unique:children_profiles,unique_id',
-                'address'           => 'nullable',
-                'allergies'         => 'nullable',
-                'additional_note'   => 'nullable',
-                'image'             => 'image|nullable',
-                'status'            => 'nullable',
-                'exist'             => 'nullable',
+        if ($request->parent_exist == '0' || $request->parent_exist == null) {
+            $this->validate($request,
+                [
+                    'first_name' => 'required',
+                    'last_name' => 'required',
+                    'birthday' => 'required|before:today|after:01-01-2000',
+                    'gender' => 'required',
+                    'date_of_joining' => 'required',
+                    'unique_id' => 'required|unique:children_profiles,unique_id',
+                    'address' => 'nullable',
+                    'allergies' => 'nullable',
+                    'additional_note' => 'nullable',
+                    'image' => 'image|nullable',
+                    'status' => 'nullable',
+                    'exist' => 'nullable',
 
-                'first_name_parent'   => 'required',
-                'last_name_parent'    => 'required',
-                'main_phone_parent'   => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:parent_profiles,main_phone',
-                'extra_phone_parent'  => 'nullable|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:parent_profiles,extra_phone|different:main_phone_parent',
-                'email_parent'        => 'required|email|unique:parent_profiles,email',
-                'gender_parent'       => 'nullable',
-                'note_parent'         => 'nullable',
-                'image_parent'        => 'image|nullable',
+                    'first_name_parent' => 'required',
+                    'last_name_parent' => 'required',
+                    'main_phone_parent' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:parent_profiles,main_phone',
+                    'extra_phone_parent' => 'nullable|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:parent_profiles,extra_phone|different:main_phone_parent',
+                    'email_parent' => 'required|email|unique:parent_profiles,email',
+                    'gender_parent' => 'nullable',
+                    'note_parent' => 'nullable',
+                    'image_parent' => 'image|nullable',
+                ],
+                [
+                    'first_name.required' => 'First Name is required',
+                    'last_name.required' => 'Last Name is required',
+                    'gender.required' => 'Gender is required',
+                    'image.image' => 'Image is invalid',
+                    'birthday.required' => 'Birthday is required',
+                    'date_of_joining.required' => 'Date of Joining is required',
+                    'first_name_parent.required' => 'First Name is required',
+                    'last_name_parent.required' => 'Last Name is required',
+                    'main_phone_parent.required' => 'Phone Number is required',
+                    'main_phone_parent.unique' => 'Phone Number has been taken',
+                    'extra_phone_parent.unique' => 'Phone Number has been taken',
+                    'main_phone_parent.size' => 'Phone Number must have 10 digits',
+                    'extra_phone_parent.size' => 'Phone Number must have 10 digits',
+                    'main_phone_parent.regex' => 'Main Phone Number is invalid',
+                    'extra_phone_parent.regex' => 'Extra Phone Number is invalid',
+                    'extra_phone_parent.different' => 'This phone must different from Main phone',
+                    'email_parent.required' => 'Email is required',
+                    'email_parent.email' => 'Email is invalid',
+                    'email_parent.unique' => 'This email has already been taken',
+                    'unique_id.unique' => 'ID is exist',
+                    'unique_id.required' => 'Unique ID is required',
+                    'image_parent.image' => 'Image is invalid',
+                ]);
+        } else {
+            $this->validate($request, [
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'birthday' => 'required|before:today|after:01-01-2000',
+                'gender' => 'required',
+                'date_of_joining' => 'required',
+                'unique_id' => 'required|unique:children_profiles,unique_id',
+                'address' => 'nullable',
+                'allergies' => 'nullable',
+                'additional_note' => 'nullable',
+                'image' => 'image|nullable',
+                'status' => 'nullable',
+                'exist' => 'nullable',
+
+                'first_name_parent' => 'required',
+                'last_name_parent' => 'required',
+                'main_phone_parent' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10',
+                'extra_phone_parent' => 'nullable|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10',
+                'email_parent' => 'required|email',
+                'gender_parent' => 'nullable',
+                'note_parent' => 'nullable',
+                'image_parent' => 'image|nullable',
             ],
-            [
-                'first_name.required'           => 'First Name is required',
-                'last_name.required'            => 'Last Name is required',
-                'gender.required'               => 'Gender is required',
-                'image.image'                   => 'Image is invalid',
-                'birthday.required'             => 'Birthday is required',
-                'date_of_joining.required'      => 'Date of Joining is required',
-                'first_name_parent.required'    =>  'First Name is required',
-                'last_name_parent.required'     =>  'Last Name is required',
-                'main_phone_parent.required'        => 'Phone Number is required',
-                'main_phone_parent.unique'        => 'Phone Number has been taken',
-                'extra_phone_parent.unique'        => 'Phone Number has been taken',
-                'main_phone_parent.size'        => 'Phone Number must have 10 digits',
-                'extra_phone_parent.size'        => 'Phone Number must have 10 digits',
-                'main_phone_parent.regex'        => 'Main Phone Number is invalid',
-                'extra_phone_parent.regex'        => 'Extra Phone Number is invalid',
-                'extra_phone_parent.different'        => 'This phone must different from Main phone',
-                'email_parent.required'          => 'Email is required',
-                'email_parent.email'          => 'Email is invalid',
-                'email_parent.unique'         => 'This email has already been taken',
-                'unique_id.unique'              => 'ID is exist',
-                'unique_id.required'            => 'Unique ID is required',
-                'image_parent.image'          => 'Image is invalid',
-            ]);
+                [
+                    'first_name.required' => 'First Name is required',
+                    'last_name.required' => 'Last Name is required',
+                    'gender.required' => 'Gender is required',
+                    'image.image' => 'Image is invalid',
+                    'birthday.required' => 'Birthday is required',
+                    'date_of_joining.required' => 'Date of Joining is required',
+                    'first_name_parent.required' => 'First Name is required',
+                    'last_name_parent.required' => 'Last Name is required',
+                    'main_phone_parent.required' => 'Phone Number is required',
+                    'main_phone_parent.size' => 'Phone Number must have 10 digits',
+                    'extra_phone_parent.size' => 'Phone Number must have 10 digits',
+                    'main_phone_parent.regex' => 'Main Phone Number is invalid',
+                    'extra_phone_parent.regex' => 'Extra Phone Number is invalid',
+                    'extra_phone_parent.different' => 'This phone must different from Main phone',
+                    'email_parent.required' => 'Email is required',
+                    'email_parent.email' => 'Email is invalid',
+                    'unique_id.unique' => 'ID is exist',
+                    'unique_id.required' => 'Unique ID is required',
+                    'image_parent.image' => 'Image is invalid',
+                ]);
+        }
+
         $children_profiles = ChildrenProfiles::create($request->all());
         //xu ly avatar
         if ($request->hasFile('image')) {
@@ -100,33 +149,66 @@ class ChildrenProfilesController extends Controller
             $children_program->save();
         }
 
+        //neu khong trung parent
+        if ($request->parent_exist == '0' || $request->parent_exist == null) {
+            $parent_profiles = new ParentProfiles();
+            $parent_profiles->first_name = $request->first_name_parent;
+            $parent_profiles->last_name = $request->last_name_parent;
+            $parent_profiles->main_phone = $request->main_phone_parent;
+            $parent_profiles->extra_phone = $request->extra_phone_parent;
+            $parent_profiles->email = $request->email_parent;
+            $parent_profiles->note = $request->note_parent;
+            $parent_profiles->gender = $request->gender_parent;
+            $parent_profiles->save();
 
-        $parent = new ParentProfiles();
-        $parent->first_name = $request->first_name_parent;
-        $parent->last_name = $request->last_name_parent;
-        $parent->main_phone = $request->main_phone_parent;
-        $parent->extra_phone = $request->extra_phone_parent;
-        $parent->email = $request->email_parent;
-        $parent->note = $request->note_parent;
-        $parent->gender = $request->gender_parent;
-        $parent->save();
+            if ($request->hasFile('image_parent')) {
+                $file = $request->image_parent;
+                $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path('images/parent/'), $filename);
+                $parent_profiles->image = 'images/parent/' . $filename;
+                $parent_profiles->save();
+            }
 
-        if ($request->hasFile('image_parent')) {
-            $file = $request->image_parent;
-            $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('images/parent/'), $filename);
-            $parent->image = 'images/parent/' . $filename;
-            $parent->save();
+            //id parent vua tao moi xong
+            $parent_id = $parent_profiles->id;
+            //tao record ben bang children_parent
+            $children_parent = new ChildrenParent();
+            $children_parent->id_children = $children_id;
+            $children_parent->id_parent = $parent_id;
+            $children_parent->save();
         }
+        else{           //neu trung phu huynh
+            $parent_profiles = ParentProfiles::find($request->id_parent_exist);
+            $parent_profiles->first_name = $request->first_name_parent;
+            $parent_profiles->last_name = $request->last_name_parent;
+            $parent_profiles->main_phone = $request->main_phone_parent;
+            $parent_profiles->extra_phone = $request->extra_phone_parent;
+            $parent_profiles->email = $request->email_parent;
+            $parent_profiles->note = $request->note_parent;
+            $parent_profiles->gender = $request->gender_parent;
 
-        //id parent vua tao moi xong
-        $parent_id = $parent->id;
-        //tao record ben bang children_parent
-        $children_parent = new ChildrenParent();
-        $children_parent->id_children = $children_id;
-        $children_parent->id_parent = $parent_id;
-        $children_parent->save();
+            if ($request->hasFile('image_parent')) {
+                // xoa anh cu
+                if ($parent_profiles->image) {
+                    $old_image = $parent_profiles->image;
+                    unlink($old_image);
+                }
+                $file = $request->image_parent;
+                $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
+                $file->move(public_path('images/parent/'), $filename);
+                $parent_profiles->image = 'images/parent/' . $filename;
+                $parent_profiles->save();
+            }
+            $parent_profiles->save();
 
+            //id parent vua tao moi xong
+            $parent_id = $parent_profiles->id;
+            //tao record ben bang children_parent
+            $children_parent = new ChildrenParent();
+            $children_parent->id_children = $children_id;
+            $children_parent->id_parent = $parent_id;
+            $children_parent->save();
+        }
 
         return redirect()->back()->with('success','Added Children\'s Profile');
     }
