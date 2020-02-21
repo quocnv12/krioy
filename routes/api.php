@@ -25,7 +25,6 @@ Route::post('login', 'Api\LoginController@login');
 
 //-------------------Quên mật khẩu-----------------
 Route::post('forgot', 'Api\ForgotPassWordController@PostFormResetPassword');
-Route::post('password/reset', 'Api\ForgotPassWordController@PostResetPassword');
 
 //-----------------Tài khoản demo-------------------
 Route::post('account','Api\ForgotPassWordController@postDemoAccount');
@@ -223,8 +222,13 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
 
 
 //---------------------------------api parent----------------------
-Route::post('parent/login', 'Api\Parent\LoginController@loginParent')->middleware('assign.guard:admin');
 
+//---quên mật khẩu
+Route::post('parent/forgot', 'Api\Parent\ForgotPassWordController@PostFormResetPassword');
+
+//--login--
+Route::post('parent/login', 'Api\Parent\LoginController@loginParent')->middleware('assign.guard:admin');
+//--group parent
 Route::group(['prefix' => 'parent','middleware' => 'jwt.admin'], function () {
     
     Route::post('logout', 'Api\Parent\LoginController@logout');
@@ -241,6 +245,8 @@ Route::group(['prefix' => 'parent','middleware' => 'jwt.admin'], function () {
     //-------------đổi mật khâu------
     Route::post('update-password', 'Api\Parent\ForgotPasswordController@postUpdatePassword');
 
+    //----thực đơn-----
+    Route::get('food','Api\Parent\FoodController@index');  
 
 
 

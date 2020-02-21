@@ -54,7 +54,7 @@
 		                          <tbody><tr>
 		                            <td style="padding:25px 25px 25px">
 		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:22px;font-weight:700;margin:0 0 40px 0">@lang('kidsnow.Welcome_email_staff') <b>{{ $name }}</b> !</p>
-		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:22px">@lang('kidsnow.title_welcome_email_staff')</p>
+		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:22px">@lang('kidsnow.welcome_demo_account') !</p>
 
 		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:18px">Click <a href="{{ $route }}"> @lang('kidsnow.here_email_reset_password') </a>@lang('kidsnow.verify_account_demo') !</p>
 		                              

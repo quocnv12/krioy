@@ -20,7 +20,7 @@
 				<div class="row">
 					<div class="col-md-6">
 						<ul class="ul-td">
-							<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="index.html">HOME</a></li>
+							<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">HOME</a></li>
 							<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="{{route('attendance.index')}}">ATTENDANCE</a></li>
 						</ul>
 					</div>
