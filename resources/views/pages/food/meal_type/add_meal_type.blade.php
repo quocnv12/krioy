@@ -9,10 +9,10 @@ Add meal type
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
             <div class="row">
                 <ul class="ul-td" style="width:100%">
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
-                    <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="kids-now/food">Food</a></li>
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now/food/menu-meal-type">Meal Type</a></li>
-                    <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="kids-now/food/menu-meal-type">Add</a></li>
+                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">@lang('kidsnow.home')</a></li>
+                    <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="kids-now/food">@lang('kidsnow.food')</a></li>
+                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now/food/menu-meal-type">@lang('kidsnow.meal_type')</a></li>
+                    <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="kids-now/food/menu-meal-type">@lang('kidsnow.add')</a></li>
 
                 </ul>
             </div>
@@ -29,16 +29,16 @@ Add meal type
                             laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                     <div>
-                        <p>Add Meal Type*</p>
+                        <p>@lang('kidsnow.add') @lang('kidsnow.meal_type') *</p>
                         <form  style="width:auto;" method="post">
                         @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control" style="text-transform:capitalize" name="name"  placeholder="Enter Meal Type" value="{{ old('name') }}">
+                            <input type="text" class="form-control" style="text-transform:capitalize" name="name"  placeholder="@lang('kidsnow.meal_type')" value="{{ old('name') }}">
                             @if($errors->has('name'))
                             <p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">* {{ $errors->first('name') }}</p>
                           @endif
                         </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">@lang('kidsnow.save')</button>
                     </form>
                     </div>
                 </div>

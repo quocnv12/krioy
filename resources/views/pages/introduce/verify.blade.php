@@ -7,7 +7,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Welcome to Kids-now</title>
+		<title>@lang('kidsnow.title_email')</title>
 		{{-- <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
    		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
@@ -53,10 +53,10 @@
 		                        <table style="width:100%">
 		                          <tbody><tr>
 		                            <td style="padding:25px 25px 25px">
-		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:22px;font-weight:700;margin:0 0 40px 0">Welcome <b>{{ $name }}</b> !</p>
-		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:22px">Thank you for registering to use our software. </p>
+		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:22px;font-weight:700;margin:0 0 40px 0">@lang('kidsnow.Welcome_email_staff') <b>{{ $name }}</b> !</p>
+		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:22px">@lang('kidsnow.title_welcome_email_staff')</p>
 
-		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:18px">Click <a href="{{ $route }}"> here </a>to verify your account !</p>
+		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:18px">Click <a href="{{ $route }}"> @lang('kidsnow.here_email_reset_password') </a>@lang('kidsnow.verify_account_demo') !</p>
 		                              
                                       
 		                              {{-- <p style="text-align:justify;color:#010101;font-size:16px;line-height:22px">QUY TRÌNH TRIỂN KHAI GIẢI PHÁP KHUTRO: </p>

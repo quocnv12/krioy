@@ -74,7 +74,7 @@ class LoginController extends Controller
      */
     public function logout()
     {
-        auth()->logout();
+        auth('admin')->logout();
 
         return response()->json(['message' => 'Successfully logged out']);
     }
@@ -86,9 +86,11 @@ class LoginController extends Controller
      */
     public function refresh()
     {
-        $token = $auth->parseToken()->refresh();
-         return $this->response->success($token);
-        // return $this->respondWithToken(auth()->refresh());
+         $token = auth::guard('admin')->refresh();
+         return response()->json(
+             ['token' => $token]
+            );
+        // return $this->respondWithToken(auth('admin')->refresh());
     }
 
     /**

@@ -25,9 +25,9 @@
 			<div class="row">
 				<div class="col-md-12">
 				<ul style="width: 100%;" class="ul-td">
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
-                    <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="kids-now/food">Food</a></li>
-                    <li _ngcontent-c16="" class="level1" style="pointer-events:none"><a _ngcontent-c16="" href="kids-now/food/list">List</a></li>
+                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">@lang('kidsnow.home')</a></li>
+                    <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="kids-now/food">@lang('kidsnow.food')</a></li>
+                    <li _ngcontent-c16="" class="level1" style="pointer-events:none"><a _ngcontent-c16="" href="kids-now/food/list">@lang('kidsnow.list')</a></li>
 				</ul>
 			</div>
 		</div>
@@ -59,7 +59,7 @@
 				<div class="span12">
 				  <div class="grid simple ">
 					<div class="grid-title">
-					  <h4>List <span class="semi-bold">Food</span></h4>
+					  <h4>@lang('kidsnow.list') <span class="semi-bold">@lang('kidsnow.food')</span></h4>
 					  <div class="tools">
 					  </div>
 					</div>
@@ -68,11 +68,11 @@
 						<thead>
 						  <tr>
 							{{-- <th style="text-align:left;">ID</th> --}}
-							<th style="text-align:left;width:18%">Meal Type</th>
-							<th style="text-align:left;width:20%">Food Name</th>
-							<th style="text-align:left;width:18%">Quantity</th>
-							<th style="text-align:left;width:18%">Program</th>
-							<th style="text-align:center;width:12%">Thao Tác</th>
+							<th style="text-align:left;width:18%">@lang('kidsnow.meal_type')</th>
+							<th style="text-align:left;width:20%">@lang('kidsnow.food_name')</th>
+							<th style="text-align:left;width:18%">@lang('kidsnow.quantity')</th>
+							<th style="text-align:left;width:18%">@lang('kidsnow.program_food')</th>
+							<th style="text-align:center;width:12%">@lang('kidsnow.action')</th>
 						  </tr>
 						</thead>
 						<tbody>
@@ -94,8 +94,8 @@
 								<td style="text-transform:capitalize">{{ $item->quantityfood->name }}</td>
 								<td style="text-transform:capitalize">{{ $item->programfood->program_name }}</td>
 								<td style="text-align:center">
-									<a href="kids-now/food/edit/{{ $item->id }}" title="Edit Food" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
-									<a onclick="return confirm('Delete food ? Do you want continue !')" title="Delete Food" href="kids-now/food/delete/{{ $item->id }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+									<a href="kids-now/food/edit/{{ $item->id }}" title="@lang('kidsnow.title_food_edit')" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+									<a onclick="return confirm('Delete food ? Do you want continue !')" title="@lang('kidsnow.title_food_delete')" href="kids-now/food/delete/{{ $item->id }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
 								</td>
 							</tr>
 						  @endforeach

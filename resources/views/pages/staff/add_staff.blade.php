@@ -20,7 +20,7 @@ Staff Frofiles
             @csrf
             <div class="mat-card">
                 <div class="mat-content">
-                    <button class="accordion add-staff">@lang('kidsnow.edit_staff')F *</button>
+                    <button type="button" class="accordion add-staff">@lang('kidsnow.add_staff')</button>
                     <div class="row">
                         <div class="col-md-2 textera-img">
                             @if($errors->has('image'))
@@ -69,7 +69,7 @@ Staff Frofiles
                                         <span>@lang('kidsnow.gender') *</span>
                                       
                                         <select style="color: #614545;" name="gender">
-                                            <option disabled  selected hidden>@lang('kidsnow.gender')</option>
+                                            <option disabled  selected hidden>@lang('kidsnow.gender') *</option>
                                             <option value="1">@lang('kidsnow.male')</option>
                                             <option value="0">@lang('kidsnow.female')</option>
                                         </select>
@@ -174,7 +174,7 @@ Staff Frofiles
             <div class="mat-card">
                 <div class="mat-content">
                     <button type="button" type="button" class="accordion accordion1 clearfix">
-                        <p style="float: left;">@lang('kidsnow.permissions') *</p>
+                        <p style="float: left;">@lang('kidsnow.permissions')</p>
                         {{-- <a href="select_child.blade.php" style="float: right;text-align: right">
                         <p
                             style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">

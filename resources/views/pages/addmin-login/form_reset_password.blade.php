@@ -33,7 +33,7 @@
 					@csrf
 				<div class="login" align="center">
 					<div class="login-label">
-						<p>Forgot PassWord</p>
+						<p>@lang('kidsnow.forgot_password_login')</p>
 					</div>
 					<div class="login-input">
 					@if (session('thongbao'))
@@ -45,14 +45,14 @@
 						<div class="add">
 							<div class="input_box" style="width: 100%;">
 						        <span>Email *</span>
-								<input type="text" name="emailreset" value="{{ old('emailreset') }}" placeholder="Please enter email ">
+								<input type="text" name="emailreset" value="{{ old('emailreset') }}" placeholder="Email ">
 							
 						    </div>
 						</div>
 					</div>
 					<div class="login-button">
-                        <button style="display:inline-block;" type="submit">OK</button>
-                        <a href="login" style="display: inline-block;"><button type="button">Cancel</button></a>
+                        <button style="display:inline-block;" type="submit">@lang('kidsnow.save')</button>
+                        <a href="login" style="display: inline-block;"><button type="button">@lang('kidsnow.cancel')</button></a>
 					</div>
 				</div>
 			  </form>

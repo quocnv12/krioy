@@ -25,9 +25,9 @@ List quantity food
             <div class="row">
                 <ul class="ul-td" style="width:100%">
                 <div class="col-md-12">
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
-                    <li _ngcontent-c16="" class="active-1"><a _ngcontent-c16="" href="kids-now/food">Food</a></li>
-                    <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="kids-now/food/menu-quantity">Quantity Food</a></li>
+                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">@lang('kidsnow.home')</a></li>
+                    <li _ngcontent-c16="" class="active-1"><a _ngcontent-c16="" href="kids-now/food">@lang('kidsnow.food')</a></li>
+                    <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="kids-now/food/menu-quantity">@lang('kidsnow.quantity')</a></li>
                 </div>
                 </ul>
             </div>
@@ -40,7 +40,7 @@ List quantity food
                     <div class="grid-title">
                         <div class="row">
                             <div class="col-md-6">
-                                <h4>Quantity <span class="semi-bold">Food</span></h4>
+                                <h4>@lang('kidsnow.quantity')</span></h4>
                             </div>
                             {{-- <div style="text-align:right;padding-right:22px" class="col-md-6">
                                 <a style="margin:0px;" href="{{ route('menu-quantity-add') }}" class="btn btn-success btn-cons"" title="Add Quantyti Food"><i style="" class="fa fa-plus-circle"></i> Add</a>
@@ -53,8 +53,8 @@ List quantity food
                         <thead>
                           <tr>
                             <th style="width:10%"></th>
-                            <th style="text-align:left">Quantity</th>
-                            <th style="width:25%;text-align:center">Thao Tác</th>
+                            <th style="text-align:left">@lang('kidsnow.quantity')</th>
+                            <th style="width:25%;text-align:center">@lang('kidsnow.action')</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -63,8 +63,8 @@ List quantity food
                               <td style="text-align:center"></td>
                               <td style="text-transform:capitalize">{{ $item->name}}</td>
                               <td style="text-align:center">
-                                <a href="{{ route('menu-quantity-edit',['id_qty'=>$item->id]) }}" title="Edit Quantity Food" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
-                                <a onclick="return confirm('Delete meal type ? Do you want continue !')"" title="Delete Quantity Food" href="{{ route('menu-quantity-del',['id_qty'=>$item->id]) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                <a href="{{ route('menu-quantity-edit',['id_qty'=>$item->id]) }}" title="@lang('kidsnow.title_quantity_edit')" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                <a onclick="return confirm('Delete meal type ? Do you want continue !')"" title="@lang('kidsnow.title_quantity_delete')" href="{{ route('menu-quantity-del',['id_qty'=>$item->id]) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
                               </td>
                             </tr>
                           @endforeach

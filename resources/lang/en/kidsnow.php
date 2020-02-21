@@ -382,16 +382,38 @@ return [
             'program' => 'PROGRAM',//@lang('kidsnow.program')
             'date_of_joining' => 'DATE OF JOINING',//@lang('kidsnow.date_of_joining')
             'image' => 'IMAGE',//@lang('kidsnow.image')
-            'add' => 'ADD',//@lang('kidsnow.add')
-            'edit_staff' => 'EDIT STAFF',//@lang('kidsnow.edit_staff')
-            'add_staff' => 'ADD STAFF',//@lang('kidsnow.edit_staff')
+            'add' => 'Add',//@lang('kidsnow.add')
+            'edit' => 'Edit',
+            'staff' => 'staff',
+            'list' => 'List',
+            'edit_staff' => 'Edit Staff',//@lang('kidsnow.edit_staff')
+            'action' => 'Action',
+            'title_email' =>'Welcome to Kids-now',
+            'Welcome_email_staff' => 'Welcome',
+            'title_welcome_email_staff' =>'Thank you for registering to use our software. Registered information is as follows :',
+            'full_name_email_staff' =>'Full Name', 
+            'phone_email_staff' =>'Phone',
+            'address_email_staff'=>'Address',
+            'password_email_staff' =>'Password',
             // END Staff List
+
+            //Staff add
+            'add_staff' => 'Add Staff',//@lang('kidsnow.edit_staff')
+            'male' => 'Male',
+            'female' => 'Female',
+            'permissions' =>'Permission',
+            'title_edit_staff'=>'Edit Staff',
+            'title_delete_staff'=>'Delete Staff',
+            
+
+            //end staff add
+
                 // Edit Staff Edit: http://kidsnow.web88.vn/kids-now/staff/edit/7
-                'first_name' => 'First name *',//@lang('kidsnow.first_name')
-                'last_name' => 'Last Name *',//@lang('kidsnow.last_name')
-                'phone_number' => 'Phone Number *',//@lang('kidsnow.phone_number')
+                'first_name' => 'First name',//@lang('kidsnow.first_name')
+                'last_name' => 'Last Name',//@lang('kidsnow.last_name')
+                'phone_number' => 'Phone Number',//@lang('kidsnow.phone_number')
                 'gender' => 'Gender',//@lang('kidsnow.gender')
-                'email_address' => 'Email Address *',//@lang('kidsnow.email_address')
+                'email_address' => 'Email Address',//@lang('kidsnow.email_address')
                 'email_already_exist' => '* Email already exist !',//@lang('kidsnow.email_already_exist')
                 'please_choose_image' => '* Please choose image !',//@lang('kidsnow.please_choose_image')
                 'residential_address' => 'Residential Address',//@lang('kidsnow.residential_address')
@@ -458,5 +480,44 @@ return [
     'forgot_index' => [
         'message_success' => 'Change password successfully !'
     ],
-    
+   
+    //---------------------food--------------------------------
+    'food' => 'Food',
+    'meal_type' => 'Meal Type',
+    'quantity' => 'Quantity',
+    'food_name' => 'Food Name',
+    'food_list' => 'Food',
+    'program_food' => 'Programs',
+    'select_meal_type' => 'Select Meal Type',
+    'select_quantity' => 'Select Quantity',
+    'select_food_name' => 'Meal Item Name',
+    'title_food_edit' => 'Edit Food',
+    'title_food_delete' => 'Delete Food',
+    'title_food_name_edit' => 'Edit food name',
+    'title_food_name_delete' => 'Delete food name',
+    'title_meal_type_edit' => 'Edit meal type',
+    'title_meal_type_delete' => 'Delete meal type',
+    'title_quantity_edit' => 'Edit quantity',
+    'title_quantity_delete' => 'Delete quantity',
+
+
+    //----------------------login----------------
+    'title_login' =>'Kids Now App Login',
+    'phone_login' =>'Number Phone',
+    'password_login' =>'Password',
+    'remember_login' =>'Remember me',
+    'forgot_password_login' =>'Forgot password',
+    'button_login' =>'Login',
+
+    //--------------forgot password--------
+    'reset_password_email' => 'to retrieve the password',
+    'here_email_reset_password' =>'here',
+    'confirm_password_reset'=>'Confirm Password',
+
+      //--------------Account Demo----------
+      'kidsnow_account_demon' =>'Kids Now Account Demo', 
+      'register_account_demo' =>'Register',
+      'first_name_account_demo' => 'Name',
+      'verify_account_demo' =>'to verify your account',
+      'foods' =>'Food',
 ];
