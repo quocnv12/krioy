@@ -520,4 +520,12 @@ return [
       'first_name_account_demo' => 'Name',
       'verify_account_demo' =>'to verify your account',
       'foods' =>'Food',
+
+ //------changer password-----------
+   'changer_password' => 'Changer Password',
+   'changer_password_old' => 'Password Old',
+   'changer_password_new' => 'Password New',
+   'confirm_changer_password' => 'Comfirm Password',
+   'reset_password' => 'Reset Password',
+
 ];

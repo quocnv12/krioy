@@ -233,6 +233,10 @@ Route::group(['prefix' => 'parent','middleware' => 'jwt.admin'], function () {
     // Route::get('food', 'Api\Parent\FoodController@getme');
 
 
+    //-------------đổi mật khâu------
+    Route::post('update-password', 'Api\Parent\ForgotPasswordController@postUpdatePassword');
+
+
 
     
 });

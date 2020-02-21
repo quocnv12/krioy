@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-List quantity food
+@lang('kidsnow.quantity')
 @endsection
 @section('content')
 

@@ -44,7 +44,6 @@ class ParentProfilesTableSeeder extends Seeder
                 'gender'        =>  1,
                 'email'         =>  'shen@gmail.com',
                 'note'          =>  '',
-                'phone'         =>  '0345678123',
                 'main_phone'         =>  '0345678123',
                 'extra_phone'         =>  '0345778123',
                 'image'         =>  ''
@@ -56,7 +55,7 @@ class ParentProfilesTableSeeder extends Seeder
                 'gender'        =>  1,
                 'email'         =>  'dawn@gmail.com',
                 'note'          =>  '',
-                'phone'         =>  '0981234234',
+                
                 'main_phone'         =>  '0981234234',
                 'extra_phone'         =>  '0981534234',
                 'image'         =>  ''

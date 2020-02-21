@@ -1,7 +1,7 @@
 
 	@extends('master-layout')
 @section('title')
-	Reset Password
+	@lang('kidsnow.reset_password')
 @endsection
 @section('css')
 

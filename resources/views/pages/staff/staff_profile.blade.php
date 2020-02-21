@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-	List Staff
+@lang('kidsnow.staff')
 @endsection
 @section('css')
 

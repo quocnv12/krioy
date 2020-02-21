@@ -506,5 +506,12 @@ return [
    'verify_account_demo' => 'để kích hoạt tài khoản',
    'foods' => 'Thực Đơn',   
 
+   //------changer password-----------
+   'changer_password' => 'Thay Đổi Mật Khẩu',
+   'changer_password_old' => 'Mật Khẩu Cũ',
+   'changer_password_new' => 'Mật Khẩu Mới',
+   'confirm_changer_password' => 'Nhập Lại Mật Khẩu',
+   'reset_password' => 'Quên mật khẩu',
+
     
 ];
