@@ -40,5 +40,6 @@ class DatabaseSeeder extends Seeder
         $this->call(Permission::class);
         $this->call(PermissionRole::class);
         $this->call(ChildrenStatusTable::class);
+        $this->call(ParentModule::class);
     }
 }
