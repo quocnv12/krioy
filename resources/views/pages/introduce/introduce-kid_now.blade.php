@@ -25,6 +25,11 @@
 			html{
 				scroll-behavior: smooth;
 			}
+			@media only screen and (max-width: 767px) {
+				.a-desktop{
+					display: none;
+				}
+			}
 		</style>
 	</head>
 <body>
@@ -33,11 +38,9 @@
 			<nav class="navbar" style="z-index: 1">
 				<div class="container-fluid">
 				    <div class="navbar-header">
-				    	<a class="navbar-brand" href="#" style="display: flex;">
+				    	<a class="navbar-brand " href="#" style="display: flex;">
 				    		<img src="images/logo-ngang.png" style="border-radius: 0;width: auto;margin: -7px 0;" alt="">
-							<ul style="list-style: none">
-								<li >
-									<div class="dropdown-logo1">
+									<div class="dropdown-logo1 a-desktop">
 										@if(app()->getLocale() == 'vi')
 											<button class="dropbtn-logo1">
 												<button class="dropbtn-logo1"><img src="images/viet.png" style="width: 50px;height: 30px; border-radius: 0px"></button>
@@ -52,11 +55,25 @@
 											<a href="locale/en"><img src="images/usa.png"> @lang('kidsnow.english')</a>
 										</div>
 									</div>
-								</li>
-							</ul>
 				    	</a>
 				    	<div class="topnav" id="myTopnav">
-
+							<a href="" style="pointer-events: none">
+								<div class="dropdown-logo1">
+									@if(app()->getLocale() == 'vi')
+										<button class="dropbtn-logo1">
+											<button class="dropbtn-logo1"><img src="images/viet.png" style="width: 50px;height: 30px; border-radius: 0px"></button>
+										</button>
+									@else
+										<button class="dropbtn-logo1">
+											<button class="dropbtn-logo1"><img src="images/usa.png" style="width: 50px;height: 30px; border-radius: 0px"></button>
+										</button>
+									@endif
+									<div class="dropdown-content-logo1">
+										<a href="locale/vi"><img src="images/viet.png"> @lang('kidsnow.vietnamese')</a>
+										<a href="locale/en"><img src="images/usa.png"> @lang('kidsnow.english')</a>
+									</div>
+								</div>
+							</a>
 						    <a href="#section1">{{__('kidsnow.home')}}</a>
 						    <a href="#section2"> @lang('kidsnow.kids_now_app')</a>
 						    <a href="#section3">@lang('kidsnow.pricing')</a>
