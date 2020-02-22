@@ -327,7 +327,7 @@
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="kids-now/role">
-                        <img src="images/staff.png" alt="@lang('kidsnow.permission')">
+                        <img src="images/Staff.png" alt="@lang('kidsnow.permission')">
                         <div class="title">
                             <p>@lang('kidsnow.permission')</p>
                         </div>
