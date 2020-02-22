@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Auth;
 use Hash;
 use Validator;
-use App\models\ParentProfiles;
+use App\models\{ParentProfiles,ParentModule};
 use Mail;
 use Carbon\Carbon;
 
@@ -157,6 +157,15 @@ class ForgotPasswordController extends Controller
     }
 
 
+    public function getModule()
+    {
+        $module = ParentModule::all();
+        return response()->json([
+            'module' => $module
+        ],200);
+    }
+
+    
 
 
 }

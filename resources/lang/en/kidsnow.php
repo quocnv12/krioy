@@ -530,6 +530,16 @@ return [
    'changer_password_new' => 'Password New',
    'confirm_changer_password' => 'Comfirm Password',
    'reset_password' => 'Reset Password',
-   'forgrt_password_send_mail' =>'Thank you for using Kids-now software !'
+   'forgrt_password_send_mail' =>'Thank you for using Kids-now software !',
+
+
+    //-------------attendance-------------
+    'attendance' => 'Attendance',
+    'attendance_list'  => 'List Attendance',
+    'attendance_choose' => 'Choose' ,
+    'attendance_children_name' =>'childrent\'s name',
+    'attendance_children_in' =>'In',
+    'attendance_children_out' =>'Out',
+    'attendance_children_absent' =>'Absent',
 
 ];

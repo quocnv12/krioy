@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-	Attendance
+	@lang('kidsnow.attendance')
 @endsection
 
 <style type="text/css">
@@ -20,8 +20,8 @@
 				<div class="row">
 					<div class="col-md-6">
 						<ul class="ul-td">
-							<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">HOME</a></li>
-							<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="{{route('attendance.index')}}">ATTENDANCE</a></li>
+							<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">@lang('kidsnow.home')</a></li>
+							<li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="{{route('attendance.index')}}">@lang('kidsnow.attendance')</a></li>
 						</ul>
 					</div>
 					<div class="col-md-6">
@@ -30,7 +30,7 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-12 col-md-12 col-sm-12">
-						<a style="min-width:110px;background:#eb87c1;color:white; float: right; border: none;font-weight: bold" href="{{route('attendance.list')}}" class="btn btn-success" >CHILDREN LIST</a>
+						<a style="min-width:110px;background:#eb87c1;color:white; float: right; border: none;font-weight: bold" href="{{route('attendance.list')}}" class="btn btn-success" >@lang('kidsnow.attendance_list')</a>
 					</div>
 				</div>
 			</div>

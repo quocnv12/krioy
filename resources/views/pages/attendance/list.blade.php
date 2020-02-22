@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-    Attendance
+@lang('kidsnow.attendance')
 @endsection
 @section('content')
 
@@ -24,8 +24,8 @@
     <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
         <div class="row">
             <ul class="ul-td" style="width:100%">
-                <li  class="level1"><a href="kids-now">Home</a></li>
-                <li  class="active-1" style="pointer-events: none"><a href="">Attendance</a></li>
+                <li  class="level1"><a href="kids-now">@lang('kidsnow.home')</a></li>
+                <li  class="active-1" style="pointer-events: none"><a href="">@lang('kidsnow.attendance')</a></li>
             </ul>
         </div>
     </div>
@@ -42,12 +42,12 @@
                     <div class="grid-title">
                         <div class="row">
                             <div class="col-md-6">
-                                <h4>Attendance</h4>
+                                <h4>@lang('kidsnow.attendance')</h4>
                             </div>
                             <form action="{{route('attendance.list')}}" method="get" style="display: contents">
 
                                 <div class="col-md-6" style="display: flex; justify-content: flex-end; align-items: center">
-                                    <span style="font-weight: bold">Choose</span>&nbsp;&nbsp;:&nbsp;&nbsp;
+                                    <span style="font-weight: bold">@lang('kidsnow.attendance_choose')</span>&nbsp;&nbsp;:&nbsp;&nbsp;
                                     <select name="program" id="program">
                                     @if(empty($id_program))
                                         @foreach($programs as $item)
@@ -103,10 +103,10 @@
                         <table class="table table-striped" id="example">
                             <thead>
                             <tr>
-                                <th style="width:20%">Children's Name</th>
-                                <th style="width:10%">In</th>
-                                <th style="width:10%">Out</th>
-                                <th style="width:20%">Absent</th>
+                                <th style="width:20%">@lang('kidsnow.attendance_children_name')</th>
+                                <th style="width:10%">@lang('kidsnow.attendance_children_in')</th>
+                                <th style="width:10%">@lang('kidsnow.attendance_children_out')</th>
+                                <th style="width:20%">@lang('kidsnow.attendance_children_absent')</th>
                             </tr>
                             </thead>
                             <tbody>

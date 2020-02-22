@@ -516,7 +516,16 @@ return [
    'changer_password_new' => 'Mật Khẩu Mới',
    'confirm_changer_password' => 'Nhập Lại Mật Khẩu',
    'reset_password' => 'Quên mật khẩu',
-   'forgrt_password_send_mail' =>'Cảm ơn bạn đã sử dụng phần mềm Kids-now !'
+   'forgrt_password_send_mail' =>'Cảm ơn bạn đã sử dụng phần mềm Kids-now !',
 
+
+   //-------------attendance-------------
+   'attendance' => 'Điểm Danh',
+   'attendance_list'  => 'Danh sách điểm danh',
+    'attendance_choose' => 'Chọn' ,
+    'attendance_children_name' =>'Tên học sinh',
+    'attendance_children_in' =>'Đi học',
+    'attendance_children_out' =>'Nghỉ học',
+    'attendance_children_absent' =>'Vắng',
     
 ];
