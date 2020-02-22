@@ -30,7 +30,7 @@ class ObservationTypeController extends Controller
         $observationtype = ObservationTypeModel::find($id);
         $observationtype->name = $request->name;
         $observationtype->save();
-        return redirect()->back()->with('notify', 'Edit successfully');
+        return redirect()->back()->with('success', 'Edited Observation Type');
     }
     public function getAdd()
     {
@@ -51,7 +51,7 @@ class ObservationTypeController extends Controller
         $observationtype = new ObservationTypeModel;
         $observationtype->name = $request->name;
         $observationtype->save();
-        return redirect('kids-now/observations/danhsachobservationtype');
+        return redirect()->back()->with('success', 'Added Observations Type');
 
 
     }

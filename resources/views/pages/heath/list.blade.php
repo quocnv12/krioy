@@ -52,10 +52,10 @@
                             <table class="table table-striped" id="example">
                                 <thead>
                                 <tr>
-                                    <th style="text-align:left;width: 5%">#</th>
-                                    <th style="width:30%">@lang('kidsnow.health.list.name')</th>
+                                    <th style="text-align:left;width: 2%">#</th>
+                                    <th style="width:25%">@lang('kidsnow.health.list.name')</th>
                                     <th style="width:15%">@lang('kidsnow.health.list.birthday')</th>
-                                    <th style="width:5%">@lang('kidsnow.health.list.gender')</th>
+                                    <th style="width:10%">@lang('kidsnow.health.list.gender')</th>
                                     <th style="width:10%">@lang('kidsnow.health.list.date')</th>
                                     <th style="width:10%">@lang('kidsnow.health.list.time')</th>
                                     <th style="text-align:center;width:25%">@lang('kidsnow.health.list.action')</th>
@@ -64,8 +64,8 @@
                                 <tbody>
                                 @foreach($health as $value)
                                     <tr>
-                                        <th style="width:5%">{{$value->id}}</th>
-                                        <th style="width:35%">{{$value->ChildrenProfiles-> first_name }} {{$value->ChildrenProfiles->last_name}}</th><
+                                        <th style="width:2%">{{$value->id}}</th>
+                                        <th style="width:30%">{{$value->ChildrenProfiles-> first_name }} {{$value->ChildrenProfiles->last_name}}</th><
                                         <th style="width:20%">{{date('d-m-Y',strtotime($value->ChildrenProfiles->birthday))}}</th>
                                         <th style="width:5%">
                                             @if($value->ChildrenProfiles->gender==1)

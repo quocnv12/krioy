@@ -106,7 +106,7 @@
                     <div class="add">
                         <div class="row">
                             <div class="col-md-4 input_box">
-                                <span>@lang('kidsnow.birthday') *</span>
+                                <span class="input_box_span_active">@lang('kidsnow.birthday') *</span>
                                 <input style="color: #614545;" type="date" value="{{ old('date_birthday') }}" name="date_birthday" placeholder="@lang('kidsnow.birthday') *">
                                 @if($errors->has('date_birthday'))
                                 <p
@@ -135,7 +135,7 @@
                                 @endif
                             </div>
                             <div class="col-md-4 input_box">
-                                <span>@lang('kidsnow.date_of_joining') *</span>
+                                <span class="input_box_span_active">@lang('kidsnow.date_of_joining') *</span>
                                 <input style="color: #614545;" type="date" value="{{ old('date_of_joining') }}" name="date_of_joining"
                                     placeholder="@lang('kidsnow.date_of_joining')">
                                 @if($errors->has('date_of_joining'))

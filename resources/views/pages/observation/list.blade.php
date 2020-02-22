@@ -88,7 +88,7 @@
                                 @foreach ($child_observations as $key=>$item)
                                     <tr class="odd gradeX">
                                         <td style="text-align:center;text-transform:capitalize">{{ $item->Children->first_name}} {{ $item->Children->last_name}}</td>
-                                        <td style="text-align:center;text-transform:capitalize">{{ $item->Children->birthday}}</td>
+                                        <td style="text-align:center;text-transform:capitalize">{{ date('d-m-Y',strtotime($item->Children->birthday))}}</td>
                                         <td style="text-align:center;text-transform:capitalize">{{ $item->Children->gender == 1 ? 'Male' : 'Female'}}</td>
                                         <td style="text-align:center;text-transform:capitalize">{{ $item->observer}}</td>
                                         <td style="text-align:center;text-transform:capitalize">{{ $item->month}} / {{$item->year}}</td>

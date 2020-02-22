@@ -541,7 +541,7 @@ section.introduce-packages .introduce-packages-content .row > div>div >div> div.
     font-size: 26px;
     position: absolute;
     top: 24px;
-    right: 15;
+    right: 15px;
   }
   .topnav.responsive {
   	position: relative;
@@ -575,7 +575,7 @@ section.introduce-packages .introduce-packages-content .row > div>div >div> div.
   	min-height: 430px !important;
   }
 }
-.col-2dot4, // extra small
+.col-2dot4,  extra small
 .col-sm-2dot4, // small
 .col-md-2dot4, // medium
 .col-lg-2dot4, // large

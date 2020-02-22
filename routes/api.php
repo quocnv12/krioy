@@ -242,7 +242,8 @@ Route::group(['prefix' => 'parent','middleware' => 'jwt.admin'], function () {
     Route::get('/','Api\Parent\ParentProfilesController@index');    //show thong tin parent va tat ca children cua parent do
     Route::get('children/{id}','Api\Parent\ParentProfilesController@show'); //show thong tin 1 children
     Route::get('program/{id}','Api\Parent\ParentProfilesController@showProgramDetail'); //show thong tin program
-    Route::post('edit/{id}','Api\Parent\ParentProfilesController@update');  //update parent va children
+    Route::post('edit_children/{id}','Api\Parent\ParentProfilesController@updateChildren');  //update children
+    Route::post('edit_parent','Api\Parent\ParentProfilesController@updateParent');  //update parent
     Route::get('children_notice_board/{id}','Api\Parent\ParentProfilesController@showAllNoticeBoard');
     Route::get('notice_board/{id}','Api\Parent\ParentProfilesController@showOneNoticeBoard');
 
@@ -252,11 +253,9 @@ Route::group(['prefix' => 'parent','middleware' => 'jwt.admin'], function () {
     //----thực đơn-----
     Route::get('food','Api\Parent\FoodController@index');
 
-    
+    //---diem danh-----
+    Route::get('attendance/{id}','Api\Parent\AttendanceController@getStatus');
 
-
-
-    
 });
 
 
