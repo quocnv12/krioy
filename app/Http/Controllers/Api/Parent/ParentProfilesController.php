@@ -6,6 +6,7 @@ use App\models\ChildrenProfiles;
 use App\models\NoticeBoard;
 use App\models\ParentProfiles;
 use App\models\Programs;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -26,58 +27,33 @@ class ParentProfilesController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function updateChildren(Request $request, $id)
     {
         $rules = [
-            'first_name'        => 'required',
-            'last_name'         => 'required',
-            'birthday'          => 'required|before:today|after:01-01-2000',
-            'gender'            => 'required',
-            'date_of_joining'   => 'required',
-            'unique_id'         => 'required|unique:children_profiles,unique_id,'.$id.'',
-            'address'           => 'nullable',
-            'allergies'         => 'nullable',
-            'additional_note'   => 'nullable',
-            'image'             => 'image|nullable',
-            'status'            => 'nullable',
-            'exist'             => 'nullable',
-
-            'first_name_parent'   => 'required',
-            'last_name_parent'    => 'required',
-            'main_phone_parent'   => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:parent_profiles,main_phone,'.Auth::user()->id.'',
-            'extra_phone_parent'  => 'nullable|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:parent_profiles,extra_phone,'.Auth::user()->id.'|different:main_phone_parent',
-            'email_parent'        => 'required|email|unique:parent_profiles,email,'.Auth::user()->id.'',
-            'gender_parent'       => 'nullable',
-            'note_parent'         => 'nullable',
-            'image_parent'        => 'image|nullable',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'birthday' => 'required|before:today|after:01-01-2000',
+            'gender' => 'required',
+            'date_of_joining' => 'required',
+            'unique_id' => 'required|unique:children_profiles,unique_id,' . $id . '',
+            'address' => 'nullable',
+            'allergies' => 'nullable',
+            'additional_note' => 'nullable',
+            'image' => 'image|nullable',
+            'status' => 'nullable',
+            'exist' => 'nullable',
         ];
 
         $validator = Validator::make($request->all(), $rules, [
-            'first_name.required'           => 'First Name is required',
-            'last_name.required'            => 'Last Name is required',
-            'gender.required'               => 'Gender is required',
-            'image.image'                   => 'Image is invalid',
-            'birthday.required'             => 'Birthday is required',
-            'date_of_joining.required'      => 'Date of Joining is required',
-            'first_name_parent.required'    =>  'First Name is required',
-            'last_name_parent.required'     =>  'Last Name is required',
-            'main_phone_parent.required'        => 'Phone Number is required',
-            'main_phone_parent.unique'        => 'Phone Number has been taken',
-            'extra_phone_parent.unique'        => 'Phone Number has been taken',
-            'main_phone_parent.size'        => 'Phone Number must have 10 digits',
-            'extra_phone_parent.size'        => 'Phone Number must have 10 digits',
-            'main_phone_parent.regex'        => 'Main Phone Number is invalid',
-            'extra_phone_parent.regex'        => 'Extra Phone Number is invalid',
-            'extra_phone_parent.different'        => 'This phone must different from main phone number',
-            'email_parent.required'          => 'Email is required',
-            'email_parent.email'          => 'Email is invalid',
-            'email_parent.unique'         => 'This email has already been taken',
-            'unique_id.unique'              => 'ID is exist',
-            'unique_id.required'            => 'Unique ID is required',
-            'image_parent.image'          => 'Image is invalid',
+            'first_name.required' => 'First Name is required',
+            'last_name.required' => 'Last Name is required',
+            'gender.required' => 'Gender is required',
+            'image.image' => 'Image is invalid',
+            'birthday.required' => 'Birthday is required',
+            'date_of_joining.required' => 'Date of Joining is required',
         ]);
 
-        if ($validator->fails()){
+        if ($validator->fails()) {
             return response()->json($validator->errors(), 400);
         }
 
@@ -97,49 +73,47 @@ class ParentProfilesController extends Controller
         }
         $children_profiles->save();
 
-        if ($request->programs_new != null) {
-            //array chua cac id program ma children dang hoc
-            $array_programs_old = [];
-            $programs_old = explode(',', $request->programs_old);    //string to array
-            foreach ($programs_old as $item) {
-                array_push($array_programs_old, $item);
-            }
-            //array chua cac id program ma children moi dang ky
-            $array_programs_new = [];
-            $programs_new = explode(',', $request->programs_new);    //string to array
-            foreach ($programs_new as $item) {
-                array_push($array_programs_new, $item);
-            }
-            //so sanh array cu va moi
-            $programs_add = array_diff($array_programs_new, $array_programs_old);
-            $programs_remove = array_diff($array_programs_old, $array_programs_new);
-            //them record children_programs
-            foreach ($programs_add as $program_id) {
-                $children_programs = new ChildrenProgram();
-                $children_programs->id_children = $id;
-                $children_programs->id_program = $program_id;
-                $children_programs->save();
-            }
-            //xoa record children_programs
-            foreach ($programs_remove as $program_id) {
-                $children_programs = ChildrenProgram::where([['id_children', '=', $id], ['id_program', '=', $program_id]]);
-                $children_programs->delete();
-            }
-        }else{
-            //array chua cac id program ma children dang hoc
-            $array_programs_old = [];
-            $programs_old = explode(',', $request->programs_old);    //string to array
-            foreach ($programs_old as $item) {
-                array_push($array_programs_old, $item);
-            }
+        return response()->json([
+            'children_profiles' => $children_profiles,
+            ], 200);
+    }
 
-            foreach ($array_programs_old as $program_id) {
-                $children_programs = ChildrenProgram::where([['id_children', '=', $id], ['id_program', '=', $program_id]]);
-                $children_programs->delete();
-            }
+    public function updateParent(Request $request)
+    {
+        $rules = [
+            'first_name_parent' => 'required',
+            'last_name_parent' => 'required',
+            'main_phone_parent' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:parent_profiles,main_phone,' . Auth::user()->id . '',
+            'extra_phone_parent' => 'nullable|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:parent_profiles,extra_phone,' . Auth::user()->id . '|different:main_phone_parent',
+            'email_parent' => 'required|email|unique:parent_profiles,email,' . Auth::user()->id . '',
+            'gender_parent' => 'nullable',
+            'note_parent' => 'nullable',
+            'image_parent' => 'image|nullable',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, [
+            'first_name_parent.required' => 'First Name is required',
+            'last_name_parent.required' => 'Last Name is required',
+            'main_phone_parent.required' => 'Phone Number is required',
+            'main_phone_parent.unique' => 'Phone Number has been taken',
+            'extra_phone_parent.unique' => 'Phone Number has been taken',
+            'main_phone_parent.size' => 'Phone Number must have 10 digits',
+            'extra_phone_parent.size' => 'Phone Number must have 10 digits',
+            'main_phone_parent.regex' => 'Main Phone Number is invalid',
+            'extra_phone_parent.regex' => 'Extra Phone Number is invalid',
+            'extra_phone_parent.different' => 'This phone must different from main phone number',
+            'email_parent.required' => 'Email is required',
+            'email_parent.email' => 'Email is invalid',
+            'email_parent.unique' => 'This email has already been taken',
+            'unique_id.unique' => 'ID is exist',
+            'unique_id.required' => 'Unique ID is required',
+            'image_parent.image' => 'Image is invalid',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 400);
         }
 
-        // edit parent
         $parent_profiles = ParentProfiles::find(Auth::user()->id);
         $parent_profiles->first_name = $request->first_name_parent;
         $parent_profiles->last_name = $request->last_name_parent;
@@ -164,11 +138,10 @@ class ParentProfilesController extends Controller
         $parent_profiles->save();
 
         return response()->json([
-            'children_profiles'=>$children_profiles,
-            'parent_profiles'=>$parent_profiles
+            'parent_profiles' => $parent_profiles
         ], 200);
-    }
 
+    }
 
     public function show($id)
     {

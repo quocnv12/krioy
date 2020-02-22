@@ -204,7 +204,7 @@
 
 						],
 						suggestion: function (data) {
-							return '<a href="kids-now/children/view/' + data.id + '" class="list-group-item" style="font-weight: bold;width: 400px; color: inherit"><span style=""> ' + data.first_name +' '+ data.last_name + ' </span><span style="float: right"> ' + data.birthday + ' </span></a>';
+							return '<a href="kids-now/children/view/' + data.id + '" class="list-group-item" style="font-weight: bold;width: 400px; color: inherit"><span style=""> ' + data.first_name +' '+ data.last_name + ' </span><span style="float: right"> ' + (data.birthday).split('-').reverse().join('-') + ' </span></a>';
 						}
 					}
 				},

@@ -38,7 +38,7 @@
                             <div class="add a1 ">
                                 <div class="row">
                                     <div class="col-md-6 input_box">
-                                        <span>@lang('kidsnow.first_name') *</span>
+                                        <span class="input_box_span_active">@lang('kidsnow.first_name') *</span>
                                     <input type="text" name="first_name" value="{{ $staff->first_name }}" placeholder="First name *">
                                         @if($errors->has('first_name'))
                                         <p
@@ -47,7 +47,7 @@
                                         @endif
                                     </div>
                                     <div class="col-md-6 input_box">
-                                        <span>@lang('kidsnow.last_name') *</span>
+                                        <span class="input_box_span_active">@lang('kidsnow.last_name') *</span>
                                         <input type="text" name="last_name"  value="{{ $staff->last_name }}" placeholder="@lang('kidsnow.last_name') *">
                                         @if($errors->has('last_name'))
                                         <p
@@ -58,7 +58,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 input_box">
-                                        <span>@lang('kidsnow.phone_number') *</span>
+                                        <span class="input_box_span_active">@lang('kidsnow.phone_number') *</span>
                                         <input type="text" name="phone" value="{{ $staff->phone }}" placeholder="@lang('kidsnow.phone_number') *">
                                         @if($errors->has('phone'))
                                         <p
@@ -67,7 +67,7 @@
                                         @endif
                                     </div>
                                     <div class="col-md-6 input_box">
-                                        <span>@lang('kidsnow.gender') *</span>
+                                        <span class="input_box_span_active">@lang('kidsnow.gender') *</span>
                                         <select style="color: #614545;" name="gender">
 											<option disabled  selected hidden>@lang('kidsnow.gender')</option>
                                             <option {{ $staff->gender==1 ? 'selected' : ''  }}  value="1">Male</option>
@@ -81,7 +81,7 @@
                                     </div>
                                 </div>
                                 <div class="input_box" style="width: 100%;">
-                                    <span>@lang('kidsnow.email_address') *</span>
+                                    <span class="input_box_span_active">@lang('kidsnow.email_address') *</span>
                                     <input type="email" name="email" value="{{ $staff->email }}" placeholder="@lang('kidsnow.email_address') *">
                                     @if($errors->has('email'))
                                     <p
@@ -95,7 +95,7 @@
                     <hr>
                     <div class="add">
                         <div class="input_box" style="width: 100%;">
-                            <span>@lang('kidsnow.residential_address') *</span>
+                            <span class="input_box_span_active">@lang('kidsnow.residential_address') *</span>
                             <input type="text" name="address" value="{{ $staff->address }}" placeholder="@lang('kidsnow.residential_address') *">
                             @if($errors->has('address'))
                             <p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">*
@@ -106,7 +106,7 @@
                     <div class="add">
                         <div class="row">
                             <div class="col-md-4 input_box">
-                                <span>@lang('kidsnow.birthday') *</span>
+                                <span class="input_box_span_active">@lang('kidsnow.birthday') *</span>
                                 <input style="color: #614545;" type="date" value="{{ $staff->birthday }}" name="date_birthday" placeholder="@lang('kidsnow.birthday') *">
                                 @if($errors->has('date_birthday'))
                                 <p
@@ -115,7 +115,7 @@
                                 @endif
                             </div>
                             <div class="col-md-4 input_box">
-                                <span>@lang('kidsnow.Blood_group') *</span>
+                                <span class="input_box_span_active">@lang('kidsnow.Blood_group') *</span>
                                 <select style="color: #614545;" name="blood_group">
                                     <option value="0" disabled  selected hidden>@lang('kidsnow.Blood_group')</option>
                                     <option {{ $staff->blood_group=='A+' ? 'selected' : ''  }} value="A+">A+</option>
@@ -134,7 +134,7 @@
                                 @endif
                             </div>
                             <div class="col-md-4 input_box">
-                                <span>@lang('kidsnow.date_of_joining') *</span>
+                                <span class="input_box_span_active">@lang('kidsnow.date_of_joining') *</span>
                                 <input style="color: #614545;" type="date" value="{{ $staff->date_of_joining }}" name="date_of_joining"
                                     placeholder="@lang('kidsnow.date_of_joining') *">
                                 @if($errors->has('date_of_joining'))
@@ -155,11 +155,11 @@
                         <div _ngcontent-c20="" class="row" style="">
                             @foreach ($programs as $item)
                             <div _ngcontent-c20="" align="center"
-                                class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
+                                class="col-xs-6 col-sm-4 col-md-3 col-lg-3 ng-star-inserted"
                                 style="padding:10px;cursor:pointer;">
                                 <button _ngcontent-c20="" type="button" class="btn progBtn limitText bgClass tablinks1 {{ $programStaff->contains($item->id) ? 'tablinks1_active' :'' }}"
                                     title="{{ $item->program_name }}" value="{{ $item->id }}"
-                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">{{ $item->program_name }}
+                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px; width: 100%">{{ $item->program_name }}
                                 </button>
                                 
                             </div>
@@ -184,11 +184,11 @@
                         <div _ngcontent-c20="" class="row">
                             @foreach ($roles as $item)
                             <div _ngcontent-c20="" align="center"
-                                class="col-xs-3 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
+                                class="col-xs-3 col-sm-4 col-md-3 col-lg-3 ng-star-inserted"
                                 style="padding:10px;cursor:pointer">
                                 <button _ngcontent-c20="" type="button" class="btn progBtn limitText bgClass tablinks {{ $roleStaff->contains($item->id) ? 'tablinks_active' :'' }}"
                                     title="{{ $item->name }}" value="{{ $item->id }}"
-                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">{{ $item->name }}
+                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px; width: 100%">{{ $item->name }}
                                 </button>
                             </div>
                             @endforeach
@@ -317,6 +317,8 @@
         $('#avatar').click(function () {
             $('#img').click();
         });
+
+        $('.accordion').click()
     });
 
 </script>

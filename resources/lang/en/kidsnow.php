@@ -82,7 +82,7 @@ return [
     'menu_invoices' => 'Invoices', //@lang('kidsnow.menu_invoices')
     'menu_settings' => 'Settings', //@lang('kidsnow.menu_settings')
     'menu_help' => 'Help', //@lang('kidsnow.menu_help')
-    'vietnamese' => 'VietNamese', //@lang('kidsnow.vietnamese')
+    'vietnamese' => 'Vietnamese', //@lang('kidsnow.vietnamese')
     'english' => 'English', //@lang('kidsnow.english')
     'notification_center' => 'Notification Center',
     'refresh_account' => 'Refresh Account',
@@ -137,6 +137,7 @@ return [
     // END Food
 
     //Introduce
+    'login'=>'LOGIN',
     'home'  =>  'HOME',
     'pricing'=>'PRICING',
     'about_us_top'=>'ABOUT US',
