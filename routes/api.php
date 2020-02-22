@@ -230,8 +230,11 @@ Route::post('parent/forgot', 'Api\Parent\ForgotPassWordController@PostFormResetP
 Route::post('parent/login', 'Api\Parent\LoginController@loginParent')->middleware('assign.guard:admin');
 //--group parent
 Route::group(['prefix' => 'parent','middleware' => 'jwt.admin'], function () {
-    
-    Route::post('logout', 'Api\Parent\LoginController@logout');
+    //=-----danh sách module
+    Route::get('module', 'Api\Parent\ForgotPasswordController@getModule');
+
+
+    Route::get('logout', 'Api\Parent\LoginController@logout');
     Route::get('refresh', 'Api\Parent\LoginController@refresh');
     // Route::post('me', 'Api\Parent\LoginController@me');
     // Route::get('food', 'Api\Parent\FoodController@getme');
@@ -247,7 +250,9 @@ Route::group(['prefix' => 'parent','middleware' => 'jwt.admin'], function () {
     Route::post('update-password', 'Api\Parent\ForgotPasswordController@postUpdatePassword');
 
     //----thực đơn-----
-    Route::get('food','Api\Parent\FoodController@index');  
+    Route::get('food','Api\Parent\FoodController@index');
+
+    
 
 
 
