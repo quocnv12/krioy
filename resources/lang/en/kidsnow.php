@@ -343,7 +343,8 @@ return [
         'children.profile'=>'Profile',
         'children.health'=>'Health',
         'children.observations'=>'Observations',
-
+        'children.found_parent_exist'=>'We found a parent profile that has the same phone number as yours. Is that you ?',
+        'children.fullname'=>'Full Name',
 
         // kids-now/children/add | kids-now/children/edit | kids-now/children/view
         'children.view_children'=>'View Children',
@@ -404,7 +405,7 @@ return [
             'permissions' =>'Permission',
             'title_edit_staff'=>'Edit Staff',
             'title_delete_staff'=>'Delete Staff',
-            
+            'birthday'=>'Birthday',
 
             //end staff add
 

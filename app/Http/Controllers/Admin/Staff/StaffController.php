@@ -17,7 +17,7 @@ class StaffController extends Controller
         return view('pages.staff.staff_profile',$data);
     }
     //-----them
-    public  function GetAddStaff() 
+    public  function GetAddStaff()
     {
         $data['roles']=role::all();
         $data['programs']=Programs::all();

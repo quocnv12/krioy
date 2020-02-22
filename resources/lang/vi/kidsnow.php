@@ -256,6 +256,8 @@ return [
         'children.profile'=>'Hồ Sơ Cá Nhân',
         'children.health'=>'Sức Khỏe',
         'children.observations'=>'Đánh Giá',
+        'children.found_parent_exist'=>'Chúng tôi đã tìm thấy 1 phụ huynh có cùng số điện thoại này với bạn. Đây có phải là bạn ?',
+        'children.fullname'=>'Họ Tên',
 
         // kids-now/children/add | kids-now/children/edit | kids-now/children/view
         'chidlren.view_children'=>'Xem Hồ Sơ',
