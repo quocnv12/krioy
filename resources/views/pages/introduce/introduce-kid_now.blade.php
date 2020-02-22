@@ -21,6 +21,11 @@
 	    <!-- Custom CSS -->
 	    <link rel="stylesheet" href="libs/slick-1.8.1/slick/slick.css">
     	<link rel="stylesheet" href="libs/slick-1.8.1/slick/slick-theme.css">
+		<style>
+			html{
+				scroll-behavior: smooth;
+			}
+		</style>
 	</head>
 <body>
 	<section class="introduce">
@@ -35,11 +40,11 @@
 									<div class="dropdown-logo1">
 										@if(app()->getLocale() == 'vi')
 											<button class="dropbtn-logo1">
-												<button class="dropbtn-logo1"><img src="images/viet.png" style="width: 40px;height: 40px"></button>
+												<button class="dropbtn-logo1"><img src="images/viet.png" style="width: 50px;height: 30px; border-radius: 0px"></button>
 											</button>
 										@else
 											<button class="dropbtn-logo1">
-												<button class="dropbtn-logo1"><img src="images/usa.png" style="width: 40px;height: 40px"></button>
+												<button class="dropbtn-logo1"><img src="images/usa.png" style="width: 50px;height: 30px; border-radius: 0px"></button>
 											</button>
 										@endif
 										<div class="dropdown-content-logo1">
@@ -52,14 +57,14 @@
 				    	</a>
 				    	<div class="topnav" id="myTopnav">
 
-						    <a href="#">{{__('kidsnow.home')}}</a>
-						    <a href="#">@lang('kidsnow.kids_now_app')</a>
-						    <a href="#">@lang('kidsnow.pricing')</a>
-							<a href="#">@lang('kidsnow.about_us_top')</a>
+						    <a href="#section1">{{__('kidsnow.home')}}</a>
+						    <a href="#section2"> @lang('kidsnow.kids_now_app')</a>
+						    <a href="#section3">@lang('kidsnow.pricing')</a>
+							<a href="#section4">@lang('kidsnow.about_us_top')</a>
 							@if(Auth::check())
 								<a href="login" style="background-color: #ddd;">My Kids-now</a>
 							@else
-								<a href="login">LOGIN</a>
+								<a href="login">@lang('kidsnow.login')</a>
 							@endif
 						    <a href="javascript:void(0);"  class="icon" onclick="myFunction()" id="icon-close">
 							    <i class="fa fa-bars" style="display: inline-block;"></i>
@@ -99,7 +104,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="introduce-school">
+	<section class="introduce-school" id="section2">
 		<div class="container">
 			<div class="schoolTiltle">
 				<h2>@lang('kidsnow.kids_now_app')</h2>
@@ -298,7 +303,7 @@
 	        </div>
 		</div>
 	</section>
-	<section class="introduce-packages">
+	<section class="introduce-packages" id="section3">
 		<div class="container">
 			<div class="schoolTiltle" style="">
 				<h2>@lang('kidsnow.packages_pricing')</h2>
@@ -467,7 +472,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="container">
+	<section class="container" id="section4">
 		<div class="about-as">
 			<div class="schoolTiltle">
 				<h2>@lang('kidsnow.about_us')</h2>
@@ -634,4 +639,3 @@
 			}
 		}
 	</script>
-

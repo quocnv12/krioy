@@ -546,7 +546,7 @@
 
 						],
 						suggestion: function (data) {
-							return '<a onclick="getIdChildren('+data.id+')" class="list-group-item" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949; width: 500px; "> ' + data.first_name +' '+ data.last_name +' &nbsp('+ data.birthday +')<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
+							return '<a onclick="getIdChildren('+data.id+')" class="list-group-item" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949; width: 500px; "> ' + data.first_name +' '+ data.last_name +' &nbsp('+ (data.birthday).split('-').reverse().join('-') +')<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
 						}
 					}
 				},
@@ -580,7 +580,7 @@
 
 						],
 						suggestion: function (data) {
-							return '<a onclick="getIdStaff('+data.id+')" class="list-group-item" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;width: 500px;"> ' + data.first_name +' '+ data.last_name + '<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
+							return '<a onclick="getIdStaff('+data.id+')" class="list-group-item" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;width: 500px;"> ' + data.first_name +' '+ data.last_name + '&nbsp('+ (data.birthday).split('-').reverse().join('-') +')<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
 						}
 					}
 				},

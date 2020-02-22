@@ -27,18 +27,17 @@ class StaffController extends Controller
     {
         // dd($request->all());
        $this->validate($request,[
-            'image'               =>'required|image',
+            'image'               =>'image|nullable',
             'first_name'         =>'required',
             'last_name'          =>'required',
             'phone'              =>'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:staff_profiles,phone',
             'gender'             =>'required',
             'email'              =>'required|email|unique:staff_profiles,email',
-            'address'            =>'required',
-            'date_birthday'      =>'required|date',
+            'address'            =>'nullable',
+            'date_birthday'      =>'required|date|before:today',
            // 'blood_group'        =>'required',
             'date_of_joining'    =>'required|date',
        ],[
-            'image.required'            => 'Please chosse image !',
             'image.image'               => 'Image is in wrong format !',
             'first_name.required'       => 'Please enter first_name !',
             'last_name.required'        => 'Please enter last_name !',
@@ -53,6 +52,7 @@ class StaffController extends Controller
             'address.required'          => 'Please enter address !',
             'date_birthday.required'    => 'Please enter date_birthday !',
             'date_birthday.date'        => 'Date_birthday is in wrong format !',
+            'date_birthday.before'        => 'Date_birthday is invalid !',
            // 'blood_group.required'      => 'Please choose blood_group !',
             'date_of_joining.required'  => 'Please choose date_of_joining !',
             'date_of_joining.date'      => 'Date_of_joining is in wrong format !',

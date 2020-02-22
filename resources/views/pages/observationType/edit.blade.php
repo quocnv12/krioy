@@ -11,8 +11,7 @@
                 <ul class="ul-td" style="width:100%">
                     <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
                     <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="{{route('admin.observations.listobservationtype')}}" >Observation Type</a></li>
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="">Observation Type</a></li>
-                    <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="">Edit</a></li>
+                    <li _ngcontent-c16="" class="active-1" style="pointer-events:none"><a _ngcontent-c16="" href="">Edit</a></li>
 
                 </ul>
             </div>
@@ -34,11 +33,11 @@
                             laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                     <div>
-                        <p>Edit Observation Name*</p>
+                        <p>Edit Observation Type*</p>
                         <form  style="width:auto;" method="post">
                             @csrf
                             <div class="form-group">
-                                <input type="text" class="form-control" style="text-transform:capitalize" name="name" placeholder="Enter name" value="{{ $observationtype->name }}">
+                                <input type="text" class="form-control" style="text-transform:capitalize" name="name" placeholder="Enter Observation Type" value="{{old('name') ?? $observationtype->name }}">
                                 @if($errors->has('name'))
                                     <p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">* {{ $errors->first('name') }}</p>
                                 @endif

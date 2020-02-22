@@ -113,6 +113,7 @@ return [
     // END Food
 
     //Home
+    'login'=>'ĐĂNG NHẬP',
     'home'  =>  'TRANG CHỦ',
     'pricing'=>'GÓI',
     'about_us_top'=>'VỀ CHÚNG TÔI',
@@ -145,7 +146,7 @@ return [
     'kid_now_parent_app' => 'ỨNG DỤNG KIDS NOW CHO PHỤ HUYNH',
     'attendance_content' => 'Phụ huynh có thể yên tâm về sự hiện diện của trẻ tại trường',
     'multiple_children_management' => 'QUẢN LÝ TRẺ',
-    'multiple_children_management_content' => 'Phụ huynh có thể xem các bản cập nhật tất cả con cái của họ trong cùng một ứng dụng',
+    'multiple_children_management_content' => 'Phụ huynh có thể xem các bản cập nhật con cái của họ trong cùng một ứng dụng',
     'instant_updates' => 'CẬP NHẬT KỊP THỜI',
     'instant_updates_content' => 'Phụ huynh sẽ nhận được thông báo trực tiếp trên điện thoại di động của họ về tất cả các cập nhật từ trường học!',
     'food_content' => 'Theo dõi việc ăn uống của trẻ khi ở trường',
