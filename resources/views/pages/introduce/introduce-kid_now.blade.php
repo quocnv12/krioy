@@ -25,11 +25,6 @@
 			html{
 				scroll-behavior: smooth;
 			}
-			@media only screen and (max-width: 767px) {
-				.a-desktop{
-					display: none;
-				}
-			}
 		</style>
 	</head>
 <body>
@@ -40,25 +35,10 @@
 				    <div class="navbar-header">
 				    	<a class="navbar-brand " href="#" style="display: flex;">
 				    		<img src="images/logo-ngang.png" style="border-radius: 0;width: auto;margin: -7px 0;" alt="">
-									<div class="dropdown-logo1 a-desktop">
-										@if(app()->getLocale() == 'vi')
-											<button class="dropbtn-logo1">
-												<button class="dropbtn-logo1"><img src="images/viet.png" style="width: 50px;height: 30px; border-radius: 0px"></button>
-											</button>
-										@else
-											<button class="dropbtn-logo1">
-												<button class="dropbtn-logo1"><img src="images/usa.png" style="width: 50px;height: 30px; border-radius: 0px"></button>
-											</button>
-										@endif
-										<div class="dropdown-content-logo1">
-											<a href="locale/vi"><img src="images/viet.png"> @lang('kidsnow.vietnamese')</a>
-											<a href="locale/en"><img src="images/usa.png"> @lang('kidsnow.english')</a>
-										</div>
-									</div>
 				    	</a>
 				    	<div class="topnav" id="myTopnav">
-							<a href="" style="pointer-events: none">
-								<div class="dropdown-logo1">
+							<a href="" style="" onclick="return false;">
+								<div class="dropdown-logo1" >
 									@if(app()->getLocale() == 'vi')
 										<button class="dropbtn-logo1">
 											<button class="dropbtn-logo1"><img src="images/viet.png" style="width: 50px;height: 30px; border-radius: 0px"></button>
@@ -68,7 +48,7 @@
 											<button class="dropbtn-logo1"><img src="images/usa.png" style="width: 50px;height: 30px; border-radius: 0px"></button>
 										</button>
 									@endif
-									<div class="dropdown-content-logo1">
+									<div class="dropdown-content-logo1" >
 										<a href="locale/vi"><img src="images/viet.png"> @lang('kidsnow.vietnamese')</a>
 										<a href="locale/en"><img src="images/usa.png"> @lang('kidsnow.english')</a>
 									</div>
@@ -103,7 +83,7 @@
 					</span>
 					<div class="introduce-button" align="center">
 						<button class="btt-1">
-							<a style="color:white" href="login">	<span>@lang('kidsnow.sign_up')</span></a>
+							<a style="color:white" href="account">	<span>@lang('kidsnow.sign_up')</span></a>
 						</button>
 						<button class="btt-2" data-toggle="modal" data-target=".bd-example-modal-sm1">
 							<SPAN>@lang('kidsnow.get_a_free_trial')</SPAN>
