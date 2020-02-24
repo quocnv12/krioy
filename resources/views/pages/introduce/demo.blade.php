@@ -13,7 +13,7 @@
 					@csrf
 				<div class="login" align="center" style="width: 100%">
 					<div class="login-label">
-						<p>Kids Now Account Demo</p>
+						<p>@lang('kidsnow.kidsnow_account_demon')</p>
 					</div>
 					<div class="login-input">
 				
@@ -22,8 +22,8 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="input_box" style="width: 100%;">
-									 	<span>First Name</span>
-										 <input type="text" value="{{ old('first_name') }}" name="first_name" placeholder="First Name*">
+									 	<span>@lang('kidsnow.first_name_account_demo')</span>
+										 <input type="text" value="{{ old('first_name') }}" name="first_name" placeholder="@lang('kidsnow.first_name_account_demo') *">
 										 @if ($errors->has('first_name'))
 										<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;width:80%;margin-top:10px;margin-bottom:0px">* {{ $errors->first('first_name') }}</p>
 										@endif
@@ -31,8 +31,8 @@
 								</div>
 								<div class="col-md-6">
 									<div class="input_box" style="width: 100%;">
-										<span>Email</span>
-										<input type="text" value="{{ old('email') }}"  name="email" placeholder="Email*">
+										<span>Email *</span>
+										<input type="text" value="{{ old('email') }}"  name="email" placeholder="Email *">
 										@if ($errors->has('email'))
 										<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;width:80%;margin-top:10px;margin-bottom:0px">* {{ $errors->first('email') }}</p>
 										@endif
@@ -44,8 +44,8 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div class="input_box" style="width: 100%;">
-								        <span>Phone Number *</span>
-										<input type="phone" name="phone" value="{{ old('phone') }}" placeholder="Phone Number*">
+								        <span>@lang('kidsnow.phone_login') *</span>
+										<input type="phone" name="phone" value="{{ old('phone') }}" placeholder="@lang('kidsnow.phone_login') *">
 										@if ($errors->has('phone'))
 										<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;width:80%;margin-top:10px;margin-bottom:0px">* {{ $errors->first('phone') }}</p>
 										@endif
@@ -53,8 +53,8 @@
 								</div>
 								<div class="col-md-6">
 									<div class="input_box" style="width: 100%;">
-								<span>Enter your password</span>
-								<input type="password" name="password" placeholder="PassWord">
+								<span>@lang('kidsnow.password_login') *</span>
+								<input type="password" name="password" placeholder="@lang('kidsnow.password_login') *">
 								@if ($errors->has('password'))
 								<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;;width:80%;margin-top:10px;margin-bottom:0px">* {{ $errors->first('password') }}</p>
 								@endif
@@ -64,7 +64,7 @@
 						</div>
 					</div>
 					<div class="login-button" align="center">
-						<button type="submit"><span>Register</span></button>
+						<button type="submit"><span>@lang('kidsnow.register_account_demo')</span></button>
 					</div>
 				</div>
 			</form>

@@ -9,7 +9,7 @@ use Mail;
 use Auth;
 use Carbon\Carbon;
 use DB;
-
+use Illuminate\Support\Facades\Session;
 
 class IndexController extends Controller
 {
@@ -39,6 +39,9 @@ class IndexController extends Controller
         $staff->password = bcrypt($request->password);
         $staff->active =0;
         $staff->level =0;
+        $staff->image ='Staff21.png';
+        //dăng nhập 15 ngày thêm trường time_expire 
+        //$staff->time_expire = now()->addDays(15);
         $staff->save();
         DB::table('staff_roles')->insert([
             ['id_staff' => $staff->id,'id_role' => 1]

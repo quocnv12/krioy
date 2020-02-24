@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Api;
-use App\Http\Requests\ChangerPasswordRequest;
+// use App\Http\Requests\ChangerPasswordRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
@@ -18,13 +18,14 @@ class ForgotPassWordController extends Controller
         $rules =  
             [
                 'password_old'=>'required',
-                'password'=>'required|min:8',
+                'password'=>'required|min:8|max:30',
                 'password_confirmation'=>'required|same:password'
             ];
         $validator = Validator::make($request->all(), $rules,[
                 'password_old.required'=>'Please enter password old !',
                 'password.required'=>'Please enter password new !',
-                'password.min'=>'Password must be greater than 8 characters !',
+                'password.min'=>'Password from 8 to 30 characters !',
+                'password.max'=>'Password from 8 to 30 characters !',
                 'password_confirmation.required'=>'Please enter confirm password new !',
                 'password_confirmation.same'=>'Password entered does not match !'
         ]);
@@ -70,7 +71,7 @@ class ForgotPassWordController extends Controller
         {
             return response()->json($validator->errors(), 400);
         }
-        $email=$request->email;
+        $email=$request->emailreset;
         $checkEmail = StaffProfiles::where('email',$email)->first();
         if(!$checkEmail)
         {
@@ -80,9 +81,11 @@ class ForgotPassWordController extends Controller
         $checkEmail->code =$code;
         $checkEmail->time_code =Carbon::now();
         $checkEmail->save();
-        $url = route('link.reset.password',['code'=>$checkEmail->code,'email'=>$email]);
+        $url = route('link.reset.password.api',['code'=>$checkEmail->code,'email'=>$email]);
         $data=[
-            'route' => $url
+            'route' => $url,
+            'first_name' => $checkEmail->first_name,
+            'last_name' =>$checkEmail->last_name
         ] ;
 
         Mail::send('pages.addmin-login.reset_password', $data, function($message) use ($email){
@@ -91,14 +94,32 @@ class ForgotPassWordController extends Controller
         return response()->json(['massage' => 'Send mail success, please check your email'], 200);
     }
 
+
+    public function ResetPassword(request $request)
+    {
+        $code = $request->code;
+        $email = $request->email;
+        $checkEmail=StaffProfiles::where([
+            'code'=>$code,
+            'email'=>$email])->first();
+        if(!$checkEmail)
+        {
+            return redirect()->back()->with('danger','Sorry the link to get the link back is incorrect !');
+        }
+        return view('pages.addmin-login.reset');
+    }
+
+
+
+    
     function PostResetPassword(request $request)
     {
-        $rules =  
+        $this->validate($request,
         [
             'password' =>'required|min:8',
             'password_confirmation'=>'required|same:password'
-        ];
-        $validator = Validator::make($request->all(), $rules,[
+        ],
+        [
             'password.required'=>'Pleasea enter password !',
             'password_confirmation.same' => 'Password entered does not match !',
             'password_confirmation.required' => 'Pleasea enter password comfirmation !',
@@ -116,15 +137,25 @@ class ForgotPassWordController extends Controller
 
         if(!$checkEmail)
         {
-            return response()->json(['massage' => 'Sorry the link to get the link back is incorrect !'], 200);
-           // return redirect()->back()->with('danger','Sorry the link to get the link back is incorrect !');
+            
+            return redirect()->back()->with('danger','Sorry the link to get the link back is incorrect !');
         }
         $checkEmail->password=bcrypt($request->password);
 
         $checkEmail->save();
 
-        return response()->json(['massage' => 'Password successfully recovered !'], 200);
+        return redirect('login')->with('success','Password successfully recovered !');
+
     }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -145,7 +176,7 @@ class ForgotPassWordController extends Controller
         [
             'first_name' =>'required',
             'email' =>'required|email|unique:staff_profiles,email',
-            'phone'=>'required|numeric|min:10',
+            'phone'=>'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:staff_profiles,phone',
             'password'=>'required|min:8'
         ];
         $validator = Validator::make($request->all(), $rules,[
@@ -154,8 +185,10 @@ class ForgotPassWordController extends Controller
             'email.email'=>'Malformed email !',
             'email.unique'  => 'Email already exist !',
             'phone.required'=>'Please enter phone !',
-            'phone.numeric'=>'Phone numbers must be numeric !',
-            'phone.min'=>'Phone must be greater than 10 characters !',
+            'phone.regex'=>'Phone numbers start with 0 !',
+            'phone.not_regex'=>'Phone numbers must be numeric !',
+            'phone.size'=>'Phone number includes 10 numbers !',
+            'phone.unique'=>'Phone already exist !',
             'password.required'=>'Please enter password !',
             'password.min'=>'Password must be greater than 8 characters !'
         ]);
@@ -170,6 +203,7 @@ class ForgotPassWordController extends Controller
         $staff->password = bcrypt($request->password);
         $staff->active =0;
         $staff->level =0;
+        $staff->image ='Staff21.png';
         $staff->save();
 
         $email = $staff->email;

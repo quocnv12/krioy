@@ -18,7 +18,6 @@ class CreateChildrenParentTable extends Migration
             $table->foreign('id_parent')->references('id')->on('parent_profiles')->onDelete('cascade');
             $table->bigInteger('id_children')->unsigned();
             $table->foreign('id_children')->references('id')->on('children_profiles')->onDelete('cascade');
-            $table->string('relationship')->nullable();
         });
     }
 

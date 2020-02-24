@@ -11,47 +11,34 @@
 			<div class="row">
 				<div class="col-sm-6">
 					<ul class="ul-td">
-						<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
-						<li _ngcontent-c16="" class="active1" style="pointer-events:none" href="{{route('admin.health.getAdd')}}"><a _ngcontent-c16="">Health</a></li>
+						<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="{{route('admin.home')}}">HOME</a></li>
+						<li _ngcontent-c16="" class="active1" style="" ><a href="{{route('admin.health.list')}}" _ngcontent-c16="">HEALTH</a></li>
+						<li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none" href=""><a _ngcontent-c16="">ADD HEALTH</a></li>
 					</ul>
 				</div>
 				<div class="col-sm-6">
-					<a type="submit" class="btn btn-success" href="{{route('admin.health.list')}}" style="float: right" >Quản lí danh sách</a>
+					<a type="submit" class="btn btn-success" href="{{route('admin.health.list')}}" style="border: none;min-width: 110px;background: #eb87c1;color: white;float: right;font-weight: bold;" >@lang('kidsnow.health.list')</a>
 				</div>
 			</div>
 		</div>
 
-		@if(session('notify'))
-			<div class="alert alert-success font-weight-bold">
-				{{session('notify')}}
+		<div id="clock" name="time"></div>
+		@if ($errors->has('children_health'))
+			<div class="alert alert-danger" style="text-align: center">
+				{{ $errors->first('children_health') }}
 			</div>
 		@endif
-		@if(Session::has('thongbao'))
-			<p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao') }}</p>
-		@endif
-		@if(Session::has('thongbao1'))
-			<p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao1') }}</p>
-		@endif
-		@if(Session::has('thongbao2'))
-			<p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao2') }}</p>
-		@endif
-		@if(Session::has('thongbao3'))
-			<p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao3') }}</p>
-		@endif
-		@if(Session::has('thongbao4'))
-			<p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao4') }}</p>
-		@endif
-		@if(Session::has('thongbao5'))
-			<p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao5') }}</p>
-		@endif
-
 		<form style="width: auto;margin: 0;text-align: center" action="{{route('admin.health.getAdd')}}" method="post" id="addObservation" enctype="multipart/form-data">
 			@csrf
 			<div class="row">
 				<div class="mat-card" style="width: 100%">
+					<div style="margin: 10px">
+						<span style="color: red; font-weight: bold">@lang('kidsnow.health.hint') :</span>
+						<span>@lang('kidsnow.health.hint_content')</span>
+					</div>
 					<div class="mat-content">
 						<button class="accordion accordion1 clearfix" type="button">
-							<p style="float: left;">Children *</p>
+							<p style="float: left;">@lang('kidsnow.health.children') *</p>
 							{{--<form class="typeahead" role="search" style="float: right; text-align: left">--}}
 							{{--<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">--}}
 							{{--</form>--}}
@@ -81,79 +68,32 @@
 								<input id="array_children_health" type="hidden" value="" name="children_health">
 							@endif
 						</div>
-
-						<div class="panel" >
-							<div class="row" id="children_list">
-								{{-- ajax ObservationController@addSelectChildren do vao day--}}
-							</div>
-							<input type="hidden" name="array_all_children" value="">
-						</div>
-						<div style="margin: 50px">
-							<span style="color: red; font-weight: bold">Hint :</span>
-							<span>Click on a program tab in horizontal scroll bar to show all children in that program</span>
-						</div>
 					</div>
 					<hr>
-					<div id="clock" name="time"></div>
+
 					<div class="update">
-						<p>Select Health Update Type*</p>
+						<p style="font-weight: bold; color: red">@lang('kidsnow.health.select_health_update_type') *</p>
 						<div class="tab">
-							<button  type="button" class="tablinks" onclick="openCity(event, 'Sick')">Sick</button>
-							<button type="button" class="tablinks" onclick="openCity(event, 'Medicine')">Medicine</button>
-							<button type="button" class="tablinks" onclick="openCity(event, 'Growth')">Growth</button>
-							<button type="button" class="tablinks" onclick="openCity(event, 'Incident')">Incident</button>
-							<button type="button" class="tablinks" onclick="openCity(event, 'Blood_group')">Blood_group</button>
+							<button type="button" class="tablinks" onclick="openCity(event, 'Sick')">@lang('kidsnow.health.sick')</button>
+							<button type="button" class="tablinks" onclick="openCity(event, 'Medicine')">@lang('kidsnow.health.medicine')</button>
+							<button type="button" class="tablinks" onclick="openCity(event, 'Growth')">@lang('kidsnow.health.growth')</button>
+							<button type="button" class="tablinks" onclick="openCity(event, 'Incident')">@lang('kidsnow.health.incident')</button>
+							<button type="button" class="tablinks" onclick="openCity(event, 'Blood_group')">@lang('kidsnow.health.blood_group')</button>
 						</div>
 
-						<div id="Sick" class="tabcontent">
+						<div id="Sick" class="tabcontent ">
 							<div class="row">
-								<div class="col-md-9 input_box">
-									<span>Enter details here *</span>
-									<input type="text" name="sick" placeholder="Enter details here *">
-								</div>
-
-								<div class="col-md-3">
-									<div class="input-file-container">
-										<input class="input-file" type='file' onchange="readURL(this);" id="uploadfile" name="image" accept="image/*" />
-										<label tabindex="0" for="my-file" class="input-file-trigger">
-											<i class="fa fa-paperclip"></i>
-										</label>
-										<div class="input-img" >
-
-											<img class="blah"  id="demo_image"/>
-											<div class="top-right button-close button_close_show_img">
-												<button style="border-radius:50%;width:26px;height:26px;z-index:1;">
-													<i class="fa fa-times-circle"></i>
-												</button>
-											</div>
-										</div>
-									</div>
+								<div class="col-md-11 input_box">
+									<span>@lang('kidsnow.health.sick_content') *</span>
+									<input type="text" name="sick" placeholder="@lang('kidsnow.health.sick_content') ">
 								</div>
 							</div>
-
 						</div>
 						<div id="Medicine" class="tabcontent">
 							<div class="row">
-								<div class="col-md-9 input_box">
-									<span>Enter details here *</span>
-									<input type="text" name="medicine" placeholder="Enter details here *">
-
-								</div>
-								<div class="col-md-3">
-									<div class="input-file-container">
-										<input class="input-file" type='file' onchange="readURL(this);" id="input-Medicine" />
-										<label tabindex="0" for="my-file" class="input-file-trigger">
-											<i class="fa fa-paperclip"></i>
-										</label>
-										<div class="input-img"  style="display: none">
-											<img class="blah"  name ="image"alt="your  image" />
-											<div class="top-right button-close button_close_show_img">
-												<button style="border-radius:50%;width:26px;height:26px;z-index:1;">
-													<i class="fa fa-times-circle"></i>
-												</button>
-											</div>
-										</div>
-									</div>
+								<div class="col-md-11 input_box">
+									<span>@lang('kidsnow.health.medicine_content') *</span>
+									<input type="text" name="medicine" placeholder="@lang('kidsnow.health.medicine_content') ">
 								</div>
 							</div>
 
@@ -161,8 +101,8 @@
 						<div id="Growth" class="tabcontent">
 							<div class="row growth">
 								<div class="col-md-4 growth_input input_box">
-									<span>Height</span>
-									<input type="text" name="growth_height" placeholder="Height">
+									<span>@lang('kidsnow.health.growth_height')</span>
+									<input type="text" name="growth_height" placeholder="@lang('kidsnow.health.growth_height')">
 
 									<label class="label">
 										<div class="label-text">cm</div>
@@ -177,8 +117,8 @@
 									</label>
 								</div>
 								<div class="col-md-4 growth_input input_box">
-									<span>Weight</span>
-									<input type="text" name="growth_weight" placeholder="Weight">
+									<span>@lang('kidsnow.health.growth_weight')</span>
+									<input type="text" name="growth_weight" placeholder="@lang('kidsnow.health.growth_weight')">
 
 									<label class="label">
 										<div class="label-text">kg</div>
@@ -193,8 +133,8 @@
 									</label>
 								</div>
 								<div class="col-md-4 growth_input input_box">
-									<span>Head Circumferen...</span>
-									<input type="text" name="" placeholder="Head Circumferen...">
+									<span>@lang('kidsnow.health.growth_head_circumference')</span>
+									<input type="text" name="growth_circumference" placeholder="@lang('kidsnow.health.growth_head_circumference')">
 									<label class="label">
 										<div class="label-text">cm</div>
 										<div class="toggle">
@@ -209,86 +149,51 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-9 input_box">
-									<span>Enter details here *</span>
-									<input type="text" name="blood_group" placeholder="Enter details here *">
+								<div class="col-md-11 input_box">
+									<span>@lang('kidsnow.health.growth_content') *</span>
+									<input type="text" name="growth" placeholder="@lang('kidsnow.health.growth_content') ">
 
-								</div>
-								<div class="col-md-3">
-									<div class="input-file-container">
-										<input class="input-file" type='file' onchange="readURL(this);" id="input-Growth" />
-										<label tabindex="0" for="my-file" class="input-file-trigger">
-											<i class="fa fa-paperclip"></i>
-										</label>
-										<div class="input-img" style="display: none">
-											<img class="blah"  name ="image" alt="your  image" />
-											<div class="top-right button-close button_close_show_img">
-												<button style="border-radius:50%;width:26px;height:26px;z-index:1;">
-													<i class="fa fa-times-circle"></i>
-												</button>
-											</div>
-										</div>
-									</div>
 								</div>
 							</div>
 
 						</div>
 						<div id="Incident" class="tabcontent">
 							<div class="row">
-								<div class="col-md-9 input_box">
-									<span>Enter details here *</span>
-									<input type="text" name="incident" placeholder="Enter details here *">
+								<div class="col-md-11 input_box">
+									<span>@lang('kidsnow.health.incident_content') *</span>
+									<input type="text" name="incident" placeholder="@lang('kidsnow.health.incident_content') ">
 
-								</div>
-								<div class="col-md-3">
-									<div class="input-file-container">
-										<input class="input-file" type='file' onchange="readURL(this);" id="input-Incident" />
-										<label tabindex="0" for="my-file" class="input-file-trigger">
-											<i class="fa fa-paperclip"></i>
-										</label>
-										<div class="input-img" style="display: none">
-											<img class="blah" name="image" alt="your  image" />
-											<div class="top-right button-close button_close_show_img">
-												<button style="border-radius:50%;width:26px;height:26px;z-index:1;">
-													<i class="fa fa-times-circle"></i>
-												</button>
-											</div>
-										</div>
-									</div>
 								</div>
 							</div>
-
 						</div>
 						<div id="Blood_group" class="tabcontent">
 							<div class="row">
-								<div class="col-md-9 input_box">
-									<span>Enter details here *</span>
-									<input type="text" name="blood_group" placeholder="Enter details here *">
+								<div class="col-md-11 input_box">
+									<span>@lang('kidsnow.health.blood_group_content') *</span>
+									<input type="text" name="blood_group" placeholder="@lang('kidsnow.health.blood_group_content') ">
 
-								</div>
-								<div class="col-md-3">
-									<div class="input-file-container">
-										<input class="input-file" type='file' onchange="readURL(this);" id="input-Sick" />
-										<label tabindex="0" for="my-file" class="input-file-trigger">
-											<i class="fa fa-paperclip"></i>
-										</label>
-										<div class="input-img" style="display: none">
-											<img class="blah"  name ="image"  alt="your  image" />
-											<div class="top-right button-close button_close_show_img">
-												<button style="border-radius:50%;width:26px;height:26px;z-index:1;">
-													<i class="fa fa-times-circle"></i>
-												</button>
-											</div>
-										</div>
-									</div>
 								</div>
 							</div>
-
+						</div>
+						<div class="input-file-container" style="float: right">
+							<input type="file" id="file" name="clip_board[]" multiple="multiple" value="{{old('clip_board')}}" accept=
+							".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf">
+							<label tabindex="0" for="my-file" id="button_file" class="input-file-trigger">
+								<i class="fa fa-paperclip"></i>
+							</label>
 						</div>
 					</div><br>
+					<p style="color: blue; float: left; text-align: left" id="show_clip_board"></p>
 				</div>
 			</div>
-			<button type="submit" class="btn btn-primary">Save</button>
+			<div class="button" style="text-align: center;">
+				<button type="reset" onclick="goBack()">
+					<span>CANCEL</span>
+				</button>
+				<button class="button2" id="submit_button" type="submit">
+					<span>SAVE</span>
+				</button>
+			</div>
 		</form>
 		</div>
 	</section>
@@ -403,6 +308,30 @@
 		$('.button_close_show_img').click(function(event) {
 			$(this).parent('.input-img').hide();
 		});
+
+		//clip board
+		var input_file = $("#file");
+		input_file.on("change", function () {
+			var files = input_file.prop("files")
+			if ($('#file').val() != null){
+				$('#show_clip_board').html('');
+			}
+			var names = $.map(files, function (val) {
+				return val.name;
+			});
+			$.each(names, function (i, name) {
+				$('#show_clip_board').append(name+'<br>');
+			});
+		});
+		$('#file').hide();
+		$('#image').hide();
+		$('#button_file').click(function () {
+			$('#file').click();
+		})
+		$('#button_image').click(function () {
+			$('#image').click();
+		})
+		//end clipboard
 	</script>
 	<script type="text/javascript">
 		$('.input_box input').focus(function(event) {
@@ -486,7 +415,6 @@
 		//end select children_observation
 		var button = document.getElementById("submit_button");
 		button.onclick = function(){
-			alert("Thông tin đã lưu thành công!!!");
 			$('#array_all_children').attr('value', array_children);
 			$('#array_observation').attr('value', array_observation);
 			$('#array_children_observation').attr('value', array_children_observation);

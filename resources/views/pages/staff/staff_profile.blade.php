@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-	List Staff
+@lang('kidsnow.staff')
 @endsection
 @section('css')
 
@@ -33,12 +33,12 @@
 		</div>
 		</div>
 		<div>
-			@if(session('thongbao'))
+			{{-- @if(session('thongbao'))
 			<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">* {{ session('thongbao') }}</p>
             @endif
             @if(session('delete'))
 			<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">* {{ session('delete') }}</p>
-		    @endif
+		    @endif --}}
 		</div>
 		<div class="mat-card">
 			<div class="row-fluid">
@@ -62,7 +62,7 @@
 							<th style="text-align:left;">@lang('kidsnow.program')</th>
 							<th style="text-align:left;">@lang('kidsnow.date_of_joining')</th>
 							<th style="text-align:left;">@lang('kidsnow.image')</th>
-							<th style="text-align:center;width:9%">Thao Tác</th>
+							<th style="text-align:center;width:9%">@lang('kidsnow.action')</th>
 						  </tr>
 						</thead>
 						<tbody>
@@ -99,8 +99,8 @@
 								<td style="font-size:12px">{{ $item->date_of_joining==Null ? 'Chưa nhập' : Carbon\Carbon::parse($item->date_of_joining)->format('d-m-Y') }}</td>
 								<td ><img style="width:30px;height:30px;border-radius:50%" src="images/staff/{{ $item->image }}"></td>
 								<td style="text-align:center;width:12px">
-									<a  href="kids-now/staff/edit/{{ $item->id }}" title="Edit Staff" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
-									<a  onclick="return confirm('Delete staff ? Do you want continue !')" title="Delete Staff" href="kids-now/staff/delete/{{ $item->id }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+									<a  href="kids-now/staff/edit/{{ $item->id }}" title="@lang('kidsnow.title_edit_staff')" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+									<a  onclick="return confirm('Delete staff ? Do you want continue !')" title="@lang('kidsnow.title_delete_staff')" href="kids-now/staff/delete/{{ $item->id }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
 								</td>
 							</tr>
 						  @endforeach

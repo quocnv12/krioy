@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-Thực đơn
+@lang('kidsnow.food_name')
 @endsection
 @section('content')
 
@@ -9,10 +9,10 @@ Thực đơn
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
             <div class="row">
                 <ul class="ul-td" style="width:100%">
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
-                    <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="kids-now/food">Food</a></li>
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now/food/menu-food-name">Food Name</a></li>
-                    <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="kids-now/food/menu-food-name">Add</a></li>
+                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">@lang('kidsnow.home')</a></li>
+                    <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="kids-now/food">@lang('kidsnow.food')</a></li>
+                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now/food/menu-food-name">@lang('kidsnow.food_name')</a></li>
+                    <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="kids-now/food/menu-food-name">@lang('kidsnow.add')</a></li>
 
                 </ul>
             </div>
@@ -29,16 +29,16 @@ Thực đơn
                             laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                     <div>
-                        <p>Add Food Name*</p>
+                        <p>@lang('kidsnow.add') @lang('kidsnow.food_name')*</p>
                         <form  style="width:auto;" method="post">
                         @csrf
                         <div class="form-group">
-                            <input type="text" style="text-transform:capitalize" class="form-control" name="food_name"  placeholder="Enter Food Name" value="{{ old('food_name') }}">
+                            <input type="text" style="text-transform:capitalize" class="form-control" name="food_name"  placeholder="@lang('kidsnow.food_name')" value="{{ old('food_name') }}">
                             @if($errors->has('food_name'))
                             <p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">* {{ $errors->first('food_name') }}</p>
                           @endif
                         </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">@lang('kidsnow.save')</button>
                     </form>
                     </div>
                 </div>

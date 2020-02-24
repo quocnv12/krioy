@@ -20,10 +20,10 @@ class LoginController extends Controller
     public function login(request $request)
     {
         $input = $request->only(['phone', 'password']);
-       $token = null;
+        $token = null;
             $rule = [
-                'phone' => 'required|numeric|min:10',
-                'password' => 'required|min:8'
+                'phone' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10',
+                'password' => 'required|min:8|max:30'
             ];
             $vadidate = Validator::make($input, $rule);
             if($vadidate->fails())
@@ -33,8 +33,8 @@ class LoginController extends Controller
             else
             {
                 try {
-                    if (!$token = JWTAuth::attempt($input)) {
-                     return response()->json(['invalid_email_or_password'], 422);
+                    if (!$token = JWTAuth::attempt($input, $request->remember)) {
+                     return response()->json(['invalid_phone_or_password'], 422);
                     }
                  } catch (JWTAuthException $e) {
                      return response()->json(['failed_to_create_token'], 500);
@@ -49,8 +49,9 @@ class LoginController extends Controller
 
     public function logout(request $request)
     {
-        $this->guard()->logout();
-        return redirect('');
+        $this->guard('api')->logout();
+        
+        return response()->json(['message' => 'Successfully logged out']);
     }
     /**
      * Refresh a token.
@@ -59,7 +60,12 @@ class LoginController extends Controller
      */
     public function refresh()
     {
-        return $this->respondWithToken($this->guard()->refresh());
+        // return response(JWTAuth::getToken(), 200);
+       // return $this->respondWithToken(auth()->refresh());
+       $token = auth::guard('api')->refresh();
+       return response()->json(
+           ['token' => $token]
+          );
     }
 
     /**
@@ -87,5 +93,40 @@ class LoginController extends Controller
     {
         return Auth::guard('api');
     }
+
+
+
+    // public function login1(request $request)
+    // {
+    //     $input = $request->only(['phone', 'password']);
+    //         $rule = [
+    //             'phone' => 'required|numeric|min:10',
+    //             'password' => 'required|min:8'
+    //         ];
+    //         $vadidate = Validator::make($input, $rule);
+    //         if($vadidate->fails())
+    //         {   
+    //             return response()->json($vadidate->errors()->toArray(), 201);
+    //         }
+    //         else
+    //         {
+    //             try {
+    //                 if (!$token = auth::attempt($input, $request->remember)) {
+    //                  return response()->json(['invalid_email_or_password'], 422);
+    //                 }
+    //                 else
+    //                 {
+    //                     return response()->json(['failed_to_create_token'], 500);
+    //                 }
+                
+    //             return response()->json([
+    //                 'token' => Auth::user()->api_token,
+    //             ], 200);
+    //         }
+
+    // }
+
+
+
     
 }

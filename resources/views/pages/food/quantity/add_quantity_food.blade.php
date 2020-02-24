@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-Add quantity food
+@lang('kidsnow.quantity')
 @endsection
 @section('content')
 
@@ -9,10 +9,10 @@ Add quantity food
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
             <div class="row">
                 <ul class="ul-td" style="width:100%">
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
-                    <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="kids-now/food">Food</a></li>
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now/food/menu-quantity">Quantyti Food</a></li>
-                    <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="kids-now/food/menu-quantyti">Add</a></li>
+                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">@lang('kidsnow.home')</a></li>
+                    <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="kids-now/food">@lang('kidsnow.food')</a></li>
+                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now/food/menu-quantity">@lang('kidsnow.quantity')</a></li>
+                    <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="kids-now/food/menu-quantyti">@lang('kidsnow.add')</a></li>
 
                 </ul>
             </div>
@@ -29,16 +29,16 @@ Add quantity food
                             laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                     <div>
-                        <p>Add Meal Type*</p>
+                        <p>@lang('kidsnow.add') @lang('kidsnow.quantity') *</p>
                         <form  style="width:auto;" method="post">
                         @csrf
                         <div class="form-group">
-                            <input type="text" class="form-control" style="text-transform:capitalize" name="name"  placeholder="Enter Quantyti Food" value="{{ old('name') }}">
+                            <input type="text" class="form-control" style="text-transform:capitalize" name="name"  placeholder="@lang('kidsnow.add') @lang('kidsnow.quantity')" value="{{ old('name') }}">
                             @if($errors->has('name'))
                             <p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">* {{ $errors->first('name') }}</p>
                           @endif
                         </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">@lang('kidsnow.save')</button>
                     </form>
                     </div>
                 </div>

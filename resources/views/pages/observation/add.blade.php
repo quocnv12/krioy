@@ -34,25 +34,25 @@
 			<div class="row">
 				<div class="mat-card" style="width: 100%">
 					<div class="mat-content">
-						<a style="min-width:110px;background:#eb87c1;color:white; float: left;font-weight: bold" href="{{route('admin.observations.listobservationtype')}}" class="btn btn-default">OBSERVATION TYPES</a>
-						<a style="min-width:110px;background:#eb87c1;color:white; float: right; border: none;font-weight: bold" href="{{route('admin.observations.list')}}" class="btn btn-success" >CHILDREN LIST</a>
+						<a style="min-width:110px;background:#eb87c1;color:white; float: left;font-weight: bold" href="{{route('admin.observations.listobservationtype')}}" class="btn btn-default">@lang('kidsnow.observations.types')</a>
+						<a style="min-width:110px;background:#eb87c1;color:white; float: right; border: none;font-weight: bold" href="{{route('admin.observations.list')}}" class="btn btn-success" >@lang('kidsnow.observations.list')</a>
 						<br>
 						<div class="col-md-12">
-							<span style="font-weight: bold">Seminar:</span>
+							<span style="font-weight: bold">@lang('kidsnow.observations.seminar'):</span>
 							<select name="month" id="month">
-								<option value="">Choose Month</option>
-								<option value="Jan" @if(now()->month == 1) selected @endif>January</option>
-								<option value="Feb" @if(now()->month == 2) selected @endif>February</option>
-								<option value="Mar" @if(now()->month == 3) selected @endif>March</option>
-								<option value="Apr" @if(now()->month == 4) selected @endif>April</option>
-								<option value="May" @if(now()->month == 5) selected @endif>May</option>
-								<option value="Jun" @if(now()->month == 6) selected @endif>June</option>
-								<option value="Jul" @if(now()->month == 7) selected @endif>July</option>
-								<option value="Aug" @if(now()->month == 8) selected @endif>August</option>
-								<option value="Sep" @if(now()->month == 9) selected @endif>September</option>
-								<option value="Oct" @if(now()->month == 10) selected @endif>October</option>
-								<option value="Nov" @if(now()->month == 11) selected @endif>November</option>
-								<option value="Dec" @if(now()->month == 12) selected @endif>December</option>
+								<option value="">@lang('kidsnow.observations.choose_month')</option>
+								<option value="Jan" @if(now()->month == 1) selected @endif>@lang('kidsnow.january')</option>
+								<option value="Feb" @if(now()->month == 2) selected @endif>@lang('kidsnow.february')</option>
+								<option value="Mar" @if(now()->month == 3) selected @endif>@lang('kidsnow.march')</option>
+								<option value="Apr" @if(now()->month == 4) selected @endif>@lang('kidsnow.april')</option>
+								<option value="May" @if(now()->month == 5) selected @endif>@lang('kidsnow.may')</option>
+								<option value="Jun" @if(now()->month == 6) selected @endif>@lang('kidsnow.june')</option>
+								<option value="Jul" @if(now()->month == 7) selected @endif>@lang('kidsnow.july')</option>
+								<option value="Aug" @if(now()->month == 8) selected @endif>@lang('kidsnow.august')</option>
+								<option value="Sep" @if(now()->month == 9) selected @endif>@lang('kidsnow.september')</option>
+								<option value="Oct" @if(now()->month == 10) selected @endif>@lang('kidsnow.october')</option>
+								<option value="Nov" @if(now()->month == 11) selected @endif>@lang('kidsnow.november')</option>
+								<option value="Dec" @if(now()->month == 12) selected @endif>@lang('kidsnow.december')</option>
 							</select>
 							-
 							<select name="year" id="">
@@ -63,7 +63,7 @@
 						</div>
 						<hr>
 						<button class="accordion accordion1 clearfix" type="button">
-							<p style="float: left;">Children *</p>
+							<p style="float: left;">@lang('kidsnow.observations.children') *</p>
 								{{--<form class="typeahead" role="search" style="float: right; text-align: left">--}}
 									{{--<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">--}}
 								{{--</form>--}}
@@ -91,13 +91,13 @@
 										</div>
 									@endforeach
 								@else
-									<div style="font-weight: bold; margin: 50px">No Children were founded</div>
+									<div style="font-weight: bold; margin: 50px">@lang('kidsnow.observations.no_found')</div>
 								@endif
                                 <input id="array_children_observation" type="hidden" value="" name="children_observations">
 							@else
 								<div style="margin: 50px;">
-									<span style="color: red; font-weight: bold">Hint :</span>
-									<span>Click on a program tab in horizontal scroll bar to show all children in that program</span>
+									<span style="color: red; font-weight: bold">@lang('kidsnow.observations.hint') :</span>
+									<span>@lang('kidsnow.observations.hint_content')</span>
 								</div>
                             @endif
                         </div>
@@ -109,7 +109,7 @@
 					@endif
 					<hr>
 					<div class="mat-content">
-						<button class="accordion" type="button">Observation Type</button>
+						<button class="accordion" type="button">@lang('kidsnow.observations.observation_types')</button>
 						<div class="panel">
 							<div _ngcontent-c20="" class="row" style="">
 								@foreach($observationtype  as $observation)
@@ -130,8 +130,8 @@
 					<div class="comment">
 						<div class="row">
 							<div class="col-md-11 input_box">
-								<span>Enter Details here *</span>
-								<input type="text" name="detailObservation" placeholder="Enter Details here *">
+								<span>@lang('kidsnow.observations.detail')</span>
+								<input type="text" name="detailObservation" placeholder="@lang('kidsnow.observations.detail')">
 							</div>
 							<div class="col-md-1">
 								<div class="zoom">

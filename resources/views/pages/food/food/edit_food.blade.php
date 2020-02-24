@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-Food
+@lang('kidsnow.foods')
 @endsection
 @section('content')
 
@@ -10,43 +10,29 @@ Food
             <div class="row">
                 <div class="col-md-6">
                     <ul class="ul-td">
-                        <li _ngcontent-c16="" class="level1"><a href="kids-now">Home</a></li>
-                        <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a href="kids-now/food">Food</a>
+                        <li _ngcontent-c16="" class="level1"><a href="kids-now">@lang('kidsnow.home')</a></li>
+                        <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a href="kids-now/food">@lang('kidsnow.food')</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
-        <div>
- 
-            @if(Session::has('thongbao'))
-                <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao') }}</p>
-            @endif
-             @if(Session::has('thongbao1'))
-                <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao1') }}</p>
-            @endif
-             @if(Session::has('thongbao2'))
-                <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao2') }}</p>
-            @endif
-             @if(Session::has('thongbao3'))
-                <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao3') }}</p>
-            @endif
-              @if(Session::has('thongbao4'))
-                <p style="font-size: 16px;font-weight: 100;color:red;font-style: italic;line-height: 25px;margin-top:20px">* {{ Session::get('thongbao4') }}</p>
-            @endif
-        </div>
         <div class="row">
-            <form method="post"  enctype="multipart/form-data" >
+            <form style="width: 100%;" method="post"  enctype="multipart/form-data" >
                 @csrf
             <div class="mat-card" style="">
                 <div class="mat-content">
                     <div class="row">
-                        <a style="margin:5px 0px 13px 14px;width:100px;background:#5363d6;color:white" href="kids-now/food/menu-meal-type" class="btn btn-primary">Meal Tpye</a>
-                        <a style="margin:5px 0px 13px 14px;width:100px;background:#5363d6;color:white" href="kids-now/food/menu-quantity" class="btn btn-primary">Quantity</a>
-                        <a style="margin:5px 0px 13px 14px;width:100px;background:#5363d6;color:white" href="kids-now/food/menu-food-name" class="btn btn-primary">Food Name</a>
-                        <a style="margin:5px 0px 13px 14px;width:100px;background:#5363d6;color:white" href="kids-now/food/list" class="btn btn-primary">Food</a>
+                        <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white"
+                                href="kids-now/food/menu-meal-type" class="btn btn-defaul">@lang('kidsnow.meal_type')</a>
+                            <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white"
+                                href="kids-now/food/menu-quantity" class="btn btn-defaul">@lang('kidsnow.quantity')</a>
+                            <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white"
+                                href="kids-now/food/menu-food-name" class="btn btn-defaul">@lang('kidsnow.food_name')</a>
+                            <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white"
+                                href="kids-now/food/list" class="btn btn-defaul">@lang('kidsnow.food_list')</a>
                     </div>
-                    <button class="accordion" title="Please chosse program" type="button">Programs</button>
+                    <button class="accordion" title="Please chosse program" type="button">@lang('kidsnow.program_food')</button>
                     <div class="panel">
                         <div _ngcontent-c20="" class="row" style="">
                             @foreach($programs as $item)
@@ -62,7 +48,7 @@ Food
                         </div>
                     </div>
                     <div class="update">
-                        <p style="text-align:left;margin-top:12px" >Select Meal Type *</p>
+                        <p style="text-align:left;margin-top:12px" >@lang('kidsnow.select_meal_type') *</p>
                         <div class="tab">
                             @foreach ($mealtypes as $item)
                             <button value="{{ $item->id }}" style="margin:5px 26px 5px 42px;font-size:14px"   title="{{ $item->name }}" type="button" data-id="lunch"
@@ -73,7 +59,7 @@ Food
                     </div>
                     <hr>
                     <div class="update"  style="text-align:left">
-                        <p>Select Quantity *</p>
+                        <p>@lang('kidsnow.quantity') *</p>
                         <div class="tab">
                             @foreach ($quantytifoods as $item)
                             <button type="button"   title="{{ $item->name }}" style="margin:5px 26px 5px 42px;font-size:14px" value="{{ $item->id }}"
@@ -84,7 +70,7 @@ Food
                         </div>
                     </div>
                     <hr>
-                    <button type="button" style="width:100%" title="Please chosse food name" class="accordion_new">Meal Item Name *
+                    <button type="button" style="width:100%" title="Please chosse food name" class="accordion_new">@lang('kidsnow.select_food_name') *
                         <i class="fa fa-chevron-circle-down"></i>
                     </button>
                     <div class="panel_new">
@@ -94,23 +80,23 @@ Food
                             <div _ngcontent-c20="" align="center"
                                 class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
                                 style="padding:10px;cursor:pointer;">
-                                <button   title="{{ $item->food_name }}" _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
+                                <button   title="{{ $item->food_name }}" _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1 {{ $foodItemName->contains($item->id) ? 'tablinks1_active' :'' }}"
                                     value="{{ $item->id }}" type="button"
                                     style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px;">{{ $item->food_name }}
                                 </button>
                             </div>
                             @endforeach
-                        <input id="array_programss" type="hidden" value="" name="food_name">
+                        <input id="array_programss" type="hidden" value="{{ implode(',',$foodItemNames) }}" name="food_name">
                         
                         </div>
                     </div>
                     <div class="comment">
                         <div class="button" style="text-align: center;">
-                            <button>
-                                <span>CANCEL</span>
-                            </button>
+                           <a href="kids-now/food"> <button type="button">
+                                <span>@lang('kidsnow.cancel')</span>
+                            </button></a>
                             <button class="button2">
-                                <span>SEND</span>
+                                <span>@lang('kidsnow.save')</span>
                             </button>
                         </div>
                     </div>
@@ -159,9 +145,9 @@ Food
 
 </script>
 <script type="text/javascript">
-    var array = [];
+    var array = $('#array_programss').val().split(',');
     $('.tablinks1').click(function (event) {
-        if ($(this).prop('class') == 'btn progBtn limitText bgClass tablinks1 tablinks1_active') {
+        if ($(this).hasClass('tablinks1_active')) { 
             $(this).removeClass('tablinks1_active');
             var program_pop = $(this).val();
             array.splice(array.indexOf(program_pop),1);

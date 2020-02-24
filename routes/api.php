@@ -22,17 +22,17 @@ use Illuminate\Http\Request;
 //-----Đăng nhập----
 Route::post('login', 'Api\LoginController@login');
 
+
 //-------------------Quên mật khẩu-----------------
 Route::post('forgot', 'Api\ForgotPassWordController@PostFormResetPassword');
-Route::post('password/reset', 'Api\ForgotPassWordController@PostResetPassword');
 
 //-----------------Tài khoản demo-------------------
 Route::post('account','Api\ForgotPassWordController@postDemoAccount');
 
 //-------------------Group Admin------------------
 Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
-    Route::post('logout', 'Api\LoginController@logout');
-
+    Route::get('logout', 'Api\LoginController@logout');
+    Route::get('token/refresh', 'Api\LoginController@refresh');
 
     //---------------AttendanceChildren----------------
     Route::group(['prefix' => 'attendance'], function (){
@@ -47,6 +47,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
         Route::get('','Api\PermissionController@index');
         Route::get('show/{id}','Api\PermissionController@show');
         Route::post('add','Api\PermissionController@store');
+        Route::post('edit/{id}','Api\PermissionController@update');
        
     });
 
@@ -77,6 +78,12 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
          Route::post('menu-quantity/update/{id}', 'Api\FoodController@updateQuantity');
          Route::get('menu-quantity/delete/{id}', 'Api\FoodController@destroyQuantity');
 
+         //food name
+         Route::get('menu-food-name', 'Api\FoodController@indexFoodName');
+         Route::post('menu-food-name/add', 'Api\FoodController@storeFoodName');
+         Route::get('menu-food-name/show/{id}', 'Api\FoodController@showFoodName');
+         Route::post('menu-food-name/update/{id}', 'Api\FoodController@updateFoodName');
+         Route::get('menu-food-name/delete/{id}', 'Api\FoodController@destroyFoodName');
     });
    
     // Route::apiResource('food', 'api\FoodController@add');
@@ -210,4 +217,46 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
 
     });
 });
+
+
+
+
+//---------------------------------api parent----------------------
+
+//---quên mật khẩu
+Route::post('parent/forgot', 'Api\Parent\ForgotPassWordController@PostFormResetPassword');
+
+//--login--
+Route::post('parent/login', 'Api\Parent\LoginController@loginParent')->middleware('assign.guard:admin');
+//--group parent
+Route::group(['prefix' => 'parent','middleware' => 'jwt.admin'], function () {
+    //=-----danh sách module
+    Route::get('module', 'Api\Parent\ForgotPasswordController@getModule');
+
+
+    Route::get('logout', 'Api\Parent\LoginController@logout');
+    Route::get('refresh', 'Api\Parent\LoginController@refresh');
+    // Route::post('me', 'Api\Parent\LoginController@me');
+    // Route::get('food', 'Api\Parent\FoodController@getme');
+
+    Route::get('/','Api\Parent\ParentProfilesController@index');    //show thong tin parent va tat ca children cua parent do
+    Route::get('children/{id}','Api\Parent\ParentProfilesController@show'); //show thong tin 1 children
+    Route::get('program/{id}','Api\Parent\ParentProfilesController@showProgramDetail'); //show thong tin program
+    Route::post('edit_children/{id}','Api\Parent\ParentProfilesController@updateChildren');  //update children
+    Route::post('edit_parent','Api\Parent\ParentProfilesController@updateParent');  //update parent
+    Route::get('children_notice_board/{id}','Api\Parent\ParentProfilesController@showAllNoticeBoard');
+    Route::get('notice_board/{id}','Api\Parent\ParentProfilesController@showOneNoticeBoard');
+
+    //-------------đổi mật khâu------
+    Route::post('update-password', 'Api\Parent\ForgotPasswordController@postUpdatePassword');
+
+    //----thực đơn-----
+    Route::get('food','Api\Parent\FoodController@index');
+
+    //---diem danh-----
+    Route::get('attendance/{id}','Api\Parent\AttendanceController@getStatus');
+
+});
+
+
 

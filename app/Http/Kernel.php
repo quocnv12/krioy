@@ -65,6 +65,9 @@ class Kernel extends HttpKernel
         'CheckLogOut' => \App\Http\Middleware\CheckLogOut::class,
         'Jwtapi' => \App\Http\Middleware\VerifyJWTToken::class,
         'checkacl' => \App\Http\Middleware\CheckPermission::class,
+        'assign.guard' => \App\Http\Middleware\AssignGuard::class,
+        'jwt.admin' => \App\Http\Middleware\CheckTokenParent::class,
+        'jwt.auth' => \App\Http\Middleware\CustomGetUserFromToken::class,
     ];
 
     /**

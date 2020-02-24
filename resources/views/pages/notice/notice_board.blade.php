@@ -27,13 +27,13 @@
 			<div class="row">
 				<div class="col-md-6">
 					<ul class="ul-td">
-						<li class="level1"><a href="kids-now">HOME</a></li>
+						<li class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
 						<li class="active1" style="pointer-events:none"><a href="">NOTICE BOARD</a></li>
 					</ul>
 				</div>
 				<div class="col-md-6" style="display: flex; justify-content: flex-end">
 					<form class="typeahead" role="search" style="text-align: left">
-						<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Notice..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 300px;">
+						<input type="search" name="q" class="form-control search-input search-custom" placeholder="@lang('kidsnow.notice.search')" autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 300px;">
 					</form>
 				</div>
 			</div>
@@ -46,7 +46,7 @@
 				<div class="scrollmenu-button" style="text-align: center;">
 					<!---->
 					<button type="submit" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
-						<a style="color: #fff;margin: 0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 150px;display: block;" title="{{$program->program_name}}" href="kids-now/notice-board/{{$program->id}}">{{$program->program_name}}</a>
+						<a style="color: #fff;margin: 0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 150px;display: block;" title="{{$program->program_name}}" href="{{route('admin.notice-board.show',['id'=>$program->id])}}">{{$program->program_name}}</a>
 					</button>
 				</div>
 				@endforeach
@@ -60,7 +60,7 @@
 				@foreach($notice_board as $notice)
 				<div class="mat-card" style="margin: 0;">
 					<div class="row">
-						<div class="notice" data-href="kids-now/notice-board/detail/{{$notice->id}}" style="width: 100%;">
+						<div class="notice" data-href="{{route('admin.notice-board.detail',['id'=>$notice->id])}}" style="width: 100%;">
 							<div class=" col-md-10">
 								<span style="display: block; font-size: 18px; padding-left: 0;"><!---->
 									@if($notice->important == 1)<i aria-hidden="true" class="fa fa-star ng-star-inserted" style="color:#FAC917;padding-right:5px; "></i>@endif{{$notice->title}}
@@ -82,14 +82,14 @@
 				@endforeach
             @else
                     <div style="margin: 50px">
-                        <p style="color: red; font-weight: bold">Hint :</p>
-                        <p>Click on a program tab in horizontal scroll bar to show all notice in that program / Or use the search bar to go to specific notice</p>
+                        <p style="color: red; font-weight: bold">@lang('kidsnow.notice.hint') :</p>
+                        <p>@lang('kidsnow.notice.hint_content')</p>
                     </div>
 			@endif
 			</div>
 		</div>
 		<div class="icon-plus" title="add">
-			<a href="kids-now/notice-board/add">
+			<a href="{{route('admin.notice-board.create')}}">
 				<i class="fa fa-plus"></i>
 			</a>
 		</div>

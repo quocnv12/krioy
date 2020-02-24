@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\models\food\{food,mealtype,quantytifood};
+use App\models\food\{food,mealtype,quantytifood,itemfood};
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Validator;
@@ -289,7 +289,7 @@ class FoodController extends Controller
         {
             return response()->json(['massage' => 'Record not found!'] , 404);
         }
-        $quantityfood = quantytifood::find($id);
+       // $quantityfood = quantytifood::find($id);
         return response()->json(['quantity_food' => $quantityfood], 200);
 
     }
@@ -337,5 +337,117 @@ class FoodController extends Controller
         return response()->json(['massage' => 'Delete quantity success !'], 200);
         
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //-------------------------------food name------------------------------------
+    public function indexFoodName()
+    {
+        $food_name = itemfood::all();
+        return response()->json([
+            'food_name' => $food_name
+        ],200);
+    }
+
+    //--add quantity
+    public function storeFoodName(Request $request)
+    {
+        $rules =  
+            [
+                'food_name'  => 'required',
+            ];
+            $validator = Validator::make($request->all(), $rules,[
+                'food_name.required'  => 'Please enter food name !',
+            ]);
+        if($validator->fails())
+        {
+            return response()->json($validator->errors(), 400);
+        }
+        $food_name = itemfood::create($request->all());
+        $food_name->save();
+       return response()->json(['massage' => 'Add food name success !'], 201);
+
+    }
+
+    //--show quantity
+    public function showFoodName($id)
+    {
+        //return food::with(['mealtypefood','quantityfood','food:id,food_name'])->get();
+        $food_name = itemfood::find($id);
+        if(!$food_name)
+        {
+            return response()->json(['massage' => 'Record not found!'] , 404);
+        }
+        //$food_name = itemfood::find($id);
+        return response()->json(['food_name' => $food_name], 200);
+
+    }
+
+
+
+
+
+    //---edit quantity food
+    public function updateFoodName(Request $request, $id)
+    {
+        $food_name = itemfood::find($id);
+        if(!$food_name)
+        {
+            return response()->json(['massage' => 'Record not found!'] , 404);
+        }
+        
+        $rules =  
+        [
+            'food_name'  => 'required|unique:quantity_food,name',
+          
+        ];
+        $validator = Validator::make($request->all(), $rules,[
+            'food_name.required'  => 'Please enter food name !',
+            'food_name.unique'    => 'Food name already exist !'
+        ]);
+        if($validator->fails())
+        {
+            return response()->json($validator->errors(), 400);
+        }
+        $food_name->update($request->all());
+        $food_name->save();
+        return response()->json(['massage' => 'Edit food name success !'], 201);
+    }
+
+    //----delete quantity food
+    public function destroyFoodName($id)
+    {
+        $food_name = quantytifood::find($id);
+        if(!$food_name)
+        {
+            return response()->json(['massage' => 'Record not found!'] , 404);
+        }
+        $food_name->delete($id);
+        return response()->json(['massage' => 'Delete food name success !'], 200);
+        
+    }
+
 
 }

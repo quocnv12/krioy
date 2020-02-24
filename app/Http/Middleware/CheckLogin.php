@@ -17,10 +17,7 @@ class CheckLogin
     {
         if(Auth::check())
         {
-            // if (Auth::user()->active==0) {
-            //     Auth()->logout();
-            //     return redirect('login')->with('thongbao', 'You need to verify the account.');
-            // }
+            // && Auth::user()->time_expire > now() kiểm tra đăng nhập 15 ngày
             return $next($request);
         }else{
             

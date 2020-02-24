@@ -4,7 +4,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Welcome to Kids-now</title>
+		<title>@lang('kidsnow.title_email')</title>
 		{{-- <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
    		<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
@@ -50,14 +50,14 @@
 		                        <table style="width:100%">
 		                          <tbody><tr>
 		                            <td style="padding:25px 25px 25px">
-		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:22px;font-weight:700;margin:0 0 40px 0">Welcome <b>{{ $first_name }} {{ $last_name }}</b> !</p>
-		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:22px">Thank you for registering to use our software. Registered information is as follows : </p>
+		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:22px;font-weight:700;margin:0 0 40px 0">@lang('kidsnow.Welcome_email_staff') <b>{{ $first_name }} {{ $last_name }}</b> !</p>
+		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:22px">@lang('kidsnow.title_welcome_email_staff')</p>
 
-		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:18px"> <b>- Full Name:</b> {{ $first_name }} {{ $last_name }}</p>
-		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:18px"> <b>- Phone:</b> {{ $phone }}</p>
-		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:18px"> <b>- Address:</b> {{ $address }}</p>
+		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:18px"> <b>- @lang('kidsnow.full_name_email_staff'):</b> {{ $first_name }} {{ $last_name }}</p>
+		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:18px"> <b>- @lang('kidsnow.phone_email_staff'):</b> {{ $phone }}</p>
+		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:18px"> <b>- @lang('kidsnow.address_email_staff'):</b> {{ $address }}</p>
                                       <p style="text-align:justify;color:#010101;font-size:16px;line-height:18px"> <b>- Email:</b> {{ $email }}</p>
-                                      <p style="text-align:justify;color:#010101;font-size:16px;line-height:18px"> <b>- Password:</b> {{ $password }}</p>
+                                      <p style="text-align:justify;color:#010101;font-size:16px;line-height:18px"> <b>- @lang('kidsnow.password_email_staff'):</b> {{ $password }}</p>
                                       
 		                              {{-- <p style="text-align:justify;color:#010101;font-size:16px;line-height:22px">QUY TRÌNH TRIỂN KHAI GIẢI PHÁP KHUTRO: </p>
 		                              <p style="text-align:justify;color:#010101;font-size:16px;line-height:18px"> <b>- Bước 1:</b> Gọi điện xác nhận thông tin</p>
@@ -110,7 +110,7 @@
 		            <table style="width:100%">
 		              <tbody>
 		              <tr>
-		                <td style="text-align:center;vertical-align:middle;padding:15px 25px 15px"><a href="kidsnow.edu.vn" style="font-size:14px;text-decoration:none;color:#fff;font-weight:bold;vertical-align:text-top" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.khutro.com&amp;source=gmail&amp;ust=1581741216316000&amp;usg=AFQjCNFmeP66p-Huv_KIYnExYXALGjidaw">kidsnow.edu.vn</a></td>
+		                <td style="text-align:center;vertical-align:middle;padding:15px 25px 15px"><a href="http://kidsnow.edu.vn" style="font-size:14px;text-decoration:none;color:#fff;font-weight:bold;vertical-align:text-top" target="_blank" data-saferedirecturl="https://www.google.com/url?q=https://www.khutro.com&amp;source=gmail&amp;ust=1581741216316000&amp;usg=AFQjCNFmeP66p-Huv_KIYnExYXALGjidaw">kidsnow.edu.vn</a></td>
 		              </tr>
 		              </tbody>
 		            </table>

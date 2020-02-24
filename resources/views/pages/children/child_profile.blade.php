@@ -28,8 +28,8 @@
 			<div class="row">
 				<div class="col-md-6">
 					<ul class="ul-td">
-						<li class="level1"><a href="kids-now">HOME</a></li>
-						<li class="active1" ><a href="kids-now/children">CHILDREN PROFILES</a></li>
+						<li class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
+						<li class="active1" ><a href="{{route('admin.children.index')}}">CHILDREN PROFILES</a></li>
 					</ul>
 				</div>
 				<div class="col-md-6">
@@ -39,7 +39,7 @@
 						{{--<span _ngcontent-c10="" class="badge" style="background-color: red;color:#fff;vertical-align: top;display: inline;line-height:0px">1</span>--}}
 					{{--</a>--}}
 					<form class="typeahead" role="search" style="float: right;" >
-						<input  type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 300px;">
+						<input  type="search" name="q" class="form-control search-input search-custom" placeholder="@lang('kidsnow.children.search_bar')" autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 300px;">
 					</form>
 				</div>
 			</div>
@@ -57,14 +57,14 @@
 				<div class="scrollmenu-button" style="text-align: center;">
 					<!---->
 					<button type="submit" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
-						<a style="color: #fff;" href="kids-now/children/0">Untagged</a>
+						<a style="color: #fff;" href="{{route('admin.children.show',['id'=> 0])}}">@lang('kidsnow.children.untagged')</a>
 					</button>
 				</div>
 				@foreach($programs as $program)
 				<div class="scrollmenu-button" style="text-align: center;">
 					<!---->
 					<button type="submit" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
-						<a style="color: #fff ;margin: 0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 150px;display: block;" title="{{$program->program_name}}" href="kids-now/children/{{$program->id}}">{{$program->program_name}}</a>
+						<a style="color: #fff ;margin: 0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 150px;display: block;" title="{{$program->program_name}}" href="{{route('admin.children.show',['id'=> $program->id])}}">{{$program->program_name}}</a>
 					</button>
 				</div>
 				@endforeach
@@ -88,8 +88,8 @@
 										<!---->
 										<input type="hidden" value="{{$children->id}}" class="link_to_children">
 									</div>
-									<input type="hidden" value="{{\App\models\ChildrenProfiles::getIdHealth($children->id)}}">
-									<input type="hidden" value="{{\App\models\ChildrenProfiles::getIdObservation($children->id)}}">
+									{{--<input type="hidden" value="{{\App\models\ChildrenProfiles::getIdHealth($children->id)}}">--}}
+									{{--<input type="hidden" value="{{\App\models\ChildrenProfiles::getIdObservation($children->id)}}">--}}
 								</div>
 							@endforeach
 						@else
@@ -97,8 +97,8 @@
 						@endif
 					@else
 						<div style="margin: 50px">
-							<p style="color: red; font-weight: bold">Hint :</p>
-							<p>Click on a program tab in horizontal scroll bar to show all children in that program / Or use the search bar to go to specific children's profile</p>
+							<p style="color: red; font-weight: bold">@lang('kidsnow.children.hint') :</p>
+							<p>@lang('kidsnow.children.hint_content')</p>
 						</div>
 					@endif
 				</div>
@@ -110,7 +110,7 @@
 			</div>
 		@endif
 		<div class="icon-plus" title="add">
-			<a href="kids-now/children/add">
+			<a href="{{route('admin.children.create')}}">
 				<i class="fa fa-plus"></i>
 			</a>
 		</div>
@@ -118,10 +118,10 @@
 			<div class="modal-dialog modal-sm">
 				<div class="modal-content">
 					<ul style="margin-left: 0">
-						<li style="color: #5363d6!important">Go to</li>
-						<li class="modal-li" data-href="" id="profile_children">Profile</li>
-						<li class="modal-li" data-href="" id="health_children">Health</li>
-						<li class="modal-li" data-href="" id="observations_children">Observations</li>
+						<li style="color: #5363d6!important">@lang('kidsnow.children.go_to')</li>
+						<li class="modal-li" data-href="" id="profile_children">@lang('kidsnow.children.profile')</li>
+						<li class="modal-li" data-href="" id="health_children">@lang('kidsnow.children.health')</li>
+						<li class="modal-li" data-href="" id="observations_children">@lang('kidsnow.children.observations')</li>
 						<li class="modal-li" data-href="" id="authorised_pickups_children" style="pointer-events: none">Authorised Pickups</li>
 					</ul>
 				</div>
@@ -156,12 +156,13 @@
 					return $(this).attr('value');
 				}).toArray();
 
-				var id_children_health = array[0];
-				var id_children_observation = array[1];
+				var id_children_health = array[0] ? array[0] : 0;
+				var id_children_observation = array[1] ? array[1] : 0;
 
+				console.log(id_children_health)
 				$('li#profile_children').attr('data-href','kids-now/children/view/'+id_children);
-				$('li#health_children').attr('data-href','kids-now/health/sua/'+id_children_health);
-				$('li#observations_children').attr('data-href','kids-now/observations/edit/'+id_children_observation);
+				$('li#health_children').attr('data-href','kids-now/health/view/'+id_children_health);
+				$('li#observations_children').attr('data-href','kids-now/observations/view/'+id_children_observation);
 			});
 
 			$(".modal-li").click(function() {
@@ -203,7 +204,7 @@
 
 						],
 						suggestion: function (data) {
-							return '<a href="kids-now/children/view/' + data.id + '" class="list-group-item" style="font-weight: bold;width: 400px; color: inherit"><span style=""> ' + data.first_name +' '+ data.last_name + ' </span><span style="float: right"> ' + data.birthday + ' </span></a>';
+							return '<a href="kids-now/children/view/' + data.id + '" class="list-group-item" style="font-weight: bold;width: 400px; color: inherit"><span style=""> ' + data.first_name +' '+ data.last_name + ' </span><span style="float: right"> ' + (data.birthday).split('-').reverse().join('-') + ' </span></a>';
 						}
 					}
 				},

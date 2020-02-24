@@ -5,7 +5,7 @@ use App\models\food\{itemfood,mealtype,quantytifood,food};
 use App\models\Programs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use DB;
 class FoodController extends Controller
 {
 
@@ -52,7 +52,7 @@ class FoodController extends Controller
                 $mang[]=$item;
             }
            $foods->food()->Attach($mang);
-           return redirect()->back()->with('success','Send food success')->withInput();
+           return redirect()->back()->with('success','Send food success !')->withInput();
         }
      
         
@@ -74,6 +74,9 @@ class FoodController extends Controller
         $data['quantytifoods']=quantytifood::all();
         $data['itemfoods']=itemfood::all();
         $data['foods']=food::find($id);
+        $data['foodItemName'] = DB::table('food_food_items')->where('id_food',$id)->pluck('id_food_items');
+        $data['foodItemNames'] = DB::table('food_food_items')->where('id_food',$id)->pluck('id_food_items')->toArray();
+       //dd($data);
         return view('pages.food.food.edit_food',$data);
     }
   
@@ -110,7 +113,7 @@ class FoodController extends Controller
                 $mang[]=$item;
             }
            $foods->food()->Sync($mang);
-           return redirect('kids-now/food/list')->with('success','Edit food success')->withInput();
+           return redirect('kids-now/food/list')->with('success','Edit food success !')->withInput();
         }
     }
 
@@ -119,7 +122,7 @@ class FoodController extends Controller
     public function DeleteFood($id) 
     {
        food::destroy($id);
-       return redirect('kids-now/food/list')->with('success','Delete food success');
+       return redirect('kids-now/food/list')->with('success','Delete food success !');
     }
 
 
@@ -196,7 +199,8 @@ class FoodController extends Controller
     public function DeleteMenuMealType($id) 
     {
         mealtype::destroy($id);
-        return redirect('kids-now/food/menu-meal-type')->with('success','Delete success');
+        return redirect()->back()->with('success','Delete success');
+       // return redirect('kids-now/food/menu-meal-type')->with('success','Delete success');
     }
 
 
@@ -267,7 +271,8 @@ class FoodController extends Controller
     public function DeleteMenuQuantity($id_qty)
     {
         quantytifood::destroy($id_qty);
-        return redirect('kids-now/food/menu-quantity')->with('success','Delete success');
+        return redirect()->back()->with('success','Delete success');
+        //return redirect('kids-now/food/menu-quantity')->with('success','Delete success');
     }
 
 
@@ -342,7 +347,8 @@ class FoodController extends Controller
     public function DeleteFoodName($id_food_name) 
     {
         itemfood::destroy($id_food_name);
-        return redirect('kids-now/food/menu-food-name')->with('success','Delete success');
+        return redirect()->back()->with('success','Delete success');
+        //return redirect('kids-now/food/menu-food-name')->with('success','Delete success');
     }
 
 

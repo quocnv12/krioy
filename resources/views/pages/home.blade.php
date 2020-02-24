@@ -29,7 +29,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-2dot4 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/Diary.png" alt="@lang('kidsnow.diary')">
                         <div class="title">
                             <p>@lang('kidsnow.diary')</p>
@@ -41,13 +41,13 @@
                     <a href="kids-now/food">
                         <img src="images/Food-01.png" alt="@lang('kidsnow.food')">
                         <div class="title">
-                            <p>@lang('kidsnow.food')</p>
+                            <p>@lang('kidsnow.foods')</p>
                         </div>
                     </a>
                 </div>
                {{--  @endcan  --}}
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/Star-01.png" alt="@lang('kidsnow.star')">
                         <div class="title">
                             <p>@lang('kidsnow.star')</p>
@@ -55,7 +55,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/Potty-01.png" alt="@lang('kidsnow.potty')">
                         <div class="title">
                             <p>@lang('kidsnow.potty')</p>
@@ -63,7 +63,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="{{route('admin.health.getAdd')}}">
+                    <a href="{{route('admin.health.list')}}">
                         <img src="images/Health-01.png" alt="@lang('kidsnow.health')">
                         <div class="title">
                             <p>@lang('kidsnow.health')</p>
@@ -80,7 +80,7 @@
                 </div>
                 {{--  @can('food')  --}}
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/Photots-01.png" alt="@lang('kidsnow.photos')">
                         <div class="title">
                             <p>@lang('kidsnow.photos')</p>
@@ -89,7 +89,7 @@
                 </div>
                 {{--  @endcan  --}}
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/Play and Learn-01.png" alt="@lang('kidsnow.play_and_learn')">
                         <div class="title">
                             <p>@lang('kidsnow.play_and_learn')</p>
@@ -97,7 +97,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/Sleep-01.png" alt="@lang('kidsnow.sleep')">
                         <div class="title">
                             <p>@lang('kidsnow.sleep')</p>
@@ -113,7 +113,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/calender-01.png" alt="@lang('kidsnow.calendar')">
                         <div class="title">
                             <p>@lang('kidsnow.calendar')</p>
@@ -121,7 +121,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/Parent Note with Backgroud -01.png" alt="@lang('kidsnow.parent_notes')">
                         <div class="title">
                             <p>@lang('kidsnow.parent_notes')</p>
@@ -129,7 +129,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/Route Tracker.png" alt="@lang('kidsnow.route_tracker')">
                         <div class="title">
                             <p>@lang('kidsnow.route_tracker')</p>
@@ -137,7 +137,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/report.jpg" alt="@lang('kidsnow.reports')">
                         <div class="title">
                             <p>@lang('kidsnow.reports')</p>
@@ -146,7 +146,7 @@
                 </div>
 
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/Daily report.png" alt="@lang('kidsnow.daily_reports')">
                         <div class="title">
                             <p>@lang('kidsnow.daily_reports')</p>
@@ -154,15 +154,15 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/History.png" alt="@lang('kidsnow.history')">
                         <div class="title">
-                            <p>@lang('kidsnow.history')y</p>
+                            <p>@lang('kidsnow.history')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/Add Note (1)-01.png" alt="@lang('kidsnow.enquiries')">
                         <div class="title">
                             <p>@lang('kidsnow.enquiries')</p>
@@ -170,7 +170,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/invoice.jpg" alt="@lang('kidsnow.invoices')">
                         <div class="title">
                             <p>@lang('kidsnow.invoices')</p>
@@ -178,7 +178,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/ExpenseManagement1.png" alt="@lang('kidsnow.expenses')">
                         <div class="title">
                             <p>@lang('kidsnow.expenses')</p>
@@ -220,7 +220,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/School Icon.png" alt="@lang('kidsnow.school')">
                         <div class="title">
                             <p>@lang('kidsnow.school')</p>
@@ -228,7 +228,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/graduate.png" alt="@lang('kidsnow.archives')">
                         <div class="title">
                             <p>@lang('kidsnow.archives')</p>
@@ -246,7 +246,7 @@
             </div>
             <div class="row line">
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/RoomRatio1.png" alt="@lang('kidsnow.room_ratio')">
                         <div class="title">
                             <p>@lang('kidsnow.room_ratio')</p>
@@ -254,7 +254,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/Favourite School.png" alt="@lang('kidsnow.favourite')">
                         <div class="title">
                             <p>@lang('kidsnow.favourite')</p>
@@ -262,7 +262,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/tags.png" alt="@lang('kidsnow.tags')">
                         <div class="title">
                             <p>@lang('kidsnow.tags')</p>
@@ -270,15 +270,15 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/Trasnsport setup.png" alt="@lang('kidsnow.transaport_setup')">
                         <div class="title">
-                            <p>@lang('kidsnow.transaport_setup')</p>
+                            <p>@lang('kidsnow.transport_setup')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/QR Code Download-01.png" alt="@lang('kidsnow.qr_download')">
                         <div class="title">
                             <p>@lang('kidsnow.qr_download')</p>
@@ -286,7 +286,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/Sickness-01.png" alt="@lang('kidsnow.allergies_info')">
                         <div class="title">
                             <p>@lang('kidsnow.allergies_info')</p>
@@ -294,7 +294,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/Parent.png" alt="@lang('kidsnow.invite_parents')">
                         <div class="title">
                             <p>@lang('kidsnow.invite_parents')</p>
@@ -302,7 +302,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/Staff.png" alt="@lang('kidsnow.invite_staff')">
                         <div class="title">
                             <p>@lang('kidsnow.invite_staff')</p>
@@ -310,7 +310,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/CCTv.png" alt="@lang('kidsnow.cctv_access')">
                         <div class="title">
                             <p>@lang('kidsnow.cctv_access')</p>
@@ -319,17 +319,17 @@
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="#">
-                        <img src="images/settings.png" alt="@lang('kidsnow.configuratios')">
+                        <img src="images/settings.png" alt="@lang('kidsnow.configurations')">
                         <div class="title">
-                            <p>@lang('kidsnow.configuratios')</p>
+                            <p>@lang('kidsnow.configurations')</p>
                         </div>
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
                     <a href="kids-now/role">
-                        <img src="images/staff.png" alt="@lang('kidsnow.configuratios')">
+                        <img src="images/Staff.png" alt="@lang('kidsnow.permission')">
                         <div class="title">
-                            <p>Permission</p>
+                            <p>@lang('kidsnow.permission')</p>
                         </div>
                     </a>
                 </div>
@@ -344,7 +344,7 @@
             </div>
             <div class="row line">
                 <div class="col-xs-6 col-md-2 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/shop.png" alt="@lang('kidsnow.shop')">
                         <div class="title">
                             <p>@lang('kidsnow.shop')</p>
@@ -352,7 +352,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/game.png" alt="@lang('kidsnow.game')">
                         <div class="title">
                             <p>@lang('kidsnow.game')</p>
@@ -360,7 +360,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/Blog-icon.png" alt="@lang('kidsnow.ebook_blog')">
                         <div class="title">
                             <p>@lang('kidsnow.ebook_blog')</p>
@@ -368,7 +368,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/course.png" alt="@lang('kidsnow.courses')">
                         <div class="title">
                             <p>@lang('kidsnow.courses')</p>
@@ -376,7 +376,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/video-youtobekids.png" alt="@lang('kidsnow.video')" style="border-radius: 50%;">
                         <div class="title">
                             <p>@lang('kidsnow.video')</p>
@@ -384,7 +384,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/audio.jpg" alt="@lang('kidsnow.audio_book')" style="border-radius: 50%;">
                         <div class="title">
                             <p>@lang('kidsnow.audio_book')</p>
@@ -397,13 +397,13 @@
     <div class="product4">
         <div class="container">
             <div class="cap-main">
-                <h3><strong>@lang('kidsnow.menu_help')</strong></h3>
+                <h3><strong>@lang('kidsnow.help')</strong></h3>
                 <div class="hr"></div>
             </div>
             <div class="row line">
                 <div class="col-md-3"></div>
                 <div class="col-xs-6 col-md-3 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/FAQ.png" alt="@lang('kidsnow.faqs')">
                         <div class="title">
                             <p>@lang('kidsnow.faqs')</p>
@@ -412,7 +412,7 @@
                 </div>
 
                 <div class="col-xs-6 col-md-3 col-sm-6 item">
-                    <a href="#">
+                    <a href="kids-now">
                         <img src="images/Help Video-01.png" alt="@lang('kidsnow.help_videos')">
                         <div class="title">
                             <p>@lang('kidsnow.help_videos')</p>

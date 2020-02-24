@@ -12,7 +12,10 @@
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
-        "tymon/jwt-auth": "dev-develop"
+        "maatwebsite/excel": "~2.1.0",
+        "tymon/jwt-auth": "dev-develop",
+        "dompdf/dompdf": "0.6.2",
+        "mpdf/mpdf": "~5.7.3"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-Thực đơn
+@lang('kidsnow.food_name')
 @endsection
 @section('content')
 
@@ -24,10 +24,10 @@ Thực đơn
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
             <div class="row">
                 <ul class="ul-td" style="width:100%">
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
-                    <li _ngcontent-c16="" class="active-1"><a _ngcontent-c16="" href="kids-now/food">Food</a></li>
+                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">@lang('kidsnow.home')</a></li>
+                    <li _ngcontent-c16="" class="active-1"><a _ngcontent-c16="" href="kids-now/food">@lang('kidsnow.food')</a></li>
                     <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16=""
-                            href="kids-now/food/menu-food-name">Food Name</a></li>
+                            href="kids-now/food/menu-food-name">@lang('kidsnow.food_name')</a></li>
                 </ul>
             </div>
         </div>
@@ -38,7 +38,7 @@ Thực đơn
                     <div class="grid-title">
                         <div class="row">
                             <div class="col-md-6">
-                                <h4>Food <span class="semi-bold">Name</span></h4>
+                                <h4>@lang('kidsnow.food_name')</span></h4>
                             </div>
                             {{-- <div style="text-align:right;padding-right:22px" class="col-md-6">
                                 <a style="margin:0px;" href="{{ route('menu-food-name-add') }}" class="btn btn-success btn-cons"" title="Add Food Name"><i style="" class="fa fa-plus-circle"></i> Add</a>
@@ -50,20 +50,19 @@ Thực đơn
                       <table class="table table-striped" id="example">
                         <thead>
                           <tr>
-                            <th style="width:20%">Food Name</th>
-                                <th style="width:60%"></th>
-                                <th>Thao Tác</th>
+                            <th style="width:10%"></th>
+                            <th style="text-align:left">@lang('kidsnow.food_name')</th>
+                            <th style="width:25%;text-align:center">@lang('kidsnow.action')</th>
                           </tr>
                         </thead>
                         <tbody>
                             @foreach ($foodnames as $key => $item)
                             <tr class="odd gradeX">
-                              
-                                <td style="text-align:center;text-transform:capitalize">{{ $item->food_name}}</td>
-                                <td></td>
+                              <td style="text-align:center"></td>
+                              <td style="text-transform:capitalize">{{ $item->food_name}}</td>
                                 <td style="text-align:center">
-                                <a href="{{ route('menu-food-name-edit',['id'=>$item->id]) }}" title="Edit Food Name" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
-                                    <a onclick="return confirm('Delete food name ? Do you want continue !')" title="Delete Food Name" href="{{ route('menu-food-name-del',['id'=>$item->id]) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                <a href="{{ route('menu-food-name-edit',['id'=>$item->id]) }}" title="@lang('kidsnow.title_food_name_edit')" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                    <a onclick="return confirm('Delete food name ? Do you want continue !')" title="@lang('kidsnow.title_food_name_delete')" href="{{ route('menu-food-name-del',['id'=>$item->id]) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
                           @endforeach

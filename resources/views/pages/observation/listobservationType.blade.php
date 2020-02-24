@@ -26,8 +26,7 @@
             <ul class="ul-td" style="width:100%">
                 <div class="col-md-12">
                     <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
-                    <li _ngcontent-c16="" class="active-1"><a _ngcontent-c16="" href="">Observation</a></li>
-                    <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="">Observation</a></li>
+                    <li _ngcontent-c16="" class="active-1" style="pointer-events: none"><a _ngcontent-c16="" href="">Observation</a></li>
                 </div>
             </ul>
         </div>

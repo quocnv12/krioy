@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-List Staff
+@lang('kidsnow.changer_password')
 @endsection
 @section('css')
 
@@ -28,9 +28,9 @@ List Staff
             <div class="row">
                 <div class="col-md-6">
                     <ul class="ul-td">
-                        <li _ngcontent-c16="" class="level1"><a href="kids-now">Home</a></li>
+                        <li _ngcontent-c16="" class="level1"><a href="kids-now">@lang('kidsnow.home')</a></li>
                         <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a
-                                href="kids-now/food">Changer Password</a>
+                                href="kids-now/food">@lang('kidsnow.changer_password')</a>
                         </li>
                     </ul>
                 </div>
@@ -41,7 +41,7 @@ List Staff
                 @csrf
                 <div class="mat-card" style="">
                     <div class="mat-content">
-                        <h3 style="text-align:center;margin-bottom:10px">Changer Password</h3>
+                        <h3 style="text-align:center;margin-bottom:10px">@lang('kidsnow.changer_password')</h3>
                         @if (session('thongbao'))
                         <p
                             style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;;width:80%">
@@ -49,8 +49,8 @@ List Staff
                         @endif
 
                         <div class="form-group" style="position: relative;">
-                            <label for="email">Password Old:</label>
-                            <input type="password" class="form-control" placeholder="Enter password old"
+                            <label for="email">@lang('kidsnow.changer_password_old'):</label>
+                            <input type="password" class="form-control" placeholder="@lang('kidsnow.changer_password_old')"
                                 name="password_old">
                             <a style="position: absolute;top: 15%;right: -20px;" href="javascript:;void(0)"><i
                                     class="fa fa-eye"></i></a>
@@ -67,8 +67,8 @@ List Staff
                             * {{ $errors->first('password_old') }}</p>
                         @endif
                         <div class="form-group" style="position: relative;">
-                            <label for="pwd">Password New:</label>
-                            <input type="password" class="form-control" placeholder="Enter password new"
+                            <label for="pwd">@lang('kidsnow.changer_password_new'):</label>
+                            <input type="password" class="form-control" placeholder="@lang('kidsnow.changer_password_new')"
                                 name="password">
                             <a style="position: absolute;top: 15%;right: -20px;" href="javascript:;void(0)"><i
                                     class="fa fa-eye"></i></a>
@@ -80,8 +80,8 @@ List Staff
                             * {{ $errors->first('password') }}</p>
                         @endif
                         <div class="form-group" style="position: relative;">
-                            <label for="pwds">Confirm Password:</label>
-                            <input type="password" class="form-control" placeholder="Enter confirm password"
+                            <label for="pwds">@lang('kidsnow.confirm_changer_password'):</label>
+                            <input type="password" class="form-control" placeholder="@lang('kidsnow.confirm_changer_password')"
                                 name="password_confirmation">
                             <a style="position: absolute;top: 15%;right: -20px;" href="javascript:;void(0)"><i
                                     class="fa fa-eye"></i></a>
@@ -92,9 +92,9 @@ List Staff
                             style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;;width:80%">
                             * {{ $errors->first('password_confirmation') }}</p>
                         @endif
-                        <button type="submit" class="btn btn-primary">Ok</button>
+                        <button type="submit" class="btn btn-primary">@lang('kidsnow.save')</button>
                         <button type="button" class="btn btn-primary"><a style="color:white"
-                                href="kids-now">Cancel</a></button>
+                                href="kids-now">@lang('kidsnow.cancel')</a></button>
                     </div>
                 </div>
             </form>

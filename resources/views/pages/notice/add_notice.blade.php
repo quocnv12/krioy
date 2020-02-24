@@ -16,8 +16,8 @@
 			<div class="row">
 				<div class="col-lg-10 col-md-10 col-sm-10">
 					<ul class="ul-td">
-						<li class="level1"><a href="kids-now">HOME</a></li>
-						<li class="active1"><a href="kids-now/notice-board">NOTICE BOARD</a></li>
+						<li class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
+						<li class="active1"><a href="{{route('admin.notice-board.index')}}">NOTICE BOARD</a></li>
 						<li class="active1 active-1" style="pointer-events:none;"><a href="">ADD NOTICE</a></li>
 					</ul>
 				</div>
@@ -28,11 +28,11 @@
 				{{--</div>--}}
 			</div>
 		</div>
-        <form action="kids-now/notice-board/add" method="post" enctype="multipart/form-data" style="width: 100%">
+        <form action="{{route('admin.notice-board.store')}}" method="post" enctype="multipart/form-data" style="width: 100%">
             @csrf
             <div class="mat-card">
                 <div class="mat-content">
-                    <button class="accordion" type="button">Programs</button>
+                    <button class="accordion" type="button">@lang('kidsnow.notice.programs')</button>
                     <div class="panel">
                         <div _ngcontent-c20="" class="row">
                             <!---->
@@ -51,8 +51,8 @@
                     </div>
                     <div class="add">
                         <div class="input_box" style="width: 100%;">
-                            <span>Title of Notice *</span>
-                            <input type="text" name="title" placeholder="Title of Notice *" value="{{old('title')}}">
+                            <span>@lang('kidsnow.notice.title') *</span>
+                            <input type="text" name="title" placeholder="@lang('kidsnow.notice.title') *" value="{{old('title')}}">
                             @if ($errors->has('title'))
                                 <div class="text text-danger">
                                     {{ $errors->first('title') }}
@@ -66,7 +66,7 @@
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-xs-9 col-md-9">
-                                    <p>Mark as Important</p>
+                                    <p>@lang('kidsnow.notice.mark')</p>
                                 </div>
                                 <div class="col-xs-3 col-md-3">
                                     <label class="label-checkbox">
@@ -80,8 +80,8 @@
                     <div class="comment">
                         <div class="row">
                             <div class="col-md-11 input_box">
-                                <span>Enter Details here *</span>
-                                <input type="text" name="content" placeholder="Enter Details here *" value="{{old('content')}}">
+                                <span>@lang('kidsnow.notice.detail') </span>
+                                <textarea name="content" cols="30" rows="20">{{old('content')}}</textarea>
                                 @if ($errors->has('content'))
                                     <div class="text text-danger">
                                         {{ $errors->first('content') }}

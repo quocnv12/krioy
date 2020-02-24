@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-Edit quantity food
+@lang('kidsnow.quantity')
 @endsection
 @section('content')
 
@@ -10,10 +10,10 @@ Edit quantity food
             <div class="row">
                 <ul class="ul-td" style="width:100%">
                     <div class="col-md-12">
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
-                    <li _ngcontent-c16="" class="active-1"><a _ngcontent-c16="" href="kids-now/food" >Food</a></li>
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now/food/menu-quantity">Quantity Food</a></li>
-                    <li _ngcontent-c16="" class="active-1" style="pointer-events:none"><a _ngcontent-c16="" href="kids-now/food/menu-quantity">Edit</a></li>
+                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">@lang('kidsnow.home')</a></li>
+                    <li _ngcontent-c16="" class="active-1"><a _ngcontent-c16="" href="kids-now/food" >@lang('kidsnow.food')</a></li>
+                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now/food/menu-quantity">@lang('kidsnow.quantity')</a></li>
+                    <li _ngcontent-c16="" class="active-1" style="pointer-events:none"><a _ngcontent-c16="" href="kids-now/food/menu-quantity">@lang('kidsnow.edit')</a></li>
                 </div>
                 </ul>
             </div>
@@ -29,7 +29,7 @@ Edit quantity food
                             laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                     <div>
-                        <p>Add Meal Type*</p>
+                        <p>@lang('kidsnow.edit') @lang('kidsnow.quantity') *</p>
                         <form  style="width:auto;" method="post">
                         @csrf
                         <div class="form-group">
@@ -38,7 +38,7 @@ Edit quantity food
                             <p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">* {{ $errors->first('name') }}</p>
                           @endif
                         </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">@lang('kidsnow.save')</button>
                     </form>
                     </div>
                 </div>

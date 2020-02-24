@@ -1,11 +1,11 @@
 @extends('master-layout')
 @section('title')
-Staff Frofiles
+@lang('kidsnow.staff')
 @endsection
 
 @section('content')
-
 <body>
+   
     <section class="page-top container">
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
             <div class="row">
@@ -20,7 +20,7 @@ Staff Frofiles
             @csrf
             <div class="mat-card">
                 <div class="mat-content">
-                    <button class="accordion add-staff">@lang('kidsnow.edit_staff')F *</button>
+                    <button type="button" class="accordion add-staff">@lang('kidsnow.add_staff')</button>
                     <div class="row">
                         <div class="col-md-2 textera-img">
                             @if($errors->has('image'))
@@ -29,9 +29,9 @@ Staff Frofiles
                             @endif
                             <input id="img" type="file" name="image" style="display:none" value=""
                                 class="form-control hidden" onchange="changeImg(this)">
-                            <img id="avatar" class="thumbnail"
-                                style="border: 1px solid white;border-radius: 50%;width:150px;height:150px;    margin-top: 35px;"
-                                src="images/Staff.png">
+                            <img title="Click here to select image"  id="avatar" class="thumbnail"
+                                style="border-radius: 50%; height: 170px; background: #e6e5e5; margin-top: 32px;"
+                                src="images/import-img.png">
                         </div>
                         <div class="col-md-10">
                             <div class="add a1 ">
@@ -67,9 +67,9 @@ Staff Frofiles
                                     </div>
                                     <div class="col-md-6 input_box">
                                         <span>@lang('kidsnow.gender') *</span>
-                                      
+
                                         <select style="color: #614545;" name="gender">
-                                            <option disabled  selected hidden>@lang('kidsnow.gender')</option>
+                                            <option disabled  selected hidden>@lang('kidsnow.gender') *</option>
                                             <option value="1">@lang('kidsnow.male')</option>
                                             <option value="0">@lang('kidsnow.female')</option>
                                         </select>
@@ -106,7 +106,7 @@ Staff Frofiles
                     <div class="add">
                         <div class="row">
                             <div class="col-md-4 input_box">
-                                <span>@lang('kidsnow.birthday') *</span>
+                                <span class="input_box_span_active">@lang('kidsnow.birthday') *</span>
                                 <input style="color: #614545;" type="date" value="{{ old('date_birthday') }}" name="date_birthday" placeholder="@lang('kidsnow.birthday') *">
                                 @if($errors->has('date_birthday'))
                                 <p
@@ -135,7 +135,7 @@ Staff Frofiles
                                 @endif
                             </div>
                             <div class="col-md-4 input_box">
-                                <span>@lang('kidsnow.date_of_joining') *</span>
+                                <span class="input_box_span_active">@lang('kidsnow.date_of_joining') *</span>
                                 <input style="color: #614545;" type="date" value="{{ old('date_of_joining') }}" name="date_of_joining"
                                     placeholder="@lang('kidsnow.date_of_joining')">
                                 @if($errors->has('date_of_joining'))
@@ -156,13 +156,13 @@ Staff Frofiles
                         <div _ngcontent-c20="" class="row" style="">
                             @foreach ($programs as $item)
                             <div _ngcontent-c20="" align="center"
-                                class="col-xs-6 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
+                                class="col-xs-6 col-sm-4 col-md-3 col-lg-3 ng-star-inserted"
                                 style="padding:10px;cursor:pointer;">
                                 <button _ngcontent-c20="" type="button" class="btn progBtn limitText bgClass tablinks1"
                         title="{{ $item->program_name }}" value="{{ $item->id }}"
-                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">{{ $item->program_name }}
+                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px; width: 100%">{{ $item->program_name }}
                                 </button>
-                                
+
                             </div>
                             @endforeach
                             <input id="array_programs" type="hidden" value="" name="id_program">
@@ -174,7 +174,7 @@ Staff Frofiles
             <div class="mat-card">
                 <div class="mat-content">
                     <button type="button" type="button" class="accordion accordion1 clearfix">
-                        <p style="float: left;">@lang('kidsnow.permissions') *</p>
+                        <p style="float: left;">@lang('kidsnow.permissions')</p>
                         {{-- <a href="select_child.blade.php" style="float: right;text-align: right">
                         <p
                             style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">
@@ -185,11 +185,11 @@ Staff Frofiles
                         <div _ngcontent-c20="" class="row">
                             @foreach ($roles as $item)
                             <div _ngcontent-c20="" align="center"
-                                class="col-xs-3 col-sm-4 col-md-3 col-lg-2 ng-star-inserted"
+                                class="col-xs-3 col-sm-4 col-md-3 col-lg-3 ng-star-inserted"
                                 style="padding:10px;cursor:pointer">
                                 <button _ngcontent-c20="" type="button" class="btn progBtn limitText bgClass tablinks"
                                     title="{{ $item->name }}" value="{{ $item->id }}"
-                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px">{{ $item->name }}
+                                    style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px; width: 100%">{{ $item->name }}
                                 </button>
                             </div>
                             @endforeach
@@ -201,12 +201,8 @@ Staff Frofiles
             </div>
             <div class="comment">
                 <div class="button" style="text-align: center;">
-                    <button>
-                        <span>@lang('kidsnow.cancel')</span>
-                    </button>
-                    <button class="button2">
-                        <span>@lang('kidsnow.save')</span>
-                    </button>
+                <a href="kids-now/staff"><button type="button"><span>@lang('kidsnow.cancel')</span></button></a> 
+                    <button class="button2"><span>@lang('kidsnow.save')</span></button>
                 </div>
             </div>
         </form>
@@ -322,6 +318,8 @@ Staff Frofiles
         $('#avatar').click(function () {
             $('#img').click();
         });
+
+        $('.accordion').click()
     });
 
 </script>

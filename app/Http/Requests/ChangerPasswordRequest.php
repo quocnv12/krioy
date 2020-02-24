@@ -25,7 +25,7 @@ class ChangerPasswordRequest extends FormRequest
     {
         return [
             'password_old'=>'required',
-            'password'=>'required|min:8',
+            'password'=>'required|min:8|max30',
             'password_confirmation'=>'required|same:password'
         ];
     }
@@ -34,7 +34,8 @@ class ChangerPasswordRequest extends FormRequest
         return [
             'password_old.required'=>'Please enter password old !',
             'password.required'=>'Please enter password new !',
-            'password.min'=>'Password must be greater than 8 characters !',
+            'password.min'=>'Password from 8 to 30 characters !',
+            'password.max'=>'Password from 8 to 30 characters !',
             'password_confirmation.required'=>'Please enter confirm password new !',
             'password_confirmation.same'=>'Password entered does not match !'
         ];
