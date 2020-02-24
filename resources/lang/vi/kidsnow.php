@@ -527,5 +527,11 @@ return [
     'attendance_children_in' =>'Đi học',
     'attendance_children_out' =>'Nghỉ học',
     'attendance_children_absent' =>'Vắng',
+     
+    //-----------login-------
+    
+
+
+
     
 ];
