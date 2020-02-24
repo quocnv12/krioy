@@ -542,4 +542,12 @@ return [
     'attendance_children_out' =>'Out',
     'attendance_children_absent' =>'Absent',
 
+
+    //-----------login-------
+    
+
+
+
+    
+
 ];

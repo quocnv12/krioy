@@ -6,6 +6,7 @@ use App\models\staff\role;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use App\Http\Requests\Permission\{PermissionRequest,EditPermissionRequest};
 
 class PermissionControler extends Controller
 {
@@ -21,26 +22,25 @@ class PermissionControler extends Controller
         $data['permissions']=permission::all(); 
         return view('pages.role.add',$data);
     }
-    public function postAddRole(Request $request)
+    public function postAddRole(PermissionRequest $request)
     {
-        $this->validate($request,
-        [
-            'role'   =>  'required|unique:roles,name'
-        ],
-        [
-            'role.required'   =>  'Please enter role !',
-            'role.unique'            => 'Role already exist !',
-        ]);
-        try {
-            DB::beginTransaction();
-            $role = new role;
-            $role->name = $request->role;
-            $role->save();
-            $role->permission_role()->attach($request->permission);
-            DB::commit();
-            return redirect('kids-now/role')->with('success','Add role success !');
-        } catch (\Exception $exception) {
-            DB::rollBack();
+        if(!$request->permission)
+        {
+            return redirect('kids-now/role/add')->with('danger','Please choose permission !')->withInput();
+        }
+        else
+        {
+            try {
+                DB::beginTransaction();
+                $role = new role;
+                $role->name = $request->role;
+                $role->save();
+                $role->permission_role()->attach($request->permission);
+                DB::commit();
+                return redirect('kids-now/role')->with('success','Add role success !');
+            } catch (\Exception $exception) {
+                DB::rollBack();
+            }
         }
        
     }
@@ -53,15 +53,8 @@ class PermissionControler extends Controller
         $data['roleOfPermission'] = DB::table('permission_roles')->where('id_role',$id)->pluck('id_permission');
         return view('pages.role.edit',$data); 
     }
-    public function postEditRole(Request $request,  $id)
+    public function postEditRole(EditPermissionRequest $request,  $id)
     {   
-        $this->validate($request,[
-            'role'   =>  'required|unique:roles,name,'.$id
-        ],[
-            'role.required'   =>  'Please enter role !',
-            'role.unique'     => 'Role already exist !',
-        ]);
-        
         $role = role::find($id);
         $role->name = $request->role;
         $role->permission_role()->Sync($request->permission);

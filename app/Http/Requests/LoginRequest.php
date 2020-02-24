@@ -30,14 +30,27 @@ class LoginRequest extends FormRequest
     }
     public function messages()
     {
-        return [
-            'phone.required'=>'Please enter phone !',
-            'phone.regex'=>'Phone numbers start with 0 !',
-            'phone.not_regex'=>'Phone numbers must be numeric !',
-            'phone.size'=>'Phone number includes 10 numbers !',
-            'password.required'=>'Please enter password !',
-            'password.min'=>'Password from 8 to 30 characters !',
-            'password.max'=>'Password from 8 to 30 characters !'
-        ];
+        if (\Lang::locale() == 'en') {
+            return [
+                'phone.required'=>'Please enter phone !',
+                'phone.regex'=>'Phone numbers start with 0 !',
+                'phone.not_regex'=>'Phone numbers must be numeric !',
+                'phone.size'=>'Phone number includes 10 numbers !',
+                'password.required'=>'Please enter password !',
+                'password.min'=>'Password from 8 to 30 characters !',
+                'password.max'=>'Password from 8 to 30 characters !'
+            ];
+        }
+        if (\Lang::locale() == 'vi') {
+            return [
+                'phone.required'=>'Số điện thoại không được để trống !',
+                'phone.regex'=>'Số điện thoại bắt đầu bằng số 0 !',
+                'phone.not_regex'=>'Số điện thoại phải là kiểu số !',
+                'phone.size'=>'Số điện thoại gồm 10 số !',
+                'password.required'=>'Mật khẩu không được để trống !',
+                'password.min'=>'Mật khẩu tối thiếu 8 kí tự !',
+                'password.max'=>'Mật khẩu tối đa 30 kí tự !'
+            ];
+        }
     }
 }

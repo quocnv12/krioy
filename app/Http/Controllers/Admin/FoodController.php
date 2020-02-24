@@ -6,6 +6,7 @@ use App\models\Programs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use App\Http\Requests\food\{MealTypeRequest,EditMealTypeRequest,QuantityRequest,FoodNameRequest,EditFoodNameRequest};
 class FoodController extends Controller
 {
 
@@ -24,18 +25,42 @@ class FoodController extends Controller
        // dd($request->all());
         if($request->programs==null)
         {
-            return redirect()->back()->with('danger','Pleasea choose program !')->withInput();
+            if (\Lang::locale() == 'en') {
+                return redirect()->back()->with('danger','Pleasea choose program !')->withInput();
+            }
+            if (\Lang::locale() == 'vi') {
+                return redirect()->back()->with('danger','Bạn chưa chọn lớp !')->withInput();
+            }
+            
         }
         elseif ($request->mealtype==null) {
-            return redirect()->back()->with('danger','Pleasea choose meal type !')->withInput();
+            if (\Lang::locale() == 'en') {
+                return redirect()->back()->with('danger','Pleasea choose meal type !')->withInput();
+            }
+            if (\Lang::locale() == 'vi') {
+                return redirect()->back()->with('danger','Bạn chưa chọn loại bũa ăn !')->withInput();
+            }
+           
         }
         elseif($request->qtyfood==null)
         {
-            return redirect()->back()->with('danger','Pleasea choose quantity !')->withInput();
+            if (\Lang::locale() == 'en') {
+                return redirect()->back()->with('danger','Pleasea choose quantity !')->withInput();
+            }
+            if (\Lang::locale() == 'vi') {
+                return redirect()->back()->with('danger','Bạn chưa chọn số lượng bữa ăn !')->withInput();
+            }
+           
         }
         elseif($request->food_name==null)
         {
-            return redirect()->back()->with('danger','Pleasea choose food name !')->withInput();
+            if (\Lang::locale() == 'en') {
+                return redirect()->back()->with('danger','Pleasea choose food name !')->withInput();
+            }
+            if (\Lang::locale() == 'vi') {
+                return redirect()->back()->with('danger','Bạn chưa chọn món ăn !')->withInput();
+            }
+            
         }
         else 
         {
@@ -52,7 +77,13 @@ class FoodController extends Controller
                 $mang[]=$item;
             }
            $foods->food()->Attach($mang);
-           return redirect()->back()->with('success','Send food success !')->withInput();
+           if (\Lang::locale() == 'en') {
+                return redirect()->back()->with('success','Send food success !')->withInput();
+            }
+            if (\Lang::locale() == 'vi') {
+                return redirect()->back()->with('success','Thêm thực đơn thành công !')->withInput();
+            }
+           
         }
      
         
@@ -83,21 +114,44 @@ class FoodController extends Controller
 
     public function PostEdit(request $request, $id) 
     {
-        // dd($request->all());
         if($request->programs==null)
         {
-            return redirect()->back()->with('danger','Pleasea choose program !')->withInput();
+            if (\Lang::locale() == 'en') {
+                return redirect()->back()->with('danger','Pleasea choose program !')->withInput();
+            }
+            if (\Lang::locale() == 'vi') {
+                return redirect()->back()->with('danger','Bạn chưa chọn lớp !')->withInput();
+            }
+            
         }
         elseif ($request->mealtype==null) {
-            return redirect()->back()->with('danger','Pleasea choose meal type !')->withInput();
+            if (\Lang::locale() == 'en') {
+                return redirect()->back()->with('danger','Pleasea choose meal type !')->withInput();
+            }
+            if (\Lang::locale() == 'vi') {
+                return redirect()->back()->with('danger','Bạn chưa chọn loại bũa ăn !')->withInput();
+            }
+           
         }
         elseif($request->qtyfood==null)
         {
-            return redirect()->back()->with('danger','Pleasea choose quantity !')->withInput();
+            if (\Lang::locale() == 'en') {
+                return redirect()->back()->with('danger','Pleasea choose quantity !')->withInput();
+            }
+            if (\Lang::locale() == 'vi') {
+                return redirect()->back()->with('danger','Bạn chưa chọn số lượng bữa ăn !')->withInput();
+            }
+           
         }
         elseif($request->food_name==null)
         {
-            return redirect()->back()->with('danger','Pleasea choose food name !')->withInput();
+            if (\Lang::locale() == 'en') {
+                return redirect()->back()->with('danger','Pleasea choose food name !')->withInput();
+            }
+            if (\Lang::locale() == 'vi') {
+                return redirect()->back()->with('danger','Bạn chưa chọn món ăn !')->withInput();
+            }
+            
         }
         else 
         {
@@ -113,7 +167,13 @@ class FoodController extends Controller
                 $mang[]=$item;
             }
            $foods->food()->Sync($mang);
-           return redirect('kids-now/food/list')->with('success','Edit food success !')->withInput();
+           if (\Lang::locale() == 'en') {
+                 return redirect('kids-now/food/list')->with('success','Edit food success !')->withInput();
+            }
+            if (\Lang::locale() == 'vi') {
+                return redirect('kids-now/food/list')->with('success','Sửa thực đơn thành công !')->withInput();
+            }
+           
         }
     }
 
@@ -122,7 +182,13 @@ class FoodController extends Controller
     public function DeleteFood($id) 
     {
        food::destroy($id);
-       return redirect('kids-now/food/list')->with('success','Delete food success !');
+       if (\Lang::locale() == 'en') {
+        return redirect('kids-now/food/list')->with('success','Delete food success !');
+        }
+        if (\Lang::locale() == 'vi') {
+            return redirect('kids-now/food/list')->with('success','Xóa thực đơn thành công !');
+        }
+       
     }
 
 
@@ -154,22 +220,18 @@ class FoodController extends Controller
         return view('pages.food.meal_type.add_meal_type');
     }
 
-    public function PostAddMenuMealType(request $request) 
+    public function PostAddMenuMealType(MealTypeRequest $request) 
     {
-        $this->validate($request,
-        [
-          'name' => 'required|unique:meal_type,name'
-        ],
-        [
-            'name.required' => 'Please input name !',
-            'name.unique' => 'Meal type already exist !'
-        ]);
-
         $meal = new mealtype;
         $meal->name = $request->name;
         $meal->save();
-        return redirect('kids-now/food/menu-meal-type')->with('success','Add meal type '.$request->name.'success')->withInput();
-
+        if (\Lang::locale() == 'en') {
+            return redirect('kids-now/food/menu-meal-type')->with('success','Add meal type '.$request->name.' success !')->withInput();
+        }
+        if (\Lang::locale() == 'vi') {
+            return redirect('kids-now/food/menu-meal-type')->with('success','Thêm loại bữa ăn '.$request->name.' thành công !')->withInput();
+        }
+        
 
     }
     //sửa
@@ -178,20 +240,18 @@ class FoodController extends Controller
         $data['mealtype']=mealtype::find($id);
         return view('pages.food.meal_type.edit_meal_type',$data);
     }
-    public function PostEditMenuMealType(request $request,$id) 
+    public function PostEditMenuMealType(EditMealTypeRequest $request,$id) 
     {
-        $this->validate($request,
-        [
-          'name' => 'required|unique:meal_type,name,'.$id
-        ],
-        [
-            'name.required' => 'Please input name !',
-            'name.unique' => 'Meal type already exist !'
-        ]);
         $meal=mealtype::find($id);
         $meal->name = $request->name;
         $meal->save();
-        return redirect('kids-now/food/menu-meal-type')->with('success','Edit meal type '.$request->name.' success')->withInput();
+        if (\Lang::locale() == 'en') {
+            return redirect('kids-now/food/menu-meal-type')->with('success','Edit meal type '.$request->name.' success !')->withInput();
+        }
+        if (\Lang::locale() == 'vi') {
+            return redirect('kids-now/food/menu-meal-type')->with('success','Sửa loại bữa ăn '.$request->name.' thành công !')->withInput();
+        }
+        
     }
 
 
@@ -199,7 +259,13 @@ class FoodController extends Controller
     public function DeleteMenuMealType($id) 
     {
         mealtype::destroy($id);
-        return redirect()->back()->with('success','Delete success');
+        if (\Lang::locale() == 'en') {
+            return redirect()->back()->with('success','Delete success !');
+        }
+        if (\Lang::locale() == 'vi') {
+            return redirect()->back()->with('success','Xóa loại bữa ăn thành công !');
+        }
+        
        // return redirect('kids-now/food/menu-meal-type')->with('success','Delete success');
     }
 
@@ -224,21 +290,18 @@ class FoodController extends Controller
         return view('pages.food.quantity.add_quantity_food');
     }
 
-    public function PostAddMenuQuantity(request $request)
+    public function PostAddMenuQuantity(QuantityRequest $request)
     {
-        $this->validate($request,
-        [
-          'name' => 'required|unique:quantity_food,name'
-        ],
-        [
-            'name.required' => 'Please input name !',
-            'name.unique' => 'Quantity already exist !'
-        ]);
-
         $qtyfood = new quantytifood;
         $qtyfood->name = $request->name;
         $qtyfood->save();
-        return redirect('kids-now/food/menu-quantity')->with('success','Add quantity '.$request->name.' success')->withInput();
+        if (\Lang::locale() == 'en') {
+            return redirect('kids-now/food/menu-quantity')->with('success','Add quantity '.$request->name.' success !')->withInput();
+        }
+        if (\Lang::locale() == 'vi') {
+            return redirect('kids-now/food/menu-quantity')->with('success','Thêm số lượng bữa ăn '.$request->name.' thành công !')->withInput();
+        }
+        
     }
 
 
@@ -250,20 +313,18 @@ class FoodController extends Controller
     }
 
 
-    public function PostEditMenuQuantity(request $request ,$id_qty)
+    public function PostEditMenuQuantity(EditQuantityRequest $request ,$id_qty)
     {
-        $this->validate($request,
-        [
-          'name' => 'required|unique:quantity_food,name,'.$id_qty
-        ],
-        [
-            'name.required' => 'Please input name !',
-            'name.unique' => 'Quantity already exist !'
-        ]);
         $qtyfood=quantytifood::find($id_qty);
         $qtyfood->name = $request->name;
         $qtyfood->save();
-        return redirect('kids-now/food/menu-quantity')->with('success','Edit quantity '.$request->name.' success')->withInput();
+        if (\Lang::locale() == 'en') {
+            return redirect('kids-now/food/menu-quantity')->with('success','Edit quantity '.$request->name.' success !')->withInput();
+        }
+        if (\Lang::locale() == 'vi') {
+            return redirect('kids-now/food/menu-quantity')->with('success','Sửa số lượng bữa ăn '.$request->name.' thành công !')->withInput();
+        }
+        
     }
 
 
@@ -271,7 +332,13 @@ class FoodController extends Controller
     public function DeleteMenuQuantity($id_qty)
     {
         quantytifood::destroy($id_qty);
-        return redirect()->back()->with('success','Delete success');
+        if (\Lang::locale() == 'en') {
+            return redirect()->back()->with('success','Delete success !');
+        }
+        if (\Lang::locale() == 'vi') {
+            return redirect()->back()->with('success','Xóa số lượng thành công !');
+        }
+        
         //return redirect('kids-now/food/menu-quantity')->with('success','Delete success');
     }
 
@@ -302,21 +369,18 @@ class FoodController extends Controller
     {
         return view('pages.food.food_name.add_food_name');
     }
-    public function PostAddMenuFoodName(request $request) 
+    public function PostAddMenuFoodName(FoodNameRequest $request) 
     {
-        $this->validate($request,
-        [
-          'food_name' => 'required|unique:food_items,food_name'
-        ],
-        [
-            'food_name.required' => 'Please input food name !',
-            'food_name.unique' => 'Food name already exist !'
-        ]);
-
         $foodname=new itemfood;
         $foodname->food_name = $request->food_name;
         $foodname->save();
-        return redirect('kids-now/food/menu-food-name')->with('success','Add food name '.$request->food_name.' success')->withInput();
+        if (\Lang::locale() == 'en') {
+            return redirect('kids-now/food/menu-food-name')->with('success','Add food name '.$request->food_name.' success !')->withInput();
+        }
+        if (\Lang::locale() == 'vi') {
+            return redirect('kids-now/food/menu-food-name')->with('success','Thêm món ăn '.$request->food_name.' thành công !')->withInput();
+        }
+        
     }
 
     //sửa
@@ -326,28 +390,30 @@ class FoodController extends Controller
         return view('pages.food.food_name.edit_food_name',$data);
     }
 
-    public function PostEditMenuFoodName(request $request,$id_food_name) 
-    {
- 
-        $this->validate($request,
-        [
-          'food_name' => 'required|unique:food_items,food_name,'.$id_food_name
-        ],
-        [
-            'food_name.required' => 'Please input food name !',
-            'food_name.unique' => 'Food name already exist !'
-        ]);
-     
+    public function PostEditMenuFoodName(FoodNameRequest $request,$id_food_name) 
+    { 
         $food=itemfood::find($id_food_name);
         $food->food_name = $request->food_name;
         $food->save();
-        return redirect('kids-now/food/menu-food-name')->with('success','Edit food name '.$request->food_name.' success');
+        if (\Lang::locale() == 'en') {
+            return redirect('kids-now/food/menu-food-name')->with('success','Edit food name '.$request->food_name.' success !');
+        }
+        if (\Lang::locale() == 'vi') {
+            return redirect('kids-now/food/menu-food-name')->with('success','Sửa món ăn '.$request->food_name.' thành công !');
+        }
+        
     }
     // xoa
     public function DeleteFoodName($id_food_name) 
     {
         itemfood::destroy($id_food_name);
-        return redirect()->back()->with('success','Delete success');
+        if (\Lang::locale() == 'en') {
+            return redirect()->back()->with('success','Delete success !');
+        }
+        if (\Lang::locale() == 'vi') {
+            return redirect()->back()->with('success','Xóa món ăn thành công !');
+        }
+        
         //return redirect('kids-now/food/menu-food-name')->with('success','Delete success');
     }
 

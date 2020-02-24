@@ -8,6 +8,7 @@ use App\models\staff\StaffProfiles;
 use Illuminate\Http\Request;
 use Mail;
 use Carbon\Carbon;
+use App\Http\Requests\{ForgotPasswordRequest,ResetPasswordRequest};
 
 class ForgotPasswordController extends Controller
 {
@@ -41,23 +42,19 @@ class ForgotPasswordController extends Controller
         return view('pages.addmin-login.form_reset_password');
     }
 
-    function PostFormResetPassword(request $request)
+    function PostFormResetPassword(ForgotPasswordRequest $request)
     {
-     //   dd($request->all());
-        $this->validate($request,
-        [
-            'emailreset' =>'required|email',
-        ],
-        [
-            'emailreset.required' => 'Please Enter Your Email !',
-            'emailreset.email' => 'Email is in wrong format !',
-        ]);
-
         $email=$request->emailreset;
         $checkEmail = StaffProfiles::where('email',$email)->first();
         if(!$checkEmail)
         {
-            return redirect()->back()->with('danger','Email does not exist !');
+            if (\Lang::locale() == 'en') {
+                return redirect()->back()->with('danger','Email does not exist !');
+            }
+            if (\Lang::locale() == 'vi') {
+                return redirect()->back()->with('danger','Email không tồn tại !');
+            }
+            
         }
         $code = bcrypt(time().$email);
         $checkEmail->code =$code;
@@ -73,7 +70,13 @@ class ForgotPasswordController extends Controller
         Mail::send('pages.addmin-login.reset_password', $data, function($message) use ($email){
             $message->to($email, 'Reset Password')->subject('Reset Password Kids-now !');
         });
-        return redirect()->back()->with('success','Send mail success, pleasea check your email !');
+        if (\Lang::locale() == 'en') {
+            return redirect()->back()->with('success','Send mail success, pleasea check your email !');
+        }
+        if (\Lang::locale() == 'vi') {
+            return redirect()->back()->with('success','Link lấy lại mật khẩu đã được gửi đến mail của bạn !');
+        }
+        
     }
 
     public function ResetPassword(request $request)
@@ -85,24 +88,19 @@ class ForgotPasswordController extends Controller
             'email'=>$email])->first();
         if(!$checkEmail)
         {
-            return redirect()->back()->with('danger','Sorry the link to get the link back is incorrect !');
+            if (\Lang::locale() == 'en') {
+                return redirect()->back()->with('danger','Sorry the link to get the link back is incorrect !');
+            }
+            if (\Lang::locale() == 'vi') {
+                return redirect()->back()->with('danger','Xin lỗi, link lấy lại mật khẩu không chính xác !');
+            }
+            
         }
         return view('pages.addmin-login.reset');
     }
 
-    function PostResetPassword(request $request)
+    function PostResetPassword(ResetPasswordRequest $request)
     {
-        $this->validate($request,
-        [
-            'password' =>'required|min:8',
-            'password_confirmation'=>'required|same:password'
-        ],
-        [
-            'password.required'=>'Pleasea enter password !',
-            'password_confirmation.same' => 'Password entered does not match !',
-            'password_confirmation.required' => 'Pleasea enter password comfirmation !',
-            'password.min' => 'Password must be greater than 8 characters !',
-        ]);
         if($request->password)
         {
             $code = $request->code;
@@ -115,14 +113,26 @@ class ForgotPasswordController extends Controller
 
         if(!$checkEmail)
         {
+            if (\Lang::locale() == 'en') {
+                return redirect()->back()->with('danger','Sorry the link to get the link back is incorrect !');
+            }
+            if (\Lang::locale() == 'vi') {
+                return redirect()->back()->with('danger','Xin lỗi, link lấy lại mật khẩu không chính xác !');
+            }
             
-            return redirect()->back()->with('danger','Sorry the link to get the link back is incorrect !');
+            
         }
         $checkEmail->password=bcrypt($request->password);
 
         $checkEmail->save();
 
-        return redirect('login')->with('success','Password successfully recovered !');
+        if (\Lang::locale() == 'en') {
+            return redirect('login')->with('success','Password successfully recovered !');
+        }
+        if (\Lang::locale() == 'vi') {
+            return redirect('login')->with('success','Lấy lại mật khẩu thành công !');
+        }
+        
 
     }
 
