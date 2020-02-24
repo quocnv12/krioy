@@ -11,6 +11,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 use Mail;
 class ChildrenProfilesController extends Controller
 {
@@ -144,6 +145,8 @@ class ChildrenProfilesController extends Controller
                 $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
                 $file->move(public_path('images/parent/'), $filename);
                 $parent_profiles->image = 'images/parent/' . $filename;
+                $image = Image::make(public_path('images/parent/'.$filename))->fit(150,150);
+                $image->save();
                 $parent_profiles->save();
             }
         }
@@ -181,6 +184,8 @@ class ChildrenProfilesController extends Controller
             $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('images/children/'), $filename);
             $children_profiles->image = 'images/children/' . $filename;
+            $image = Image::make(public_path('images/children/'.$filename))->fit(150,150);
+            $image->save();
         }
         $children_profiles->save();
 
@@ -385,6 +390,8 @@ class ChildrenProfilesController extends Controller
             $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('images/children/'), $filename);
             $children_profiles->image = 'images/children/' . $filename;
+            $image = Image::make(public_path('images/children/'.$filename))->fit(150,150);
+            $image->save();
             $children_profiles->save();
         }
         $children_profiles->save();
@@ -451,6 +458,8 @@ class ChildrenProfilesController extends Controller
             $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('images/parent/'), $filename);
             $parent_profiles->image = 'images/parent/' . $filename;
+            $image = Image::make(public_path('images/parent/'.$filename))->fit(150,150);
+            $image->save();
             $parent_profiles->save();
         }
         $parent_profiles->save();
