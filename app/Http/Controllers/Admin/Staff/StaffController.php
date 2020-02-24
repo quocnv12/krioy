@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use Mail;
 use DB;
 use App\Http\Requests\Staff\{AddStaffRequest,EditStaffRequest};
+use Intervention\Image\Facades\Image;
+
 class StaffController extends Controller
 {
    
@@ -44,6 +46,8 @@ class StaffController extends Controller
            $file_name=str_random(9).'.'.$file->getClientOriginalExtension();
            $file->move('images/staff',$file_name);
            $staff->image=$file_name ;
+           $image = Image::make(public_path('images/staff/'.$file_name))->fit(150,150);
+           $image->save();
        }
        $staff->save();
        
@@ -132,6 +136,8 @@ class StaffController extends Controller
           $file_name=str_random(9).'.'.$file->getClientOriginalExtension();
           $file->move('images/staff',$file_name);
           $staff->image=$file_name ;
+          $image = Image::make(public_path('images/staff/'.$file_name))->fit(150,150);
+          $image->save();
       }
 
 

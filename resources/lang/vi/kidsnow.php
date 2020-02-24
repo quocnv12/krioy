@@ -115,7 +115,7 @@ return [
     //Home
     'login'=>'ĐĂNG NHẬP',
     'home'  =>  'TRANG CHỦ',
-    'pricing'=>'GÓI',
+    'pricing'=>'GÓI DỊCH VỤ',
     'about_us_top'=>'VỀ CHÚNG TÔI',
     'sign_up'    =>  'ĐĂNG KÝ',
     'banner'    =>  'Sự Lựa Chọn Tuyệt Vời Cho Các Trường Mầm Non và Dịch Vụ Trông Giữ Trẻ',
@@ -159,7 +159,7 @@ return [
     'communicate_with_teachers' => 'GIAO TIẾP VỚI GIÁO VIÊN',
     'communicate_with_teachers_content' => 'Không cần phải chuyển sang ứng dụng khác để liên lạc với Giáo viên',
     'our_customers_speak' => 'Khách hàng nói gì về chúng tôi',
-    'packages_pricing' => 'Các Gói Ưu Đãi',
+    'packages_pricing' => 'Các Gói Dịch Vụ và Ưu Đãi',
     'free' => 'MIỄN PHÍ',
     'free_content_first' => 'Điểm Danh',
     'free_content_second' => 'Nhật Ký',
