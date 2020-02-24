@@ -59,35 +59,27 @@
 						<div class="attendance-button">
 							<button class="btn tableStyle ng-star-inserted" style="color: rgb(75, 0, 130);">
 								<p>Total</p>
-								<!---->
 								<span class="ng-star-inserted">
 									0/0
 								</span>
-								<!---->
 							</button>
 							<button class="btn tableStyle ng-star-inserted" style="color: rgb(55, 189, 156);">
 								<p>IN</p>
-								<!---->
 								<span class="ng-star-inserted">
 									0
 								</span>
-								<!---->
 							</button>
 							<button class="btn tableStyle ng-star-inserted" style="color: rgb(169, 179, 189);">
 								<p>OUT</p>
-								<!---->
 								<span class="ng-star-inserted">
 									0
 								</span>
-								<!---->
 							</button>
 							<button class="btn tableStyle ng-star-inserted" style="color: rgb(237, 85, 100);">
 								<p>ABSENT</p>
-								<!---->
 								<span class="ng-star-inserted">
 									0
 								</span>
-								<!---->
 							</button>
 							<!-- <button class="btn tableStyle ng-star-inserted" style="color: rgb(255, 194, 0);">
 								<p>LEAVE</p>
@@ -100,36 +92,28 @@
 						<div class="attendance-button">
 							<button class="btn tableStyle ng-star-inserted" style="color: rgb(75, 0, 130);">
 								<p>Total</p>
-								<!---->
 								<span class="ng-star-inserted">
 									{{$count_active}}/{{$count_chil}}
 								</span>
-								<!---->
 							</button>
 							<button class="btn tableStyle ng-star-inserted" style="color: rgb(55, 189, 156);">
 								<p>IN</p>
-								<!---->
 								<span class="ng-star-inserted">
 									{{$count_in}}
 								</span>
-								<!---->
 							</button>
 							<button class="btn tableStyle ng-star-inserted" style="color: rgb(169, 179, 189);">
 								<p>OUT</p>
-								<!---->
 								<span class="ng-star-inserted">
 									{{$count_out}}
 								</span>
-								<!---->
 							</button>
 							<button class="btn tableStyle ng-star-inserted" style="color: rgb(237, 85, 100);">
 								<p>ABSENT</p>
-								<!---->
 								<span class="ng-star-inserted">
 									{{$count_absent}}
 
 								</span>
-								<!---->
 							</button>
 							<!-- <button class="btn tableStyle ng-star-inserted" style="color: rgb(255, 194, 0);">
 								<p>LEAVE</p>
@@ -165,7 +149,6 @@
 				<div class="mat-card tab-content" style="min-height: 500px;">
 					<div class="mat-content" id="tab-main">
 						<div _ngcontent-c19="" class="row ng-star-inserted">
-							<!---->
 							<!-- màu xám: img-bd-xam;màu xanh: img-bd-xanh;màu đỏ: img-bd-do -->
 							<!-- mau xam: span-bg-xam;màu xanh: span-bg-xanh; màu đỏ: span-bg-do -->
 							@if(isset($children_profiles))
@@ -224,7 +207,7 @@
 							<h3>Alert</h3>
 							<hr style="clear:both;margin-top:0px;margin-bottom:0px">
 							<div align="center">
-								<p style="margin: 0;font-size: 18px;">You are marking attendance with time selected as {{$time}}</p>
+								<p style="margin: 0;font-size: 18px;">You are marking attendance with time selected as {{now()->format('H:i')}}</p>
 							</div>
 							<hr style="clear:both;margin-top:0px;margin-bottom:0px">
 							<div class="row" style="margin: 0;">

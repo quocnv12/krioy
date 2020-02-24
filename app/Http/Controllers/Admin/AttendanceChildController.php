@@ -25,16 +25,13 @@ class AttendanceChildController extends Controller
 
         $day = Carbon::now('Asia/Ho_Chi_Minh')->toTimeString();
         $data['dayupdate'] =  date('Y-m-d', strtotime($day));
-        $data['time'] = date('H:s:i', strtotime($day));
 
-        $data['now'] = $id;
         $data['id'] = $id;
         $data['count_chil'] = $data['children_profiles']->count();
         $data['count_in'] = Children_status::where('status','1')->where('id_program',$id)->whereDate('updated_at',$data['dayupdate'])->count();
         $data['count_out'] = Children_status::where('status','2')->where('id_program',$id)->whereDate('updated_at',$data['dayupdate'])->count();
         $data['count_absent'] = Children_status::where('status','3')->where('id_program',$id)->whereDate('updated_at',$data['dayupdate'])->count();
         $data['count_active'] = Children_status::where('active','1')->where('id_program',$id)->whereDate('updated_at',$data['dayupdate'])->count();
-        
         return view('pages.attendance.attendance',$data);
     }
    
