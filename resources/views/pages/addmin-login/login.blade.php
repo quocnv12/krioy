@@ -26,52 +26,53 @@
 
 <body id="login">
 	<section class="page-top-center container">
-		<div class="row">
+		<div class="row" style="margin-left: 0 !important">
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
 				<form method="POST">
 					@csrf
-				<div class="login" align="center">
-					<div class="login-label">
-						<p>@lang('kidsnow.title_login')</p>
-					</div>
-					<div class="login-input">
-					
-						<p style="margin-top:10px;color:red" id="expired"></p>
-						<div class="add">
-							<div class="input_box" style="width: 100%;">
-						        <span>@lang('kidsnow.phone_login') *</span>
-								<input type="phone" name="phone" value="{{ old('phone') }}" placeholder="@lang('kidsnow.phone_login') *">
-								@if ($errors->has('phone'))
-								<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;width:80%;margin-top:10px;margin-bottom:0px">* {{ $errors->first('phone') }}</p>
-								@endif
-						    </div>
+					<div class="login" align="center">
+						<div class="login-label">
+							<p>@lang('kidsnow.title_login')</p>
 						</div>
-						<div class="add">
-							<div class="input_box" style="width: 100%;">
-								<span>@lang('kidsnow.password_login')</span>
-								<input type="password" name="password" placeholder="@lang('kidsnow.password_login') *">
-								@if ($errors->has('password'))
-								<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;;width:80%;margin-top:10px;margin-bottom:0px">* {{ $errors->first('password') }}</p>
-								@endif
+						<div class="login-input">
+						
+							<p style="margin-top:10px;color:red" id="expired"></p>
+							<div class="add">
+								<div class="input_box" style="width: 100%;">
+							        <span>@lang('kidsnow.phone_login') *</span>
+									<input type="phone" name="phone" value="{{ old('phone') }}" placeholder="@lang('kidsnow.phone_login') *">
+									@if ($errors->has('phone'))
+									<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;width:80%;margin-top:10px;margin-bottom:0px">* {{ $errors->first('phone') }}</p>
+									@endif
+							    </div>
+							</div>
+							<div class="add">
+								<div class="input_box" style="width: 100%;">
+									<span>@lang('kidsnow.password_login')</span>
+									<input type="password" name="password" placeholder="@lang('kidsnow.password_login') *">
+									@if ($errors->has('password'))
+									<p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px;text-align: left;;width:80%;margin-top:10px;margin-bottom:0px">* {{ $errors->first('password') }}</p>
+									@endif
+								</div>
 							</div>
 						</div>
-					</div>
-					<div style="margin-top:10px" class="row">
-						<div  style="font-size: 14px;" class="col-md-7 col-sm-12" >
-						
-							<input type="checkbox"  name="remember" {{ old('remember') ? 'checked' : '' }}> @lang('kidsnow.remember_login')
-						
+						<div style="margin-top:10px" class="row">
+							<div  style="font-size: 14px;" class="col-md-7 col-sm-12" >
+							
+								<input type="checkbox"  name="remember" {{ old('remember') ? 'checked' : '' }}> @lang('kidsnow.remember_login')
+							
+							</div>
+							<div class="col-md-5 col-sm-12" >
+								<a style="font-size: 14px;font-style: italic;" href="forgot">@lang('kidsnow.forgot_password_login')?</a>
+							</div>	
 						</div>
-						<div class="col-md-5 col-sm-12" >
-							<a style="font-size: 14px;font-style: italic;" href="forgot">@lang('kidsnow.forgot_password_login')?</a>
-						</div>	
+						<div class="login-button" align="center">
+							<button type="submit"><span>@lang('kidsnow.button_login')</span></button>
+						</div>
 					</div>
-					<div class="login-button" align="center">
-						<button type="submit"><span>@lang('kidsnow.button_login')</span></button>
-					</div>
-				</div>
-			</form>
+				</form>
+			</div>
 			<div class="col-md-3"></div>
 		</div>
 	</section>

@@ -35,6 +35,7 @@
 				    <div class="navbar-header">
 				    	<a class="navbar-brand " href="#" style="display: flex;">
 				    		<img src="images/logo-ngang.png" style="border-radius: 0;width: auto;margin: -7px 0;" alt="">
+
 				    	</a>
 				    	<div class="topnav" id="myTopnav">
 							<a href="" style="" onclick="return false;">
@@ -54,6 +55,7 @@
 									</div>
 								</div>
 							</a>
+
 						    <a href="#section1">{{__('kidsnow.home')}}</a>
 						    <a href="#section2"> @lang('kidsnow.kids_now_app')</a>
 						    <a href="#section3">@lang('kidsnow.pricing')</a>

@@ -26,7 +26,7 @@
 @section('content')
 <body id="login">
 	<section class="page-top-center container">
-		<div class="row">
+		<div class="row" style="margin-left: 0 !important">
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
 				<form method="POST"  action="forgot">

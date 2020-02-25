@@ -420,6 +420,8 @@
                 "trusted proxy"
             ],
             "time": "2020-02-22T01:51:47+00:00"
+<<<<<<< HEAD
+=======
         },
         {
             "name": "guzzlehttp/psr7",
@@ -561,6 +563,7 @@
                 "watermark"
             ],
             "time": "2019-11-02T09:15:47+00:00"
+>>>>>>> 3cf0520e20efa790bd3f39f2a3f2b8fb01867340
         },
         {
             "name": "jakub-onderka/php-console-color",
