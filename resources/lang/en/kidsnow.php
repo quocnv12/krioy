@@ -145,6 +145,7 @@ return [
     'sign_up'    =>  'SIGNUP',
     'get_a_free_trial' => 'GET A FREE TRIAL',//@lang('kidsnow.get_a_free_trial')
     'kids_now_app' => 'KIDS NOW APP',//@lang('kidsnow.kids_now_app')
+    'my_kids_now'=>'MY KIDS NOW',
     'one_click_updates' => "ONE CLICK UPDATES",//@lang('kidsnow.one_click_updates')
     'one_click_updates_content' => 'Send updates in One-Click for multiple children at the same time',//@lang('kidsnow.one_click_updates_content')
     'admissions_management' => 'ADMISSIONS MANAGEMENT',//@lang('kidsnow.admissions_management')
@@ -530,7 +531,15 @@ return [
    'changer_password_new' => 'Password New',
    'confirm_changer_password' => 'Comfirm Password',
    'reset_password' => 'Reset Password',
-   'forgrt_password_send_mail' =>'Thank you for using Kids-now software !',
+   'forgrt_password_send_mail' =>'Thanks you for using Kids-now!',
+   'to_get_started' => 'To get started, Please see your registration information.',
+   'click_here_start' => 'Click here to log in',
+   'email_start' => 'You\'re receiving this email because of your account on',
+   'everyone' =>'Everyone can contribute',
+   'to_get_started_verify' =>'To get started, click the link below to confirm your account.',
+   'verify_your_acconut' =>'Confirm your account',
+   'to_get_started_reset' =>'To get started, click on the link below to retrieve your password',
+   'retrieve_your_password'=> 'Retrieve your password',
 
 
     //-------------attendance-------------
@@ -541,5 +550,13 @@ return [
     'attendance_children_in' =>'In',
     'attendance_children_out' =>'Out',
     'attendance_children_absent' =>'Absent',
+
+
+    //-----------login-------
+    
+
+
+
+    
 
 ];

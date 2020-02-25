@@ -22,6 +22,7 @@ a{
 .login{
 	width: 100%;
 	margin-top: 50px;
+
 	border:2px solid #5363d6;
 	border-radius: 5px;
 }
@@ -500,7 +501,7 @@ section.introduce-packages .introduce-packages-content .row > div>div >div> div.
   background: none !important;
 }
 .dropdown-logo1 {
-  position: relative;
+  display: inline;
 }
 .dropdown-content-logo1 {
   display: none;
@@ -546,6 +547,7 @@ section.introduce-packages .introduce-packages-content .row > div>div >div> div.
   .topnav.responsive {
   	position: relative;
   	width: 250px;
+      top: -80px
   }
   .topnav.responsive .icon {
     position: absolute;

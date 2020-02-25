@@ -41,7 +41,7 @@
                             {{-- <div style="text-align:right;padding-right:22px" class="col-md-6">
                                 <a style="margin:0px;" href="{{ route('menu-food-name-add') }}" class="btn btn-success btn-cons"" title="Add Food Name"><i style="" class="fa fa-plus-circle"></i> Add</a>
                             </div> --}}
-                            <form action="kids-now/observations/list" method="get" style="display: contents">
+                            <form action="{{route('admin.observations.list')}}" method="get" style="display: contents">
 
                                 <div class="col-md-6" style="display: flex; justify-content: flex-end; align-items: center">
                                     <span style="font-weight: bold">@lang('kidsnow.observations.seminar')</span>&nbsp;&nbsp;:&nbsp;&nbsp;
@@ -72,7 +72,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="grid-body ">
+                    <div class="grid-body " style="padding: 0">
                         <table class="table table-striped" id="example">
                             <thead>
                             <tr>
@@ -89,7 +89,13 @@
                                     <tr class="odd gradeX">
                                         <td style="text-align:center;text-transform:capitalize">{{ $item->Children->first_name}} {{ $item->Children->last_name}}</td>
                                         <td style="text-align:center;text-transform:capitalize">{{ date('d-m-Y',strtotime($item->Children->birthday))}}</td>
-                                        <td style="text-align:center;text-transform:capitalize">{{ $item->Children->gender == 1 ? 'Male' : 'Female'}}</td>
+                                        <td style="text-align:center;text-transform:capitalize">
+                                            @if(app()->getLocale() == 'vi')
+                                                {{ $item->Children->gender == 1 ? 'Nam' : 'Nữ'}}
+                                            @else
+                                                {{ $item->Children->gender == 1 ? 'Male' : 'Female'}}
+                                            @endif
+                                        </td>
                                         <td style="text-align:center;text-transform:capitalize">{{ $item->observer}}</td>
                                         <td style="text-align:center;text-transform:capitalize">{{ $item->month}} / {{$item->year}}</td>
                                         <td style="text-align:center">

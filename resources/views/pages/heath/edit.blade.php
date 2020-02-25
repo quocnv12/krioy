@@ -17,12 +17,17 @@
                     </ul>
                 </div>
                 <div class="col-sm-6">
-                    <a type="submit" class="btn btn-success" href="{{route('admin.health.list')}}" style="border: none;min-width: 110px;background: #eb87c1;color: white;float: right;font-weight: bold;" >@lang('kidsnow.health.list')</a>
+                    <button class="notice" type="button" style="float: right">
+                        <span><a href="{{route('admin.health.getDelete',['id'=>$health->id])}}" style="color: inherit; " onclick="return confirm('Delete ! Are you want to continue ?')">DELETE</a></span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <div id="clock" name="time"></div>
+        <div class="row" style="display: flex; justify-content: center">
+            <a type="submit" class="btn btn-success" href="{{route('admin.health.list')}}" style="border: none;min-width: 110px;background: #eb87c1;color: white;float: right;font-weight: bold;" >@lang('kidsnow.health.list')</a>
+        </div>
         @if ($errors->has('children_health'))
             <div class="alert alert-danger" style="text-align: center">
                 {{ $errors->first('children_health') }}

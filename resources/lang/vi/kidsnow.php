@@ -115,12 +115,13 @@ return [
     //Home
     'login'=>'ĐĂNG NHẬP',
     'home'  =>  'TRANG CHỦ',
-    'pricing'=>'GÓI',
+    'pricing'=>'GÓI DỊCH VỤ',
     'about_us_top'=>'VỀ CHÚNG TÔI',
     'sign_up'    =>  'ĐĂNG KÝ',
+    'my_kids_now'=>'KIDS NOW của tôi',
     'banner'    =>  'Sự Lựa Chọn Tuyệt Vời Cho Các Trường Mầm Non và Dịch Vụ Trông Giữ Trẻ',
     'get_a_free_trial' => 'DÙNG THỬ MIỄN PHÍ',
-    'kids_now_app' => 'ỨNG DỤNG KIDS NOW ',
+    'kids_now_app' => 'ỨNG DỤNG',
     'one_click_updates' => "CẬP NHẬT CHỈ VỚI 1 CÚ CHẠM",
     'one_click_updates_content' => 'Cập nhật thông tin cho nhiều trẻ chỉ với một thao tác',
     'admissions_management' => 'QUẢN LÝ NHẬP HỌC',
@@ -141,7 +142,7 @@ return [
     'digital_notice_board' => 'BẢNG THÔNG BÁO SỐ HÓA',
     'digital_notice_board_content' => 'Phiên bản số hóa Bảng thông báo của Nhà trường - Phụ huynh có thể xem mọi lúc, mọi nơi',
     'multi_branch_management' => 'QUẢN LÝ ĐA NĂNG',
-    'multi_branch_management_content' => 'Quản lý tất cả các chi nhánh của bạn từ bất cứ đâu và bạn có thể chuyển đổi giữa chúng trong cùng một ứng dụng',
+    'multi_branch_management_content' => 'Quản lý tất cả các danh mục từ bất cứ đâu và có thể chuyển đổi giữa các mục trong cùng một ứng dụng',
     'download_for_free' => 'Tải về miễn phí',
     'kid_now_parent_app' => 'ỨNG DỤNG KIDS NOW CHO PHỤ HUYNH',
     'attendance_content' => 'Phụ huynh có thể yên tâm về sự hiện diện của trẻ tại trường',
@@ -159,7 +160,7 @@ return [
     'communicate_with_teachers' => 'GIAO TIẾP VỚI GIÁO VIÊN',
     'communicate_with_teachers_content' => 'Không cần phải chuyển sang ứng dụng khác để liên lạc với Giáo viên',
     'our_customers_speak' => 'Khách hàng nói gì về chúng tôi',
-    'packages_pricing' => 'Các Gói Ưu Đãi',
+    'packages_pricing' => 'Các Gói Dịch Vụ và Ưu Đãi',
     'free' => 'MIỄN PHÍ',
     'free_content_first' => 'Điểm Danh',
     'free_content_second' => 'Nhật Ký',
@@ -193,7 +194,7 @@ return [
     'our_happy_customers' => 'Khách hàng hài lòng về chúng tôi',
     'and_many_more' => 'Và nhiều khách hàng khác nữa...',
     'about_us' => 'Về chúng tôi',
-    'abour_us_content' => 'Trẻ em bây giờ được lựa chọn, hoặc chúng ta có thể có được, mang lại chống lại ông có nghĩa vụ phải làm theo các thực hành lao động của cuộc sống, nó là rất quan trọng. Nó là thông qua mong muốn ông có mà đau đớn, tuy nhiên, khi cô ghét khi anh phải lựa chọn sự đau đớn, bởi vì họ đang có, đầu tiên phải có vấn đề đối với chúng tôi nỗi đau rất không phải là chính mình, nếu điều đó mà người đã từ chối những niềm vui của cuộc sống, hầu hết tất cả. Miễn phí như trình bày Punjab, và những niềm vui của Phúc, thời gian rất của những mong muốn của sự khác biệt này, là người phát minh ra những điều đó được tham nhũng, nhận, anh ghét Ngài đến tất cả các phương thức của linh hồn đó là.',
+    'about_us_content' => 'KIDS NOW ra đời với mong muốn tạo mối liên kết chặt chẽ giữa nhà trường với phụ huynh, giúp cho việc quản lý con trẻ giờ đây trở nên dễ dàng hơn bao giờ hết. Với giao diện bắt mắt và dễ làm quen, ứng dụng KIDS NOW sẽ đem đến cho người dùng những trải nghiệm tuyệt vời cùng sự tiện ích trong từng thao tác. Được xây dựng và phát triển bởi đội ngũ giàu nhiệt huyết với một tinh thần tận tâm, cống hiến hết mình, chúng tôi kỳ vọng KIDS NOW sẽ trở thành một người bạn đồng hành đáng tin cậy của các bậc cha mẹ trên chặng đường phát triển của bé.',
     'our_team' => 'Đội ngũ KIDS NOW',
     'get_in_touch' => 'Liên Lạc Với Chúng Tôi',
     'privacy' => 'Chính sách bảo mật',
@@ -517,6 +518,14 @@ return [
    'confirm_changer_password' => 'Nhập Lại Mật Khẩu',
    'reset_password' => 'Quên mật khẩu',
    'forgrt_password_send_mail' =>'Cảm ơn bạn đã sử dụng phần mềm Kids-now !',
+   'to_get_started' => 'Để bắt đầu, hãy kiểm tra thông tin đăng ký của bạn.',
+   'click_here_start' => 'Click vào đây để đăng nhập',
+   'email_start' =>'Bạn nhận được email này vì bạn có tài khoản trên',
+   'everyone' =>'Mọi người có thể đóng góp',
+   'to_get_started_verify' =>'Để bắt đầu, hãy nhấp vào liên kết dưới đây để xác nhận tài khoản của bạn.',
+   'verify_your_acconut' =>'Xác nhận tài khoản của bạn',
+   'to_get_started_reset' =>'Để bắt đầu, hãy nhấp vào liên kết dưới đây để lấy lại mật khẩu của bạn',
+   'retrieve_your_password'=> 'Lấy lại mật khẩu',
 
 
    //-------------attendance-------------
@@ -527,5 +536,11 @@ return [
     'attendance_children_in' =>'Đi học',
     'attendance_children_out' =>'Nghỉ học',
     'attendance_children_absent' =>'Vắng',
+     
+    //-----------login-------
+    
+
+
+
     
 ];

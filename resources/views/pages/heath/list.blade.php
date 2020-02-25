@@ -31,11 +31,6 @@
             </ul>
         </div>
     </div>
-    @if(session('notify'))
-        <div class="alert alert-success font-weight-bold">
-            {{session('notify')}}
-        </div>
-    @endif
     <div class="mat-card">
         <div class="row-fluid">
             <div class="span12">
@@ -47,37 +42,34 @@
                             </div>
                         </div>
                     </div>
-                    <div class="grid-body" style="padding: 0;">
-                        <div class="table-responsive">
+                    <div class="grid-body " style="padding: 0">
+
                             <table class="table table-striped" id="example">
                                 <thead>
                                 <tr>
-                                    <th style="text-align:left;width: 2%">#</th>
                                     <th style="width:25%">@lang('kidsnow.health.list.name')</th>
                                     <th style="width:15%">@lang('kidsnow.health.list.birthday')</th>
                                     <th style="width:10%">@lang('kidsnow.health.list.gender')</th>
                                     <th style="width:10%">@lang('kidsnow.health.list.date')</th>
                                     <th style="width:10%">@lang('kidsnow.health.list.time')</th>
-                                    <th style="text-align:center;width:25%">@lang('kidsnow.health.list.action')</th>
+                                    <th >@lang('kidsnow.health.list.action')</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($health as $value)
-                                    <tr>
-                                        <th style="width:2%">{{$value->id}}</th>
-                                        <th style="width:30%">{{$value->ChildrenProfiles-> first_name }} {{$value->ChildrenProfiles->last_name}}</th><
-                                        <th style="width:20%">{{date('d-m-Y',strtotime($value->ChildrenProfiles->birthday))}}</th>
-                                        <th style="width:5%">
-                                            @if($value->ChildrenProfiles->gender==1)
-                                                {{"Nam"}}
+                                    <tr class="odd gradeX">
+                                        <th >{{$value->ChildrenProfiles->first_name }} {{$value->ChildrenProfiles->last_name}}</th>
+                                        <th >{{date('d-m-Y',strtotime($value->ChildrenProfiles->birthday))}}</th>
+                                        <th >
+                                            @if(app()->getLocale() == 'vi')
+                                                {{$value->ChildrenProfiles->gender == 1 ? "Nam" : "Nữ"}}
                                             @else
-                                                {{"Nữ"}}
+                                                {{$value->ChildrenProfiles->gender == 1 ? "Male" : "Female"}}
                                             @endif
-
                                         </th>
-                                        <th style="width: 10%">{{date('d-m-Y',strtotime($value->created_at))}}</th>
-                                        <th style="width: 10%">{{\Carbon\Carbon::parse($value->created_at)->format('H:i:s')}}</th>
-                                        <th style="width: 25%">
+                                        <th >{{date('d-m-Y',strtotime($value->created_at))}}</th>
+                                        <th >{{\Carbon\Carbon::parse($value->created_at)->format('H:i:s')}}</th>
+                                        <th >
                                             <a href="{!! URL::route('admin.health.view',$value->id ) !!}" title="View Health" class="btn btn-sm btn-outline-primary"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                             <a href="{!! URL::route('admin.health.getEdit',$value->id ) !!}" title="Edit Health" class="btn btn-sm btn-outline-warning"><i class="fa fa-edit" aria-hidden="true"></i></a>
                                             <a onclick="return confirm('Delete Health ? Do you want continue !')" title="Delete Health " href="{{ route('admin.health.getDelete', $value->id) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
@@ -86,7 +78,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                        </div>
+
                     </div>
                 </div>
             </div>

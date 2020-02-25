@@ -201,19 +201,18 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
     //---------------health----------------
     Route::group(['prefix' => 'health'], function () {
 
-        Route::get('danhsach', ['as'=>'admin.health.list','uses'=>'Api\HealthController@getList']);
-        Route::get('them',['as'=>'admin.health.getAdd','uses'=>'Api\HealthController@getAdd']);
-        Route::post('them',['as'=>'admin.health.getAdd','uses'=>'Api\HealthController@postAdd']);
-        Route::get('xoa/{id}',['as'=>'admin.health.getDelete','uses'=>'Api\HealthController@getDelete'])->middleware(['can:edit-profile']);
-        Route::get('sua/{id}',['as'=>'admin.health.getEdit','uses'=>'Api\HealthController@getEdit'])->middleware(['can:edit-profile']);
-        Route::post('sua/{id}',['as'=>'admin.health.postEdit','uses'=>'Api\HealthController@postEdit']);
-        Route::get('search',['as'=>'admin.health.search','uses'=>'Api\HealthController@getSearch']);
-        Route::post('search',['as'=>'admin.health.search','uses'=>'Api\HealthController@postSearch']);
-        Route::get('them_child',['as'=>'admin.health.child','uses'=>'Api\HealthController@getChild']);
-        Route::post('them_child',['as'=>'admin.health.child','uses'=>'Api\HealthController@postChild']);
-        Route::get('search/children', 'Api\HealthController@searchByName');
-        Route::get('select_child/add','Api\HealthController@addSelectChild');
+        Route::get('/', ['as'=>'admin.health.list','uses'=>'Api\HealthController@getList']);
+        Route::get('add',['as'=>'admin.health.getAdd','uses'=>'Api\HealthController@getAdd']);
+        Route::post('add',['as'=>'admin.health.getAdd','uses'=>'Api\HealthController@postAdd']);
+        Route::get('delete/{id}',['as'=>'admin.health.getDelete','uses'=>'Api\HealthController@getDelete']);
+        Route::get('edit/{id}',['as'=>'admin.health.getEdit','uses'=>'Api\HealthController@getEdit']);
+        Route::post('edit/{id}',['as'=>'admin.health.postEdit','uses'=>'Api\HealthController@postEdit']);
         Route::get('show/{id}','Api\HealthController@showChildrenInProgram');
+        Route::get('view/{id}',['as'=>'admin.health.view' ,'uses'=>'Api\HealthController@view']);
+
+        //clip board
+        Route::get('clip_board/{id}/{name}','Api\HealthController@displayClipboard');
+        Route::get('delete_clipboard/{id}/{name}','Api\HealthController@deleteClipboard');
 
     });
 });

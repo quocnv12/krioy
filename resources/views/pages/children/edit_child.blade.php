@@ -278,8 +278,8 @@
                                             </div>
                                         </div>
                                         <div class="input_box" style="width: 100%;">
-                                            <span class="input_box_span_active">Main Phone Number *</span>
-                                            <input type="text" name="main_phone_parent" placeholder="Main Phone Number *" value="{{old('main_phone_parent') ?? $parent_profiles->main_phone}}">
+                                            <span class="input_box_span_active">@lang('kidsnow.children.main_phone') *</span>
+                                            <input type="text" name="main_phone_parent" placeholder="@lang('kidsnow.children.main_phone') *" value="{{old('main_phone_parent') ?? $parent_profiles->main_phone}}">
                                             @if ($errors->has('main_phone_parent'))
                                                 <div class="text text-danger">
                                                     {{ $errors->first('main_phone_parent') }}
@@ -287,8 +287,8 @@
                                             @endif
                                         </div>
                                         <div class="input_box" style="width: 100%;">
-                                            <span class="input_box_span_active">Extra Phone Number *</span>
-                                            <input type="text" name="extra_phone_parent" placeholder="Extra Phone Number *" value="{{old('extra_phone_parent') ?? $parent_profiles->extra_phone}}">
+                                            <span class="input_box_span_active">@lang('kidsnow.children.extra_phone') *</span>
+                                            <input type="text" name="extra_phone_parent" placeholder="@lang('kidsnow.children.extra_phone') *" value="{{old('extra_phone_parent') ?? $parent_profiles->extra_phone}}">
                                             @if ($errors->has('extra_phone_parent'))
                                                 <div class="text text-danger">
                                                     {{ $errors->first('extra_phone_parent') }}

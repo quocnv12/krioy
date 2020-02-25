@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Mail;
 use DB;
+use App\Http\Requests\Staff\{AddStaffRequest,EditStaffRequest};
+use Intervention\Image\Facades\Image;
+
 class StaffController extends Controller
 {
    
@@ -23,43 +26,8 @@ class StaffController extends Controller
         $data['programs']=Programs::all();
         return view('pages.staff.add_staff',$data);
     }
-    public  function PostAddStaff(request $request) 
+    public  function PostAddStaff(AddStaffRequest $request) 
     {
-        // dd($request->all());
-       $this->validate($request,[
-            'image'               =>'image|nullable',
-            'first_name'         =>'required',
-            'last_name'          =>'required',
-            'phone'              =>'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:staff_profiles,phone',
-            'gender'             =>'required',
-            'email'              =>'required|email|unique:staff_profiles,email',
-            'address'            =>'nullable',
-            'date_birthday'      =>'required|date|before:today',
-           // 'blood_group'        =>'required',
-            'date_of_joining'    =>'required|date',
-       ],[
-            'image.image'               => 'Image is in wrong format !',
-            'first_name.required'       => 'Please enter first_name !',
-            'last_name.required'        => 'Please enter last_name !',
-            'phone.required'            => 'Please enter number phone !',
-            'phone.regex'               => 'Phone numbers start with 0 !',
-            'phone.not_regex'           => 'Phone numbers must be numeric !',
-            'phone.size'                => 'Phone number includes 10 numbers !',
-            'phone.unique'              => 'Number phone already exist !',
-            'email.required'            => 'Please enter email !',
-            'email.email'               => 'Email is in wrong format !',
-            'email.unique'              => 'Email already exist !',
-            'address.required'          => 'Please enter address !',
-            'date_birthday.required'    => 'Please enter date_birthday !',
-            'date_birthday.date'        => 'Date_birthday is in wrong format !',
-            'date_birthday.before'        => 'Date_birthday is invalid !',
-           // 'blood_group.required'      => 'Please choose blood_group !',
-            'date_of_joining.required'  => 'Please choose date_of_joining !',
-            'date_of_joining.date'      => 'Date_of_joining is in wrong format !',
-            'gender.required'           => 'Please choose gender !',
-            
-       ]);
-
        $staff = new StaffProfiles;
        $staff->first_name = $request->first_name;
        $staff->last_name = $request->last_name;
@@ -78,6 +46,8 @@ class StaffController extends Controller
            $file_name=str_random(9).'.'.$file->getClientOriginalExtension();
            $file->move('images/staff',$file_name);
            $staff->image=$file_name ;
+           $image = Image::make(public_path('images/staff/'.$file_name))->fit(150,150);
+           $image->save();
        }
        $staff->save();
        
@@ -117,9 +87,12 @@ class StaffController extends Controller
         Mail::send('pages.staff.email', $data, function($message) use ($email){
             $message->to($email, 'Welcome to Kids-now')->subject('Welcome to Kids-now !');
         });
-
-
-        return redirect('kids-now/staff')->with('success','Add staff success, Please check your email for your password !')->withInput();
+        if (\Lang::locale() == 'en') {
+            return redirect('kids-now/staff')->with('success','Add staff success, Please check your email for your password !')->withInput();
+        }
+        if (\Lang::locale() == 'vi') {
+            return redirect('kids-now/staff')->with('success','Thêm nhân viên thành công, vui lòng check email để lấy mật khẩu !')->withInput();
+        }
 
     }
 
@@ -140,43 +113,8 @@ class StaffController extends Controller
     }
 
 
-    public  function PostEditStaff(request $request ,$id) 
+    public  function PostEditStaff(EditStaffRequest $request ,$id) 
     {
-        $this->validate($request,[
-         
-            'first_name'         =>'required',
-            'last_name'          =>'required',
-            'phone'              =>'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:staff_profiles,phone,'.$id,
-            'gender'             =>'required',
-            'email'              =>'required|email|unique:staff_profiles,email,'.$id,
-            'address'            =>'required',
-            'date_birthday'      =>'required|date',
-           // 'blood_group'        =>'required',
-            'date_of_joining'    =>'required|date',
-          
-      ],[
-       
-        
-        'first_name.required'       => 'Please enter first_name !',
-        'last_name.required'        => 'Please enter last_name !',
-        'phone.required'            => 'Please enter number phone !',
-        'phone.regex'               => 'Phone numbers start with 0 !',
-        'phone.not_regex'           => 'Phone numbers must be numeric !',
-        'phone.size'                => 'Phone number includes 10 numbers !',
-        'phone.unique'              => 'Number phone already exist !',
-        'email.required'            => 'Please enter email !',
-        'email.email'               => 'Email is in wrong format !',
-        'email.unique'              => 'Email already exist !',
-        'address.required'          => 'Please enter address !',
-        'date_birthday.required'    => 'Please enter date_birthday !',
-        'date_birthday.date'        => 'Date_birthday is in wrong format !',
-       // 'blood_group.required'      => 'Please choose blood_group !',
-        'date_of_joining.required'  => 'Please choose date_of_joining !',
-        'date_of_joining.date'      => 'Date_of_joining is in wrong format !',
-        'gender.required'           => 'Please choose gender !',
-           
-      ]);
-
       $staff = StaffProfiles::find($id);
       $staff->first_name = $request->first_name;
       $staff->last_name = $request->last_name;
@@ -198,6 +136,8 @@ class StaffController extends Controller
           $file_name=str_random(9).'.'.$file->getClientOriginalExtension();
           $file->move('images/staff',$file_name);
           $staff->image=$file_name ;
+          $image = Image::make(public_path('images/staff/'.$file_name))->fit(150,150);
+          $image->save();
       }
 
 
@@ -222,7 +162,14 @@ class StaffController extends Controller
        }
        $staff->pesmissionstaff()->Sync($mangs);
 
-       return redirect('kids-now/staff')->with('success','Edit staff success !')->withInput();
+       
+        if (\Lang::locale() == 'en') {
+            return redirect('kids-now/staff')->with('success','Edit staff success !')->withInput();
+        }
+        if (\Lang::locale() == 'vi') {
+            return redirect('kids-now/staff')->with('success','Sửa nhân viên thành công !')->withInput();
+        }
+
        
     }
 
@@ -235,7 +182,12 @@ class StaffController extends Controller
     public  function DeleteStaff($id) 
     {
         StaffProfiles::destroy($id);
-        return redirect('kids-now/staff')->with('success','Delete staff success !');
+        if (\Lang::locale() == 'en') {
+            return redirect('kids-now/staff')->with('success','Delete staff success !');
+        }
+        if (\Lang::locale() == 'vi') {
+            return redirect('kids-now/staff')->with('success','Xóa nhân viên thành công !');
+        }
     }
 
 

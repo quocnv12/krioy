@@ -39,12 +39,13 @@
                     <button class="notice" type="button">
                         <span><a href="{{route('admin.program.destroy',['id'=>$program->id])}}" style="color: inherit" onclick="return deleteConfirm()">DELETE</a></span>
 					</button>
-                </div>
+				</div>
 			</div>
 		</div>
+
+
 		<form action="{{route('admin.program.update',['id'=>$program->id])}}" method="post" style="width: 100%" id="editProgram">
 			@csrf
-
 			<input type="hidden" name="array_children_new" id="array_children_new" value="">
 			<input id="array_children_old" type="hidden" name="array_children_old" value="{{implode(',',$array_children_old)}}">
 
@@ -53,8 +54,6 @@
 
 			<div class="mat-card">
 				<button class="accordion add-staff" type="button">@lang('kidsnow.program.edit_program')</button>
-				<a class="btn btn-success" style="float: right" href="{{route('admin.program.excel',['id'=>$program->id])}}">Export Excel</a>
-
 				<div class="panel add">
 					<div class="row">
 						<div class="col-md-4 input_box">
@@ -67,12 +66,12 @@
 								</div>
 							@endif
 						</div>
-						<div class="col-md-8">
+						<div class="col-md-7">
 							<div class="row" style="margin: 10px 0;">
-								<div class="col-md-2" style="font-size: 18px;color:#5363d6;top:10px">
+								<div class="col-md-3" style="font-size: 18px;color:#5363d6;top:10px">
 									@lang('kidsnow.program.days'):
 								</div>
-								<div class="col-md-10" style="margin: 10px 0;">
+								<div class="col-md-9" style="margin: 10px 0;">
 									<div class="panel_new">
 										<button type="button" class="letterCircle listClass @if(in_array(8, $array_schedule_choose)) tablinks1_active @endif" style="color: #5363d7;" value="8">S</button>
 										<button type="button" class="letterCircle listClass @if(in_array(2, $array_schedule_choose)) tablinks1_active @endif" style="color: #5363d7;" value="2">M</button>
@@ -91,6 +90,9 @@
 									@endif
 								</div>
 							</div>
+						</div>
+						<div class="col-md-1">
+							<a class="btn btn-success" style="float: right; margin: 0" href="{{route('admin.program.excel',['id'=>$program->id])}}">Export Excel</a>
 						</div>
 					</div>
 					<div class="row">
@@ -328,7 +330,6 @@
 					</div>
 				</div>
 			</div>
-
 			<div class="comment">
 				<p id="error_total" style="text-align: center; color: red"></p>
 				<div class="button" style="text-align: center;">

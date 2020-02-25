@@ -25,11 +25,6 @@
 			html{
 				scroll-behavior: smooth;
 			}
-			@media only screen and (max-width: 767px) {
-				.a-desktop{
-					display: none;
-				}
-			}
 		</style>
 	</head>
 <body>
@@ -40,15 +35,33 @@
 				    <div class="navbar-header">
 				    	<a class="navbar-brand " href="#" style="display: flex;">
 				    		<img src="images/logo-ngang.png" style="border-radius: 0;width: auto;margin: -7px 0;" alt="">
-							
+
 				    	</a>
 				    	<div class="topnav" id="myTopnav">
+							<a href="" style="" onclick="return false;">
+								<div class="dropdown-logo1" >
+									@if(app()->getLocale() == 'vi')
+										<button class="dropbtn-logo1">
+											<button class="dropbtn-logo1"><img src="images/viet.png" style="width: 50px;height: 30px; border-radius: 0px"></button>
+										</button>
+									@else
+										<button class="dropbtn-logo1">
+											<button class="dropbtn-logo1"><img src="images/england.png" style="width: 50px;height: 30px; border-radius: 0px"></button>
+										</button>
+									@endif
+									<div class="dropdown-content-logo1" >
+										<a href="locale/vi"><img src="images/viet.png"> @lang('kidsnow.vietnamese')</a>
+										<a href="locale/en"><img src="images/england.png"> @lang('kidsnow.english')</a>
+									</div>
+								</div>
+							</a>
+
 						    <a href="#section1">{{__('kidsnow.home')}}</a>
 						    <a href="#section2"> @lang('kidsnow.kids_now_app')</a>
 						    <a href="#section3">@lang('kidsnow.pricing')</a>
 							<a href="#section4">@lang('kidsnow.about_us_top')</a>
 							@if(Auth::check())
-								<a href="login" style="background-color: #ddd;">My Kids-now</a>
+								<a href="login" style="background-color: #ddd;">@lang('kidsnow.my_kids_now')</a>
 							@else
 								<a href="login">@lang('kidsnow.login')</a>
 							@endif
@@ -72,7 +85,7 @@
 					</span>
 					<div class="introduce-button" align="center">
 						<button class="btt-1">
-							<a style="color:white" href="login">	<span>@lang('kidsnow.sign_up')</span></a>
+							<a style="color:white" href="account">	<span>@lang('kidsnow.sign_up')</span></a>
 						</button>
 						<button class="btt-2" data-toggle="modal" data-target=".bd-example-modal-sm1">
 							<SPAN>@lang('kidsnow.get_a_free_trial')</SPAN>
@@ -464,7 +477,7 @@
 				<h2>@lang('kidsnow.about_us')</h2>
 				<div class="hr"></div>
 			</div>
-			<p>@lang('kidsnow.about_us_content')</p>
+			<p style="margin: 30px">@lang('kidsnow.about_us_content')</p>
 		</div>
 	</section>
 	<section class="container">

@@ -39,18 +39,26 @@ class ProgramsController extends Controller
 
     public function store(Request $request)
     {
+        $validation_vi = [
+            'program_name.unique'   =>  'Tên lớp học đã tồn tại',
+            'program_fee.numeric'   =>  'Học phí không hợp lệ',
+            'program_fee.min'       =>  'Học phí không được nhỏ hơn 0',
+            'to_year.gte'           =>  'Giá trị trường này quá bé'
+        ];
+
+        $validation_en = [
+            'program_name.unique'   =>  'Program name has existed',
+            'program_fee.numeric'   =>  'Program fee is invalid',
+            'program_fee.min'       =>  'Program fee is invalid',
+            'to_year.gte'           =>  'This year must be greater'
+        ];
+
         $this->validate($request,
             [
                 'program_name'  =>  'nullable|unique:programs,program_name',
                 'program_fee'   =>  'numeric|min:0|nullable',
                 'to_year'       =>  'gte:from_year'
-            ],
-            [
-                'program_name.unique'   =>  'Program name has existed',
-                'program_fee.numeric'   =>  'Program fee is invalid',
-                'program_fee.min'       =>  'Program fee is invalid',
-                'to_year.gte'           =>  'This year must be greater'
-            ]);
+            ],app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
 
         $programs = Programs::create($request->all());
         $programs->schedule = $request->schedule;
@@ -98,31 +106,12 @@ class ProgramsController extends Controller
             $staff_program->save();
         }
 
-        return redirect()->back()->with('success','Added Program');
+        return redirect()->back()->with('success',app()->getLocale() == 'vi' ? 'Thêm Thành Công !' : 'Added Successfully !');
 
     }
 
     public function show($id)
     {
-//        $program = Programs::find($id);
-//        $program->schedule = explode(',',$program->schedule); //turn string to array to show
-//
-//        $children = DB::table('programs')
-//            ->join('children_programs','programs.id','=','children_programs.id_program')
-//            ->join('children_profiles','children_profiles.id','=','children_programs.id_children')
-//            ->select(['children_profiles.*'])
-//            ->where('children_programs.id_program','=',$id)
-//            ->get();
-//
-//        $staff = DB::table('programs')
-//            ->join('staff_programs','programs.id','=','staff_programs.id_program')
-//            ->join('staff_profiles','staff_profiles.id','=','staff_programs.id_staff')
-//            ->select(['staff_profiles.*'])
-//            ->where('staff_programs.id_program','=',$program->id)
-//            ->get();
-//
-//        return response()->json(['programs'=>$program, 'children'=>$children, 'staff'=>$staff],200);
-
         $program = Programs::find($id);
         if (!$program){
             return view('pages.not-found.notfound');
@@ -190,18 +179,26 @@ class ProgramsController extends Controller
 
     public function update(Request $request, $id)
     {
+        $validation_vi = [
+            'program_name.unique'   =>  'Tên lớp học đã tồn tại',
+            'program_fee.numeric'   =>  'Học phí không hợp lệ',
+            'program_fee.min'       =>  'Học phí không được nhỏ hơn 0',
+            'to_year.gte'           =>  'Giá trị trường này quá bé'
+        ];
+
+        $validation_en = [
+            'program_name.unique'   =>  'Program name has existed',
+            'program_fee.numeric'   =>  'Program fee is invalid',
+            'program_fee.min'       =>  'Program fee is invalid',
+            'to_year.gte'           =>  'This year must be greater'
+        ];
+
         $this->validate($request,
             [
                 'program_name'  =>  'nullable|unique:programs,program_name,'.$id.' ',
                 'program_fee'   =>  'numeric|min:0|nullable',
                 'to_year'       =>  'gte:from_year'
-            ],
-            [
-                'program_name.unique'   =>  'Program name has already been taken',
-                'program_fee.numeric'   =>  'Program fee is invalid',
-                'program_fee.min'       =>  'Program fee is invalid',
-                'to_year.gte'           =>  'This year must be greater'
-            ]);
+            ],app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
 
         $programs = Programs::find($id);
         $programs->update($request->all());
@@ -278,7 +275,7 @@ class ProgramsController extends Controller
             }
         }
 
-        return redirect()->back()->with('success','Update Program');
+        return redirect()->back()->with('success',app()->getLocale() == 'vi' ? 'Cập Nhật Thành Công !' : 'Update Successfully !');
     }
 
     public function destroy($id)
@@ -289,15 +286,7 @@ class ProgramsController extends Controller
         }
         $program->delete();
 
-        $programs = DB::table('programs')
-            ->leftJoin('children_programs', 'programs.id', '=', 'children_programs.id_program')
-            ->select(['programs.program_name', 'programs.id'])
-            ->selectRaw('count(children_programs.id_children) AS total_children')
-            ->groupBy(['programs.program_name', 'programs.id'])
-            ->orderBy('programs.program_name')
-            ->simplePaginate(8);
-
-        return view('pages.program.program',['programs'=>$programs])->with('success','Deleted Program');
+        return redirect(route('admin.program.index'))->with('success',app()->getLocale() == 'vi' ? 'Xóa Thành Công !' : 'Deleted Successfully !');
     }
 
     public function searchChildren(Request $request)
@@ -394,16 +383,16 @@ class ProgramsController extends Controller
             ->orderBy('children_profiles.first_name')
             ->get();
 
-        $children_array[] = array('ID','Children Name', 'Gender', 'Birthday','Address');
+        $children_array[] = array('ID','Họ Tên', 'Giới Tính', 'Ngày Sinh','Địa Chỉ');
         $i = 1;
         foreach($children_data as $children)
         {
             $children_array[] = array(
                 'ID' =>  $i,
-                'Children Name'  => $children->first_name.' '.$children->last_name,
-                'Gender'   => $children->gender == 1 ? 'Male' : 'Female',
-                'Birthday'    => date('d-m-Y',strtotime($children->birthday)),
-                'Address'   =>  $children->address
+                'Họ Tên'  => $children->first_name.' '.$children->last_name,
+                'Giới Tính'   => $children->gender == 1 ? 'Nam' : 'Nữ',
+                'Ngày Sinh'    => date('d-m-Y',strtotime($children->birthday)),
+                'Địa Chỉ'   =>  $children->address
             );
             $i++;
         }

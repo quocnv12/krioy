@@ -146,8 +146,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('delete/{id}',['as'=>'admin.health.getDelete','uses'=>'Admin\HealthController@getDelete'])->middleware(['can:edit-profile']);
         Route::get('edit/{id}',['as'=>'admin.health.getEdit','uses'=>'Admin\HealthController@getEdit'])->middleware(['can:edit-profile']);
         Route::post('edit/{id}',['as'=>'admin.health.postEdit','uses'=>'Admin\HealthController@postEdit']);
-        Route::get('search',['as'=>'admin.health.search','uses'=>'Admin\HealthController@getSearch']);
-        Route::post('search',['as'=>'admin.health.search','uses'=>'Admin\HealthController@postSearch']);
         Route::get('show/{id}','Admin\HealthController@showChildrenInProgram');
         Route::get('view/{id}',['as'=>'admin.health.view' ,'uses'=>'Admin\HealthController@view']);
 

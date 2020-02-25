@@ -11,7 +11,7 @@
 
 <link rel="stylesheet" href="asset/kriyo/css/index.css">
 		<link rel="stylesheet" type="text/css" href="asset/kriyo/css/staff_profile.css">
-		<link rel="icon" href="images/a.png"/>
+		
 
 <link href="admin-template/assets/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen" />
 {{-- <link href="admin-template/assets/plugins/bootstrapv3/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> --}}

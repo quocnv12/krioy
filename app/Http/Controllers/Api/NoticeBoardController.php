@@ -70,11 +70,17 @@ class NoticeBoardController extends Controller
                 'programs'  =>  'required'
             ];
 
-        $validator = Validator::make($request->all(), $rules, [
-            'title.required'    =>  'Title is required',
-            'content.required'  =>  'Content is required',
-            'programs.required' =>  'Please choose program'
-        ]);
+        $validation_vi = [
+            'title.required'        =>  'Tiêu đề không được để trống',
+            'programs.required'     =>  'Chọn ít nhất 1 lớp học',
+        ];
+
+        $validation_en = [
+            'title.required'        =>  'Title is required',
+            'programs.required'     =>  'Please choose at least 1 program',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
         if ($validator->fails()){
             return response()->json($validator->errors(), 400);
         }
@@ -120,8 +126,6 @@ class NoticeBoardController extends Controller
     {
         return response()->file(storage_path('app/public/clip_board/'.$name),[
             'Content-Disposition' => 'inline; filename="'. $name .'"']);
-
-
     }
 
     public function deleteClipboard($id,$name)
@@ -208,14 +212,17 @@ class NoticeBoardController extends Controller
             'archive'   =>  'nullable',
             'content'   =>  'required',
             'writer'    =>  'nullable',
-            'programs'  =>  'required'
         ];
 
-        $validator = Validator::make($request->all(), $rules,[
-            'title.required'    =>  'Title is required',
-            'content.required'  =>  'Content is required',
-            'programs.required' =>  'Please choose program'
-        ]);
+        $validation_vi = [
+            'title.required'        =>  'Tiêu đề không được để trống',
+        ];
+
+        $validation_en = [
+            'title.required'        =>  'Title is required',
+        ];
+
+        $validator = Validator::make($request->all(), $rules,app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
         if ($validator->fails()){
             return response()->json($validator->errors(), 400);
         }
@@ -227,6 +234,8 @@ class NoticeBoardController extends Controller
             $notice_board->update($request->all());
             $request->important ? $notice_board->important = 1 : $notice_board->important = 0;
             $request->archive ? $notice_board->archive = 1 : $notice_board->archive = 0;
+            $notice_board->writer = Auth::user()->first_name.' '.Auth::user()->last_name;
+
 
             if ($request->programs_new) {
                 //array chua cac id program ma children dang hoc
