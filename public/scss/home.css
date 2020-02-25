@@ -53,9 +53,9 @@ a:focus{
       transition: all 0.5s ease 0s; }
   .menu_mobile #menu_mobile .closebtn {
     position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
+    top: 15px;
+    left: 25px;
+    font-size: 25px;
     color: white;
     cursor: pointer; }
 .menu_mobile .navbar-nav .dropdown-menu {
