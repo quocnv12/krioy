@@ -63,7 +63,7 @@
     <div class="d-block d-md-none menu_mobile" >
         <div id="menu_mobile" style="width:180px !important;height:300px">
             <div class="closebtn" onclick="closeNav()">☰</div>
-            <a style="    position: absolute;top: 11px;right: 15px;">
+            <a style="position: absolute;top: 11px;right: 15px;">
                 <div  class="dropdown-logo1">
                     @if(app()->getLocale() == 'vi')
                     <button class="dropbtn-logo1">
