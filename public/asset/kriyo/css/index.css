@@ -627,3 +627,10 @@ section.introduce-packages .introduce-packages-content .row > div>div >div> div.
     }
 }
 /*11234567*/
+.menu_mobile #menu_mobile .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    color: white;
+    cursor: pointer;
