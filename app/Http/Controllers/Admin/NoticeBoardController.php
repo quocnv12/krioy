@@ -51,6 +51,16 @@ class NoticeBoardController extends Controller
 
     public function store(Request $request)
     {
+        $validation_vi = [
+            'title.required'        =>  'Tiêu đề không được để trống',
+            'programs.required'     =>  'Chọn ít nhất 1 lớp học',
+        ];
+
+        $validation_en = [
+            'title.required'        =>  'Title is required',
+            'programs.required'     =>  'Please choose at least 1 program',
+        ];
+
         $this->validate($request,
             [
                 'title'     =>  'required',
@@ -59,11 +69,9 @@ class NoticeBoardController extends Controller
                 'content'   =>  'nullable',
                 'writer'    =>  'nullable',
                 'programs'  =>  'required'
-            ],
-            [
-                'title.required'        =>  'Title is required',
-                'programs.required'     =>  'Please choose at least 1 program',
-            ]);
+            ], app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
+
+
 
         $notice_board = NoticeBoard::create($request->all());
         $request->important ? $notice_board->important = 1 : $notice_board->important = 0;
@@ -98,7 +106,7 @@ class NoticeBoardController extends Controller
             $program_notice->save();
         }
 
-        return redirect()->back()->with('success','Added Notice');
+        return redirect()->back()->with('success',app()->getLocale() == 'vi' ? 'Thêm Thành Công !' : 'Added Successfully !');
     }
 
     public function displayClipboard($id,$name)
@@ -124,7 +132,7 @@ class NoticeBoardController extends Controller
         $file_path = storage_path('app/public/clip_board/'.$name);
         unlink($file_path);
 
-        return redirect()->back()->with('success','Deleted File');
+        return redirect()->back()->with('success',app()->getLocale() == 'vi' ? 'Xóa File Thành Công !' : 'Deleted File Successfully !');
     }
 
     public function show($id)
@@ -169,6 +177,14 @@ class NoticeBoardController extends Controller
 
     public function update(Request $request, $id)
     {
+        $validation_vi = [
+            'title.required'        =>  'Tiêu đề không được để trống',
+        ];
+
+        $validation_en = [
+            'title.required'        =>  'Title is required',
+        ];
+
         $this->validate($request,
             [
                 'title'     =>  'required',
@@ -176,10 +192,7 @@ class NoticeBoardController extends Controller
                 'archive'   =>  'nullable',
                 'content'   =>  'nullable',
                 'writer'    =>  'nullable',
-            ],
-            [
-                'title.required'        =>  'Title is required',
-            ]);
+            ],app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
 
         $notice_board = NoticeBoard::find($id);
         $notice_board->update($request->all());
@@ -234,7 +247,7 @@ class NoticeBoardController extends Controller
         $notice_board->save();
 
 
-        return redirect()->back()->with('success','Updated Notice');
+        return redirect()->back()->with('success',app()->getLocale() == 'vi' ? 'Cập Nhật Thành Công !' : 'Updated Successfully');
     }
 
 
@@ -255,9 +268,7 @@ class NoticeBoardController extends Controller
         }
         $notice_board->delete();
 
-
-        $programs = Programs::all();
-        return view('pages.notice.notice_board',['programs'=>$programs])->with('success','Deleted Notice'.$notice_board->title);
+        return redirect(route('admin.notice-board.index'))->with('success',app()->getLocale() == 'vi' ? 'Xóa Thành Công' : 'Deleted Successfully !');
     }
 
     public function searchByTitle(Request $request)

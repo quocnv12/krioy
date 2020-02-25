@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Response;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ProgramsController extends Controller
 {
@@ -50,14 +51,25 @@ class ProgramsController extends Controller
     {
         $rules = [
                 'program_name'  =>  'required',
-                'program_fee'   =>  'numeric|min:0'
+                'program_fee'   =>  'numeric|min:0',
+                'to_year'       =>  'gte:from_year'
             ];
 
-         $validator = Validator::make($request->all(), $rules,[
-             'program_name.required' => 'Program name is required',
-             'program_fee.numeric'   =>  'Program fee is invalid',
-             'program_fee.min'       =>  'Program fee is invalid',
-         ]);
+        $validation_vi = [
+            'program_name.unique'   =>  'Tên lớp học đã tồn tại',
+            'program_fee.numeric'   =>  'Học phí không hợp lệ',
+            'program_fee.min'       =>  'Học phí không được nhỏ hơn 0',
+            'to_year.gte'           =>  'Giá trị trường này quá bé'
+        ];
+
+        $validation_en = [
+            'program_name.unique'   =>  'Program name has existed',
+            'program_fee.numeric'   =>  'Program fee is invalid',
+            'program_fee.min'       =>  'Program fee is invalid',
+            'to_year.gte'           =>  'This year must be greater'
+        ];
+
+        $validator = Validator::make($request->all(), $rules,app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
         if ($validator->fails()){
             return response()->json($validator->errors(), 400);
         }
@@ -190,14 +202,25 @@ class ProgramsController extends Controller
     {
         $rules = [
             'program_fee'   =>  'numeric|min:0',
-            'program_name'  =>  'required'
+            'program_name'  =>  'required',
+            'to_year'       =>  'gte:from_year'
         ];
 
-         $validator = Validator::make($request->all(), $rules,[
-             'program_fee.numeric'   =>  'Program fee is invalid',
-             'program_fee.min'       =>  'Program fee is invalid',
-             'program_name.required' =>  'Program name is required',
-         ]);
+        $validation_vi = [
+            'program_name.unique'   =>  'Tên lớp học đã tồn tại',
+            'program_fee.numeric'   =>  'Học phí không hợp lệ',
+            'program_fee.min'       =>  'Học phí không được nhỏ hơn 0',
+            'to_year.gte'           =>  'Giá trị trường này quá bé'
+        ];
+
+        $validation_en = [
+            'program_name.unique'   =>  'Program name has existed',
+            'program_fee.numeric'   =>  'Program fee is invalid',
+            'program_fee.min'       =>  'Program fee is invalid',
+            'to_year.gte'           =>  'This year must be greater'
+        ];
+
+         $validator = Validator::make($request->all(), $rules,app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
         if ($validator->fails()){
             return response()->json($validator->errors(), 400);
         }
@@ -399,5 +422,39 @@ class ProgramsController extends Controller
 
             return response()->json(['html'=>$output], 200);
         }
+    }
+
+    public function excel($id)
+    {
+        $program = Programs::find($id);
+
+        $children_data = DB::table('children_profiles')
+            ->join('children_programs', 'children_profiles.id', '=', 'children_programs.id_children')
+            ->select('*')
+            ->where('id_program', '=', $id)
+            ->orderBy('children_profiles.first_name')
+            ->get();
+
+        $children_array[] = array('ID','Họ Tên', 'Giới Tính', 'Ngày Sinh','Địa Chỉ');
+        $i = 1;
+        foreach($children_data as $children)
+        {
+            $children_array[] = array(
+                'ID' =>  $i,
+                'Họ Tên'  => $children->first_name.' '.$children->last_name,
+                'Giới Tính'   => $children->gender == 1 ? 'Nam' : 'Nữ',
+                'Ngày Sinh'    => date('d-m-Y',strtotime($children->birthday)),
+                'Địa Chỉ'   =>  $children->address
+            );
+            $i++;
+        }
+
+        return Excel::create($program->program_name, function($excel) use ($children_array){
+            $excel->setTitle('Children Data');
+
+            $excel->sheet('Children Data', function($sheet) use ($children_array){
+                $sheet->fromArray($children_array, null, 'A1', false, false);
+            });
+        })->download('xlsx');
     }
 }

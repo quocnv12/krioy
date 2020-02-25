@@ -75,10 +75,17 @@ class ObservationController extends Controller
                 'detailObservation'     =>  'nullable',
             ];
 
-         $validator = Validator::make($request->all(), $rules,[
-             'observations.required'         =>  'Please choose observations',
-             'children_observations.required'=>  'Please choose children',
-         ]);
+        $validation_vi = [
+            'observations.required'         =>  'Vui lòng chọn loại đánh giá',
+            'children_observations.required'=>  'Chưa có trẻ nào được chọn',
+        ];
+
+        $validation_en = [
+            'observations.required'         =>  'Please choose observations',
+            'children_observations.required'=>  'Please choose children',
+        ];
+
+         $validator = Validator::make($request->all(), $rules,app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
         if ($validator->fails()){
             return response()->json($validator->errors(), 400);
         }
@@ -275,45 +282,6 @@ class ObservationController extends Controller
                 }
             }
             return response()->json(null, 204);
-        }
-    }
-
-    public function getSearch(Request $req){
-        $search = DB::table('observations')
-            ->join('children_profiles','children_profiles.id','=','observations.id_children')
-            ->join('observations_type','observations_type.id','=','observations.id_observations')
-            ->select('observations.*','children_profiles.*','observations_type.name')
-            ->where('first_name','like','%'.$req->key.'%')
-            ->orWhere('last_name','like','%'.$req->key.'%')
-            ->orWhere('birthday','like','%'.$req->key.'%')
-            ->orWhere('gender','like','%'.$req->key.'%')
-            ->orWhere('name','like','%'.$req->key.'%')->get();
-
-        if (!$search){
-            return response()->json('Not found', 404);
-        }else{
-            return response()->json([
-                'search'=>$search
-            ], 200);
-        }
-    }
-    public function postSearch(Request $req){
-        $search = DB::table('observations')
-            ->join('children_profiles','children_profiles.id','=','observations.id_children')
-            ->join('observations_type','observations_type.id','=','observations.id_observations')
-            ->select('observations.*','children_profiles.first_name','children_profiles.last_name','children_profiles.birthday','children_profiles.gender','observations_type.name')
-            ->where('first_name','like','%'.$req->key.'%')
-            ->orWhere('last_name','like','%'.$req->key.'%')
-            ->orWhere('birthday','like','%'.$req->key.'%')
-            ->orWhere('gender','like','%'.$req->key.'%')
-            ->orWhere('name','like','%'.$req->key.'%')->get();
-
-        if (!$search){
-            return response()->json('Not found', 404);
-        }else{
-            return response()->json([
-                'search'=>$search
-            ], 200);
         }
     }
 

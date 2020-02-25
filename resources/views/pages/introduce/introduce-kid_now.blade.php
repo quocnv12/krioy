@@ -45,12 +45,12 @@
 										</button>
 									@else
 										<button class="dropbtn-logo1">
-											<button class="dropbtn-logo1"><img src="images/usa.png" style="width: 50px;height: 30px; border-radius: 0px"></button>
+											<button class="dropbtn-logo1"><img src="images/england.png" style="width: 50px;height: 30px; border-radius: 0px"></button>
 										</button>
 									@endif
 									<div class="dropdown-content-logo1" >
 										<a href="locale/vi"><img src="images/viet.png"> @lang('kidsnow.vietnamese')</a>
-										<a href="locale/en"><img src="images/usa.png"> @lang('kidsnow.english')</a>
+										<a href="locale/en"><img src="images/england.png"> @lang('kidsnow.english')</a>
 									</div>
 								</div>
 							</a>
@@ -59,7 +59,7 @@
 						    <a href="#section3">@lang('kidsnow.pricing')</a>
 							<a href="#section4">@lang('kidsnow.about_us_top')</a>
 							@if(Auth::check())
-								<a href="login" style="background-color: #ddd;">My Kids-now</a>
+								<a href="login" style="background-color: #ddd;">@lang('kidsnow.my_kids_now')</a>
 							@else
 								<a href="login">@lang('kidsnow.login')</a>
 							@endif
@@ -475,7 +475,7 @@
 				<h2>@lang('kidsnow.about_us')</h2>
 				<div class="hr"></div>
 			</div>
-			<p>@lang('kidsnow.about_us_content')</p>
+			<p style="margin: 30px">@lang('kidsnow.about_us_content')</p>
 		</div>
 	</section>
 	<section class="container">

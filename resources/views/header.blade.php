@@ -11,16 +11,16 @@
                     <div class="dropdown-logo1">
                         @if(app()->getLocale() == 'vi')
                         <button class="dropbtn-logo1">
-                            <button class="dropbtn-logo1"><img src="images/viet.png" style="width: 20px;height: 20px"></button>
+                            <button class="dropbtn-logo1"><img src="images/viet.png" style="width: 30px;height: 20px"></button>
                         </button>
                         @else 
                         <button class="dropbtn-logo1">
-                            <button class="dropbtn-logo1"><img src="images/usa.png" style="width: 20px;height: 20px"></button>
+                            <button class="dropbtn-logo1"><img src="images/england.png" style="width: 30px;height: 20px"></button>
                         </button>
                         @endif
                         <div class="dropdown-content-logo1">
                             <a href="locale/vi"><img src="images/viet.png"> @lang('kidsnow.vietnamese')</a>
-                            <a href="locale/en"><img src="images/usa.png"> @lang('kidsnow.english')</a>
+                            <a href="locale/en"><img src="images/england.png"> @lang('kidsnow.english')</a>
                         </div>
                     </div>
                 </li>

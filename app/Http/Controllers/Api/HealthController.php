@@ -12,183 +12,170 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Validator;
 
 class HealthController extends Controller
 {
     public function getList(){
 
-        $health = HealthModel :: all();
-
+        $health = HealthModel::orderBy('created_at','DESC')->get();
         return response()->json([
-            'health'=>$health
+            'health'=>$health,
         ], 200);
+    }
+
+    public function view($id){
+        $health = HealthModel::find($id);
+        if ($id == 0){
+            return view('pages.not-found.notfound');
+        }
+        $children_profiles = ChildrenProfiles::where('id',$health->id_children)->first();
+        return response()->json([
+            'health'=>$health,
+            'children_profiles'=>$children_profiles
+        ]);
     }
 
     public function getAdd(){
         $health = HealthModel::all();
-//        $programs = Programs::all();
+        $programs = Programs::all();
         return response()->json([
             'health'=>$health,
-//            'programs'=>$programs
+            'programs'=>$programs
         ]);
     }
+
     public function postAdd(Request $request)
     {
+        $validation_vi = [
+            'children_health.required'  =>  'Vui lòng chọn trẻ',
+        ];
 
-        if($request->sick==null)
-        {
-            return redirect()->back()->with('thongbao1','Pleasea choose sick !')->withInput();
-        }
-        elseif ($request->medicine==null) {
-            return redirect()->back()->with('thongbao2','Pleasea choose  medicine !')->withInput();
-        }
-        elseif($request->growth_height==null)
-        {
-            return redirect()->back()->with('thongbao3','Pleasea choose growth_height !')->withInput();
-        }
-        elseif($request->incident==null)
-        {
-            return redirect()->back()->with('thongbao4','Pleasea choose incident !')->withInput();
-        }
-        elseif($request->blood_group==null)
-        {
-            return redirect()->back()->with('thongbao5','Pleasea choose blood_group !')->withInput();
-        }
-        else {
+        $validation_en = [
+            'children_health.required'  =>  'Please choose children',
+        ];
 
+        $rules = [
+            'children_health'   =>  'required',
+            'sick'  =>  'nullable',
+            'medicine'  =>  'nullable',
+            'growth'  =>  'nullable',
+            'incident'  =>  'nullable',
+            'blood_group'  =>  'nullable',
+        ];
+
+
+        $validator = Validator::make($request->all(), $rules,app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
+        if ($validator->fails()){
+            return response()->json($validator->errors(), 400);
+        }
+
+        $array_children = explode(',',$request->children_health);
+        foreach($array_children as $children){
             $health = new HealthModel();
 
-            $health->id_children = $request->id_children;
+            $health->id_children = $children;
             $health->sick = $request->sick;
             $health->medicine = $request->medicine;
+            $health->growth = $request->growth;
             $health->growth_height = $request->growth_height;
             $health->growth_weight = $request->growth_weight;
             $health->incident = $request->incident;
             $health->blood_group = $request->blood_group;
 
-            if ($request->hasFile('image')) {
-                $file = $request->image;
-                $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
-                $file->move(public_path('images/health/'), $filename);
-                $health->image = 'images/health/' . $filename;
+            if ($request->hasFile('clip_board')){
+                $array_file = [];
+                foreach ($request->file('clip_board') as $file_name){
+                    $uniqueFileName = (Str::random(4).'_'.$file_name->getClientOriginalName());
+                    array_push($array_file, $uniqueFileName);
+                    $file_name->move(storage_path('app/public/clip_board/') , $uniqueFileName);
+                }
+                $health->clip_board = implode('/*endfile*/',$array_file);
             }
 
             $health->save();
-
-            return response()->json([
-                'health'=>$health
-            ], 201);
-
         }
+        return response()->json([
+            'health'=>$health
+        ]);
     }
 
     public function getEdit($id){
         $health = HealthModel::find($id);
-        $childrent = DB::table('children_profiles')->where('id',$id)->first();
+        if (! $id){
+            return response()->json(['message'=>'Not Found'], 404);
+        }
+        $children_profiles = ChildrenProfiles::where('id',$health->id_children)->first();
         return response()->json([
             'health'=>$health,
-            'childrent'=>$childrent,
+            'children_profiles'=>$children_profiles,
         ], 200);
     }
+
     public function postEdit(Request $request, $id)
     {
+        $rules = [
+            'sick'  =>  'nullable',
+            'medicine'  =>  'nullable',
+            'growth'  =>  'nullable',
+            'incident'  =>  'nullable',
+            'blood_group'  =>  'nullable',
+        ];
 
-        if ($request->sick == null) {
-            return redirect()->back()->with('thongbao1', 'Pleasea choose sick !')->withInput();
-        } elseif ($request->medicine == null) {
-            return redirect()->back()->with('thongbao2', 'Pleasea choose  medicine !')->withInput();
-        } elseif ($request->growth_height == null) {
-            return redirect()->back()->with('thongbao3', 'Pleasea choose growth_height !')->withInput();
-        } elseif ($request->incident == null) {
-            return redirect()->back()->with('thongbao4', 'Pleasea choose incident !')->withInput();
-        } elseif ($request->blood_group == null) {
-            return redirect()->back()->with('thongbao5', 'Pleasea choose blood_group !')->withInput();
-        } else {
-
-            $health = HealthModel::find($id);
-
-            $health->sick = $request->sick;
-            $health->medicine = $request->medicine;
-            $health->growth_height = $request->growth_height;
-            $health->growth_weight = $request->growth_weight;
-            $health->incident = $request->incident;
-            $health->blood_group = $request->blood_group;
-
-
-            if ($request->image != null) {
-                // xoa anh cu
-                if ($health->image) {
-                    $old_image = $health->image;
-                    unlink($old_image);
-                }
-                $file = $request->image;
-                $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
-                $file->move(public_path('images/health/'), $filename);
-                $health->image = 'images/health/' . $filename;
-                $health->save();
-            }
-
-            $health->save();
-
-
-            return response()->json([
-                'health'=>$health
-            ], 200);
+        $validator = Validator::make($request->all(), $rules);
+        if ($validator->fails()){
+            return response()->json($validator->errors(), 400);
         }
+
+        $health = HealthModel::find($id);
+
+        $health->sick = $request->sick;
+        $health->medicine = $request->medicine;
+        $health->growth = $request->growth;
+        $health->growth_height = $request->growth_height;
+        $health->growth_weight = $request->growth_weight;
+        $health->incident = $request->incident;
+        $health->blood_group = $request->blood_group;
+
+        if ($request->hasFile('clip_board')){
+            $old_array = explode('/*endfile*/',$health->clip_board);
+            foreach ($request->file('clip_board') as $file_name){
+                $uniqueFileName = (Str::random(4).'_'.$file_name->getClientOriginalName());
+                array_push($old_array, $uniqueFileName);
+                $file_name->move(storage_path('app/public/clip_board/') , $uniqueFileName);
+            }
+            $health->clip_board = implode('/*endfile*/',$old_array);
+        }
+
+        $health->save();
+
+        return response()->json([
+            'health'=>$health
+        ],200);
+
     }
 
     public function getDelete($id){
-        $health= DB::table('health')->where('id',$id)->delete();
-        if (!$health){
-            return response()->json(['message'=>'Something wrong'], 404);
+        $health= HealthModel::find($id);
+        if (!$id){
+            return response()->json(['message'=>'Something wrong']);
         }else{
+            if ($health->clip_board){
+                $old_array = explode('/*endfile*/',$health->clip_board);
+                foreach ($old_array as $key=>$value){
+                    $file_path = 'app/public/clip_board/'.$value;
+                    if ($file_path != 'app/public/clip_board/'){
+                        unlink(storage_path($file_path));
+                    }
+                }
+            }
+
+            $health->delete();
+
             return response()->json(null, 204);
         }
     }
-    public function getSearch(Request $req){
 
-        $search = DB::table('children_profiles as a')
-            ->where('first_name','like','%'.$req->key.'%')
-            ->orWhere('last_name','like','%'.$req->key.'%')
-            ->orWhere('sick','like','%'.$req->key.'%')
-            ->orWhere('growth_height','like','%'.$req->key.'%')
-            ->orWhere('growth_weight','like','%'.$req->key.'%')
-            ->orWhere('incident','like','%'.$req->key.'%')
-            ->join('health as b', 'a.id','=','b.id_children')
-            ->select('a.*','b.*')
-            ->paginate(5);
-        if (!$search){
-            return response()->json('Not found', 404);
-        }else{
-            return response()->json([
-                'search'=>$search
-            ], 200);
-        }
-    }
-    public function postSearch(Request $req){
-
-
-        $search = DB::table('children_profiles as a')
-            ->where('first_name','like','%'.$req->key.'%')
-            ->orWhere('last_name','like','%'.$req->key.'%')
-            ->orWhere('sick','like','%'.$req->key.'%')
-            ->orWhere('growth_height','like','%'.$req->key.'%')
-            ->orWhere('growth_weight','like','%'.$req->key.'%')
-            ->orWhere('incident','like','%'.$req->key.'%')
-            ->join('health as b', 'a.id','=','b.id_children')
-            ->select('a.*','b.*')
-
-
-            ->paginate(5);
-        if (!$search){
-            return response()->json('Not found', 404);
-        }else{
-            return response()->json([
-                'search'=>$search
-            ], 200);
-        }
-
-    }
     public function searchByName(Request $request)
     {
         $children_profiles = ChildrenProfiles::where('first_name', 'like', '%' . $request->get('q') . '%')
@@ -243,7 +230,33 @@ class HealthController extends Controller
         ], 200);
     }
 
+    public function displayClipboard($id,$name)
+    {
+        return response()->file(storage_path('app/public/clip_board/'.$name),[
+            'Content-Disposition' => 'inline; filename="'. $name .'"']);
+    }
 
+    public function deleteClipboard($id,$name)
+    {
+        $health = HealthModel::find($id);
+        if (!$health){
+            return response()->json(['message'=>'Something wrong'], 404);
+        }else {
+            //chuoi cu
+            $old_array = explode('/*endfile*/', $health->clip_board);
 
+            $index = array_search($name, $old_array);
+            array_splice($old_array, $index, 1);
 
+            //cap nhat lai chuoi
+            $health->clip_board = implode('/*endfile*/', $old_array);
+            $health->save();
+
+            //xoa file
+            $file_path = storage_path('app/public/clip_board/' . $name);
+            unlink($file_path);
+
+            return response()->json(null, 204);
+        }
+    }
 }

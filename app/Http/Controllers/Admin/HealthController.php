@@ -20,8 +20,7 @@ class HealthController extends Controller
     public function getList(){
 
         $health = HealthModel::orderBy('created_at','DESC')->get();
-        $programs = Programs::all();
-        return view('pages.heath.list', compact('health','programs'));
+        return view('pages.heath.list', compact('health'));
     }
 
     public function view($id){
@@ -40,6 +39,14 @@ class HealthController extends Controller
     }
     public function postAdd(Request $request)
     {
+        $validation_vi = [
+            'children_health.required'  =>  'Vui lòng chọn trẻ',
+        ];
+
+        $validation_en = [
+            'children_health.required'  =>  'Please choose children',
+        ];
+
         $this->validate($request,
             [
                 'children_health'   =>  'required',
@@ -48,10 +55,7 @@ class HealthController extends Controller
                 'growth'  =>  'nullable',
                 'incident'  =>  'nullable',
                 'blood_group'  =>  'nullable',
-            ],
-            [
-                'children_health.required'  =>  'Please choose children',
-            ]);
+            ],app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
 
         $array_children = explode(',',$request->children_health);
         foreach($array_children as $children){
@@ -78,12 +82,7 @@ class HealthController extends Controller
 
             $health->save();
         }
-
-
-
-
-
-        return redirect()->back()->with('success', 'Added children\'s health');
+        return redirect()->back()->with('success',app()->getLocale() == 'vi' ? 'Thêm Thành Công !' :'Added Successfully !');
     }
 
     public function getEdit($id){
@@ -95,6 +94,7 @@ class HealthController extends Controller
 
         return view('pages.heath.edit', compact('health','children_profiles'));
     }
+
     public function postEdit(Request $request, $id)
     {
         $this->validate($request,
@@ -128,7 +128,7 @@ class HealthController extends Controller
 
         $health->save();
 
-        return redirect()->back()->with('success', 'Updated children\'s health');
+        return redirect()->back()->with('success', app()->getLocale() == 'vi' ? 'Cập Nhật Thành Công !' :'Updated Successfully !');
 
     }
 
@@ -149,7 +149,7 @@ class HealthController extends Controller
         }
 
         $health->delete();
-        return redirect()->back()->with('success','Deleted children\'s health');
+        return redirect(route('admin.health.list'))->with('success',app()->getLocale() == 'vi'? 'Xóa Thành Công' : 'Deleted successfully');
     }
 
     public function displayClipboard($id,$name)
@@ -178,35 +178,6 @@ class HealthController extends Controller
         return redirect()->back()->with('success','Deleted File');
     }
 
-    public function getSearch(Request $req){
-        $search = DB::table('children_profiles as a')
-            ->where('first_name','like','%'.$req->key.'%')
-            ->orWhere('last_name','like','%'.$req->key.'%')
-            ->orWhere('sick','like','%'.$req->key.'%')
-            ->orWhere('growth_height','like','%'.$req->key.'%')
-            ->orWhere('growth_weight','like','%'.$req->key.'%')
-            ->orWhere('incident','like','%'.$req->key.'%')
-            ->join('health as b', 'a.id','=','b.id_children')
-            ->select('a.*','b.*')
-            ->paginate(5);
-        return view('pages.heath.search', compact('search'));
-    }
-
-    public function postSearch(Request $req){
-        $search = DB::table('children_profiles as a')
-            ->where('first_name','like','%'.$req->key.'%')
-            ->orWhere('last_name','like','%'.$req->key.'%')
-            ->orWhere('sick','like','%'.$req->key.'%')
-            ->orWhere('growth_height','like','%'.$req->key.'%')
-            ->orWhere('growth_weight','like','%'.$req->key.'%')
-            ->orWhere('incident','like','%'.$req->key.'%')
-            ->join('health as b', 'a.id','=','b.id_children')
-            ->select('a.*','b.*')
-            ->paginate(5);
-        return view('pages.heath.search', compact('search'));
-
-    }
-
     public function searchByName(Request $request)
     {
         $children_profiles = ChildrenProfiles::where(DB::raw("concat(first_name ,' ', last_name)"), 'like', '%' . $request->get('q') . '%')->get();
@@ -222,7 +193,8 @@ class HealthController extends Controller
             ->where('children_programs.id_program','=',$id)
             ->orderBy('children_profiles.first_name')
             ->get();
-        return view('pages.heath.heath',['children_profiles'=>$children_profiles,
+        return view('pages.heath.heath',[
+            'children_profiles'=>$children_profiles,
             'observationtype'=>$observationtype,
             'programs'=>$programs]);
     }
@@ -233,30 +205,30 @@ class HealthController extends Controller
         $children_data = ChildrenProfiles::where('id',$health->id_children)->first();
 
         $health_array[] = array(
-            'Children Name' ,
-            'Birthday' ,
-            'Sick' ,
-            'Medicine',
-            'Height',
-            'Weight',
-            'Head Circumference',
-            'Growth',
-            'Incident',
-            'Blood Group'
+            'Họ Tên' ,
+            'Ngày Sinh' ,
+            'Ốm Đau' ,
+            'Thuốc Thang',
+            'Chiều Cao',
+            'Cân Nặng',
+            'Chu Vi Đầu',
+            'Sự Tăng Trưởng',
+            'Biến Dạng',
+            'Nhóm Máu'
         );
 
 
         $health_array[] = array(
-            'Children Name' =>  $children_data->first_name .' '. $children_data->last_name,
-            'Birthday'  =>  date('d-m-Y',strtotime($children_data->birthday)),
-            'Sick'  =>  $health->sick,
-            'Medicine'=>  $health->medicine,
-            'Height'=>  $health->growth_height,
-            'Weight'=>  $health->growth_weight,
-            'Head Circumference'=>  $health->growth_circumference,
-            'Growth'=>  $health->growth,
-            'Incident'=>  $health->incident,
-            'Blood Group'=>  $health->blood_group
+            'Họ Tên' =>  $children_data->first_name .' '. $children_data->last_name,
+            'Ngày Sinh'  =>  date('d-m-Y',strtotime($children_data->birthday)),
+            'Ốm Đau'  =>  $health->sick,
+            'Thuốc Thang'=>  $health->medicine,
+            'Chiều Cao'=>  $health->growth_height,
+            'Cân Nặng'=>  $health->growth_weight,
+            'Chu Vi Đầu'=>  $health->growth_circumference,
+            'Sự Tăng Trưởng'=>  $health->growth,
+            'Biến Dạng'=>  $health->incident,
+            'Nhóm Máu'=>  $health->blood_group
         );
 
 
