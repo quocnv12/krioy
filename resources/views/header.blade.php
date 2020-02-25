@@ -76,7 +76,7 @@
                     @endif
                     <div class="dropdown-content-logo1">
                         <a style="font-size: 14px;" href="locale/vi"><img src="images/viet.png"> @lang('kidsnow.vietnamese')</a>
-                        <a style="font-size: 14px;" href="locale/en"><img src="images/usa.png"> @lang('Hello World')</a>
+                        <a style="font-size: 14px;" href="locale/en"><img src="images/usa.png"> @lang('kidsnow.english')</a>
                     </div>
                 </div>
             </a>
