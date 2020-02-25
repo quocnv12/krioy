@@ -145,6 +145,7 @@ return [
     'sign_up'    =>  'SIGNUP',
     'get_a_free_trial' => 'GET A FREE TRIAL',//@lang('kidsnow.get_a_free_trial')
     'kids_now_app' => 'KIDS NOW APP',//@lang('kidsnow.kids_now_app')
+    'my_kids_now'=>'MY KIDS NOW',
     'one_click_updates' => "ONE CLICK UPDATES",//@lang('kidsnow.one_click_updates')
     'one_click_updates_content' => 'Send updates in One-Click for multiple children at the same time',//@lang('kidsnow.one_click_updates_content')
     'admissions_management' => 'ADMISSIONS MANAGEMENT',//@lang('kidsnow.admissions_management')

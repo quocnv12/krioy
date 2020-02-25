@@ -20,14 +20,20 @@ class ObservationTypeController extends Controller
     }
     public function postAdd(Request $request)
     {
+        $validation_vi = [
+            'name.required' => 'Vui lòng nhập tên loại đánh giá !',
+            'name.unique' => 'Tên laoij đánh giá đã tồn tại !'
+        ];
+
+        $validation_en = [
+            'name.required' => 'Please input name !',
+            'name.unique' => 'Observation type already exist !'
+        ];
+
         $validate = Validator::make($request->all(),
             [
                 'name' => 'required|unique:observations_type,name,'
-            ],
-            [
-                'name.required' => 'Please input name !',
-                'name.unique' => 'Meal type already exist !'
-            ]);
+            ], app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
         if($validate->fails())
         {
             return response()->json([
@@ -51,14 +57,20 @@ class ObservationTypeController extends Controller
     }
     public  function postEdit(Request $request, $id)
     {
+        $validation_vi = [
+            'name.required' => 'Vui lòng nhập tên loại đánh giá !',
+            'name.unique' => 'Tên laoij đánh giá đã tồn tại !'
+        ];
+
+        $validation_en = [
+            'name.required' => 'Please input name !',
+            'name.unique' => 'Observation type already exist !'
+        ];
+
         $validate = Validator::make($request->all(),
             [
                 'name' => 'required|unique:observations_type,name,' . $id
-            ],
-            [
-                'name.required' => 'Please input name !',
-                'name.unique' => 'Meal type already exist !'
-            ]);
+            ],app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
         if($validate->fails())
         {
             return response()->json([
