@@ -518,6 +518,14 @@ return [
    'confirm_changer_password' => 'Nhập Lại Mật Khẩu',
    'reset_password' => 'Quên mật khẩu',
    'forgrt_password_send_mail' =>'Cảm ơn bạn đã sử dụng phần mềm Kids-now !',
+   'to_get_started' => 'Để bắt đầu, hãy kiểm tra thông tin đăng ký của bạn.',
+   'click_here_start' => 'Click vào đây để đăng nhập',
+   'email_start' =>'Bạn nhận được email này vì bạn có tài khoản trên',
+   'everyone' =>'Mọi người có thể đóng góp',
+   'to_get_started_verify' =>'Để bắt đầu, hãy nhấp vào liên kết dưới đây để xác nhận tài khoản của bạn.',
+   'verify_your_acconut' =>'Xác nhận tài khoản của bạn',
+   'to_get_started_reset' =>'Để bắt đầu, hãy nhấp vào liên kết dưới đây để lấy lại mật khẩu của bạn',
+   'retrieve_your_password'=> 'Lấy lại mật khẩu',
 
 
    //-------------attendance-------------

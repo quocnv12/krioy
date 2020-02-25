@@ -78,8 +78,8 @@
     <script src="js/wow.js"></script>
     <script>new WOW().init();</script>
     <script src="js/home.js"></script>
-    <script src="asset/kriyo/js/toastr.min.js"></script>
-    @if(session('error'))
+    {{-- <script src="asset/kriyo/js/toastr.min.js"></script> --}}
+    {{-- @if(session('error'))
         <script type="text/javascript">
             toastr.error('{{ session('error') }}', 'Thông báo', {timeOut: 5000});
         </script>
@@ -89,7 +89,7 @@
         <script type="text/javascript">
             toastr.success('{{ session('thongbao') }}', 'Thông báo', {timeOut: 5000});
         </script>
-    @endif
+    @endif --}}
     @yield('js')
     {{--Tiny MCE--}}
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
