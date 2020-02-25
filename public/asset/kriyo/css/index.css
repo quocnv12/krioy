@@ -20,8 +20,8 @@ a{
 	min-height: 550px;
 }
 .login{
-	width: 75%;
-	margin: 50px auto;
+	width: 100%;
+	margin-top: 50px;
 	border:2px solid #5363d6;
 	border-radius: 5px;
 }
