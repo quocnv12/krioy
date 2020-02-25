@@ -63,7 +63,7 @@
 					  <div class="tools">
 					  </div>
 					</div>
-					<div class="grid-body ">
+					<div class="grid-body" style="padding: 0 !important;     overflow: auto;">
 					  <table class="table table-striped" id="example">
 						<thead>
 						  <tr>
