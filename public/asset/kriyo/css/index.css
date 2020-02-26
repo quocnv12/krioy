@@ -311,7 +311,7 @@ footer.site-footer div p a.termsHover:hover{
 	color: red !important;
 }
 /*customer*/
-.mixedSlider{
+.mixedSlider {
 	
 }
 .MS-content{
@@ -634,3 +634,4 @@ section.introduce-packages .introduce-packages-content .row > div>div >div> div.
     font-size: 25px;
     color: white;
     cursor: pointer;
+}
