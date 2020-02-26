@@ -25,9 +25,31 @@
 			html{
 				scroll-behavior: smooth;
 			}
+
+			.back-to-top {
+				width: 45px;
+				height: 45px;
+				background: #FF4081;
+				position: fixed;
+				cursor: pointer;
+				color: white;
+				bottom: 10%;
+				border-radius: 50%;
+				right: 20px;
+				transition: 2s;
+				z-index: 9999;
+			}
+			.back-to-top i {
+				font-size: 30px;
+				left: 13px;
+				top: 5px;
+				position: absolute;
+			}
 		</style>
 	</head>
 <body>
+<a name="top"></a>
+<a href="#top" class="back-to-top" id=bttop><i class="fa fa-angle-up"></i></a>
 	<section class="introduce">
 		<div class="introduce-1">
 			<nav class="navbar" style="z-index: 1">
@@ -362,9 +384,9 @@
 								<div class="pricePro">
 									<div class="priceImg" style=""> @lang('kidsnow.pro')
 										<br>
-										<strike style="color: black">$30</strike>
+										<strike style="color: black">$25</strike>
 										<br>
-										<span>$20</span>
+										<span>$10</span>
 									</div>
 									<div class="freeFeature">
 										<p class="freeFeature-p" style="background-color: #E78AB9;">@lang('kidsnow.free_features')</p>
@@ -521,7 +543,6 @@
 			</div>
 		</div>
 	</section>
-
 	<footer class="site-footer">
 		<div class="container">
 			<div class="row icon-lienket">
@@ -637,4 +658,18 @@
 				close_menu.children[0].style.display="inline-block";
 			}
 		}
+	</script>
+	<script type="text/javascript">
+		var backtotop = document.getElementById('bttop');
+		var win=$(window)
+
+		win.scroll(function(){
+			if(win.scrollTop()> 100){
+				bttop.style.display = "block";
+				bttop.style.transition = "2s";
+			}
+			else{
+				bttop.style.display = "none";
+			}
+		});
 	</script>

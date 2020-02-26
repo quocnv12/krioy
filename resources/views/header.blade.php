@@ -37,7 +37,7 @@
                     <a class="nav-link" href="kids-now">@lang('kidsnow.menu_help')</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="kids-now">Kids-now</a>
+                    <a class="nav-link" href="kids-now">Kids Now</a>
                 </li>
             
                 <!-- Dropdown -->

@@ -32,10 +32,9 @@
                         <a style="min-width:110px;background:#eb87c1;color:white; float: left;font-weight: bold" href="{{route('admin.observations.listobservationtype')}}" class="btn btn-default">@lang('kidsnow.observations.types')</a>
                         <a style="min-width:110px;background:#eb87c1;color:white; float: right; border: none;font-weight: bold" href="{{route('admin.observations.list')}}" class="btn btn-success" >@lang('kidsnow.observations.list')</a>
 
-                        <div style="font-weight: bold; font-size: 20px">
-                            @lang('kidsnow.observations.seminar'): {{$child_observation->month}} - {{$child_observation->year}}
-                        </div>
-                        <div style="font-weight: bold; font-size: 16px; color: red">
+                        <br>
+                        <hr>
+                        <div style="font-weight: bold; font-size: 20px; color: red">
                             @lang('kidsnow.observations.observer') : {{$child_observation->observer}}
                         </div>
                         <button class="accordion accordion1 clearfix" type="button">
@@ -185,10 +184,10 @@
                         </div>
                         <div class="button" style="text-align: center;">
                             <button type="reset" onclick="goBack()">
-                                <span>CANCEL</span>
+                                <span>@lang('kidsnow.cancel')</span>
                             </button>
                             <button class="button2" id="submit_button" type="submit">
-                                <span>SAVE</span>
+                                <span>@lang('kidsnow.save')</span>
                             </button>
                         </div>
                     </div>

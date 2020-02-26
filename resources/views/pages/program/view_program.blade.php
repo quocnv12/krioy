@@ -233,7 +233,13 @@
 			</div>
 		</div>
 
-
+		<div class="comment">
+			<div class="button" style="text-align: center;">
+				<button class="button2" onclick="goBack()">
+					<span>@lang('kidsnow.cancel')</span>
+				</button>
+			</div>
+		</div>
 		<div class="icon-plus" title="edit">
 			<a href="{{route('admin.program.edit',['id'=>$program->id])}}">
 				<i class="fa fa-edit"></i>

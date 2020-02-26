@@ -29,12 +29,26 @@ class ParentProfilesController extends Controller
 
     public function updateChildren(Request $request, $id)
     {
+        $validation_vi = [
+            'first_name.required' => 'First Name is required',
+            'last_name.required' => 'Last Name is required',
+            'image.image' => 'Image is invalid',
+            'birthday.required' => 'Birthday is required',
+        ];
+
+        $validation_en = [
+            'first_name.required' => 'Trường này không được để trống',
+            'last_name.required' => 'Trường này không được để trống',
+            'image.image' => 'Ảnh không hợp lệ',
+            'birthday.required' => 'Ngày sinh không được để trống',
+        ];
+
         $rules = [
             'first_name' => 'required',
             'last_name' => 'required',
             'birthday' => 'required|before:today|after:01-01-2000',
-            'gender' => 'required',
-            'date_of_joining' => 'required',
+            'gender' => 'nullable',
+            'date_of_joining' => 'nullable',
             'unique_id' => 'required|unique:children_profiles,unique_id,' . $id . '',
             'address' => 'nullable',
             'allergies' => 'nullable',
@@ -44,14 +58,7 @@ class ParentProfilesController extends Controller
             'exist' => 'nullable',
         ];
 
-        $validator = Validator::make($request->all(), $rules, [
-            'first_name.required' => 'First Name is required',
-            'last_name.required' => 'Last Name is required',
-            'gender.required' => 'Gender is required',
-            'image.image' => 'Image is invalid',
-            'birthday.required' => 'Birthday is required',
-            'date_of_joining.required' => 'Date of Joining is required',
-        ]);
+        $validator = Validator::make($request->all(), $rules, app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
 
         if ($validator->fails()) {
             return response()->json($validator->errors(), 400);
@@ -80,18 +87,24 @@ class ParentProfilesController extends Controller
 
     public function updateParent(Request $request)
     {
-        $rules = [
-            'first_name_parent' => 'required',
-            'last_name_parent' => 'required',
-            'main_phone_parent' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:parent_profiles,main_phone,' . Auth::user()->id . '',
-            'extra_phone_parent' => 'nullable|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:parent_profiles,extra_phone,' . Auth::user()->id . '|different:main_phone_parent',
-            'email_parent' => 'required|email|unique:parent_profiles,email,' . Auth::user()->id . '',
-            'gender_parent' => 'nullable',
-            'note_parent' => 'nullable',
-            'image_parent' => 'image|nullable',
+        $validation_vi = [
+            'first_name_parent.required' => 'Trường này không được để trống',
+            'last_name_parent.required' => 'Trường này không được để trống',
+            'main_phone_parent.required' => 'Số điện thoại không được để trống',
+            'main_phone_parent.unique' => 'Số điện thoại đã tồn tại',
+            'extra_phone_parent.unique' => 'Số điện thoại đã tồn tại',
+            'main_phone_parent.size' => 'Số điện thoại phải có 10 chữ số',
+            'extra_phone_parent.size' => 'Số điện thoại phải có 10 chữ số',
+            'main_phone_parent.regex' => 'Số điện thoại không hợp lệ',
+            'extra_phone_parent.regex' => 'Số điện thoại không hợp lệ',
+            'extra_phone_parent.different' => 'Số điện thoại này đã đăng ký ở trên. Vui lòng chọn số kahcs',
+            'email_parent.required' => 'Email không được để trống',
+            'email_parent.email' => 'Email không hợp lệ',
+            'email_parent.unique' => 'Email đã tồn tại',
+            'image_parent.image' => 'Ảnh không hợp lệ',
         ];
 
-        $validator = Validator::make($request->all(), $rules, [
+        $validation_en = [
             'first_name_parent.required' => 'First Name is required',
             'last_name_parent.required' => 'Last Name is required',
             'main_phone_parent.required' => 'Phone Number is required',
@@ -105,10 +118,21 @@ class ParentProfilesController extends Controller
             'email_parent.required' => 'Email is required',
             'email_parent.email' => 'Email is invalid',
             'email_parent.unique' => 'This email has already been taken',
-            'unique_id.unique' => 'ID is exist',
-            'unique_id.required' => 'Unique ID is required',
             'image_parent.image' => 'Image is invalid',
-        ]);
+        ];
+
+        $rules = [
+            'first_name_parent' => 'required',
+            'last_name_parent' => 'required',
+            'main_phone_parent' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:parent_profiles,main_phone,' . Auth::user()->id . '',
+            'extra_phone_parent' => 'nullable|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:parent_profiles,extra_phone,' . Auth::user()->id . '|different:main_phone_parent',
+            'email_parent' => 'required|email|unique:parent_profiles,email,' . Auth::user()->id . '',
+            'gender_parent' => 'nullable',
+            'note_parent' => 'nullable',
+            'image_parent' => 'image|nullable',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
 
         if ($validator->fails()) {
             return response()->json($validator->errors(), 400);

@@ -244,7 +244,7 @@
             </div>
             <div class="button" style="text-align: center;">
                 <button class="button2" onclick="goBack()">
-                    <span>GO BACK</span>
+                    <span>@lang('kidsnow.cancel')</span>
                 </button>
             </div>
         </form>

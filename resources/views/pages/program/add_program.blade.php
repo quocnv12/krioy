@@ -62,13 +62,13 @@
 							</div>
 							<div class="col-md-10" style="margin: 10px 0;">
 								<div class="panel_new">
-									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="8">S</button>
-									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="2">M</button>
-									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="3">T</button>
-									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="4">W</button>
-									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="5">T</button>
-									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="6">F</button>
-									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="7">S</button>
+									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="8">@lang('kidsnow.program.sunday')</button>
+									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="2">@lang('kidsnow.program.monday')</button>
+									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="3">@lang('kidsnow.program.tuesday')</button>
+									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="4">@lang('kidsnow.program.wednesday')</button>
+									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="5">@lang('kidsnow.program.thursday')</button>
+									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="6">@lang('kidsnow.program.friday')</button>
+									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="7">@lang('kidsnow.program.saturday')</button>
 								</div>
 								<input type="hidden" name="schedule" id="schedule" value="">
                                 @if ($errors->has('schedule'))
@@ -142,7 +142,7 @@
 						<p style="color:#5363d6;font-size: 18px;">@lang('kidsnow.program.age_group')</p>
 					</div>
 					<div class="col-md-5">
-						<p style="color:#5363d6;font-size: 18px;">@lang('kidsnow.program.timings')</p>
+						<p style="color:#5363d6;font-size: 18px;">@lang('kidsnow.program.timings')    <i style="cursor: pointer" id="undo_button" class="fa fa-undo" title="reset time"></i></p>
 					</div>
 				</div>
 				<div class="row">
@@ -161,7 +161,7 @@
 								<span>@lang('kidsnow.program.from_year') </span>
 								<select name="from_year">
                                     <option value="" selected >@lang('kidsnow.program.from_year')</option>
-									@for($i = 2020; $i <= 2050; $i ++)
+									@for($i = 2010; $i <= 2040; $i ++)
 										<option @if(old('from_year') == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
 									@endfor
 								</select>
@@ -189,7 +189,7 @@
 								<span>@lang('kidsnow.program.to_year') </span>
 								<select name="to_year">
                                     <option value="" selected >@lang('kidsnow.program.to_year')</option>
-									@for($i = 2020; $i <= 2050; $i ++)
+									@for($i = 2010; $i <= 2040; $i ++)
 										<option @if(old('to_year') == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
 									@endfor
 								</select>
@@ -219,8 +219,8 @@
 					<div class="col-md-5">
 						<div class="row">
 							<div class="col-md-6 input_box">
-								<span class="input_box_span_active">@lang('kidsnow.program.start_time') </span>
-								<input type="text" class="timepicker" name="start_time" value="{{old('start_time')}}">
+								<span class="input_box_span_active">@lang('kidsnow.program.start_time')</span>
+								<input type="text" class="timepicker" name="start_time" value="{{old('start_time')}}" placeholder="Clock">
                                 @if ($errors->has('start_time'))
                                     <div class="text text-danger">
                                         {{ $errors->first('start_time') }}
@@ -229,7 +229,7 @@
 							</div>
 							<div class="col-md-6 input_box">
 								<span class="input_box_span_active">@lang('kidsnow.program.finish_time') </span>
-								<input type="text" class="timepicker" name="finish_time" value="{{old('finish_time')}}">
+								<input type="text" class="timepicker" name="finish_time" value="{{old('finish_time')}}" placeholder="Clock">
                                 @if ($errors->has('finish_time'))
                                     <div class="text text-danger">
                                         {{ $errors->first('finish_time') }}
@@ -242,7 +242,7 @@
 			</div>
 		</div>
 			<div style="margin: 0px; text-align: center" id="hint">
-				<span style="color: red; font-weight: bold">@lang('kidsnow.program.hint')</span>
+				<span style="color: red; font-weight: bold">@lang('kidsnow.program.hint') : </span>
 				@lang('kidsnow.program.hint_content')
 			</div>
 		<div class="mat-card">
@@ -284,10 +284,10 @@
 			<p id="error_total" style="text-align: center; color: red"></p>
 			<div class="button" style="text-align: center;">
 				<button type="reset" onclick="goBack()">
-					<span>CANCEL</span>
+					<span>@lang('kidsnow.cancel')</span>
 				</button>
 				<button class="button2" type="submit" id="submit_button">
-					<span>SAVE</span>
+					<span>@lang('kidsnow.save')</span>
 				</button>
 			</div>
 		</div>
@@ -461,6 +461,10 @@
 	<script>
 		$(document).ready(function () {
 			$('.accordion').click();
+
+			$('#undo_button').click(function () {
+				$('input.timepicker').val('')
+			})
 		})
 	</script>
 
