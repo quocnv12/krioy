@@ -27,8 +27,8 @@
 <body id="login">
 	<section class="page-top-center container">
 		<div class="row" style="margin-left: 0 !important">
-			<div class="col-md-3"></div>
-			<div class="col-md-6" style="padding: 0 !important;">
+			<div class="col-md-4 col-sm-3"></div>
+			<div class="col-md-4 col-sm-6" style="padding: 0 !important;">
 				<form method="POST">
 					@csrf
 					<div class="login" align="center">
@@ -73,7 +73,7 @@
 					</div>
 				</form>
 			</div>
-			<div class="col-md-3"></div>
+			<div class="col-md-4 col-sm-3"></div>
 		</div>
 	</section>
 	<footer class="site-footer">
