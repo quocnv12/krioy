@@ -141,7 +141,7 @@ return [
     'home'  =>  'HOME',
     'pricing'=>'PRICING',
     'about_us_top'=>'ABOUT US',
-    'banner'    =>  'One Stop Destination for Preschool & Daycare Management',
+    'banner'    =>  'A Perfect Solution for Preschool & Daycare Management',
     'sign_up'    =>  'SIGNUP',
     'get_a_free_trial' => 'GET A FREE TRIAL',//@lang('kidsnow.get_a_free_trial')
     'kids_now_app' => 'KIDS NOW APP',//@lang('kidsnow.kids_now_app')
@@ -239,7 +239,7 @@ return [
         'health.list.action'=>'ACTION',
 
         //kids-now/health/add
-        'health.hint'=>'Hint',
+        'health.hint'=>'Guide',
         'health.hint_content'=>'Click on a program tab in horizontal scroll bar to show all children in that program',
         'health.children'   =>  'Children',
 
@@ -302,7 +302,7 @@ return [
         'observations.observation_types'=>'Observation Types',
         'observations.detail'=>'Enter Details here',
         'observations.no_found'=>'No Children was founded',
-        'observations.hint'=>'Hint',
+        'observations.hint'=>'Guide',
         'observations.hint_content'=>'Click on a program tab in horizontal scroll bar to show all children in that program',
 
         //kids-now/observations/edit
@@ -321,7 +321,7 @@ return [
 
         // kids-now.notice-board
         'notice.search' => 'Search Notice...',//@lang('kidsnow.search_notice')
-        'notice.hint' => 'Hint',//@lang('kidsnow.hint')
+        'notice.hint' => 'Guide',//@lang('kidsnow.hint')
         'notice.hint_content' => 'Click on a program tab in horizontal scroll bar to show all notice in that program / Or use the search bar to go to specific notice',//@lang('kidsnow.note_hint')
 
         //kids-now/notice-board/add | kids-now/notice-board/edit | kids-now/notice-board/detail
@@ -330,6 +330,8 @@ return [
         'notice.detail'=>'Enter Details here',
         'notice.mark'=>'Mark as Important',
         'notice.archive'=>'Archive',
+        'notice.content'=>'Content',
+        'notice.edit_button'=>'Click on \'Edit\' button to update details',
     //END Notice board
 
 
@@ -338,7 +340,7 @@ return [
         // kids-now/children
         'children.search_bar' => 'Search Children...',//@lang('kidsnow.search_children')
         'children.untagged'  =>  'Untagged',//@lang('kidsnow.children.untagged')
-        'children.hint' =>  'Hint',//@lang('kidsnow.children.hint')
+        'children.hint' =>  'Guide',//@lang('kidsnow.children.hint')
         'children.hint_content' =>  'Click on a program tab in horizontal scroll bar to show all children in that program / Or use the search bar to go to specific children\'s profile',//@lang('kidsnow.children.hint_content')
         'children.no_found' =>'No Children was founded',
         'children.go_to'=>'Go To',
@@ -435,11 +437,19 @@ return [
         'program.search' => 'Search Program...', //@lang('kidsnow.search_program')
         'program.programs' => 'Programs',//@lang('kidsnow.programs')
 
+        'program.monday'=>'M',
+        'program.tuesday'=>'T',
+        'program.wednesday'=>'W',
+        'program.thursday'=>'T',
+        'program.friday'=>'F',
+        'program.saturday'=>'S',
+        'program.sunday'=>'S',
+
         //kids-now/program/add | kids-now/program/edit | kids-now/program/view
         'program.view_program'=>'View Program',
         'program.add_program'=>'Add Program',
         'program.edit_program'=>'Edit Program',
-        'program.program_name' => 'Program Name *',//@lang('kidsnow.program_name')
+        'program.program_name' => 'Program Name ',//@lang('kidsnow.program_name')
         'program.days' => 'Days',//@lang('kidsnow.days')
         'program.program_fee' => 'Program Fee',//@lang('kidsnow.program_fee')
         'program.currency'  =>'Currency',
@@ -460,7 +470,7 @@ return [
         'program.timings' => 'Timings',//@lang('kidsnow.timings')
         'program.start_time'    =>  'Start Time',
         'program.finish_time'    =>  'Finish Time',
-        'program.hint'  =>'Hint',
+        'program.hint'  =>'Guide',
         'program.hint_content'  =>'Use the search bar to add Staff / Children to the program',
         'program.staff' => 'Staff',//@lang('kidsnow.staff')
         'program.children' => 'Children',//@lang('kidsnow.staff')

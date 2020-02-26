@@ -42,7 +42,7 @@
                                     <p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">* {{ $errors->first('name') }}</p>
                                 @endif
                             </div>
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn btn-primary">@lang('kidsnow.save')</button>
                         </form>
                     </div>
                 </div>

@@ -93,7 +93,7 @@
 								</div>
 							@endforeach
 						@else
-							<div style="font-size: 25px; margin: 10px;">No children was founded</div>
+							<div style="font-size: 25px; margin: 10px;">No children was found</div>
 						@endif
 					@else
 						<div style="margin: 50px">

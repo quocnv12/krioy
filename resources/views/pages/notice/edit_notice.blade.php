@@ -142,10 +142,10 @@
                         </div>
                         <div class="button" style="text-align: center; margin-top: 100px">
                             <button type="reset" onclick="goBack()">
-                                <span>CANCEL</span>
+                                <span>@lang('kidsnow.cancel')</span>
                             </button>
                             <button class="button2" type="submit" id="btn">
-                                <span>SAVE</span>
+                                <span>@lang('kidsnow.save')</span>
                             </button>
                         </div>
                     </div>
