@@ -445,6 +445,7 @@ return [
         'program.saturday'=>'S',
         'program.sunday'=>'S',
 
+
         //kids-now/program/add | kids-now/program/edit | kids-now/program/view
         'program.view_program'=>'View Program',
         'program.add_program'=>'Add Program',
@@ -476,8 +477,8 @@ return [
         'program.children' => 'Children',//@lang('kidsnow.staff')
         'program.search_staff'  =>'Search Staff...',
         'program.search_children'  =>'Search Children...',
-        'program.no_staff'=>'No Staff was founded',
-        'program.no_children'=>'No Children was founded',
+        'program.no_staff'=>'No Staff was found',
+        'program.no_children'=>'No Children was found',
     //END Program
 
 

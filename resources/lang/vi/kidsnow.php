@@ -353,6 +353,7 @@ return [
         'program.saturday'=>'T7',
         'program.sunday'=>'CN',
 
+
         //kids-now/program/add | kids-now/program/edit | kids-now/program/view
         'program.view_program'=>'Xem Lớp Học',
         'program.add_program'=>'Thêm Lớp Học',

@@ -23,6 +23,10 @@
 		.twitter-typeahead{
 			float: right;
 		}
+
+		.error{
+			color: red;
+		}
 	</style>
 <body>
 	<section class="page-top container">
@@ -48,7 +52,6 @@
 					<div class="col-md-4 input_box">
 						<span>@lang('kidsnow.program.program_name') *</span>
 						<input type="text" name="program_name" id="program_name" placeholder="@lang('kidsnow.program.program_name') *" value="{{old('program_name')}}">
-						<p id="error_program_name" style="text-align: left; color: red"></p>
                         @if ($errors->has('program_name'))
 								<div class="text text-danger">
 									{{ $errors->first('program_name') }}
@@ -85,7 +88,7 @@
 						<div class="row">
 							<div class="col-md-5 input_box">
 								<span>@lang('kidsnow.program.program_fee')</span>
-								<input type="number" min="0" name="program_fee" id="program_fee" placeholder="@lang('kidsnow.program.program_fee')" value="{{old('program_fee')}}">
+								<input type="text" min="0" name="program_fee" id="program_fee" placeholder="@lang('kidsnow.program.program_fee')" value="{{old('program_fee')}}">
                                 @if ($errors->has('program_fee'))
                                     <div class="text text-danger">
                                         {{ $errors->first('program_fee') }}
@@ -148,8 +151,8 @@
 				<div class="row">
 					<div class="col-md-7">
 						<div class="row">
-							<div class="col-md-6"><span style="font-size: 14px;">@lang('kidsnow.program.from'):</span></div>
-							<div class="col-md-6"><span style="font-size: 14px;">@lang('kidsnow.program.to'):</span></div>
+							<div class="col-md-6"><span style="font-size: 14px;">@lang('kidsnow.program.from')</span></div>
+							<div class="col-md-6"><span style="font-size: 14px;">@lang('kidsnow.program.to')</span></div>
 						</div>
 					</div>
 					<div class="col-md-5"></div>
@@ -328,6 +331,8 @@
 		  });
 		}
 	</script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
 	<script type="text/javascript">
         //begin schedule
 		var array = [];
@@ -364,7 +369,7 @@
                         $('#children_list').append(data);
                         array_children.push(id);
                     }else {
-                        alert('The children has existed')
+                        alert('Trẻ đã ở trong lớp (The children has existed) !')
                     }
                 }
             });
@@ -390,7 +395,7 @@
                         $('#staff_list').append(data);
                         array_staff.push(id)
                     }else {
-                        alert('The staff has existed')
+                        alert('Nhân viên đã ở trong lớp (The staff has existed) !')
                     }
                 }
             });
@@ -398,35 +403,40 @@
         //end select staff
 
         //begin validate
-		if ( $('#program_name').val() !== ""){
-			$('#error_program_name').html('')
-			$('#error_total').html('');
-		}else {
-			$('#error_program_name').html('This field is required')
-		}
 
-		$('#program_name').focusout(function () {
-			if ( $('#program_name').val() !== ""){
-				$('#error_program_name').html('')
-				$('#error_total').html('');
-			}else {
-				$('#error_program_name').html('This field is required')
-			}
+		$(document).ready(function () {
+			$("#addProgram").validate({
+				// Specify validation rules
+				rules: {
+					program_name: "required",
+					program_fee: {
+						"number": true,
+						"min": 0
+					},
+				},
+				messages: {
+					program_name: "Tên Lớp Học không được để trống",
+					program_fee: "Giá trị không hợp lệ",
+				},
+				submitHandler: function(form) {
+					form.submit()
+				}
+			});
 		})
-        //end validate
-
 
 		$('#submit_button').click(function() {
-			if ( $('#program_name').val() === ""){
-				$('#error_total').html('Something wrong! Please check the form again');
-			}else {
+			if ($('#addProgram').valid()){
 				$('#schedule').attr('value', array);
 				$('#array_all_children').attr('value', array_children);
 				$('#array_all_staff').attr('value', array_staff);
 				$('#addProgram').submit();
+			}else {
+				$('#error_total').html("Vui lòng kiểm tra lại thông tin (Please check the form again) !")
 			}
-		});
+		})
+		//finish validate
     </script>
+
     <script type="text/javascript">
 		$('.input_box input').focus(function(event) {
 	    	$(this).siblings('span').addClass('input_box_span_active');

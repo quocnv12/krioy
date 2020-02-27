@@ -25,6 +25,7 @@ class ProgramsController extends Controller
             ->select(['programs.program_name', 'programs.id'])
             ->selectRaw('count(children_programs.id_children) AS total_children')
             ->groupBy(['programs.program_name', 'programs.id'])
+            ->orderBy('programs.created_at','DESC')
             ->orderBy('programs.program_name')
             ->simplePaginate(8);
 
@@ -39,27 +40,6 @@ class ProgramsController extends Controller
 
     public function store(Request $request)
     {
-        $validation_vi = [
-            'program_name.unique'   =>  'Tên lớp học đã tồn tại',
-            'program_fee.numeric'   =>  'Học phí không hợp lệ',
-            'program_fee.min'       =>  'Học phí không được nhỏ hơn 0',
-            'to_year.gte'           =>  'Giá trị trường này quá bé'
-        ];
-
-        $validation_en = [
-            'program_name.unique'   =>  'Program name has existed',
-            'program_fee.numeric'   =>  'Program fee is invalid',
-            'program_fee.min'       =>  'Program fee is invalid',
-            'to_year.gte'           =>  'This year must be greater'
-        ];
-
-        $this->validate($request,
-            [
-                'program_name'  =>  'nullable|unique:programs,program_name',
-                'program_fee'   =>  'numeric|min:0|nullable',
-                'to_year'       =>  'gte:from_year'
-            ],app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
-
         $programs = Programs::create($request->all());
         $programs->schedule = $request->schedule;
         $programs->save();
@@ -179,27 +159,6 @@ class ProgramsController extends Controller
 
     public function update(Request $request, $id)
     {
-        $validation_vi = [
-            'program_name.unique'   =>  'Tên lớp học đã tồn tại',
-            'program_fee.numeric'   =>  'Học phí không hợp lệ',
-            'program_fee.min'       =>  'Học phí không được nhỏ hơn 0',
-            'to_year.gte'           =>  'Giá trị trường này quá bé'
-        ];
-
-        $validation_en = [
-            'program_name.unique'   =>  'Program name has existed',
-            'program_fee.numeric'   =>  'Program fee is invalid',
-            'program_fee.min'       =>  'Program fee is invalid',
-            'to_year.gte'           =>  'This year must be greater'
-        ];
-
-        $this->validate($request,
-            [
-                'program_name'  =>  'nullable|unique:programs,program_name,'.$id.' ',
-                'program_fee'   =>  'numeric|min:0|nullable',
-                'to_year'       =>  'gte:from_year'
-            ],app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
-
         $programs = Programs::find($id);
         $programs->update($request->all());
 
@@ -213,66 +172,24 @@ class ProgramsController extends Controller
 
         $programs->save();
 
-        //neu thay doi children
+        //neu thay doi children (van con children trong lop)
         if ($request->array_children_new) {
-            //array chua cac id children trong program
-            $array_children_old = [];
-            $children_old = explode(',', $request->array_children_old);    //string to array
-            foreach ($children_old as $item) {
-                array_push($array_children_old, $item);
-            }
-            //array chua cac id children moi them vao program
-            $array_children_new = [];
-            $children_new = explode(',', $request->array_children_new);    //string to array
-            foreach ($children_new as $item) {
-                array_push($array_children_new, $item);
-            }
-            //so sanh array cu va moi
-            $children_add = array_diff($array_children_new, $array_children_old);
-            $children_remove = array_diff($array_children_old, $array_children_new);
-            //them record children_programs
-            foreach ($children_add as $children_id) {
-                $children_programs = new ChildrenProgram();
-                $children_programs->id_program = $id;
-                $children_programs->id_children = $children_id;
-                $children_programs->save();
-            }
-            //xoa record children_programs
-            foreach ($children_remove as $children_id) {
-                $children_programs = ChildrenProgram::where([['id_program', '=', $id], ['id_children', '=', $children_id]]);
-                $children_programs->delete();
-            }
+           $this->caseChangeChildren($request, $id);
         }
 
-        //neu thay doi staff
+        //neu xoa toan bo children
+        if($request->array_children_new == null){
+            $this->caseDeleteAllChildren($request, $id);
+        }
+
+        //neu thay doi staff (van con staff trong lop)
         if ($request->array_staff_new) {
-            //array chua cac id children trong program
-            $array_staff_old = [];
-            $staff_old = explode(',', $request->array_staff_old);    //string to array
-            foreach ($staff_old as $item) {
-                array_push($array_staff_old, $item);
-            }
-            //array chua cac id children moi them vao program
-            $array_staff_new = [];
-            $staff_new = explode(',', $request->array_staff_new);    //string to array
-            foreach ($staff_new as $item) {
-                array_push($array_staff_new, $item);
-            }
-            //so sanh array cu va moi
-            $staff_add = array_diff($array_staff_new, $array_staff_old);
-            $staff_remove = array_diff($array_staff_old, $array_staff_new);
-            //them record children_programs
-            foreach ($staff_add as $staff_id) {
-                $staff_programs = new StaffProgram();
-                $staff_programs->id_program = $id;
-                $staff_programs->id_staff = $staff_id;
-                $staff_programs->save();
-            }
-            //xoa record children_programs
-            foreach ($staff_remove as $staff_id) {
-                $staff_programs = StaffProgram::where([['id_program', '=', $id], ['id_staff', '=', $staff_id]]);
-                $staff_programs->delete();
-            }
+           $this->caseChangeStaff($request, $id);
+        }
+
+        //neu xoa toan bo staff
+        if($request->array_staff_new == null){
+            $this->caseDeleteAllStaff($request, $id);
         }
 
         return redirect()->back()->with('success',app()->getLocale() == 'vi' ? 'Cập Nhật Thành Công !' : 'Update Successfully !');
@@ -333,7 +250,11 @@ class ProgramsController extends Controller
                             
                             <script>
                                 $(\'.delete-child\').click(function() {
+                                if(confirm(\'Xác nhận xóa trẻ (Delete this children) !\') == false){
+                                    return;
+                                }else{
                                   $(this).parent(\'div\').parent(\'div\').parent(\'div\').remove();
+                                  }
                                 })
                             </script>
                             ';
@@ -363,7 +284,11 @@ class ProgramsController extends Controller
                                 
                                 <script >
                                     $(\'.delete-staff\').click(function() {
+                                    if(confirm(\'Xác nhận xóa nhận viên (Delete this staff) !\') == false){
+                                        return;
+                                    }else {
                                       $(this).parent(\'div\').parent(\'div\').parent(\'div\').remove();
+                                      }
                                     })
                                 </script>
                                 ';
@@ -404,6 +329,88 @@ class ProgramsController extends Controller
                 $sheet->fromArray($children_array, null, 'A1', false, false);
             });
         })->download('xlsx');
+    }
+
+    public function caseDeleteAllChildren(Request $request, $id)
+    {
+        foreach (explode(',', $request->array_children_old) as $children_id) {
+            $children_programs = ChildrenProgram::where([['id_program', '=', $id], ['id_children', '=', $children_id]]);
+            $children_programs->delete();
+
+        }
+        return redirect()->back()->with('success',app()->getLocale() == 'vi' ? 'Cập Nhật Thành Công !' : 'Update Successfully !');
+    }
+
+    public function caseDeleteAllStaff(Request $request, $id)
+    {
+        foreach (explode(',', $request->array_staff_old) as $staff_id) {
+            $staff_programs = StaffProgram::where([['id_program', '=', $id], ['id_staff', '=', $staff_id]]);
+            $staff_programs->delete();
+
+        }
+        return redirect()->back()->with('success',app()->getLocale() == 'vi' ? 'Cập Nhật Thành Công !' : 'Update Successfully !');
+    }
+
+    public function caseChangeChildren(Request $request, $id)
+    {
+        //array chua cac id children trong program
+        $array_children_old = [];
+        $children_old = explode(',', $request->array_children_old);    //string to array
+        foreach ($children_old as $item) {
+            array_push($array_children_old, $item);
+        }
+        //array chua cac id children moi them vao program
+        $array_children_new = [];
+        $children_new = explode(',', $request->array_children_new);    //string to array
+        foreach ($children_new as $item) {
+            array_push($array_children_new, $item);
+        }
+        //so sanh array cu va moi
+        $children_add = array_diff($array_children_new, $array_children_old);
+        $children_remove = array_diff($array_children_old, $array_children_new);
+        //them record children_programs
+        foreach ($children_add as $children_id) {
+            $children_programs = new ChildrenProgram();
+            $children_programs->id_program = $id;
+            $children_programs->id_children = $children_id;
+            $children_programs->save();
+        }
+        //xoa record children_programs
+        foreach ($children_remove as $children_id) {
+            $children_programs = ChildrenProgram::where([['id_program', '=', $id], ['id_children', '=', $children_id]]);
+            $children_programs->delete();
+        }
+    }
+
+    public function caseChangeStaff(Request $request, $id)
+    {
+        //array chua cac id children trong program
+        $array_staff_old = [];
+        $staff_old = explode(',', $request->array_staff_old);    //string to array
+        foreach ($staff_old as $item) {
+            array_push($array_staff_old, $item);
+        }
+        //array chua cac id children moi them vao program
+        $array_staff_new = [];
+        $staff_new = explode(',', $request->array_staff_new);    //string to array
+        foreach ($staff_new as $item) {
+            array_push($array_staff_new, $item);
+        }
+        //so sanh array cu va moi
+        $staff_add = array_diff($array_staff_new, $array_staff_old);
+        $staff_remove = array_diff($array_staff_old, $array_staff_new);
+        //them record children_programs
+        foreach ($staff_add as $staff_id) {
+            $staff_programs = new StaffProgram();
+            $staff_programs->id_program = $id;
+            $staff_programs->id_staff = $staff_id;
+            $staff_programs->save();
+        }
+        //xoa record children_programs
+        foreach ($staff_remove as $staff_id) {
+            $staff_programs = StaffProgram::where([['id_program', '=', $id], ['id_staff', '=', $staff_id]]);
+            $staff_programs->delete();
+        }
     }
 }
 
