@@ -23,6 +23,10 @@
 		.twitter-typeahead{
 			float: right;
 		}
+
+		.error{
+			color: red;
+		}
 	</style>
 	<body>
 	<section class="page-top container">
@@ -256,6 +260,10 @@
 					</div>
 				</div>
 			</div>
+			<div style="margin: 10px; text-align: center">
+				<span style="color: red; font-weight: bold">@lang('kidsnow.program.hint') :</span>
+				<span>@lang('kidsnow.program.hint_content')</span>
+			</div>
 			<div class="mat-card">
 				<div class="mat-content">
 					<button class="accordion accordion1 clearfix" type="button">
@@ -266,25 +274,22 @@
 					</button>
 					<div class="panel">
 						<div _ngcontent-c20="" class="row" style="" id="staff_list">
-                            @foreach($staff_in_program as $staff)
-                                <div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
-                                    <div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
-                                        <div _ngcontent-c19="" class="image">
-                                            <img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Staff.png';" style="height: 80px" width="80" src="{{$staff->image}}">
-                                            <input type="hidden" value="{{$staff->id}}">
-											<span class="delete-staff" onclick="deleteStaff({{$staff->id}})" style="position: absolute; top: 0"><i class="fas fa-times-circle" style="color: red ; cursor: pointer"></i></span>
-											<br>
-                                            <span _ngcontent-c19="" class="limitText ng-star-inserted"><a target="_blank" href="kids-now/staff/edit/{{$staff->id}}" style="margin: 0">{{$staff->first_name}} {{$staff->last_name}}</a></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-
-                            @if(count($staff_in_program) == 0)
-                                <div style="margin: 10px" id="hint_staff">
-                                    <span style="color: red; font-weight: bold">Hint :</span>
-                                    <span>Use the search bar to add specific staff in this program</span>
-                                </div>
+							@if(count($staff_in_program) > 0)
+								@foreach($staff_in_program as $staff)
+									<div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
+										<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
+											<div _ngcontent-c19="" class="image">
+												<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Staff.png';" style="height: 80px" width="80" src="{{$staff->image}}">
+												<input type="hidden" value="{{$staff->id}}">
+												<span class="delete-staff" onclick="deleteStaff({{$staff->id}})" style="position: absolute; top: 0"><i class="fas fa-times-circle" style="color: red ; cursor: pointer"></i></span>
+												<br>
+												<span _ngcontent-c19="" class="limitText ng-star-inserted"><a target="_blank" href="kids-now/staff/edit/{{$staff->id}}" style="margin: 0">{{$staff->first_name}} {{$staff->last_name}}</a></span>
+											</div>
+										</div>
+									</div>
+								@endforeach
+                            @else
+								<p style="font-size: 18px; margin: 10px;" id="hint_staff">@lang('kidsnow.program.no_staff')</p>
                             @endif
 							<!---->
 							{{-- ajax ProgramController@addSelectStaff do vao day--}}
@@ -303,25 +308,23 @@
 					</button>
 					<div class="panel">
 						<div _ngcontent-c20="" class="row" id="children_list">
-							@foreach($children_in_program as $children)
-								<div _ngcontent-c19="" class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
-									<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
-										<div _ngcontent-c19="" class="image">
-											<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Child.png';" style="height: 80px" width="80" src="{{$children->image}}">
-											<input type="hidden" value="{{$children->id}}">
-											{{--<button class="btn btn-sm btn-danger" type="button" onclick="deleteChild({{$children->id}})">X</button>--}}
-											<span class="delete-child" onclick="deleteChild({{$children->id}})" style="position: absolute; top: 0"><i class="fas fa-times-circle" style="color: red ; cursor: pointer"></i></span>
-											<br>
-											<span _ngcontent-c19="" class="limitText ng-star-inserted"><a target="_blank" href="kids-now/children/edit/{{$children->id}}" style="margin: 0">{{$children->first_name}} {{$children->last_name}}</a></span>
+							@if(count($children_in_program) > 0)
+								@foreach($children_in_program as $children)
+									<div _ngcontent-c19="" class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
+										<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
+											<div _ngcontent-c19="" class="image">
+												<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Child.png';" style="height: 80px" width="80" src="{{$children->image}}">
+												<input type="hidden" value="{{$children->id}}">
+												{{--<button class="btn btn-sm btn-danger" type="button" onclick="deleteChild({{$children->id}})">X</button>--}}
+												<span class="delete-child" onclick="deleteChild({{$children->id}})" style="position: absolute; top: 0"><i class="fas fa-times-circle" style="color: red ; cursor: pointer"></i></span>
+												<br>
+												<span _ngcontent-c19="" class="limitText ng-star-inserted"><a target="_blank" href="kids-now/children/edit/{{$children->id}}" style="margin: 0">{{$children->first_name}} {{$children->last_name}}</a></span>
+											</div>
 										</div>
 									</div>
-								</div>
-							@endforeach
-                                @if(count($children_in_program) == 0)
-                                    <div style="margin: 10px" id="hint_children">
-                                        <span style="color: red; font-weight: bold">@lang('kidsnow.program.hint') :</span>
-                                        <span>@lang('kidsnow.program.hint_content')</span>
-                                    </div>
+								@endforeach
+							@else
+								<p style="font-size: 18px; margin: 10px;" id="hint_children">@lang('kidsnow.program.no_children')</p>
                             @endif
 							<!---->
 							{{-- ajax ProgramController@addSelectChildren do vao day--}}
@@ -363,7 +366,9 @@
     
     <!-- Main Script -->
     <script src="js/main.js"></script>
-    <script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+	<script>
 		var acc = document.getElementsByClassName("accordion");
 		var i;
 
@@ -396,6 +401,10 @@
 		//begin select children
 
 		var array_children = $('#array_children_old').val().split(',').map(Number)
+		if ($('#array_children_old').val() == '')
+		{
+			array_children = []
+		}
 
 		function deleteChild(id_children) {
 			array_children.splice( array_children.indexOf(id_children), 1 );
@@ -414,7 +423,7 @@
 						$('#children_list').append(data);
 						array_children.push(id);
 					}else {
-						alert('children exists')
+						alert('Trẻ đã ở trong lớp (The children has existed) !')
 					}
 				}
 			});
@@ -423,6 +432,10 @@
 
 		//begin select staff
 		var array_staff = $('#array_staff_old').val().split(',').map(Number)
+		if ($('#array_staff_old').val() == '')
+		{
+			array_staff = []
+		}
 
 		function deleteStaff(id_staff) {
 			array_staff.splice( array_staff.indexOf(id_staff), 1 );
@@ -441,7 +454,7 @@
 						$('#staff_list').append(data);
 						array_staff.push(id)
 					}else {
-						alert('staff exists')
+						alert('Nhân viên đã ở trong lớp (The staff has existed) !')
 					}
 				}
 			});
@@ -450,39 +463,57 @@
 
 		//begin validate
 
-		$('#program_name').focusout(function () {
-			if ( $('#program_name').val() !== ""){
-				$('#error_program_name').html('')
-			}else {
-				$('#error_program_name').html('This field must not be empty')
-			}
+		$(document).ready(function () {
+			$("#editProgram").validate({
+				// Specify validation rules
+				rules: {
+					program_name: "required",
+					program_fee: {
+						"number": true,
+						"min": 0
+					},
+				},
+				messages: {
+					program_name: "Tên Lớp Học không được để trống",
+					program_fee: "Giá trị không hợp lệ",
+				},
+				submitHandler: function(form) {
+					form.submit()
+				}
+			});
 		})
-		//end validate
-
 
 		$('#submit_button').click(function() {
-			if ( $('#program_name').val() === ""){
-				$('#error_total').html('please check the form again');
-			}else {
+			if ($('#editProgram').valid()){
 				$('#array_schedule_new').attr('value', array);
 				$('#array_children_new').attr('value', array_children);
 				$('#array_staff_new').attr('value', array_staff);
 				$('#editProgram').submit();
+			}else {
+				$('#error_total').html("Vui lòng kiểm tra lại thông tin (Please check the form again) !")
 			}
-		});
-
+		})
+		//finish validate
     </script>
 	<script >
 		$('.delete-child').click(function() {
-			$(this).parent('div').parent('div').parent('div').hide();
+			if(confirm('Xác nhận xóa trẻ (Delete this children) !') == false){
+				return;
+			}else{
+				$(this).parent('div').parent('div').parent('div').remove();
+			}
 		})
 
 		$('.delete-staff').click(function() {
-			$(this).parent('div').parent('div').parent('div').hide();
+			if(confirm('Xác nhận xóa nhận viên (Delete this staff) !') == false){
+				return;
+			}else {
+				$(this).parent('div').parent('div').parent('div').remove();
+			}
 		})
 
         function deleteConfirm() {
-            return confirm("Confirm delete this program ?");
+            return confirm("Xác nhận xóa lớp học (Delete this program) ?");
         }
 	</script>
     <script type="text/javascript">

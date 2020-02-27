@@ -32,13 +32,13 @@
 								</div>
 								<div class="col-md-10" style="margin: 10px 0;">
 									<div class="panel_new">
-										<div class="letterCircle listClass @if(in_array(8, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">S</div>
-										<div class="letterCircle listClass @if(in_array(2, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">M</div>
-										<div class="letterCircle listClass @if(in_array(3, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">T</div>
-										<div class="letterCircle listClass @if(in_array(4, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">W</div>
-										<div class="letterCircle listClass @if(in_array(5, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">T</div>
-										<div class="letterCircle listClass @if(in_array(6, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">F</div>
-										<div class="letterCircle listClass @if(in_array(7, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">S</div>
+										<div class="letterCircle listClass @if(in_array(8, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">@lang('kidsnow.program.sunday')</div>
+										<div class="letterCircle listClass @if(in_array(2, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">@lang('kidsnow.program.monday')</div>
+										<div class="letterCircle listClass @if(in_array(3, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">@lang('kidsnow.program.tuesday')</div>
+										<div class="letterCircle listClass @if(in_array(4, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">@lang('kidsnow.program.wednesday')</div>
+										<div class="letterCircle listClass @if(in_array(5, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">@lang('kidsnow.program.thursday')</div>
+										<div class="letterCircle listClass @if(in_array(6, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">@lang('kidsnow.program.friday')</div>
+										<div class="letterCircle listClass @if(in_array(7, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">@lang('kidsnow.program.saturday')</div>
 									</div>
 								</div>
 							</div>
@@ -47,18 +47,6 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="row">
-								{{--<div class="col-md-6 input_box">--}}
-									{{--<span class="input_box_span_active">@lang('kidsnow.program.program_fee')</span>--}}
-									{{--<input type="text" name="text" placeholder="Program Fee " value="{{number_format(floatval($program->program_fee),2)}}">--}}
-								{{--</div>--}}
-								{{--<div class="col-md-6 input_box">--}}
-									{{--<span class="input_box_span_active">@lang('kidsnow.program.period')</span>--}}
-									{{--<select>--}}
-										{{--<option @if($program->period_fee == '/week') selected="selected" @endif>/week</option>--}}
-										{{--<option @if($program->period_fee == '/month') selected="selected" @endif>/month</option>--}}
-										{{--<option @if($program->period_fee == '/year') selected="selected" @endif>/year</option>--}}
-									{{--</select>--}}
-								{{--</div>--}}
 								<div class="col-md-5 input_box">
 									<span class="input_box_span_active">@lang('kidsnow.program.program_fee')</span>
 									<input type="text" name="program_fee" id="program_fee" placeholder="@lang('kidsnow.program.program_fee')" value="{{($program->program_fee)}}">
@@ -294,26 +282,26 @@
 		  });
 		}
 	</script>
-    <script type="text/javascript">
-		$('.input_box input').focus(function(event) {
-	    	$(this).siblings('span').addClass('input_box_span_active');
-		});
-		$('.input_box input').blur(function(event) {
-	    	if ($(this).val()=='') {
-	      		$(this).siblings('span').removeClass('input_box_span_active');
-	    	}
-		});
-	</script>
-	<script type="text/javascript">
-		$('.input_box select').focus(function(event) {
-	    	$(this).siblings('span').addClass('input_box_span_active');
-		});
-		$('.input_box select').blur(function(event) {
-	    	if ($(this).val()=='') {
-	      		$(this).siblings('span').removeClass('input_box_span_active');
-	    	}
-		});
-	</script>
+    {{--<script type="text/javascript">--}}
+		{{--$('.input_box input').focus(function(event) {--}}
+	    	{{--$(this).siblings('span').addClass('input_box_span_active');--}}
+		{{--});--}}
+		{{--$('.input_box input').blur(function(event) {--}}
+	    	{{--if ($(this).val()=='') {--}}
+	      		{{--$(this).siblings('span').removeClass('input_box_span_active');--}}
+	    	{{--}--}}
+		{{--});--}}
+	{{--</script>--}}
+	{{--<script type="text/javascript">--}}
+		{{--$('.input_box select').focus(function(event) {--}}
+	    	{{--$(this).siblings('span').addClass('input_box_span_active');--}}
+		{{--});--}}
+		{{--$('.input_box select').blur(function(event) {--}}
+	    	{{--if ($(this).val()=='') {--}}
+	      		{{--$(this).siblings('span').removeClass('input_box_span_active');--}}
+	    	{{--}--}}
+		{{--});--}}
+	{{--</script>--}}
 	<script type="text/javascript">
     	$('.add > div input').focus(function(event) {
     		alert('Bạn không thể sửa mục này !');

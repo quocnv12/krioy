@@ -25,6 +25,7 @@ class ProgramsController extends Controller
             ->select(['programs.id','programs.program_name'])
             ->selectRaw('count(children_programs.id_children) AS total_children')
             ->groupBy(['programs.program_name', 'programs.id'])
+            ->orderBy('programs.created_at','DESC')
             ->orderBy('programs.program_name')
             ->simplePaginate(8);
 
@@ -242,66 +243,24 @@ class ProgramsController extends Controller
 
             $programs->save();
 
-            //neu thay doi children
+            //neu thay doi children (van con children trong lop)
             if ($request->array_children_new) {
-                //array chua cac id children trong program
-                $array_children_old = [];
-                $children_old = explode(',', $request->array_children_old);    //string to array
-                foreach ($children_old as $item) {
-                    array_push($array_children_old, $item);
-                }
-                //array chua cac id children moi them vao program
-                $array_children_new = [];
-                $children_new = explode(',', $request->array_children_new);    //string to array
-                foreach ($children_new as $item) {
-                    array_push($array_children_new, $item);
-                }
-                //so sanh array cu va moi
-                $children_add = array_diff($array_children_new, $array_children_old);
-                $children_remove = array_diff($array_children_old, $array_children_new);
-                //them record children_programs
-                foreach ($children_add as $children_id) {
-                    $children_programs = new ChildrenProgram();
-                    $children_programs->id_program = $id;
-                    $children_programs->id_children = $children_id;
-                    $children_programs->save();
-                }
-                //xoa record children_programs
-                foreach ($children_remove as $children_id) {
-                    $children_programs = ChildrenProgram::where([['id_program', '=', $id], ['id_children', '=', $children_id]]);
-                    $children_programs->delete();
-                }
+                $this->caseChangeChildren($request, $id);
             }
 
-            //neu thay doi staff
+            //neu xoa toan bo children
+            if($request->array_children_new == null){
+                $this->caseDeleteAllChildren($request, $id);
+            }
+
+            //neu thay doi staff (van con staff trong lop)
             if ($request->array_staff_new) {
-                //array chua cac id children trong program
-                $array_staff_old = [];
-                $staff_old = explode(',', $request->array_staff_old);    //string to array
-                foreach ($staff_old as $item) {
-                    array_push($array_staff_old, $item);
-                }
-                //array chua cac id children moi them vao program
-                $array_staff_new = [];
-                $staff_new = explode(',', $request->array_staff_new);    //string to array
-                foreach ($staff_new as $item) {
-                    array_push($array_staff_new, $item);
-                }
-                //so sanh array cu va moi
-                $staff_add = array_diff($array_staff_new, $array_staff_old);
-                $staff_remove = array_diff($array_staff_old, $array_staff_new);
-                //them record children_programs
-                foreach ($staff_add as $staff_id) {
-                    $staff_programs = new StaffProgram();
-                    $staff_programs->id_program = $id;
-                    $staff_programs->id_staff = $staff_id;
-                    $staff_programs->save();
-                }
-                //xoa record children_programs
-                foreach ($staff_remove as $staff_id) {
-                    $staff_programs = StaffProgram::where([['id_program', '=', $id], ['id_staff', '=', $staff_id]]);
-                    $staff_programs->delete();
-                }
+                $this->caseChangeStaff($request, $id);
+            }
+
+            //neu xoa toan bo staff
+            if($request->array_staff_new == null){
+                $this->caseDeleteAllStaff($request, $id);
             }
 
             return response()->json([
@@ -456,5 +415,87 @@ class ProgramsController extends Controller
                 $sheet->fromArray($children_array, null, 'A1', false, false);
             });
         })->download('xlsx');
+    }
+
+    public function caseDeleteAllChildren(Request $request, $id)
+    {
+        foreach (explode(',', $request->array_children_old) as $children_id) {
+            $children_programs = ChildrenProgram::where([['id_program', '=', $id], ['id_children', '=', $children_id]]);
+            $children_programs->delete();
+
+        }
+        return redirect()->back()->with('success',app()->getLocale() == 'vi' ? 'Cập Nhật Thành Công !' : 'Update Successfully !');
+    }
+
+    public function caseDeleteAllStaff(Request $request, $id)
+    {
+        foreach (explode(',', $request->array_staff_old) as $staff_id) {
+            $staff_programs = StaffProgram::where([['id_program', '=', $id], ['id_staff', '=', $staff_id]]);
+            $staff_programs->delete();
+
+        }
+        return redirect()->back()->with('success',app()->getLocale() == 'vi' ? 'Cập Nhật Thành Công !' : 'Update Successfully !');
+    }
+
+    public function caseChangeChildren(Request $request, $id)
+    {
+        //array chua cac id children trong program
+        $array_children_old = [];
+        $children_old = explode(',', $request->array_children_old);    //string to array
+        foreach ($children_old as $item) {
+            array_push($array_children_old, $item);
+        }
+        //array chua cac id children moi them vao program
+        $array_children_new = [];
+        $children_new = explode(',', $request->array_children_new);    //string to array
+        foreach ($children_new as $item) {
+            array_push($array_children_new, $item);
+        }
+        //so sanh array cu va moi
+        $children_add = array_diff($array_children_new, $array_children_old);
+        $children_remove = array_diff($array_children_old, $array_children_new);
+        //them record children_programs
+        foreach ($children_add as $children_id) {
+            $children_programs = new ChildrenProgram();
+            $children_programs->id_program = $id;
+            $children_programs->id_children = $children_id;
+            $children_programs->save();
+        }
+        //xoa record children_programs
+        foreach ($children_remove as $children_id) {
+            $children_programs = ChildrenProgram::where([['id_program', '=', $id], ['id_children', '=', $children_id]]);
+            $children_programs->delete();
+        }
+    }
+
+    public function caseChangeStaff(Request $request, $id)
+    {
+        //array chua cac id children trong program
+        $array_staff_old = [];
+        $staff_old = explode(',', $request->array_staff_old);    //string to array
+        foreach ($staff_old as $item) {
+            array_push($array_staff_old, $item);
+        }
+        //array chua cac id children moi them vao program
+        $array_staff_new = [];
+        $staff_new = explode(',', $request->array_staff_new);    //string to array
+        foreach ($staff_new as $item) {
+            array_push($array_staff_new, $item);
+        }
+        //so sanh array cu va moi
+        $staff_add = array_diff($array_staff_new, $array_staff_old);
+        $staff_remove = array_diff($array_staff_old, $array_staff_new);
+        //them record children_programs
+        foreach ($staff_add as $staff_id) {
+            $staff_programs = new StaffProgram();
+            $staff_programs->id_program = $id;
+            $staff_programs->id_staff = $staff_id;
+            $staff_programs->save();
+        }
+        //xoa record children_programs
+        foreach ($staff_remove as $staff_id) {
+            $staff_programs = StaffProgram::where([['id_program', '=', $id], ['id_staff', '=', $staff_id]]);
+            $staff_programs->delete();
+        }
     }
 }
