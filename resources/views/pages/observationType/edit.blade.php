@@ -9,9 +9,9 @@
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
             <div class="row">
                 <ul class="ul-td" style="width:100%">
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
-                    <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="{{route('admin.observations.listobservationtype')}}" >Observation Type</a></li>
-                    <li _ngcontent-c16="" class="active-1" style="pointer-events:none"><a _ngcontent-c16="" href="">Edit</a></li>
+                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">@lang('kidsnow.home')</a></li>
+                    <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="{{route('admin.observations.listobservationtype')}}" >@lang('kidsnow.observations.observation_types')</a></li>
+                    <li _ngcontent-c16="" class="active-1" style="pointer-events:none"><a _ngcontent-c16="" href="">@lang('kidsnow.observation_type.edit_observation_type')</a></li>
 
                 </ul>
             </div>
@@ -33,16 +33,15 @@
                             laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                     <div>
-                        <p>Edit Observation Type*</p>
-                        <form  style="width:auto;" method="post">
+                        <form action="{{route('admin.observationtype.postEdit',['id'=>$observationtype->id])}}" style="width:auto;" method="post">
                             @csrf
                             <div class="form-group">
-                                <input type="text" class="form-control" style="text-transform:capitalize" name="name" placeholder="Enter Observation Type" value="{{old('name') ?? $observationtype->name }}">
+                                <input type="text" class="form-control" style="text-transform:capitalize" name="name" placeholder="@lang('kidsnow.observations.observation_types')" value="{{old('name') ?? $observationtype->name }}">
                                 @if($errors->has('name'))
                                     <p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">* {{ $errors->first('name') }}</p>
                                 @endif
                             </div>
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn btn-primary">@lang('kidsnow.save')</button>
                         </form>
                     </div>
                 </div>

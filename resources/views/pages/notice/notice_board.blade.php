@@ -27,8 +27,8 @@
 			<div class="row">
 				<div class="col-md-6">
 					<ul class="ul-td">
-						<li class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
-						<li class="active1" style="pointer-events:none"><a href="">NOTICE BOARD</a></li>
+						<li class="level1"><a href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
+						<li class="active1" style="pointer-events:none"><a href="">@lang('kidsnow.notice_board')</a></li>
 					</ul>
 				</div>
 				<div class="col-md-6" style="display: flex; justify-content: flex-end">
@@ -57,34 +57,38 @@
 		<div class="mat-card" style="min-height: 500px;">
 			<div class="mat-content">
 			@if(isset($notice_board))
-				@foreach($notice_board as $notice)
-				<div class="mat-card" style="margin: 0;">
-					<div class="row">
-						<div class="notice" data-href="{{route('admin.notice-board.detail',['id'=>$notice->id])}}" style="width: 100%;">
-							<div class=" col-md-10">
-								<span style="display: block; font-size: 18px; padding-left: 0;"><!---->
-									@if($notice->important == 1)<i aria-hidden="true" class="fa fa-star ng-star-inserted" style="color:#FAC917;padding-right:5px; "></i>@endif{{$notice->title}}
-								</span>
-								<br>
-								<span  style="color: grey; font-size: 16px; padding-left: 24px;"><!---->{{Str::limit($notice->content,200)}}
-								</span>
-							</div>
-							<div class=" col-md-2">
-								<div align="center" style="color:#5363d6;font-size: 16px;">
-									<span >{{date('d-m-Y',strtotime($notice->created_at))}}</span>
+				@if(count($notice_board) > 0)
+					@foreach($notice_board as $notice)
+					<div class="mat-card" style="margin: 0;">
+						<div class="row">
+							<div class="notice" data-href="{{route('admin.notice-board.detail',['id'=>$notice->id])}}" style="width: 100%;">
+								<div class=" col-md-10">
+									<span style="display: block; font-size: 18px; padding-left: 0;"><!---->
+										@if($notice->important == 1)<i aria-hidden="true" class="fa fa-star ng-star-inserted" style="color:#FAC917;padding-right:5px; "></i>@endif{{$notice->title}}
+									</span>
 									<br>
+									<span  style="color: grey; font-size: 16px; padding-left: 24px;">{!! Str::limit($notice->content,200) !!}
+									</span>
+								</div>
+								<div class=" col-md-2">
+									<div align="center" style="color:#5363d6;font-size: 16px;">
+										<span >{{date('d-m-Y',strtotime($notice->created_at))}}</span>
+										<br>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-						<br>
-				@endforeach
+							<br>
+					@endforeach
+				@else
+						<div style="font-size: 25px; margin: 10px;">@lang('kidsnow.notice.not_found')</div>
+				@endif
             @else
-                    <div style="margin: 50px">
-                        <p style="color: red; font-weight: bold">@lang('kidsnow.notice.hint') :</p>
-                        <p>@lang('kidsnow.notice.hint_content')</p>
-                    </div>
+				<div style="margin: 50px">
+					<p style="color: red; font-weight: bold">@lang('kidsnow.notice.hint') :</p>
+					<p>@lang('kidsnow.notice.hint_content')</p>
+				</div>
 			@endif
 			</div>
 		</div>

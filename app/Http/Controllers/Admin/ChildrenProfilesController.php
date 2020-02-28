@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers\Admin;
-use App\Http\Requests\StoreChildrenNoParentRequest;
-use App\Http\Requests\StoreChildrenYesParentRequest;
+use App\Http\Requests\StoreChildrenNoExistParentRequest;
+use App\Http\Requests\StoreChildrenYesExistParentRequest;
 use App\models\ChildrenParent;
 use App\models\ChildrenProfiles;
 use App\models\ChildrenProgram;
@@ -31,10 +31,10 @@ class ChildrenProfilesController extends Controller
     public function store(Request $request)
     {
         if ($request->parent_exist == '0' || $request->parent_exist == null) {  //ko trung parent
-            $validate = new StoreChildrenNoParentRequest();
+            $validate = new StoreChildrenNoExistParentRequest();
             $this->validate($request, $validate->rules(), $validate->messages());
         }else{                                                                  //trung parent
-            $validate = new StoreChildrenYesParentRequest();
+            $validate = new StoreChildrenYesExistParentRequest();
             $this->validate($request, $validate->rules(), $validate->messages());
         }
 
@@ -251,6 +251,8 @@ class ChildrenProfilesController extends Controller
             'gender.required' => 'Giới tính không được để trống',
             'image.image' => 'Ảnh không hợp lệ',
             'birthday.required' => 'Ngày sinh không được để trống',
+            'birthday.before' => 'Ngày sinh quá lớn',
+            'birthday.after' => 'Ngày sinh quá nhỏ',
             'date_of_joining.required' => 'Ngày nhập học không được để trống',
             'first_name_parent.required' => 'Trường này không được để trống',
             'last_name_parent.required' => 'Trường này không được để trống',
@@ -276,6 +278,8 @@ class ChildrenProfilesController extends Controller
             'gender.required'               => 'Gender is required',
             'image.image'                   => 'Image is invalid',
             'birthday.required'             => 'Birthday is required',
+            'birthday.before'               => 'Birthday is invalid',
+            'birthday.after'                => 'Birthday is invalid',
             'date_of_joining.required'      => 'Date of Joining is required',
             'first_name_parent.required'    =>  'First Name is required',
             'last_name_parent.required'     =>  'Last Name is required',

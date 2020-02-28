@@ -11,8 +11,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <ul class="ul-td">
-                        <li class="level1"><a href="kids-now">Home</a></li>
-                        <li class="active1" style="" ><a href="kids-now/observations/list">OBSERVATIONS</a></li>
+                        <li class="level1"><a href="kids-now">@lang('kidsnow.home')</a></li>
+                        <li class="active1" style="" ><a href="kids-now/observations/list">@lang('kidsnow.observations')</a></li>
+                        <li class="active1 active-1" style="pointer-events: none" ><a href="">@lang('kidsnow.observations.view_observation')</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-6">
@@ -25,10 +26,7 @@
             <div class="row">
                 <div class="mat-card" style="width: 100%">
                     <div class="mat-content">
-                        <div style="font-weight: bold; font-size: 20px">
-                            @lang('kidsnow.observations.seminar'): {{$child_observation->month}} - {{$child_observation->year}}
-                        </div>
-                        <div style="font-weight: bold; font-size: 16px; color: red">
+                        <div style="font-weight: bold; font-size: 20px; color: red">
                             @lang('kidsnow.observations.observer') : {{$child_observation->observer}}
                         </div>
                         <button class="accordion accordion1 clearfix" type="button">
@@ -156,6 +154,13 @@
             </div>
         </form>
     </section>
+    <div class="comment">
+        <div class="button" style="text-align: center;">
+            <button class="button2" onclick="goBack()">
+                <span>@lang('kidsnow.cancel')</span>
+            </button>
+        </div>
+    </div>
     <div class="icon-plus">
         <a href="{{ route('admin.observations.getEdit',['id'=>$child_observation->id]) }}">
             <i class="fa fa-edit"></i>

@@ -11,9 +11,9 @@
 			<div class="row">
 				<div class="col-sm-6">
 					<ul class="ul-td">
-						<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="{{route('admin.home')}}">HOME</a></li>
-						<li _ngcontent-c16="" class="active1" style="" ><a href="{{route('admin.health.list')}}" _ngcontent-c16="">HEALTH</a></li>
-						<li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none" href=""><a _ngcontent-c16="">ADD HEALTH</a></li>
+						<li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
+						<li _ngcontent-c16="" class="active1" style="" ><a href="{{route('admin.health.list')}}" _ngcontent-c16="">@lang('kidsnow.health')</a></li>
+						<li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none" href=""><a _ngcontent-c16="">@lang('kidsnow.health.add_health')</a></li>
 					</ul>
 				</div>
 				<div class="col-sm-6">
@@ -188,10 +188,10 @@
 			</div>
 			<div class="button" style="text-align: center;">
 				<button type="reset" onclick="goBack()">
-					<span>CANCEL</span>
+					<span>@lang('kidsnow.cancel')</span>
 				</button>
 				<button class="button2" id="submit_button" type="submit">
-					<span>SAVE</span>
+					<span>@lang('kidsnow.save')</span>
 				</button>
 			</div>
 		</form>

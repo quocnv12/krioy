@@ -25,8 +25,8 @@
         <div class="row">
             <ul class="ul-td" style="width:100%">
                 <div class="col-md-12">
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">Home</a></li>
-                    <li _ngcontent-c16="" class="active-1" style="pointer-events: none"><a _ngcontent-c16="" href="">Observation</a></li>
+                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">@lang('kidsnow.home')</a></li>
+                    <li _ngcontent-c16="" class="active-1" style="pointer-events: none"><a _ngcontent-c16="" href="">@lang('kidsnow.observations.observation_types')</a></li>
                 </div>
             </ul>
         </div>
@@ -44,7 +44,7 @@
                     <div class="grid-title">
                         <div class="row">
                             <div class="col-md-6">
-                                <h4> List <span class="semi-bold">ObservationType</span></h4>
+                                <h4> <span class="semi-bold">@lang('kidsnow.observations.observation_types')</span></h4>
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,7 @@
                                     <th style="text-align:center;width:80%">{{$value->name}}</th>
                                     <th style="text-align:left;">
                                         <a href="{!! URL::route('admin.observationtype.getEdit',  $value->id ) !!}" title="Edit ObservationType" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
-                                        <a onclick="return confirm('Delete ObservationType ? Do you want continue !')"" title="Delete ObservationType " href="{{ route('admin.observationtype.getDelete',  $value->id) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                        <a onclick="return confirm('Delete ObservationType ? Do you want continue !')" title="Delete ObservationType " href="{{ route('admin.observationtype.getDelete',  $value->id) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
                                     </th>
 
                                 </tr>

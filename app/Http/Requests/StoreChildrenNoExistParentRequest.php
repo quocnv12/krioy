@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreChildrenNoParentRequest extends FormRequest
+class StoreChildrenNoExistParentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,9 +26,9 @@ class StoreChildrenNoParentRequest extends FormRequest
         return [
             'first_name' => 'required',
             'last_name' => 'required',
-            'birthday' => 'required|before:today|after:01-01-2000',
-            'gender' => 'required',
-            'date_of_joining' => 'required',
+            'birthday' => 'required|before:today|after:01-01-2010',
+            'gender' => 'nullable',
+            'date_of_joining' => 'nullable',
             'unique_id' => 'required|unique:children_profiles,unique_id',
             'address' => 'nullable',
             'allergies' => 'nullable',
@@ -54,10 +54,10 @@ class StoreChildrenNoParentRequest extends FormRequest
             return [
                 'first_name.required' => 'Trường này không được để trống',
                 'last_name.required' => 'Trường này không được để trống',
-                'gender.required' => 'Giới tính không được để trống',
                 'image.image' => 'Ảnh không hợp lệ',
                 'birthday.required' => 'Ngày sinh không được để trống',
-                'date_of_joining.required' => 'Ngày nhập học không được để trống',
+                'birthday.before' => 'Ngày sinh quá lớn',
+                'birthday.after' => 'Ngày sinh quá nhỏ',
                 'first_name_parent.required' => 'Trường này không được để trống',
                 'last_name_parent.required' => 'Trường này không được để trống',
                 'main_phone_parent.required' => 'Số điện thoại này không được để trống',

@@ -25,8 +25,8 @@
         <div class="row">
             <ul class="ul-td" style="width:100%">
                 <div class="col-md-12">
-                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="{{route('admin.home')}}">Home</a></li>
-                    <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="{{route('admin.health.getAdd')}}">HEALTH</a></li>
+                    <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
+                    <li _ngcontent-c16="" class="active1" style="pointer-events:none"><a _ngcontent-c16="" href="{{route('admin.health.getAdd')}}">@lang('kidsnow.health')</a></li>
                 </div>
             </ul>
         </div>

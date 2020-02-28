@@ -19,36 +19,34 @@ class ObservationsTableSeeder extends Seeder
                 'id'                =>  1,
                 'id_children'       =>  1,
                 'id_observations'   =>  '1,2,3',
-                'month'             =>  'Jan',
-                'year'              =>  2020,
             ],
             [
                 'id'                =>  2,
                 'id_children'       =>  2,
                 'id_observations'   =>  '1,2,3',
-                'month'             =>  'Jan',
-                'year'              =>  2020,
+                
+               
             ],
             [
                 'id'                =>  3,
                 'id_children'       =>  3,
                 'id_observations'   =>  '1,2,3',
-                'month'             =>  'Jan',
-                'year'              =>  2020,
+                
+               
             ],
             [
                 'id'                =>  4,
                 'id_children'       =>  4,
                 'id_observations'   =>  '1,2,3',
-                'month'             =>  'Jan',
-                'year'              =>  2020,
+                
+               
             ],
             [
                 'id'                =>  5,
                 'id_children'       =>  5,
                 'id_observations'   =>  '1,2,3',
-                'month'             =>  'Jan',
-                'year'              =>  2020,
+                
+               
             ],
         ]);
     }

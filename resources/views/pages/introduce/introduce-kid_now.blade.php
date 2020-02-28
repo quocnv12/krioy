@@ -25,9 +25,31 @@
 			html{
 				scroll-behavior: smooth;
 			}
+
+			.back-to-top {
+				width: 45px;
+				height: 45px;
+				background: #FF4081;
+				position: fixed;
+				cursor: pointer;
+				color: white;
+				bottom: 10%;
+				border-radius: 50%;
+				right: 20px;
+				transition: 2s;
+				z-index: 9999;
+			}
+			.back-to-top i {
+				font-size: 30px;
+				left: 13px;
+				top: 5px;
+				position: absolute;
+			}
 		</style>
 	</head>
 <body>
+<a name="top"></a>
+<a href="#top" class="back-to-top" id=bttop><i class="fa fa-angle-up"></i></a>
 	<section class="introduce">
 		<div class="introduce-1">
 			<nav class="navbar" style="z-index: 1">
@@ -96,7 +118,7 @@
 							<img src="images/iosIcon.svg" alt="">
 						</a>
 						<a href="#">
-							<img src="images/androidIcon.png" alt="">
+							<img src="images/androidIcon.png" alt="" >
 						</a>
 					</span>
 				</div>
@@ -173,7 +195,7 @@
 				<div class="col-md-3"></div>
 			</div>
 			<div align="center">
-				<a class="image-block@langcta" style="color: #FF4081;">
+				<a class="image-block@langcta" style="color: #FF4081; display: block; font-size: 20px">
 					<strong>@lang('kidsnow.download_for_free')</strong>
 				</a>
 				<span style="text-align: center;width: 320px;margin: 10px 5px;" class="slider">
@@ -181,7 +203,7 @@
 						<img src="images/iosIcon.svg" alt="">
 					</a>
 					<a href="#">
-						<img src="images/androidIcon.png" alt="">
+						<img src="images/androidIcon.png" alt="" style="margin-left: 15px">
 					</a>
 				</span>
 			</div>
@@ -362,12 +384,12 @@
 								<div class="pricePro">
 									<div class="priceImg" style=""> @lang('kidsnow.pro')
 										<br>
-										<strike style="color: black">$30</strike>
+										<strike style="color: black">$25</strike>
 										<br>
-										<span>$20</span>
+										<span>$10</span>
 									</div>
 									<div class="freeFeature">
-										<p class="freeFeature-p" style="background-color: #E78AB9;">@lang('kidsnow.free_features')</p>
+										<p class="freeFeature-p" style="background-color: #E78AB9;">@lang('kidsnow.lite_features')</p>
 										<p class="freeFeature-i">
 											<i class="fa fa-plus"></i>
 										</p>
@@ -487,19 +509,19 @@
 				<div class="hr"></div>
 			</div>
 			<div class="row our-team">
-				<div class="col-sm-4 col-md-4">
+				<div class="col-sm-4 col-md-4" style="margin: 15px 0;">
 					<img src="images/hai.png" alt="">
 					<p>Mr. Vũ Minh Hải</p>
 					<span style="color: cornflowerblue;font-size: 15px;">CEO</span>
 					<span style="font-size: 14px;color: #5363d6;">Talent Wins</span>
 				</div>
-				<div class="col-sm-4 col-md-4">
+				<div class="col-sm-4 col-md-4"  style="margin: 15px 0;">
 					<img src="images/hiep.png" alt="">
 					<p>Mr. Lê Anh Xuân</p>
 					<span style="color: cornflowerblue;font-size: 15px;">Co founder</span>
 					<span style="font-size: 14px;color: #5363d6;">Ts. Khoa Học Máy Tính</span>
 				</div>
-				<div class="col-sm-4 col-md-4">
+				<div class="col-sm-4 col-md-4"  style="margin: 15px 0;">
 					<img src="images/xuan.png" alt="">
 					<p>Mr. Nguyễn Quang Hiệp</p>
 					<span style="color: cornflowerblue;font-size: 15px;">Co founder</span>
@@ -521,7 +543,6 @@
 			</div>
 		</div>
 	</section>
-
 	<footer class="site-footer">
 		<div class="container">
 			<div class="row icon-lienket">
@@ -637,4 +658,18 @@
 				close_menu.children[0].style.display="inline-block";
 			}
 		}
+	</script>
+	<script type="text/javascript">
+		var backtotop = document.getElementById('bttop');
+		var win=$(window)
+
+		win.scroll(function(){
+			if(win.scrollTop()> 100){
+				bttop.style.display = "block";
+				bttop.style.transition = "2s";
+			}
+			else{
+				bttop.style.display = "none";
+			}
+		});
 	</script>

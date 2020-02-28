@@ -19,14 +19,14 @@
             <div class="row">
                 <div class="col-lg-10 col-md-10 col-sm-10">
                     <ul class="ul-td">
-                        <li  class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
-                        <li  class="active1" ><a href="{{route('admin.children.index')}}">CHILDREN</a></li>
-                        <li class="active1 active-1" style="pointer-events: none"><a href="">EDIT CHILDREN</a></li>
+                        <li  class="level1"><a href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
+                        <li  class="active1" ><a href="{{route('admin.children.index')}}">@lang('kidsnow.children_profiles')</a></li>
+                        <li class="active1 active-1" style="pointer-events: none"><a href="">@lang('kidsnow.children.edit_children')</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target="" style="display: flex; justify-content: flex-end; ">
                     <button class="notice" type="button" >
-                        <span><a href="{{route('admin.children.destroy',['id'=>$children_profiles->id])}}" style="color: inherit; " onclick="return deleteConfirm()">DELETE</a></span>
+                        <span><a href="{{route('admin.children.destroy',['id'=>$children_profiles->id])}}" style="color: inherit; " onclick="return deleteConfirm()">@lang('kidsnow.children.delete_children')</a></span>
                     </button>
                 </div>
             </div>
@@ -326,10 +326,10 @@
             <div class="comment">
                 <div class="button" style="text-align: center;">
                     <button type="reset" onclick="goBack()">
-                        <span>CANCEL</span>
+                        <span>@lang('kidsnow.cancel')</span>
                     </button>
                     <button class="button2" type="submit" id="submit_button">
-                        <span>SAVE</span>
+                        <span>@lang('kidsnow.save')</span>
                     </button>
                 </div>
             </div>

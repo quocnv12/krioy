@@ -19,9 +19,9 @@
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
 				<ul class="ul-td" style="width: 100%;">
-					<li class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
-					<li class="active1" ><a href="{{route('admin.children.index')}}">CHILDREN PROFILES</a></li>
-					<li class="active1 active-1" style="pointer-events:none;"><a href="">ADD CHILD</a></li>
+					<li class="level1"><a href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
+					<li class="active1" ><a href="{{route('admin.children.index')}}">@lang('kidsnow.children_profiles')</a></li>
+					<li class="active1 active-1" style="pointer-events:none;"><a href="">@lang('kidsnow.children.add_children')</a></li>
 				</ul>
 			</div>
 		</div>
@@ -351,10 +351,10 @@
 			<div class="comment">
 				<div class="button" style="text-align: center;">
 					<button type="reset" onclick="goBack()">
-						<span>CANCEL</span>
+						<span>@lang('kidsnow.cancel')</span>
 					</button>
 					<button class="button2" type="submit" id="submit_button">
-						<span>SAVE</span>
+						<span>@lang('kidsnow.save')</span>
 					</button>
 				</div>
 			</div>
