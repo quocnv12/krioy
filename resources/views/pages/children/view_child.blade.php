@@ -19,9 +19,9 @@
             <div class="row">
                 <div class="col-lg-10 col-md-10 col-sm-10">
                     <ul class="ul-td">
-                        <li  class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
-                        <li  class="active1" ><a href="{{route('admin.children.index')}}">CHILDREN</a></li>
-                        <li class="active1 active-1" style="pointer-events: none"><a href="">VIEW CHILDREN</a></li>
+                        <li  class="level1"><a href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
+                        <li  class="active1" ><a href="{{route('admin.children.index')}}">@lang('kidsnow.children_profiles')</a></li>
+                        <li class="active1 active-1" style="pointer-events: none"><a href="">@lang('kidsnow.children.view_children')</a></li>
                     </ul>
                 </div>
             </div>

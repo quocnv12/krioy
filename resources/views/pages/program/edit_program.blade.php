@@ -34,14 +34,14 @@
 			<div class="row">
                 <div class="col-lg-10 col-md-10 col-sm-10">
                     <ul class="ul-td">
-                        <li class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
-                        <li class="active1" ><a href="{{route('admin.program.index')}}">PROGRAM</a></li>
-                        <li class="active1 active-1" ><a href="">EDIT PROGRAM</a></li>
+                        <li class="level1"><a href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
+                        <li class="active1" ><a href="{{route('admin.program.index')}}">@lang('kidsnow.programs')</a></li>
+                        <li class="active1 active-1" ><a href="">@lang('kidsnow.program.edit_program')</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target="" style="display: flex; justify-content: flex-end;">
                     <button class="notice" type="button">
-                        <span><a href="{{route('admin.program.destroy',['id'=>$program->id])}}" style="color: inherit" onclick="return deleteConfirm()">DELETE</a></span>
+                        <span><a href="{{route('admin.program.destroy',['id'=>$program->id])}}" style="color: inherit" onclick="return deleteConfirm()">@lang('kidsnow.program.delete_program')</a></span>
 					</button>
 				</div>
 			</div>
@@ -96,7 +96,7 @@
 							</div>
 						</div>
 						<div class="col-md-1">
-							<a class="btn btn-success" style="float: right; margin: 0" href="{{route('admin.program.excel',['id'=>$program->id])}}">Export Excel</a>
+							<a class="btn btn-success" style="float: right; margin: 0" href="{{route('admin.program.excel',['id'=>$program->id])}}">@lang('kidsnow.program.excel')</a>
 						</div>
 					</div>
 					<div class="row">

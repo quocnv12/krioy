@@ -16,9 +16,9 @@
 			<div class="row">
 				<div class="col-lg-10 col-md-10 col-sm-10">
 					<ul class="ul-td">
-						<li class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
-						<li class="active1"><a href="{{route('admin.notice-board.index')}}">NOTICE BOARD</a></li>
-						<li class="active1 active-1" style="pointer-events:none;"><a href="">ADD NOTICE</a></li>
+						<li class="level1"><a href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
+						<li class="active1"><a href="{{route('admin.notice-board.index')}}">@lang('kidsnow.notice_board')</a></li>
+						<li class="active1 active-1" style="pointer-events:none;"><a href="">@lang('kidsnow.notice.add_notice')</a></li>
 					</ul>
 				</div>
 				{{--<div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target=".bd-example-modal-sm">--}}

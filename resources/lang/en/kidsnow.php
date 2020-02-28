@@ -201,6 +201,7 @@ return [
     'lite_content_sixth' => 'Multi-branch Management',
     'lite_content_seventh' => 'Parent Access Status',
     'pro' => 'PRO',
+    'lite_features'=>   'LITE Features',
     'pro_content_first' => 'Enquiry Management',
     'pro_content_second' => 'Fee Management',
     'pro_content_third' => 'Analytical Reports',
@@ -229,6 +230,10 @@ return [
 
     //Health
 
+        'health.add_health'=>'Add Health',
+        'health.edit_health'=>'Edit Health',
+        'health.view_health'=>'View Health',
+        'health.delete_health'=>'DELETE',
         //kids-now/health
         'health.list'=>'HEALTH LIST',
         'health.list.name'=>'NAME',
@@ -242,6 +247,7 @@ return [
         'health.hint'=>'Guide',
         'health.hint_content'=>'Click on a program tab in horizontal scroll bar to show all children in that program',
         'health.children'   =>  'Children',
+
 
         'health.select_health_update_type' => 'Select Health Update Type',
         'health.sick' => 'Sick',
@@ -270,8 +276,20 @@ return [
     // END  Health
 
 
+    //Observations Type
+
+    'observation_type.add_observation_type'=>'Add Observation Type',
+    'observation_type.edit_observation_type'=>'Edit Observation Type',
+    'observation_type.view_observation_type'=>'View Observation Type',
+    'observation_type.delete_observation_type'=>'DELETE',
+
 
     //Observations
+
+        'observations.add_observation'=>'Add Observation',
+        'observations.edit_observation'=>'Edit Observation',
+        'observations.view_observation'=>'View Observation',
+        'observations.delete_observation'=>'DELETE',
 
         //kids-now/observations/list
         'observations.observations' =>'Observations',
@@ -318,7 +336,10 @@ return [
 
 
     //Notice board:
-
+        'notice.add_notice'=>'Add Notice',
+        'notice.edit_notice'=>'Edit Notice',
+        'notice.view_notice'=>'View Notice',
+        'notice.delete_notice'=>'DELETE',
         // kids-now.notice-board
         'notice.search' => 'Search Notice...',//@lang('kidsnow.search_notice')
         'notice.hint' => 'Guide',//@lang('kidsnow.hint')
@@ -332,6 +353,7 @@ return [
         'notice.archive'=>'Archive',
         'notice.content'=>'Content',
         'notice.edit_button'=>'Click on \'Edit\' button to update details',
+        'notice.not_found'=>'No Notice Board was found',
     //END Notice board
 
 
@@ -354,6 +376,7 @@ return [
         'children.view_children'=>'View Children',
         'children.add_children' =>'Add Children',
         'children.edit_children' =>'Edit Children',
+        'children.delete_children' =>'DELETE',
         'children.first_name'=>'First Name',
         'children.last_name'=>'Last Name',
         'children.birthday'=>'Birthday',
@@ -450,6 +473,8 @@ return [
         'program.view_program'=>'View Program',
         'program.add_program'=>'Add Program',
         'program.edit_program'=>'Edit Program',
+        'program.delete_program'=>'DELETE',
+        'program.excel'=>'Export Excel',
         'program.program_name' => 'Program Name ',//@lang('kidsnow.program_name')
         'program.days' => 'Days',//@lang('kidsnow.days')
         'program.program_fee' => 'Program Fee',//@lang('kidsnow.program_fee')

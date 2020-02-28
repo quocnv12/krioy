@@ -27,8 +27,8 @@
 			<div class="row">
 				<div class="col-md-6">
 					<ul class="ul-td">
-						<li class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
-						<li class="active1" style="pointer-events:none"><a href="">NOTICE BOARD</a></li>
+						<li class="level1"><a href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
+						<li class="active1" style="pointer-events:none"><a href="">@lang('kidsnow.notice_board')</a></li>
 					</ul>
 				</div>
 				<div class="col-md-6" style="display: flex; justify-content: flex-end">
@@ -67,7 +67,7 @@
 										@if($notice->important == 1)<i aria-hidden="true" class="fa fa-star ng-star-inserted" style="color:#FAC917;padding-right:5px; "></i>@endif{{$notice->title}}
 									</span>
 									<br>
-									<span  style="color: grey; font-size: 16px; padding-left: 24px;"><!---->{{Str::limit($notice->content,200)}}
+									<span  style="color: grey; font-size: 16px; padding-left: 24px;">{!! Str::limit($notice->content,200) !!}
 									</span>
 								</div>
 								<div class=" col-md-2">
@@ -82,7 +82,7 @@
 							<br>
 					@endforeach
 				@else
-						<div style="font-size: 25px; margin: 10px;">No Notice Board was found</div>
+						<div style="font-size: 25px; margin: 10px;">@lang('kidsnow.notice.not_found')</div>
 				@endif
             @else
 				<div style="margin: 50px">

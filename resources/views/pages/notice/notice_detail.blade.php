@@ -9,9 +9,9 @@
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
 				<ul class="ul-td" style="width: 100%">
-					<li  class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
-					<li  class="active1"><a href="{{route('admin.notice-board.index')}}">NOTICE BOARD</a></li>
-					<li  class="active1 active-1" style="pointer-events:none;"><a href="">NOTICE DETAIL</a></li>
+					<li  class="level1"><a href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
+					<li  class="active1"><a href="{{route('admin.notice-board.index')}}">@lang('kidsnow.notice_board')</a></li>
+					<li  class="active1 active-1" style="pointer-events:none;"><a href="">@lang('kidsnow.notice.view_notice')</a></li>
 				</ul>
 			</div>
 		</div>

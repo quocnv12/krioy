@@ -16,14 +16,14 @@
             <div class="row">
                 <div class="col-lg-10 col-md-10 col-sm-10">
                     <ul class="ul-td">
-                        <li class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
-                        <li class="active1"><a href="{{route('admin.notice-board.index')}}">NOTICE BOARD</a></li>
-                        <li class="active1 active-1" style="pointer-events:none;"><a href="">EDIT NOTICE</a></li>
+                        <li class="level1"><a href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
+                        <li class="active1"><a href="{{route('admin.notice-board.index')}}">@lang('kidsnow.notice_board')</a></li>
+                        <li class="active1 active-1" style="pointer-events:none;"><a href="">@lang('kidsnow.notice.edit_notice')</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target=".bd-example-modal-sm" style="display: flex; justify-content: flex-end;">
                     <button class="notice" type="button" style="cursor: pointer">
-                        <span><a href="{{route('admin.notice-board.destroy',['id'=>$notice_board->id])}}" style="color: inherit; " onclick="return deleteConfirm()" >DELETE</a></span>
+                        <span><a href="{{route('admin.notice-board.destroy',['id'=>$notice_board->id])}}" style="color: inherit; " onclick="return deleteConfirm()" >@lang('kidsnow.notice.delete_notice')</a></span>
                     </button>
                 </div>
             </div>

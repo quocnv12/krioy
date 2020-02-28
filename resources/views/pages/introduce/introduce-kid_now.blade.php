@@ -118,7 +118,7 @@
 							<img src="images/iosIcon.svg" alt="">
 						</a>
 						<a href="#">
-							<img src="images/androidIcon.png" alt="">
+							<img src="images/androidIcon.png" alt="" >
 						</a>
 					</span>
 				</div>
@@ -195,7 +195,7 @@
 				<div class="col-md-3"></div>
 			</div>
 			<div align="center">
-				<a class="image-block@langcta" style="color: #FF4081;">
+				<a class="image-block@langcta" style="color: #FF4081; display: block; font-size: 20px">
 					<strong>@lang('kidsnow.download_for_free')</strong>
 				</a>
 				<span style="text-align: center;width: 320px;margin: 10px 5px;" class="slider">
@@ -203,7 +203,7 @@
 						<img src="images/iosIcon.svg" alt="">
 					</a>
 					<a href="#">
-						<img src="images/androidIcon.png" alt="">
+						<img src="images/androidIcon.png" alt="" style="margin-left: 15px">
 					</a>
 				</span>
 			</div>
@@ -389,7 +389,7 @@
 										<span>$10</span>
 									</div>
 									<div class="freeFeature">
-										<p class="freeFeature-p" style="background-color: #E78AB9;">@lang('kidsnow.free_features')</p>
+										<p class="freeFeature-p" style="background-color: #E78AB9;">@lang('kidsnow.lite_features')</p>
 										<p class="freeFeature-i">
 											<i class="fa fa-plus"></i>
 										</p>
@@ -509,19 +509,19 @@
 				<div class="hr"></div>
 			</div>
 			<div class="row our-team">
-				<div class="col-sm-4 col-md-4">
+				<div class="col-sm-4 col-md-4" style="margin: 15px 0;">
 					<img src="images/hai.png" alt="">
 					<p>Mr. Vũ Minh Hải</p>
 					<span style="color: cornflowerblue;font-size: 15px;">CEO</span>
 					<span style="font-size: 14px;color: #5363d6;">Talent Wins</span>
 				</div>
-				<div class="col-sm-4 col-md-4">
+				<div class="col-sm-4 col-md-4"  style="margin: 15px 0;">
 					<img src="images/hiep.png" alt="">
 					<p>Mr. Lê Anh Xuân</p>
 					<span style="color: cornflowerblue;font-size: 15px;">Co founder</span>
 					<span style="font-size: 14px;color: #5363d6;">Ts. Khoa Học Máy Tính</span>
 				</div>
-				<div class="col-sm-4 col-md-4">
+				<div class="col-sm-4 col-md-4"  style="margin: 15px 0;">
 					<img src="images/xuan.png" alt="">
 					<p>Mr. Nguyễn Quang Hiệp</p>
 					<span style="color: cornflowerblue;font-size: 15px;">Co founder</span>

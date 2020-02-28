@@ -12,8 +12,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
-use App\Http\Requests\StoreChildrenNoParentRequest;
-use App\Http\Requests\StoreChildrenYesParentRequest;
+use App\Http\Requests\StoreChildrenNoExistParentRequest;
+use App\Http\Requests\StoreChildrenYesExistParentRequest;
 use Intervention\Image\Facades\Image;
 
 class ChildrenProfilesController extends Controller
@@ -40,10 +40,10 @@ class ChildrenProfilesController extends Controller
     public function store(Request $request)
     {
         if ($request->parent_exist == '0' || $request->parent_exist == null) {      //ko trung parent
-            $validate = new StoreChildrenNoParentRequest();
+            $validate = new StoreChildrenNoExistParentRequest();
             $validator = Validator::make($request->all(),$validate->rules(),$validate->messages());
         }else{                                                                              //trung parent
-            $validate = new StoreChildrenYesParentRequest();
+            $validate = new StoreChildrenYesExistParentRequest();
             $validator = Validator::make($request->all(), $validate->rules(),$validate->messages());
         }
 
