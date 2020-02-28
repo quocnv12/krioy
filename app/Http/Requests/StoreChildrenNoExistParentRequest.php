@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreChildrenYesParentRequest extends FormRequest
+class StoreChildrenNoExistParentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -39,9 +39,9 @@ class StoreChildrenYesParentRequest extends FormRequest
 
             'first_name_parent' => 'required',
             'last_name_parent' => 'required',
-            'main_phone_parent' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10',
-            'extra_phone_parent' => 'nullable|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10',
-            'email_parent' => 'required|email',
+            'main_phone_parent' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:parent_profiles,main_phone',
+            'extra_phone_parent' => 'nullable|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:parent_profiles,extra_phone|different:main_phone_parent',
+            'email_parent' => 'required|email|unique:parent_profiles,email',
             'gender_parent' => 'nullable',
             'note_parent' => 'nullable',
             'image_parent' => 'image|nullable',
@@ -61,6 +61,8 @@ class StoreChildrenYesParentRequest extends FormRequest
                 'first_name_parent.required' => 'Trường này không được để trống',
                 'last_name_parent.required' => 'Trường này không được để trống',
                 'main_phone_parent.required' => 'Số điện thoại này không được để trống',
+                'main_phone_parent.unique' => 'Số điện thoại đã tồn tại. Vui lòng thử số khác',
+                'extra_phone_parent.unique' => 'Số điện thoại đã tồn tại. Vui lòng thử số khác',
                 'main_phone_parent.size' => 'Số điện thoại phải bao gồm 10 chữ số',
                 'extra_phone_parent.size' => 'Số điện thoại phải bao gồm 10 chữ số',
                 'main_phone_parent.regex' => 'Số điện thoại không hợp lệ',
@@ -68,6 +70,7 @@ class StoreChildrenYesParentRequest extends FormRequest
                 'extra_phone_parent.different' => 'Số điện thoại dự phòng phải khác với số điện thoại chính',
                 'email_parent.required' => 'Email không được để trống',
                 'email_parent.email' => 'Email không hợp lệ',
+                'email_parent.unique' => 'Email đã tồn tại. Vui lòng thử email khác',
                 'unique_id.unique' => 'Mã ID đã tồn tại',
                 'unique_id.required' => 'Mã ID không được để trống',
                 'image_parent.image' => 'Ảnh không hợp lệ',
@@ -83,6 +86,8 @@ class StoreChildrenYesParentRequest extends FormRequest
                 'first_name_parent.required' => 'First Name is required',
                 'last_name_parent.required' => 'Last Name is required',
                 'main_phone_parent.required' => 'The phone number is required',
+                'main_phone_parent.unique' => 'This phone number has been taken',
+                'extra_phone_parent.unique' => 'This phone number has been taken',
                 'main_phone_parent.size' => 'The phone number must has 10 digits',
                 'extra_phone_parent.size' => 'The phone number must has 10 digits',
                 'main_phone_parent.regex' => 'The main phone number is invalid',
@@ -90,6 +95,7 @@ class StoreChildrenYesParentRequest extends FormRequest
                 'extra_phone_parent.different' => 'This phone must different from the main phone',
                 'email_parent.required' => 'Email is required',
                 'email_parent.email' => 'Email is invalid',
+                'email_parent.unique' => 'This email has already been taken',
                 'unique_id.unique' => 'ID is exist',
                 'unique_id.required' => 'Unique ID is required',
                 'image_parent.image' => 'Image is invalid',

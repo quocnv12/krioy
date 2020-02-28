@@ -176,8 +176,9 @@ return [
     'lite_content_fourth' => 'Trao Đổi Với Phụ Huynh',
     'lite_content_fifth' => 'Hồ Sơ Nhà Trường',
     'lite_content_sixth' => 'Quản lý Nhiều Chi Nhánh',
-    'lite_content_seventh' => 'Trạng Thái Truy Cập Của Phụ Huynh',
+    'lite_content_seventh' => 'Trạng Thái Truy Cập Phụ Huynh',
     'pro' => 'NÂNG CAO',
+    'lite_features'=>   'Gói CƠ BẢN',
     'pro_content_first' => 'Quản Lý Thống Kê',
     'pro_content_second' => 'Quản Lý Học Phí',
     'pro_content_third' => 'Báo Cáo Phân Tích',
@@ -204,6 +205,10 @@ return [
 
 
     //Health
+        'health.add_health'=>'Thêm',
+        'health.edit_health'=>'Sửa',
+        'health.view_health'=>'Xem',
+        'health.delete_health'=>'XÓA',
 
         //kids-now/health
         'health.list'=>'DANH SÁCH SỨC KHỎE',
@@ -262,9 +267,11 @@ return [
         'children.fullname'=>'Họ Tên',
 
         // kids-now/children/add | kids-now/children/edit | kids-now/children/view
-        'chidlren.view_children'=>'Xem Hồ Sơ',
+        'children.view_children'=>'Xem Hồ Sơ',
         'children.add_children' =>'Thêm Hồ Sơ',
         'children.edit_children' =>'Sửa Hồ Sơ',
+        'children.delete_children' =>'XÓA HỒ SƠ',
+
         'children.first_name'=>'Họ',
         'children.last_name'=>'Tên',
         'children.birthday'=>'Ngày Sinh',
@@ -355,9 +362,12 @@ return [
 
 
         //kids-now/program/add | kids-now/program/edit | kids-now/program/view
-        'program.view_program'=>'Xem Lớp Học',
-        'program.add_program'=>'Thêm Lớp Học',
-        'program.edit_program'=>'Sửa Lớp Học',
+        'program.view_program'=>'Xem',
+        'program.add_program'=>'Thêm',
+        'program.edit_program'=>'Sửa',
+        'program.delete_program'=>'XÓA',
+        'program.excel'=>'Xuất File Excel',
+
         'program.program_name' => 'Tên Lớp Học',//@lang('kidsnow.program_name')
         'program.days' => 'Ngày Học',//@lang('kidsnow.days')
         'program.program_fee' => 'Học Phí',//@lang('kidsnow.program_fee')
@@ -391,6 +401,10 @@ return [
 
     //Notice board:
 
+        'notice.add_notice'=>'Thêm',
+        'notice.edit_notice'=>'Sửa',
+        'notice.view_notice'=>'Xem',
+        'notice.delete_notice'=>'XÓA',
         // kids-now.notice-board
         'notice.search' => 'Tìm Kiếm Thông Báo...',//@lang('kidsnow.search_notice')
         'notice.hint' => 'Hướng Dẫn',//@lang('kidsnow.hint')
@@ -404,10 +418,22 @@ return [
         'notice.archive'=>'Đã Hoàn Thành',
         'notice.content'=>'Nội Dung',
         'notice.edit_button'=>'Nhấn vào nút Sửa để cập nhật thông báo',
+        'notice.not_found'=>'Không có thông báo',
     //END Notice board
 
 
+    //Observations Type
+    'observation_type.add_observation_type'=>'Thêm',
+    'observation_type.edit_observation_type'=>'Sửa',
+    'observation_type.view_observation_type'=>'Xem',
+    'observation_type.delete_observation_type'=>'XÓA',
+
     //Observations
+
+        'observations.add_observation'=>'Thêm',
+        'observations.edit_observation'=>'Sửa',
+        'observations.view_observation'=>'Xem',
+        'observations.delete_observation'=>'XÓA',
 
         //kids-now/observations/list
         'observations.observations' =>'Nhận Xét & Đánh Giá',

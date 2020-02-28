@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers\Admin;
-use App\Http\Requests\StoreChildrenNoParentRequest;
-use App\Http\Requests\StoreChildrenYesParentRequest;
+use App\Http\Requests\StoreChildrenNoExistParentRequest;
+use App\Http\Requests\StoreChildrenYesExistParentRequest;
 use App\models\ChildrenParent;
 use App\models\ChildrenProfiles;
 use App\models\ChildrenProgram;
@@ -31,10 +31,10 @@ class ChildrenProfilesController extends Controller
     public function store(Request $request)
     {
         if ($request->parent_exist == '0' || $request->parent_exist == null) {  //ko trung parent
-            $validate = new StoreChildrenNoParentRequest();
+            $validate = new StoreChildrenNoExistParentRequest();
             $this->validate($request, $validate->rules(), $validate->messages());
         }else{                                                                  //trung parent
-            $validate = new StoreChildrenYesParentRequest();
+            $validate = new StoreChildrenYesExistParentRequest();
             $this->validate($request, $validate->rules(), $validate->messages());
         }
 

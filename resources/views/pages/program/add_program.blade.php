@@ -33,9 +33,9 @@
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
 				<ul class="ul-td" style="width: 100%">
-					<li class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
-					<li class="active1" ><a href="{{route('admin.program.index')}}">PROGRAM</a></li>
-					<li class="active1 active-1" style="pointer-events:none;"><a href="">ADD PROGRAM</a></li>
+					<li class="level1"><a href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
+					<li class="active1" ><a href="{{route('admin.program.index')}}">@lang('kidsnow.programs')</a></li>
+					<li class="active1 active-1" style="pointer-events:none;"><a href="">@lang('kidsnow.program.add_program')</a></li>
 				</ul>
 			</div>
 		</div>

@@ -11,8 +11,9 @@
             <div class="row">
                 <div class="col-sm-6">
                     <ul class="ul-td">
-                        <li class="level1"><a href="kids-now">Home</a></li>
-                        <li class="active1" style="" ><a href="kids-now/observations/list">OBSERVATIONS</a></li>
+                        <li class="level1"><a href="kids-now">@lang('kidsnow.home')</a></li>
+                        <li class="active1" style="" ><a href="kids-now/observations/list">@lang('kidsnow.observations')</a></li>
+                        <li class="active1 active-1" style="pointer-events: none" ><a href="">@lang('kidsnow.observations.view_observation')</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-6">

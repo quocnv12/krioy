@@ -24,8 +24,8 @@
     <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
         <div class="row">
             <ul class="ul-td" style="width:100%">
-                <li  class="level1"><a href="kids-now">Home</a></li>
-                <li  class="active-1" style="pointer-events: none"><a href="">Observations</a></li>
+                <li  class="level1"><a href="kids-now">@lang('kidsnow.home')</a></li>
+                <li  class="active-1" style="pointer-events: none"><a href="">@lang('kidsnow.observations')</a></li>
             </ul>
         </div>
     </div>

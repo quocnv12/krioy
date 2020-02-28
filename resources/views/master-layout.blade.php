@@ -84,7 +84,9 @@
     @endif --}}
     @yield('js')
     {{--Tiny MCE--}}
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    {{--<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>--}}
+<script src="https://cdn.tiny.cloud/1/j326pk4u71odw7cg7angineo68my440vywpa8xrhn6lkm0yw/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
     <script>tinymce.init({
         selector:'textarea',
         plugins: "link table contextmenu ",

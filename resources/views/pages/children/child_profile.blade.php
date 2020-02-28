@@ -28,8 +28,8 @@
 			<div class="row">
 				<div class="col-md-6">
 					<ul class="ul-td">
-						<li class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
-						<li class="active1" ><a href="{{route('admin.children.index')}}">CHILDREN PROFILES</a></li>
+						<li class="level1"><a href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
+						<li class="active1" ><a href="{{route('admin.children.index')}}">@lang('kidsnow.children_profiles')</a></li>
 					</ul>
 				</div>
 				<div class="col-md-6">
