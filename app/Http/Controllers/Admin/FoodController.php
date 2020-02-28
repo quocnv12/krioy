@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
 use App\Http\Requests\food\{MealTypeRequest,EditMealTypeRequest,QuantityRequest,FoodNameRequest,EditFoodNameRequest};
+use App\Http\Requests\food\EditQuantityRequest;
 class FoodController extends Controller
 {
 
