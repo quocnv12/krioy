@@ -24,9 +24,10 @@ class EditQuantityRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:quantity_food,name,'.$this.'id'
+            'name' => 'required|unique:quantity_food,name,'.$this->id_qty.'id'
         ];
     }
+
     public function messages()
     {
         if (\Lang::locale() == 'en') {
@@ -42,4 +43,6 @@ class EditQuantityRequest extends FormRequest
             ];
         }
     }
+
+    
 }
