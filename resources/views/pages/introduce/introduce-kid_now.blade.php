@@ -286,11 +286,11 @@
 					<div class="mixedSlider">
 		                <div class="MS-content">
 		                    <div class="item-customer">
-		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
+		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> KIDS NOW là 1 ứng dụng rất tuyệt vời. Nó giúp tôi quản lý các bé một cách toàn diện, làm tôi cảm thấy an tâm hơn khi gửi bé ở trường. Hơn nữa từng thông tin của bé được cập nhật nhanh chóng và chính xác. Tôi cảm thấy rất hài lòng.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Nguyen Thu Ha</p>
-		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
+		                    	<p class="item-a">nguyễn Thu Hà</p>
+		                    	<p class="item-b">Phụ Huynh</p>
 		                    </div>
 		                </div>
 		            </div>
@@ -299,11 +299,11 @@
 					<div class="mixedSlider">
 		                <div class="MS-content">
 		                    <div class="item-customer">
-		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
+		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i>Phải công nhận một điều rằng KIDS NOW giờ đây đã trở thành 1 người bạn đáng tin cậy của mình. Từ khi có KIDS NOW mình cảm thấy việc quan sát và nắm bắt tình hình của bé trở nên rất dễ dàng. Cảm ơn KIDS NOW rất nhiều.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Nguyen Khanh Linh</p>
-		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
+		                    	<p class="item-a">Nguyễn Khánh Linh</p>
+		                    	<p class="item-b">Phụ Huynh</p>
 		                    </div>
 		                </div>
 		            </div>
@@ -312,11 +312,11 @@
 					<div class="mixedSlider">
 		                <div class="MS-content">
 		                    <div class="item-customer">
-		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
+		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i>KIDS NOW đã hỗ trợ tôi rất nhiều trong việc quản lý các con, chăm lo cho các con trong từng bữa ăn giấc ngủ. Không những thế việc trao đổi với phụ huynh cũng rất nhanh chóng thông qua ứng dụng này.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Tran Trong Hieu</p>
-		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
+		                    	<p class="item-a">Trần Trọng Hiếu</p>
+		                    	<p class="item-b">Giáo Viên</p>
 		                    </div>
 		                </div>
 		            </div>

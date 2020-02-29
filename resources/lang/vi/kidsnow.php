@@ -359,6 +359,7 @@ return [
         'program.friday'=>'T6',
         'program.saturday'=>'T7',
         'program.sunday'=>'CN',
+        'program.delete_without_asking'=>'Chế Độ Xóa Liên Tục',
 
 
         //kids-now/program/add | kids-now/program/edit | kids-now/program/view

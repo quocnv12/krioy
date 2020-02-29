@@ -49,7 +49,7 @@
 							<div class="row">
 								<div class="col-md-5 input_box">
 									<span class="input_box_span_active">@lang('kidsnow.program.program_fee')</span>
-									<input type="text" name="program_fee" id="program_fee" placeholder="@lang('kidsnow.program.program_fee')" value="{{($program->program_fee)}}">
+									<input type="text" name="program_fee" id="program_fee" placeholder="@lang('kidsnow.program.program_fee')" value="{{number_format($program->program_fee, 2,',',' ')}}">
 									@if ($errors->has('program_fee'))
 										<div class="text text-danger">
 											{{ $errors->first('program_fee') }}

@@ -104,7 +104,7 @@
 							<div class="row">
 								<div class="col-md-5 input_box">
 									<span class="input_box_span_active">@lang('kidsnow.program.program_fee')</span>
-									<input type="text" name="program_fee" id="program_fee" placeholder="@lang('kidsnow.program.program_fee')" value="{{($program->program_fee)}}">
+									<input type="number" name="program_fee" id="program_fee" placeholder="@lang('kidsnow.program.program_fee')" value="{{($program->program_fee)}}">
 									@if ($errors->has('program_fee'))
 										<div class="text text-danger">
 											{{ $errors->first('program_fee') }}
@@ -181,7 +181,7 @@
 									<select name="from_year">
 										<option value="" selected >@lang('kidsnow.program.from_year')</option>
 										@for($i = 2015; $i <= 2040; $i ++)
-											<option @if($program->from_year == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
+											<option @if(old('from_year') == $i || $program->from_year == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
 										@endfor
 									</select>
 									@if ($errors->has('from_year'))
@@ -209,7 +209,7 @@
 									<select name="to_year">
 										<option value="" selected >@lang('kidsnow.program.to_year')</option>
 										@for($i = 2015; $i <= 2040; $i ++)
-											<option @if($program->to_year == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
+											<option @if(old('to_year') == $i || $program->to_year == $i) selected="selected" @endif value="{{$i}}">{{$i}}</option>
 										@endfor
 									</select>
 									@if ($errors->has('to_year'))
@@ -263,6 +263,22 @@
 			<div style="margin: 10px; text-align: center">
 				<span style="color: red; font-weight: bold">@lang('kidsnow.program.hint') :</span>
 				<span>@lang('kidsnow.program.hint_content')</span>
+			</div>
+			<div class="row">
+				<div class="col-md-9"></div>
+				<div class=" col-md-3">
+					<div class="row" style="float: right">
+						<div class="col-md-2">
+							<label class="label-checkbox">
+								<input type="checkbox" id="delete_without_asking">
+								<span class="checkmark" style="top: 0 !important;"></span>
+							</label>
+						</div>
+						<div class="col-md-10" >
+							<p>@lang('kidsnow.program.delete_without_asking')</p>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="mat-card">
 				<div class="mat-content">
@@ -468,14 +484,9 @@
 				// Specify validation rules
 				rules: {
 					program_name: "required",
-					program_fee: {
-						"number": true,
-						"min": 0
-					},
 				},
 				messages: {
-					program_name: "Tên Lớp Học không được để trống",
-					program_fee: "Giá trị không hợp lệ",
+					program_name: "Tên lớp học không được để trống",
 				},
 				submitHandler: function(form) {
 					form.submit()
@@ -497,24 +508,38 @@
     </script>
 	<script >
 		$('.delete-child').click(function() {
-			if(confirm('Xác nhận xóa trẻ (Delete this children) !') == false){
-				return;
-			}else{
+			if ($('#delete_without_asking:checkbox:checked').length > 0){
 				$(this).parent('div').parent('div').parent('div').remove();
+			}else {
+				if(confirm('Xác nhận xóa trẻ (Delete this children) !') == false){
+					return;
+				}else{
+					$(this).parent('div').parent('div').parent('div').remove();
+				}
 			}
 		})
 
 		$('.delete-staff').click(function() {
-			if(confirm('Xác nhận xóa nhận viên (Delete this staff) !') == false){
-				return;
-			}else {
+			if ($('#delete_without_asking:checkbox:checked').length > 0){
 				$(this).parent('div').parent('div').parent('div').remove();
+			}else {
+				if(confirm('Xác nhận xóa nhận viên (Delete this staff) !') == false){
+					return;
+				}else {
+					$(this).parent('div').parent('div').parent('div').remove();
+				}
 			}
 		})
 
         function deleteConfirm() {
             return confirm("Xác nhận xóa lớp học (Delete this program) ?");
         }
+
+        $('#delete_without_asking').click(function () {
+			if ($('#delete_without_asking:checkbox:checked').length > 0) {
+				alert('Bạn đang chọn chế độ Xóa Liên Tục (Choosing keep delete without asking) !')
+			}
+		})
 	</script>
     <script type="text/javascript">
 		$('.input_box input').focus(function(event) {
