@@ -218,7 +218,7 @@ return [
     'our_happy_customers' => 'Our Happy Customers',
     'and_many_more' => 'And many more...',
     'about_us' => 'About Us',
-    'about_us_content' => 'Kids Now ipsum dolor sit amet, consectetur adipisicing elit. Delectus possimus aut eaque adipisci, accusamus illum exercitationem labore sequi tenetur vitae, est ipsum. Cupiditate quas laboriosam, autem cumque sint quia cum odit eligendi dolore, consequatur nobis rem ipsa dolorem non, eum eius earum quo voluptate repellendus vitae maxime. Beatae natus atque praesentium soluta ut voluptate, cupiditate ipsum tempora iste distinctio, sit corrupti inventore ea suscipit, odit modi illo omnis animi quae.',
+    'about_us_content' => 'KIDS NOW is a perfect tool to enhance relationship between school and parent, make the management become much more easy than ever. Friendly and convenient UI guarantee one of the best interaction and manipulation while users using this app. Being constructed by professional and enthusiastic members, we are very grateful to become the connection between parents and the development of your children, play an important role in the mature of those lovely kids.',
     'our_team' => 'Our Team',
     'get_in_touch' => 'Get in Touch',
     'privacy' => 'Privacy Policy',
@@ -467,7 +467,7 @@ return [
         'program.friday'=>'F',
         'program.saturday'=>'S',
         'program.sunday'=>'S',
-
+        'program.delete_without_asking'=>'Keep Delete Without Asking',
 
         //kids-now/program/add | kids-now/program/edit | kids-now/program/view
         'program.view_program'=>'View Program',

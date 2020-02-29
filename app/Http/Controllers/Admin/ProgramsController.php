@@ -40,6 +40,27 @@ class ProgramsController extends Controller
 
     public function store(Request $request)
     {
+        $validation_vi = [
+            'program_name.unique'   =>  'Tên lớp học đã tồn tại',
+            'program_fee.numeric'   =>  'Học phí không hợp lệ',
+            'program_fee.min'       =>  'Học phí không được nhỏ hơn 0',
+            'to_year.gte'           =>  'Giá trị trường này quá bé'
+        ];
+
+        $validation_en = [
+            'program_name.unique'   =>  'Program name has existed',
+            'program_fee.numeric'   =>  'Program fee is invalid',
+            'program_fee.min'       =>  'Program fee is invalid',
+            'to_year.gte'           =>  'This year must be greater'
+        ];
+
+        $this->validate($request,
+            [
+                'program_name'  =>  'unique:programs,program_name',
+                'program_fee'   =>  'numeric|min:0|nullable',
+                'to_year'       =>  'gte:from_year'
+            ],app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
+
         $programs = Programs::create($request->all());
         $programs->schedule = $request->schedule;
         $programs->save();
@@ -159,6 +180,32 @@ class ProgramsController extends Controller
 
     public function update(Request $request, $id)
     {
+        $validation_vi = [
+            'program_name.unique'   =>  'Tên lớp học đã tồn tại',
+            'program_fee.numeric'   =>  'Học phí không hợp lệ',
+            'program_fee.min'       =>  'Học phí không được nhỏ hơn 0',
+            'to_year.gte'           =>  'Giá trị trường này quá bé'
+        ];
+
+        $validation_en = [
+            'program_name.unique'   =>  'Program name has existed',
+            'program_fee.numeric'   =>  'Program fee is invalid',
+            'program_fee.min'       =>  'Program fee is invalid',
+            'to_year.gte'           =>  'This year must be greater'
+        ];
+
+        $this->validate($request,
+            [
+                'program_name'  =>  'nullable|unique:programs,program_name,'.$id.'',
+                'program_fee'   =>  'numeric|min:0|nullable',
+                'to_year'       =>  'gte:from_year'
+            ],app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
+
+        $this->validate($request,
+            [
+                'program_name'  =>  'unique:programs,program_name,'.$id.''
+            ], app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
+
         $programs = Programs::find($id);
         $programs->update($request->all());
 
@@ -247,16 +294,6 @@ class ProgramsController extends Controller
                                     </div>
                                 </div>
                             </div>
-                            
-                            <script>
-                                $(\'.delete-child\').click(function() {
-                                if(confirm(\'Xác nhận xóa trẻ (Delete this children) !\') == false){
-                                    return;
-                                }else{
-                                  $(this).parent(\'div\').parent(\'div\').parent(\'div\').remove();
-                                  }
-                                })
-                            </script>
                             ';
             }
             return Response($output);
@@ -281,16 +318,6 @@ class ProgramsController extends Controller
                                         </div>
                                     </div>
                                 </div>
-                                
-                                <script >
-                                    $(\'.delete-staff\').click(function() {
-                                    if(confirm(\'Xác nhận xóa nhận viên (Delete this staff) !\') == false){
-                                        return;
-                                    }else {
-                                      $(this).parent(\'div\').parent(\'div\').parent(\'div\').remove();
-                                      }
-                                    })
-                                </script>
                                 ';
             }
             return Response($output);
