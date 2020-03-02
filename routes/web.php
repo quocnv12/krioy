@@ -296,3 +296,7 @@ Route::get('locale/{locale}', function($locale){
     Session::put('locale', $locale);
     return redirect()->back();
 });
+
+Route::fallback(function () {
+    return view('pages.not-found.notfound');
+});

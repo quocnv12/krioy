@@ -40,6 +40,8 @@
         .line .item a{
             text-align: center;
         }
+
+        .tox-notifications-container {display: none !important;}
     </style>
     <!-- JS libs --> 
     <script type="text/javascript" src="libs/jquery-3.4.1.min.js"></script>
@@ -88,7 +90,7 @@
 
     <script>tinymce.init({
         selector:'textarea',
-        plugins: "link table contextmenu ",
+        plugins: "link table contextmenu media",
         link_context_toolbar: true,
         link_assume_external_targets: true,
         link_title: false,
