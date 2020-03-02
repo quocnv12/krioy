@@ -189,7 +189,9 @@ class ObservationController extends Controller
     public function deleteClipboard($id,$name)
     {
         $child_observation = ObservationModel::find($id);
-
+        if(! $child_observation){
+            return view('pages.not-found.notfound');
+        }
         //chuoi cu
         $old_array = explode('/*endfile*/',$child_observation->clip_board);
 

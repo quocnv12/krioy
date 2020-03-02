@@ -90,7 +90,7 @@ return [
     'menu_login' => 'Log In', //@lang('kidsnow.menu_login')
     'menu_logout' => 'Log Out', //@lang('kidsnow.menu_logout')
     'menu_home' => 'Kidsnow Home', //@lang('kidsnow.menu_home')
-    'cancel' => 'CANCEL', //@lang('kidsnow.cancel')
+    'cancel' => 'BACK', //@lang('kidsnow.cancel')
     'send' => 'SEND', //@lang('kidsnow.send')
     'save' => 'SAVE', //@lang('kidsnow.save')
     'edit' => 'EDIT', //@lang('kidsnow.edit')
@@ -601,6 +601,6 @@ return [
     //-----------login-------
     
 
-    'noscript'=>'Javascript is required to run this pages.  Please turn it on or ask help from techsupport if you don\'t know how to enable it.'
-
+    'noscript'=>'Javascript is required to run this pages.  Please turn it on or ask help from techsupport if you don\'t know how to enable it.',
+    '404'=>'Sorry ! The page you\'re looking for cannot be found !'
 ];

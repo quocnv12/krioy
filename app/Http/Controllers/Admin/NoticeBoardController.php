@@ -118,6 +118,9 @@ class NoticeBoardController extends Controller
     public function deleteClipboard($id,$name)
     {
         $notice_board = NoticeBoard::find($id);
+        if (! $notice_board){
+            return view('pages.not-found.notfound');
+        }
         //chuoi cu
         $old_array = explode('/*endfile*/',$notice_board->clip_board);
 

@@ -13,7 +13,7 @@ return [
     'menu_login' => 'Đăng nhập',
     'menu_logout' => 'Đăng xuất',
     'menu_home' => 'Trang chủ KIDS NOW',
-    'cancel' => 'THOÁT',
+    'cancel' => 'QUAY LẠI',
     'send' => 'GỬI',
     'save' => 'LƯU',
     'enter_details_here' => 'Nhập chi tiết tại đây *',
@@ -590,7 +590,8 @@ return [
 
 
 
-    'noscript'=>'Một vài tính năng có thể không hoạt động do Javascript đã bị tắt. Vui lòng bật Javascript hoặc nhờ bộ phận IT hỗ trợ.'
+    'noscript'=>'Một vài tính năng có thể không hoạt động do Javascript đã bị tắt. Vui lòng bật Javascript hoặc nhờ bộ phận IT hỗ trợ.',
+    '404'=>'Không Tìm Thấy Trang Bạn Yêu Cầu !'
 
     
 ];
