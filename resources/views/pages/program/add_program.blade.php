@@ -88,7 +88,7 @@
 						<div class="row">
 							<div class="col-md-5 input_box">
 								<span>@lang('kidsnow.program.program_fee')</span>
-								<input type="text" min="0" name="program_fee" id="program_fee" placeholder="@lang('kidsnow.program.program_fee')" value="{{old('program_fee')}}">
+								<input type="number" name="program_fee" id="program_fee" placeholder="@lang('kidsnow.program.program_fee')" value="{{old('program_fee')}}">
                                 @if ($errors->has('program_fee'))
                                     <div class="text text-danger">
                                         {{ $errors->first('program_fee') }}
@@ -164,7 +164,7 @@
 								<span>@lang('kidsnow.program.from_year') </span>
 								<select name="from_year">
                                     <option value="" selected >@lang('kidsnow.program.from_year')</option>
-									@for($i = 2010; $i <= 2040; $i ++)
+									@for($i = 2015; $i <= 2030; $i ++)
 										<option @if(old('from_year') == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
 									@endfor
 								</select>
@@ -192,7 +192,7 @@
 								<span>@lang('kidsnow.program.to_year') </span>
 								<select name="to_year">
                                     <option value="" selected >@lang('kidsnow.program.to_year')</option>
-									@for($i = 2010; $i <= 2040; $i ++)
+									@for($i = 2015; $i <= 2030; $i ++)
 										<option @if(old('to_year') == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
 									@endfor
 								</select>
@@ -244,9 +244,25 @@
 				</div>
 			</div>
 		</div>
-			<div style="margin: 0px; text-align: center" id="hint">
+			<div style="margin: 10px; text-align: center" id="hint">
 				<span style="color: red; font-weight: bold">@lang('kidsnow.program.hint') : </span>
-				@lang('kidsnow.program.hint_content')
+				<span>@lang('kidsnow.program.hint_content')</span>
+			</div>
+			<div class="row">
+				<div class="col-md-9"></div>
+				<div class=" col-md-3">
+					<div class="row" style="float: right">
+						<div class="col-md-2">
+							<label class="label-checkbox">
+								<input type="checkbox" id="delete_without_asking">
+								<span class="checkmark" style="top: 0 !important;"></span>
+							</label>
+						</div>
+						<div class="col-md-10" >
+							<p>@lang('kidsnow.program.delete_without_asking')</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		<div class="mat-card">
 			<div class="mat-content">
@@ -409,14 +425,9 @@
 				// Specify validation rules
 				rules: {
 					program_name: "required",
-					program_fee: {
-						"number": true,
-						"min": 0
-					},
 				},
 				messages: {
-					program_name: "Tên Lớp Học không được để trống",
-					program_fee: "Giá trị không hợp lệ",
+					program_name: "Tên lớp học không được để trống",
 				},
 				submitHandler: function(form) {
 					form.submit()
@@ -475,6 +486,39 @@
 			$('#undo_button').click(function () {
 				$('input.timepicker').val('')
 			})
+		})
+	</script>
+
+	<script>
+
+		$(document).on('click', '.delete-child', function(){
+			if ($('#delete_without_asking:checkbox:checked').length > 0){
+				$(this).parent('div').parent('div').parent('div').remove();
+			}else {
+				if (confirm('Xác nhận xóa trẻ (Delete this children) !') == false) {
+					return;
+				} else {
+					$(this).parent('div').parent('div').parent('div').remove();
+				}
+			}
+		})
+
+		$(document).on('click', '.delete-staff', function(){
+			if ($('#delete_without_asking:checkbox:checked').length > 0){
+				$(this).parent('div').parent('div').parent('div').remove();
+			}else {
+				if (confirm('Xác nhận xóa nhận viên (Delete this staff) !') == false) {
+					return;
+				} else {
+					$(this).parent('div').parent('div').parent('div').remove();
+				}
+			}
+		})
+
+		$('#delete_without_asking').click(function () {
+			if ($('#delete_without_asking:checkbox:checked').length > 0) {
+				alert('Bạn đang chọn chế độ Xóa Liên Tục (Choosing keep delete without asking) !')
+			}
 		})
 	</script>
 
