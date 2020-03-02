@@ -2,8 +2,32 @@
 @section('title')
 @lang('kidsnow.foods')
 @endsection
-@section('content')
+@section('css')
+<link rel="stylesheet prefetch" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
+@endsection
+@section('content')
+<style>
+    label{
+        margin-left: 20px;
+        }
+        #datepicker{
+        width:180px; 
+        margin: 0 20px 20px 20px;
+        }
+        #datepicker > span:hover{
+        cursor: pointer;
+        }
+        #datepicker1{
+        width:180px; 
+        margin: 0 20px 20px 20px;
+        }
+        #datepicker1 > span:hover{
+        cursor: pointer;
+        }
+        </style>
 <body>
     <section class="page-top container">
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
@@ -57,6 +81,26 @@
                             <input id="array_program" type="hidden" value="{{ $foods->meal_type }}" name="mealtype">
                         </div>
                     </div>
+
+                    <hr>
+                        <div style="text-align:left" style="margin: 20px 0;font-size: 18px;">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p>@lang('kidsnow.date_begin'): </p>
+                                    <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy"> 
+                                        <input class="form-control" style="color:#5363d6" name="date_begin" value="{{ carbon\carbon::parse($foods->date_begin)->format('d-m-Y') }}" type="text"> 
+                                        <span class="input-group-addon"><i style="color:#5363d6" class="glyphicon glyphicon-calendar"></i></span> 
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <p>@lang('kidsnow.date_end'): </p>
+                                    <div id="datepicker1" class="input-group date" data-date-format="dd-mm-yyyy"> 
+                                    <input class="form-control" style="color:#5363d6" name="date_end" value="{{ carbon\carbon::parse($foods->date_end)->format('d-m-Y') }}" type="text"> 
+                                        <span class="input-group-addon"><i style="color:#5363d6" class="glyphicon glyphicon-calendar"></i></span> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
                     <hr>
                     <div class="update"  style="text-align:left">
                         <p>@lang('kidsnow.quantity') *</p>
@@ -203,7 +247,7 @@
 </script>
 
 
-<!-- tab img -->
+{{-- <!-- tab img -->
 <script type="text/javascript">
     // click hiện img
     function readURL(input) {
@@ -234,5 +278,22 @@
         }
     });
 
-</script>
+</script> --}}
+<script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript">
+    $(function () {  
+        $("#datepicker").datepicker({         
+            autoclose: true,         
+            todayHighlight: true 
+        }).val();
+    });
+    </script>
+    <script type="text/javascript">
+        $(function () {  
+            $("#datepicker1").datepicker({ 
+                autoclose: true,         
+                todayHighlight: true 
+            }).val();
+        });
+        </script>
 @endsection

@@ -18,7 +18,11 @@ class FoodController extends Controller
      */
     public function index()
     {
-        $food = food::with(['mealtypefood','quantityfood','food:id,food_name'])->get();
+        $food = food::with([
+            'mealtypefood',
+            'quantityfood',
+            'food'
+            ])->get();
         return response()->json([
             'foods' => $food
         ],200);

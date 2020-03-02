@@ -68,10 +68,12 @@
 						<thead>
 						  <tr>
 							{{-- <th style="text-align:left;">ID</th> --}}
-							<th style="text-align:left;width:18%">@lang('kidsnow.meal_type')</th>
+							<th style="text-align:left;width:12%">@lang('kidsnow.meal_type')</th>
 							<th style="text-align:left;width:20%">@lang('kidsnow.food_name')</th>
-							<th style="text-align:left;width:18%">@lang('kidsnow.quantity')</th>
-							<th style="text-align:left;width:18%">@lang('kidsnow.program_food')</th>
+							<th style="text-align:left;width:12%">@lang('kidsnow.quantity')</th>
+							<th style="text-align:left;width:16%">@lang('kidsnow.program_food')</th>
+							<th style="text-align:left;width:10%">@lang('kidsnow.date_begin')</th>
+							<th style="text-align:left;width:10%">@lang('kidsnow.date_end')</th>
 							<th style="text-align:center;width:12%">@lang('kidsnow.action')</th>
 						  </tr>
 						</thead>
@@ -93,6 +95,8 @@
 								</td>
 								<td style="text-transform:capitalize">{{ $item->quantityfood->name }}</td>
 								<td style="text-transform:capitalize">{{ $item->programfood->program_name }}</td>
+								<td style="text-transform:capitalize">{{ Carbon\Carbon::parse($item->date_begin)->format('d-m-Y') }}</td>
+								<td style="text-transform:capitalize">{{ Carbon\Carbon::parse($item->date_end)->format('d-m-Y') }}</td>
 								<td style="text-align:center">
 									<a href="kids-now/food/edit/{{ $item->id }}" title="@lang('kidsnow.title_food_edit')" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
 									<a onclick="return confirm('Delete food ? Do you want continue !')" title="@lang('kidsnow.title_food_delete')" href="kids-now/food/delete/{{ $item->id }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>

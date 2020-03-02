@@ -635,3 +635,31 @@ section.introduce-packages .introduce-packages-content .row > div>div >div> div.
     color: white;
     cursor: pointer;
 }
+
+
+/* Chỉnh sửa label h2 */
+@media (min-width:375px) and (max-width:400px){
+    .introduce-customers-h2 h2{
+        padding: 0 10px;
+    }
+}
+@media (min-width:430px) and (max-width:450px){
+    .introduce-customers-h2 h2{
+        padding: 0 10px;
+    }
+}
+@media (min-width:451px) and (max-width:460px){
+    .introduce-customers-h2 h2{
+        padding: 0 15px;
+    }
+}
+@media (min-width:461px) and (max-width:470px){
+    .introduce-customers-h2 h2{
+        padding: 0 20px;
+    }
+}
+@media (min-width:471px) and (max-width:480px){
+    .introduce-customers-h2 h2{
+        padding: 0 25px;
+    }
+}

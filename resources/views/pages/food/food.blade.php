@@ -2,8 +2,32 @@
 @section('title')
 @lang('kidsnow.foods')
 @endsection
-@section('content')
+@section('css')
+<link rel="stylesheet prefetch" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
+@endsection
+@section('content')
+<style>
+label{
+    margin-left: 20px;
+    }
+    #datepicker{
+    width:180px; 
+    margin: 0 20px 20px 20px;
+    }
+    #datepicker > span:hover{
+    cursor: pointer;
+    }
+    #datepicker1{
+    width:180px; 
+    margin: 0 20px 20px 20px;
+    }
+    #datepicker1 > span:hover{
+    cursor: pointer;
+    }
+    </style>
 <body>
     <section class="page-top container">
         <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
@@ -63,7 +87,25 @@
 
                             </div>
                         </div>
-                        {{--  <div style="text-align:left" id="clock" style="margin: 20px 0;font-size: 18px;"></div>  --}}
+                        <hr>
+                         <div style="text-align:left" style="margin: 20px 0;font-size: 18px;">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p>@lang('kidsnow.date_begin'): </p>
+                                    <div id="datepicker" class="input-group date" data-date-format="dd-mm-yyyy"> 
+                                        <input style="color:#5363d6" class="form-control" name="date_begin" type="text"> 
+                                        <span class="input-group-addon"><i style="color:#5363d6" class="glyphicon glyphicon-calendar"></i></span> 
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <p>@lang('kidsnow.date_end'): </p>
+                                    <div id="datepicker1" class="input-group date" data-date-format="dd-mm-yyyy"> 
+                                        <input style="color:#5363d6" class="form-control" name="date_end" type="text"> 
+                                        <span class="input-group-addon"><i style="color:#5363d6" class="glyphicon glyphicon-calendar"></i></span> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
                         <hr>
                         <div class="update" style="text-align:left">
                             <p>@lang('kidsnow.select_quantity') *</p>
@@ -213,7 +255,7 @@
 </script>
 
 <!-- tab img -->
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     // click hiện img
     function readURL(input) {
         if (input.files && input.files[0]) {
@@ -232,8 +274,8 @@
         $(this).parent('.input-img').hide();
     });
 
-</script>
-<script type="text/javascript">
+</script> --}}
+{{-- <script type="text/javascript">
     $('.input_box input').focus(function (event) {
         $(this).siblings('span').addClass('input_box_span_active');
     });
@@ -243,5 +285,23 @@
         }
     });
 
-</script>
+</script> --}}
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript">
+    $(function () {  
+        $("#datepicker").datepicker({         
+            autoclose: true,         
+            todayHighlight: true 
+        }).datepicker('update', new Date());
+    });
+    </script>
+    <script type="text/javascript">
+        $(function () {  
+            $("#datepicker1").datepicker({ 
+                autoclose: true,         
+                todayHighlight: true          
+            }).datepicker('update', new Date());
+        });
+        </script>
 @endsection
