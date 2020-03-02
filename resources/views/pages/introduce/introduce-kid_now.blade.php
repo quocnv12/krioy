@@ -265,7 +265,7 @@
 	<section class="introduce-customers">
 		<div class="container">
 			<div class="schoolTiltle" style="padding: 20px 0;">
-				<h2>@lang('kidsnow.our_customers_speak')</h2>
+				<h2 style="font-size: 27px !important;">@lang('kidsnow.our_customers_speak')</h2>
 				<div class="hr"></div>
 			</div>
 			<div class="row introduce-customers-1 ">
@@ -276,7 +276,7 @@
 		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Nguyen Van Khanh</p>
+		                    	<p class="item-a">Thomas Nguyen</p>
 		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
 		                    </div>
 		                </div>
@@ -289,7 +289,7 @@
 		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> KIDS NOW là 1 ứng dụng rất tuyệt vời. Nó giúp tôi quản lý các bé một cách toàn diện, làm tôi cảm thấy an tâm hơn khi gửi bé ở trường. Hơn nữa từng thông tin của bé được cập nhật nhanh chóng và chính xác. Tôi cảm thấy rất hài lòng.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">nguyễn Thu Hà</p>
+		                    	<p class="item-a">Nguyễn Thu Hà</p>
 		                    	<p class="item-b">Phụ Huynh</p>
 		                    </div>
 		                </div>
@@ -509,19 +509,19 @@
 				<div class="hr"></div>
 			</div>
 			<div class="row our-team">
-				<div class="col-sm-4 col-md-4" style="margin: 15px 0;">
+				<div class="col-sm-4 col-md-4" style="margin: 20px 0;">
 					<img src="images/hai.png" alt="">
 					<p>Mr. Vũ Minh Hải</p>
 					<span style="color: cornflowerblue;font-size: 15px;">CEO</span>
 					<span style="font-size: 14px;color: #5363d6;">Talent Wins</span>
 				</div>
-				<div class="col-sm-4 col-md-4"  style="margin: 15px 0;">
+				<div class="col-sm-4 col-md-4"  style="margin: 20px 0;">
 					<img src="images/hiep.png" alt="">
 					<p>Mr. Lê Anh Xuân</p>
 					<span style="color: cornflowerblue;font-size: 15px;">Co founder</span>
 					<span style="font-size: 14px;color: #5363d6;">Ts. Khoa Học Máy Tính</span>
 				</div>
-				<div class="col-sm-4 col-md-4"  style="margin: 15px 0;">
+				<div class="col-sm-4 col-md-4"  style="margin: 20px 0;">
 					<img src="images/xuan.png" alt="">
 					<p>Mr. Nguyễn Quang Hiệp</p>
 					<span style="color: cornflowerblue;font-size: 15px;">Co founder</span>
@@ -615,7 +615,7 @@
 			slidesToScroll: 1,
 			arrows: true,
 			autoplay: false,
-			autoplaySpeed: 2000,
+			autoplaySpeed: 10000,
 			responsive: [{
 					breakpoint: 1200,
 					settings: {
@@ -673,3 +673,6 @@
 			}
 		});
 	</script>
+	<NOSCRIPT>
+		<p style="color: red; text-align: center; font-size: 18px">@lang('kidsnow.noscript')</p>
+	</NOSCRIPT>

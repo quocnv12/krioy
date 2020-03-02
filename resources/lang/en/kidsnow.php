@@ -504,6 +504,15 @@ return [
         'program.search_children'  =>'Search Children...',
         'program.no_staff'=>'No Staff was found',
         'program.no_children'=>'No Children was found',
+
+
+        //alert
+        'program.alert_exist_children'=>'This children was added in program !',
+        'program.alert_exist_staff'=>'This staff was added in program !',
+        'program.alert_remove_children'=>'Remove this children from program ?',
+        'program.alert_remove_staff'=>'Remove this staff from program ?',
+        'program.alert_delete_without_asking'=>'Turn on mode : Delete without asking !',
+
     //END Program
 
 
@@ -591,8 +600,6 @@ return [
     //-----------login-------
     
 
-
-
-    
+    'noscript'=>'Javascript is required to run this pages.  Please turn it on or ask help from techsupport if you don\'t know how to enable it.'
 
 ];
