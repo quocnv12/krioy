@@ -40,14 +40,6 @@
         .line .item a{
             text-align: center;
         }
-
-        @keyframes example {
-            0%   {right:0px; top:50px;}
-            10%  {right:120px; top:50px;}
-            90%  {right:120px; top:50px;}
-            100% {right:0px; top:50px}
-        }
-
     </style>
     <!-- JS libs --> 
     <script type="text/javascript" src="libs/jquery-3.4.1.min.js"></script>

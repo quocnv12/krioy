@@ -6,7 +6,9 @@ use App\models\Programs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use DB;
+use carbon\carbon;
 use App\Http\Requests\food\{MealTypeRequest,EditMealTypeRequest,QuantityRequest,FoodNameRequest,EditFoodNameRequest};
+use App\Http\Requests\food\EditQuantityRequest;
 class FoodController extends Controller
 {
 
@@ -22,7 +24,7 @@ class FoodController extends Controller
 
     public function PostFood(request $request) 
     {
-       // dd($request->all());
+    
         if($request->programs==null)
         {
             if (\Lang::locale() == 'en') {
@@ -69,6 +71,20 @@ class FoodController extends Controller
             $foods->meal_type = $request->mealtype;
             $foods->quantity = $request->qtyfood;
             $foods->id_program = $request->programs;
+            if(strtotime($request->date_end) > strtotime($request->date_begin))
+            {
+                $foods->date_begin = carbon::parse($request->date_begin)->format('Y-m-d');
+                $foods->date_end = carbon::parse($request->date_end)->format('Y-m-d');
+            }else
+            {
+                if (\Lang::locale() == 'en') {
+                    return redirect()->back()->with('danger','The start date must be smaller than the end date !')->withInput();
+                }
+                if (\Lang::locale() == 'vi') {
+                    return redirect()->back()->with('danger','Ngày bắt đầu phải nhỏ hơn ngày kết thúc !')->withInput();
+                }
+            }
+           
             $foods->save();
             $foodss = explode(',',$request->food_name);
             $mang=array();
@@ -114,6 +130,7 @@ class FoodController extends Controller
 
     public function PostEdit(request $request, $id) 
     {
+       // dd($request->all());
         if($request->programs==null)
         {
             if (\Lang::locale() == 'en') {
@@ -155,10 +172,14 @@ class FoodController extends Controller
         }
         else 
         {
+            
             $foods =food::find($id);
             $foods->meal_type = $request->mealtype;
             $foods->quantity = $request->qtyfood;
             $foods->id_program = $request->programs;
+            
+            $foods->date_begin = carbon::parse($request->date_begin)->format('Y-m-d');
+            $foods->date_end = carbon::parse($request->date_end)->format('Y-m-d');
             $foods->save();
             $foodss = explode(',',$request->food_name);
             $mang=array();

@@ -61,7 +61,7 @@
     </div>
   
     <div class="d-block d-md-none menu_mobile" >
-        <div id="menu_mobile" style="width:180px !important;height:300px">
+        <div id="menu_mobile">
             <div class="closebtn" onclick="closeNav()">☰</div>
             <a style="position: absolute;top: 11px;right: 15px;">
                 <div  class="dropdown-logo1">
@@ -71,12 +71,12 @@
                     </button>
                     @else 
                     <button class="dropbtn-logo1">
-                        <button class="dropbtn-logo1"><img src="images/usa.png" style="width: 20px;height: 20px"></button>
+                        <button class="dropbtn-logo1"><img src="images/england.png" style="width: 20px;height: 20px"></button>
                     </button>
                     @endif
                     <div class="dropdown-content-logo1">
                         <a style="font-size: 14px;" href="locale/vi"><img src="images/viet.png"> @lang('kidsnow.vietnamese')</a>
-                        <a style="font-size: 14px;" href="locale/en"><img src="images/usa.png"> @lang('kidsnow.english')</a>
+                        <a style="font-size: 14px;" href="locale/en"><img src="images/england.png"> @lang('kidsnow.english')</a>
                     </div>
                 </div>
             </a>

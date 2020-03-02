@@ -547,7 +547,8 @@ return [
     'title_meal_type_delete' => 'Delete meal type',
     'title_quantity_edit' => 'Edit quantity',
     'title_quantity_delete' => 'Delete quantity',
-
+    'date_begin'    => 'Since date',
+    'date_end'    => 'To date',
 
     //----------------------login----------------
     'title_login' =>'Kids Now App Login',
