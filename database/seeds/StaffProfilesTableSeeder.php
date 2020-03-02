@@ -71,7 +71,7 @@ class StaffProfilesTableSeeder extends Seeder
                 'id'                =>  5,
                 'first_name'        =>  'Lý',
                 'last_name'         =>  'Nhật Hồng',
-                'phone'             =>  '0977694322',
+                'phone'             =>  '0987654325',
                 'image'             =>  'Staff5.png',
                 'gender'            =>  1,
                 'email'             =>  'dhwon@optonline.net',
