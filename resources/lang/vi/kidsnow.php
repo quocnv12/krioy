@@ -159,8 +159,8 @@ return [
     'learning_development_content' => 'Theo dõi tiến độ học tập của trẻ và can thiệp kịp thời',
     'communicate_with_teachers' => 'GIAO TIẾP VỚI GIÁO VIÊN',
     'communicate_with_teachers_content' => 'Không cần phải chuyển sang ứng dụng khác để liên lạc với Giáo viên',
-    'our_customers_speak' => 'Khách hàng nói gì về chúng tôi',
-    'packages_pricing' => 'Các Gói Dịch Vụ và Ưu Đãi',
+    'our_customers_speak' => 'Phản Hồi Khách Hàng',
+    'packages_pricing' => 'Các Gói Dịch Vụ & Ưu Đãi',
     'free' => 'MIỄN PHÍ',
     'free_content_first' => 'Điểm Danh',
     'free_content_second' => 'Nhật Ký',
@@ -192,11 +192,11 @@ return [
     'pro_content_eleventh' => 'Điểm Danh QR',
     'pro_content_twelfth' => 'Video',
     'price_is_per_child' => '* Học phí mỗi trẻ một năm',
-    'our_happy_customers' => 'Khách hàng hài lòng về chúng tôi',
+    'our_happy_customers' => 'Khách Hàng Hài Lòng',
     'and_many_more' => 'Và nhiều khách hàng khác nữa...',
-    'about_us' => 'Về chúng tôi',
+    'about_us' => 'Về Chúng Tôi',
     'about_us_content' => 'KIDS NOW ra đời với mong muốn tạo mối liên kết chặt chẽ giữa nhà trường với phụ huynh, giúp cho việc quản lý con trẻ giờ đây trở nên dễ dàng hơn bao giờ hết. Với giao diện bắt mắt và dễ làm quen, ứng dụng KIDS NOW sẽ đem đến cho người dùng những trải nghiệm tuyệt vời cùng sự tiện ích trong từng thao tác. Được xây dựng và phát triển bởi đội ngũ giàu nhiệt huyết với một tinh thần tận tâm, cống hiến hết mình, chúng tôi kỳ vọng KIDS NOW sẽ trở thành một người bạn đồng hành đáng tin cậy của các bậc cha mẹ trên chặng đường phát triển của bé.',
-    'our_team' => 'Đội ngũ KIDS NOW',
+    'our_team' => 'Đội Ngũ KIDS NOW',
     'get_in_touch' => 'Liên Lạc Với Chúng Tôi',
     'privacy' => 'Chính sách bảo mật',
     'terms_and_conditions' => 'Điều khoản',
@@ -398,6 +398,15 @@ return [
         'program.search_children'  =>'Tìm Kiếm Trẻ...',
         'program.no_staff'=>'Không tìm thấy nhân viên',
         'program.no_children'=>'Không tìm thấy trẻ',
+
+
+        //alert
+        'program.alert_exist_children'=>'Trẻ đã được thêm vào lớp !',
+        'program.alert_exist_staff'=>'Nhân viên đã được thêm vào lớp !',
+        'program.alert_remove_children'=>'Xác nhận xóa trẻ khỏi lớp ?',
+        'program.alert_remove_staff'=>'Xác nhận xóa nhân viên khỏi lớp ?',
+        'program.alert_delete_without_asking'=>'Bạn đã bật chế độ : Xóa Liên Tục !',
+
     //END Program
 
     //Notice board:
@@ -578,9 +587,10 @@ return [
     'attendance_children_absent' =>'Vắng',
      
     //-----------login-------
-    
 
 
+
+    'noscript'=>'Một vài tính năng có thể không hoạt động do Javascript đã bị tắt. Vui lòng bật Javascript hoặc nhờ bộ phận IT hỗ trợ.'
 
     
 ];
