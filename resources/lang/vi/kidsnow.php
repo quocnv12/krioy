@@ -525,6 +525,8 @@ return [
     'title_meal_type_delete' => 'Xóa loại bữa ăn',
     'title_quantity_edit' => 'Sửa số lượng',
     'title_quantity_delete' => 'Xóa số lượng',
+    'date_begin'    => 'Từ ngày',
+    'date_end'    => 'Đến ngày',
 
     //-----------------login------------------------
     'title_login' =>'Đăng nhập Kids-now',

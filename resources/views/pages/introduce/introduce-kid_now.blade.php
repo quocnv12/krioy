@@ -264,7 +264,7 @@
 	</section>
 	<section class="introduce-customers">
 		<div class="container">
-			<div class="schoolTiltle" style="padding: 20px 0;">
+			<div class="schoolTiltle introduce-customers-h2" style="padding: 20px 0;">
 				<h2>@lang('kidsnow.our_customers_speak')</h2>
 				<div class="hr"></div>
 			</div>
