@@ -160,6 +160,7 @@
     
     <!-- Main Script -->
     <script src="asset/kriyo/js/main.js"></script>
+
     <script>
 		var acc = document.getElementsByClassName("accordion");
 		var i;

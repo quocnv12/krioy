@@ -361,9 +361,15 @@
 				</div>
 			</div>
 		</form>
-
-
 	</section>
+
+	{{--alert--}}
+	<p hidden id="alert_exist_children">@lang('kidsnow.program.alert_exist_children')</p>
+	<p hidden id="alert_remove_children">@lang('kidsnow.program.alert_remove_children')</p>
+	<p hidden id="alert_exist_staff">@lang('kidsnow.program.alert_exist_staff')</p>
+	<p hidden id="alert_remove_staff">@lang('kidsnow.program.alert_remove_staff')</p>
+	<p hidden id="alert_delete_without_asking">@lang('kidsnow.program.alert_delete_without_asking')</p>
+
 	</body>
 @endsection
 
@@ -439,7 +445,7 @@
 						$('#children_list').append(data);
 						array_children.push(id);
 					}else {
-						alert('Trẻ đã ở trong lớp (The children has existed) !')
+						alert($('#alert_exist_children').text())
 					}
 				}
 			});
@@ -470,7 +476,7 @@
 						$('#staff_list').append(data);
 						array_staff.push(id)
 					}else {
-						alert('Nhân viên đã ở trong lớp (The staff has existed) !')
+						alert($('#alert_exist_staff').text())
 					}
 				}
 			});
@@ -511,7 +517,7 @@
 			if ($('#delete_without_asking:checkbox:checked').length > 0){
 				$(this).parent('div').parent('div').parent('div').remove();
 			}else {
-				if(confirm('Xác nhận xóa trẻ (Delete this children) !') == false){
+				if(confirm($('#alert_remove_children').text()) == false){
 					return;
 				}else{
 					$(this).parent('div').parent('div').parent('div').remove();
@@ -523,7 +529,7 @@
 			if ($('#delete_without_asking:checkbox:checked').length > 0){
 				$(this).parent('div').parent('div').parent('div').remove();
 			}else {
-				if(confirm('Xác nhận xóa nhận viên (Delete this staff) !') == false){
+				if(confirm($('#alert_remove_staff').text()) == false){
 					return;
 				}else {
 					$(this).parent('div').parent('div').parent('div').remove();
@@ -537,7 +543,7 @@
 
         $('#delete_without_asking').click(function () {
 			if ($('#delete_without_asking:checkbox:checked').length > 0) {
-				alert('Bạn đang chọn chế độ Xóa Liên Tục (Choosing keep delete without asking) !')
+				alert($('#alert_delete_without_asking').text())
 			}
 		})
 	</script>
