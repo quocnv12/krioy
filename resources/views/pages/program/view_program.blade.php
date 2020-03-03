@@ -198,7 +198,7 @@
 				<div class="panel">
 					<div _ngcontent-c20="" class="row" style="">
 						<!---->
-						@if(count($staff_profiles) > 0)
+						@if(count($children_profiles) > 0)
 							@foreach($children_profiles as $children)
 							<div _ngcontent-c19="" class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1">
 								<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">

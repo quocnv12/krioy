@@ -294,7 +294,7 @@
 												{{ $errors->first('main_phone_parent') }}
 											</div>
 										@endif
-										@if ($errors->has('main_phone_parent') and $errors->first('main_phone_parent') == 'Phone Number has been taken')
+										@if ($errors->has('main_phone_parent') and $errors->first('main_phone_parent') == 'This phone number has been taken' || 'Số điện thoại đã tồn tại. Vui lòng thử số khác')
 											<div class="text text-black" id="parent_exist" style="background-color: thistle; padding: 10px; border-radius: 20px">
 												<p style="font-weight: bold">@lang('kidsnow.children.found_parent_exist')</p>
 												<div class="row">
@@ -440,7 +440,6 @@
 		$('#confirm_parent_no').click(function () {
 			$('#parent_exist').remove()
 			$('#parent_exist').val(0)
-			console.log($('#parent_exist').val())
 		});
 
 		$('#confirm_parent_yes').click(function () {
@@ -453,7 +452,6 @@
 			$('#email_parent').val($('#email_parent_exist').val());
 			$('#note_parent').val($('#note_parent_exist').val());
 			$('#parent_exist').val(1)
-			console.log($('#parent_exist').val())
 		});
 	</script>
 	{{--finish xu ly trung parent profile--}}
@@ -518,7 +516,6 @@
 	<script>
 		$(document).ready(function () {
 			$('.accordion').click()
-
 		})
 	</script>
 @endsection
