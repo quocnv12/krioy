@@ -125,11 +125,11 @@ label{
                         <div class="panel_new">
                             <div _ngcontent-c20="" class="row">
                                 @foreach ($itemfoods as $item)
-                                <div align="center" class="col-xs-6 col-sm-6 col-md-2 col-lg-2 ng-star-inserted"
+                                <div align="center" class="col-xs-6 col-sm-6 col-md-2 col-lg-3 ng-star-inserted"
                                     style="padding:10px;cursor:pointer;width: 50%;">
                                     <button _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1"
                                         title="{{ $item->food_name }}" value="{{ $item->id }}" type="button"
-                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px;">{{ $item->food_name }}
+                                        style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px;width: 100%">{{ $item->food_name }}
                                     </button>
                                 </div>
                                 @endforeach
