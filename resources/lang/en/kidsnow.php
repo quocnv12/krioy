@@ -224,6 +224,10 @@ return [
     'privacy' => 'Privacy Policy',
     'terms_and_conditions' => 'Terms and Conditions',
     'a_product_of' => 'a product of',
+
+    'school_admin'=>'School Admin',
+    'school_teacher'=>'School Teacher',
+    'parent'=>'Parent',
     //END Introduce
 
 
@@ -593,10 +597,12 @@ return [
     'attendance_list'  => 'List Attendance',
     'attendance_choose' => 'Choose' ,
     'attendance_children_name' =>'childrent\'s name',
+    'attendance_children_total' =>'Total',
     'attendance_children_in' =>'In',
     'attendance_children_out' =>'Out',
     'attendance_children_absent' =>'Absent',
-
+    'attendance.hint'=> 'Hint',
+    'attendance.hint_content'=> 'Click on a program tab in horizontal scroll bar to show all children in that program',
 
     //-----------login-------
     

@@ -47,7 +47,7 @@
 							</div>
 						@endforeach
 					</div>
-					
+
 				</div>
 			</div>
 		</section>
@@ -58,25 +58,25 @@
 					@if(empty($count_active))
 						<div class="attendance-button">
 							<button class="btn tableStyle ng-star-inserted" style="color: rgb(75, 0, 130);">
-								<p>Total</p>
+								<p>@lang('kidsnow.attendance_children_total')</p>
 								<span class="ng-star-inserted">
 									0/0
 								</span>
 							</button>
 							<button class="btn tableStyle ng-star-inserted" style="color: rgb(55, 189, 156);">
-								<p>IN</p>
+								<p>@lang('kidsnow.attendance_children_in')</p>
 								<span class="ng-star-inserted">
 									0
 								</span>
 							</button>
 							<button class="btn tableStyle ng-star-inserted" style="color: rgb(169, 179, 189);">
-								<p>OUT</p>
+								<p>@lang('kidsnow.attendance_children_out')</p>
 								<span class="ng-star-inserted">
 									0
 								</span>
 							</button>
 							<button class="btn tableStyle ng-star-inserted" style="color: rgb(237, 85, 100);">
-								<p>ABSENT</p>
+								<p>@lang('kidsnow.attendance_children_absent')</p>
 								<span class="ng-star-inserted">
 									0
 								</span>
@@ -91,25 +91,25 @@
 					@else
 						<div class="attendance-button">
 							<button class="btn tableStyle ng-star-inserted" style="color: rgb(75, 0, 130);">
-								<p>Total</p>
+								<p>@lang('kidsnow.attendance_children_total')</p>
 								<span class="ng-star-inserted">
 									{{$count_active}}/{{$count_chil}}
 								</span>
 							</button>
 							<button class="btn tableStyle ng-star-inserted" style="color: rgb(55, 189, 156);">
-								<p>IN</p>
+								<p>@lang('kidsnow.attendance_children_in')</p>
 								<span class="ng-star-inserted">
 									{{$count_in}}
 								</span>
 							</button>
 							<button class="btn tableStyle ng-star-inserted" style="color: rgb(169, 179, 189);">
-								<p>OUT</p>
+								<p>@lang('kidsnow.attendance_children_out')</p>
 								<span class="ng-star-inserted">
 									{{$count_out}}
 								</span>
 							</button>
 							<button class="btn tableStyle ng-star-inserted" style="color: rgb(237, 85, 100);">
-								<p>ABSENT</p>
+								<p>@lang('kidsnow.attendance_children_absent')</p>
 								<span class="ng-star-inserted">
 									{{$count_absent}}
 
@@ -174,8 +174,8 @@
 	                            <input id="array_children_attendance" type="hidden" value="" name="children_attendance">
 	                        @else
 								<div style="margin: 50px;">
-									<span style="color: red; font-weight: bold">Hint :</span>
-									<span>Click on a program tab in horizontal scroll bar to show all children in that program</span>
+									<span style="color: red; font-weight: bold">@lang('kidsnow.attendance.hint') :</span>
+									<span>@lang('kidsnow.attendance.hint_content')</span>
 								</div>
                             
 	                        @endif
@@ -194,9 +194,9 @@
 				</div> -->
 
 				<div class="icon-plus-1" >
-					<button  type="button" class="icon-plus-button groupStatus" style="background-color: #37bd9c;" data-toggle="modal" data-target=".bd-example-modal-sm" value="1" name='status' >IN</button><br>
-					<button  type="button" class="icon-plus-button groupStatus" style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm" value="2" name='status'>OUT</button><br>
-					<button  type="button" class="icon-plus-button groupStatus" style="background-color: #ed5564;" data-toggle="modal" data-target=".bd-example-modal-sm" value="3" name='status'>ABSENT</button><br>
+					<button  type="button" class="icon-plus-button groupStatus" style="background-color: #37bd9c;" data-toggle="modal" data-target=".bd-example-modal-sm" value="1" name='status' >@lang('kidsnow.attendance_children_in')</button><br>
+					<button  type="button" class="icon-plus-button groupStatus" style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm" value="2" name='status'>@lang('kidsnow.attendance_children_out')</button><br>
+					<button  type="button" class="icon-plus-button groupStatus" style="background-color: #ed5564;" data-toggle="modal" data-target=".bd-example-modal-sm" value="3" name='status'>@lang('kidsnow.attendance_children_absent')</button><br>
 					<!-- <button  type="button" class="icon-plus-button groupStatus" style="background-color: #ccc;" data-toggle="modal" data-target=".bd-example-modal-sm" value="4" name='status'>UNMARK</button><br> -->
 					<!-- <button class="icon-plus-button" style="background-color: #ffc200;" data-toggle="modal" data-target=".bd-example-modal-sm">LEAVE</button> -->
 					<input type="hidden" name="children_status" value="" id="children_status">
@@ -233,8 +233,8 @@
 					<div class="mat-content" id="tab-main">
 						<div _ngcontent-c19="" class="row ng-star-inserted">
 							<div style="margin: 50px;">
-									<span style="color: red; font-weight: bold">Hint :</span>
-									<span>Click on a program tab in horizontal scroll bar to show all children in that program</span>
+									<span style="color: red; font-weight: bold">@lang('kidsnow.attendance.hint') :</span>
+									<span>@lang('kidsnow.attendance.hint_content')</span>
 								</div>
 						</div>
 					</div>
