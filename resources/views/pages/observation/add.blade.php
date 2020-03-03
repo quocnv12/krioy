@@ -88,8 +88,8 @@
 						<div class="panel">
 							<div _ngcontent-c20="" class="row" style="">
 								@foreach($observationtype  as $observation)
-									<div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer;">
-										<button type="button" _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" data-toggle="tooltip" title="{{$observation->name}}" value="{{$observation->id}}">{{$observation->name}} </button>
+									<div _ngcontent-c20="" align="center" class="col-lg-3 col-md-3 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer;">
+										<button type="button" _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px; width: 100%" data-toggle="tooltip" title="{{$observation->name}}" value="{{$observation->id}}">{{$observation->name}} </button>
 									</div>
 								@endforeach
 								<input id="array_observation" type="hidden" value="" name="observations">
