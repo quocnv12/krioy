@@ -578,17 +578,17 @@
 	<div class="modal fade bd-example-modal-sm1 modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-sm">
 		   <div class="modal-header" style="background-color:#FF4081;color:#fff;border-radius: 5px 5px 0px 0px;text-align: center;">
-		   		<h2 style="text-transform: none;font-size:18px">I am a</h2>
+		   		<h2 style="text-transform: none;font-size:18px">@lang('kidsnow.sign_up')</h2>
 		   </div>
 		   <div class="modal-body">
 		   		<button style="color: #ff4081;">
-		   			<a href="account"><span>School Owner/Admin</span></a>
+		   			<a href="account"><span>@lang('kidsnow.school_admin')</span></a>
 		   		</button>
 		   		<button style="color: #ff4081">
-		   			<span>School Owner/Admin</span>
+		   			<a href="account">@lang('kidsnow.school_teacher')</a>
 		   		</button>
 		   		<button style="color: #ff4081">
-		   			<span>School Owner/Admin</span>
+		   			<a href="account">@lang('kidsnow.parent')</a>
 		   		</button>
 		   </div>
 		</div>

@@ -13,7 +13,7 @@ return [
     'menu_login' => 'Đăng nhập',
     'menu_logout' => 'Đăng xuất',
     'menu_home' => 'Trang chủ KIDS NOW',
-    'cancel' => 'THOÁT',
+    'cancel' => 'TRỞ LẠI',
     'send' => 'GỬI',
     'save' => 'LƯU',
     'enter_details_here' => 'Nhập chi tiết tại đây *',
@@ -201,6 +201,10 @@ return [
     'privacy' => 'Chính sách bảo mật',
     'terms_and_conditions' => 'Điều khoản',
     'a_product_of' => 'Một Sản Phẩm Của',
+
+    'school_admin'=>'Nhà Trường',
+    'school_teacher'=>'Giáo Viên',
+    'parent'=>'Phụ Huynh',
     //END Home
 
 
@@ -553,7 +557,7 @@ return [
     'confirm_password_reset'=>'Nhập lại mật khẩu',
 
     //--------------Account Demo----------
-   'kidsnow_account_demon' =>'Đăng Kí Tài Khoản Kids-now', 
+   'kidsnow_account_demon' =>'Đăng Kí Tài Khoản Kids Now',
    'register_account_demo' =>'Đăng Kí',
    'first_name_account_demo' => 'Họ tên',
    'verify_account_demo' => 'để kích hoạt tài khoản',
@@ -582,15 +586,19 @@ return [
    'attendance_list'  => 'Danh sách điểm danh',
     'attendance_choose' => 'Chọn' ,
     'attendance_children_name' =>'Tên học sinh',
-    'attendance_children_in' =>'Đi học',
-    'attendance_children_out' =>'Nghỉ học',
+    'attendance_children_total' =>'Tổng số',
+    'attendance_children_in' =>'Check In',
+    'attendance_children_out' =>'Check Out',
     'attendance_children_absent' =>'Vắng',
+    'attendance.hint'=> 'Hướng Dẫn',
+    'attendance.hint_content'=> 'Nhấn vào tên lớp học trên thanh trượt menu để hiển thị toàn bộ trẻ trong lớp học đấy',
      
     //-----------login-------
 
 
 
-    'noscript'=>'Một vài tính năng có thể không hoạt động do Javascript đã bị tắt. Vui lòng bật Javascript hoặc nhờ bộ phận IT hỗ trợ.'
+    'noscript'=>'Một vài tính năng có thể không hoạt động do Javascript đã bị tắt. Vui lòng bật Javascript hoặc nhờ bộ phận IT hỗ trợ.',
+    '404'=>'Không Tìm Thấy Trang Bạn Yêu Cầu !'
 
     
 ];

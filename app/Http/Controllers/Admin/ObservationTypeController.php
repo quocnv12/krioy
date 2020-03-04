@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\models\ObservationModel;
 use App\models\ObservationTypeModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -62,7 +63,13 @@ class ObservationTypeController extends Controller
     }
 
     public function getDelete($id){
-        $observationtype= DB::table('observations_type')->where('id',$id)->delete();
+        $observationtype= ObservationModel::find($id);
+        if (! $observationtype){
+            return view('pages.not-found.notfound');
+        }
+
+        $observationtype->delete();
+
         return redirect(route('admin.observations.listobservationtype'))->with('success',app()->getLocale() == 'vi' ? 'Xóa Thành Công !' : 'Delete Successfully !');
     }
 }

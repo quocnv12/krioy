@@ -12,7 +12,7 @@
                 <div class="col-sm-6">
                     <ul class="ul-td">
                         <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">@lang('kidsnow.home')</a></li>
-                        <li _ngcontent-c16="" class="active1" style="pointer-events:none" href="{{route('admin.health.getAdd')}}"><a _ngcontent-c16="">@lang('kidsnow.health')</a></li>
+                        <li _ngcontent-c16="" class="active1"  ><a _ngcontent-c16="" href="{{route('admin.health.list')}}">@lang('kidsnow.health')</a></li>
                         <li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none" href="{{route('admin.health.getAdd')}}"><a _ngcontent-c16="">@lang('kidsnow.health.view_health')</a></li>
                     </ul>
                 </div>
