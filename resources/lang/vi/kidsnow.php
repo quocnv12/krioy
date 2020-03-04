@@ -109,7 +109,7 @@ return [
     'vegetables' => 'Rau',
     'chicken' => 'Gà',
     'select_meal_type' => 'Chọn loại bữa ăn *',
-    'select_quantity' => 'Chọn số lượng *',
+    // 'select_quantity' => 'Chọn số lượng *',
     // END Food
 
     //Home
@@ -524,7 +524,7 @@ return [
     'food_list' => 'Danh sách thực đơn',
     'program_food' => 'Lớp',
     'select_meal_type' => 'Chọn loại bữa ăn',
-    'select_quantity' => 'Chọn số lượng bữa ăn',
+    'select_quantity' => 'Chọn số lượng thực đơn',
     'select_food_name' => 'Tên món ăn',
     'title_food_edit' => 'Sửa thực đơn',
     'title_food_delete' => 'Xóa thực đơn',

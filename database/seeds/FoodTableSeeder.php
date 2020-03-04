@@ -45,7 +45,7 @@ class FoodTableSeeder extends Seeder
             [
                 'id'         =>  4,
                 'meal_type'  =>  4,
-                'quantity'   =>  4,
+                'quantity'   =>  2,
                 'id_program'    =>  3,
                 'date_begin' => '2019-11-30',
                 'date_end' => '2019-12-10'
