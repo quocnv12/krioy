@@ -14,10 +14,10 @@ class mealtype extends Seeder
     {
         DB::table('meal_type')->delete();
         DB::table('meal_type')->insert([
-            ['id'=>1,'name'=>'Lunch'],
-            ['id'=>2,'name'=>'Liquids'],
-            ['id'=>3,'name'=>'Snacks'],
-            ['id'=>4,'name'=>'Dinner'],
+            ['id'=>1,'name'=>'Bữa sáng'],
+            ['id'=>2,'name'=>'Bữa trưa'],
+            ['id'=>3,'name'=>'Bữa chiều'],
+            ['id'=>4,'name'=>'Bữa tối'],
         ]);
     }
 }
