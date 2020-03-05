@@ -294,7 +294,7 @@
 												{{ $errors->first('main_phone_parent') }}
 											</div>
 										@endif
-										@if ($errors->has('main_phone_parent') and $errors->first('main_phone_parent') == 'This phone number has been taken' || 'Số điện thoại đã tồn tại. Vui lòng thử số khác')
+										@if ($errors->first('main_phone_parent') == 'This phone number has been taken' || $errors->first('main_phone_parent') == 'Số điện thoại đã tồn tại. Vui lòng thử số khác')
 											<div class="text text-black" id="parent_exist" style="background-color: thistle; padding: 10px; border-radius: 20px">
 												<p style="font-weight: bold">@lang('kidsnow.children.found_parent_exist')</p>
 												<div class="row">
