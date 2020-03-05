@@ -22,8 +22,8 @@ class ParentProfilesTableSeeder extends Seeder
                 'gender'        =>  1,
                 'email'         =>  'laura@gmail.com',
                 'note'          =>  'hi',
-                'main_phone'         =>  '0971123123',
-                'extra_phone'         =>  '0971123124',
+                'main_phone'         =>  '0987654321',
+                'extra_phone'         =>  '0987654321',
                 'image'         =>  '',
                 
             ],
@@ -34,8 +34,8 @@ class ParentProfilesTableSeeder extends Seeder
                 'gender'        =>  0,
                 'email'         =>  'see@gmail.com',
                 'note'          =>  'hi',
-                'main_phone'         =>  '0971123125',
-                'extra_phone'         =>  '0971123127',
+                'main_phone'         =>  '0987654322',
+                'extra_phone'         =>  '0987654322',
                 'image'         =>  '',
                 
 
@@ -47,8 +47,8 @@ class ParentProfilesTableSeeder extends Seeder
                 'gender'        =>  1,
                 'email'         =>  'shen@gmail.com',
                 'note'          =>  '',
-                'main_phone'         =>  '0345678123',
-                'extra_phone'         =>  '0345778123',
+                'main_phone'         =>  '0987654323',
+                'extra_phone'         =>  '0987654323',
                 'image'         =>  ''
                 
 
@@ -60,8 +60,8 @@ class ParentProfilesTableSeeder extends Seeder
                 'gender'        =>  1,
                 'email'         =>  'dawn@gmail.com',
                 'note'          =>  'hi',
-                'main_phone'         =>  '0981234234',
-                'extra_phone'         =>  '0981534234',
+                'main_phone'         =>  '0987654324',
+                'extra_phone'         =>  '0987654324',
                 'image'         =>  '',
                 
             ],
@@ -73,8 +73,8 @@ class ParentProfilesTableSeeder extends Seeder
                 'email'         =>  'chen@gmail.com',
                 'note'          =>  'hi',
 
-                'main_phone'         =>  '0989222888',
-                'extra_phone'         =>  '0989122888',
+                'main_phone'         =>  '0987654325',
+                'extra_phone'         =>  '0987654325',
                 'image'         =>  '',
                 
 

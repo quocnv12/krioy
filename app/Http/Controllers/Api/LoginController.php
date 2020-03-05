@@ -40,7 +40,9 @@ class LoginController extends Controller
                      return response()->json(['failed_to_create_token'], 500);
                  }
                 return response()->json([
+                    'success' => true,
                     'token' => $token,
+
                 ], 200);
             }
 

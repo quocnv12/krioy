@@ -45,13 +45,23 @@ class LoginController extends Controller
                if (Auth::user()->active==0) 
                 {
                     Auth()->logout();
-                    return redirect('login')->with('danger', 'You need to verify the account.');
+                        if (\Lang::locale() == 'en') {
+                            return redirect('login')->with('danger', 'You need to verify the account !');
+                        }
+                        if (\Lang::locale() == 'vi') {
+                            return redirect('login')->with('danger', 'Tài khoản chưa được kích hoạt !');
+                        }
                 }
                 return redirect('kids-now');
             }
             else
             {
-                return  redirect()->back()->with("danger","Phone or password false !")->withInput();
+                if (\Lang::locale() == 'en') {
+                    return redirect()->back()->with("danger","Phone or password false !")->withInput();
+                }
+                if (\Lang::locale() == 'vi') {
+                    return redirect()->back()->with("danger","Số điện thoại hoặc mật khẩu sai !")->withInput();
+                }
             }
         // }
     }
@@ -76,20 +86,26 @@ class LoginController extends Controller
                 // $user=StaffProfiles::find(Auth::user()->id);
                 // $user->password=bcrypt($request->password);
                 // $user->save();
-            Auth::user()->update([
-                'password' => bcrypt($request->password)
-            ]);
-            // return redirect('login')->with('thongbao','Changer password success !');
-            return redirect()->back()->with('success','Changer password success !');
+                Auth::user()->update([
+                    'password' => bcrypt($request->password)
+                ]);
+                if (\Lang::locale() == 'en') {
+                    return redirect()->back()->with('success','Changer password success !');
+                }
+                if (\Lang::locale() == 'vi') {
+                    return redirect()->back()->with('success','Đổi mật khẩu thành công !');
+                }
             }
         else 
             {
                 return redirect()->back()->with('danger','Password old false !');
+                if (\Lang::locale() == 'en') {
+                    return redirect()->back()->with('danger','Password old false !');
+                }
+                if (\Lang::locale() == 'vi') {
+                    return redirect()->back()->with('danger','Mật khẩu cũ không chính xác !');
+                }
             }
     }
-
-
-
-    
 
 }

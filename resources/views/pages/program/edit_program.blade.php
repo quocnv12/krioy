@@ -23,6 +23,10 @@
 		.twitter-typeahead{
 			float: right;
 		}
+
+		.error{
+			color: red;
+		}
 	</style>
 	<body>
 	<section class="page-top container">
@@ -30,21 +34,22 @@
 			<div class="row">
                 <div class="col-lg-10 col-md-10 col-sm-10">
                     <ul class="ul-td">
-                        <li class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
-                        <li class="active1" ><a href="{{route('admin.program.index')}}">PROGRAM</a></li>
-                        <li class="active1 active-1" ><a href="">EDIT PROGRAM</a></li>
+                        <li class="level1"><a href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
+                        <li class="active1" ><a href="{{route('admin.program.index')}}">@lang('kidsnow.programs')</a></li>
+                        <li class="active1 active-1" ><a href="">@lang('kidsnow.program.edit_program')</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target="" style="display: flex; justify-content: flex-end;">
                     <button class="notice" type="button">
-                        <span><a href="{{route('admin.program.destroy',['id'=>$program->id])}}" style="color: inherit" onclick="return deleteConfirm()">DELETE</a></span>
+                        <span><a href="{{route('admin.program.destroy',['id'=>$program->id])}}" style="color: inherit" onclick="return deleteConfirm()">@lang('kidsnow.program.delete_program')</a></span>
 					</button>
-                </div>
+				</div>
 			</div>
 		</div>
+
+
 		<form action="{{route('admin.program.update',['id'=>$program->id])}}" method="post" style="width: 100%" id="editProgram">
 			@csrf
-
 			<input type="hidden" name="array_children_new" id="array_children_new" value="">
 			<input id="array_children_old" type="hidden" name="array_children_old" value="{{implode(',',$array_children_old)}}">
 
@@ -53,8 +58,6 @@
 
 			<div class="mat-card">
 				<button class="accordion add-staff" type="button">@lang('kidsnow.program.edit_program')</button>
-				<a class="btn btn-success" style="float: right" href="{{route('admin.program.excel',['id'=>$program->id])}}">Export Excel</a>
-
 				<div class="panel add">
 					<div class="row">
 						<div class="col-md-4 input_box">
@@ -67,20 +70,20 @@
 								</div>
 							@endif
 						</div>
-						<div class="col-md-8">
+						<div class="col-md-7">
 							<div class="row" style="margin: 10px 0;">
-								<div class="col-md-2" style="font-size: 18px;color:#5363d6;top:10px">
+								<div class="col-md-3" style="font-size: 18px;color:#5363d6;top:10px">
 									@lang('kidsnow.program.days'):
 								</div>
-								<div class="col-md-10" style="margin: 10px 0;">
+								<div class="col-md-9" style="margin: 10px 0;">
 									<div class="panel_new">
-										<button type="button" class="letterCircle listClass @if(in_array(8, $array_schedule_choose)) tablinks1_active @endif" style="color: #5363d7;" value="8">S</button>
-										<button type="button" class="letterCircle listClass @if(in_array(2, $array_schedule_choose)) tablinks1_active @endif" style="color: #5363d7;" value="2">M</button>
-										<button type="button" class="letterCircle listClass @if(in_array(3, $array_schedule_choose)) tablinks1_active @endif" style="color: #5363d7;" value="3">T</button>
-										<button type="button" class="letterCircle listClass @if(in_array(4, $array_schedule_choose)) tablinks1_active @endif" style="color: #5363d7;" value="4">W</button>
-										<button type="button" class="letterCircle listClass @if(in_array(5, $array_schedule_choose)) tablinks1_active @endif" style="color: #5363d7;" value="5">T</button>
-										<button type="button" class="letterCircle listClass @if(in_array(6, $array_schedule_choose)) tablinks1_active @endif" style="color: #5363d7;" value="6">F</button>
-										<button type="button" class="letterCircle listClass @if(in_array(7, $array_schedule_choose)) tablinks1_active @endif" style="color: #5363d7;" value="7">S</button>
+										<button type="button" class="letterCircle listClass @if(in_array(8, $array_schedule_choose)) tablinks1_active @endif" style="color: #5363d7;" value="8">@lang('kidsnow.program.sunday')</button>
+										<button type="button" class="letterCircle listClass @if(in_array(2, $array_schedule_choose)) tablinks1_active @endif" style="color: #5363d7;" value="2">@lang('kidsnow.program.monday')</button>
+										<button type="button" class="letterCircle listClass @if(in_array(3, $array_schedule_choose)) tablinks1_active @endif" style="color: #5363d7;" value="3">@lang('kidsnow.program.tuesday')</button>
+										<button type="button" class="letterCircle listClass @if(in_array(4, $array_schedule_choose)) tablinks1_active @endif" style="color: #5363d7;" value="4">@lang('kidsnow.program.wednesday')</button>
+										<button type="button" class="letterCircle listClass @if(in_array(5, $array_schedule_choose)) tablinks1_active @endif" style="color: #5363d7;" value="5">@lang('kidsnow.program.thursday')</button>
+										<button type="button" class="letterCircle listClass @if(in_array(6, $array_schedule_choose)) tablinks1_active @endif" style="color: #5363d7;" value="6">@lang('kidsnow.program.friday')</button>
+										<button type="button" class="letterCircle listClass @if(in_array(7, $array_schedule_choose)) tablinks1_active @endif" style="color: #5363d7;" value="7">@lang('kidsnow.program.saturday')</button>
 									</div>
 									<input id="array_schedule_new" type="hidden" value="" name="schedule_new">
 									<input id="array_schedule_old" type="hidden" name="schedule_old" value="{{implode(',',$array_schedule_choose)}}">
@@ -92,13 +95,16 @@
 								</div>
 							</div>
 						</div>
+						<div class="col-md-1">
+							<a class="btn btn-success" style="float: right; margin: 0" href="{{route('admin.program.excel',['id'=>$program->id])}}">@lang('kidsnow.program.excel')</a>
+						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-6">
 							<div class="row">
 								<div class="col-md-5 input_box">
 									<span class="input_box_span_active">@lang('kidsnow.program.program_fee')</span>
-									<input type="text" name="program_fee" id="program_fee" placeholder="@lang('kidsnow.program.program_fee')" value="{{($program->program_fee)}}">
+									<input type="number" name="program_fee" id="program_fee" placeholder="@lang('kidsnow.program.program_fee')" value="{{($program->program_fee)}}">
 									@if ($errors->has('program_fee'))
 										<div class="text text-danger">
 											{{ $errors->first('program_fee') }}
@@ -155,7 +161,7 @@
 							<p style="color:#5363d6;font-size: 18px;">@lang('kidsnow.program.age_group')</p>
 						</div>
 						<div class="col-md-5">
-							<p style="color:#5363d6;font-size: 18px;">@lang('kidsnow.program.timings')</p>
+							<p style="color:#5363d6;font-size: 18px;">@lang('kidsnow.program.timings')    <i style="cursor: pointer" id="undo_button" class="fa fa-undo" title="reset time"></i></p>
 						</div>
 					</div>
 					<div class="row">
@@ -174,8 +180,8 @@
 									<span class="input_box_span_active">@lang('kidsnow.program.from_year') </span>
 									<select name="from_year">
 										<option value="" selected >@lang('kidsnow.program.from_year')</option>
-										@for($i = 2020; $i <= 2050; $i ++)
-											<option @if($program->from_year == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
+										@for($i = 2015; $i <= 2040; $i ++)
+											<option @if(old('from_year') == $i || $program->from_year == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
 										@endfor
 									</select>
 									@if ($errors->has('from_year'))
@@ -202,8 +208,8 @@
 									<span class="input_box_span_active">@lang('kidsnow.program.to_year') </span>
 									<select name="to_year">
 										<option value="" selected >@lang('kidsnow.program.to_year')</option>
-										@for($i = 2020; $i <= 2050; $i ++)
-											<option @if($program->to_year == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
+										@for($i = 2015; $i <= 2040; $i ++)
+											<option @if(old('to_year') == $i || $program->to_year == $i) selected="selected" @endif value="{{$i}}">{{$i}}</option>
 										@endfor
 									</select>
 									@if ($errors->has('to_year'))
@@ -233,7 +239,7 @@
 							<div class="row">
 								<div class="col-md-6 input_box">
 									<span class="input_box_span_active">@lang('kidsnow.program.start_time') </span>
-									<input type="text" class="timepicker" name="start_time" value="{{$program->start_time}}">
+									<input type="text" class="timepicker" name="start_time" value="{{$program->start_time}}" placeholder="Clock">
 									@if ($errors->has('start_time'))
 										<div class="text text-danger">
 											{{ $errors->first('start_time') }}
@@ -242,7 +248,7 @@
 								</div>
 								<div class="col-md-6 input_box">
 									<span class="input_box_span_active">@lang('kidsnow.program.finish_time') </span>
-									<input type="text" class="timepicker" name="finish_time" value="{{$program->finish_time}}">
+									<input type="text" class="timepicker" name="finish_time" value="{{$program->finish_time}}" placeholder="Clock">
 									@if ($errors->has('finish_time'))
 										<div class="text text-danger">
 											{{ $errors->first('finish_time') }}
@@ -250,6 +256,26 @@
 									@endif
 								</div>
 							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="margin: 10px; text-align: center">
+				<span style="color: red; font-weight: bold">@lang('kidsnow.program.hint') :</span>
+				<span>@lang('kidsnow.program.hint_content')</span>
+			</div>
+			<div class="row">
+				<div class="col-md-9"></div>
+				<div class=" col-md-3">
+					<div class="row" style="float: right">
+						<div class="col-md-2">
+							<label class="label-checkbox">
+								<input type="checkbox" id="delete_without_asking">
+								<span class="checkmark" style="top: 0 !important;"></span>
+							</label>
+						</div>
+						<div class="col-md-10" >
+							<p>@lang('kidsnow.program.delete_without_asking')</p>
 						</div>
 					</div>
 				</div>
@@ -264,25 +290,22 @@
 					</button>
 					<div class="panel">
 						<div _ngcontent-c20="" class="row" style="" id="staff_list">
-                            @foreach($staff_in_program as $staff)
-                                <div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
-                                    <div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
-                                        <div _ngcontent-c19="" class="image">
-                                            <img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Staff.png';" style="height: 80px" width="80" src="{{$staff->image}}">
-                                            <input type="hidden" value="{{$staff->id}}">
-											<span class="delete-staff" onclick="deleteStaff({{$staff->id}})" style="position: absolute; top: 0"><i class="fas fa-times-circle" style="color: red ; cursor: pointer"></i></span>
-											<br>
-                                            <span _ngcontent-c19="" class="limitText ng-star-inserted"><a target="_blank" href="kids-now/staff/edit/{{$staff->id}}" style="margin: 0">{{$staff->first_name}} {{$staff->last_name}}</a></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-
-                            @if(count($staff_in_program) == 0)
-                                <div style="margin: 10px" id="hint_staff">
-                                    <span style="color: red; font-weight: bold">Hint :</span>
-                                    <span>Use the search bar to add specific staff in this program</span>
-                                </div>
+							@if(count($staff_in_program) > 0)
+								@foreach($staff_in_program as $staff)
+									<div _ngcontent-c19="" class="col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
+										<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
+											<div _ngcontent-c19="" class="image">
+												<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Staff.png';" style="height: 80px" width="80" src="{{$staff->image}}">
+												<input type="hidden" value="{{$staff->id}}">
+												<span class="delete-staff" onclick="deleteStaff({{$staff->id}})" style="position: absolute; top: 0"><i class="fas fa-times-circle" style="color: red ; cursor: pointer"></i></span>
+												<br>
+												<span _ngcontent-c19="" class="limitText ng-star-inserted"><a target="_blank" href="kids-now/staff/edit/{{$staff->id}}" style="margin: 0">{{$staff->first_name}} {{$staff->last_name}}</a></span>
+											</div>
+										</div>
+									</div>
+								@endforeach
+                            @else
+								<p style="font-size: 18px; margin: 10px;" id="hint_staff">@lang('kidsnow.program.no_staff')</p>
                             @endif
 							<!---->
 							{{-- ajax ProgramController@addSelectStaff do vao day--}}
@@ -301,25 +324,23 @@
 					</button>
 					<div class="panel">
 						<div _ngcontent-c20="" class="row" id="children_list">
-							@foreach($children_in_program as $children)
-								<div _ngcontent-c19="" class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
-									<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
-										<div _ngcontent-c19="" class="image">
-											<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Child.png';" style="height: 80px" width="80" src="{{$children->image}}">
-											<input type="hidden" value="{{$children->id}}">
-											{{--<button class="btn btn-sm btn-danger" type="button" onclick="deleteChild({{$children->id}})">X</button>--}}
-											<span class="delete-child" onclick="deleteChild({{$children->id}})" style="position: absolute; top: 0"><i class="fas fa-times-circle" style="color: red ; cursor: pointer"></i></span>
-											<br>
-											<span _ngcontent-c19="" class="limitText ng-star-inserted"><a target="_blank" href="kids-now/children/edit/{{$children->id}}" style="margin: 0">{{$children->first_name}} {{$children->last_name}}</a></span>
+							@if(count($children_in_program) > 0)
+								@foreach($children_in_program as $children)
+									<div _ngcontent-c19="" class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1" style="">
+										<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
+											<div _ngcontent-c19="" class="image">
+												<img _ngcontent-c19="" class="img-circle" height="80" onerror="this.src='images/Child.png';" style="height: 80px" width="80" src="{{$children->image}}">
+												<input type="hidden" value="{{$children->id}}">
+												{{--<button class="btn btn-sm btn-danger" type="button" onclick="deleteChild({{$children->id}})">X</button>--}}
+												<span class="delete-child" onclick="deleteChild({{$children->id}})" style="position: absolute; top: 0"><i class="fas fa-times-circle" style="color: red ; cursor: pointer"></i></span>
+												<br>
+												<span _ngcontent-c19="" class="limitText ng-star-inserted"><a target="_blank" href="kids-now/children/edit/{{$children->id}}" style="margin: 0">{{$children->first_name}} {{$children->last_name}}</a></span>
+											</div>
 										</div>
 									</div>
-								</div>
-							@endforeach
-                                @if(count($children_in_program) == 0)
-                                    <div style="margin: 10px" id="hint_children">
-                                        <span style="color: red; font-weight: bold">@lang('kidsnow.program.hint') :</span>
-                                        <span>@lang('kidsnow.program.hint_content')</span>
-                                    </div>
+								@endforeach
+							@else
+								<p style="font-size: 18px; margin: 10px;" id="hint_children">@lang('kidsnow.program.no_children')</p>
                             @endif
 							<!---->
 							{{-- ajax ProgramController@addSelectChildren do vao day--}}
@@ -328,22 +349,27 @@
 					</div>
 				</div>
 			</div>
-
 			<div class="comment">
 				<p id="error_total" style="text-align: center; color: red"></p>
 				<div class="button" style="text-align: center;">
 					<button type="reset" onclick="goBack()">
-						<span>CANCEL</span>
+						<span>@lang('kidsnow.cancel')</span>
 					</button>
 					<button class="button2" type="submit" id="submit_button">
-						<span>SAVE</span>
+						<span>@lang('kidsnow.save')</span>
 					</button>
 				</div>
 			</div>
 		</form>
-
-
 	</section>
+
+	{{--alert--}}
+	<p hidden id="alert_exist_children">@lang('kidsnow.program.alert_exist_children')</p>
+	<p hidden id="alert_remove_children">@lang('kidsnow.program.alert_remove_children')</p>
+	<p hidden id="alert_exist_staff">@lang('kidsnow.program.alert_exist_staff')</p>
+	<p hidden id="alert_remove_staff">@lang('kidsnow.program.alert_remove_staff')</p>
+	<p hidden id="alert_delete_without_asking">@lang('kidsnow.program.alert_delete_without_asking')</p>
+
 	</body>
 @endsection
 
@@ -362,7 +388,9 @@
     
     <!-- Main Script -->
     <script src="js/main.js"></script>
-    <script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+	<script>
 		var acc = document.getElementsByClassName("accordion");
 		var i;
 
@@ -395,6 +423,10 @@
 		//begin select children
 
 		var array_children = $('#array_children_old').val().split(',').map(Number)
+		if ($('#array_children_old').val() == '')
+		{
+			array_children = []
+		}
 
 		function deleteChild(id_children) {
 			array_children.splice( array_children.indexOf(id_children), 1 );
@@ -413,7 +445,7 @@
 						$('#children_list').append(data);
 						array_children.push(id);
 					}else {
-						alert('children exists')
+						alert($('#alert_exist_children').text())
 					}
 				}
 			});
@@ -422,6 +454,10 @@
 
 		//begin select staff
 		var array_staff = $('#array_staff_old').val().split(',').map(Number)
+		if ($('#array_staff_old').val() == '')
+		{
+			array_staff = []
+		}
 
 		function deleteStaff(id_staff) {
 			array_staff.splice( array_staff.indexOf(id_staff), 1 );
@@ -440,7 +476,7 @@
 						$('#staff_list').append(data);
 						array_staff.push(id)
 					}else {
-						alert('staff exists')
+						alert($('#alert_exist_staff').text())
 					}
 				}
 			});
@@ -449,40 +485,67 @@
 
 		//begin validate
 
-		$('#program_name').focusout(function () {
-			if ( $('#program_name').val() !== ""){
-				$('#error_program_name').html('')
-			}else {
-				$('#error_program_name').html('This field must not be empty')
-			}
+		$(document).ready(function () {
+			$("#editProgram").validate({
+				// Specify validation rules
+				rules: {
+					program_name: "required",
+				},
+				messages: {
+					program_name: "Tên lớp học không được để trống",
+				},
+				submitHandler: function(form) {
+					form.submit()
+				}
+			});
 		})
-		//end validate
-
 
 		$('#submit_button').click(function() {
-			if ( $('#program_name').val() === ""){
-				$('#error_total').html('please check the form again');
-			}else {
+			if ($('#editProgram').valid()){
 				$('#array_schedule_new').attr('value', array);
 				$('#array_children_new').attr('value', array_children);
 				$('#array_staff_new').attr('value', array_staff);
 				$('#editProgram').submit();
+			}else {
+				$('#error_total').html("Vui lòng kiểm tra lại thông tin (Please check the form again) !")
 			}
-		});
-
+		})
+		//finish validate
     </script>
 	<script >
 		$('.delete-child').click(function() {
-			$(this).parent('div').parent('div').parent('div').hide();
+			if ($('#delete_without_asking:checkbox:checked').length > 0){
+				$(this).parent('div').parent('div').parent('div').remove();
+			}else {
+				if(confirm($('#alert_remove_children').text()) == false){
+					return;
+				}else{
+					$(this).parent('div').parent('div').parent('div').remove();
+				}
+			}
 		})
 
 		$('.delete-staff').click(function() {
-			$(this).parent('div').parent('div').parent('div').hide();
+			if ($('#delete_without_asking:checkbox:checked').length > 0){
+				$(this).parent('div').parent('div').parent('div').remove();
+			}else {
+				if(confirm($('#alert_remove_staff').text()) == false){
+					return;
+				}else {
+					$(this).parent('div').parent('div').parent('div').remove();
+				}
+			}
 		})
 
         function deleteConfirm() {
-            return confirm("Confirm delete this program ?");
+            return confirm("Xác nhận xóa lớp học (Delete this program) ?");
         }
+
+        $('#delete_without_asking').click(function () {
+			if ($('#delete_without_asking:checkbox:checked').length > 0) {
+				alert($('#alert_delete_without_asking').text())
+			}
+		})
 	</script>
     <script type="text/javascript">
 		$('.input_box input').focus(function(event) {
@@ -514,6 +577,10 @@
 				$(this).children('i').prop('class', 'fa fa-chevron-circle-up');
 			}
 		});
+
+		$('#undo_button').click(function () {
+			$('input.timepicker').val('')
+		})
 	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
 	<script type="text/javascript">

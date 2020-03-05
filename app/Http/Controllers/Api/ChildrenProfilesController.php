@@ -12,6 +12,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use App\Http\Requests\StoreChildrenNoExistParentRequest;
+use App\Http\Requests\StoreChildrenYesExistParentRequest;
+use Intervention\Image\Facades\Image;
 
 class ChildrenProfilesController extends Controller
 {
@@ -36,104 +39,13 @@ class ChildrenProfilesController extends Controller
 
     public function store(Request $request)
     {
-            $rules_no_parent = [
-                'first_name' => 'required',
-                'last_name' => 'required',
-                'birthday' => 'required|before:today|after:01-01-2000',
-                'gender' => 'required',
-                'date_of_joining' => 'required',
-                'unique_id' => 'required|unique:children_profiles,unique_id',
-                'address' => 'nullable',
-                'allergies' => 'nullable',
-                'additional_note' => 'nullable',
-                'image' => 'image|nullable',
-                'status' => 'nullable',
-                'exist' => 'nullable',
-
-                'first_name_parent' => 'required',
-                'last_name_parent' => 'required',
-                'main_phone_parent' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:parent_profiles,main_phone',
-                'extra_phone_parent' => 'nullable|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10|unique:parent_profiles,extra_phone|different:main_phone_parent',
-                'email_parent' => 'required|email|unique:parent_profiles,email',
-                'gender_parent' => 'nullable',
-                'note_parent' => 'nullable',
-                'image_parent' => 'image|nullable',
-            ];
-
-            $rules_yes_parent = [
-                'first_name' => 'required',
-                'last_name' => 'required',
-                'birthday' => 'required|before:today|after:01-01-2000',
-                'gender' => 'required',
-                'date_of_joining' => 'required',
-                'unique_id' => 'required|unique:children_profiles,unique_id',
-                'address' => 'nullable',
-                'allergies' => 'nullable',
-                'additional_note' => 'nullable',
-                'image' => 'image|nullable',
-                'status' => 'nullable',
-                'exist' => 'nullable',
-
-                'first_name_parent' => 'required',
-                'last_name_parent' => 'required',
-                'main_phone_parent' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10',
-                'extra_phone_parent' => 'nullable|regex:/(0)[0-9]/|not_regex:/[a-z]/|size:10',
-                'email_parent' => 'required|email',
-                'gender_parent' => 'nullable',
-                'note_parent' => 'nullable',
-                'image_parent' => 'image|nullable',
-            ];
-
-        if ($request->parent_exist == '0' || $request->parent_exist == null) {
-            $validator = Validator::make($request->all(), $rules_no_parent,[
-                'first_name.required' => 'First Name is required',
-                'last_name.required' => 'Last Name is required',
-                'gender.required' => 'Gender is required',
-                'image.image' => 'Image is invalid',
-                'birthday.required' => 'Birthday is required',
-                'date_of_joining.required' => 'Date of Joining is required',
-                'first_name_parent.required' => 'First Name is required',
-                'last_name_parent.required' => 'Last Name is required',
-                'main_phone_parent.required' => 'Phone Number is required',
-                'main_phone_parent.unique' => 'Phone Number has been taken',
-                'extra_phone_parent.unique' => 'Phone Number has been taken',
-                'main_phone_parent.size' => 'Phone Number must have 10 digits',
-                'extra_phone_parent.size' => 'Phone Number must have 10 digits',
-                'main_phone_parent.regex' => 'Main Phone Number is invalid',
-                'extra_phone_parent.regex' => 'Extra Phone Number is invalid',
-                'extra_phone_parent.different' => 'This phone must different from Main phone',
-                'email_parent.required' => 'Email is required',
-                'email_parent.email' => 'Email is invalid',
-                'email_parent.unique' => 'This email has already been taken',
-                'unique_id.unique' => 'ID is exist',
-                'unique_id.required' => 'Unique ID is required',
-                'image_parent.image' => 'Image is invalid',
-            ]);
-        }else{
-            $validator = Validator::make($request->all(), $rules_yes_parent,[
-                'first_name.required' => 'First Name is required',
-                'last_name.required' => 'Last Name is required',
-                'gender.required' => 'Gender is required',
-                'image.image' => 'Image is invalid',
-                'birthday.required' => 'Birthday is required',
-                'date_of_joining.required' => 'Date of Joining is required',
-                'first_name_parent.required' => 'First Name is required',
-                'last_name_parent.required' => 'Last Name is required',
-                'main_phone_parent.required' => 'Phone Number is required',
-                'main_phone_parent.size' => 'Phone Number must have 10 digits',
-                'extra_phone_parent.size' => 'Phone Number must have 10 digits',
-                'main_phone_parent.regex' => 'Main Phone Number is invalid',
-                'extra_phone_parent.regex' => 'Extra Phone Number is invalid',
-                'extra_phone_parent.different' => 'This phone must different from Main phone',
-                'email_parent.required' => 'Email is required',
-                'email_parent.email' => 'Email is invalid',
-                'unique_id.unique' => 'ID is exist',
-                'unique_id.required' => 'Unique ID is required',
-                'image_parent.image' => 'Image is invalid',
-            ]);
+        if ($request->parent_exist == '0' || $request->parent_exist == null) {      //ko trung parent
+            $validate = new StoreChildrenNoExistParentRequest();
+            $validator = Validator::make($request->all(),$validate->rules(),$validate->messages());
+        }else{                                                                              //trung parent
+            $validate = new StoreChildrenYesExistParentRequest();
+            $validator = Validator::make($request->all(), $validate->rules(),$validate->messages());
         }
-
-
 
         if ($validator->fails()){
             return response()->json($validator->errors(), 400);
@@ -159,6 +71,8 @@ class ChildrenProfilesController extends Controller
                 $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
                 $file->move(public_path('images/parent/'), $filename);
                 $parent_profiles->image = 'images/parent/' . $filename;
+                $image = Image::make(public_path('images/parent/'.$filename))->fit(150,150);
+                $image->save();
                 $parent_profiles->save();
             }
         }
@@ -184,6 +98,8 @@ class ChildrenProfilesController extends Controller
                 $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
                 $file->move(public_path('images/parent/'), $filename);
                 $parent_profiles->image = 'images/parent/' . $filename;
+                $image = Image::make(public_path('images/parent/'.$filename))->fit(150,150);
+                $image->save();
                 $parent_profiles->save();
             }
             $parent_profiles->save();
@@ -196,6 +112,8 @@ class ChildrenProfilesController extends Controller
             $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('images/children/'), $filename);
             $children_profiles->image = 'images/children/' . $filename;
+            $image = Image::make(public_path('images/children/'.$filename))->fit(150,150);
+            $image->save();
         }
         $children_profiles->save();
 
@@ -367,7 +285,32 @@ class ChildrenProfilesController extends Controller
             'image_parent'        => 'image|nullable',
         ];
 
-        $validator = Validator::make($request->all(), $rules,[
+        $validation_vi = [
+            'first_name.required' => 'Trường này không được để trống',
+            'last_name.required' => 'Trường này không được để trống',
+            'gender.required' => 'Giới tính không được để trống',
+            'image.image' => 'Ảnh không hợp lệ',
+            'birthday.required' => 'Ngày sinh không được để trống',
+            'date_of_joining.required' => 'Ngày nhập học không được để trống',
+            'first_name_parent.required' => 'Trường này không được để trống',
+            'last_name_parent.required' => 'Trường này không được để trống',
+            'main_phone_parent.required' => 'Số điện thoại này không được để trống',
+            'main_phone_parent.unique' => 'Số điện thoại đã tồn tại. Vui lòng thử số khác',
+            'extra_phone_parent.unique' => 'Số điện thoại đã tồn tại. Vui lòng thử số khác',
+            'main_phone_parent.size' => 'Số điện thoại phải bao gồm 10 chữ số',
+            'extra_phone_parent.size' => 'Số điện thoại phải bao gồm 10 chữ số',
+            'main_phone_parent.regex' => 'Số điện thoại không hợp lệ',
+            'extra_phone_parent.regex' => 'Số điện thoại không hợp lệ',
+            'extra_phone_parent.different' => 'Số điện thoại dự phòng phải khác với số điện thoại chính',
+            'email_parent.required' => 'Email không được để trống',
+            'email_parent.email' => 'Email không hợp lệ',
+            'email_parent.unique' => 'Email đã tồn tại. Vui lòng thử email khác',
+            'unique_id.unique' => 'Mã ID đã tồn tại',
+            'unique_id.required' => 'Mã ID không được để trống',
+            'image_parent.image' => 'Ảnh không hợp lệ',
+        ];
+
+        $validation_en = [
             'first_name.required'           => 'First Name is required',
             'last_name.required'            => 'Last Name is required',
             'gender.required'               => 'Gender is required',
@@ -376,13 +319,13 @@ class ChildrenProfilesController extends Controller
             'date_of_joining.required'      => 'Date of Joining is required',
             'first_name_parent.required'    =>  'First Name is required',
             'last_name_parent.required'     =>  'Last Name is required',
-            'main_phone_parent.required'        => 'Phone Number is required',
-            'main_phone_parent.unique'        => 'Phone Number has been taken',
-            'extra_phone_parent.unique'        => 'Phone Number has been taken',
-            'main_phone_parent.size'        => 'Phone Number must have 10 digits',
-            'extra_phone_parent.size'        => 'Phone Number must have 10 digits',
-            'main_phone_parent.regex'        => 'Main Phone Number is invalid',
-            'extra_phone_parent.regex'        => 'Extra Phone Number is invalid',
+            'main_phone_parent.required'        => 'The phone number is required',
+            'main_phone_parent.unique'        => 'This phone number has been taken',
+            'extra_phone_parent.unique'        => 'This phone number has been taken',
+            'main_phone_parent.size'        => 'The phone number must has 10 digits',
+            'extra_phone_parent.size'        => 'The phone number must has 10 digits',
+            'main_phone_parent.regex'        => 'The main phone number is invalid',
+            'extra_phone_parent.regex'        => 'The extra phone number is invalid',
             'extra_phone_parent.different'        => 'This phone must different from main phone number',
             'email_parent.required'          => 'Email is required',
             'email_parent.email'          => 'Email is invalid',
@@ -390,7 +333,9 @@ class ChildrenProfilesController extends Controller
             'unique_id.unique'              => 'ID is exist',
             'unique_id.required'            => 'Unique ID is required',
             'image_parent.image'          => 'Image is invalid',
-        ]);
+        ];
+
+        $validator = Validator::make($request->all(), $rules,app()->getLocale() == ('vi') ? $validation_vi : $validation_en);
 
         if ($validator->fails()){
             return response()->json($validator->errors(), 400);
@@ -462,6 +407,8 @@ class ChildrenProfilesController extends Controller
             $filename = Str::random(9) . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('images/parent/'), $filename);
             $parent_profiles->image = 'images/parent/' . $filename;
+            $image = Image::make(public_path('images/parent/'.$filename))->fit(150,150);
+            $image->save();
             $parent_profiles->save();
         }
         $parent_profiles->save();

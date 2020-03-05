@@ -41,13 +41,7 @@
             text-align: center;
         }
 
-        @keyframes example {
-            0%   {right:0px; top:50px;}
-            10%  {right:120px; top:50px;}
-            90%  {right:120px; top:50px;}
-            100% {right:0px; top:50px}
-        }
-
+        .tox-notifications-container {display: none !important;}
     </style>
     <!-- JS libs --> 
     <script type="text/javascript" src="libs/jquery-3.4.1.min.js"></script>
@@ -78,8 +72,8 @@
     <script src="js/wow.js"></script>
     <script>new WOW().init();</script>
     <script src="js/home.js"></script>
-    <script src="asset/kriyo/js/toastr.min.js"></script>
-    @if(session('error'))
+    {{-- <script src="asset/kriyo/js/toastr.min.js"></script> --}}
+    {{-- @if(session('error'))
         <script type="text/javascript">
             toastr.error('{{ session('error') }}', 'Thông báo', {timeOut: 5000});
         </script>
@@ -89,13 +83,14 @@
         <script type="text/javascript">
             toastr.success('{{ session('thongbao') }}', 'Thông báo', {timeOut: 5000});
         </script>
-    @endif
+    @endif --}}
     @yield('js')
     {{--Tiny MCE--}}
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.tiny.cloud/1/j326pk4u71odw7cg7angineo68my440vywpa8xrhn6lkm0yw/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
     <script>tinymce.init({
         selector:'textarea',
-        plugins: "link table contextmenu ",
+        plugins: "link table contextmenu media",
         link_context_toolbar: true,
         link_assume_external_targets: true,
         link_title: false,
@@ -138,4 +133,8 @@
             $(".text-danger").slideUp(500);
         }, 20000);
     </script>
+
+<NOSCRIPT>
+    <p style="color: red; text-align: center; font-size: 18px">@lang('kidsnow.noscript')</p>
+</NOSCRIPT>
 </html>

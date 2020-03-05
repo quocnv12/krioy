@@ -11,16 +11,16 @@
                     <div class="dropdown-logo1">
                         @if(app()->getLocale() == 'vi')
                         <button class="dropbtn-logo1">
-                            <button class="dropbtn-logo1"><img src="images/viet.png" style="width: 20px;height: 20px"></button>
+                            <button class="dropbtn-logo1"><img src="images/viet.png" style="width: 30px;height: 20px"></button>
                         </button>
                         @else 
                         <button class="dropbtn-logo1">
-                            <button class="dropbtn-logo1"><img src="images/usa.png" style="width: 20px;height: 20px"></button>
+                            <button class="dropbtn-logo1"><img src="images/england.png" style="width: 30px;height: 20px"></button>
                         </button>
                         @endif
                         <div class="dropdown-content-logo1">
                             <a href="locale/vi"><img src="images/viet.png"> @lang('kidsnow.vietnamese')</a>
-                            <a href="locale/en"><img src="images/usa.png"> @lang('kidsnow.english')</a>
+                            <a href="locale/en"><img src="images/england.png"> @lang('kidsnow.english')</a>
                         </div>
                     </div>
                 </li>
@@ -37,7 +37,7 @@
                     <a class="nav-link" href="kids-now">@lang('kidsnow.menu_help')</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="kids-now">Kids-now</a>
+                    <a class="nav-link" href="kids-now">Kids Now</a>
                 </li>
             
                 <!-- Dropdown -->
@@ -60,23 +60,23 @@
         </nav>
     </div>
   
-    <div class="d-block d-md-none menu_mobile">
+    <div class="d-block d-md-none menu_mobile" >
         <div id="menu_mobile">
-            <div class="closebtn" onclick="closeNav()">×</div>
-            <a>
-                <div class="dropdown-logo1">
+            <div class="closebtn" onclick="closeNav()">☰</div>
+            <a style="position: absolute;top: 11px;right: 15px;">
+                <div  class="dropdown-logo1">
                     @if(app()->getLocale() == 'vi')
                     <button class="dropbtn-logo1">
-                        <button class="dropbtn-logo1"><img src="images/viet.png" style="width: 20px;height: 20px"></button>
+                        <button class="dropbtn-logo1"><img src="images/viet.png" style="width: 20px;height: 20px;"></button>
                     </button>
                     @else 
                     <button class="dropbtn-logo1">
-                        <button class="dropbtn-logo1"><img src="images/usa.png" style="width: 20px;height: 20px"></button>
+                        <button class="dropbtn-logo1"><img src="images/england.png" style="width: 20px;height: 20px"></button>
                     </button>
                     @endif
                     <div class="dropdown-content-logo1">
-                        <a href="locale/vi"><img src="images/viet.png"> @lang('kidsnow.vietnamese')</a>
-                        <a href="locale/en"><img src="images/usa.png"> @lang('Hello World')</a>
+                        <a style="font-size: 14px;" href="locale/vi"><img src="images/viet.png"> @lang('kidsnow.vietnamese')</a>
+                        <a style="font-size: 14px;" href="locale/en"><img src="images/england.png"> @lang('kidsnow.english')</a>
                     </div>
                 </div>
             </a>

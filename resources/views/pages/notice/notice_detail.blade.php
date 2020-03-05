@@ -9,9 +9,9 @@
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
 				<ul class="ul-td" style="width: 100%">
-					<li  class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
-					<li  class="active1"><a href="{{route('admin.notice-board.index')}}">NOTICE BOARD</a></li>
-					<li  class="active1 active-1" style="pointer-events:none;"><a href="">NOTICE DETAIL</a></li>
+					<li  class="level1"><a href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
+					<li  class="active1"><a href="{{route('admin.notice-board.index')}}">@lang('kidsnow.notice_board')</a></li>
+					<li  class="active1 active-1" style="pointer-events:none;"><a href="">@lang('kidsnow.notice.view_notice')</a></li>
 				</ul>
 			</div>
 		</div>
@@ -28,8 +28,9 @@
 						@endforeach
 					</div>
 				</div>
+				<hr>
 				<div style="font-size: 20px;font-weight: bold;">
-					<p>{{$notice_board->title}}</p>
+					<span>@lang('kidsnow.notice.title') : </span><span>{{$notice_board->title}}</span>
 				</div>
 				<br>
 				<div class="row">
@@ -60,10 +61,14 @@
 						</div>
 					</div>
 				</div>
+				<hr>
+				<div style="font-size: 20px;font-weight: bold;">
+					<p>@lang('kidsnow.notice.content')</p>
+				</div>
 				<div class="notice-footer" style="color: grey;font-size: 14px;margin-bottom: 370px;">
 					<div class=" row">
-						<div class="col-md-11" style="margin-top: 20px">
-							<textarea cols="30" rows="20">{{ $notice_board->content }}</textarea>
+						<div class="col-md-12" style="margin-top: 20px; font-size: 16px">
+							{!! $notice_board->content !!}
 						</div>
 						<div class="">
 							<br>
@@ -87,11 +92,17 @@
 				<i class="fa fa-edit"></i>
 			</a>
 		</div>
-
+		<div class="comment">
+			<div class="button" style="text-align: center;">
+				<button class="button2" onclick="goBack()">
+					<span>@lang('kidsnow.cancel')</span>
+				</button>
+			</div>
+		</div>
 		<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-sm" style="top: 40%;">
 			    <div class="modal-content" style="font-size: 18px;padding: 25px;">
-					Click on 'Edit' button to update details
+					@lang('kidsnow.notice.edit_button')
 			    </div>
 			</div>
 		</div>

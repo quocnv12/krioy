@@ -19,9 +19,9 @@
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
 				<ul class="ul-td" style="width: 100%;">
-					<li class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
-					<li class="active1" ><a href="{{route('admin.children.index')}}">CHILDREN PROFILES</a></li>
-					<li class="active1 active-1" style="pointer-events:none;"><a href="">ADD CHILD</a></li>
+					<li class="level1"><a href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
+					<li class="active1" ><a href="{{route('admin.children.index')}}">@lang('kidsnow.children_profiles')</a></li>
+					<li class="active1 active-1" style="pointer-events:none;"><a href="">@lang('kidsnow.children.add_children')</a></li>
 				</ul>
 			</div>
 		</div>
@@ -294,7 +294,7 @@
 												{{ $errors->first('main_phone_parent') }}
 											</div>
 										@endif
-										@if ($errors->has('main_phone_parent') and $errors->first('main_phone_parent') == 'Phone Number has been taken')
+										@if ($errors->has('main_phone_parent') and $errors->first('main_phone_parent') == 'This phone number has been taken' || 'Số điện thoại đã tồn tại. Vui lòng thử số khác')
 											<div class="text text-black" id="parent_exist" style="background-color: thistle; padding: 10px; border-radius: 20px">
 												<p style="font-weight: bold">@lang('kidsnow.children.found_parent_exist')</p>
 												<div class="row">
@@ -351,10 +351,10 @@
 			<div class="comment">
 				<div class="button" style="text-align: center;">
 					<button type="reset" onclick="goBack()">
-						<span>CANCEL</span>
+						<span>@lang('kidsnow.cancel')</span>
 					</button>
 					<button class="button2" type="submit" id="submit_button">
-						<span>SAVE</span>
+						<span>@lang('kidsnow.save')</span>
 					</button>
 				</div>
 			</div>
@@ -440,7 +440,6 @@
 		$('#confirm_parent_no').click(function () {
 			$('#parent_exist').remove()
 			$('#parent_exist').val(0)
-			console.log($('#parent_exist').val())
 		});
 
 		$('#confirm_parent_yes').click(function () {
@@ -453,7 +452,6 @@
 			$('#email_parent').val($('#email_parent_exist').val());
 			$('#note_parent').val($('#note_parent_exist').val());
 			$('#parent_exist').val(1)
-			console.log($('#parent_exist').val())
 		});
 	</script>
 	{{--finish xu ly trung parent profile--}}
@@ -518,7 +516,6 @@
 	<script>
 		$(document).ready(function () {
 			$('.accordion').click()
-
 		})
 	</script>
 @endsection

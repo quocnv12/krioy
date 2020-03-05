@@ -46,7 +46,7 @@
                            
                       </div>
                     </div>
-                    <div class="grid-body ">
+                    <div class="grid-body">
                       <table class="table table-striped" id="example">
                         <thead>
                           <tr>

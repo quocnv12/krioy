@@ -23,15 +23,19 @@
 		.twitter-typeahead{
 			float: right;
 		}
+
+		.error{
+			color: red;
+		}
 	</style>
 <body>
 	<section class="page-top container">
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
 				<ul class="ul-td" style="width: 100%">
-					<li class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
-					<li class="active1" ><a href="{{route('admin.program.index')}}">PROGRAM</a></li>
-					<li class="active1 active-1" style="pointer-events:none;"><a href="">ADD PROGRAM</a></li>
+					<li class="level1"><a href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
+					<li class="active1" ><a href="{{route('admin.program.index')}}">@lang('kidsnow.programs')</a></li>
+					<li class="active1 active-1" style="pointer-events:none;"><a href="">@lang('kidsnow.program.add_program')</a></li>
 				</ul>
 			</div>
 		</div>
@@ -48,7 +52,6 @@
 					<div class="col-md-4 input_box">
 						<span>@lang('kidsnow.program.program_name') *</span>
 						<input type="text" name="program_name" id="program_name" placeholder="@lang('kidsnow.program.program_name') *" value="{{old('program_name')}}">
-						<p id="error_program_name" style="text-align: left; color: red"></p>
                         @if ($errors->has('program_name'))
 								<div class="text text-danger">
 									{{ $errors->first('program_name') }}
@@ -62,13 +65,13 @@
 							</div>
 							<div class="col-md-10" style="margin: 10px 0;">
 								<div class="panel_new">
-									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="8">S</button>
-									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="2">M</button>
-									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="3">T</button>
-									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="4">W</button>
-									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="5">T</button>
-									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="6">F</button>
-									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="7">S</button>
+									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="8">@lang('kidsnow.program.sunday')</button>
+									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="2">@lang('kidsnow.program.monday')</button>
+									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="3">@lang('kidsnow.program.tuesday')</button>
+									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="4">@lang('kidsnow.program.wednesday')</button>
+									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="5">@lang('kidsnow.program.thursday')</button>
+									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="6">@lang('kidsnow.program.friday')</button>
+									<button type="button" class="letterCircle listClass" style="color: #5363d7;" value="7">@lang('kidsnow.program.saturday')</button>
 								</div>
 								<input type="hidden" name="schedule" id="schedule" value="">
                                 @if ($errors->has('schedule'))
@@ -85,7 +88,7 @@
 						<div class="row">
 							<div class="col-md-5 input_box">
 								<span>@lang('kidsnow.program.program_fee')</span>
-								<input type="number" min="0" name="program_fee" id="program_fee" placeholder="@lang('kidsnow.program.program_fee')" value="{{old('program_fee')}}">
+								<input type="number" name="program_fee" id="program_fee" placeholder="@lang('kidsnow.program.program_fee')" value="{{old('program_fee')}}">
                                 @if ($errors->has('program_fee'))
                                     <div class="text text-danger">
                                         {{ $errors->first('program_fee') }}
@@ -142,14 +145,14 @@
 						<p style="color:#5363d6;font-size: 18px;">@lang('kidsnow.program.age_group')</p>
 					</div>
 					<div class="col-md-5">
-						<p style="color:#5363d6;font-size: 18px;">@lang('kidsnow.program.timings')</p>
+						<p style="color:#5363d6;font-size: 18px;">@lang('kidsnow.program.timings')    <i style="cursor: pointer" id="undo_button" class="fa fa-undo" title="reset time"></i></p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-7">
 						<div class="row">
-							<div class="col-md-6"><span style="font-size: 14px;">@lang('kidsnow.program.from'):</span></div>
-							<div class="col-md-6"><span style="font-size: 14px;">@lang('kidsnow.program.to'):</span></div>
+							<div class="col-md-6"><span style="font-size: 14px;">@lang('kidsnow.program.from')</span></div>
+							<div class="col-md-6"><span style="font-size: 14px;">@lang('kidsnow.program.to')</span></div>
 						</div>
 					</div>
 					<div class="col-md-5"></div>
@@ -161,7 +164,7 @@
 								<span>@lang('kidsnow.program.from_year') </span>
 								<select name="from_year">
                                     <option value="" selected >@lang('kidsnow.program.from_year')</option>
-									@for($i = 2020; $i <= 2050; $i ++)
+									@for($i = 2015; $i <= 2030; $i ++)
 										<option @if(old('from_year') == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
 									@endfor
 								</select>
@@ -189,7 +192,7 @@
 								<span>@lang('kidsnow.program.to_year') </span>
 								<select name="to_year">
                                     <option value="" selected >@lang('kidsnow.program.to_year')</option>
-									@for($i = 2020; $i <= 2050; $i ++)
+									@for($i = 2015; $i <= 2030; $i ++)
 										<option @if(old('to_year') == $i ) selected="selected" @endif value="{{$i}}">{{$i}}</option>
 									@endfor
 								</select>
@@ -219,8 +222,8 @@
 					<div class="col-md-5">
 						<div class="row">
 							<div class="col-md-6 input_box">
-								<span class="input_box_span_active">@lang('kidsnow.program.start_time') </span>
-								<input type="text" class="timepicker" name="start_time" value="{{old('start_time')}}">
+								<span class="input_box_span_active">@lang('kidsnow.program.start_time')</span>
+								<input type="text" class="timepicker" name="start_time" value="{{old('start_time')}}" placeholder="Clock">
                                 @if ($errors->has('start_time'))
                                     <div class="text text-danger">
                                         {{ $errors->first('start_time') }}
@@ -229,7 +232,7 @@
 							</div>
 							<div class="col-md-6 input_box">
 								<span class="input_box_span_active">@lang('kidsnow.program.finish_time') </span>
-								<input type="text" class="timepicker" name="finish_time" value="{{old('finish_time')}}">
+								<input type="text" class="timepicker" name="finish_time" value="{{old('finish_time')}}" placeholder="Clock">
                                 @if ($errors->has('finish_time'))
                                     <div class="text text-danger">
                                         {{ $errors->first('finish_time') }}
@@ -241,9 +244,25 @@
 				</div>
 			</div>
 		</div>
-			<div style="margin: 0px; text-align: center" id="hint">
-				<span style="color: red; font-weight: bold">@lang('kidsnow.program.hint')</span>
-				@lang('kidsnow.program.hint_content')
+			<div style="margin: 10px; text-align: center" id="hint">
+				<span style="color: red; font-weight: bold">@lang('kidsnow.program.hint') : </span>
+				<span>@lang('kidsnow.program.hint_content')</span>
+			</div>
+			<div class="row">
+				<div class="col-md-9"></div>
+				<div class=" col-md-3">
+					<div class="row" style="float: right">
+						<div class="col-md-2">
+							<label class="label-checkbox">
+								<input type="checkbox" id="delete_without_asking">
+								<span class="checkmark" style="top: 0 !important;"></span>
+							</label>
+						</div>
+						<div class="col-md-10" >
+							<p>@lang('kidsnow.program.delete_without_asking')</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		<div class="mat-card">
 			<div class="mat-content">
@@ -284,15 +303,22 @@
 			<p id="error_total" style="text-align: center; color: red"></p>
 			<div class="button" style="text-align: center;">
 				<button type="reset" onclick="goBack()">
-					<span>CANCEL</span>
+					<span>@lang('kidsnow.cancel')</span>
 				</button>
 				<button class="button2" type="submit" id="submit_button">
-					<span>SAVE</span>
+					<span>@lang('kidsnow.save')</span>
 				</button>
 			</div>
 		</div>
 		</form>
 	</section>
+
+	{{--alert--}}
+	<p hidden id="alert_exist_children">@lang('kidsnow.program.alert_exist_children')</p>
+	<p hidden id="alert_remove_children">@lang('kidsnow.program.alert_remove_children')</p>
+	<p hidden id="alert_exist_staff">@lang('kidsnow.program.alert_exist_staff')</p>
+	<p hidden id="alert_remove_staff">@lang('kidsnow.program.alert_remove_staff')</p>
+	<p hidden id="alert_delete_without_asking">@lang('kidsnow.program.alert_delete_without_asking')</p>
 </body>
 @endsection
 
@@ -328,6 +354,8 @@
 		  });
 		}
 	</script>
+	<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
 	<script type="text/javascript">
         //begin schedule
 		var array = [];
@@ -364,7 +392,7 @@
                         $('#children_list').append(data);
                         array_children.push(id);
                     }else {
-                        alert('The children has existed')
+                        alert($('#alert_exist_children').text())
                     }
                 }
             });
@@ -390,7 +418,7 @@
                         $('#staff_list').append(data);
                         array_staff.push(id)
                     }else {
-                        alert('The staff has existed')
+                        alert($('#alert_exist_staff').text())
                     }
                 }
             });
@@ -398,35 +426,35 @@
         //end select staff
 
         //begin validate
-		if ( $('#program_name').val() !== ""){
-			$('#error_program_name').html('')
-			$('#error_total').html('');
-		}else {
-			$('#error_program_name').html('This field is required')
-		}
 
-		$('#program_name').focusout(function () {
-			if ( $('#program_name').val() !== ""){
-				$('#error_program_name').html('')
-				$('#error_total').html('');
-			}else {
-				$('#error_program_name').html('This field is required')
-			}
+		$(document).ready(function () {
+			$("#addProgram").validate({
+				// Specify validation rules
+				rules: {
+					program_name: "required",
+				},
+				messages: {
+					program_name: "Tên lớp học không được để trống",
+				},
+				submitHandler: function(form) {
+					form.submit()
+				}
+			});
 		})
-        //end validate
-
 
 		$('#submit_button').click(function() {
-			if ( $('#program_name').val() === ""){
-				$('#error_total').html('Something wrong! Please check the form again');
-			}else {
+			if ($('#addProgram').valid()){
 				$('#schedule').attr('value', array);
 				$('#array_all_children').attr('value', array_children);
 				$('#array_all_staff').attr('value', array_staff);
 				$('#addProgram').submit();
+			}else {
+				$('#error_total').html("Vui lòng kiểm tra lại thông tin (Please check the form again) !")
 			}
-		});
+		})
+		//finish validate
     </script>
+
     <script type="text/javascript">
 		$('.input_box input').focus(function(event) {
 	    	$(this).siblings('span').addClass('input_box_span_active');
@@ -461,6 +489,43 @@
 	<script>
 		$(document).ready(function () {
 			$('.accordion').click();
+
+			$('#undo_button').click(function () {
+				$('input.timepicker').val('')
+			})
+		})
+	</script>
+
+	<script>
+
+		$(document).on('click', '.delete-child', function(){
+			if ($('#delete_without_asking:checkbox:checked').length > 0){
+				$(this).parent('div').parent('div').parent('div').remove();
+			}else {
+				if (confirm($('#alert_remove_children').text()) == false) {
+					return;
+				} else {
+					$(this).parent('div').parent('div').parent('div').remove();
+				}
+			}
+		})
+
+		$(document).on('click', '.delete-staff', function(){
+			if ($('#delete_without_asking:checkbox:checked').length > 0){
+				$(this).parent('div').parent('div').parent('div').remove();
+			}else {
+				if (confirm($('#alert_remove_staff').text()) == false) {
+					return;
+				} else {
+					$(this).parent('div').parent('div').parent('div').remove();
+				}
+			}
+		})
+
+		$('#delete_without_asking').click(function () {
+			if ($('#delete_without_asking:checkbox:checked').length > 0) {
+				alert($('#alert_delete_without_asking').text())
+			}
 		})
 	</script>
 

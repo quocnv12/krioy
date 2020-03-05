@@ -24,8 +24,8 @@
     <div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
         <div class="row">
             <ul class="ul-td" style="width:100%">
-                <li  class="level1"><a href="kids-now">Home</a></li>
-                <li  class="active-1" style="pointer-events: none"><a href="">Observations</a></li>
+                <li  class="level1"><a href="kids-now">@lang('kidsnow.home')</a></li>
+                <li  class="active-1" style="pointer-events: none"><a href="">@lang('kidsnow.observations')</a></li>
             </ul>
         </div>
     </div>
@@ -41,24 +41,24 @@
                             {{-- <div style="text-align:right;padding-right:22px" class="col-md-6">
                                 <a style="margin:0px;" href="{{ route('menu-food-name-add') }}" class="btn btn-success btn-cons"" title="Add Food Name"><i style="" class="fa fa-plus-circle"></i> Add</a>
                             </div> --}}
-                            <form action="kids-now/observations/list" method="get" style="display: contents">
+                            <form action="{{route('admin.observations.list')}}" method="get" style="display: contents">
 
                                 <div class="col-md-6" style="display: flex; justify-content: flex-end; align-items: center">
-                                    <span style="font-weight: bold">@lang('kidsnow.observations.seminar')</span>&nbsp;&nbsp;:&nbsp;&nbsp;
+                                    <span style="font-weight: bold">@lang('kidsnow.observations.time')</span>&nbsp;&nbsp;:&nbsp;&nbsp;
                                     <select name="month" id="month" >
                                         <option value="">@lang('kidsnow.observations.choose_month')</option>
-                                        <option value="Jan">@lang('kidsnow.january')</option>
-                                        <option value="Feb">@lang('kidsnow.february')</option>
-                                        <option value="Mar">@lang('kidsnow.march')</option>
-                                        <option value="Apr">@lang('kidsnow.april')</option>
-                                        <option value="May">@lang('kidsnow.may')</option>
-                                        <option value="Jun">@lang('kidsnow.june')</option>
-                                        <option value="Jul">@lang('kidsnow.july')</option>
-                                        <option value="Aug">@lang('kidsnow.august')</option>
-                                        <option value="Sep">@lang('kidsnow.september')</option>
-                                        <option value="Oct">@lang('kidsnow.october')</option>
-                                        <option value="Nov">@lang('kidsnow.november')</option>
-                                        <option value="Dec">@lang('kidsnow.december')</option>
+                                        <option value="1">@lang('kidsnow.january')</option>
+                                        <option value="2">@lang('kidsnow.february')</option>
+                                        <option value="3">@lang('kidsnow.march')</option>
+                                        <option value="4">@lang('kidsnow.april')</option>
+                                        <option value="5">@lang('kidsnow.may')</option>
+                                        <option value="6">@lang('kidsnow.june')</option>
+                                        <option value="7">@lang('kidsnow.july')</option>
+                                        <option value="8">@lang('kidsnow.august')</option>
+                                        <option value="9">@lang('kidsnow.september')</option>
+                                        <option value="10">@lang('kidsnow.october')</option>
+                                        <option value="11">@lang('kidsnow.november')</option>
+                                        <option value="12">@lang('kidsnow.december')</option>
                                     </select>
                                     &nbsp;&nbsp;-&nbsp;&nbsp;
                                     <select name="year" id="year">
@@ -72,7 +72,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="grid-body ">
+                    <div class="grid-body " style="padding: 0">
                         <table class="table table-striped" id="example">
                             <thead>
                             <tr>
@@ -89,9 +89,15 @@
                                     <tr class="odd gradeX">
                                         <td style="text-align:center;text-transform:capitalize">{{ $item->Children->first_name}} {{ $item->Children->last_name}}</td>
                                         <td style="text-align:center;text-transform:capitalize">{{ date('d-m-Y',strtotime($item->Children->birthday))}}</td>
-                                        <td style="text-align:center;text-transform:capitalize">{{ $item->Children->gender == 1 ? 'Male' : 'Female'}}</td>
+                                        <td style="text-align:center;text-transform:capitalize">
+                                            @if(app()->getLocale() == 'vi')
+                                                {{ $item->Children->gender == 1 ? 'Nam' : 'Nữ'}}
+                                            @else
+                                                {{ $item->Children->gender == 1 ? 'Male' : 'Female'}}
+                                            @endif
+                                        </td>
                                         <td style="text-align:center;text-transform:capitalize">{{ $item->observer}}</td>
-                                        <td style="text-align:center;text-transform:capitalize">{{ $item->month}} / {{$item->year}}</td>
+                                        <td style="text-align:center;text-transform:capitalize">{{ date('d-m-Y  H:m:s', strtotime($item->created_at))}}</td>
                                         <td style="text-align:center">
                                             <a href="{{ route('admin.observations.view',['id'=>$item->id]) }}" title="View Observation" class="btn btn-sm btn-outline-primary"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                             <a href="{{ route('admin.observations.getEdit',['id'=>$item->id]) }}" title="Edit Observation" class="btn btn-sm btn-outline-warning"><i class="fa fa-edit" aria-hidden="true"></i></a>

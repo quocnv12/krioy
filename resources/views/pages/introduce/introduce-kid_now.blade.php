@@ -25,9 +25,31 @@
 			html{
 				scroll-behavior: smooth;
 			}
+
+			.back-to-top {
+				width: 45px;
+				height: 45px;
+				background: #FF4081;
+				position: fixed;
+				cursor: pointer;
+				color: white;
+				bottom: 10%;
+				border-radius: 50%;
+				right: 20px;
+				transition: 2s;
+				z-index: 9999;
+			}
+			.back-to-top i {
+				font-size: 30px;
+				left: 13px;
+				top: 5px;
+				position: absolute;
+			}
 		</style>
 	</head>
 <body>
+<a name="top"></a>
+<a href="#top" class="back-to-top" id=bttop><i class="fa fa-angle-up"></i></a>
 	<section class="introduce">
 		<div class="introduce-1">
 			<nav class="navbar" style="z-index: 1">
@@ -35,6 +57,7 @@
 				    <div class="navbar-header">
 				    	<a class="navbar-brand " href="#" style="display: flex;">
 				    		<img src="images/logo-ngang.png" style="border-radius: 0;width: auto;margin: -7px 0;" alt="">
+
 				    	</a>
 				    	<div class="topnav" id="myTopnav">
 							<a href="" style="" onclick="return false;">
@@ -45,21 +68,22 @@
 										</button>
 									@else
 										<button class="dropbtn-logo1">
-											<button class="dropbtn-logo1"><img src="images/usa.png" style="width: 50px;height: 30px; border-radius: 0px"></button>
+											<button class="dropbtn-logo1"><img src="images/england.png" style="width: 50px;height: 30px; border-radius: 0px"></button>
 										</button>
 									@endif
 									<div class="dropdown-content-logo1" >
 										<a href="locale/vi"><img src="images/viet.png"> @lang('kidsnow.vietnamese')</a>
-										<a href="locale/en"><img src="images/usa.png"> @lang('kidsnow.english')</a>
+										<a href="locale/en"><img src="images/england.png"> @lang('kidsnow.english')</a>
 									</div>
 								</div>
 							</a>
+
 						    <a href="#section1">{{__('kidsnow.home')}}</a>
 						    <a href="#section2"> @lang('kidsnow.kids_now_app')</a>
 						    <a href="#section3">@lang('kidsnow.pricing')</a>
 							<a href="#section4">@lang('kidsnow.about_us_top')</a>
 							@if(Auth::check())
-								<a href="login" style="background-color: #ddd;">My Kids-now</a>
+								<a href="login" style="background-color: #ddd;">@lang('kidsnow.my_kids_now')</a>
 							@else
 								<a href="login">@lang('kidsnow.login')</a>
 							@endif
@@ -94,7 +118,7 @@
 							<img src="images/iosIcon.svg" alt="">
 						</a>
 						<a href="#">
-							<img src="images/androidIcon.png" alt="">
+							<img src="images/androidIcon.png" alt="" >
 						</a>
 					</span>
 				</div>
@@ -171,7 +195,7 @@
 				<div class="col-md-3"></div>
 			</div>
 			<div align="center">
-				<a class="image-block@langcta" style="color: #FF4081;">
+				<a class="image-block@langcta" style="color: #FF4081; display: block; font-size: 20px">
 					<strong>@lang('kidsnow.download_for_free')</strong>
 				</a>
 				<span style="text-align: center;width: 320px;margin: 10px 5px;" class="slider">
@@ -179,7 +203,7 @@
 						<img src="images/iosIcon.svg" alt="">
 					</a>
 					<a href="#">
-						<img src="images/androidIcon.png" alt="">
+						<img src="images/androidIcon.png" alt="" style="margin-left: 15px">
 					</a>
 				</span>
 			</div>
@@ -240,8 +264,9 @@
 	</section>
 	<section class="introduce-customers">
 		<div class="container">
+
 			<div class="schoolTiltle" style="padding: 20px 0;">
-				<h2>@lang('kidsnow.our_customers_speak')</h2>
+				<h2 style="font-size: 27px !important;">@lang('kidsnow.our_customers_speak')</h2>
 				<div class="hr"></div>
 			</div>
 			<div class="row introduce-customers-1 ">
@@ -252,7 +277,7 @@
 		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Nguyen Van Khanh</p>
+		                    	<p class="item-a">Thomas Nguyen</p>
 		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
 		                    </div>
 		                </div>
@@ -262,11 +287,11 @@
 					<div class="mixedSlider">
 		                <div class="MS-content">
 		                    <div class="item-customer">
-		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
+		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> KIDS NOW là 1 ứng dụng rất tuyệt vời. Nó giúp tôi quản lý các bé một cách toàn diện, làm tôi cảm thấy an tâm hơn khi gửi bé ở trường. Hơn nữa từng thông tin của bé được cập nhật nhanh chóng và chính xác. Tôi cảm thấy rất hài lòng.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Nguyen Thu Ha</p>
-		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
+		                    	<p class="item-a">Nguyễn Thu Hà</p>
+		                    	<p class="item-b">Phụ Huynh</p>
 		                    </div>
 		                </div>
 		            </div>
@@ -275,11 +300,11 @@
 					<div class="mixedSlider">
 		                <div class="MS-content">
 		                    <div class="item-customer">
-		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
+		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i>Phải công nhận một điều rằng KIDS NOW giờ đây đã trở thành 1 người bạn đáng tin cậy của mình. Từ khi có KIDS NOW mình cảm thấy việc quan sát và nắm bắt tình hình của bé trở nên rất dễ dàng. Cảm ơn KIDS NOW rất nhiều.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Nguyen Khanh Linh</p>
-		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
+		                    	<p class="item-a">Nguyễn Khánh Linh</p>
+		                    	<p class="item-b">Phụ Huynh</p>
 		                    </div>
 		                </div>
 		            </div>
@@ -288,11 +313,11 @@
 					<div class="mixedSlider">
 		                <div class="MS-content">
 		                    <div class="item-customer">
-		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i> I am very happy with Kids Now app, as I am able to manage multiple branches from the same app efficiently. I can have a look at all the branches' activities, fee collections, enquiries etc anytime in my mobile, thanks to Kids Now.</p>
+		                    	<p><i class="fa fa-thumbs-up" style="font-size: 35px;"></i>KIDS NOW đã hỗ trợ tôi rất nhiều trong việc quản lý các con, chăm lo cho các con trong từng bữa ăn giấc ngủ. Không những thế việc trao đổi với phụ huynh cũng rất nhanh chóng thông qua ứng dụng này.</p>
 		                    </div>
 		                    <div class="item-1">
-		                    	<p class="item-a">Tran Trong Hieu</p>
-		                    	<p class="item-b">Owner, Kiddy Garden International Preschool</p>
+		                    	<p class="item-a">Trần Trọng Hiếu</p>
+		                    	<p class="item-b">Giáo Viên</p>
 		                    </div>
 		                </div>
 		            </div>
@@ -360,12 +385,12 @@
 								<div class="pricePro">
 									<div class="priceImg" style=""> @lang('kidsnow.pro')
 										<br>
-										<strike style="color: black">$30</strike>
+										<strike style="color: black">$25</strike>
 										<br>
-										<span>$20</span>
+										<span>$10</span>
 									</div>
 									<div class="freeFeature">
-										<p class="freeFeature-p" style="background-color: #E78AB9;">@lang('kidsnow.free_features')</p>
+										<p class="freeFeature-p" style="background-color: #E78AB9;">@lang('kidsnow.lite_features')</p>
 										<p class="freeFeature-i">
 											<i class="fa fa-plus"></i>
 										</p>
@@ -475,7 +500,7 @@
 				<h2>@lang('kidsnow.about_us')</h2>
 				<div class="hr"></div>
 			</div>
-			<p>@lang('kidsnow.about_us_content')</p>
+			<p style="margin: 30px">@lang('kidsnow.about_us_content')</p>
 		</div>
 	</section>
 	<section class="container">
@@ -485,19 +510,19 @@
 				<div class="hr"></div>
 			</div>
 			<div class="row our-team">
-				<div class="col-sm-4 col-md-4">
+				<div class="col-sm-4 col-md-4" style="margin: 20px 0;">
 					<img src="images/hai.png" alt="">
 					<p>Mr. Vũ Minh Hải</p>
 					<span style="color: cornflowerblue;font-size: 15px;">CEO</span>
 					<span style="font-size: 14px;color: #5363d6;">Talent Wins</span>
 				</div>
-				<div class="col-sm-4 col-md-4">
+				<div class="col-sm-4 col-md-4"  style="margin: 20px 0;">
 					<img src="images/hiep.png" alt="">
 					<p>Mr. Lê Anh Xuân</p>
 					<span style="color: cornflowerblue;font-size: 15px;">Co founder</span>
 					<span style="font-size: 14px;color: #5363d6;">Ts. Khoa Học Máy Tính</span>
 				</div>
-				<div class="col-sm-4 col-md-4">
+				<div class="col-sm-4 col-md-4"  style="margin: 20px 0;">
 					<img src="images/xuan.png" alt="">
 					<p>Mr. Nguyễn Quang Hiệp</p>
 					<span style="color: cornflowerblue;font-size: 15px;">Co founder</span>
@@ -519,7 +544,6 @@
 			</div>
 		</div>
 	</section>
-
 	<footer class="site-footer">
 		<div class="container">
 			<div class="row icon-lienket">
@@ -554,17 +578,17 @@
 	<div class="modal fade bd-example-modal-sm1 modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-sm">
 		   <div class="modal-header" style="background-color:#FF4081;color:#fff;border-radius: 5px 5px 0px 0px;text-align: center;">
-		   		<h2 style="text-transform: none;font-size:18px">I am a</h2>
+		   		<h2 style="text-transform: none;font-size:18px">@lang('kidsnow.sign_up')</h2>
 		   </div>
 		   <div class="modal-body">
 		   		<button style="color: #ff4081;">
-		   			<a href="account"><span>School Owner/Admin</span></a>
+		   			<a href="account"><span>@lang('kidsnow.school_admin')</span></a>
 		   		</button>
 		   		<button style="color: #ff4081">
-		   			<span>School Owner/Admin</span>
+		   			<a href="account">@lang('kidsnow.school_teacher')</a>
 		   		</button>
 		   		<button style="color: #ff4081">
-		   			<span>School Owner/Admin</span>
+		   			<a href="account">@lang('kidsnow.parent')</a>
 		   		</button>
 		   </div>
 		</div>
@@ -592,7 +616,7 @@
 			slidesToScroll: 1,
 			arrows: true,
 			autoplay: false,
-			autoplaySpeed: 2000,
+			autoplaySpeed: 10000,
 			responsive: [{
 					breakpoint: 1200,
 					settings: {
@@ -636,3 +660,20 @@
 			}
 		}
 	</script>
+	<script type="text/javascript">
+		var backtotop = document.getElementById('bttop');
+		var win=$(window)
+
+		win.scroll(function(){
+			if(win.scrollTop()> 100){
+				bttop.style.display = "block";
+				bttop.style.transition = "2s";
+			}
+			else{
+				bttop.style.display = "none";
+			}
+		});
+	</script>
+	<NOSCRIPT>
+		<p style="color: red; text-align: center; font-size: 18px">@lang('kidsnow.noscript')</p>
+	</NOSCRIPT>

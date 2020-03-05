@@ -19,14 +19,14 @@
             <div class="row">
                 <div class="col-lg-10 col-md-10 col-sm-10">
                     <ul class="ul-td">
-                        <li  class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
-                        <li  class="active1" ><a href="{{route('admin.children.index')}}">CHILDREN</a></li>
-                        <li class="active1 active-1" style="pointer-events: none"><a href="">EDIT CHILDREN</a></li>
+                        <li  class="level1"><a href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
+                        <li  class="active1" ><a href="{{route('admin.children.index')}}">@lang('kidsnow.children_profiles')</a></li>
+                        <li class="active1 active-1" style="pointer-events: none"><a href="">@lang('kidsnow.children.edit_children')</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2" data-toggle="modal" data-target="" style="display: flex; justify-content: flex-end; ">
                     <button class="notice" type="button" >
-                        <span><a href="{{route('admin.children.destroy',['id'=>$children_profiles->id])}}" style="color: inherit; " onclick="return deleteConfirm()">DELETE</a></span>
+                        <span><a href="{{route('admin.children.destroy',['id'=>$children_profiles->id])}}" style="color: inherit; " onclick="return deleteConfirm()">@lang('kidsnow.children.delete_children')</a></span>
                     </button>
                 </div>
             </div>
@@ -278,8 +278,8 @@
                                             </div>
                                         </div>
                                         <div class="input_box" style="width: 100%;">
-                                            <span class="input_box_span_active">Main Phone Number *</span>
-                                            <input type="text" name="main_phone_parent" placeholder="Main Phone Number *" value="{{old('main_phone_parent') ?? $parent_profiles->main_phone}}">
+                                            <span class="input_box_span_active">@lang('kidsnow.children.main_phone') *</span>
+                                            <input type="text" name="main_phone_parent" placeholder="@lang('kidsnow.children.main_phone') *" value="{{old('main_phone_parent') ?? $parent_profiles->main_phone}}">
                                             @if ($errors->has('main_phone_parent'))
                                                 <div class="text text-danger">
                                                     {{ $errors->first('main_phone_parent') }}
@@ -287,8 +287,8 @@
                                             @endif
                                         </div>
                                         <div class="input_box" style="width: 100%;">
-                                            <span class="input_box_span_active">Extra Phone Number *</span>
-                                            <input type="text" name="extra_phone_parent" placeholder="Extra Phone Number *" value="{{old('extra_phone_parent') ?? $parent_profiles->extra_phone}}">
+                                            <span class="input_box_span_active">@lang('kidsnow.children.extra_phone') *</span>
+                                            <input type="text" name="extra_phone_parent" placeholder="@lang('kidsnow.children.extra_phone') *" value="{{old('extra_phone_parent') ?? $parent_profiles->extra_phone}}">
                                             @if ($errors->has('extra_phone_parent'))
                                                 <div class="text text-danger">
                                                     {{ $errors->first('extra_phone_parent') }}
@@ -326,10 +326,10 @@
             <div class="comment">
                 <div class="button" style="text-align: center;">
                     <button type="reset" onclick="goBack()">
-                        <span>CANCEL</span>
+                        <span>@lang('kidsnow.cancel')</span>
                     </button>
                     <button class="button2" type="submit" id="submit_button">
-                        <span>SAVE</span>
+                        <span>@lang('kidsnow.save')</span>
                     </button>
                 </div>
             </div>

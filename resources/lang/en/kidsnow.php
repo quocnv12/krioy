@@ -90,7 +90,7 @@ return [
     'menu_login' => 'Log In', //@lang('kidsnow.menu_login')
     'menu_logout' => 'Log Out', //@lang('kidsnow.menu_logout')
     'menu_home' => 'Kidsnow Home', //@lang('kidsnow.menu_home')
-    'cancel' => 'CANCEL', //@lang('kidsnow.cancel')
+    'cancel' => 'BACK', //@lang('kidsnow.cancel')
     'send' => 'SEND', //@lang('kidsnow.send')
     'save' => 'SAVE', //@lang('kidsnow.save')
     'edit' => 'EDIT', //@lang('kidsnow.edit')
@@ -141,10 +141,11 @@ return [
     'home'  =>  'HOME',
     'pricing'=>'PRICING',
     'about_us_top'=>'ABOUT US',
-    'banner'    =>  'One Stop Destination for Preschool & Daycare Management',
+    'banner'    =>  'A Perfect Solution for Preschool & Daycare Management',
     'sign_up'    =>  'SIGNUP',
     'get_a_free_trial' => 'GET A FREE TRIAL',//@lang('kidsnow.get_a_free_trial')
     'kids_now_app' => 'KIDS NOW APP',//@lang('kidsnow.kids_now_app')
+    'my_kids_now'=>'MY KIDS NOW',
     'one_click_updates' => "ONE CLICK UPDATES",//@lang('kidsnow.one_click_updates')
     'one_click_updates_content' => 'Send updates in One-Click for multiple children at the same time',//@lang('kidsnow.one_click_updates_content')
     'admissions_management' => 'ADMISSIONS MANAGEMENT',//@lang('kidsnow.admissions_management')
@@ -200,6 +201,7 @@ return [
     'lite_content_sixth' => 'Multi-branch Management',
     'lite_content_seventh' => 'Parent Access Status',
     'pro' => 'PRO',
+    'lite_features'=>   'LITE Features',
     'pro_content_first' => 'Enquiry Management',
     'pro_content_second' => 'Fee Management',
     'pro_content_third' => 'Analytical Reports',
@@ -216,18 +218,26 @@ return [
     'our_happy_customers' => 'Our Happy Customers',
     'and_many_more' => 'And many more...',
     'about_us' => 'About Us',
-    'about_us_content' => 'Kids Now ipsum dolor sit amet, consectetur adipisicing elit. Delectus possimus aut eaque adipisci, accusamus illum exercitationem labore sequi tenetur vitae, est ipsum. Cupiditate quas laboriosam, autem cumque sint quia cum odit eligendi dolore, consequatur nobis rem ipsa dolorem non, eum eius earum quo voluptate repellendus vitae maxime. Beatae natus atque praesentium soluta ut voluptate, cupiditate ipsum tempora iste distinctio, sit corrupti inventore ea suscipit, odit modi illo omnis animi quae.',
+    'about_us_content' => 'KIDS NOW is a perfect tool to enhance relationship between school and parent, make the management become much more easy than ever. Friendly and convenient UI guarantee one of the best interaction and manipulation while users using this app. Being constructed by professional and enthusiastic members, we are very grateful to become the connection between parents and the development of your children, play an important role in the mature of those lovely kids.',
     'our_team' => 'Our Team',
     'get_in_touch' => 'Get in Touch',
     'privacy' => 'Privacy Policy',
     'terms_and_conditions' => 'Terms and Conditions',
     'a_product_of' => 'a product of',
+
+    'school_admin'=>'School Admin',
+    'school_teacher'=>'School Teacher',
+    'parent'=>'Parent',
     //END Introduce
 
 
 
     //Health
 
+        'health.add_health'=>'Add Health',
+        'health.edit_health'=>'Edit Health',
+        'health.view_health'=>'View Health',
+        'health.delete_health'=>'DELETE',
         //kids-now/health
         'health.list'=>'HEALTH LIST',
         'health.list.name'=>'NAME',
@@ -238,9 +248,10 @@ return [
         'health.list.action'=>'ACTION',
 
         //kids-now/health/add
-        'health.hint'=>'Hint',
+        'health.hint'=>'Guide',
         'health.hint_content'=>'Click on a program tab in horizontal scroll bar to show all children in that program',
         'health.children'   =>  'Children',
+
 
         'health.select_health_update_type' => 'Select Health Update Type',
         'health.sick' => 'Sick',
@@ -269,8 +280,20 @@ return [
     // END  Health
 
 
+    //Observations Type
+
+    'observation_type.add_observation_type'=>'Add Observation Type',
+    'observation_type.edit_observation_type'=>'Edit Observation Type',
+    'observation_type.view_observation_type'=>'View Observation Type',
+    'observation_type.delete_observation_type'=>'DELETE',
+
 
     //Observations
+
+        'observations.add_observation'=>'Add Observation',
+        'observations.edit_observation'=>'Edit Observation',
+        'observations.view_observation'=>'View Observation',
+        'observations.delete_observation'=>'DELETE',
 
         //kids-now/observations/list
         'observations.observations' =>'Observations',
@@ -301,7 +324,7 @@ return [
         'observations.observation_types'=>'Observation Types',
         'observations.detail'=>'Enter Details here',
         'observations.no_found'=>'No Children was founded',
-        'observations.hint'=>'Hint',
+        'observations.hint'=>'Guide',
         'observations.hint_content'=>'Click on a program tab in horizontal scroll bar to show all children in that program',
 
         //kids-now/observations/edit
@@ -317,10 +340,13 @@ return [
 
 
     //Notice board:
-
+        'notice.add_notice'=>'Add Notice',
+        'notice.edit_notice'=>'Edit Notice',
+        'notice.view_notice'=>'View Notice',
+        'notice.delete_notice'=>'DELETE',
         // kids-now.notice-board
         'notice.search' => 'Search Notice...',//@lang('kidsnow.search_notice')
-        'notice.hint' => 'Hint',//@lang('kidsnow.hint')
+        'notice.hint' => 'Guide',//@lang('kidsnow.hint')
         'notice.hint_content' => 'Click on a program tab in horizontal scroll bar to show all notice in that program / Or use the search bar to go to specific notice',//@lang('kidsnow.note_hint')
 
         //kids-now/notice-board/add | kids-now/notice-board/edit | kids-now/notice-board/detail
@@ -329,6 +355,9 @@ return [
         'notice.detail'=>'Enter Details here',
         'notice.mark'=>'Mark as Important',
         'notice.archive'=>'Archive',
+        'notice.content'=>'Content',
+        'notice.edit_button'=>'Click on \'Edit\' button to update details',
+        'notice.not_found'=>'No Notice Board was found',
     //END Notice board
 
 
@@ -337,7 +366,7 @@ return [
         // kids-now/children
         'children.search_bar' => 'Search Children...',//@lang('kidsnow.search_children')
         'children.untagged'  =>  'Untagged',//@lang('kidsnow.children.untagged')
-        'children.hint' =>  'Hint',//@lang('kidsnow.children.hint')
+        'children.hint' =>  'Guide',//@lang('kidsnow.children.hint')
         'children.hint_content' =>  'Click on a program tab in horizontal scroll bar to show all children in that program / Or use the search bar to go to specific children\'s profile',//@lang('kidsnow.children.hint_content')
         'children.no_found' =>'No Children was founded',
         'children.go_to'=>'Go To',
@@ -351,6 +380,7 @@ return [
         'children.view_children'=>'View Children',
         'children.add_children' =>'Add Children',
         'children.edit_children' =>'Edit Children',
+        'children.delete_children' =>'DELETE',
         'children.first_name'=>'First Name',
         'children.last_name'=>'Last Name',
         'children.birthday'=>'Birthday',
@@ -434,11 +464,22 @@ return [
         'program.search' => 'Search Program...', //@lang('kidsnow.search_program')
         'program.programs' => 'Programs',//@lang('kidsnow.programs')
 
+        'program.monday'=>'M',
+        'program.tuesday'=>'T',
+        'program.wednesday'=>'W',
+        'program.thursday'=>'T',
+        'program.friday'=>'F',
+        'program.saturday'=>'S',
+        'program.sunday'=>'S',
+        'program.delete_without_asking'=>'Keep Delete Without Asking',
+
         //kids-now/program/add | kids-now/program/edit | kids-now/program/view
         'program.view_program'=>'View Program',
         'program.add_program'=>'Add Program',
         'program.edit_program'=>'Edit Program',
-        'program.program_name' => 'Program Name *',//@lang('kidsnow.program_name')
+        'program.delete_program'=>'DELETE',
+        'program.excel'=>'Export Excel',
+        'program.program_name' => 'Program Name ',//@lang('kidsnow.program_name')
         'program.days' => 'Days',//@lang('kidsnow.days')
         'program.program_fee' => 'Program Fee',//@lang('kidsnow.program_fee')
         'program.currency'  =>'Currency',
@@ -459,14 +500,23 @@ return [
         'program.timings' => 'Timings',//@lang('kidsnow.timings')
         'program.start_time'    =>  'Start Time',
         'program.finish_time'    =>  'Finish Time',
-        'program.hint'  =>'Hint',
+        'program.hint'  =>'Guide',
         'program.hint_content'  =>'Use the search bar to add Staff / Children to the program',
         'program.staff' => 'Staff',//@lang('kidsnow.staff')
         'program.children' => 'Children',//@lang('kidsnow.staff')
         'program.search_staff'  =>'Search Staff...',
         'program.search_children'  =>'Search Children...',
-        'program.no_staff'=>'No Staff was founded',
-        'program.no_children'=>'No Children was founded',
+        'program.no_staff'=>'No Staff was found',
+        'program.no_children'=>'No Children was found',
+
+
+        //alert
+        'program.alert_exist_children'=>'This children was added in program !',
+        'program.alert_exist_staff'=>'This staff was added in program !',
+        'program.alert_remove_children'=>'Remove this children from program ?',
+        'program.alert_remove_staff'=>'Remove this staff from program ?',
+        'program.alert_delete_without_asking'=>'Turn on mode : Delete without asking !',
+
     //END Program
 
 
@@ -501,7 +551,8 @@ return [
     'title_meal_type_delete' => 'Delete meal type',
     'title_quantity_edit' => 'Edit quantity',
     'title_quantity_delete' => 'Delete quantity',
-
+    'date_begin'    => 'Since date',
+    'date_end'    => 'To date',
 
     //----------------------login----------------
     'title_login' =>'Kids Now App Login',
@@ -530,7 +581,15 @@ return [
    'changer_password_new' => 'Password New',
    'confirm_changer_password' => 'Comfirm Password',
    'reset_password' => 'Reset Password',
-   'forgrt_password_send_mail' =>'Thank you for using Kids-now software !',
+   'forgrt_password_send_mail' =>'Thanks you for using Kids-now!',
+   'to_get_started' => 'To get started, Please see your registration information.',
+   'click_here_start' => 'Click here to log in',
+   'email_start' => 'You\'re receiving this email because of your account on',
+   'everyone' =>'Everyone can contribute',
+   'to_get_started_verify' =>'To get started, click the link below to confirm your account.',
+   'verify_your_acconut' =>'Confirm your account',
+   'to_get_started_reset' =>'To get started, click on the link below to retrieve your password',
+   'retrieve_your_password'=> 'Retrieve your password',
 
 
     //-------------attendance-------------
@@ -538,8 +597,16 @@ return [
     'attendance_list'  => 'List Attendance',
     'attendance_choose' => 'Choose' ,
     'attendance_children_name' =>'childrent\'s name',
+    'attendance_children_total' =>'Total',
     'attendance_children_in' =>'In',
     'attendance_children_out' =>'Out',
     'attendance_children_absent' =>'Absent',
+    'attendance.hint'=> 'Hint',
+    'attendance.hint_content'=> 'Click on a program tab in horizontal scroll bar to show all children in that program',
 
+    //-----------login-------
+    
+
+    'noscript'=>'Javascript is required to run this pages.  Please turn it on or ask help from techsupport if you don\'t know how to enable it.',
+    '404'=>'Sorry ! The page you\'re looking for cannot be found !'
 ];

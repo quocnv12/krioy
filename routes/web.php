@@ -146,8 +146,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('delete/{id}',['as'=>'admin.health.getDelete','uses'=>'Admin\HealthController@getDelete'])->middleware(['can:edit-profile']);
         Route::get('edit/{id}',['as'=>'admin.health.getEdit','uses'=>'Admin\HealthController@getEdit'])->middleware(['can:edit-profile']);
         Route::post('edit/{id}',['as'=>'admin.health.postEdit','uses'=>'Admin\HealthController@postEdit']);
-        Route::get('search',['as'=>'admin.health.search','uses'=>'Admin\HealthController@getSearch']);
-        Route::post('search',['as'=>'admin.health.search','uses'=>'Admin\HealthController@postSearch']);
         Route::get('show/{id}','Admin\HealthController@showChildrenInProgram');
         Route::get('view/{id}',['as'=>'admin.health.view' ,'uses'=>'Admin\HealthController@view']);
 
@@ -162,7 +160,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
     //---------------observation----------------
     Route::group(['prefix' => 'observations','middleware' => 'checkacl:Observations'], function () {
         Route::get('list', ['as'=>'admin.observations.list','uses'=>'Admin\ObservationController@getList']);
-        Route::get('danhsachobservationtype', ['as'=>'admin.observations.listobservationtype','uses'=>'Admin\ObservationController@getListObservation']);
+        Route::get('listobservationtype', ['as'=>'admin.observations.listobservationtype','uses'=>'Admin\ObservationController@getListObservation']);
         Route::get('delete/{id}',['as'=>'admin.observations.getDelete','uses'=>'Admin\ObservationController@getDelete'])->middleware(['can:edit-profile']);
         Route::get('edit/{id}',['as'=>'admin.observations.getEdit','uses'=>'Admin\ObservationController@getEdit'])->middleware(['can:edit-profile']);
         Route::post('edit/{id}',['as'=>'admin.observations.postEdit','uses'=>'Admin\ObservationController@postEdit']);
@@ -185,11 +183,11 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
     Route::group(['prefix' => 'observationtype'], function () {
 
-        Route::get('xoa/{id}',['as'=>'admin.observationtype.getDelete','uses'=>'Admin\ObservationTypeController@getDelete'])->middleware(['can:edit-profile']);
-        Route::get('sua/{id}',['as'=>'admin.observationtype.getEdit','uses'=>'Admin\ObservationTypeController@getEdit'])->middleware(['can:edit-profile']);
-        Route::post('sua/{id}',['as'=>'admin.observationtype.getEdit','uses'=>'Admin\ObservationTypeController@postEdit']);
-        Route::get('them',['as'=>'admin.observationtype.add','uses'=>'Admin\ObservationTypeController@getAdd']);
-        Route::post('them',['as'=>'admin.observationtype.add','uses'=>'Admin\ObservationTypeController@postAdd']);
+        Route::get('delete/{id}',['as'=>'admin.observationtype.getDelete','uses'=>'Admin\ObservationTypeController@getDelete'])->middleware(['can:edit-profile']);
+        Route::get('edit/{id}',['as'=>'admin.observationtype.getEdit','uses'=>'Admin\ObservationTypeController@getEdit'])->middleware(['can:edit-profile']);
+        Route::post('edit/{id}',['as'=>'admin.observationtype.postEdit','uses'=>'Admin\ObservationTypeController@postEdit']);
+        Route::get('add',['as'=>'admin.observationtype.add','uses'=>'Admin\ObservationTypeController@getAdd']);
+        Route::post('add',['as'=>'admin.observationtype.add','uses'=>'Admin\ObservationTypeController@postAdd']);
 
 
     });
@@ -297,4 +295,8 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 Route::get('locale/{locale}', function($locale){
     Session::put('locale', $locale);
     return redirect()->back();
+});
+
+Route::fallback(function () {
+    return view('pages.not-found.notfound');
 });

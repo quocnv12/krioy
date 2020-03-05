@@ -19,9 +19,9 @@
 				<div class="row">
 					<div class="col-sm-6">
 					<ul class="ul-td">
-						<li class="level1"><a href="kids-now">Home</a></li>
-						<li class="active1" style="" ><a href="kids-now/observations/list">OBSERVATIONS</a></li>
-						<li class="active1 active-1" style="pointer-events: none" ><a href="">ADD OBSERVATION</a></li>
+						<li class="level1"><a href="kids-now">@lang('kidsnow.home')</a></li>
+						<li class="active1" style="" ><a href="kids-now/observations/list">@lang('kidsnow.observations')</a></li>
+						<li class="active1 active-1" style="pointer-events: none" ><a href="">@lang('kidsnow.observations.add_observation')</a></li>
 					</ul>
 					</div>
 					{{--<div class="col-sm-6">--}}
@@ -37,30 +37,6 @@
 						<a style="min-width:110px;background:#eb87c1;color:white; float: left;font-weight: bold" href="{{route('admin.observations.listobservationtype')}}" class="btn btn-default">@lang('kidsnow.observations.types')</a>
 						<a style="min-width:110px;background:#eb87c1;color:white; float: right; border: none;font-weight: bold" href="{{route('admin.observations.list')}}" class="btn btn-success" >@lang('kidsnow.observations.list')</a>
 						<br>
-						<div class="col-md-12">
-							<span style="font-weight: bold">@lang('kidsnow.observations.seminar'):</span>
-							<select name="month" id="month">
-								<option value="">@lang('kidsnow.observations.choose_month')</option>
-								<option value="Jan" @if(now()->month == 1) selected @endif>@lang('kidsnow.january')</option>
-								<option value="Feb" @if(now()->month == 2) selected @endif>@lang('kidsnow.february')</option>
-								<option value="Mar" @if(now()->month == 3) selected @endif>@lang('kidsnow.march')</option>
-								<option value="Apr" @if(now()->month == 4) selected @endif>@lang('kidsnow.april')</option>
-								<option value="May" @if(now()->month == 5) selected @endif>@lang('kidsnow.may')</option>
-								<option value="Jun" @if(now()->month == 6) selected @endif>@lang('kidsnow.june')</option>
-								<option value="Jul" @if(now()->month == 7) selected @endif>@lang('kidsnow.july')</option>
-								<option value="Aug" @if(now()->month == 8) selected @endif>@lang('kidsnow.august')</option>
-								<option value="Sep" @if(now()->month == 9) selected @endif>@lang('kidsnow.september')</option>
-								<option value="Oct" @if(now()->month == 10) selected @endif>@lang('kidsnow.october')</option>
-								<option value="Nov" @if(now()->month == 11) selected @endif>@lang('kidsnow.november')</option>
-								<option value="Dec" @if(now()->month == 12) selected @endif>@lang('kidsnow.december')</option>
-							</select>
-							-
-							<select name="year" id="">
-								@for($i = 2020; $i <= 2040; $i++)
-									<option value="{{$i}}" @if(now()->year == $i) selected @endif>{{$i}}</option>
-								@endfor
-							</select>
-						</div>
 						<hr>
 						<button class="accordion accordion1 clearfix" type="button">
 							<p style="float: left;">@lang('kidsnow.observations.children') *</p>
@@ -68,7 +44,6 @@
 									{{--<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">--}}
 								{{--</form>--}}
 						</button>
-
                         <div class="scrollmenu-div">
                             @foreach($programs as $program)
                                 <div class="scrollmenu-button" style="text-align: center;">
@@ -113,8 +88,8 @@
 						<div class="panel">
 							<div _ngcontent-c20="" class="row" style="">
 								@foreach($observationtype  as $observation)
-									<div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer;">
-										<button type="button" _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px" data-toggle="tooltip" title="{{$observation->name}}" value="{{$observation->id}}">{{$observation->name}} </button>
+									<div _ngcontent-c20="" align="center" class="col-lg-3 col-md-3 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer;">
+										<button type="button" _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px; width: 100%" data-toggle="tooltip" title="{{$observation->name}}" value="{{$observation->id}}">{{$observation->name}} </button>
 									</div>
 								@endforeach
 								<input id="array_observation" type="hidden" value="" name="observations">
@@ -152,10 +127,10 @@
 						</div>
 						<div class="button" style="text-align: center;">
 							<button type="reset" onclick="goBack()">
-								<span>CANCEL</span>
+								<span>@lang('kidsnow.cancel')</span>
 							</button>
 							<button class="button2" id="submit_button" type="submit">
-								<span>SAVE</span>
+								<span>@lang('kidsnow.save')</span>
 							</button>
 						</div>
 					</div>

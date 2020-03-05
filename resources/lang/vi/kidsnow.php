@@ -13,7 +13,7 @@ return [
     'menu_login' => 'Đăng nhập',
     'menu_logout' => 'Đăng xuất',
     'menu_home' => 'Trang chủ KIDS NOW',
-    'cancel' => 'THOÁT',
+    'cancel' => 'TRỞ LẠI',
     'send' => 'GỬI',
     'save' => 'LƯU',
     'enter_details_here' => 'Nhập chi tiết tại đây *',
@@ -25,7 +25,7 @@ return [
     'diary' => 'Nhật Ký',//@lang('kidsnow.diary')
     'star' => 'Danh Hiệu',//@lang('kidsnow.star')
     'potty' => 'Vệ Sinh',//@lang('kidsnow.potty')
-    'observations' => 'Đánh Giá',//@lang('kidsnow.observations')
+    'observations' => 'Nhận Xét',//@lang('kidsnow.observations')
     'photos' => 'Album Ảnh',//@lang('kidsnow.photos')
     'play_and_learn' => 'Chơi và Học',//@lang('kidsnow.play_and_learn')
     'sleep' => 'Giấc Ngủ',//@lang('kidsnow.sleep')
@@ -48,7 +48,7 @@ return [
     'archives' => 'Thành Tựu',//@lang('kidsnow.archives')
     'programs' => 'Lớp Học',//@lang('kidsnow.archives')
     // Setup and Settings
-    'setup_and_settings' => 'Cài Đặt và Thiết Lập',//@lang('kidsnow.setup_and_settings')
+    'setup_and_settings' => 'Cài Đặt & Thiết Lập',//@lang('kidsnow.setup_and_settings')
     'room_ratio' => 'Thông Tin Lớp Học',//@lang('kidsnow.room_ratio')
     'favourite' => 'Yêu Thích',//@lang('kidsnow.favourite')
     'tags' => 'Thẻ Tag',//@lang('kidsnow.tags')
@@ -115,12 +115,13 @@ return [
     //Home
     'login'=>'ĐĂNG NHẬP',
     'home'  =>  'TRANG CHỦ',
-    'pricing'=>'GÓI',
+    'pricing'=>'GÓI DỊCH VỤ',
     'about_us_top'=>'VỀ CHÚNG TÔI',
     'sign_up'    =>  'ĐĂNG KÝ',
+    'my_kids_now'=>'KIDS NOW của tôi',
     'banner'    =>  'Sự Lựa Chọn Tuyệt Vời Cho Các Trường Mầm Non và Dịch Vụ Trông Giữ Trẻ',
     'get_a_free_trial' => 'DÙNG THỬ MIỄN PHÍ',
-    'kids_now_app' => 'ỨNG DỤNG KIDS NOW ',
+    'kids_now_app' => 'ỨNG DỤNG',
     'one_click_updates' => "CẬP NHẬT CHỈ VỚI 1 CÚ CHẠM",
     'one_click_updates_content' => 'Cập nhật thông tin cho nhiều trẻ chỉ với một thao tác',
     'admissions_management' => 'QUẢN LÝ NHẬP HỌC',
@@ -141,7 +142,7 @@ return [
     'digital_notice_board' => 'BẢNG THÔNG BÁO SỐ HÓA',
     'digital_notice_board_content' => 'Phiên bản số hóa Bảng thông báo của Nhà trường - Phụ huynh có thể xem mọi lúc, mọi nơi',
     'multi_branch_management' => 'QUẢN LÝ ĐA NĂNG',
-    'multi_branch_management_content' => 'Quản lý tất cả các chi nhánh của bạn từ bất cứ đâu và bạn có thể chuyển đổi giữa chúng trong cùng một ứng dụng',
+    'multi_branch_management_content' => 'Quản lý tất cả các danh mục từ bất cứ đâu và có thể chuyển đổi giữa các mục trong cùng một ứng dụng',
     'download_for_free' => 'Tải về miễn phí',
     'kid_now_parent_app' => 'ỨNG DỤNG KIDS NOW CHO PHỤ HUYNH',
     'attendance_content' => 'Phụ huynh có thể yên tâm về sự hiện diện của trẻ tại trường',
@@ -158,8 +159,8 @@ return [
     'learning_development_content' => 'Theo dõi tiến độ học tập của trẻ và can thiệp kịp thời',
     'communicate_with_teachers' => 'GIAO TIẾP VỚI GIÁO VIÊN',
     'communicate_with_teachers_content' => 'Không cần phải chuyển sang ứng dụng khác để liên lạc với Giáo viên',
-    'our_customers_speak' => 'Khách hàng nói gì về chúng tôi',
-    'packages_pricing' => 'Các Gói Ưu Đãi',
+    'our_customers_speak' => 'Phản Hồi Khách Hàng',
+    'packages_pricing' => 'Các Gói Dịch Vụ & Ưu Đãi',
     'free' => 'MIỄN PHÍ',
     'free_content_first' => 'Điểm Danh',
     'free_content_second' => 'Nhật Ký',
@@ -175,8 +176,9 @@ return [
     'lite_content_fourth' => 'Trao Đổi Với Phụ Huynh',
     'lite_content_fifth' => 'Hồ Sơ Nhà Trường',
     'lite_content_sixth' => 'Quản lý Nhiều Chi Nhánh',
-    'lite_content_seventh' => 'Trạng Thái Truy Cập Của Phụ Huynh',
+    'lite_content_seventh' => 'Trạng Thái Truy Cập Phụ Huynh',
     'pro' => 'NÂNG CAO',
+    'lite_features'=>   'Gói CƠ BẢN',
     'pro_content_first' => 'Quản Lý Thống Kê',
     'pro_content_second' => 'Quản Lý Học Phí',
     'pro_content_third' => 'Báo Cáo Phân Tích',
@@ -190,19 +192,27 @@ return [
     'pro_content_eleventh' => 'Điểm Danh QR',
     'pro_content_twelfth' => 'Video',
     'price_is_per_child' => '* Học phí mỗi trẻ một năm',
-    'our_happy_customers' => 'Khách hàng hài lòng về chúng tôi',
+    'our_happy_customers' => 'Khách Hàng Hài Lòng',
     'and_many_more' => 'Và nhiều khách hàng khác nữa...',
-    'about_us' => 'Về chúng tôi',
-    'abour_us_content' => 'Trẻ em bây giờ được lựa chọn, hoặc chúng ta có thể có được, mang lại chống lại ông có nghĩa vụ phải làm theo các thực hành lao động của cuộc sống, nó là rất quan trọng. Nó là thông qua mong muốn ông có mà đau đớn, tuy nhiên, khi cô ghét khi anh phải lựa chọn sự đau đớn, bởi vì họ đang có, đầu tiên phải có vấn đề đối với chúng tôi nỗi đau rất không phải là chính mình, nếu điều đó mà người đã từ chối những niềm vui của cuộc sống, hầu hết tất cả. Miễn phí như trình bày Punjab, và những niềm vui của Phúc, thời gian rất của những mong muốn của sự khác biệt này, là người phát minh ra những điều đó được tham nhũng, nhận, anh ghét Ngài đến tất cả các phương thức của linh hồn đó là.',
-    'our_team' => 'Đội ngũ KIDS NOW',
+    'about_us' => 'Về Chúng Tôi',
+    'about_us_content' => 'KIDS NOW ra đời với mong muốn tạo mối liên kết chặt chẽ giữa nhà trường với phụ huynh, giúp cho việc quản lý con trẻ giờ đây trở nên dễ dàng hơn bao giờ hết. Với giao diện bắt mắt và dễ làm quen, ứng dụng KIDS NOW sẽ đem đến cho người dùng những trải nghiệm tuyệt vời cùng sự tiện ích trong từng thao tác. Được xây dựng và phát triển bởi đội ngũ giàu nhiệt huyết với một tinh thần tận tâm, cống hiến hết mình, chúng tôi kỳ vọng KIDS NOW sẽ trở thành một người bạn đồng hành đáng tin cậy của các bậc cha mẹ trên chặng đường phát triển của bé.',
+    'our_team' => 'Đội Ngũ KIDS NOW',
     'get_in_touch' => 'Liên Lạc Với Chúng Tôi',
     'privacy' => 'Chính sách bảo mật',
     'terms_and_conditions' => 'Điều khoản',
     'a_product_of' => 'Một Sản Phẩm Của',
+
+    'school_admin'=>'Nhà Trường',
+    'school_teacher'=>'Giáo Viên',
+    'parent'=>'Phụ Huynh',
     //END Home
 
 
     //Health
+        'health.add_health'=>'Thêm',
+        'health.edit_health'=>'Sửa',
+        'health.view_health'=>'Xem',
+        'health.delete_health'=>'XÓA',
 
         //kids-now/health
         'health.list'=>'DANH SÁCH SỨC KHỎE',
@@ -214,7 +224,7 @@ return [
         'health.list.action'=>'HÀNH ĐỘNG',
 
         //kids-now/health/add
-        'health.hint'=>'Gợi Ý',
+        'health.hint'=>'Hướng Dẫn',
         'health.hint_content'=>'Nhấn vào tên lớp học trên thanh trượt menu để hiển thị toàn bộ trẻ trong lớp học đấy',
         'health.children'   =>  'Trẻ',
 
@@ -250,7 +260,7 @@ return [
         // kids-now/children
         'children.search_bar' => 'Tìm Kiếm Trẻ...',//@lang('kidsnow.search_children')
         'children.untagged'  =>  'Chưa xếp lớp',//@lang('kidsnow.children.untagged')
-        'children.hint' =>  'Gợi ý',//@lang('kidsnow.children.hint')
+        'children.hint' =>  'Hướng Dẫn',//@lang('kidsnow.children.hint')
         'children.hint_content' =>  'Nhấn vào tên lớp học trên thanh trượt menu để hiển thị trẻ trong lớp học đó / Hoặc sử dụng thanh tìm kiếm để xem hồ sơ của một trẻ cụ thể',
         'children.no_found' =>'Không tìm thấy trẻ nào trong lớp học này',
         'children.go_to'=>'Đi Tới',
@@ -261,9 +271,11 @@ return [
         'children.fullname'=>'Họ Tên',
 
         // kids-now/children/add | kids-now/children/edit | kids-now/children/view
-        'chidlren.view_children'=>'Xem Hồ Sơ',
+        'children.view_children'=>'Xem Hồ Sơ',
         'children.add_children' =>'Thêm Hồ Sơ',
         'children.edit_children' =>'Sửa Hồ Sơ',
+        'children.delete_children' =>'XÓA HỒ SƠ',
+
         'children.first_name'=>'Họ',
         'children.last_name'=>'Tên',
         'children.birthday'=>'Ngày Sinh',
@@ -344,10 +356,23 @@ return [
         'program.search' => 'Tìm Kiếm Lớp Học...', //@lang('kidsnow.search_program')
         'program.programs' => 'Lớp Học',//@lang('kidsnow.programs')
 
+        'program.monday'=>'T2',
+        'program.tuesday'=>'T3',
+        'program.wednesday'=>'T4',
+        'program.thursday'=>'T5',
+        'program.friday'=>'T6',
+        'program.saturday'=>'T7',
+        'program.sunday'=>'CN',
+        'program.delete_without_asking'=>'Chế Độ Xóa Liên Tục',
+
+
         //kids-now/program/add | kids-now/program/edit | kids-now/program/view
-        'program.view_program'=>'Xem Lớp Học',
-        'program.add_program'=>'Thêm Lớp Học',
-        'program.edit_program'=>'Sửa Lớp Học',
+        'program.view_program'=>'Xem',
+        'program.add_program'=>'Thêm',
+        'program.edit_program'=>'Sửa',
+        'program.delete_program'=>'XÓA',
+        'program.excel'=>'Xuất File Excel',
+
         'program.program_name' => 'Tên Lớp Học',//@lang('kidsnow.program_name')
         'program.days' => 'Ngày Học',//@lang('kidsnow.days')
         'program.program_fee' => 'Học Phí',//@lang('kidsnow.program_fee')
@@ -369,7 +394,7 @@ return [
         'program.timings' => 'Thời Gian Học',//@lang('kidsnow.timings')
         'program.start_time'    =>  'Bắt Đầu Lúc',
         'program.finish_time'    =>  'Kết Thúc Lúc',
-        'program.hint'  =>'Gợi Ý',
+        'program.hint'  =>'Hướng Dẫn',
         'program.hint_content'  =>'Sử dụng thanh tìm kiếm để thêm nhân viên hoặc trẻ vào lớp học',
         'program.staff' => 'Nhân Viên',//@lang('kidsnow.staff')
         'program.children' => 'Trẻ',//@lang('kidsnow.staff')
@@ -377,13 +402,26 @@ return [
         'program.search_children'  =>'Tìm Kiếm Trẻ...',
         'program.no_staff'=>'Không tìm thấy nhân viên',
         'program.no_children'=>'Không tìm thấy trẻ',
+
+
+        //alert
+        'program.alert_exist_children'=>'Trẻ đã được thêm vào lớp !',
+        'program.alert_exist_staff'=>'Nhân viên đã được thêm vào lớp !',
+        'program.alert_remove_children'=>'Xác nhận xóa trẻ khỏi lớp ?',
+        'program.alert_remove_staff'=>'Xác nhận xóa nhân viên khỏi lớp ?',
+        'program.alert_delete_without_asking'=>'Bạn đã bật chế độ : Xóa Liên Tục !',
+
     //END Program
 
     //Notice board:
 
+        'notice.add_notice'=>'Thêm',
+        'notice.edit_notice'=>'Sửa',
+        'notice.view_notice'=>'Xem',
+        'notice.delete_notice'=>'XÓA',
         // kids-now.notice-board
         'notice.search' => 'Tìm Kiếm Thông Báo...',//@lang('kidsnow.search_notice')
-        'notice.hint' => 'Gợi Ý',//@lang('kidsnow.hint')
+        'notice.hint' => 'Hướng Dẫn',//@lang('kidsnow.hint')
         'notice.hint_content' => 'Nhấn vào tên lớp học trên thanh trượt menu để hiển thị thông báo trong lớp học đó / Hoặc sử dụng thanh tìm kiếm để xem 1 thông báo cụ thể',//@lang('kidsnow.note_hint')
 
         //kids-now/notice-board/add | kids-now/notice-board/edit | kids-now/notice-board/detail
@@ -392,17 +430,31 @@ return [
         'notice.detail'=>'Nội Dung Thông Báo',
         'notice.mark'=>'Đánh Dấu Thông Báo Quan Trọng',
         'notice.archive'=>'Đã Hoàn Thành',
+        'notice.content'=>'Nội Dung',
+        'notice.edit_button'=>'Nhấn vào nút Sửa để cập nhật thông báo',
+        'notice.not_found'=>'Không có thông báo',
     //END Notice board
 
 
+    //Observations Type
+    'observation_type.add_observation_type'=>'Thêm',
+    'observation_type.edit_observation_type'=>'Sửa',
+    'observation_type.view_observation_type'=>'Xem',
+    'observation_type.delete_observation_type'=>'XÓA',
+
     //Observations
 
+        'observations.add_observation'=>'Thêm',
+        'observations.edit_observation'=>'Sửa',
+        'observations.view_observation'=>'Xem',
+        'observations.delete_observation'=>'XÓA',
+
         //kids-now/observations/list
-        'observations.observations' =>'Đánh Giá',
+        'observations.observations' =>'Nhận Xét & Đánh Giá',
         'observations.seminar'  =>'Học Kỳ',
         'observations.choose_month' => 'Chọn Tháng',//@lang('kidsnow.choose_month')
         'observations.children_name' => 'Họ Tên',//@lang('kidsnow.children_name')
-        'observations.observer' => 'Người Đánh Giá',//@lang('kidsnow.observer')
+        'observations.observer' => 'Người Nhận Xét',//@lang('kidsnow.observer')
         'observations.time' => 'Thời Gian',//@lang('kidsnow.time')
         'observations.action' => 'Hành Động',//@lang('kidsnow.action')
         'observations.go' => 'Tìm',//@lang('kidsnow.go')
@@ -424,9 +476,9 @@ return [
         'observations.list' =>'Danh Sách Trẻ',
         'observations.children'=>'Trẻ',
         'observations.observation_types'=>'Loại Đánh Giá',
-        'observations.detail'=>'Nội Dung Đánh Giá',
+        'observations.detail'=>'Nội Dung Nhận Xét',
         'observations.no_found'=>'Không Tìm Thấy Trẻ',
-        'observations.hint'=>'Gợi Ý',
+        'observations.hint'=>'Hướng Dẫn',
         'observations.hint_content'=>'Nhấn vào tên lớp học trên thanh trượt menu để hiển thị toàn bộ trẻ trong lớp học đấy',
 
         //kids-now/observations/edit
@@ -486,6 +538,8 @@ return [
     'title_meal_type_delete' => 'Xóa loại bữa ăn',
     'title_quantity_edit' => 'Sửa số lượng',
     'title_quantity_delete' => 'Xóa số lượng',
+    'date_begin'    => 'Từ ngày',
+    'date_end'    => 'Đến ngày',
 
     //-----------------login------------------------
     'title_login' =>'Đăng nhập Kids-now',
@@ -503,7 +557,7 @@ return [
     'confirm_password_reset'=>'Nhập lại mật khẩu',
 
     //--------------Account Demo----------
-   'kidsnow_account_demon' =>'Đăng Kí Tài Khoản Kids-now', 
+   'kidsnow_account_demon' =>'Đăng Kí Tài Khoản Kids Now',
    'register_account_demo' =>'Đăng Kí',
    'first_name_account_demo' => 'Họ tên',
    'verify_account_demo' => 'để kích hoạt tài khoản',
@@ -517,6 +571,14 @@ return [
    'confirm_changer_password' => 'Nhập Lại Mật Khẩu',
    'reset_password' => 'Quên mật khẩu',
    'forgrt_password_send_mail' =>'Cảm ơn bạn đã sử dụng phần mềm Kids-now !',
+   'to_get_started' => 'Để bắt đầu, hãy kiểm tra thông tin đăng ký của bạn.',
+   'click_here_start' => 'Click vào đây để đăng nhập',
+   'email_start' =>'Bạn nhận được email này vì bạn có tài khoản trên',
+   'everyone' =>'Mọi người có thể đóng góp',
+   'to_get_started_verify' =>'Để bắt đầu, hãy nhấp vào liên kết dưới đây để xác nhận tài khoản của bạn.',
+   'verify_your_acconut' =>'Xác nhận tài khoản của bạn',
+   'to_get_started_reset' =>'Để bắt đầu, hãy nhấp vào liên kết dưới đây để lấy lại mật khẩu của bạn',
+   'retrieve_your_password'=> 'Lấy lại mật khẩu',
 
 
    //-------------attendance-------------
@@ -524,8 +586,19 @@ return [
    'attendance_list'  => 'Danh sách điểm danh',
     'attendance_choose' => 'Chọn' ,
     'attendance_children_name' =>'Tên học sinh',
-    'attendance_children_in' =>'Đi học',
-    'attendance_children_out' =>'Nghỉ học',
+    'attendance_children_total' =>'Tổng số',
+    'attendance_children_in' =>'Check In',
+    'attendance_children_out' =>'Check Out',
     'attendance_children_absent' =>'Vắng',
+    'attendance.hint'=> 'Hướng Dẫn',
+    'attendance.hint_content'=> 'Nhấn vào tên lớp học trên thanh trượt menu để hiển thị toàn bộ trẻ trong lớp học đấy',
+     
+    //-----------login-------
+
+
+
+    'noscript'=>'Một vài tính năng có thể không hoạt động do Javascript đã bị tắt. Vui lòng bật Javascript hoặc nhờ bộ phận IT hỗ trợ.',
+    '404'=>'Không Tìm Thấy Trang Bạn Yêu Cầu !'
+
     
 ];

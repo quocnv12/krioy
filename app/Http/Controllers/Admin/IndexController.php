@@ -54,14 +54,18 @@ class IndexController extends Controller
         $staff->save();
         $data=[
             'route' => $url,
-            'name' =>$request->first_name,
-            
         ] ;
 
         Mail::send('pages.introduce.verify', $data, function($message) use ($email){
             $message->to($email, 'Verify Account')->subject('Link Verify Account !');
         });
-        return redirect()->back()->with('success','Registration successful please login email to confirm your account !');
+        if (\Lang::locale() == 'en') {
+            return redirect()->back()->with('success','Registration successful please login email to confirm your account !');
+        }
+        if (\Lang::locale() == 'vi') {
+            return redirect()->back()->with('success','Đăng ký thành công, vui lòng đăng nhập email để kích hoạt tài khoản !');
+        }
+        
     }
 
     //xac nhan tai khoan
@@ -74,14 +78,26 @@ class IndexController extends Controller
             'id'=>$id])->first();
             if(!$staff)
             {
-                return redirect()->back()->with('danger','Link verify false !');
+                if (\Lang::locale() == 'en') {
+                    return redirect()->back()->with('danger','Link verify false !');
+                }
+                if (\Lang::locale() == 'vi') {
+                    return redirect()->back()->with('danger','Link kích hoạt sai !');
+                }
+               
             }
         $staff->active=1;
         $staff->save();
 
         if(Auth::loginUsingId($staff->id))
         {
-            return redirect('kids-now')->with('success','Verify success');
+            if (\Lang::locale() == 'en') {
+                return redirect('kids-now')->with('success','Verify success !');
+            }
+            if (\Lang::locale() == 'vi') {
+                return redirect('kids-now')->with('success','Kích hoạt tài khoản thành công !');
+            }
+           
         }
     }
 

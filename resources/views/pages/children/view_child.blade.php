@@ -19,9 +19,9 @@
             <div class="row">
                 <div class="col-lg-10 col-md-10 col-sm-10">
                     <ul class="ul-td">
-                        <li  class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
-                        <li  class="active1" ><a href="{{route('admin.children.index')}}">CHILDREN</a></li>
-                        <li class="active1 active-1" style="pointer-events: none"><a href="">VIEW CHILDREN</a></li>
+                        <li  class="level1"><a href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
+                        <li  class="active1" ><a href="{{route('admin.children.index')}}">@lang('kidsnow.children_profiles')</a></li>
+                        <li class="active1 active-1" style="pointer-events: none"><a href="">@lang('kidsnow.children.view_children')</a></li>
                     </ul>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                     <button class="accordion add-staff" type="button">@lang('kidsnow.children.view_children')</button>
                     <div class="row">
                         <div class="col-md-2 textera-img">
-                            <a style="cursor: pointer;">
+                            <a @if($children_profiles->image) href="{{$children_profiles->image}}" @endif style="cursor: pointer;">
                                 <img src="{{$children_profiles->image ? $children_profiles->image : 'images/Child.png'}}" alt="" id="demo_image" style="height: 100px">
                                 <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
                                 @if ($errors->has('image'))
@@ -217,7 +217,7 @@
                             <input type="hidden" name="id_parent_profiles_1" value="{{$parent_profiles->id}}">
                             <div class="row">
                                 <div class="col-md-2 textera-img">
-                                    <a style="cursor: pointer;">
+                                    <a @if($parent_profiles->image) href="{{$parent_profiles->image}}" @endif style="cursor: pointer;">
                                         <img src="{{$parent_profiles->image ? $parent_profiles->image : 'images/Parent.png'}}" alt="" id="demo_image_parent_1" style="height: 100px">
                                         <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
                                     </a>
@@ -270,7 +270,7 @@
         <div class="comment">
             <div class="button" style="text-align: center;">
                 <button class="button2" onclick="goBack()">
-                    <span>GO BACK</span>
+                    <span>@lang('kidsnow.cancel')</span>
                 </button>
             </div>
         </div>

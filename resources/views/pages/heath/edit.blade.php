@@ -11,18 +11,23 @@
             <div class="row">
                 <div class="col-sm-6">
                     <ul class="ul-td">
-                        <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="{{route('admin.home')}}">HOME</a></li>
-                        <li _ngcontent-c16="" class="active1" href="{{route('admin.health.list')}}"><a _ngcontent-c16="">HEALTH</a></li>
-                        <li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none" href=""><a _ngcontent-c16="">EDIT HEALTHh</a></li>
+                        <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
+                        <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="{{route('admin.health.list')}}">@lang('kidsnow.health')</a></li>
+                        <li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none" href=""><a _ngcontent-c16="">@lang('kidsnow.health.edit_health')</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-6">
-                    <a type="submit" class="btn btn-success" href="{{route('admin.health.list')}}" style="border: none;min-width: 110px;background: #eb87c1;color: white;float: right;font-weight: bold;" >@lang('kidsnow.health.list')</a>
+                    <button class="notice" type="button" style="float: right">
+                        <span><a href="{{route('admin.health.getDelete',['id'=>$health->id])}}" style="color: inherit; " onclick="return confirm('Delete ! Are you want to continue ?')">@lang('kidsnow.health.delete_health')</a></span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <div id="clock" name="time"></div>
+        <div class="row" style="display: flex; justify-content: center">
+            <a type="submit" class="btn btn-success" href="{{route('admin.health.list')}}" style="border: none;min-width: 110px;background: #eb87c1;color: white;float: right;font-weight: bold;" >@lang('kidsnow.health.list')</a>
+        </div>
         @if ($errors->has('children_health'))
             <div class="alert alert-danger" style="text-align: center">
                 {{ $errors->first('children_health') }}
@@ -265,10 +270,10 @@
             </div>
             <div class="button" style="text-align: center;">
                 <button type="reset" onclick="goBack()">
-                    <span>CANCEL</span>
+                    <span>@lang('kidsnow.cancel')</span>
                 </button>
                 <button class="button2" id="submit_button" type="submit">
-                    <span>SAVE</span>
+                    <span>@lang('kidsnow.save')</span>
                 </button>
             </div>
         </form>

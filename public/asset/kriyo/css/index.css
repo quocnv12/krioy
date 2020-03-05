@@ -14,14 +14,15 @@ button:focus{
 	outline: none;
 }
 a{
-	text-decoration: none !important;
+	text-decoration: none !impor    tant;
 }
 .page-top-center{
 	min-height: 550px;
 }
 .login{
-	width: 75%;
-	margin: 50px auto;
+	width: 100%;
+	margin-top: 50px;
+
 	border:2px solid #5363d6;
 	border-radius: 5px;
 }
@@ -310,7 +311,7 @@ footer.site-footer div p a.termsHover:hover{
 	color: red !important;
 }
 /*customer*/
-.mixedSlider{
+.mixedSlider {
 	
 }
 .MS-content{
@@ -505,7 +506,7 @@ section.introduce-packages .introduce-packages-content .row > div>div >div> div.
 .dropdown-content-logo1 {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: #b8b3b3;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -573,7 +574,7 @@ section.introduce-packages .introduce-packages-content .row > div>div >div> div.
   	min-height: 350px !important;
   }
   .packages-priceLite{
-  	min-height: 430px !important;
+  	min-height: 480px !important;
   }
 }
 .col-2dot4,  extra small
@@ -626,3 +627,39 @@ section.introduce-packages .introduce-packages-content .row > div>div >div> div.
     }
 }
 /*11234567*/
+.menu_mobile #menu_mobile .closebtn {
+    position: absolute;
+    top: 15px;
+    left: 25px;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* Chỉnh sửa label h2 */
+@media (min-width:375px) and (max-width:400px){
+    .introduce-customers-h2 h2{
+        padding: 0 10px;
+    }
+}
+@media (min-width:430px) and (max-width:450px){
+    .introduce-customers-h2 h2{
+        padding: 0 10px;
+    }
+}
+@media (min-width:451px) and (max-width:460px){
+    .introduce-customers-h2 h2{
+        padding: 0 15px;
+    }
+}
+@media (min-width:461px) and (max-width:470px){
+    .introduce-customers-h2 h2{
+        padding: 0 20px;
+    }
+}
+@media (min-width:471px) and (max-width:480px){
+    .introduce-customers-h2 h2{
+        padding: 0 25px;
+    }
+}

@@ -18,11 +18,7 @@ class ObservationController extends Controller
 {
     public function getList(Request $request){
         if ($request->month || $request->year) {
-            $child_observations = DB::table('observations')->join('children_profiles','children_profiles.id','=','observations.id_children')
-                ->select(['observations.*','observations.id_children'=>'children_profiles.*'])
-                ->where('observations.month', '=', $request->month)
-                ->where('observations.year', '=', $request->year)
-                ->get();
+            $child_observations = ObservationModel::whereMonth('created_at', '=', $request->month)->whereYear('created_at', '=', $request->year)->orderBy('created_at','DESC')->get();
             if (! $child_observations){
                 return response()->json(['message'=>'Something wrong'], 404);
             }else{
@@ -31,8 +27,7 @@ class ObservationController extends Controller
                 ], 200);
             }
         }else {
-            $current_month = Carbon::now()->format('M');
-            $child_observations = ObservationModel::where('month', '=', $current_month)->where('year', '=', now()->year)->get();
+            $child_observations = ObservationModel::orderBy('created_at','DESC')->get();
             if (! $child_observations){
                 return response()->json(['message'=>'Something wrong'], 404);
             }else{
@@ -75,131 +70,46 @@ class ObservationController extends Controller
                 'detailObservation'     =>  'nullable',
             ];
 
-         $validator = Validator::make($request->all(), $rules,[
-             'observations.required'         =>  'Please choose observations',
-             'children_observations.required'=>  'Please choose children',
-         ]);
+        $validation_vi = [
+            'observations.required'         =>  'Vui lòng chọn loại đánh giá',
+            'children_observations.required'=>  'Chưa có trẻ nào được chọn',
+        ];
+
+        $validation_en = [
+            'observations.required'         =>  'Please choose observations',
+            'children_observations.required'=>  'Please choose children',
+        ];
+
+         $validator = Validator::make($request->all(), $rules,app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
         if ($validator->fails()){
             return response()->json($validator->errors(), 400);
         }
 
         //string to array
         $children_observations = explode(',', $request->children_observations);
+        $observer = Auth::user()->first_name.' '.Auth::user()->last_name;
+
         //luu vao bang observations
         foreach ($children_observations as $children_id) {
-            $check_id_children_isset = ObservationModel::where('id_children','=',$children_id)->get();
-            $observer = Auth::user()->first_name.' '.Auth::user()->last_name;
-
-            //array chua month da ton tai
-            $array_month = [];
-            foreach ($check_id_children_isset as $collection)
-            {
-                if (! in_array($collection->month, $array_month)){
-                    array_push($array_month, $collection->month);
+            $child_observation = new ObservationModel();
+            $child_observation->id_children = $children_id;
+            $child_observation->id_observations = $request->observations;
+            $child_observation->detailObservation = $request->detailObservation;
+            $child_observation->month = $request->month;
+            $child_observation->year = $request->year;
+            $child_observation->observer = $observer;
+            if ($request->hasFile('clip_board')){
+                $array_file = [];
+                foreach ($request->file('clip_board') as $file_name){
+                    $uniqueFileName = (Str::random(4).'_'.$file_name->getClientOriginalName());
+                    array_push($array_file, $uniqueFileName);
+                    $file_name->move(storage_path('app/public/clip_board/') , $uniqueFileName);
                 }
+
+                $child_observation->clip_board = implode('/*endfile*/',$array_file);
+
             }
-
-            //array chua year da ton tai
-            $array_year = [];
-            foreach ($check_id_children_isset as $collection)
-            {
-                if (! in_array($collection->year, $array_year)) {
-                    array_push($array_year, $collection->year);
-                }
-            }
-
-            //array chua observer da ton tai
-            $array_observer = [];
-            foreach ($check_id_children_isset as $collection)
-            {
-                if (! in_array($collection->observer, $array_observer)) {
-                    array_push($array_observer, $collection->observer);
-                }
-            }
-
-            if (isset($check_id_children_isset)) {
-                if ((in_array($request->month, $array_month)) && (in_array($request->year, $array_year))){
-                    if (in_array($observer, $array_observer)){
-                        $child_observation = ObservationModel::where('id_children','=',$children_id)->where('month','=',$request->month)->where('year','=',$request->year)->where('observer','=',$observer)->first();
-                        $child_observation->id_observations = $request->observations;
-                        $child_observation->detailObservation = $request->detailObservation;
-                        $child_observation->month = $request->month;
-                        $child_observation->year = $request->year;
-                        if ($request->hasFile('clip_board')){
-                            $array_file = [];
-                            foreach ($request->file('clip_board') as $file_name){
-                                $uniqueFileName = (Str::random(4).'_'.$file_name->getClientOriginalName());
-                                array_push($array_file, $uniqueFileName);
-                                $file_name->move(storage_path('app/public/clip_board/') , $uniqueFileName);
-                            }
-
-                            $child_observation->clip_board = implode('/*endfile*/',$array_file);
-
-                        }
-                        $child_observation->save();
-                    }else{
-                        $child_observation = new ObservationModel();
-                        $child_observation->id_children = $children_id;
-                        $child_observation->id_observations = $request->observations;
-                        $child_observation->detailObservation = $request->detailObservation;
-                        $child_observation->month = $request->month;
-                        $child_observation->year = $request->year;
-                        $child_observation->observer = $observer;
-                        if ($request->hasFile('clip_board')){
-                            $array_file = [];
-                            foreach ($request->file('clip_board') as $file_name){
-                                $uniqueFileName = (Str::random(4).'_'.$file_name->getClientOriginalName());
-                                array_push($array_file, $uniqueFileName);
-                                $file_name->move(storage_path('app/public/clip_board/') , $uniqueFileName);
-                            }
-
-                            $child_observation->clip_board = implode('/*endfile*/',$array_file);
-
-                        }
-                        $child_observation->save();
-                    }
-                }else{
-                    $child_observation = new ObservationModel();
-                    $child_observation->id_children = $children_id;
-                    $child_observation->id_observations = $request->observations;
-                    $child_observation->detailObservation = $request->detailObservation;
-                    $child_observation->month = $request->month;
-                    $child_observation->year = $request->year;
-                    $child_observation->observer = $observer;
-                    if ($request->hasFile('clip_board')){
-                        $array_file = [];
-                        foreach ($request->file('clip_board') as $file_name){
-                            $uniqueFileName = (Str::random(4).'_'.$file_name->getClientOriginalName());
-                            array_push($array_file, $uniqueFileName);
-                            $file_name->move(storage_path('app/public/clip_board/') , $uniqueFileName);
-                        }
-
-                        $child_observation->clip_board = implode('/*endfile*/',$array_file);
-
-                    }
-                    $child_observation->save();
-                }
-            }else{
-                $child_observation = new ObservationModel();
-                $child_observation->id_children = $children_id;
-                $child_observation->id_observations = $request->observations;
-                $child_observation->detailObservation = $request->detailObservation;
-                $child_observation->month = $request->month;
-                $child_observation->year = $request->year;
-                $child_observation->observer = $observer;
-                if ($request->hasFile('clip_board')){
-                    $array_file = [];
-                    foreach ($request->file('clip_board') as $file_name){
-                        $uniqueFileName = (Str::random(4).'_'.$file_name->getClientOriginalName());
-                        array_push($array_file, $uniqueFileName);
-                        $file_name->move(storage_path('app/public/clip_board/') , $uniqueFileName);
-                    }
-
-                    $child_observation->clip_board = implode('/*endfile*/',$array_file);
-
-                }
-                $child_observation->save();
-            }
+            $child_observation->save();
         }
         return response()->json([
             'children_observations'=>$children_observations
@@ -275,45 +185,6 @@ class ObservationController extends Controller
                 }
             }
             return response()->json(null, 204);
-        }
-    }
-
-    public function getSearch(Request $req){
-        $search = DB::table('observations')
-            ->join('children_profiles','children_profiles.id','=','observations.id_children')
-            ->join('observations_type','observations_type.id','=','observations.id_observations')
-            ->select('observations.*','children_profiles.*','observations_type.name')
-            ->where('first_name','like','%'.$req->key.'%')
-            ->orWhere('last_name','like','%'.$req->key.'%')
-            ->orWhere('birthday','like','%'.$req->key.'%')
-            ->orWhere('gender','like','%'.$req->key.'%')
-            ->orWhere('name','like','%'.$req->key.'%')->get();
-
-        if (!$search){
-            return response()->json('Not found', 404);
-        }else{
-            return response()->json([
-                'search'=>$search
-            ], 200);
-        }
-    }
-    public function postSearch(Request $req){
-        $search = DB::table('observations')
-            ->join('children_profiles','children_profiles.id','=','observations.id_children')
-            ->join('observations_type','observations_type.id','=','observations.id_observations')
-            ->select('observations.*','children_profiles.first_name','children_profiles.last_name','children_profiles.birthday','children_profiles.gender','observations_type.name')
-            ->where('first_name','like','%'.$req->key.'%')
-            ->orWhere('last_name','like','%'.$req->key.'%')
-            ->orWhere('birthday','like','%'.$req->key.'%')
-            ->orWhere('gender','like','%'.$req->key.'%')
-            ->orWhere('name','like','%'.$req->key.'%')->get();
-
-        if (!$search){
-            return response()->json('Not found', 404);
-        }else{
-            return response()->json([
-                'search'=>$search
-            ], 200);
         }
     }
 

@@ -9,9 +9,9 @@
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
 				<ul class="ul-td" style="width: 100%">
-					<li class="level1"><a href="{{route('admin.home')}}">HOME</a></li>
-					<li class="active1" ><a href="{{route('admin.program.index')}}">PROGRAM</a></li>
-					<li class="active1 active-1" style="pointer-events: none;"><a href="">VIEW PROGRAM</a></li>
+					<li class="level1"><a href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
+					<li class="active1" ><a href="{{route('admin.program.index')}}">@lang('kidsnow.programs')</a></li>
+					<li class="active1 active-1" style="pointer-events: none;"><a href="">@lang('kidsnow.program.view_program')</a></li>
 
 				</ul>
 			</div>
@@ -32,13 +32,13 @@
 								</div>
 								<div class="col-md-10" style="margin: 10px 0;">
 									<div class="panel_new">
-										<div class="letterCircle listClass @if(in_array(8, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">S</div>
-										<div class="letterCircle listClass @if(in_array(2, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">M</div>
-										<div class="letterCircle listClass @if(in_array(3, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">T</div>
-										<div class="letterCircle listClass @if(in_array(4, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">W</div>
-										<div class="letterCircle listClass @if(in_array(5, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">T</div>
-										<div class="letterCircle listClass @if(in_array(6, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">F</div>
-										<div class="letterCircle listClass @if(in_array(7, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">S</div>
+										<div class="letterCircle listClass @if(in_array(8, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">@lang('kidsnow.program.sunday')</div>
+										<div class="letterCircle listClass @if(in_array(2, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">@lang('kidsnow.program.monday')</div>
+										<div class="letterCircle listClass @if(in_array(3, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">@lang('kidsnow.program.tuesday')</div>
+										<div class="letterCircle listClass @if(in_array(4, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">@lang('kidsnow.program.wednesday')</div>
+										<div class="letterCircle listClass @if(in_array(5, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">@lang('kidsnow.program.thursday')</div>
+										<div class="letterCircle listClass @if(in_array(6, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">@lang('kidsnow.program.friday')</div>
+										<div class="letterCircle listClass @if(in_array(7, $array_schedule)) tablinks1_active @endif" style="color: #5363d7;">@lang('kidsnow.program.saturday')</div>
 									</div>
 								</div>
 							</div>
@@ -47,21 +47,9 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="row">
-								{{--<div class="col-md-6 input_box">--}}
-									{{--<span class="input_box_span_active">@lang('kidsnow.program.program_fee')</span>--}}
-									{{--<input type="text" name="text" placeholder="Program Fee " value="{{number_format(floatval($program->program_fee),2)}}">--}}
-								{{--</div>--}}
-								{{--<div class="col-md-6 input_box">--}}
-									{{--<span class="input_box_span_active">@lang('kidsnow.program.period')</span>--}}
-									{{--<select>--}}
-										{{--<option @if($program->period_fee == '/week') selected="selected" @endif>/week</option>--}}
-										{{--<option @if($program->period_fee == '/month') selected="selected" @endif>/month</option>--}}
-										{{--<option @if($program->period_fee == '/year') selected="selected" @endif>/year</option>--}}
-									{{--</select>--}}
-								{{--</div>--}}
 								<div class="col-md-5 input_box">
 									<span class="input_box_span_active">@lang('kidsnow.program.program_fee')</span>
-									<input type="text" name="program_fee" id="program_fee" placeholder="@lang('kidsnow.program.program_fee')" value="{{($program->program_fee)}}">
+									<input type="text" name="program_fee" id="program_fee" placeholder="@lang('kidsnow.program.program_fee')" value="{{number_format($program->program_fee, 2,',',' ')}}">
 									@if ($errors->has('program_fee'))
 										<div class="text text-danger">
 											{{ $errors->first('program_fee') }}
@@ -210,7 +198,7 @@
 				<div class="panel">
 					<div _ngcontent-c20="" class="row" style="">
 						<!---->
-						@if(count($staff_profiles) > 0)
+						@if(count($children_profiles) > 0)
 							@foreach($children_profiles as $children)
 							<div _ngcontent-c19="" class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted select-child-img select-child-img1">
 								<div _ngcontent-c19="" class="child-class" style="height: 120px;text-align: center;">
@@ -233,7 +221,13 @@
 			</div>
 		</div>
 
-
+		<div class="comment">
+			<div class="button" style="text-align: center;">
+				<button class="button2" onclick="goBack()">
+					<span>@lang('kidsnow.cancel')</span>
+				</button>
+			</div>
+		</div>
 		<div class="icon-plus" title="edit">
 			<a href="{{route('admin.program.edit',['id'=>$program->id])}}">
 				<i class="fa fa-edit"></i>
@@ -288,26 +282,26 @@
 		  });
 		}
 	</script>
-    <script type="text/javascript">
-		$('.input_box input').focus(function(event) {
-	    	$(this).siblings('span').addClass('input_box_span_active');
-		});
-		$('.input_box input').blur(function(event) {
-	    	if ($(this).val()=='') {
-	      		$(this).siblings('span').removeClass('input_box_span_active');
-	    	}
-		});
-	</script>
-	<script type="text/javascript">
-		$('.input_box select').focus(function(event) {
-	    	$(this).siblings('span').addClass('input_box_span_active');
-		});
-		$('.input_box select').blur(function(event) {
-	    	if ($(this).val()=='') {
-	      		$(this).siblings('span').removeClass('input_box_span_active');
-	    	}
-		});
-	</script>
+    {{--<script type="text/javascript">--}}
+		{{--$('.input_box input').focus(function(event) {--}}
+	    	{{--$(this).siblings('span').addClass('input_box_span_active');--}}
+		{{--});--}}
+		{{--$('.input_box input').blur(function(event) {--}}
+	    	{{--if ($(this).val()=='') {--}}
+	      		{{--$(this).siblings('span').removeClass('input_box_span_active');--}}
+	    	{{--}--}}
+		{{--});--}}
+	{{--</script>--}}
+	{{--<script type="text/javascript">--}}
+		{{--$('.input_box select').focus(function(event) {--}}
+	    	{{--$(this).siblings('span').addClass('input_box_span_active');--}}
+		{{--});--}}
+		{{--$('.input_box select').blur(function(event) {--}}
+	    	{{--if ($(this).val()=='') {--}}
+	      		{{--$(this).siblings('span').removeClass('input_box_span_active');--}}
+	    	{{--}--}}
+		{{--});--}}
+	{{--</script>--}}
 	<script type="text/javascript">
     	$('.add > div input').focus(function(event) {
     		alert('Bạn không thể sửa mục này !');
