@@ -267,14 +267,25 @@
                 transform: scale(.98)
             }
         }
+
+        @media screen and (max-width: 767px) {
+            #text-ahead {
+                font-size: 30px;
+            }
+            svg {
+                height: 200px !important;
+                width: 100%;
+            }
+        }
+
     </style>
-    <div style="text-align: center;font-weight: bold; margin-top: 10px; font-size: 40px">
+    <div style="text-align: center;font-weight: bold; margin-top: 10px; font-size: 40px" id="text-ahead">
         <p>@lang('kidsnow.404')</p>
     </div>
 
     <div class="container" style="display: flex; justify-content: center">
         <div class="wrapper">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" style="height: 350px">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" style="height: 350px;">
                 <title>404</title>
                 <g id="Layer_12 yellow-back-fig" data-name="Layer 12">
                     <path class="cls-1" d="M600.87,872H156a4,4,0,0,0-3.78,4.19h0a4,4,0,0,0,3.78,4.19H600.87a4,4,0,0,0,3.78-4.19h0A4,4,0,0,0,600.87,872Z"/>
@@ -406,7 +417,7 @@
 
 
     <hr>
-    <div style="display: flex; justify-content: center">
+    <div style="display: flex; justify-content: center; text-align: center">
         <button style="background-color: #6f5b92; " class="btn btn-primary">
             <a style="color: inherit" href="{{route('admin.home')}}">@lang('kidsnow.home')</a>
         </button>
