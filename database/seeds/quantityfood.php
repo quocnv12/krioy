@@ -14,10 +14,9 @@ class quantityfood extends Seeder
     {
         DB::table('quantity_food')->delete();
         DB::table('quantity_food')->insert([
-            ['id'=>1,'name'=>'All'],
-            ['id'=>2,'name'=>'Most'],
-            ['id'=>3,'name'=>'Some'],
-            ['id'=>4,'name'=>'None'],
+            ['id'=>1,'name'=>'Tất cả'],
+            ['id'=>2,'name'=>'Một ít'],
+            ['id'=>3,'name'=>'Phần lớn'],
         ]);
     }
 }

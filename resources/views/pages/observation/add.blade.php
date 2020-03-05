@@ -39,10 +39,11 @@
 						<br>
 						<hr>
 						<button class="accordion accordion1 clearfix" type="button">
-							<p style="float: left;">@lang('kidsnow.observations.children') *</p>
+							<p style="float: left;">@lang('kidsnow.observations.children') </p>
 								{{--<form class="typeahead" role="search" style="float: right; text-align: left">--}}
 									{{--<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">--}}
 								{{--</form>--}}
+							<a class="btn btn-success" id="tick_all_children" type="button" style="float: right; background-color: #CC263F">Chọn tất cả</a>
 						</button>
                         <div class="scrollmenu-div">
                             @foreach($programs as $program)
@@ -93,7 +94,6 @@
 									</div>
 								@endforeach
 								<input id="array_observation" type="hidden" value="" name="observations">
-
 							</div>
 						</div>
 					</div>
@@ -223,15 +223,37 @@
                 $(this).children('div').children('i').hide()
                 var observation_pop = $(this).children('div').children('input').val();
                 array_children_observation.splice( array_children_observation.indexOf(observation_pop), 1 );
-
+				console.log(array_children_observation)
             }else {
                 $(this).children('div').children('i').addClass('checked')
                 $(this).children('div').children('i').show()
                 var observation_push = $(this).children('div').children('input').val();
                 array_children_observation.push(observation_push);
+				console.log(array_children_observation)
             }
         })
         //end select children_observation
+
+		//tick all children
+		$('#tick_all_children').click(function () {
+			if ($('.div_box_children').children('div').children('i').hasClass('checked')){
+				($('.div_box_children').children('div').children('i').removeClass('checked'))
+				$('.div_box_children').children('div').children('i').hide()
+				array_children_observation = [];
+
+				console.log(array_children_observation)
+			}else {
+				$('.div_box_children').children('div').children('i').addClass('checked')
+				$('.div_box_children').children('div').children('i').show()
+				array_children_observation = $('.div_box_children').children('div').children('input').map(function() {
+					return $(this).val();
+				}).toArray();
+
+				console.log(array_children_observation)
+			}
+		})
+		//end tick all children
+
 		var button = document.getElementById("submit_button");
 		button.onclick = function(){
 			$('#array_all_children').attr('value', array_children);

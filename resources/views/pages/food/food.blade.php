@@ -2,15 +2,15 @@
 @section('title')
 @lang('kidsnow.foods')
 @endsection
-@section('css')
+{{-- @section('css')
 <link rel="stylesheet prefetch" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-@endsection
+@endsection --}}
 @section('content')
 <style>
-label{
+/* label{
     margin-left: 20px;
     }
     #datepicker{
@@ -26,7 +26,7 @@ label{
     }
     #datepicker1 > span:hover{
     cursor: pointer;
-    }
+    } */
     </style>
 <body>
     <section class="page-top container">
@@ -87,7 +87,7 @@ label{
 
                             </div>
                         </div>
-                        <hr>
+                        {{-- <hr>
                          <div style="text-align:left" style="margin: 20px 0;font-size: 18px;">
                             <div class="row">
                                 <div class="col-md-3">
@@ -105,7 +105,7 @@ label{
                                     </div>
                                 </div>
                             </div>
-                        </div> 
+                        </div>  --}}
                         <hr>
                         <div class="update" style="text-align:left">
                             <p>@lang('kidsnow.select_quantity') *</p>
@@ -287,7 +287,7 @@ label{
 
 </script> --}}
 
-<script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+{{-- <script src="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
 <script type="text/javascript">
     $(function () {  
         $("#datepicker").datepicker({         
@@ -303,5 +303,5 @@ label{
                 todayHighlight: true          
             }).datepicker('update', new Date());
         });
-        </script>
+        </script> --}}
 @endsection
