@@ -16,8 +16,6 @@ class ChildrenFoodTableSeeder extends Seeder
         DB::table('children_food')->delete();
         DB::table('children_food')->insert([
             [
-              
-
                 'id_children'   =>  1,
                 'id_food'       =>  1
             ],

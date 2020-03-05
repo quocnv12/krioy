@@ -198,6 +198,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('','Admin\FoodController@GetFood');
         Route::post('','Admin\FoodController@PostFood');
         Route::get('list','Admin\FoodController@GetList');
+        Route::get('show/{id}','Admin\FoodController@showFood');
         Route::get('edit/{id}','Admin\FoodController@GetEdit')->middleware(['can:edit-profile']);
         Route::post('edit/{id}','Admin\FoodController@PostEdit');
         Route::get('delete/{id}','Admin\FoodController@DeleteFood')->middleware(['can:edit-profile']);
