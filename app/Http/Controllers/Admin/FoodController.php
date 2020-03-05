@@ -25,13 +25,14 @@ class FoodController extends Controller
     public function PostFood(request $request) 
     {
     
-        if($request->programs==null)
+    // dd($request->all());
+        if($request->children_food==null)
         {
             if (\Lang::locale() == 'en') {
-                return redirect()->back()->with('danger','Pleasea choose program !')->withInput();
+                return redirect()->back()->with('danger','Pleasea choose children !')->withInput();
             }
             if (\Lang::locale() == 'vi') {
-                return redirect()->back()->with('danger','Bạn chưa chọn lớp !')->withInput();
+                return redirect()->back()->with('danger','Bạn chưa chọn trẻ !')->withInput();
             }
             
         }
@@ -70,7 +71,7 @@ class FoodController extends Controller
             $foods =new food;
             $foods->meal_type = $request->mealtype;
             $foods->quantity = $request->qtyfood;
-            $foods->id_program = $request->programs;
+           // $foods->id_program = $request->programs;
             // if(strtotime($request->date_end) > strtotime($request->date_begin))
             // {
             //     $foods->date_begin = carbon::parse($request->date_begin)->format('Y-m-d');
@@ -84,8 +85,17 @@ class FoodController extends Controller
             //         return redirect()->back()->with('danger','Ngày bắt đầu phải nhỏ hơn ngày kết thúc !')->withInput();
             //     }
             // }
-           
             $foods->save();
+            $childrent = explode(',',$request->children_food);
+            $mangs=array();
+            foreach ($childrent as $item)
+            {
+                $mangs[]=$item;
+            }
+           $foods->children_food()->Attach($mangs);
+
+            //$foods->children_food()->Attach($request->children_food);
+
             $foodss = explode(',',$request->food_name);
             $mang=array();
             foreach ($foodss as $item)
@@ -93,6 +103,7 @@ class FoodController extends Controller
                 $mang[]=$item;
             }
            $foods->food()->Attach($mang);
+
            if (\Lang::locale() == 'en') {
                 return redirect()->back()->with('success','Send food success !')->withInput();
             }
@@ -111,6 +122,34 @@ class FoodController extends Controller
         $data['foods']=food::all();
         return view('pages.food.food.list_food',$data);
     }
+
+
+    //show theo id
+    
+    public function showFood($id)
+    {
+        $data['programs']=Programs::all();
+        $data['mealtypes']=mealtype::all();
+        $data['quantytifoods']=quantytifood::all();
+        $data['itemfoods']=itemfood::all();
+        $food = food::all();
+        $programs = Programs::orderBy('program_name')->get();
+        $children_profiles = DB::table('children_profiles')
+                            ->join('children_programs','children_profiles.id','=','children_programs.id_children')
+                            ->where('children_programs.id_program','=',$id)
+                            ->orderBy('first_name')
+                            ->get();
+
+        return view('pages.food.food',[
+            'children_profiles'=>$children_profiles,
+            'food'=>$food,
+            'programs'=>$programs
+        ],$data);
+    }
+
+
+
+
 
     //edit food
 

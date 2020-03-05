@@ -19,16 +19,20 @@ class food extends Model
    {
        return $this->belongsTo('App\models\food\quantytifood', 'quantity', 'id');
    }
-   public function programfood()
+   public function children_food()
    {
-       return $this->belongsTo('App\models\Programs', 'id_program', 'id');
+       return $this->belongsToMany('App\models\ChildrenProfiles', 'children_food', 'id_food', 'id_children');
    }
+//    public function programfood()
+//    {
+//        return $this->belongsTo('App\models\Programs', 'id_program', 'id');
+//    }
    protected $fillable = [
     'meal_type',
     'quantity',
-    'id_program',
-    'date_begin',
-    'date_end'
+    // 'id_program',
+    // 'date_begin',
+    // 'date_end'
     ];
 
 }

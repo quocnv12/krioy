@@ -19,8 +19,8 @@ class CreateFoodTable extends Migration
             $table->foreign('meal_type')->references('id')->on('meal_type')->onDelete('cascade');
             $table->bigInteger('quantity')->unsigned();
             $table->foreign('quantity')->references('id')->on('quantity_food')->onDelete('cascade');
-            $table->bigInteger('id_program')->unsigned();
-            $table->foreign('id_program')->references('id')->on('programs')->onDelete('cascade');
+            // $table->bigInteger('id_children')->unsigned();
+            // $table->foreign('id_children')->references('id')->on('programs')->onDelete('cascade');
             // $table->date('date_begin');
             // $table->date('date_end');
             $table->timestamps();

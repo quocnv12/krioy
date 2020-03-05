@@ -44,7 +44,7 @@
         </div>
     
         <div class="row">
-            <form method="post" enctype="multipart/form-data" style="width: 100%;">
+            <form method="post" action="kids-now/food"  enctype="multipart/form-data" style="width: 100%;">
                 @csrf
                 <div class="mat-card" style="">
                     <div class="mat-content">
@@ -59,7 +59,47 @@
                                 href="kids-now/food/list" class="btn btn-defaul">@lang('kidsnow.food_list')</a>
                         </div>
 
-                        <button class="accordion" type="button">@lang('kidsnow.program_food') *</button>
+                        <button class="accordion accordion1 clearfix" style="margin-bottom:10px" type="button">
+							<p style="float: left;">@lang('kidsnow.observations.children') </p>
+								{{--<form class="typeahead" role="search" style="float: right; text-align: left">--}}
+									{{--<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">--}}
+								{{--</form>--}}
+							<a class="btn btn-success" id="tick_all_children" type="button" style="float: right; background-color: #CC263F">Chọn tất cả</a>
+						</button>
+                        <div class="scrollmenu-div">
+                            @foreach($programs as $program)
+                                <div class="scrollmenu-button" style="text-align: center;">
+                                    <button class="limitText" type="button" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
+                                        <a style="color: #fff ;margin: 0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 150px;display: block;" href="kids-now/food/show/{{$program->id}}" title="{{$program->program_name}}">{{$program->program_name}}</a>
+                                    </button>
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="row">
+                            @if(isset($children_profiles))
+								@if(count($children_profiles) > 0)
+									@foreach($children_profiles as $children)
+										<div class="div_box_children col-lg-2 col-md-2 col-sm-2 col-xs-6 ng-star-inserted" style="padding:10px;cursor:pointer;">
+											<div type="button" data-toggle="modal" data-target=".bd-example-modal-sm" style="height: 120px;text-align: center;-webkit-appearance: none;">
+												<img class="img-circle" height="80" onerror="this.src='images/Child.png';" width="80" src="images/Child.png">
+                                                <i _ngcontent-c9="" aria-hidden="true" class="fa fa-check" id="checked" style="display: block;top:10px"></i>
+                                                <span class="limitText ng-star-inserted" style="color:#5363d6;;margin: 0px;display: block;">{{$children->first_name}} {{$children->last_name}}</span>
+												<input type="hidden" value="{{$children->id}}">
+											</div>
+										</div>
+									@endforeach
+								@else
+									<div style="font-weight: bold; margin: 50px">@lang('kidsnow.observations.no_found')</div>
+								@endif
+                                <input id="array_children_observation" type="hidden" value="" name="children_food">
+							@else
+								<div style="margin: 50px;">
+									<span style="color: red; font-weight: bold">@lang('kidsnow.observations.hint') :</span>
+									<span>@lang('kidsnow.observations.hint_content')</span>
+								</div>
+                            @endif
+                        </div>
+                        {{-- <button class="accordion" type="button">@lang('kidsnow.program_food') *</button>
                         <div class="panel">
                             <div _ngcontent-c20="" class="row" style="">
                                 @foreach($programs as $item)
@@ -74,7 +114,8 @@
                                 @endforeach
                                 <input id="array_programsss" type="hidden" value="" name="programs">
                             </div>
-                        </div>
+                        </div> --}}
+                        <hr>
                         <div class="update">
                             <p style="text-align:left;margin-top:12px">@lang('kidsnow.select_meal_type') *</p>
                             <div class="tab">
@@ -304,4 +345,230 @@
             }).datepicker('update', new Date());
         });
         </script> --}}
+        <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+    
+            for (i = 0; i < acc.length; i++) {
+              acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                  panel.style.maxHeight = null;
+                } else {
+                  panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+              });
+            }
+        </script>
+        <script type="text/javascript">
+            // var array_observation = [];
+            // $('.tablinks1').click(function(event) {
+            //     if ($(this).prop('class')=='btn progBtn limitText bgClass tablinks1 tablinks1_active') {
+            //         $(this).removeClass('tablinks1_active');
+            //         var observation_pop = $(this).val();
+            //         array_observation.splice( array_observation.indexOf(observation_pop), 1 );
+            //     }else{
+            //         $(this).addClass('tablinks1_active');
+            //         var observation_push = $(this).val();
+            //         array_observation.push(observation_push);
+            //     }
+            // });
+    
+            //begin select children
+            // var array_children = [];
+    
+            // function deleteChild(id_children) {
+            //     array_children.splice( array_children.indexOf(id_children), 1 );
+            // }
+    
+            // function getIdChildren(id){
+            //     $.ajax({
+            //         type: 'get',
+            //         url: '{{ URL::to('kids-now/observations/select_child/add') }}',
+            //         data: {
+            //             'id_children' : id
+            //         },
+            //         success: function(data){
+            //             if (! array_children.includes(id)){
+            //                 $('#children_list').append(data);
+            //                 array_children.push(id);
+            //             }else {
+            //                 alert('children exists')
+            //             }
+            //         }
+            //     });
+            // }
+            //end select children
+    
+            //begin select children_observation
+            var array_children_observation = [];
+            $('.div_box_children').children('div').children('i').hide()
+    
+            $('.div_box_children').click(function () {
+                if ($(this).children('div').children('i').hasClass('checked')){
+                    ($(this).children('div').children('i').removeClass('checked'))
+                    $(this).children('div').children('i').hide()
+                    var observation_pop = $(this).children('div').children('input').val();
+                    array_children_observation.splice( array_children_observation.indexOf(observation_pop), 1 );
+                    console.log(array_children_observation)
+                }else {
+                    $(this).children('div').children('i').addClass('checked')
+                    $(this).children('div').children('i').show()
+                    var observation_push = $(this).children('div').children('input').val();
+                    array_children_observation.push(observation_push);
+                    console.log(array_children_observation)
+                }
+                $('#array_children_observation').attr('value', array_children_observation);
+            })
+            //end select children_observation
+    
+            //tick all children
+            $('#tick_all_children').click(function () {
+                if ($('.div_box_children').children('div').children('i').hasClass('checked')){
+                    ($('.div_box_children').children('div').children('i').removeClass('checked'))
+                    $('.div_box_children').children('div').children('i').hide()
+                    array_children_observation = [];
+    
+                    console.log(array_children_observation)
+                }else {
+                    $('.div_box_children').children('div').children('i').addClass('checked')
+                    $('.div_box_children').children('div').children('i').show()
+                    array_children_observation = $('.div_box_children').children('div').children('input').map(function() {
+                        return $(this).val();
+                    }).toArray();
+    
+                    console.log(array_children_observation)
+                }
+                $('#array_children_observation').attr('value', array_children_observation);
+            })
+            //end tick all children
+    
+            var button = document.getElementById("submit_button");
+
+            
+            button.onclick = function(){
+                $('#array_all_children').attr('value', array_children);
+                $('#array_observation').attr('value', array_observation);
+                $('#array_children_observation').attr('value', array_children_observation);
+            }
+
+            
+        </script>
+
+
+        <script type="text/javascript">
+            $('.input_box input').focus(function(event) {
+                $(this).siblings('span').addClass('input_box_span_active');
+            });
+            $('.input_box input').blur(function(event) {
+                if ($(this).val()=='') {
+                      $(this).siblings('span').removeClass('input_box_span_active');
+                }
+            });
+    
+            //begin clip-board
+            var input_file = $("#file");
+            input_file.on("change", function () {
+                var files = input_file.prop("files")
+                if ($('#file').val() != null){
+                    $('#show_clip_board').html('');
+                }
+                var names = $.map(files, function (val) {
+                    return val.name;
+                });
+                $.each(names, function (i, name) {
+                    $('#show_clip_board').append(name+'<br>');
+                });
+            });
+    
+            $('#file').hide();
+            $('#image').hide();
+            $('#button_file').click(function () {
+                $('#file').click();
+            })
+            $('#button_image').click(function () {
+                $('#image').click();
+            })
+            //finish clip-board
+        </script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function($) {
+                var engine1 = new Bloodhound({
+                    remote: {
+                        url: 'http://localhost:8000/kids-now/observations/search/children?q=%QUERY%',
+                        wildcard: '%QUERY%'
+                    },
+                    datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
+                    queryTokenizer: Bloodhound.tokenizers.whitespace
+                });
+    
+                $(".search-input").typeahead({
+                    hint: true,
+                    highlight: true,
+                    minLength: 1
+                }, [
+                    {
+                        source: engine1.ttAdapter(),
+                        name: 'children_profiles',
+                        display: function(data) {
+                            return data.name;
+                        },
+                        templates: {
+                            empty: [
+                                '<div class="list-group search-results-dropdown" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;width: 500px;"><div class="list-group-item">Nothing found.</div></div>'
+                            ],
+                            header: [
+    
+                            ],
+                            suggestion: function (data) {
+                                return '<a onclick="getIdChildren('+data.id+')" class="list-group-item" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;padding: 10px; margin: 0;color: #424949;width: 500px;"> ' + data.first_name +' '+ data.last_name + '<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
+                            }
+                        }
+                    },
+                ]);
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('.accordion').click();
+            })
+        </script>
+        <script src="libs/slick-1.8.1/slick/slick.js"></script>
+        <script type="text/javascript">
+            $('.scrollmenu-div').slick({
+                infinite: true,
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                autoplay: false,
+                autoplaySpeed: 2000,
+                responsive: [{
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                    {
+                        breakpoint: 991,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            autoplay: true,
+                            arrows:false,
+                        }
+                    },
+                    {
+                        breakpoint: 500,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1,
+                            autoplay: true,
+                            arrows:false,
+                        }
+                    }]
+            });
+        </script>
 @endsection
