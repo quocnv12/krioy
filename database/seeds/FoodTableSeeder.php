@@ -20,8 +20,8 @@ class FoodTableSeeder extends Seeder
                'meal_type'  =>  1,
                'quantity'   =>  1,
                'id_program'    =>  1,
-               'date_begin' => '2019-11-30',
-               'date_end' => '2019-12-10'
+            //    'date_begin' => '2019-11-30',
+            //    'date_end' => '2019-12-10'
              
            ],
             [
@@ -29,8 +29,8 @@ class FoodTableSeeder extends Seeder
                'meal_type'  =>  2,
                'quantity'   =>  2,
                'id_program'    =>  1,
-               'date_begin' => '2019-11-30',
-               'date_end' => '2019-12-10'
+            //    'date_begin' => '2019-11-30',
+            //    'date_end' => '2019-12-10'
               
             ],
             [
@@ -38,8 +38,8 @@ class FoodTableSeeder extends Seeder
                 'meal_type'  =>  3,
                 'quantity'   =>  3,
                 'id_program'    =>  2,
-                'date_begin' => '2019-11-30',
-               'date_end' => '2019-12-10'
+            //     'date_begin' => '2019-11-30',
+            //    'date_end' => '2019-12-10'
               
             ],
             [
@@ -47,8 +47,8 @@ class FoodTableSeeder extends Seeder
                 'meal_type'  =>  4,
                 'quantity'   =>  2,
                 'id_program'    =>  3,
-                'date_begin' => '2019-11-30',
-                'date_end' => '2019-12-10'
+                // 'date_begin' => '2019-11-30',
+                // 'date_end' => '2019-12-10'
                 
             ],
             [
@@ -56,8 +56,8 @@ class FoodTableSeeder extends Seeder
                 'meal_type'  =>  2,
                 'quantity'   =>  2,
                 'id_program'    =>  2,
-                'date_begin' => '2019-11-30',
-                'date_end' => '2019-12-10'
+                // 'date_begin' => '2019-11-30',
+                // 'date_end' => '2019-12-10'
                
             ],
         ]);
