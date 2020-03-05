@@ -38,7 +38,7 @@
                             @lang('kidsnow.observations.observer') : {{$child_observation->observer}}
                         </div>
                         <button class="accordion accordion1 clearfix" type="button">
-                            <p style="float: left;">@lang('kidsnow.observations.children') *</p>
+                            <p style="float: left;">@lang('kidsnow.observations.children') </p>
                         </button>
                     </div>
                     <div class="mat-content">

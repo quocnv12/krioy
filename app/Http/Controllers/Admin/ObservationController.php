@@ -162,9 +162,12 @@ class ObservationController extends Controller
                             ->where('children_programs.id_program','=',$id)
                             ->orderBy('first_name')
                             ->get();
-        return view('pages.observation.add',['children_profiles'=>$children_profiles,
-                                                    'observationtype'=>$observationtype,
-                                                    'programs'=>$programs]);
+
+        return view('pages.observation.add',[
+            'children_profiles'=>$children_profiles,
+            'observationtype'=>$observationtype,
+            'programs'=>$programs
+        ]);
     }
 
     public function view($id){
