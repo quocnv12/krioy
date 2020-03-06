@@ -143,9 +143,7 @@ Attendance
                         </a>
                     </div> --}}
                     <div class="all-1">
-                        <a style="cursor-pointer: none" id="select_all_button">
-                            <b>Select All</b>
-                        </a>
+                        <a style="button" id="select_all_button"><b>Chọn tất cả</b></a>
                     </div>
                 </div>
             </div>
@@ -172,7 +170,7 @@ Attendance
                                 <i _ngcontent-c9="" aria-hidden="true" class="fa fa-check check-select" id="checked"
                                     style="display: block;top:10px"></i>
                                 <span
-                                    class="limitText ng-star-inserted span-clock @foreach ($children->chil_atd as $value) @if($value->updated_at->format('Y-m-d') == $dayupdate && $value->status == 1) span-clock-xanh @elseif($value->updated_at->format('Y-m-d') == $dayupdate && $value->status == 2) span-clock-xam @elseif($value->updated_at->format('Y-m-d') == $dayupdate && $value->status == 3) span-clock-do @else span-clock-md @endif @endforeach">
+                                    class="limitText ng-star-inserted span-clock span-clock-denmd @foreach ($children->chil_atd as $value) @if($value->updated_at->format('Y-m-d') == $dayupdate && $value->status == 1) span-clock-xanh @elseif($value->updated_at->format('Y-m-d') == $dayupdate && $value->status == 2) span-clock-xam @elseif($value->updated_at->format('Y-m-d') == $dayupdate && $value->status == 3) span-clock-do @endif @endforeach">
                                     <p style="border-radius: 5px 5px 0 0;">{{$children->first_name}}
                                         {{$children->last_name}}</p>
                                     @foreach ($children->chil_atd as $value)
@@ -297,15 +295,13 @@ Attendance
 <script type="text/javascript">
     var array_children_attendance = [];
     $('.div_box_children').children('div').children('i').hide()
-    
+    //select children
     $('.div_box_children').click(function () {
         if ($(this).children('div').children('i').hasClass('checked')) {
             ($(this).children('div').children('i').removeClass('checked'))
             $(this).children('div').children('i').hide()
             var attendance_pop = $(this).children('div').children('input').val();
             array_children_attendance.splice(array_children_attendance.indexOf(attendance_pop), 1);
-
-
         } else {
             $(this).children('div').children('i').addClass('checked')
             $(this).children('div').children('i').show()
@@ -315,11 +311,20 @@ Attendance
         $('#array_children_attendance').attr('value', array_children_attendance);
         // console.log(array_children_attendance)
     })
+    //select all children
     $('#select_all_button').click(function() {
-        if ($(this).children('div').children('i').hasClass('checked')) {
-            $(this).children('div').children('i').prop('checked', true);
+        if ($('.div_box_children').children('div').children('i').hasClass('checked')) {
+            ($('.div_box_children').children('div').children('i').removeClass('checked'))
+            $('.div_box_children').children('div').children('i').hide()
+            array_children_attendance = [];
+            console.log(array_children_attendance)
         } else {
-            $(this).children('div').children('i').prop('checked', false);
+            $('.div_box_children').children('div').children('i').addClass('checked')
+            $('.div_box_children').children('div').children('i').show()
+            array_children_attendance = $('.div_box_children').children('div').children('input').map(function(){
+                return $(this).val();
+            }).toArray();
+            console.log(array_children_attendance)
         }
     });
 
@@ -336,26 +341,6 @@ Attendance
     }
 
 </script>
-
-{{-- <script>  
-    $('#select_all_button').click(function(){
-        let check = 0;
-        if(check = 0){
-            $('.div_box_children').children('div').children('i').show()
-            check = 1;
-            console.log(check);
-
-        }else{
-            $('.div_box_children').children('div').children('i').hide()
-            check = 0;
-            console.log(check);
-        }
-
-        $('.div_box_children').children('div').children('i').show()
-    });
-</script> --}}
-
-
 
 <!-- clock -->
 <script type="text/javascript">

@@ -293,8 +293,9 @@ select .mat-card .mat-content div > div.childClass:hover {
   text-overflow: ellipsis;
   text-align: center;
 }
-.span-clock-md p{
-color:#000;background: #fff;
+.span-clock-denmd p{
+color: #5363d6;
+background: #fff;
 }
 .span-clock-xam p{
     background: #ccc;
