@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\models\ChildrenProfiles;
+use App\models\History;
 use App\models\ObservationModel;
 use App\Http\Controllers\Controller;
 use App\models\ObservationTypeModel;
@@ -60,6 +61,11 @@ class ObservationController extends Controller
             ],app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
 
 
+        //save history : create new history object
+        $history = new History();
+        $history->id_childrens = $request->children_observations;
+        $array_id_records = [];     //tao array chua id observation record
+
         //string to array
         $children_observations = explode(',', $request->children_observations);
         $observer = Auth::user()->first_name.' '.Auth::user()->last_name;
@@ -78,12 +84,39 @@ class ObservationController extends Controller
                     array_push($array_file, $uniqueFileName);
                     $file_name->move(storage_path('app/public/clip_board/') , $uniqueFileName);
                 }
-
                 $child_observation->clip_board = implode('/*endfile*/',$array_file);
-
             }
+
             $child_observation->save();
+
+            //push id cua doi tuong child_observation vao array
+            array_push($array_id_records, $child_observation->id);
         }
+
+        //id_records la chuoi string chua id cua cac doi tuong child_observation vua tao
+        $history->id_records = implode(',',$array_id_records);
+        $history->model = 'App\models\ObservationModel';
+        $history->icon = 'images/Observation-01.png';
+        $json_vi = [
+            'Chủ Đề'    =>  'Nhận Xét & Đánh Giá',
+            'Đánh Giá'  =>  $child_observation->id_observations,
+            'Nội Dung Nhận Xét' =>  $child_observation->detailObservation,
+            'Người Nhận Xét'    =>  $child_observation->observer
+        ];
+
+        $json_en = [
+            'Model'    =>  'Observation',
+            'Observations'  =>  $child_observation->id_observations,
+            'Details' =>  $child_observation->detailObservation,
+            'Observer'    =>  $child_observation->observer
+        ];
+
+        $history->content_vi = json_encode($json_vi);
+        $history->content_en = json_encode($json_en);
+        $history->save();
+        //save xong history record
+
+
         return redirect()->back()->with('success',app()->getLocale() == 'vi' ? 'Thêm Thành Công !' :'Added Successfully !');
     }
 

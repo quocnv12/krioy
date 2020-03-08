@@ -63,7 +63,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="{{route('admin.health.list')}}">
+                    <a href="{{route('admin.health.getAdd')}}">
                         <img src="images/Health-01.png" alt="@lang('kidsnow.health')">
                         <div class="title">
                             <p>@lang('kidsnow.health')</p>
@@ -71,7 +71,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="{{route('admin.observations.list')}}">
+                    <a href="{{route('admin.observations.getAdd')}}">
                         <img src="images/Observation-01.png" alt="@lang('kidsnow.observations')">
                         <div class="title">
                             <p>@lang('kidsnow.observations')</p>
@@ -154,7 +154,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="kids-now">
+                    <a href="{{route('admin.history.list')}}">
                         <img src="images/History.png" alt="@lang('kidsnow.history')">
                         <div class="title">
                             <p>@lang('kidsnow.history')</p>
