@@ -22,7 +22,7 @@ class HealthModel extends Model
     ];
 
     protected $proxies = '*';
-    public function ChildrenProfiles(){
+    public function children_profiles(){
         return $this->belongsTo('App\models\ChildrenProfiles','id_children','id');
     }
 }

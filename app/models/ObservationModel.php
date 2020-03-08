@@ -20,7 +20,8 @@ class ObservationModel extends Model
     public function ObservationType(){
         return $this->belongsTo('App\models\ObservationTypeModel','id_observations','id');
     }
-    public function Children(){
+    public function children_profiles(){
         return $this->belongsTo('App\models\ChildrenProfiles','id_children','id');
     }
+
 }

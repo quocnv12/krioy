@@ -44,7 +44,7 @@ class ChildrenProfiles extends Model
     }
 
     public static function getIdObservation($id){
-        $object =  ObservationModel::find($id)->where('id_children','=',$id)->orderBy('created_at','DESC')->first();
+        $object =  ObservationModel::where('id_children','=',$id)->orderBy('created_at','DESC')->first();
         if (!$object)
         {
             return null;
@@ -61,7 +61,6 @@ class ChildrenProfiles extends Model
         }
         return $object['id'];
     }
-
 
     protected $timestamp = false;
 
