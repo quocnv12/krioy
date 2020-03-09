@@ -25,7 +25,8 @@
         <div class="row">
             <ul class="ul-td" style="width:100%">
                 <li  class="level1"><a href="kids-now">@lang('kidsnow.home')</a></li>
-                <li  class="active-1" style="pointer-events: none"><a href="">@lang('kidsnow.attendance')</a></li>
+                <li class="active1" style="" ><a href="kids-now/attendance">@lang('kidsnow.attendance')</a></li>
+                <li class="active1 active-1" style="pointer-events: none" ><a href="">Danh sách</a></li>
             </ul>
         </div>
     </div>
@@ -45,7 +46,6 @@
                                 <h4>@lang('kidsnow.attendance')</h4>
                             </div>
                             <form action="{{route('attendance.list')}}" method="get" style="display: contents">
-
                                 <div class="col-md-6" style="display: flex; justify-content: flex-end; align-items: center">
                                     <span style="font-weight: bold">@lang('kidsnow.attendance_choose')</span>&nbsp;&nbsp;:&nbsp;&nbsp;
                                     <select name="program" id="program">
@@ -83,9 +83,7 @@
                                         @for($i = 01; $i <= 12; $i++)
                                             <option value="{{$i}}" @if($i == $month) selected @endif >{{$i}}</option>
                                         @endfor
-                                    @endif
-
-                                        
+                                    @endif                                       
                                     </select>
                                     &nbsp;&nbsp;-&nbsp;&nbsp;
                                     <select name="year" id="year">

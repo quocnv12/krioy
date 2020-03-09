@@ -11,14 +11,14 @@
             <div class="row">
                 <div class="col-sm-6">
                     <ul class="ul-td">
-                        <li class="level1"><a href="kids-now">@lang('kidsnow.home')</a></li>
-                        <li class="active1" style="" ><a href="kids-now/observations/list">@lang('kidsnow.observations')</a></li>
+                        <li class="level1"><a href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
+                        <li class="active1" style="" ><a href="{{route('admin.observations.getAdd')}}">@lang('kidsnow.observations')</a></li>
                         <li class="active1 active-1" style="pointer-events: none" ><a href="">@lang('kidsnow.observations.view_observation')</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-6">
-                    <a href="{{route('admin.observations.list')}}" class="btn btn-success" style="min-width:110px;background:#eb87c1;color:white; float: right; border: none;font-weight: bold">@lang('kidsnow.observations.list')</a>
-                </div>
+                {{--<div class="col-sm-6">--}}
+                    {{--<a href="{{route('admin.observations.list')}}" class="btn btn-success" style="min-width:110px;background:#eb87c1;color:white; float: right; border: none;font-weight: bold">@lang('kidsnow.observations.list')</a>--}}
+                {{--</div>--}}
             </div>
         </div>
         <form style="width: auto;margin: 0;text-align: center" action="" method=""  id="editObservation" enctype="multipart/form-data">
@@ -123,8 +123,8 @@
                         <div class="panel">
                             <div _ngcontent-c20="" class="row" style="">
                                 @foreach($observationtype  as $observation)
-                                    <div _ngcontent-c20="" align="center" class="col-lg-2 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;cursor:pointer;">
-                                        <button type="button" _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1 @if(in_array($observation->id, $array_observation_choose)) tablinks1_active @endif" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px; pointer-events: none" data-toggle="tooltip" title="{{$observation->name}}" value="{{$observation->id}}">{{$observation->name}} </button>
+                                    <div _ngcontent-c20="" align="center" class="col-lg-3 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;">
+                                        <button type="button" _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1 @if(in_array($observation->id, $array_observation_choose)) tablinks1_active @endif" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px; pointer-events: none; width: 100%" data-toggle="tooltip" title="{{$observation->name}}" value="{{$observation->id}}">{{$observation->name}} </button>
                                     </div>
                                 @endforeach
                                     <input id="array_observation_new" type="hidden" value="" name="observation_new">
