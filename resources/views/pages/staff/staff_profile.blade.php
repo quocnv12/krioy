@@ -97,7 +97,7 @@
 									
 								</td>
 								<td style="font-size:12px">{{ $item->date_of_joining==Null ? 'Chưa nhập' : Carbon\Carbon::parse($item->date_of_joining)->format('d-m-Y') }}</td>
-								<td ><img style="width:30px;height:30px;border-radius:50%" src="images/staff/{{ $item->image }}"></td>
+								<td ><img onerror="this.src='images/Staff100.png';" style="width:30px;height:30px;border-radius:50%" src="images/staff/{{ $item->image }}"></td>
 								<td style="text-align:center;width:12px">
 									<a  href="kids-now/staff/edit/{{ $item->id }}" title="@lang('kidsnow.title_edit_staff')" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
 									<a  onclick="return confirm('Delete staff ? Do you want continue !')" title="@lang('kidsnow.title_delete_staff')" href="kids-now/staff/delete/{{ $item->id }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>

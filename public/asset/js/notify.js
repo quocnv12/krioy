@@ -4,7 +4,7 @@ function notify(text,type)
         text,
         type,
         theme:"bootstrap-v4",
-        timeout:5000,
+        timeout:3500,
         progressBar:true,
         animation: {
             open: 'animated bounceInRight', // Animate.css class names

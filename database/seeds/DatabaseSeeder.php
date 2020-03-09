@@ -42,5 +42,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ChildrenStatusTable::class);
         $this->call(ParentModule::class);
         $this->call(ChildrenFoodTableSeeder::class);
+        $this->call(parent_note::class);
+        $this->call(parent_note_staff::class);
+        $this->call(parent_note_childrent::class);
     }
 }

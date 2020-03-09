@@ -28,6 +28,7 @@ class StaffController extends Controller
     }
     public  function PostAddStaff(AddStaffRequest $request) 
     {
+        //dd($request->all());
        $staff = new StaffProfiles;
        $staff->first_name = $request->first_name;
        $staff->last_name = $request->last_name;
@@ -115,6 +116,7 @@ class StaffController extends Controller
 
     public  function PostEditStaff(EditStaffRequest $request ,$id) 
     {
+     // dd($request->all());
       $staff = StaffProfiles::find($id);
       $staff->first_name = $request->first_name;
       $staff->last_name = $request->last_name;
@@ -128,7 +130,8 @@ class StaffController extends Controller
 
       if($request->hasFile('image'))
       {
-            if($staff->image!=Null)
+            if($staff->image)
+    
             {
                 unlink('images/staff/'.$staff->image);
             }

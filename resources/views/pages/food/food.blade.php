@@ -55,8 +55,8 @@
                                 href="kids-now/food/menu-quantity" class="btn btn-defaul">@lang('kidsnow.quantity')</a>
                             <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white"
                                 href="kids-now/food/menu-food-name" class="btn btn-defaul">@lang('kidsnow.food_name')</a>
-                            <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white"
-                                href="kids-now/food/list" class="btn btn-defaul">@lang('kidsnow.food_list')</a>
+                            {{-- <a style="margin:5px 0px 13px 14px;min-width:110px;background:#5363d6;color:white"
+                                href="kids-now/food/list" class="btn btn-defaul">@lang('kidsnow.food_list')</a> --}}
                         </div>
 
                         <button class="accordion accordion1 clearfix" style="margin-bottom:10px" type="button">

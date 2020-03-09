@@ -290,6 +290,22 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('delete/{id}', 'Admin\PermissionControler@deleteRole')->middleware(['can:edit-profile']);
     
     });
+
+
+
+
+
+    //-----------------------Parent-note---------------------
+    Route::group(['prefix' => 'parent-note','middleware' => 'checkacl:Parent notes'], function () {
+        Route::get('', 'Admin\ParentNote\ParentNoteControler@listParentNote');
+        Route::get('detail/{id}', 'Admin\ParentNote\ParentNoteControler@showParentNote');
+    
+    });
+
+
+
+
+
 });
 
 

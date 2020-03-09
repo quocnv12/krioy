@@ -38,8 +38,8 @@ class IndexController extends Controller
         $staff->phone = $request->phone;
         $staff->password = bcrypt($request->password);
         $staff->active =0;
+        $staff->gender =2;
         $staff->level =0;
-        $staff->image ='Staff21.png';
         //dăng nhập 15 ngày thêm trường time_expire 
         //$staff->time_expire = now()->addDays(15);
         $staff->save();
