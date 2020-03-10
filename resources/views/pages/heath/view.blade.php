@@ -250,11 +250,6 @@
         </form>
         </div>
     </section>
-    <div class="icon-plus">
-        <a href="{{ route('admin.health.getEdit',['id'=>$health->id]) }}">
-            <i class="fa fa-edit"></i>
-        </a>
-    </div>
     </body>
 @endsection
 

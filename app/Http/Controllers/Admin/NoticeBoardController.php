@@ -79,9 +79,9 @@ class NoticeBoardController extends Controller
         if ($request->hasFile('clip_board')){
             $array_file = [];
             foreach ($request->file('clip_board') as $file_name){
-                $uniqueFileName = (Str::random(4).'_'.$file_name->getClientOriginalName());
+                $uniqueFileName = (Str::random(9).'_'.$file_name->getClientOriginalName());
+                $file_name->move(storage_path('/app/public/clip_board/') , $uniqueFileName);
                 array_push($array_file, $uniqueFileName);
-                $file_name->move(storage_path('app/public/clip_board/') , $uniqueFileName);
             }
 
             $notice_board->clip_board = implode('/*endfile*/',$array_file);
@@ -111,7 +111,7 @@ class NoticeBoardController extends Controller
 
     public function displayClipboard($id,$name)
     {
-        return response()->file(storage_path('app/public/clip_board/'.$name),[
+        return response()->file(storage_path('/app/public/clip_board/'.$name),[
             'Content-Disposition' => 'inline; filename="'. $name .'"']);
     }
 
@@ -132,7 +132,7 @@ class NoticeBoardController extends Controller
         $notice_board->save();
 
         //xoa file
-        $file_path = storage_path('app/public/clip_board/'.$name);
+        $file_path = storage_path('/app/public/clip_board/'.$name);
         unlink($file_path);
 
         return redirect()->back()->with('success',app()->getLocale() == 'vi' ? 'Xóa File Thành Công !' : 'Deleted File Successfully !');
@@ -240,9 +240,9 @@ class NoticeBoardController extends Controller
         if ($request->hasFile('clip_board')){
             $old_array = explode('/*endfile*/',$notice_board->clip_board);
             foreach ($request->file('clip_board') as $file_name){
-                $uniqueFileName = (Str::random(4).'_'.$file_name->getClientOriginalName());
+                $uniqueFileName = (Str::random(9).'_'.$file_name->getClientOriginalName());
                 array_push($old_array, $uniqueFileName);
-                $file_name->move(storage_path('app/public/clip_board/') , $uniqueFileName);
+                $file_name->move(storage_path('/app/public/clip_board/') , $uniqueFileName);
             }
             $notice_board->clip_board = implode('/*endfile*/',$old_array);
         }
@@ -263,8 +263,8 @@ class NoticeBoardController extends Controller
         if ($notice_board->clip_board){
             $old_array = explode('/*endfile*/',$notice_board->clip_board);
             foreach ($old_array as $key=>$value){
-                $file_path = 'app/public/clip_board/'.$value;
-                if ($file_path != 'app/public/clip_board/'){
+                $file_path = '/app/public/clip_board/'.$value;
+                if ($file_path != '/app/public/clip_board/'){
                     unlink(storage_path($file_path));
                 }
             }

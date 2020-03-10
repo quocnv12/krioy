@@ -182,15 +182,39 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
     });
 
     Route::group(['prefix' => 'observationtype'], function () {
-
-        Route::get('delete/{id}',['as'=>'admin.observationtype.getDelete','uses'=>'Admin\ObservationTypeController@getDelete'])->middleware(['can:edit-profile']);
-        Route::get('edit/{id}',['as'=>'admin.observationtype.getEdit','uses'=>'Admin\ObservationTypeController@getEdit'])->middleware(['can:edit-profile']);
-        Route::post('edit/{id}',['as'=>'admin.observationtype.postEdit','uses'=>'Admin\ObservationTypeController@postEdit']);
         Route::get('add',['as'=>'admin.observationtype.add','uses'=>'Admin\ObservationTypeController@getAdd']);
         Route::post('add',['as'=>'admin.observationtype.add','uses'=>'Admin\ObservationTypeController@postAdd']);
-
-
+        Route::get('edit/{id}',['as'=>'admin.observationtype.getEdit','uses'=>'Admin\ObservationTypeController@getEdit'])->middleware(['can:edit-profile']);
+        Route::post('edit/{id}',['as'=>'admin.observationtype.postEdit','uses'=>'Admin\ObservationTypeController@postEdit']);
+        Route::get('delete/{id}',['as'=>'admin.observationtype.getDelete','uses'=>'Admin\ObservationTypeController@getDelete'])->middleware(['can:edit-profile']);
     });
+
+    //---------------diary types-------------------------
+    Route::group(['prefix' => 'diary_types'], function () {
+       Route::get('/', 'Admin\DiaryTypeController@index')->name('admin.diary_types.list');
+        Route::get('add', 'Admin\DiaryTypeController@create')->name('admin.diary_types.create');
+        Route::post('add', 'Admin\DiaryTypeController@store')->name('admin.diary_types.store');
+        Route::get('edit/{id}', 'Admin\DiaryTypeController@edit')->name('admin.diary_types.edit');
+        Route::post('edit/{id}', 'Admin\DiaryTypeController@update')->name('admin.diary_types.update');
+        Route::get('delete/{id}', 'Admin\DiaryTypeController@destroy')->name('admin.diary_types.destroy');
+    });
+
+    //---------------diary-------------------------
+    Route::group(['prefix' => 'diary'], function () {
+        Route::get('add','Admin\DiaryController@create')->name('admin.diary.create');
+        Route::post('add','Admin\DiaryController@store')->name('admin.diary.store');
+        Route::get('delete/{id}','Admin\DiaryController@destroy')->name('admin.diary.destroy');
+
+        Route::get('show/{id}','Admin\DiaryController@showChildrenInProgram');
+        Route::get('view/{id}','Admin\DiaryController@view')->name('admin.diary.view');
+
+        //clip board
+        Route::get('clip_board/{id}/{name}','Admin\DiaryController@displayClipboard');
+        Route::get('delete_clipboard/{id}/{name}','Admin\DiaryController@deleteClipboard');
+    });
+
+
+
     //---------------food----------------
     Route::group(['prefix' => 'food','middleware' => 'checkacl:Food'], function () {
 
@@ -256,7 +280,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
 
 
-
     //---------------program----------------
     Route::group(['prefix' => 'program','middleware' => 'checkacl:Programs'], function () {
         Route::get('', 'Admin\ProgramsController@index')->name('admin.program.index');
@@ -294,6 +317,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
     //--------------------------------Lịch Sử-------------------------------
     Route::group(['prefix' => 'history'], function () {
       Route::get('', 'Admin\HistoryController@index')->name('admin.history.list');
+      Route::get('search','Admin\HistoryController@search')->name('admin.history.search');
       Route::get('delete/{id}', 'Admin\HistoryController@destroy')->name('admin.history.destroy');
     });
 

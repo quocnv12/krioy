@@ -64,6 +64,7 @@ class ObservationController extends Controller
         //save history : create new history object
         $history = new History();
         $history->id_childrens = $request->children_observations;
+        $history->id_program = $request->program_id;
         $array_id_records = [];     //tao array chua id observation record
 
         //string to array
@@ -80,9 +81,9 @@ class ObservationController extends Controller
             if ($request->hasFile('clip_board')){
                 $array_file = [];
                 foreach ($request->file('clip_board') as $file_name){
-                    $uniqueFileName = (Str::random(4).'_'.$file_name->getClientOriginalName());
+                    $uniqueFileName = (Str::random(9).'_'.$file_name->getClientOriginalName());
+                    $file_name->move(storage_path('/app/public/clip_board/') , $uniqueFileName);
                     array_push($array_file, $uniqueFileName);
-                    $file_name->move(storage_path('app/public/clip_board/') , $uniqueFileName);
                 }
                 $child_observation->clip_board = implode('/*endfile*/',$array_file);
             }
@@ -148,9 +149,9 @@ class ObservationController extends Controller
         if ($request->hasFile('clip_board')){
             $old_array = explode('/*endfile*/',$child_observation->clip_board);
             foreach ($request->file('clip_board') as $file_name){
-                $uniqueFileName = (Str::random(4).'_'.$file_name->getClientOriginalName());
+                $uniqueFileName = (Str::random(9).'_'.$file_name->getClientOriginalName());
                 array_push($old_array, $uniqueFileName);
-                $file_name->move(storage_path('app/public/clip_board/') , $uniqueFileName);
+                $file_name->move(storage_path('/app/public/clip_board/') , $uniqueFileName);
             }
             $child_observation->clip_board = implode('/*endfile*/',$old_array);
         }
@@ -167,13 +168,13 @@ class ObservationController extends Controller
         if ($observation->clip_board){
             $old_array = explode('/*endfile*/',$observation->clip_board);
             foreach ($old_array as $key=>$value){
-                $file_path = 'app/public/clip_board/'.$value;
-                if ($file_path != 'app/public/clip_board/'){
+                $file_path = '/app/public/clip_board/'.$value;
+                if ($file_path != '/app/public/clip_board/'){
                     unlink(storage_path($file_path));
                 }
             }
         }
-        ObservationModel::destroy($id);
+        $observation->delete();
 
         return redirect(route('admin.observations.list'))->with('success',app()->getLocale() == 'vi' ? 'Xóa Thành Công !' : 'Deleted Successfully !');
     }
@@ -196,10 +197,13 @@ class ObservationController extends Controller
                             ->orderBy('first_name')
                             ->get();
 
+        $program_id = $id;
+
         return view('pages.observation.add',[
             'children_profiles'=>$children_profiles,
             'observationtype'=>$observationtype,
-            'programs'=>$programs
+            'programs'=>$programs,
+            'program_id'=>$program_id
         ]);
     }
 
@@ -218,7 +222,7 @@ class ObservationController extends Controller
 
     public function displayClipboard($id,$name)
     {
-        return response()->file(storage_path('app/public/clip_board/'.$name),[
+        return response()->file(storage_path('/app/public/clip_board/'.$name),[
             'Content-Disposition' => 'inline; filename="'. $name .'"']);
     }
 
@@ -239,7 +243,7 @@ class ObservationController extends Controller
         $child_observation->save();
 
         //xoa file
-        $file_path = storage_path('app/public/clip_board/'.$name);
+        $file_path = storage_path('/app/public/clip_board/'.$name);
         unlink($file_path);
 
         return redirect()->back()->with('success',app()->getLocale() == 'vi' ? 'Xóa File Thành Công' : 'Deleted File Successfully !');
