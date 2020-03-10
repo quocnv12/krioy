@@ -68,7 +68,8 @@
 
 		<div id="clock" name="time"></div>
 
-		<form style="width: auto;margin: 0;text-align: center" action="{{route('admin.health.getAdd')}}" method="post" id="addObservation" enctype="multipart/form-data">
+		<form style="width: auto;margin: 0;text-align: center" action="{{route('admin.health.getAdd')}}" method="post" id="addHealth" enctype="multipart/form-data">
+			<input type="hidden" name="program_id" value="{{$program_id ?? ''}}">
 			@csrf
 			<div class="row">
 				<div class="mat-card" style="width: 100%">
@@ -419,6 +420,7 @@
 			$('.accordion').click();
 		})
 	</script>
+
 	<script type="text/javascript">
 		var array_observation = [];
 		$('.tablinks1').click(function(event) {
@@ -507,6 +509,7 @@
 		})
 		//end tick all children
 
+
 		var button = document.getElementById("submit_button");
 		button.onclick = function(){
 			$('#array_all_children').attr('value', array_children);
@@ -525,44 +528,6 @@
 
 	</script>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function($) {
-			var engine1 = new Bloodhound({
-				remote: {
-					url: 'http://localhost:8000/kids-now/health/search/children?q=%QUERY%',
-					wildcard: '%QUERY%'
-				},
-				datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
-				queryTokenizer: Bloodhound.tokenizers.whitespace
-			});
-
-			$(".search-input").typeahead({
-				hint: true,
-				highlight: true,
-				minLength: 1
-			}, [
-				{
-					source: engine1.ttAdapter(),
-					name: 'children_profiles',
-					display: function(data) {
-						return data.name;
-					},
-					templates: {
-						empty: [
-							'<div class="list-group search-results-dropdown" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;width: 500px;"><div class="list-group-item">Nothing found.</div></div>'
-						],
-						header: [
-
-						],
-						suggestion: function (data) {
-							return '<a onclick="getIdChildren('+data.id+')" class="list-group-item" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;padding: 10px; margin: 0;color: #424949;width: 500px;"> ' + data.first_name +' '+ data.last_name + '<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
-						}
-					}
-				},
-			]);
-		});
-	</script>
 	<script>
 		$(document).ready(function () {
 			$('.accordion').click();
