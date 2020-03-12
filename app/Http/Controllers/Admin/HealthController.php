@@ -68,6 +68,14 @@ class HealthController extends Controller
         $history->id_program = $request->program_id;
         $array_id_records = [];     //tao array chua id health record
 
+        $array_file = [];
+        if ($request->hasFile('clip_board')) {
+            foreach ($request->file('clip_board') as $file_name) {
+                $uniqueFileName = (Str::random(9). '_' .$file_name->getClientOriginalName());
+                $file_name->move(storage_path('/app/public/clip_board/'), $uniqueFileName);
+                array_push($array_file, $uniqueFileName);
+            }
+        }
 
         //create health object
         $array_children = explode(',', $request->children_health);
@@ -83,16 +91,7 @@ class HealthController extends Controller
             $health->growth_head_circumference = $request->growth_head_circumference;
             $health->incident = $request->incident;
             $health->blood_group = $request->blood_group;
-
-            if ($request->hasFile('clip_board')) {
-                $array_file = [];
-                foreach ($request->file('clip_board') as $file_name) {
-                    $uniqueFileName = (Str::random(9). '_' .$file_name->getClientOriginalName());
-                    $file_name->move(storage_path('/app/public/clip_board/'), $uniqueFileName);
-                    array_push($array_file, $uniqueFileName);
-                }
-                $health->clip_board = implode('/*endfile*/', $array_file);
-            }
+            $health->clip_board = implode('/*endfile*/', $array_file);
 
             $health->save();
 
@@ -132,57 +131,58 @@ class HealthController extends Controller
         $history->content_en = json_encode($json_en);
         $history->save();
         //save xong history record
+
         return redirect()->back()->with('success', app()->getLocale() == 'vi' ? 'Thêm Thành Công !' : 'Added Successfully !');
     }
 
-    public function getEdit($id)
-    {
-        $health = HealthModel::find($id);
-        if (!$id) {
-            return view('pages.not-found.notfound');
-        }
-        $children_profiles = ChildrenProfiles::where('id', $health->id_children)->first();
-
-        return view('pages.heath.edit', compact('health', 'children_profiles'));
-    }
-
-    public function postEdit(Request $request, $id)
-    {
-        $this->validate($request,
-            [
-                'sick' => 'nullable',
-                'medicine' => 'nullable',
-                'growth' => 'nullable',
-                'incident' => 'nullable',
-                'blood_group' => 'nullable',
-            ]);
-
-        $health = HealthModel::find($id);
-
-        $health->sick = $request->sick;
-        $health->medicine = $request->medicine;
-        $health->growth = $request->growth;
-        $health->growth_height = $request->growth_height;
-        $health->growth_weight = $request->growth_weight;
-        $health->growth_circumference = $request->growth_circumference;
-        $health->incident = $request->incident;
-        $health->blood_group = $request->blood_group;
-
-        if ($request->hasFile('clip_board')) {
-            $old_array = explode('/*endfile*/', $health->clip_board);
-            foreach ($request->file('clip_board') as $file_name) {
-                $uniqueFileName = (Str::random(9) . '_' . $file_name->getClientOriginalName() );
-                array_push($old_array, $uniqueFileName);
-                $file_name->move(storage_path('/app/public/clip_board/'), $uniqueFileName);
-            }
-            $health->clip_board = implode('/*endfile*/', $old_array);
-        }
-
-        $health->save();
-
-        return redirect()->back()->with('success', app()->getLocale() == 'vi' ? 'Cập Nhật Thành Công !' : 'Updated Successfully !');
-
-    }
+//    public function getEdit($id)
+//    {
+//        $health = HealthModel::find($id);
+//        if (!$id) {
+//            return view('pages.not-found.notfound');
+//        }
+//        $children_profiles = ChildrenProfiles::where('id', $health->id_children)->first();
+//
+//        return view('pages.heath.edit', compact('health', 'children_profiles'));
+//    }
+//
+//    public function postEdit(Request $request, $id)
+//    {
+//        $this->validate($request,
+//            [
+//                'sick' => 'nullable',
+//                'medicine' => 'nullable',
+//                'growth' => 'nullable',
+//                'incident' => 'nullable',
+//                'blood_group' => 'nullable',
+//            ]);
+//
+//        $health = HealthModel::find($id);
+//
+//        $health->sick = $request->sick;
+//        $health->medicine = $request->medicine;
+//        $health->growth = $request->growth;
+//        $health->growth_height = $request->growth_height;
+//        $health->growth_weight = $request->growth_weight;
+//        $health->growth_circumference = $request->growth_circumference;
+//        $health->incident = $request->incident;
+//        $health->blood_group = $request->blood_group;
+//
+//        if ($request->hasFile('clip_board')) {
+//            $old_array = explode('/*endfile*/', $health->clip_board);
+//            foreach ($request->file('clip_board') as $file_name) {
+//                $uniqueFileName = (Str::random(9) . '_' . $file_name->getClientOriginalName() );
+//                array_push($old_array, $uniqueFileName);
+//                $file_name->move(storage_path('/app/public/clip_board/'), $uniqueFileName);
+//            }
+//            $health->clip_board = implode('/*endfile*/', $old_array);
+//        }
+//
+//        $health->save();
+//
+//        return redirect()->back()->with('success', app()->getLocale() == 'vi' ? 'Cập Nhật Thành Công !' : 'Updated Successfully !');
+//
+//    }
 
     public function getDelete($id)
     {

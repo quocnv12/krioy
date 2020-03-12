@@ -124,11 +124,11 @@
 					<div class="update">
 						<p style="font-weight: bold; color: red">@lang('kidsnow.health.select_health_update_type') *</p>
 						<div class="tab">
-							<button type="button" class="button_alert tablinks" onclick="openCity(event, 'Sick')">@lang('kidsnow.health.sick')</button>
-							<button type="button" class="button_alert tablinks" onclick="openCity(event, 'Medicine')">@lang('kidsnow.health.medicine')</button>
-							<button type="button" class="button_alert tablinks" onclick="openCity(event, 'Growth')">@lang('kidsnow.health.growth')</button>
-							<button type="button" class="button_alert tablinks" onclick="openCity(event, 'Incident')">@lang('kidsnow.health.incident')</button>
-							<button type="button" class="button_alert tablinks" onclick="openCity(event, 'Blood_group')">@lang('kidsnow.health.blood_group')</button>
+							<button type="button" class=" tablinks" onclick="openCity(event, 'Sick')">@lang('kidsnow.health.sick')</button>
+							<button type="button" class=" tablinks" onclick="openCity(event, 'Medicine')">@lang('kidsnow.health.medicine')</button>
+							<button type="button" class=" tablinks" onclick="openCity(event, 'Growth')">@lang('kidsnow.health.growth')</button>
+							<button type="button" class=" tablinks" onclick="openCity(event, 'Incident')">@lang('kidsnow.health.incident')</button>
+							<button type="button" class=" tablinks" onclick="openCity(event, 'Blood_group')">@lang('kidsnow.health.blood_group')</button>
 						</div>
 
 						<div id="Sick" class="tabcontent ">
@@ -166,14 +166,14 @@
 
 									<label class="label">
 										<div class="label-text">cm</div>
-										<div class="toggle">
-											<input class="toggle-state" type="checkbox" name="check" value="check" />
-											<div class="toggle-inner">
-												<div class="indicator"></div>
-											</div>
-											<div class="active-bg"></div>
-										</div>
-										<div class="label-text">inch</div>
+										{{--<div class="toggle">--}}
+											{{--<input class="toggle-state" type="checkbox" name="check" value="check" />--}}
+											{{--<div class="toggle-inner">--}}
+												{{--<div class="indicator"></div>--}}
+											{{--</div>--}}
+											{{--<div class="active-bg"></div>--}}
+										{{--</div>--}}
+										{{--<div class="label-text">inch</div>--}}
 									</label>
 								</div>
 								<div class="col-md-4 growth_input input_box">
@@ -182,14 +182,14 @@
 
 									<label class="label">
 										<div class="label-text">kg</div>
-										<div class="toggle">
-											<input class="toggle-state" type="checkbox" name="check" value="check" />
-											<div class="toggle-inner">
-												<div class="indicator"></div>
-											</div>
-											<div class="active-bg"></div>
-										</div>
-										<div class="label-text">lb</div>
+										{{--<div class="toggle">--}}
+											{{--<input class="toggle-state" type="checkbox" name="check" value="check" />--}}
+											{{--<div class="toggle-inner">--}}
+												{{--<div class="indicator"></div>--}}
+											{{--</div>--}}
+											{{--<div class="active-bg"></div>--}}
+										{{--</div>--}}
+										{{--<div class="label-text">lb</div>--}}
 									</label>
 								</div>
 								<div class="col-md-4 growth_input input_box">
@@ -197,14 +197,14 @@
 									<input type="text" name="growth_head_circumference" placeholder="@lang('kidsnow.health.growth_head_circumference')">
 									<label class="label">
 										<div class="label-text">cm</div>
-										<div class="toggle">
-											<input class="toggle-state" type="checkbox" name="check" value="check" />
-											<div class="toggle-inner">
-												<div class="indicator"></div>
-											</div>
-											<div class="active-bg"></div>
-										</div>
-										<div class="label-text">inch</div>
+										{{--<div class="toggle">--}}
+											{{--<input class="toggle-state" type="checkbox" name="check" value="check" />--}}
+											{{--<div class="toggle-inner">--}}
+												{{--<div class="indicator"></div>--}}
+											{{--</div>--}}
+											{{--<div class="active-bg"></div>--}}
+										{{--</div>--}}
+										{{--<div class="label-text">inch</div>--}}
 									</label>
 								</div>
 							</div>

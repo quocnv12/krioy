@@ -26,7 +26,7 @@
             <ul class="ul-td" style="width:100%">
                 <div class="col-md-12">
                     <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">@lang('kidsnow.home')</a></li>
-                    <li _ngcontent-c16="" class="active-1" style="pointer-events: none"><a _ngcontent-c16="" href="">Diary Types</a></li>
+                    <li _ngcontent-c16="" class="active-1" style="pointer-events: none"><a _ngcontent-c16="" href="">@lang('kidsnow.diary_types.list')</a></li>
                 </div>
             </ul>
         </div>
@@ -44,7 +44,7 @@
                     <div class="grid-title">
                         <div class="row">
                             <div class="col-md-6">
-                                <h4> <span class="semi-bold">Diary Type</span></h4>
+                                <h4> <span class="semi-bold">@lang('kidsnow.diary_types.list')</span></h4>
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                             <thead>
                             <tr>
                                 <th style="text-align:left;%">STT</th>
-                                <th style="text-align:center;width:80%">Name</th>
+                                <th style="text-align:center;width:80%">@lang('kidsnow.diary_types.name')</th>
                                 <th style="text-align:left;"></th>
                             </tr>
                             </thead>

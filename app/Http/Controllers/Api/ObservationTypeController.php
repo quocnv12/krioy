@@ -22,7 +22,7 @@ class ObservationTypeController extends Controller
     {
         $validation_vi = [
             'name.required' => 'Vui lòng nhập tên loại đánh giá !',
-            'name.unique' => 'Tên laoij đánh giá đã tồn tại !'
+            'name.unique' => 'Tên loại đánh giá đã tồn tại !'
         ];
 
         $validation_en = [
@@ -59,7 +59,7 @@ class ObservationTypeController extends Controller
     {
         $validation_vi = [
             'name.required' => 'Vui lòng nhập tên loại đánh giá !',
-            'name.unique' => 'Tên laoij đánh giá đã tồn tại !'
+            'name.unique' => 'Tên loại đánh giá đã tồn tại !'
         ];
 
         $validation_en = [
@@ -71,6 +71,7 @@ class ObservationTypeController extends Controller
             [
                 'name' => 'required|unique:observations_type,name,' . $id
             ],app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
+
         if($validate->fails())
         {
             return response()->json([
@@ -78,6 +79,7 @@ class ObservationTypeController extends Controller
                 'status' => 400
             ],200);
         }
+
         $observationtype = ObservationTypeModel::find($id);
         $observationtype->name = $request->name;
         $observationtype->save();
@@ -86,9 +88,12 @@ class ObservationTypeController extends Controller
         ], 200);
     }
     public function getDelete($id){
-        $observationtype= DB::table('observations_type')->where('id',$id)->delete();
-        return response()->json([
-            'observationtype'=>$observationtype
-        ], 204);
+        $observationtype= ObservationTypeModel::find($id);
+        if (! $observationtype){
+            return response()->json(['message'=>'Something wrong'], 404);
+        }else {
+            $observationtype->delete();
+            return response()->json(null, 204);
+        }
     }
 }

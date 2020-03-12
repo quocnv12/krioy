@@ -166,11 +166,7 @@
             </button>
         </div>
     </div>
-    <div class="icon-plus">
-        <a href="{{ route('admin.observations.getEdit',['id'=>$child_observation->id]) }}">
-            <i class="fa fa-edit"></i>
-        </a>
-    </div>
+
     </body>
 @endsection
 

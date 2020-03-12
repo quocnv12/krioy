@@ -519,6 +519,44 @@ return [
 
     //END Program
 
+    //Diary Types
+
+    //list
+    'diary_types.name'  =>  'Name',
+    'diary_types'=>'Diary Types',
+    //add
+    'diary_types.add'=> 'Add',
+    'diary_types.edit'=> 'Edit',
+    'diary_types.list'=> 'Diary Types List',
+
+    'diary_types.placeholder'=>'Enter diary type name',
+
+    //End Diary Types
+
+    //Diary
+
+    'diary.add'=>'Add',
+    'diary.edit'=>'Edit',
+    'diary.not_found'=>'No Children was found',
+    'diary.hint' => 'Guide',
+    'diary.hint_content' => 'Click on a program tab in horizontal scroll bar to show all children in that program',
+    'diary.detail'  =>'Detail',
+
+    //EndDiary
+
+
+    //History
+
+    'history.from_date'=>'From Date',
+    'history.to_date'=>'To Date',
+    'history.modules'=>'Modules',
+    'history.choose_modules'=>'Choose Modules',
+    'history.choose_program'=>'Choose Program',
+    'history.no_data'=>'No Data Was Found',
+    'history.clip_board'=>'Clip Board',
+    'history.delete'=>'DELETE',
+
+    //End History
 
     'signup' => [
         'successfully' => 'Successfully',
@@ -608,5 +646,6 @@ return [
     
 
     'noscript'=>'Javascript is required to run this pages.  Please turn it on or ask help from techsupport if you don\'t know how to enable it.',
-    '404'=>'Sorry ! The page you\'re looking for cannot be found !'
+    '404'=>'Sorry ! The page you\'re looking for cannot be found !',
+    'choose_all'    =>  'Choose All'
 ];

@@ -10,8 +10,8 @@
             <div class="row">
                 <ul class="ul-td" style="width:100%">
                     <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">@lang('kidsnow.home')</a></li>
-                    <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="{{route('admin.diary_types.list')}}" >Diary Type</a></li>
-                    <li _ngcontent-c16="" class="active-1" style="pointer-events:none"><a _ngcontent-c16="" href="">Edit</a></li>
+                    <li _ngcontent-c16="" class="active1"><a _ngcontent-c16="" href="{{route('admin.diary_types.list')}}" >@lang('kidsnow.diary_types.list')</a></li>
+                    <li _ngcontent-c16="" class="active-1" style="pointer-events:none"><a _ngcontent-c16="" href="">@lang('kidsnow.diary_types.edit')</a></li>
 
                 </ul>
             </div>
@@ -36,7 +36,7 @@
                         <form action="{{route('admin.diary_types.update',['id'=>$diary_types->id])}}" style="width:auto;" method="post">
                             @csrf
                             <div class="form-group">
-                                <input type="text" class="form-control" style="text-transform:capitalize" name="name" placeholder="Diary Type" value="{{old('name') ?? $diary_types->name }}">
+                                <input type="text" class="form-control" style="text-transform:capitalize" name="name" placeholder="@lang('kidsnow.diary_types.placeholder')" value="{{old('name') ?? $diary_types->name }}">
                                 @if($errors->has('name'))
                                     <p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">* {{ $errors->first('name') }}</p>
                                 @endif

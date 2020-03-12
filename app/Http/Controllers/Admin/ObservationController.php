@@ -26,10 +26,6 @@ class ObservationController extends Controller
         }
     }
 
-    public function getChild(){
-        $observationtype = ChildrenProfiles::orderBy('first_name')->get();
-        return view('pages.observation.select_child', compact('observationtype'));
-    }
     public  function getListObservation(){
         $observationtype = ObservationTypeModel::all();
         return view('pages.observation.listobservationType', compact('observationtype'));
@@ -72,22 +68,23 @@ class ObservationController extends Controller
         $observer = Auth::user()->first_name.' '.Auth::user()->last_name;
 
         //luu vao bang observations
+
+        $array_file = [];
+        if ($request->hasFile('clip_board')){
+        foreach ($request->file('clip_board') as $file_name){
+                $uniqueFileName = (Str::random(9).'_'.$file_name->getClientOriginalName());
+                $file_name->move(storage_path('/app/public/clip_board/') , $uniqueFileName);
+                array_push($array_file, $uniqueFileName);
+            }
+        }
+
         foreach ($children_observations as $children_id) {
             $child_observation = new ObservationModel();
             $child_observation->id_children = $children_id;
             $child_observation->id_observations = $request->observations;
             $child_observation->detailObservation = $request->detailObservation;
             $child_observation->observer = $observer;
-            if ($request->hasFile('clip_board')){
-                $array_file = [];
-                foreach ($request->file('clip_board') as $file_name){
-                    $uniqueFileName = (Str::random(9).'_'.$file_name->getClientOriginalName());
-                    $file_name->move(storage_path('/app/public/clip_board/') , $uniqueFileName);
-                    array_push($array_file, $uniqueFileName);
-                }
-                $child_observation->clip_board = implode('/*endfile*/',$array_file);
-            }
-
+            $child_observation->clip_board = implode('/*endfile*/',$array_file);
             $child_observation->save();
 
             //push id cua doi tuong child_observation vao array
@@ -121,44 +118,45 @@ class ObservationController extends Controller
         return redirect()->back()->with('success',app()->getLocale() == 'vi' ? 'Thêm Thành Công !' :'Added Successfully !');
     }
 
-    public function getEdit($id)
-    {
-        $vendors = ObservationTypeModel::all();
-        $observationtype = ObservationTypeModel::all();
-        $child_observation  = ObservationModel::find($id);
-        if (! $child_observation){
-            return view('pages.not-found.notfound');
-        }
-        $children_profiles = ChildrenProfiles::where('id','=',$child_observation->id_children)->first();
-        $array_observation_choose = explode(',',$child_observation->id_observations);
-
-
-        return view('pages.observation.edit',compact('child_observation','observationtype','vendors','children_profiles','array_observation_choose'));
-
-    }
-    public function postEdit(Request $request, $id){
-        $this->validate($request,
-            [
-                'detailObservation'     =>  'nullable',
-            ]);
-
-        $child_observation = ObservationModel::find($id);
-        $child_observation->id_observations = $request->observation_new;
-        $child_observation->detailObservation = $request->detailObservation;
-
-        if ($request->hasFile('clip_board')){
-            $old_array = explode('/*endfile*/',$child_observation->clip_board);
-            foreach ($request->file('clip_board') as $file_name){
-                $uniqueFileName = (Str::random(9).'_'.$file_name->getClientOriginalName());
-                array_push($old_array, $uniqueFileName);
-                $file_name->move(storage_path('/app/public/clip_board/') , $uniqueFileName);
-            }
-            $child_observation->clip_board = implode('/*endfile*/',$old_array);
-        }
-
-        $child_observation->save();
-        return redirect()->back()->with('success',app()->getLocale() == 'vi' ? 'Cập Nhật Thành Công !' : 'Updated Successfully !');
-    }
+//    public function getEdit($id)
+//    {
+//        $vendors = ObservationTypeModel::all();
+//        $observationtype = ObservationTypeModel::all();
+//        $child_observation  = ObservationModel::find($id);
+//        if (! $child_observation){
+//            return view('pages.not-found.notfound');
+//        }
+//        $children_profiles = ChildrenProfiles::where('id','=',$child_observation->id_children)->first();
+//        $array_observation_choose = explode(',',$child_observation->id_observations);
+//
+//
+//        return view('pages.observation.edit',compact('child_observation','observationtype','vendors','children_profiles','array_observation_choose'));
+//
+//    }
+//    public function postEdit(Request $request, $id){
+//        $this->validate($request,
+//            [
+//                'detailObservation'     =>  'nullable',
+//            ]);
+//
+//        $child_observation = ObservationModel::find($id);
+//        $child_observation->id_observations = $request->observation_new;
+//        $child_observation->detailObservation = $request->detailObservation;
+//
+//          $old_array = explode('/*endfile*/',$child_observation->clip_board);
+//        if ($request->hasFile('clip_board')){
+//
+//            foreach ($request->file('clip_board') as $file_name){
+//                $uniqueFileName = (Str::random(9).'_'.$file_name->getClientOriginalName());
+//                array_push($old_array, $uniqueFileName);
+//                $file_name->move(storage_path('/app/public/clip_board/') , $uniqueFileName);
+//            }
+//            $child_observation->clip_board = implode('/*endfile*/',$old_array);
+//        }
+//
+//        $child_observation->save();
+//        return redirect()->back()->with('success',app()->getLocale() == 'vi' ? 'Cập Nhật Thành Công !' : 'Updated Successfully !');
+//    }
 
     public function getDelete($id){
         $observation = ObservationModel::find($id);
