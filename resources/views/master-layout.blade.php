@@ -151,6 +151,7 @@
         list = document.getElementsByClassName("datefield");
         for (index = 0; index < list.length; ++index) {
             list[index].setAttribute("max", today);
+            list[index].setAttribute("value", today);
         }
     </script>
 

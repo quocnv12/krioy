@@ -18,8 +18,8 @@
 					<div class="col-sm-6">
 					<ul class="ul-td">
 						<li class="level1"><a href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
-						<li class="active1" style="" ><a href="{{route('admin.diary.create')}}">Diary</a></li>
-						<li class="active1 active-1" style="pointer-events: none" ><a href="">Add</a></li>
+						<li class="active1" style="" ><a href="{{route('admin.diary.create')}}">@lang('kidsnow.diary')</a></li>
+						<li class="active1 active-1" style="pointer-events: none" ><a href="">@lang('kidsnow.diary.add')</a></li>
 					</ul>
 					</div>
 					{{--<div class="col-sm-6">--}}
@@ -33,16 +33,16 @@
 			<div class="row">
 				<div class="mat-card" style="width: 100%">
 					<div class="mat-content">
-						<a style="min-width:110px;background:#eb87c1;color:white; float: left;font-weight: bold" href="{{route('admin.diary_types.list')}}" class="btn btn-default">Diary Types</a>
+						<a style="min-width:110px;background:#eb87c1;color:white; float: left;font-weight: bold" href="{{route('admin.diary_types.list')}}" class="btn btn-default">@lang('kidsnow.diary_types.list')</a>
 						{{--<a style="min-width:110px;background:#eb87c1;color:white; float: right; border: none;font-weight: bold" href="{{route('admin.observations.list')}}" class="btn btn-success" >@lang('kidsnow.observations.list')</a>--}}
 						<br>
 						<hr>
 						<button class="accordion accordion1 clearfix" type="button">
-							<p style="float: left;">Children </p>
+							<p style="float: left;">@lang('kidsnow.children_profiles') </p>
 								{{--<form class="typeahead" role="search" style="float: right; text-align: left">--}}
 									{{--<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">--}}
 								{{--</form>--}}
-							<a class="btn btn-success" id="tick_all_children" type="button" style="float: right; background-color: #CC263F">Chọn tất cả</a>
+							<a class="btn btn-success" id="tick_all_children" type="button" style="float: right; background-color: #CC263F">@lang('kidsnow.choose_all')</a>
 						</button>
                         <div class="scrollmenu-div">
                             @foreach($programs as $program)
@@ -66,13 +66,13 @@
 										</div>
 									@endforeach
 								@else
-									<div style="font-weight: bold; margin: 50px">Not found</div>
+									<div style="font-weight: bold; margin: 50px">@lang('kidsnow.diary.not_found')</div>
 								@endif
                                 <input id="array_children_diary" type="hidden" value="" name="children_diary">
 							@else
 								<div style="margin: 50px;">
-									<span style="color: red; font-weight: bold">guide :</span>
-									<span>guide content</span>
+									<span style="color: red; font-weight: bold">@lang('kidsnow.diary.hint') :</span>
+									<span>@lang('kidsnow.diary.hint_content')</span>
 								</div>
                             @endif
                         </div>
@@ -84,7 +84,7 @@
 					@endif
 					<hr>
 					<div class="mat-content">
-						<button class="accordion" type="button">Diary Types</button>
+						<button class="accordion" type="button">@lang('kidsnow.diary_types.list')</button>
 						<div class="panel">
 							<div _ngcontent-c20="" class="row" style="">
 								@foreach($diary_types  as $diary_type)
@@ -104,8 +104,8 @@
 					<div class="comment">
 						<div class="row">
 							<div class="col-md-11 input_box">
-								<span>Detail</span>
-								<input type="text" name="detail" placeholder="Enter detail">
+								<span>@lang('kidsnow.diary.detail')</span>
+								<input type="text" name="detail" placeholder="@lang('kidsnow.diary.detail')">
 								@if ($errors->has('detail'))
 									<div class="alert alert-danger">
 										{{ $errors->first('detail') }}

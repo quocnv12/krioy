@@ -323,6 +323,11 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
 });
 
+//function to show clipboard in History Module
+Route::get('showClipboard/{clip_board}', function ($clip_board){
+    return response()->file(storage_path('/app/public/clip_board/' . $clip_board), [
+        'Content-Disposition' => 'inline; filename="' . $clip_board . '"']);
+})->name('showClipboard');
 
 Route::get('locale/{locale}', function($locale){
     Session::put('locale', $locale);

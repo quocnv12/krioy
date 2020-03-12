@@ -9,6 +9,9 @@ use DB;
 use carbon\carbon;
 use App\Http\Requests\food\{MealTypeRequest,EditMealTypeRequest,QuantityRequest,FoodNameRequest,EditFoodNameRequest};
 use App\Http\Requests\food\EditQuantityRequest;
+use App\models\History;
+
+
 class FoodController extends Controller
 {
 
@@ -24,8 +27,6 @@ class FoodController extends Controller
 
     public function PostFood(request $request) 
     {
-    
-    // dd($request->all());
         if($request->children_food==null)
         {
             if (\Lang::locale() == 'en') {
@@ -71,21 +72,53 @@ class FoodController extends Controller
             $foods =new food;
             $foods->meal_type = $request->mealtype;
             $foods->quantity = $request->qtyfood;
+
            // $foods->id_program = $request->programs;
-            // if(strtotime($request->date_end) > strtotime($request->date_begin))
-            // {
-            //     $foods->date_begin = carbon::parse($request->date_begin)->format('Y-m-d');
-            //     $foods->date_end = carbon::parse($request->date_end)->format('Y-m-d');
-            // }else
-            // {
-            //     if (\Lang::locale() == 'en') {
-            //         return redirect()->back()->with('danger','The start date must be smaller than the end date !')->withInput();
-            //     }
-            //     if (\Lang::locale() == 'vi') {
-            //         return redirect()->back()->with('danger','Ngày bắt đầu phải nhỏ hơn ngày kết thúc !')->withInput();
-            //     }
-            // }
             $foods->save();
+
+
+            //tao record ben history module
+            $history = new History();
+            $history->id_childrens = $request->children_food;
+            $history->id_program = $request->id_program;
+
+            $array_food_name = explode(',',$request->food_name);
+            $string_food_name = [];
+
+            foreach ($array_food_name as $item){
+                foreach (itemfood::pluck('food_name') as $key =>  $value){
+                    if ($key == intval($item)){
+                        array_push($string_food_name, $value);
+                    }
+                }
+            }
+
+            $json_vi = [
+                'Chủ Đề'    =>  'Thực Đơn',
+                'Loại Bữa ăn'   =>  mealtype::where('id',$request->mealtype)->first()['name'],
+                'Lượng Thức Ăn' =>  quantytifood::where('id',$request->qtyfood)->first()['name'],
+                'Tên Món Ăn'    =>  implode(',',$string_food_name),
+            ];
+
+            $json_en = [
+                'Model'    =>  'Food',
+                'Meal Type'   =>  mealtype::where('id',$request->mealtype)->first()['name'],
+                'Quantity Food' =>  quantytifood::where('id',$request->qtyfood)->first()['name'],
+                'Food Name'    =>  implode(',',$string_food_name),
+            ];
+
+            $history->id_records = $foods->id;
+            $history->model = 'App\models\food\food';
+            $history->icon = 'images/Food-01.png';
+
+            $history->content_vi = json_encode($json_vi);
+            $history->content_en = json_encode($json_en);
+            $history->save();
+            //save xong history record
+
+
+
+            //them id vao relationship
             $childrent = explode(',',$request->children_food);
             $mangs=array();
             foreach ($childrent as $item)
@@ -143,7 +176,8 @@ class FoodController extends Controller
         return view('pages.food.food',[
             'children_profiles'=>$children_profiles,
             'food'=>$food,
-            'programs'=>$programs
+            'programs'=>$programs,
+            'id_program'=>$id
         ],$data);
     }
 
@@ -169,7 +203,6 @@ class FoodController extends Controller
 
     public function PostEdit(request $request, $id) 
     {
-       // dd($request->all());
         if($request->programs==null)
         {
             if (\Lang::locale() == 'en') {
@@ -475,15 +508,4 @@ class FoodController extends Controller
         
         //return redirect('kids-now/food/menu-food-name')->with('success','Delete success');
     }
-
-
-
-
-
-
-
-
-
-
-
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Api;
 
 use App\models\Diary;
 use App\models\DiaryType;
@@ -9,14 +9,18 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\models\History;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use App\models\ChildrenProfiles;
 
 class DiaryController extends Controller
 {
-
     public function index()
     {
+        $diary = Diary::all();
+        return response()->json([
+            'diary' =>  $diary
+        ], 200);
     }
 
 
@@ -24,7 +28,10 @@ class DiaryController extends Controller
     {
         $diary_types = DiaryType::orderBy('name')->get();
         $programs = Programs::orderBy('program_name')->get();
-        return view('pages.diary.add', compact('diary_types','programs'));
+        return response()->json([
+           'diary_types'=>$diary_types,
+           'programs'=>$programs
+        ], 200);
     }
 
 
@@ -43,18 +50,29 @@ class DiaryController extends Controller
             'detail.required'       =>  'Please fill in the detail'
         ];
 
-        $this->validate($request,
-            [
+        $validate = Validator::make($request->all(),[
                 'diary'          =>  'required',
                 'children_diary' =>  'required',
                 'detail'        =>  'required',
             ],app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
+
+        if($validate->fails())
+        {
+            return response()->json([
+                'errors' => $validate->errors(),
+                'status' => 400
+            ],200);
+        }
 
         //save history : create new history object
         $history = new History();
         $history->id_childrens = $request->children_diary;
         $history->id_program = $request->program_id;
         $array_id_records = [];     //tao array chua id observation record
+
+
+        //string to array
+        $children_diary = explode(',', $request->children_diary);
 
         $array_file = [];
         if ($request->hasFile('clip_board')){
@@ -64,8 +82,7 @@ class DiaryController extends Controller
                 $file_name->move(storage_path('/app/public/clip_board/') , $uniqueFileName);
             }
         }
-        //string to array
-        $children_diary = explode(',', $request->children_diary);
+
         //luu vao bang diary
         foreach ($children_diary as $children_id) {
             $diary = new Diary();
@@ -102,7 +119,10 @@ class DiaryController extends Controller
         //save xong history record
 
 
-        return redirect()->back()->with('success',app()->getLocale() == 'vi' ? 'Thêm Thành Công !' :'Added Successfully !');
+        return response()->json([
+            'diary'=>$diary,
+            'history'=>$history
+        ], 201);
     }
 
 
@@ -116,8 +136,7 @@ class DiaryController extends Controller
             ->get();
         $program_id = $id;
 
-
-        return view('pages.diary.add',[
+        return response()->json([
             'children_profiles'=>$children_profiles,
             'diary_types'=>$diary_types,
             'programs'=>$programs,
@@ -135,7 +154,12 @@ class DiaryController extends Controller
         $children_profiles = ChildrenProfiles::where('id','=',$children_diary->id_children)->first();
         $array_diary_choose = explode(',',$children_diary->diary_types);
 
-        return view('pages.diary.view', compact('diary_types', 'children_profiles', 'array_diary_choose', 'children_diary'));
+        return response()->json([
+           'diary_types'    =>  $diary_types,
+           'children_diary' =>   $children_diary,
+           'children_profiles'  =>    $children_profiles,
+           'array_diary_choose' =>  $array_diary_choose
+        ]);
     }
 
 
@@ -197,6 +221,6 @@ class DiaryController extends Controller
         $file_path = storage_path('/app/public/clip_board/'.$name);
         unlink($file_path);
 
-        return redirect()->back()->with('success',app()->getLocale() == 'vi' ? 'Xóa File Thành Công' : 'Deleted File Successfully !');
+        return response()->json(null, 204);
     }
 }

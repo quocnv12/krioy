@@ -17,6 +17,7 @@ class CreateHistoriesTable extends Migration
             $table->bigIncrements('id');
             $table->string('id_records');
             $table->string('id_childrens');
+            $table->bigInteger('id_program');
             $table->string('model');
             $table->text('icon');
             $table->json('content_vi');

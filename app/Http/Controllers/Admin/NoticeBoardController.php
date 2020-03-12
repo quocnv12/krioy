@@ -71,22 +71,19 @@ class NoticeBoardController extends Controller
                 'programs'  =>  'required'
             ], app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
 
-
-
-        $notice_board = NoticeBoard::create($request->all());
-        $request->important ? $notice_board->important = 1 : $notice_board->important = 0;
-        $notice_board->writer = Auth::user()->first_name.' '.Auth::user()->last_name;
+        $array_file = [];
         if ($request->hasFile('clip_board')){
-            $array_file = [];
             foreach ($request->file('clip_board') as $file_name){
                 $uniqueFileName = (Str::random(9).'_'.$file_name->getClientOriginalName());
                 $file_name->move(storage_path('/app/public/clip_board/') , $uniqueFileName);
                 array_push($array_file, $uniqueFileName);
             }
-
-            $notice_board->clip_board = implode('/*endfile*/',$array_file);
-
         }
+
+        $notice_board = NoticeBoard::create($request->all());
+        $request->important ? $notice_board->important = 1 : $notice_board->important = 0;
+        $notice_board->writer = Auth::user()->first_name.' '.Auth::user()->last_name;
+        $notice_board->clip_board = implode('/*endfile*/',$array_file);
         $notice_board->save();
 
         if ($request->programs){
@@ -198,6 +195,16 @@ class NoticeBoardController extends Controller
             ],app()->getLocale() == 'vi' ? $validation_vi : $validation_en);
 
         $notice_board = NoticeBoard::find($id);
+
+        $old_array = explode('/*endfile*/',$notice_board->clip_board);
+        if ($request->hasFile('clip_board')){
+            foreach ($request->file('clip_board') as $file_name){
+                $uniqueFileName = (Str::random(9).'_'.$file_name->getClientOriginalName());
+                array_push($old_array, $uniqueFileName);
+                $file_name->move(storage_path('/app/public/clip_board/') , $uniqueFileName);
+            }
+        }
+
         $notice_board->update($request->all());
         $request->important ? $notice_board->important = 1 : $notice_board->important = 0;
         $request->archive ? $notice_board->archive = 1 : $notice_board->archive = 0;
@@ -237,15 +244,7 @@ class NoticeBoardController extends Controller
             }
         }
 
-        if ($request->hasFile('clip_board')){
-            $old_array = explode('/*endfile*/',$notice_board->clip_board);
-            foreach ($request->file('clip_board') as $file_name){
-                $uniqueFileName = (Str::random(9).'_'.$file_name->getClientOriginalName());
-                array_push($old_array, $uniqueFileName);
-                $file_name->move(storage_path('/app/public/clip_board/') , $uniqueFileName);
-            }
-            $notice_board->clip_board = implode('/*endfile*/',$old_array);
-        }
+        $notice_board->clip_board = implode('/*endfile*/',$old_array);
 
         $notice_board->save();
 

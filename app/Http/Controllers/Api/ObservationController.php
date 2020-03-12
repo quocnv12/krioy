@@ -12,7 +12,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-
+use App\models\History;
 
 class ObservationController extends Controller
 {
@@ -38,14 +38,6 @@ class ObservationController extends Controller
         }
     }
 
-
-    public function getChild(){
-        $observationtype = ChildrenProfiles::all();
-        return response()->json([
-            'observationtype'=>$observationtype
-        ], 200);
-    }
-
     public function getListObservation(){
         $observationtype = ObservationTypeModel::all();
         return response()->json([
@@ -54,8 +46,8 @@ class ObservationController extends Controller
     }
 
     public function getAdd(){
-        $observationtype = ObservationTypeModel::all();
-        $programs = Programs::all();
+        $observationtype = ObservationTypeModel::orderBy('name')->get();
+        $programs = Programs::orderBy('program_name')->get();
         return response()->json([
             'observationtype'=>$observationtype,
             'programs'=>$programs
@@ -85,9 +77,24 @@ class ObservationController extends Controller
             return response()->json($validator->errors(), 400);
         }
 
+        //save history : create new history object
+        $history = new History();
+        $history->id_childrens = $request->children_observations;
+        $history->id_program = $request->program_id;
+        $array_id_records = [];     //tao array chua id observation record
+
         //string to array
         $children_observations = explode(',', $request->children_observations);
         $observer = Auth::user()->first_name.' '.Auth::user()->last_name;
+
+        $array_file = [];
+        if ($request->hasFile('clip_board')){
+            foreach ($request->file('clip_board') as $file_name){
+                $uniqueFileName = (Str::random(9).'_'.$file_name->getClientOriginalName());
+                array_push($array_file, $uniqueFileName);
+                $file_name->move(storage_path('/app/public/clip_board/') , $uniqueFileName);
+            }
+        }
 
         //luu vao bang observations
         foreach ($children_observations as $children_id) {
@@ -98,19 +105,36 @@ class ObservationController extends Controller
             $child_observation->month = $request->month;
             $child_observation->year = $request->year;
             $child_observation->observer = $observer;
-            if ($request->hasFile('clip_board')){
-                $array_file = [];
-                foreach ($request->file('clip_board') as $file_name){
-                    $uniqueFileName = (Str::random(4).'_'.$file_name->getClientOriginalName());
-                    array_push($array_file, $uniqueFileName);
-                    $file_name->move(storage_path('app/public/clip_board/') , $uniqueFileName);
-                }
-
-                $child_observation->clip_board = implode('/*endfile*/',$array_file);
-
-            }
+            $child_observation->clip_board = implode('/*endfile*/',$array_file);
             $child_observation->save();
+
+            //push id cua doi tuong child_observation vao array
+            array_push($array_id_records, $child_observation->id);
         }
+
+        //id_records la chuoi string chua id cua cac doi tuong child_observation vua tao
+        $history->id_records = implode(',',$array_id_records);
+        $history->model = 'App\models\ObservationModel';
+        $history->icon = 'images/Observation-01.png';
+        $json_vi = [
+            'Chủ Đề'    =>  'Nhận Xét & Đánh Giá',
+            'Đánh Giá'  =>  $child_observation->id_observations,
+            'Nội Dung Nhận Xét' =>  $child_observation->detailObservation,
+            'Người Nhận Xét'    =>  $child_observation->observer
+        ];
+
+        $json_en = [
+            'Model'    =>  'Observation',
+            'Observations'  =>  $child_observation->id_observations,
+            'Details' =>  $child_observation->detailObservation,
+            'Observer'    =>  $child_observation->observer
+        ];
+
+        $history->content_vi = json_encode($json_vi);
+        $history->content_en = json_encode($json_en);
+        $history->save();
+        //save xong history record
+
         return response()->json([
             'children_observations'=>$children_observations
         ], 201);
@@ -156,9 +180,9 @@ class ObservationController extends Controller
             if ($request->hasFile('clip_board')){
                 $old_array = explode('/*endfile*/',$child_observation->clip_board);
                 foreach ($request->file('clip_board') as $file_name){
-                    $uniqueFileName = (Str::random(4).'_'.$file_name->getClientOriginalName());
+                    $uniqueFileName = (Str::random(9).'_'.$file_name->getClientOriginalName());
                     array_push($old_array, $uniqueFileName);
-                    $file_name->move(storage_path('app/public/clip_board/') , $uniqueFileName);
+                    $file_name->move(storage_path('/app/public/clip_board/') , $uniqueFileName);
                 }
                 $child_observation->clip_board = implode('/*endfile*/',$old_array);
             }
@@ -178,8 +202,8 @@ class ObservationController extends Controller
             if ($observation->clip_board){
                 $old_array = explode('/*endfile*/',$observation->clip_board);
                 foreach ($old_array as $key=>$value){
-                    $file_path = 'app/public/clip_board/'.$value;
-                    if ($file_path != 'app/public/clip_board/'){
+                    $file_path = '/app/public/clip_board/'.$value;
+                    if ($file_path != '/app/public/clip_board/'){
                         unlink(storage_path($file_path));
                     }
                 }
@@ -233,7 +257,7 @@ class ObservationController extends Controller
 
     public function displayClipboard($id,$name)
     {
-        return response()->file(storage_path('app/public/clip_board/'.$name),[
+        return response()->file(storage_path('/app/public/clip_board/'.$name),[
             'Content-Disposition' => 'inline; filename="'. $name .'"']);
     }
 
@@ -254,7 +278,7 @@ class ObservationController extends Controller
             $child_observation->save();
 
             //xoa file
-            $file_path = storage_path('app/public/clip_board/' . $name);
+            $file_path = storage_path('/app/public/clip_board/' . $name);
             unlink($file_path);
 
             return response()->json(null, 204);
