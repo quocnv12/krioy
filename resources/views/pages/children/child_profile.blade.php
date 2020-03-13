@@ -63,7 +63,7 @@
 				@foreach($programs as $program)
 				<div class="scrollmenu-button" style="text-align: center;">
 					<!---->
-					<button type="submit" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
+					<button type="submit" style="background: @if(isset($program_id) && $program->id == $program_id) #ff4081 @else #5363d6 @endif;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
 						<a style="color: #fff ;margin: 0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 150px;display: block;" title="{{$program->program_name}}" href="{{route('admin.children.show',['id'=> $program->id])}}">{{$program->program_name}}</a>
 					</button>
 				</div>

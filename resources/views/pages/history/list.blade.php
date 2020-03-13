@@ -8,6 +8,7 @@
         input, select {
             background-color: #f9f9f9;
         }
+
     </style>
     <body>
     <section class="page-top container">
@@ -186,10 +187,21 @@
                             <hr>
                             <strong>@lang('kidsnow.history.clip_board') :</strong>
                             <br>
-                            @foreach(explode('/*endfile*/',($item->model::where('id','=',explode(',',$item->id_records)[0])->first()['clip_board'])) as $clipboard)
-                                <a href="{{route('showClipboard',['clip_board'=>$clipboard])}}" target="_blank">{{$clipboard}}</a>
-                                <br>
-                            @endforeach
+                            @if($item->model == 'App\models\Photo')
+                                <div class="row">
+                                    @foreach(explode('/*endfile*/',($item->model::where('id','=',explode(',',$item->id_records)[0])->first()['image'])) as $clipboard)
+                                        <div style="padding:10px;cursor:pointer;text-align: center;width: 25%;float: left;">
+                                            <img src="{{'images/photo/'.$clipboard}}" data-action="zoom" alt="image">
+                                            <br>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            @else
+                                @foreach(explode('/*endfile*/',($item->model::where('id','=',explode(',',$item->id_records)[0])->first()['clip_board'])) as $clipboard)
+                                    <a href="{{route('showClipboard',['clip_board'=>$clipboard])}}" target="_blank">{{$clipboard}}</a>
+                                    <br>
+                                @endforeach
+                            @endif
                         </div>
                         <div class="modal-footer" style="text-align: center;">
                             <a href="{{route('admin.history.destroy',['id'=>$item->id])}}" onclick="return confirm('Xác Nhận Xóa (Delete this record) ?')" color="warn" style="font-family: arial;font-weight: bold;border-radius: 4px;background: #f44336;color: white;border: none;padding: 10px 15px;" class="mat-flat-button mat-warn">

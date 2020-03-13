@@ -32,20 +32,18 @@ class DiaryController extends Controller
     {
 
         $validation_vi = [
-            'diary.required'         =>  'Vui lòng chọn loại nhật ký',
             'children_diary.required'=>  'Chưa có trẻ nào được chọn',
             'detail.required'       =>  'Vui lòng nhập nội dung nhật ký'
         ];
 
         $validation_en = [
-            'diary.required'         =>  'Please choose observations',
             'children_diary.required'=>  'Please choose children',
             'detail.required'       =>  'Please fill in the detail'
         ];
 
         $this->validate($request,
             [
-                'diary'          =>  'required',
+                'diary'          =>  'nullable',
                 'children_diary' =>  'required',
                 'detail'        =>  'required',
             ],app()->getLocale() == 'vi' ? $validation_vi : $validation_en);

@@ -16,7 +16,7 @@ class CreateDiariesTable extends Migration
         Schema::create('diary', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('id_children')->unsigned();
-            $table->string('diary_types');
+            $table->string('diary_types')->nullable();
             $table->text('detail');
             $table->text('clip_board')->nullable();
 
