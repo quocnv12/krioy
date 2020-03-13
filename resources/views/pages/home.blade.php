@@ -80,7 +80,7 @@
                 </div>
                 {{--  @can('food')  --}}
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="kids-now">
+                    <a href="{{route('photos.index')}}">
                         <img src="images/Photots-01.png" alt="@lang('kidsnow.photos')">
                         <div class="title">
                             <p>@lang('kidsnow.photos')</p>
