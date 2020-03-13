@@ -413,6 +413,15 @@ return [
 
     //END Program
 
+    // Begin Photos
+        'select.all'=>'Chọn tất cả', // @lang('kidsnow.select.all')
+        'submit.send'=>'Gửi ảnh', // @lang('kidsnow.submit.send')
+        'photos.photos'=>'ẢNH',
+        'photos.images'=>'Ảnh',
+        'photos.select_photos'=>'Chọn hình ảnh', // @lang('kidsnow.photos.select_photos')
+        'photos.remove_photo'=>'Xóa ảnh', // @lang('kidsnow.photos.remove_photo')
+    // End Photos
+
     //Notice board:
 
         'notice.add_notice'=>'Thêm',

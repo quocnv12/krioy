@@ -45,7 +45,7 @@ class AttendanceChildController extends Controller
         $timestatus =  date('d-m-Y H:i:s', strtotime($day));
 
         if($req->children_attendance==null){
-            return redirect()->back()->with('danger',app()->getLocale() == 'vi' ? 'Vui lòng chọn trẻ' :'Please choose children !')->withInput();
+            return redirect()->back()->with('danger',app()->getLocale() == 'vi' ? 'Vui lòng chọn trẻ !' :'Please choose children !')->withInput();
         }else{
             foreach ($children_attendance as $id_children) {
                 $chil_profiles = ChildrenProfiles::find($id_children);

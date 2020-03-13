@@ -277,8 +277,7 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('clip_board/{id}/{name}','Admin\NoticeBoardController@displayClipboard')->name('admin.notice-board.displayClipboard');
         Route::get('delete_clipboard/{id}/{name}','Admin\NoticeBoardController@deleteClipboard')->name('admin.notice-board.deleteClipboard');
     });
-
-
+    
 
     //---------------program----------------
     Route::group(['prefix' => 'program','middleware' => 'checkacl:Programs'], function () {
@@ -300,6 +299,14 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
         //export files
         Route::get('excel/{id}','Admin\ProgramsController@excel')->name('admin.program.excel');
+    });
+
+    //---------------Photo----------------
+    Route::group(['prefix' => 'photos'], function () {
+        Route::get('','Admin\PhotoController@index')->name('photos.index');
+        Route::get('{id}','Admin\PhotoController@show')->name('photos.show');
+        Route::post('add{id}','Admin\PhotoController@postAdd')->name('photos.post_add');
+        
     });
 
 

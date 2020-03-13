@@ -62,6 +62,13 @@ class ChildrenProfiles extends Model
         return $object['id'];
     }
 
+    // Polymorphic
+    public function photo(){
+        return $this->morphMany('App\models\Photo', 'imageable');
+    }
+   
+
+
     protected $timestamp = false;
 
 }

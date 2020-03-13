@@ -519,6 +519,15 @@ return [
 
     //END Program
 
+    // Begin Photos
+        'select.all'=>'Select all', // @lang('kidsnow.select.all')
+        'submit.send'=>'Send photos', // @lang('kidsnow.submit.send')
+        'photos.photos'=>'PHOTOS', // @lang('kidsnow.photos.photos')
+        'photos.images'=>'Photos', // @lang('kidsnow.photos.images')
+        'photos.select_photos'=>'Select photos', // @lang('kidsnow.photos.select_photos')
+        'photos.remove_photo'=>'Remove photo', // @lang('kidsnow.photos.remove_photo')
+    // End Photos
+
     //Diary Types
 
     //list

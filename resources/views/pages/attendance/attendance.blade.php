@@ -42,22 +42,21 @@ Attendance
         </div>
     </section>
     <section class="container">
-        <div class="mat-card tab-content>
-				<div class=" mat-content" id="tab-main">
-            <div class="scrollmenu-div">
-                @foreach($programs as $program)
-                <div class="scrollmenu-button" style="text-align: center;">
-                    <button class="limitText" type="button"
-                        style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
-                        <a style="color: #fff ;margin: 0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 150px;display: block;"
-                            href="kids-now/attendance/{{$program->id}}"
-                            title="{{$program->program_name}}">{{$program->program_name}}</a>
-                    </button>
+        <div class="mat-card tab-content">
+			<div class=" mat-content" id="tab-main">
+                <div class="scrollmenu-div">
+                    @foreach($programs as $program)
+                    <div class="scrollmenu-button" style="text-align: center;">
+                        <button class="limitText" type="button"
+                            style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
+                            <a style="color: #fff ;margin: 0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 150px;display: block;"
+                                href="kids-now/attendance/{{$program->id}}"
+                                title="{{$program->program_name}}">{{$program->program_name}}</a>
+                        </button>
+                    </div>
+                    @endforeach
                 </div>
-                @endforeach
             </div>
-
-        </div>
         </div>
     </section>
 
@@ -143,7 +142,7 @@ Attendance
                         </a>
                     </div> --}}
                     <div class="all-1">
-                        <a style="button" id="select_all_button"><b>Chọn tất cả</b></a>
+                        <a style="button" id="select_all_button"><b>@lang('kidsnow.select.all')</b></a>
                     </div>
                 </div>
             </div>
@@ -151,8 +150,7 @@ Attendance
     </section>
     @if(isset($children_profiles))
     <section class="container">
-        <form style="width: auto;margin: 0;text-align: center" method="post"
-            action="{{route('attendance.postAdd',['id' => $id])}}" id="addAttendance" enctype="multipart/form-data">
+        <form style="width: auto;margin: 0;text-align: center" method="post" action="{{route('attendance.postAdd',['id' => $id])}}" id="addAttendance" enctype="multipart/form-data">
             @csrf
             <div class="mat-card tab-content" style="min-height: 500px;">
                 <div class="mat-content" id="tab-main">
@@ -183,7 +181,6 @@ Attendance
                                 <input type="hidden" value="{{$children->id}}">
                             </div>
                         </div>
-
                         @endforeach
                         <input id="array_children_attendance" type="hidden" value="" name="children_attendance">
                         @else
@@ -191,10 +188,7 @@ Attendance
                             <span style="color: red; font-weight: bold">@lang('kidsnow.attendance.hint') :</span>
                             <span>@lang('kidsnow.attendance.hint_content')</span>
                         </div>
-
                         @endif
-
-
 
                     </div>
                 </div>
@@ -268,9 +262,6 @@ Attendance
         </div>
     </section>
     @endif
-
-
-
 
 </body>
 @endsection
