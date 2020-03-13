@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-    Observation Type List
+    Diary Type List
 @endsection
 @section('content')
 
@@ -26,7 +26,7 @@
             <ul class="ul-td" style="width:100%">
                 <div class="col-md-12">
                     <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">@lang('kidsnow.home')</a></li>
-                    <li _ngcontent-c16="" class="active-1" style="pointer-events: none"><a _ngcontent-c16="" href="">@lang('kidsnow.observations.observation_types')</a></li>
+                    <li _ngcontent-c16="" class="active-1" style="pointer-events: none"><a _ngcontent-c16="" href="">@lang('kidsnow.diary_types.list')</a></li>
                 </div>
             </ul>
         </div>
@@ -44,7 +44,7 @@
                     <div class="grid-title">
                         <div class="row">
                             <div class="col-md-6">
-                                <h4> <span class="semi-bold">@lang('kidsnow.observations.observation_types')</span></h4>
+                                <h4> <span class="semi-bold">@lang('kidsnow.diary_types.list')</span></h4>
                             </div>
                         </div>
                     </div>
@@ -54,18 +54,18 @@
                             <thead>
                             <tr>
                                 <th style="text-align:left;%">STT</th>
-                                <th style="text-align:center;width:80%">Name</th>
-                                <th style="text-align:left;">Chỉnh sửa</th>
+                                <th style="text-align:center;width:80%">@lang('kidsnow.diary_types.name')</th>
+                                <th style="text-align:left;"></th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($observationtype as $key=> $value)
+                            @foreach($diary_types as $key=> $value)
                                 <tr>
                                     <th style="text-align:left;">{{$key+1}}</th>
                                     <th style="text-align:center;width:80%">{{$value->name}}</th>
                                     <th style="text-align:left;">
-                                        <a href="{!! URL::route('admin.observationtype.getEdit',  $value->id ) !!}" title="Edit ObservationType" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
-                                        <a onclick="return confirm('Delete ObservationType ? Do you want continue !')" title="Delete ObservationType " href="{{ route('admin.observationtype.getDelete',  $value->id) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                        <a href="{!! URL::route('admin.diary_types.edit',  $value->id ) !!}" title="Edit Diary Type" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                        <a onclick="return confirm('Delete Diary Type ? Do you want continue !')" title="Delete Diary Type " href="{{ route('admin.diary_types.destroy',  $value->id) }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
                                     </th>
 
                                 </tr>
@@ -78,7 +78,7 @@
         </div>
     </div>
     <div class="icon-plus">
-        <a href="{{route('admin.observationtype.add')}}">
+        <a href="{{route('admin.diary_types.create')}}">
             <i class="fa fa-plus"></i>
         </a>
     </div>

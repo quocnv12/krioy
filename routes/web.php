@@ -140,12 +140,15 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
     //---------------health----------------
     Route::group(['prefix' => 'health','middleware' => 'checkacl:Health'], function () {
 
-        Route::get('/', ['as'=>'admin.health.list','uses'=>'Admin\HealthController@getList']);
+//        Route::get('/', ['as'=>'admin.health.list','uses'=>'Admin\HealthController@getList']);
+
         Route::get('add',['as'=>'admin.health.getAdd','uses'=>'Admin\HealthController@getAdd']);
         Route::post('add',['as'=>'admin.health.getAdd','uses'=>'Admin\HealthController@postAdd']);
         Route::get('delete/{id}',['as'=>'admin.health.getDelete','uses'=>'Admin\HealthController@getDelete'])->middleware(['can:edit-profile']);
-        Route::get('edit/{id}',['as'=>'admin.health.getEdit','uses'=>'Admin\HealthController@getEdit'])->middleware(['can:edit-profile']);
-        Route::post('edit/{id}',['as'=>'admin.health.postEdit','uses'=>'Admin\HealthController@postEdit']);
+
+//        Route::get('edit/{id}',['as'=>'admin.health.getEdit','uses'=>'Admin\HealthController@getEdit'])->middleware(['can:edit-profile']);
+//        Route::post('edit/{id}',['as'=>'admin.health.postEdit','uses'=>'Admin\HealthController@postEdit']);
+
         Route::get('show/{id}','Admin\HealthController@showChildrenInProgram');
         Route::get('view/{id}',['as'=>'admin.health.view' ,'uses'=>'Admin\HealthController@view']);
 
@@ -159,22 +162,19 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
 
     //---------------observation----------------
     Route::group(['prefix' => 'observations','middleware' => 'checkacl:Observations'], function () {
-        Route::get('list', ['as'=>'admin.observations.list','uses'=>'Admin\ObservationController@getList']);
+//        Route::get('list', ['as'=>'admin.observations.list','uses'=>'Admin\ObservationController@getList']);
+
         Route::get('listobservationtype', ['as'=>'admin.observations.listobservationtype','uses'=>'Admin\ObservationController@getListObservation']);
-        Route::get('delete/{id}',['as'=>'admin.observations.getDelete','uses'=>'Admin\ObservationController@getDelete'])->middleware(['can:edit-profile']);
-        Route::get('edit/{id}',['as'=>'admin.observations.getEdit','uses'=>'Admin\ObservationController@getEdit'])->middleware(['can:edit-profile']);
-        Route::post('edit/{id}',['as'=>'admin.observations.postEdit','uses'=>'Admin\ObservationController@postEdit']);
-//        Route::get('search',['as'=>'admin.observations.search','uses'=>'Admin\ObservationController@getSearch']);
-//        Route::post('search',['as'=>'admin.observations.search','uses'=>'Admin\ObservationController@postSearch']);
+//        Route::get('edit/{id}',['as'=>'admin.observations.getEdit','uses'=>'Admin\ObservationController@getEdit'])->middleware(['can:edit-profile']);
+//        Route::post('edit/{id}',['as'=>'admin.observations.postEdit','uses'=>'Admin\ObservationController@postEdit']);
+
         Route::get('add',['as'=>'admin.observations.getAdd','uses'=>'Admin\ObservationController@getAdd']);
         Route::post('add',['as'=>'admin.observations.postAdd','uses'=>'Admin\ObservationController@postAdd']);
-        Route::get('them_child',['as'=>'admin.observations.child','uses'=>'Admin\ObservationController@getChild']);
-        Route::post('them_child',['as'=>'admin.observations.child','uses'=>'Admin\ObservationController@postChild']);
         Route::get('search/children', 'Admin\ObservationController@searchByName');
-        Route::get('select_child/add','Admin\ObservationController@addSelectChild');
 
         Route::get('show/{id}','Admin\ObservationController@showChildrenInProgram');
         Route::get('view/{id}',['as'=>'admin.observations.view','uses'=>'Admin\ObservationController@view']);
+        Route::get('delete/{id}',['as'=>'admin.observations.getDelete','uses'=>'Admin\ObservationController@getDelete'])->middleware(['can:edit-profile']);
 
         //clip board
         Route::get('clip_board/{id}/{name}','Admin\ObservationController@displayClipboard');
@@ -182,15 +182,39 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
     });
 
     Route::group(['prefix' => 'observationtype'], function () {
-
-        Route::get('delete/{id}',['as'=>'admin.observationtype.getDelete','uses'=>'Admin\ObservationTypeController@getDelete'])->middleware(['can:edit-profile']);
-        Route::get('edit/{id}',['as'=>'admin.observationtype.getEdit','uses'=>'Admin\ObservationTypeController@getEdit'])->middleware(['can:edit-profile']);
-        Route::post('edit/{id}',['as'=>'admin.observationtype.postEdit','uses'=>'Admin\ObservationTypeController@postEdit']);
         Route::get('add',['as'=>'admin.observationtype.add','uses'=>'Admin\ObservationTypeController@getAdd']);
         Route::post('add',['as'=>'admin.observationtype.add','uses'=>'Admin\ObservationTypeController@postAdd']);
-
-
+        Route::get('edit/{id}',['as'=>'admin.observationtype.getEdit','uses'=>'Admin\ObservationTypeController@getEdit'])->middleware(['can:edit-profile']);
+        Route::post('edit/{id}',['as'=>'admin.observationtype.postEdit','uses'=>'Admin\ObservationTypeController@postEdit']);
+        Route::get('delete/{id}',['as'=>'admin.observationtype.getDelete','uses'=>'Admin\ObservationTypeController@getDelete'])->middleware(['can:edit-profile']);
     });
+
+    //---------------diary types-------------------------
+    Route::group(['prefix' => 'diary_types'], function () {
+       Route::get('/', 'Admin\DiaryTypeController@index')->name('admin.diary_types.list');
+        Route::get('add', 'Admin\DiaryTypeController@create')->name('admin.diary_types.create');
+        Route::post('add', 'Admin\DiaryTypeController@store')->name('admin.diary_types.store');
+        Route::get('edit/{id}', 'Admin\DiaryTypeController@edit')->name('admin.diary_types.edit');
+        Route::post('edit/{id}', 'Admin\DiaryTypeController@update')->name('admin.diary_types.update');
+        Route::get('delete/{id}', 'Admin\DiaryTypeController@destroy')->name('admin.diary_types.destroy');
+    });
+
+    //---------------diary-------------------------
+    Route::group(['prefix' => 'diary'], function () {
+        Route::get('add','Admin\DiaryController@create')->name('admin.diary.create');
+        Route::post('add','Admin\DiaryController@store')->name('admin.diary.store');
+        Route::get('delete/{id}','Admin\DiaryController@destroy')->name('admin.diary.destroy');
+
+        Route::get('show/{id}','Admin\DiaryController@showChildrenInProgram');
+        Route::get('view/{id}','Admin\DiaryController@view')->name('admin.diary.view');
+
+        //clip board
+        Route::get('clip_board/{id}/{name}','Admin\DiaryController@displayClipboard');
+        Route::get('delete_clipboard/{id}/{name}','Admin\DiaryController@deleteClipboard');
+    });
+
+
+
     //---------------food----------------
     Route::group(['prefix' => 'food','middleware' => 'checkacl:Food'], function () {
 
@@ -255,7 +279,6 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
     });
     
 
-
     //---------------program----------------
     Route::group(['prefix' => 'program','middleware' => 'checkacl:Programs'], function () {
         Route::get('', 'Admin\ProgramsController@index')->name('admin.program.index');
@@ -297,8 +320,21 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
         Route::get('delete/{id}', 'Admin\PermissionControler@deleteRole')->middleware(['can:edit-profile']);
     
     });
+
+    //--------------------------------Lịch Sử-------------------------------
+    Route::group(['prefix' => 'history'], function () {
+      Route::get('', 'Admin\HistoryController@index')->name('admin.history.list');
+      Route::get('search','Admin\HistoryController@search')->name('admin.history.search');
+      Route::get('delete/{id}', 'Admin\HistoryController@destroy')->name('admin.history.destroy');
+    });
+
 });
 
+//function to show clipboard in History Module
+Route::get('showClipboard/{clip_board}', function ($clip_board){
+    return response()->file(storage_path('/app/public/clip_board/' . $clip_board), [
+        'Content-Disposition' => 'inline; filename="' . $clip_board . '"']);
+})->name('showClipboard');
 
 Route::get('locale/{locale}', function($locale){
     Session::put('locale', $locale);

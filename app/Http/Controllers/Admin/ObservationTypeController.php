@@ -18,7 +18,7 @@ class ObservationTypeController extends Controller
     {
         $validation_vi = [
             'name.required' => 'Vui lòng nhập tên loại đánh giá !',
-            'name.unique' => 'Tên laoij đánh giá đã tồn tại !'
+            'name.unique' => 'Tên loại đánh giá đã tồn tại !'
         ];
 
         $validation_en = [
@@ -45,7 +45,7 @@ class ObservationTypeController extends Controller
     {
         $validation_vi = [
             'name.required' => 'Vui lòng nhập tên loại đánh giá !',
-            'name.unique' => 'Tên laoij đánh giá đã tồn tại !'
+            'name.unique' => 'Tên loại đánh giá đã tồn tại !'
         ];
 
         $validation_en = [
@@ -70,6 +70,6 @@ class ObservationTypeController extends Controller
 
         $observationtype->delete();
 
-        return redirect(route('admin.observations.listobservationtype'))->with('success',app()->getLocale() == 'vi' ? 'Xóa Thành Công !' : 'Delete Successfully !');
+        return redirect(route('admin.observations.listobservationtype'))->with('success',app()->getLocale() == 'vi' ? 'Xóa Thành Công !' : 'Deleted Successfully !');
     }
 }

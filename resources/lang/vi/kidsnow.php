@@ -284,7 +284,7 @@ return [
         'children.date_of_joining' =>'Ngày Nhập Học',
         'children.unique_id'    =>  'Mã trẻ ID',
         'children.status'   =>  'Trạng Thái',
-        'children.exist'   =>  'Tồn Tại',
+        'children.exist'   =>  'Tốt Nghiệp',
         'children.residential_address'=>'Địa Chỉ Thường Trú',
         'children.allergies'    =>'Dị Ứng (nếu có)',
         'children.additional_notes' =>'Ghi Chú Thêm',
@@ -501,9 +501,44 @@ return [
     //END Observations
 
 
+    //Diary Types
 
+    //list
+    'diary_types.name'  =>  'Tên',
+    'diary_types'=>'Loại Đánh Giá',
 
+    //add
+    'diary_types.add'=> 'Thêm',
+    'diary_types.edit'=> 'Sửa',
+    'diary_types.list'=> 'Loại Nhật Ký',
 
+    'diary_types.placeholder'=>'Nhập tên loại nhật ký',
+
+    //End Diary Types
+
+    //Diary
+
+   'diary.add'=>'Thêm',
+   'diary.edit'=>'Sửa',
+    'diary.not_found'=>'Không tìm thấy trẻ',
+    'diary.hint' => 'Hướng Dẫn',
+    'diary.hint_content' => 'Nhấn vào tên lớp học trên thanh trượt menu để hiển thị toàn bộ trẻ trong lớp học đấy',
+    'diary.detail'  =>'Nội Dung Nhật Ký',
+
+    //End Diary
+
+    //History
+
+    'history.from_date'=>'Từ Ngày',
+    'history.to_date'=>'Đến Ngày',
+    'history.modules'=>'Chủ Đề',
+    'history.choose_modules'=>'Chọn Chủ Đề',
+    'history.choose_program'=>'Chọn Lớp Học',
+    'history.no_data'=>'Không Tìm Thấy Dữ Liệu',
+    'history.clip_board'=>'File Đính Kèm',
+    'history.delete'=>'XÓA',
+
+    //End History
 
     // Notifications
     'success' => 'Success',
@@ -607,7 +642,7 @@ return [
 
 
     'noscript'=>'Một vài tính năng có thể không hoạt động do Javascript đã bị tắt. Vui lòng bật Javascript hoặc nhờ bộ phận IT hỗ trợ.',
-    '404'=>'Không Tìm Thấy Trang Bạn Yêu Cầu !'
-
+    '404'=>'Không Tìm Thấy Trang Bạn Yêu Cầu !',
+    'choose_all'    =>  'Chọn Tất Cả'
     
 ];

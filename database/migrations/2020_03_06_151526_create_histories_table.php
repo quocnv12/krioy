@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSchoolImageTypeTable extends Migration
+class CreateHistoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,15 @@ class CreateSchoolImageTypeTable extends Migration
      */
     public function up()
     {
-        Schema::create('school_image_type', function (Blueprint $table) {
+        Schema::create('history', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('image');
+            $table->string('id_records');
+            $table->string('id_childrens');
+            $table->bigInteger('id_program');
+            $table->string('model');
+            $table->text('icon');
+            $table->json('content_vi');
+            $table->json('content_en');
             $table->timestamps();
         });
     }
@@ -27,6 +33,6 @@ class CreateSchoolImageTypeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('school_image_type');
+        Schema::dropIfExists('history');
     }
 }

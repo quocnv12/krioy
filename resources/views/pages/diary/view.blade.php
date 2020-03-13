@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-    Observations
+    Diary
 @endsection
 
 @section('content')
@@ -12,8 +12,8 @@
                 <div class="col-sm-6">
                     <ul class="ul-td">
                         <li class="level1"><a href="{{route('admin.home')}}">@lang('kidsnow.home')</a></li>
-                        <li class="active1" style="" ><a href="{{route('admin.observations.getAdd')}}">@lang('kidsnow.observations')</a></li>
-                        <li class="active1 active-1" style="pointer-events: none" ><a href="">@lang('kidsnow.observations.view_observation')</a></li>
+                        <li class="active1" style="" ><a href="{{route('admin.diary.create')}}">Diary</a></li>
+                        <li class="active1 active-1" style="pointer-events: none" ><a href="">View</a></li>
                     </ul>
                 </div>
                 {{--<div class="col-sm-6">--}}
@@ -26,11 +26,8 @@
             <div class="row">
                 <div class="mat-card" style="width: 100%">
                     <div class="mat-content">
-                        <div style="font-weight: bold; font-size: 20px; color: red">
-                            @lang('kidsnow.observations.observer') : {{$child_observation->observer}}
-                        </div>
                         <button class="accordion accordion1 clearfix" type="button">
-                            <p style="float: left;">@lang('kidsnow.observations.children') *</p>
+                            Children
                         </button>
                     </div>
                     <div class="mat-content">
@@ -50,8 +47,8 @@
                                 <div class="add a1 ">
                                     <div class="row">
                                         <div class="col-md-6 input_box">
-                                            <span class="input_box_span_active">@lang('kidsnow.observations.first_name') *</span>
-                                            <input type="text" name="first_name" placeholder="@lang('kidsnow.observations.first_name') *" value="{{$children_profiles->first_name}}" readonly>
+                                            <span class="input_box_span_active">First Name *</span>
+                                            <input type="text" name="first_name" placeholder="First Name *" value="{{$children_profiles->first_name}}" readonly>
                                             @if ($errors->has('first_name'))
                                                 <div class="text text-danger">
                                                     {{ $errors->first('first_name') }}
@@ -59,8 +56,8 @@
                                             @endif
                                         </div>
                                         <div class="col-md-6 input_box">
-                                            <span class="input_box_span_active">@lang('kidsnow.observations.last_name') *</span>
-                                            <input type="text" name="last_name" placeholder="@lang('kidsnow.observations.last_name') *" value="{{$children_profiles->last_name}}" readonly>
+                                            <span class="input_box_span_active">Last Name *</span>
+                                            <input type="text" name="last_name" placeholder="Last Name *" value="{{$children_profiles->last_name}}" readonly>
                                             @if ($errors->has('last_name'))
                                                 <div class="text text-danger">
                                                     {{ $errors->first('last_name') }}
@@ -75,8 +72,8 @@
                         <div class="add" style="width: 100%; margin: 15px 0">
                             <div class="row">
                                 <div class="col-md-3 input_box">
-                                    <span class="input_box_span_active">@lang('kidsnow.observations.birthday') </span>
-                                    <input type="date" name="birthday" placeholder="@lang('kidsnow.observations.birthday')" value="{{$children_profiles->birthday}}" readonly>
+                                    <span class="input_box_span_active">Birthday</span>
+                                    <input type="date" name="birthday" placeholder="Birthday" value="{{$children_profiles->birthday}}" readonly>
                                     @if ($errors->has('birthday'))
                                         <div class="text text-danger">
                                             {{ $errors->first('birthday') }}
@@ -84,8 +81,8 @@
                                     @endif
                                 </div>
                                 <div class="col-md-3 input_box">
-                                    <span class="input_box_span_active">@lang('kidsnow.observations.unique_id') </span>
-                                    <input type="text" name="unique_id" placeholder="@lang('kidsnow.observations.unique_id')" value="{{$children_profiles->unique_id}}" readonly>
+                                    <span class="input_box_span_active">Unique ID</span>
+                                    <input type="text" name="unique_id" placeholder="Unique ID" value="{{$children_profiles->unique_id}}" readonly>
                                     @if ($errors->has('unique_id'))
                                         <div class="text text-danger">
                                             {{ $errors->first('unique_id') }}
@@ -93,9 +90,9 @@
                                     @endif
                                 </div>
                                 <div class="col-md-3 input_box">
-                                    <span class="input_box_span_active">@lang('kidsnow.observations.gender')</span>
+                                    <span class="input_box_span_active">Gender</span>
                                     <select name="gender" disabled="">
-                                        <option selected>@lang('kidsnow.observations.gender')</option>
+                                        <option selected>Gender</option>
                                         <option value="1" @if($children_profiles->gender == 1) selected="selected" @endif>Nam</option>
                                         <option value="2" @if($children_profiles->gender == 2) selected="selected" @endif>Nữ</option>
                                     </select>
@@ -106,8 +103,8 @@
                                     @endif
                                 </div>
                                 <div class="col-md-3 input_box">
-                                    <span class="input_box_span_active">@lang('kidsnow.observations.date_of_joining') </span>
-                                    <input type="date" name="date_of_joining" placeholder="@lang('kidsnow.observations.date_of_joining')" value="{{$children_profiles->date_of_joining}}" readonly>
+                                    <span class="input_box_span_active">Date joining</span>
+                                    <input type="date" name="date_of_joining" placeholder="Date joining" value="{{$children_profiles->date_of_joining}}" readonly>
                                     @if ($errors->has('date_of_joining'))
                                         <div class="text text-danger">
                                             {{ $errors->first('date_of_joining') }}
@@ -119,12 +116,12 @@
                     </div>
                     <hr>
                     <div class="mat-content">
-                        <button class="accordion" type="button">@lang('kidsnow.observations.observation_types')</button>
+                        <button class="accordion" type="button">Diary Types</button>
                         <div class="panel">
                             <div _ngcontent-c20="" class="row" style="">
-                                @foreach($observationtype  as $observation)
+                                @foreach($diary_types  as $diary_type)
                                     <div _ngcontent-c20="" align="center" class="col-lg-3 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;">
-                                        <button type="button" _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1 @if(in_array($observation->name, $array_observation_choose)) tablinks1_active @endif" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px; pointer-events: none; width: 100%" data-toggle="tooltip" title="{{$observation->name}}" value="{{$observation->id}}">{{$observation->name}} </button>
+                                        <button type="button" _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1 @if(in_array($diary_type->name, $array_diary_choose)) tablinks1_active @endif" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px; pointer-events: none; width: 100%" data-toggle="tooltip" title="{{$diary_type->name}}">{{$diary_type->name}} </button>
                                     </div>
                                 @endforeach
                             </div>
@@ -133,8 +130,8 @@
                     <div class="comment">
                         <div class="row">
                             <div class="col-md-12 input_box">
-                                <span>@lang('kidsnow.observations.detail')</span>
-                                <input readonly="" type="text" name="detailObservation" placeholder="@lang('kidsnow.observations.detail')" value="{{$child_observation->detailObservation}}">
+                                <span>Detail</span>
+                                <input readonly="" type="text" name="detailObservation" placeholder="Detail" value="{{$children_diary->detail}}">
                             </div>
                         </div>
                         <div class="row">
@@ -143,8 +140,8 @@
                                 <br>
                                 <strong>Clip Board :</strong>
                                 <br>
-                                @foreach(explode('/*endfile*/',$child_observation->clip_board) as $clipboard)
-                                    <a href="{{route('admin.notice-board.displayClipboard',['id'=>$child_observation->id, 'name'=>$clipboard])}}" target="_blank">{{$clipboard}}</a>
+                                @foreach(explode('/*endfile*/',$children_diary->clip_board) as $clipboard)
+                                    <a href="{{route('admin.notice-board.displayClipboard',['id'=>$children_diary->id, 'name'=>$clipboard])}}" target="_blank">{{$clipboard}}</a>
                                     <br>
                                 @endforeach
                             </div>
@@ -166,7 +163,6 @@
             </button>
         </div>
     </div>
-
     </body>
 @endsection
 

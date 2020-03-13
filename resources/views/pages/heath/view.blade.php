@@ -12,13 +12,13 @@
                 <div class="col-sm-6">
                     <ul class="ul-td">
                         <li _ngcontent-c16="" class="level1"><a _ngcontent-c16="" href="kids-now">@lang('kidsnow.home')</a></li>
-                        <li _ngcontent-c16="" class="active1"  ><a _ngcontent-c16="" href="{{route('admin.health.list')}}">@lang('kidsnow.health')</a></li>
-                        <li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none" href="{{route('admin.health.getAdd')}}"><a _ngcontent-c16="">@lang('kidsnow.health.view_health')</a></li>
+                        <li _ngcontent-c16="" class="active1"  ><a _ngcontent-c16="" href="{{route('admin.health.getAdd')}}">@lang('kidsnow.health')</a></li>
+                        <li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none" href=""><a _ngcontent-c16="">@lang('kidsnow.health.view_health')</a></li>
                     </ul>
                 </div>
-                <div class="col-sm-6">
-                    <a type="submit" class="btn btn-success" href="{{route('admin.health.list')}}" style="border: none;min-width: 110px;background: #eb87c1;color: white;float: right;font-weight: bold;" >@lang('kidsnow.health.list')</a>
-                </div>
+                {{--<div class="col-sm-6">--}}
+                    {{--<a type="submit" class="btn btn-success" href="{{route('admin.health.list')}}" style="border: none;min-width: 110px;background: #eb87c1;color: white;float: right;font-weight: bold;" >@lang('kidsnow.health.list')</a>--}}
+                {{--</div>--}}
             </div>
         </div>
 
@@ -250,11 +250,6 @@
         </form>
         </div>
     </section>
-    <div class="icon-plus">
-        <a href="{{ route('admin.health.getEdit',['id'=>$health->id]) }}">
-            <i class="fa fa-edit"></i>
-        </a>
-    </div>
     </body>
 @endsection
 

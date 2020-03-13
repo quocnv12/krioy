@@ -4,6 +4,50 @@
 @endsection
 
 @section('content')
+	<style>
+		.button_alert {
+			background-color: #004A7F;
+			-webkit-border-radius: 10px;
+			border-radius: 10px;
+			border: none;
+			color: #FFFFFF;
+			cursor: pointer;
+			display: inline-block;
+			font-family: Arial;
+			font-size: 20px;
+			padding: 5px 10px;
+			text-align: center;
+			text-decoration: none;
+			-webkit-animation: glowing 1500ms infinite;
+			-moz-animation: glowing 1500ms infinite;
+			-o-animation: glowing 1500ms infinite;
+			animation: glowing 1500ms infinite;
+		}
+		@-webkit-keyframes glowing {
+			0% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+			50% { background-color: #FF0000; -webkit-box-shadow: 0 0 40px #FF0000; }
+			100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+		}
+
+		@-moz-keyframes glowing {
+			0% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
+			50% { background-color: #FF0000; -moz-box-shadow: 0 0 40px #FF0000; }
+			100% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
+		}
+
+		@-o-keyframes glowing {
+			0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+			50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+			100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+		}
+
+		@keyframes glowing {
+			0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+			50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+			100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+		}
+	</style>
+
 	<body onload="time()">
 
 	<section class="page-top container">
@@ -16,19 +60,16 @@
 						<li _ngcontent-c16="" class="active1 active-1" style="pointer-events:none" href=""><a _ngcontent-c16="">@lang('kidsnow.health.add_health')</a></li>
 					</ul>
 				</div>
-				<div class="col-sm-6">
-					<a type="submit" class="btn btn-success" href="{{route('admin.health.list')}}" style="border: none;min-width: 110px;background: #eb87c1;color: white;float: right;font-weight: bold;" >@lang('kidsnow.health.list')</a>
-				</div>
+				{{--<div class="col-sm-6">--}}
+					{{--<a type="submit" class="btn btn-success" href="{{route('admin.health.list')}}" style="border: none;min-width: 110px;background: #eb87c1;color: white;float: right;font-weight: bold;" >@lang('kidsnow.health.list')</a>--}}
+				{{--</div>--}}
 			</div>
 		</div>
 
 		<div id="clock" name="time"></div>
-		@if ($errors->has('children_health'))
-			<div class="alert alert-danger" style="text-align: center">
-				{{ $errors->first('children_health') }}
-			</div>
-		@endif
-		<form style="width: auto;margin: 0;text-align: center" action="{{route('admin.health.getAdd')}}" method="post" id="addObservation" enctype="multipart/form-data">
+
+		<form style="width: auto;margin: 0;text-align: center" action="{{route('admin.health.getAdd')}}" method="post" id="addHealth" enctype="multipart/form-data">
+			<input type="hidden" name="program_id" value="{{$program_id ?? ''}}">
 			@csrf
 			<div class="row">
 				<div class="mat-card" style="width: 100%">
@@ -42,6 +83,8 @@
 							{{--<form class="typeahead" role="search" style="float: right; text-align: left">--}}
 							{{--<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">--}}
 							{{--</form>--}}
+							<a class="btn btn-success" id="tick_all_children" type="button" style="float: right; background-color: #CC263F">Chọn tất cả</a>
+
 						</button>
 
 						<div class="scrollmenu-div">
@@ -69,16 +112,23 @@
 							@endif
 						</div>
 					</div>
+					<div>
+						@if ($errors->has('children_health'))
+							<div class="alert alert-danger" style="text-align: center">
+								{{ $errors->first('children_health') }}
+							</div>
+						@endif
+					</div>
 					<hr>
 
 					<div class="update">
 						<p style="font-weight: bold; color: red">@lang('kidsnow.health.select_health_update_type') *</p>
 						<div class="tab">
-							<button type="button" class="tablinks" onclick="openCity(event, 'Sick')">@lang('kidsnow.health.sick')</button>
-							<button type="button" class="tablinks" onclick="openCity(event, 'Medicine')">@lang('kidsnow.health.medicine')</button>
-							<button type="button" class="tablinks" onclick="openCity(event, 'Growth')">@lang('kidsnow.health.growth')</button>
-							<button type="button" class="tablinks" onclick="openCity(event, 'Incident')">@lang('kidsnow.health.incident')</button>
-							<button type="button" class="tablinks" onclick="openCity(event, 'Blood_group')">@lang('kidsnow.health.blood_group')</button>
+							<button type="button" class=" tablinks" onclick="openCity(event, 'Sick')">@lang('kidsnow.health.sick')</button>
+							<button type="button" class=" tablinks" onclick="openCity(event, 'Medicine')">@lang('kidsnow.health.medicine')</button>
+							<button type="button" class=" tablinks" onclick="openCity(event, 'Growth')">@lang('kidsnow.health.growth')</button>
+							<button type="button" class=" tablinks" onclick="openCity(event, 'Incident')">@lang('kidsnow.health.incident')</button>
+							<button type="button" class=" tablinks" onclick="openCity(event, 'Blood_group')">@lang('kidsnow.health.blood_group')</button>
 						</div>
 
 						<div id="Sick" class="tabcontent ">
@@ -86,6 +136,11 @@
 								<div class="col-md-11 input_box">
 									<span>@lang('kidsnow.health.sick_content') *</span>
 									<input type="text" name="sick" placeholder="@lang('kidsnow.health.sick_content') ">
+									@if ($errors->has('sick'))
+										<div class="alert alert-danger" style="text-align: center">
+											{{ $errors->first('sick') }}
+										</div>
+									@endif
 								</div>
 							</div>
 						</div>
@@ -94,6 +149,11 @@
 								<div class="col-md-11 input_box">
 									<span>@lang('kidsnow.health.medicine_content') *</span>
 									<input type="text" name="medicine" placeholder="@lang('kidsnow.health.medicine_content') ">
+									@if ($errors->has('medicine'))
+										<div class="alert alert-danger" style="text-align: center">
+											{{ $errors->first('medicine') }}
+										</div>
+									@endif
 								</div>
 							</div>
 
@@ -106,14 +166,14 @@
 
 									<label class="label">
 										<div class="label-text">cm</div>
-										<div class="toggle">
-											<input class="toggle-state" type="checkbox" name="check" value="check" />
-											<div class="toggle-inner">
-												<div class="indicator"></div>
-											</div>
-											<div class="active-bg"></div>
-										</div>
-										<div class="label-text">inch</div>
+										{{--<div class="toggle">--}}
+											{{--<input class="toggle-state" type="checkbox" name="check" value="check" />--}}
+											{{--<div class="toggle-inner">--}}
+												{{--<div class="indicator"></div>--}}
+											{{--</div>--}}
+											{{--<div class="active-bg"></div>--}}
+										{{--</div>--}}
+										{{--<div class="label-text">inch</div>--}}
 									</label>
 								</div>
 								<div class="col-md-4 growth_input input_box">
@@ -122,29 +182,29 @@
 
 									<label class="label">
 										<div class="label-text">kg</div>
-										<div class="toggle">
-											<input class="toggle-state" type="checkbox" name="check" value="check" />
-											<div class="toggle-inner">
-												<div class="indicator"></div>
-											</div>
-											<div class="active-bg"></div>
-										</div>
-										<div class="label-text">lb</div>
+										{{--<div class="toggle">--}}
+											{{--<input class="toggle-state" type="checkbox" name="check" value="check" />--}}
+											{{--<div class="toggle-inner">--}}
+												{{--<div class="indicator"></div>--}}
+											{{--</div>--}}
+											{{--<div class="active-bg"></div>--}}
+										{{--</div>--}}
+										{{--<div class="label-text">lb</div>--}}
 									</label>
 								</div>
 								<div class="col-md-4 growth_input input_box">
 									<span>@lang('kidsnow.health.growth_head_circumference')</span>
-									<input type="text" name="growth_circumference" placeholder="@lang('kidsnow.health.growth_head_circumference')">
+									<input type="text" name="growth_head_circumference" placeholder="@lang('kidsnow.health.growth_head_circumference')">
 									<label class="label">
 										<div class="label-text">cm</div>
-										<div class="toggle">
-											<input class="toggle-state" type="checkbox" name="check" value="check" />
-											<div class="toggle-inner">
-												<div class="indicator"></div>
-											</div>
-											<div class="active-bg"></div>
-										</div>
-										<div class="label-text">inch</div>
+										{{--<div class="toggle">--}}
+											{{--<input class="toggle-state" type="checkbox" name="check" value="check" />--}}
+											{{--<div class="toggle-inner">--}}
+												{{--<div class="indicator"></div>--}}
+											{{--</div>--}}
+											{{--<div class="active-bg"></div>--}}
+										{{--</div>--}}
+										{{--<div class="label-text">inch</div>--}}
 									</label>
 								</div>
 							</div>
@@ -152,7 +212,11 @@
 								<div class="col-md-11 input_box">
 									<span>@lang('kidsnow.health.growth_content') *</span>
 									<input type="text" name="growth" placeholder="@lang('kidsnow.health.growth_content') ">
-
+									@if ($errors->has('growth'))
+										<div class="alert alert-danger" style="text-align: center">
+											{{ $errors->first('growth') }}
+										</div>
+									@endif
 								</div>
 							</div>
 
@@ -162,7 +226,11 @@
 								<div class="col-md-11 input_box">
 									<span>@lang('kidsnow.health.incident_content') *</span>
 									<input type="text" name="incident" placeholder="@lang('kidsnow.health.incident_content') ">
-
+									@if ($errors->has('incident'))
+										<div class="alert alert-danger" style="text-align: center">
+											{{ $errors->first('incident') }}
+										</div>
+									@endif
 								</div>
 							</div>
 						</div>
@@ -171,7 +239,11 @@
 								<div class="col-md-11 input_box">
 									<span>@lang('kidsnow.health.blood_group_content') *</span>
 									<input type="text" name="blood_group" placeholder="@lang('kidsnow.health.blood_group_content') ">
-
+									@if ($errors->has('blood_group'))
+										<div class="alert alert-danger" style="text-align: center">
+											{{ $errors->first('blood_group') }}
+										</div>
+									@endif
 								</div>
 							</div>
 						</div>
@@ -348,6 +420,7 @@
 			$('.accordion').click();
 		})
 	</script>
+
 	<script type="text/javascript">
 		var array_observation = [];
 		$('.tablinks1').click(function(event) {
@@ -393,7 +466,7 @@
 		//end select children
 
 		//begin select children_observation
-		var array = [];
+		var array_health = [];
 		$('.div_box_children').children('div').children('i').hide()
 
 		$('.div_box_children').click(function () {
@@ -401,23 +474,46 @@
 				($(this).children('div').children('i').removeClass('checked'))
 				$(this).children('div').children('i').hide()
 				var observation_pop = $(this).children('div').children('input').val();
-				array.splice( array.indexOf(observation_pop), 1 );
+				array_health.splice( array_health.indexOf(observation_pop), 1 );
 
 			}else {
 				$(this).children('div').children('i').addClass('checked')
 				$(this).children('div').children('i').show()
 				var observation_push = $(this).children('div').children('input').val();
-				array.push(observation_push);
+				array_health.push(observation_push);
+
 			}
-			$('#array_children_health').attr('value',array);
-			console.log(array_children_health)
+
+
 		})
 		//end select children_observation
+
+
+		//tick all children
+		$('#tick_all_children').click(function () {
+			if ($('.div_box_children').children('div').children('i').hasClass('checked')){
+				($('.div_box_children').children('div').children('i').removeClass('checked'))
+				$('.div_box_children').children('div').children('i').hide()
+				array_health = [];
+
+				console.log(array_health)
+			}else {
+				$('.div_box_children').children('div').children('i').addClass('checked')
+				$('.div_box_children').children('div').children('i').show()
+				array_health = $('.div_box_children').children('div').children('input').map(function() {
+					return $(this).val();
+				}).toArray();
+
+				console.log(array_health)
+			}
+		})
+		//end tick all children
+
+
 		var button = document.getElementById("submit_button");
 		button.onclick = function(){
 			$('#array_all_children').attr('value', array_children);
-			$('#array_observation').attr('value', array_observation);
-			$('#array_children_observation').attr('value', array_children_observation);
+			$('#array_children_health').attr('value',array_health);
 		}
 	</script>
 	<script type="text/javascript">
@@ -430,47 +526,8 @@
 			}
 		});
 
-
 	</script>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function($) {
-			var engine1 = new Bloodhound({
-				remote: {
-					url: 'http://localhost:8000/kids-now/health/search/children?q=%QUERY%',
-					wildcard: '%QUERY%'
-				},
-				datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
-				queryTokenizer: Bloodhound.tokenizers.whitespace
-			});
-
-			$(".search-input").typeahead({
-				hint: true,
-				highlight: true,
-				minLength: 1
-			}, [
-				{
-					source: engine1.ttAdapter(),
-					name: 'children_profiles',
-					display: function(data) {
-						return data.name;
-					},
-					templates: {
-						empty: [
-							'<div class="list-group search-results-dropdown" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;width: 500px;"><div class="list-group-item">Nothing found.</div></div>'
-						],
-						header: [
-
-						],
-						suggestion: function (data) {
-							return '<a onclick="getIdChildren('+data.id+')" class="list-group-item" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;padding: 10px; margin: 0;color: #424949;width: 500px;"> ' + data.first_name +' '+ data.last_name + '<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
-						}
-					}
-				},
-			]);
-		});
-	</script>
 	<script>
 		$(document).ready(function () {
 			$('.accordion').click();
