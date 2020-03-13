@@ -11,6 +11,7 @@ class HistoryController extends Controller
 {
     public function index(){
         $history = History::whereDate('created_at','=',today())->orderBy('created_at', 'desc')->get();
+//        dd($history);
         $programs = Programs::all();
         return view('pages.history.list', compact('history','programs'));
     }

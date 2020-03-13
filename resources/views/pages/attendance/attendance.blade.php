@@ -48,7 +48,7 @@ Attendance
                     @foreach($programs as $program)
                     <div class="scrollmenu-button" style="text-align: center;">
                         <button class="limitText" type="button"
-                            style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
+                            style="background: @if(isset($id) && $program->id == $id) #ff4081 @else #5363d6 @endif;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
                             <a style="color: #fff ;margin: 0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 150px;display: block;"
                                 href="kids-now/attendance/{{$program->id}}"
                                 title="{{$program->program_name}}">{{$program->program_name}}</a>

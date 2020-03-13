@@ -47,6 +47,10 @@
     <script type="text/javascript" src="libs/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="libs/bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
 
+    {{--zoom image--}}
+    <link href="asset/zoom/css/zoom.css" rel="stylesheet">
+    <script src="asset/zoom/js/zoom.js"></script>
+
 </head>
 <body>
     @include('header')
@@ -154,8 +158,7 @@
             list[index].setAttribute("value", today);
         }
     </script>
-
-<NOSCRIPT>
-    <p style="color: red; text-align: center; font-size: 18px">@lang('kidsnow.noscript')</p>
-</NOSCRIPT>
+    <NOSCRIPT>
+        <p style="color: red; text-align: center; font-size: 18px">@lang('kidsnow.noscript')</p>
+    </NOSCRIPT>
 </html>

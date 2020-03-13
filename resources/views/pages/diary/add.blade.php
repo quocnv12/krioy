@@ -42,12 +42,14 @@
 								{{--<form class="typeahead" role="search" style="float: right; text-align: left">--}}
 									{{--<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">--}}
 								{{--</form>--}}
-							<a class="btn btn-success" id="tick_all_children" type="button" style="float: right; background-color: #CC263F">@lang('kidsnow.choose_all')</a>
+							<a style="float: right;text-align: right">
+								<p id="tick_all_children" style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">@lang('kidsnow.choose_all')</p>
+							</a>
 						</button>
                         <div class="scrollmenu-div">
                             @foreach($programs as $program)
                                 <div class="scrollmenu-button" style="text-align: center;">
-                                    <button class="limitText" type="button" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
+                                    <button class="limitText" type="button" style="background: @if(isset($program_id) && $program->id == $program_id) #ff4081 @else #5363d6 @endif;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
                                         <a style="color: #fff ;margin: 0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 150px;display: block;" href="kids-now/diary/show/{{$program->id}}" title="{{$program->program_name}}">{{$program->program_name}}</a>
                                     </button>
                                 </div>
