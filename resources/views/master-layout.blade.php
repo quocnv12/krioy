@@ -47,6 +47,10 @@
     <script type="text/javascript" src="libs/jquery-3.4.1.min.js"></script>
     <script type="text/javascript" src="libs/bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
 
+    {{--zoom image--}}
+    <link href="asset/zoom/css/zoom.css" rel="stylesheet">
+    <script src="asset/zoom/js/zoom.js"></script>
+
 </head>
 <body>
     @include('header')
@@ -134,7 +138,27 @@
         }, 20000);
     </script>
 
-<NOSCRIPT>
-    <p style="color: red; text-align: center; font-size: 18px">@lang('kidsnow.noscript')</p>
-</NOSCRIPT>
+    {{--max min date--}}
+    <script>
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1; //January is 0!
+        var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd
+        }
+        if(mm<10){
+            mm='0'+mm
+        }
+
+        today = yyyy+'-'+mm+'-'+dd;
+        list = document.getElementsByClassName("datefield");
+        for (index = 0; index < list.length; ++index) {
+            list[index].setAttribute("max", today);
+            list[index].setAttribute("value", today);
+        }
+    </script>
+    <NOSCRIPT>
+        <p style="color: red; text-align: center; font-size: 18px">@lang('kidsnow.noscript')</p>
+    </NOSCRIPT>
 </html>

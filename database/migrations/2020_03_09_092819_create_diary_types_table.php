@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePhotoImageItemTable extends Migration
+class CreateDiaryTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreatePhotoImageItemTable extends Migration
      */
     public function up()
     {
-        Schema::create('photo_image_item', function (Blueprint $table) {
+        Schema::create('diary_types', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('image');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreatePhotoImageItemTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('photo_image_item');
+        Schema::dropIfExists('diary_types');
     }
 }

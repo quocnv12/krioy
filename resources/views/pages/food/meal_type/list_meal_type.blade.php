@@ -39,7 +39,7 @@
                         <div class="grid-title">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h4>@lang('kidsnow.meal_type')</span></h4>
+                                    <h4><span>@lang('kidsnow.meal_type')</span></h4>
                                 </div>
                                 {{-- <div style="text-align:right;padding-right:22px" class="col-md-6">
                                     <a style="margin:0px;" href="{{ route('menu-meal-type-add') }}" class="btn btn-success btn-cons"" title="Add Meal Type"><i style="" class="fa fa-plus-circle"></i> Add</a>
@@ -63,7 +63,7 @@
                                     <td style="text-transform:capitalize">{{ $item->name}}</td>
                                     <td style="text-align:center">
                                     <a href="kids-now/food/menu-meal-type/edit/{{ $item->id }}" title="@lang('kidsnow.title_meal_type_edit')" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit" aria-hidden="true"></i></a>
-                                        <a onclick="return confirm('Delete meal type ? Do you want continue !')"" title="@lang('kidsnow.title_meal_type_delete')" href="kids-now/food/menu-meal-type/delete/{{ $item->id }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                        <a onclick="return confirm('Delete meal type ? Do you want continue !')" title="@lang('kidsnow.title_meal_type_delete')" href="kids-now/food/menu-meal-type/delete/{{ $item->id }}" class="btn btn-sm btn-outline-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
                               @endforeach

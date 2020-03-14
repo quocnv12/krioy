@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use ErrorException;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 
 class Handler extends ExceptionHandler
@@ -41,6 +42,7 @@ class Handler extends ExceptionHandler
             //
             echo 'dang trong qua trinh phat trien';
         }
+
 
 
         parent::report($exception);

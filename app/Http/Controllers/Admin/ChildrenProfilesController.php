@@ -171,8 +171,8 @@ class ChildrenProfilesController extends Controller
                 ->orderBy('children_profiles.first_name')
                 ->simplePaginate(18);
         }
-
-        return view('pages.children.child_profile', ['children_profiles' => $children_profiles,'programs'=>$programs]);
+        $program_id = $id;
+        return view('pages.children.child_profile', ['children_profiles' => $children_profiles,'programs'=>$programs, 'program_id'=>$program_id]);
     }
 
     public function view($id){

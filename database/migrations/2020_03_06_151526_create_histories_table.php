@@ -13,14 +13,15 @@ class CreateHistoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('histories', function (Blueprint $table) {
+        Schema::create('history', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('id_records');
             $table->string('id_childrens');
-            $table->string('model');
-            $table->text('icon');
-            $table->json('content_vi');
-            $table->json('content_en');
+            $table->bigInteger('id_program')->nullable();
+            $table->string('model')->nullable();
+            $table->text('icon')->nullable();
+            $table->json('content_vi')->nullable();
+            $table->json('content_en')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +33,6 @@ class CreateHistoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('histories');
+        Schema::dropIfExists('history');
     }
 }

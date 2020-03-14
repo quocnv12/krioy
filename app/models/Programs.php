@@ -40,8 +40,10 @@ class Programs extends Model
     {
         return $this->belongsToMany(NoticeBoard::class, 'programs_notice', 'id_programs', 'id_notice');
     }
+    
     public function parent_note()
     {
         return $this->hasMany('App\models\parentnote\parentnote', 'id_program', 'id');
     }
+    
 }

@@ -15,19 +15,20 @@ class CreateSchoolTable extends Migration
     {
         Schema::create('school', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('email');
-            $table->string('phone');
-            $table->text('address');
-            $table->string('working_day')->Nullable();
-            $table->string('timings')->Nullable();
-            $table->string('programs')->Nullable();
-            $table->string('trust_name')->Nullable()    ;
-            $table->string('twitter')->Nullable();
-            $table->string('facebook')->Nullable();
-            $table->string('website')->Nullable();
-            $table->string('youtube')->Nullable();
-            $table->string('instagram')->Nullable();
-            $table->string('logo');
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
+            $table->text('address')->nullable();
+            $table->string('working_day')->nullable();
+            $table->string('timings')->nullable();
+            $table->string('programs')->nullable();
+            $table->string('trust_name')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('website')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('instagram')->nullable();
+            $table->string('logo')->nullable();
+            $table->text('image')->nullable();
             $table->timestamps();
         });
     }

@@ -115,6 +115,7 @@
 		<i class="fa fa-plus"></i>
 	</a>
 </div>
+	</section>
 </body>
 @endsection
 

@@ -4,52 +4,8 @@
 @endsection
 
 @section('content')
-	<style>
-		.button_alert {
-			background-color: #004A7F;
-			-webkit-border-radius: 10px;
-			border-radius: 10px;
-			border: none;
-			color: #FFFFFF;
-			cursor: pointer;
-			display: inline-block;
-			font-family: Arial;
-			font-size: 20px;
-			padding: 5px 10px;
-			text-align: center;
-			text-decoration: none;
-			-webkit-animation: glowing 1500ms infinite;
-			-moz-animation: glowing 1500ms infinite;
-			-o-animation: glowing 1500ms infinite;
-			animation: glowing 1500ms infinite;
-		}
-		@-webkit-keyframes glowing {
-			0% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
-			50% { background-color: #FF0000; -webkit-box-shadow: 0 0 40px #FF0000; }
-			100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
-		}
-
-		@-moz-keyframes glowing {
-			0% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
-			50% { background-color: #FF0000; -moz-box-shadow: 0 0 40px #FF0000; }
-			100% { background-color: #B20000; -moz-box-shadow: 0 0 3px #B20000; }
-		}
-
-		@-o-keyframes glowing {
-			0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
-			50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
-			100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
-		}
-
-		@keyframes glowing {
-			0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
-			50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
-			100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
-		}
-	</style>
 
 	<body onload="time()">
-
 	<section class="page-top container">
 		<div class="tieu-de" style="margin-top: 10px;margin-bottom: 10px;">
 			<div class="row">
@@ -66,9 +22,10 @@
 			</div>
 		</div>
 
-		<div id="clock" name="time"></div>
+		<div style="font-size: 20px; display: flex; justify-content: flex-end" id="clock" name="time"></div>
 
-		<form style="width: auto;margin: 0;text-align: center" action="{{route('admin.health.getAdd')}}" method="post" id="addObservation" enctype="multipart/form-data">
+		<form style="width: auto;margin: 0;text-align: center" action="{{route('admin.health.getAdd')}}" method="post" id="addHealth" enctype="multipart/form-data">
+			<input type="hidden" name="program_id" value="{{$program_id ?? ''}}">
 			@csrf
 			<div class="row">
 				<div class="mat-card" style="width: 100%">
@@ -82,14 +39,15 @@
 							{{--<form class="typeahead" role="search" style="float: right; text-align: left">--}}
 							{{--<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">--}}
 							{{--</form>--}}
-							<a class="btn btn-success" id="tick_all_children" type="button" style="float: right; background-color: #CC263F">Chọn tất cả</a>
-
+                            <a style="float: right;text-align: right">
+                                <p id="tick_all_children" style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">@lang('kidsnow.choose_all')</p>
+                            </a>
 						</button>
 
 						<div class="scrollmenu-div">
 							@foreach($programs as $program)
 								<div class="scrollmenu-button" style="text-align: center;">
-									<button type="button" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;height: 34px;">
+									<button type="button" style="background: @if(isset($program_id) && $program->id == $program_id) #ff4081 @else #5363d6 @endif;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;height: 34px;">
 										<a style="color: #fff;margin: 0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 150px;display: block;" title="{{$program->program_name}}" href="kids-now/health/show/{{$program->id}}">{{$program->program_name}}</a>
 									</button>
 								</div>
@@ -123,11 +81,11 @@
 					<div class="update">
 						<p style="font-weight: bold; color: red">@lang('kidsnow.health.select_health_update_type') *</p>
 						<div class="tab">
-							<button type="button" class="button_alert tablinks" onclick="openCity(event, 'Sick')">@lang('kidsnow.health.sick')</button>
-							<button type="button" class="button_alert tablinks" onclick="openCity(event, 'Medicine')">@lang('kidsnow.health.medicine')</button>
-							<button type="button" class="button_alert tablinks" onclick="openCity(event, 'Growth')">@lang('kidsnow.health.growth')</button>
-							<button type="button" class="button_alert tablinks" onclick="openCity(event, 'Incident')">@lang('kidsnow.health.incident')</button>
-							<button type="button" class="button_alert tablinks" onclick="openCity(event, 'Blood_group')">@lang('kidsnow.health.blood_group')</button>
+							<button type="button" class=" tablinks" onclick="openCity(event, 'Sick')">@lang('kidsnow.health.sick')</button>
+							<button type="button" class=" tablinks" onclick="openCity(event, 'Medicine')">@lang('kidsnow.health.medicine')</button>
+							<button type="button" class=" tablinks" onclick="openCity(event, 'Growth')">@lang('kidsnow.health.growth')</button>
+							<button type="button" class=" tablinks" onclick="openCity(event, 'Incident')">@lang('kidsnow.health.incident')</button>
+							<button type="button" class=" tablinks" onclick="openCity(event, 'Blood_group')">@lang('kidsnow.health.blood_group')</button>
 						</div>
 
 						<div id="Sick" class="tabcontent ">
@@ -165,14 +123,14 @@
 
 									<label class="label">
 										<div class="label-text">cm</div>
-										<div class="toggle">
-											<input class="toggle-state" type="checkbox" name="check" value="check" />
-											<div class="toggle-inner">
-												<div class="indicator"></div>
-											</div>
-											<div class="active-bg"></div>
-										</div>
-										<div class="label-text">inch</div>
+										{{--<div class="toggle">--}}
+											{{--<input class="toggle-state" type="checkbox" name="check" value="check" />--}}
+											{{--<div class="toggle-inner">--}}
+												{{--<div class="indicator"></div>--}}
+											{{--</div>--}}
+											{{--<div class="active-bg"></div>--}}
+										{{--</div>--}}
+										{{--<div class="label-text">inch</div>--}}
 									</label>
 								</div>
 								<div class="col-md-4 growth_input input_box">
@@ -181,14 +139,14 @@
 
 									<label class="label">
 										<div class="label-text">kg</div>
-										<div class="toggle">
-											<input class="toggle-state" type="checkbox" name="check" value="check" />
-											<div class="toggle-inner">
-												<div class="indicator"></div>
-											</div>
-											<div class="active-bg"></div>
-										</div>
-										<div class="label-text">lb</div>
+										{{--<div class="toggle">--}}
+											{{--<input class="toggle-state" type="checkbox" name="check" value="check" />--}}
+											{{--<div class="toggle-inner">--}}
+												{{--<div class="indicator"></div>--}}
+											{{--</div>--}}
+											{{--<div class="active-bg"></div>--}}
+										{{--</div>--}}
+										{{--<div class="label-text">lb</div>--}}
 									</label>
 								</div>
 								<div class="col-md-4 growth_input input_box">
@@ -196,14 +154,14 @@
 									<input type="text" name="growth_head_circumference" placeholder="@lang('kidsnow.health.growth_head_circumference')">
 									<label class="label">
 										<div class="label-text">cm</div>
-										<div class="toggle">
-											<input class="toggle-state" type="checkbox" name="check" value="check" />
-											<div class="toggle-inner">
-												<div class="indicator"></div>
-											</div>
-											<div class="active-bg"></div>
-										</div>
-										<div class="label-text">inch</div>
+										{{--<div class="toggle">--}}
+											{{--<input class="toggle-state" type="checkbox" name="check" value="check" />--}}
+											{{--<div class="toggle-inner">--}}
+												{{--<div class="indicator"></div>--}}
+											{{--</div>--}}
+											{{--<div class="active-bg"></div>--}}
+										{{--</div>--}}
+										{{--<div class="label-text">inch</div>--}}
 									</label>
 								</div>
 							</div>
@@ -419,6 +377,7 @@
 			$('.accordion').click();
 		})
 	</script>
+
 	<script type="text/javascript">
 		var array_observation = [];
 		$('.tablinks1').click(function(event) {
@@ -507,6 +466,7 @@
 		})
 		//end tick all children
 
+
 		var button = document.getElementById("submit_button");
 		button.onclick = function(){
 			$('#array_all_children').attr('value', array_children);
@@ -525,44 +485,6 @@
 
 	</script>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function($) {
-			var engine1 = new Bloodhound({
-				remote: {
-					url: 'http://localhost:8000/kids-now/health/search/children?q=%QUERY%',
-					wildcard: '%QUERY%'
-				},
-				datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
-				queryTokenizer: Bloodhound.tokenizers.whitespace
-			});
-
-			$(".search-input").typeahead({
-				hint: true,
-				highlight: true,
-				minLength: 1
-			}, [
-				{
-					source: engine1.ttAdapter(),
-					name: 'children_profiles',
-					display: function(data) {
-						return data.name;
-					},
-					templates: {
-						empty: [
-							'<div class="list-group search-results-dropdown" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;width: 500px;"><div class="list-group-item">Nothing found.</div></div>'
-						],
-						header: [
-
-						],
-						suggestion: function (data) {
-							return '<a onclick="getIdChildren('+data.id+')" class="list-group-item" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;padding: 10px; margin: 0;color: #424949;width: 500px;"> ' + data.first_name +' '+ data.last_name + '<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
-						}
-					}
-				},
-			]);
-		});
-	</script>
 	<script>
 		$(document).ready(function () {
 			$('.accordion').click();

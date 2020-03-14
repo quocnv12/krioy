@@ -1,6 +1,6 @@
 @extends('master-layout')
 @section('title')
-    List meal type
+    Observation Type List
 @endsection
 @section('content')
 

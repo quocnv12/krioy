@@ -30,6 +30,7 @@
 				</div>
 			</div>
 		<form style="width: auto;margin: 0;text-align: center" action=" {{route('admin.observations.postAdd')}}" method="post" id="addObservation" enctype="multipart/form-data">
+			<input type="hidden" name="program_id" value="{{$program_id ?? ''}}">
 			@csrf
 			<div class="row">
 				<div class="mat-card" style="width: 100%">
@@ -43,12 +44,14 @@
 								{{--<form class="typeahead" role="search" style="float: right; text-align: left">--}}
 									{{--<input type="search" name="q" class="form-control search-input search-custom" placeholder="Search Children..." autocomplete="off" style="line-height: 1.6;font-size: 18px;border: 2px solid #ccc; padding: 0 5px; width: 200px;">--}}
 								{{--</form>--}}
-							<a class="btn btn-success" id="tick_all_children" type="button" style="float: right; background-color: #CC263F">Chọn tất cả</a>
+							<a style="float: right;text-align: right">
+								<p id="tick_all_children" style="color: #fff;border: 1px solid #ff4081;padding: 5px;margin: 5px 0;background: #ff4081;border-radius: 5px;text-decoration: none;">@lang('kidsnow.choose_all')</p>
+							</a>
 						</button>
                         <div class="scrollmenu-div">
                             @foreach($programs as $program)
                                 <div class="scrollmenu-button" style="text-align: center;">
-                                    <button class="limitText" type="button" style="background: #5363d6;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
+                                    <button class="limitText" type="button" style="background:@if(isset($program_id) && $program->id == $program_id) #ff4081 @else #5363d6 @endif;padding: 5px;border: none;border-radius: 5px;margin: 5px;min-width: 120px;text-align: center;">
                                         <a style="color: #fff ;margin: 0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;width: 150px;display: block;" href="kids-now/observations/show/{{$program->id}}" title="{{$program->program_name}}">{{$program->program_name}}</a>
                                     </button>
                                 </div>
@@ -189,32 +192,6 @@
     		}
     	});
 
-		//begin select children
-		var array_children = [];
-
-		function deleteChild(id_children) {
-			array_children.splice( array_children.indexOf(id_children), 1 );
-		}
-
-		function getIdChildren(id){
-			$.ajax({
-				type: 'get',
-				url: '{{ URL::to('kids-now/observations/select_child/add') }}',
-				data: {
-					'id_children' : id
-				},
-				success: function(data){
-					if (! array_children.includes(id)){
-						$('#children_list').append(data);
-						array_children.push(id);
-					}else {
-						alert('children exists')
-					}
-				}
-			});
-		}
-		//end select children
-
         //begin select children_observation
         var array_children_observation = [];
         $('.div_box_children').children('div').children('i').hide()
@@ -258,7 +235,6 @@
 
 		var button = document.getElementById("submit_button");
 		button.onclick = function(){
-			$('#array_all_children').attr('value', array_children);
 			$('#array_observation').attr('value', array_observation);
 			$('#array_children_observation').attr('value', array_children_observation);
 		}
@@ -299,44 +275,6 @@
 		//finish clip-board
 	</script>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function($) {
-			var engine1 = new Bloodhound({
-				remote: {
-					url: 'http://localhost:8000/kids-now/observations/search/children?q=%QUERY%',
-					wildcard: '%QUERY%'
-				},
-				datumTokenizer: Bloodhound.tokenizers.whitespace('q'),
-				queryTokenizer: Bloodhound.tokenizers.whitespace
-			});
-
-			$(".search-input").typeahead({
-				hint: true,
-				highlight: true,
-				minLength: 1
-			}, [
-				{
-					source: engine1.ttAdapter(),
-					name: 'children_profiles',
-					display: function(data) {
-						return data.name;
-					},
-					templates: {
-						empty: [
-							'<div class="list-group search-results-dropdown" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;width: 500px;"><div class="list-group-item">Nothing found.</div></div>'
-						],
-						header: [
-
-						],
-						suggestion: function (data) {
-							return '<a onclick="getIdChildren('+data.id+')" class="list-group-item" style="padding: 10px; margin: 0;background-color:#EAEDED;color: #424949;padding: 10px; margin: 0;color: #424949;width: 500px;"> ' + data.first_name +' '+ data.last_name + '<i class="fa fa-plus" style="height: 10px; float: right !important;"></i>'+'</a>';
-						}
-					}
-				},
-			]);
-		});
-	</script>
 	<script>
 		$(document).ready(function () {
 			$('.accordion').click();
@@ -378,15 +316,4 @@
         });
     </script>
 
-	<script>
-		// // Disable inspect element
-		// $(document).bind("contextmenu",function(e) {
-		// 	e.preventDefault();
-		// });
-		// $(document).keydown(function(e){
-		// 	if(e.which === 123){
-		// 		return false;
-		// 	}
-		// });
-	</script>
 @endsection

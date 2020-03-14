@@ -124,24 +124,29 @@
                             <div _ngcontent-c20="" class="row" style="">
                                 @foreach($observationtype  as $observation)
                                     <div _ngcontent-c20="" align="center" class="col-lg-3 col-md-2 col-sm-2 col-xs-4 ng-star-inserted" style="padding:10px;">
-                                        <button type="button" _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1 @if(in_array($observation->id, $array_observation_choose)) tablinks1_active @endif" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px; pointer-events: none; width: 100%" data-toggle="tooltip" title="{{$observation->name}}" value="{{$observation->id}}">{{$observation->name}} </button>
+                                        <button type="button" _ngcontent-c20="" class="btn progBtn limitText bgClass tablinks1 @if(in_array($observation->name, $array_observation_choose)) tablinks1_active @endif" style="background-color:transparent;border:1px solid #5363d6;border-radius: 4px; pointer-events: none; width: 100%" data-toggle="tooltip" title="{{$observation->name}}" value="{{$observation->id}}">{{$observation->name}} </button>
                                     </div>
                                 @endforeach
-                                    <input id="array_observation_new" type="hidden" value="" name="observation_new">
-                                    <input id="array_observation_old" type="hidden" name="observation_old" value="{{implode(',',$array_observation_choose)}}">
                             </div>
                         </div>
                     </div>
                     <div class="comment">
                         <div class="row">
-                            <div class="col-md-11 input_box">
+                            <div class="col-md-12 input_box">
                                 <span>@lang('kidsnow.observations.detail')</span>
-                                <input readonly="" type="text" name="detailObservation" placeholder="@lang('kidsnow.observations.detail')">
+                                <input readonly="" type="text" name="detailObservation" placeholder="@lang('kidsnow.observations.detail')" value="{{$child_observation->detailObservation}}">
                             </div>
-                            <div class="col-md-1">
-                                <div class="zoom">
-                                    <a _ngcontent-c9="" class="zoom-fab zoom-btn-large fa fa-paperclip" id="zoomBtn" style="font-size: 30px;cursor: pointer"></a>
-                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="container" style="text-align: left">
+                                <br>
+                                <br>
+                                <strong>Clip Board :</strong>
+                                <br>
+                                @foreach(explode('/*endfile*/',$child_observation->clip_board) as $clipboard)
+                                    <a href="{{route('admin.notice-board.displayClipboard',['id'=>$child_observation->id, 'name'=>$clipboard])}}" target="_blank">{{$clipboard}}</a>
+                                    <br>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -161,11 +166,7 @@
             </button>
         </div>
     </div>
-    <div class="icon-plus">
-        <a href="{{ route('admin.observations.getEdit',['id'=>$child_observation->id]) }}">
-            <i class="fa fa-edit"></i>
-        </a>
-    </div>
+
     </body>
 @endsection
 

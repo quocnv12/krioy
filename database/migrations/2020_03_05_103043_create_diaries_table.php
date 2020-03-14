@@ -13,8 +13,14 @@ class CreateDiariesTable extends Migration
      */
     public function up()
     {
-        Schema::create('diaries', function (Blueprint $table) {
+        Schema::create('diary', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('id_children')->unsigned();
+            $table->string('diary_types')->nullable();
+            $table->text('detail');
+            $table->text('clip_board')->nullable();
+
+            $table->foreign('id_children')->references('id')->on('children_profiles')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ class CreateDiariesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('diaries');
+        Schema::dropIfExists('diary');
     }
 }

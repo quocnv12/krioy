@@ -163,22 +163,18 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
 
     //---------------observation----------------
     Route::group(['prefix' => 'observations'], function () {
-        Route::get('list', ['as'=>'admin.observations.list','uses'=>'Api\ObservationController@getList']);
+//        Route::get('list', ['as'=>'admin.observations.list','uses'=>'Api\ObservationController@getList']);
         Route::get('danhsachobservationtype', ['as'=>'admin.observations.listobservationtype','uses'=>'Api\ObservationController@getListObservation']);
         Route::get('delete/{id}',['as'=>'admin.observations.getDelete','uses'=>'Api\ObservationController@getDelete']);
-        Route::get('edit/{id}',['as'=>'admin.observations.getEdit','uses'=>'Api\ObservationController@getEdit']);
-        Route::post('edit/{id}',['as'=>'admin.observations.postEdit','uses'=>'Api\ObservationController@postEdit']);
-        Route::get('search',['as'=>'admin.observations.search','uses'=>'Api\ObservationController@getSearch']);
-        Route::post('search',['as'=>'admin.observations.search','uses'=>'Api\ObservationController@postSearch']);
+//        Route::get('edit/{id}',['as'=>'admin.observations.getEdit','uses'=>'Api\ObservationController@getEdit']);
+//        Route::post('edit/{id}',['as'=>'admin.observations.postEdit','uses'=>'Api\ObservationController@postEdit']);
         Route::get('add',['as'=>'admin.observations.getAdd','uses'=>'Api\ObservationController@getAdd']);
         Route::post('add',['as'=>'admin.observations.postAdd','uses'=>'Api\ObservationController@postAdd']);
-        Route::get('them_child',['as'=>'admin.observations.child','uses'=>'Api\ObservationController@getChild']);
-        Route::post('them_child',['as'=>'admin.observations.child','uses'=>'Api\ObservationController@postChild']);
         Route::get('search/children', 'Api\ObservationController@searchByName');
-        Route::get('select_child/add','Api\ObservationController@addSelectChild');
 
         Route::get('show/{id}','Api\ObservationController@showChildrenInProgram');
         Route::get('view/{id}',['as'=>'admin.observations.view','uses'=>'Api\ObservationController@view']);
+        Route::get('delete/{id}',['as'=>'admin.observations.getDelete','uses'=>'Api\ObservationController@getDelete'])->middleware(['can:edit-profile']);
 
         //clip board
         Route::get('clip_board/{id}/{name}','Api\ObservationController@displayClipboard');
@@ -190,29 +186,56 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'Jwtapi'], function () {
 
     Route::group(['prefix' => 'observationtype'], function () {
 
-        Route::get('xoa/{id}',['as'=>'admin.observationtype.getDelete','uses'=>'Api\ObservationTypeController@getDelete']);
-        Route::get('sua/{id}',['as'=>'admin.observationtype.getEdit','uses'=>'Api\ObservationTypeController@getEdit']);
-        Route::post('sua/{id}',['as'=>'admin.observationtype.getEdit','uses'=>'Api\ObservationTypeController@postEdit']);
-        Route::get('them',['as'=>'admin.observationtype.add','uses'=>'Api\ObservationTypeController@getAdd']);
-        Route::post('them',['as'=>'admin.observationtype.add','uses'=>'Api\ObservationTypeController@postAdd']);
-
+        Route::get('add',['as'=>'admin.observationtype.add','uses'=>'Api\ObservationTypeController@getAdd']);
+        Route::post('add',['as'=>'admin.observationtype.add','uses'=>'Api\ObservationTypeController@postAdd']);
+        Route::get('edit/{id}',['as'=>'admin.observationtype.getEdit','uses'=>'Api\ObservationTypeController@getEdit'])->middleware(['can:edit-profile']);
+        Route::post('edit/{id}',['as'=>'admin.observationtype.postEdit','uses'=>'Api\ObservationTypeController@postEdit']);
+        Route::get('delete/{id}',['as'=>'admin.observationtype.getDelete','uses'=>'Api\ObservationTypeController@getDelete'])->middleware(['can:edit-profile']);
 
     });
+
+    //---------------diary types-------------------------
+    Route::group(['prefix' => 'diary_types'], function () {
+        Route::get('/', 'Api\DiaryTypeController@index')->name('admin.diary_types.list');
+        Route::get('add', 'Api\DiaryTypeController@create')->name('admin.diary_types.create');
+        Route::post('add', 'Api\DiaryTypeController@store')->name('admin.diary_types.store');
+        Route::get('edit/{id}', 'Api\DiaryTypeController@edit')->name('admin.diary_types.edit');
+        Route::post('edit/{id}', 'Api\DiaryTypeController@update')->name('admin.diary_types.update');
+        Route::get('delete/{id}', 'Api\DiaryTypeController@destroy')->name('admin.diary_types.destroy');
+    });
+
+    //---------------diary-------------------------
+    Route::group(['prefix' => 'diary'], function () {
+        Route::get('add','Api\DiaryController@create')->name('admin.diary.create');
+        Route::post('add','Api\DiaryController@store')->name('admin.diary.store');
+        Route::get('delete/{id}','Api\DiaryController@destroy')->name('admin.diary.destroy');
+
+        Route::get('show/{id}','Api\DiaryController@showChildrenInProgram');
+        Route::get('view/{id}','Api\DiaryController@view')->name('admin.diary.view');
+
+        //clip board
+        Route::get('clip_board/{id}/{name}','Api\DiaryController@displayClipboard');
+        Route::get('delete_clipboard/{id}/{name}','Api\DiaryController@deleteClipboard');
+    });
+
     //---------------health----------------
     Route::group(['prefix' => 'health'], function () {
 
-        Route::get('/', ['as'=>'admin.health.list','uses'=>'Api\HealthController@getList']);
+//        Route::get('/', ['as'=>'admin.health.list','uses'=>'Api\HealthController@getList']);
         Route::get('add',['as'=>'admin.health.getAdd','uses'=>'Api\HealthController@getAdd']);
         Route::post('add',['as'=>'admin.health.getAdd','uses'=>'Api\HealthController@postAdd']);
         Route::get('delete/{id}',['as'=>'admin.health.getDelete','uses'=>'Api\HealthController@getDelete']);
-        Route::get('edit/{id}',['as'=>'admin.health.getEdit','uses'=>'Api\HealthController@getEdit']);
-        Route::post('edit/{id}',['as'=>'admin.health.postEdit','uses'=>'Api\HealthController@postEdit']);
+//        Route::get('edit/{id}',['as'=>'admin.health.getEdit','uses'=>'Api\HealthController@getEdit']);
+//        Route::post('edit/{id}',['as'=>'admin.health.postEdit','uses'=>'Api\HealthController@postEdit']);
         Route::get('show/{id}','Api\HealthController@showChildrenInProgram');
         Route::get('view/{id}',['as'=>'admin.health.view' ,'uses'=>'Api\HealthController@view']);
 
         //clip board
         Route::get('clip_board/{id}/{name}','Api\HealthController@displayClipboard');
         Route::get('delete_clipboard/{id}/{name}','Api\HealthController@deleteClipboard');
+
+        //export files
+        Route::get('excel/{id}','Api\HealthController@excel')->name('admin.health.export');
 
     });
 });
