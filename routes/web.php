@@ -298,7 +298,8 @@ Route::group(['prefix' => 'kids-now', 'middleware' => 'CheckLogin'], function ()
     //-----------------------Parent-note---------------------
     Route::group(['prefix' => 'parent-note','middleware' => 'checkacl:Parent notes'], function () {
         Route::get('', 'Admin\ParentNote\ParentNoteControler@listParentNote');
-        Route::get('detail/{id}', 'Admin\ParentNote\ParentNoteControler@showParentNote');
+        Route::get('/{id}', 'Admin\ParentNote\ParentNoteControler@viewParentNote');
+        Route::get('detail/{id}', 'Admin\ParentNote\ParentNoteControler@detailParentNote');
     
     });
 

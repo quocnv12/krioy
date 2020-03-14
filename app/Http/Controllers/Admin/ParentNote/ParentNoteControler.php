@@ -2,32 +2,33 @@
 
 namespace App\Http\Controllers\Admin\ParentNote;
 use App\models\Programs;
+use App\models\parentnote\parent_note;
 use Illuminate\Http\Request;
+use DB;
 use App\Http\Controllers\Controller;
 
 class ParentNoteControler extends Controller
 {
     public function listParentNote()
     {
-        $data['programs']=Programs::all();
+        $data['programs']= Programs::orderBy('program_name')->get();
         return view('pages.parent-note.parent-note',$data);
     }
 
-    public function showParentNote($id)
+    public function viewParentNote($id)
     {
         $data['programs']=Programs::all();
-        // $programs = Programs::orderBy('program_name')->get();
-        // $children_profiles = DB::table('children_profiles')
-        //                     ->join('children_programs','children_profiles.id','=','children_programs.id_children')
-        //                     ->where('children_programs.id_program','=',$id)
-        //                     ->orderBy('first_name')
-        //                     ->get();
+        $data['children_profiles']=Programs::find($id);
+        
+        return view('pages.parent-note.parent-note',$data);
+    }
 
-        return view('pages.parent-note.parent-note',[
-            'children_profiles'=>$children_profiles,
-            // 'food'=>$food,
-            'programs'=>$programs
-        ],$data);
+    public function detailParentNote($id)
+    {
+        $data['programs']=Programs::all();
+        $data['children_profiles']=Programs::find($id);
+        
+        return view('pages.parent-note.detail-parent-note',$data);
     }
 
 
