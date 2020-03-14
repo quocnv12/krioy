@@ -121,7 +121,7 @@
                     </a>
                 </div>
                 <div class="col-xs-6 col-md-2dot4 col-sm-6 item">
-                    <a href="kids-now">
+                    <a href="kids-now/parent-note">
                         <img src="images/Parent Note with Backgroud -01.png" alt="@lang('kidsnow.parent_notes')">
                         <div class="title">
                             <p>@lang('kidsnow.parent_notes')</p>

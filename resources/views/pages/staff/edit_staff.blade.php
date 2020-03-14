@@ -23,6 +23,19 @@
                     <button type="button" class="accordion add-staff">@lang('kidsnow.edit_staff')</button>
                     <div class="row">
                         <div class="col-md-2 textera-img">
+                            <a style="cursor: pointer;">
+                                @if($errors->has('image'))
+                                <p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">*
+                                    {{ $errors->first('image') }}</p>
+                                @endif
+                                <input type="file" id="uploadfile" name="image" accept="image/*">
+                                <img  onerror="this.src='images/Staff100.png';" src="images/staff/{{ $staff->image }}" id="demo_image" style="margin-top:50px">
+                                <span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10=""
+                                        aria-hidden="true" class="fa fa-camera"></i></span>
+                              
+                            </a>
+                        </div>
+                        {{-- <div class="col-md-2 textera-img">
                             @if($errors->has('image'))
                             <p style="font-size: 12px;font-weight: 100;color:red;font-style: italic;line-height: 25px">*
                                 {{ $errors->first('image') }}</p>
@@ -30,10 +43,10 @@
                             <input id="img" type="file" name="image" style="display:none" value=""
                                 class="form-control hidden" onchange="changeImg(this)">
                             <img id="avatar" class="thumbnail"
-                                style="border: 1px solid white;border-radius: 50%;width:150px;height:150px;    margin-top: 35px;"
+                            onerror="this.src='images/Staff100.png';" style="border: 1px solid white;border-radius: 50%;width:150px;height:150px;    margin-top: 35px;"
 							src="images/staff/{{ $staff->image }}">
 							
-                        </div>
+                        </div> --}}
                         <div class="col-md-10">
                             <div class="add a1 ">
                                 <div class="row">
@@ -320,6 +333,29 @@
 
         $('.accordion').click()
     });
+
+
+
+ //chọn ảnh
+
+        $("#uploadfile").hide();
+            $("#demo_image").click(function () {
+                $("#uploadfile").click();
+            });
+            function readURL(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            $('#demo_image').attr('src', e.target.result);
+                        }
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+
+		$("#uploadfile").change(function(){
+			readURL(this);
+		});
 
 </script>
 @endsection

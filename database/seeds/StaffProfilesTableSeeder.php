@@ -100,7 +100,7 @@ class StaffProfilesTableSeeder extends Seeder
                 'phone'             =>  '0337654321',
                 'image'             =>  'Staff7.png',
                 'gender'            =>  1,
-                'email'             =>  'grady@icloud.com',
+                'email'             =>  'grady1@icloud.com',
                 'address'           =>  '55 Phạm Văn Đồng Cầu Giấy Hà Nội',
                 'birthday'          =>  '1990-12-12',
                 'blood_group'       =>  'A',

@@ -71,7 +71,7 @@
 							<th style="text-align:left;width:12%">@lang('kidsnow.meal_type')</th>
 							<th style="text-align:left;width:20%">@lang('kidsnow.food_name')</th>
 							<th style="text-align:left;width:12%">@lang('kidsnow.quantity')</th>
-							<th style="text-align:left;width:16%">@lang('kidsnow.program_food')</th>
+							{{-- <th style="text-align:left;width:16%">@lang('kidsnow.program_food')</th> --}}
 							{{-- <th style="text-align:left;width:10%">@lang('kidsnow.date_begin')</th>
 							<th style="text-align:left;width:10%">@lang('kidsnow.date_end')</th> --}}
 							<th style="text-align:center;width:12%">@lang('kidsnow.action')</th>
@@ -94,7 +94,7 @@
 									{{  implode(",",$resultstr) }}
 								</td>
 								<td style="text-transform:capitalize">{{ $item->quantityfood->name }}</td>
-								<td style="text-transform:capitalize">{{ $item->programfood->program_name }}</td>
+								{{-- <td style="text-transform:capitalize">{{ $item->programfood->program_name }}</td> --}}
 								{{-- <td style="text-transform:capitalize">{{ Carbon\Carbon::parse($item->date_begin)->format('d-m-Y') }}</td>
 								<td style="text-transform:capitalize">{{ Carbon\Carbon::parse($item->date_end)->format('d-m-Y') }}</td> --}}
 								<td style="text-align:center">

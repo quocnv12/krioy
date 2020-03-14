@@ -34,7 +34,7 @@
 				<div class="row">
 					<div class="col-md-2 textera-img">
 						<a style="cursor: pointer;">
-							<input type="file" id="uploadfile" name="image" accept="image/*">
+							<input type="file" id="uploadfile" name="image">
 							<img src="images/Child.png" alt="" id="demo_image">
 							<span _ngcontent-c10="" class="btnClass ng-star-inserted" style=""><i _ngcontent-c10="" aria-hidden="true" class="fa fa-camera"></i></span>
 							@if ($errors->has('image'))
