@@ -34,7 +34,7 @@
 		 @if(isset($children_profiles->parent_note))
 			@if(count($children_profiles->parent_note) > 0)
 			 @foreach ($children_profiles->parent_note as $item)
-			 {{--  @dd($item)  --}}
+
 				<div style="background: white;border-radius: 2px;margin:10px 13px;box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);">
 				<a href="kids-now/parent-note/detail/{{ $item->id }}" style="display:flex ;width:100%;padding:5px 5px 0;">
 						<div class="media-left" style="vertical-align: middle;width:10%;text-align:center">
@@ -42,7 +42,7 @@
 						<div style="text-align:center;color: gray;font-weight: 600;font-size:12px;margin-top:5px">{{ App\models\ChildrenProfiles::where('id',$item->id_children)->first()['first_name']  }} {{ App\models\ChildrenProfiles::where('id',$item->id_children)->first()['last_name'] }}</div>
 						</div>
 						<div class="media-body" style="padding-top: 20px;color:grey;margin-: 10px;">
-							<p ><b>[{{ $item->title }}]</b>
+							<p ><b>{{$item->parent_module->name}}</b>
 								<span style="float:right">
 									<i aria-hidden="true" class="fa fa-check-circle" style="font-size: 25px; padding-right: 15px; text-align: center; color: green;"></i>
 									<i aria-hidden="true" class="fa fa-chevron-right" style="float:right;color:#5363d6;cursor:pointer;margin-top: 5px"></i>
@@ -57,7 +57,7 @@
 			
 			@else
 				<div align="center">
-					<h2 style="color: #5363d6;">Welcome to Kriyo App!</h2>
+					<h2 style="color: #5363d6;">Welcome to KIDS NOW App!</h2>
 					<br>
 					<p style="color:grey;margin-bottom: 0px">Never MISS any Important Communication from a Parent!</p>
 					<p style="color:grey;margin-bottom: 0px">You can View and Respond to all the Notes here.</p>
@@ -65,7 +65,7 @@
 			@endif	
 		@else
 			<div align="center">
-				<h2 style="color: #5363d6;">Welcome to Kriyo App!</h2>
+				<h2 style="color: #5363d6;">Welcome to KIDS NOW App!</h2>
 				<br>
 				<p style="color:grey;margin-bottom: 0px">Never MISS any Important Communication from a Parent!</p>
 				<p style="color:grey;margin-bottom: 0px">You can View and Respond to all the Notes here.</p>

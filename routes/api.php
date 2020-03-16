@@ -278,6 +278,15 @@ Route::group(['prefix' => 'parent','middleware' => 'jwt.admin'], function () {
     //---diem danh-----
     Route::get('attendance/{id}','Api\Parent\AttendanceController@getStatus');
 
+    //----parent note----
+    Route::group(['prefix'=>'parent_note'], function (){
+        Route::get('create','Api\Parent\ParentNoteController@create');
+        Route::post('create','Api\Parent\ParentNoteController@storeParent');
+        Route::get('view/{id}','Api\Parent\ParentNoteController@view');
+        Route::get('reply','Api\Parent\ParentNoteController@create');
+        Route::post('reply','Api\Parent\ParentNoteController@storeStaff');
+    });
+
 });
 
 

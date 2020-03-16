@@ -31,11 +31,11 @@
                     <div class="row history-input">
                         <div class="col-md-4 input_box">
                             <span class="input_box_span_active">@lang('kidsnow.history.from_date') </span>
-                            <input class="datefield" type="date" name="from_date" placeholder="@lang('history.from_date') ">
+                            <input class="datefield" type="date" name="from_date" value="{{old('from_date')}}" placeholder="@lang('history.from_date') ">
                         </div>
                         <div class="col-md-4 input_box">
                             <span class="input_box_span_active">@lang('kidsnow.history.to_date') </span>
-                            <input class="datefield" type="date" name="to_date" placeholder="@lang('history.to_date') ">
+                            <input class="datefield" type="date" name="to_date" value="{{old('to_date')}}" placeholder="@lang('history.to_date') ">
                         </div>
                         <div class="col-md-4 input_box">
                             <span class="input_box_span_active">@lang('kidsnow.history.modules') </span>
@@ -45,6 +45,7 @@
                                 <option value="">@lang('kidsnow.food')</option>
                                 <option value="App\models\HealthModel">@lang('kidsnow.health')</option>
                                 <option value="App\models\ObservationModel">@lang('kidsnow.observations')</option>
+                                <option value="App\models\Photo">Photo</option>
                             </select>
                         </div>
                     </div>
@@ -190,7 +191,7 @@
                             @if($item->model == 'App\models\Photo')
                                 <div class="row">
                                     @foreach(explode('/*endfile*/',($item->model::where('id','=',explode(',',$item->id_records)[0])->first()['image'])) as $clipboard)
-                                        <div style="padding:10px;cursor:pointer;text-align: center;width: 25%;float: left;">
+                                        <div style="padding:5px;cursor:pointer;text-align: center;width: 25%;float: left">
                                             <img src="{{'images/photo/'.$clipboard}}" data-action="zoom" alt="image">
                                             <br>
                                         </div>
